@@ -1,12 +1,10 @@
-/* Version 1.11.0 */
-
 const SKILL_RETRY_MS		= 50,	/* Desync reduction (0 = disabled) - Setting this too high may cause skills to go off twice,
 										and may cause desync compensation to fail.
 									*/
 	SKILL_DELAY_NEXT		= true,	// Desync compensation
-	DEBUG					= true,
+	DEBUG					= false,
 	DEBUG_LOC				= false,
-	DEBUG_GLYPH				= true
+	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data').sysmsg,
 	AbnormalityPrediction = require('./abnormalities'),
