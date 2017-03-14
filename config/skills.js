@@ -6,7 +6,7 @@
 module.exports = {
 	0: { // Warrior
 		4: { // Rain of Blows
-			'*': { movement: 151.87 },
+			'*': { distance: 151.87 },
 			0: {
 				length: 2550,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 16, 17, 19, 28, 29, 34, 36, 37],
@@ -29,13 +29,13 @@ module.exports = {
 		11: { // Poison Blade
 			0: {
 				length: 925,
-				movement: 54.85
+				distance: 54.85
 			}
 		},
 		12: { // Leaping Strike
 			0: {
 				length: 1525,
-				movement: 250
+				distance: 250
 			}
 		},
 		17: { // Vortex Slash
@@ -47,13 +47,13 @@ module.exports = {
 		18: { // Combative Strike
 			0: {
 				length: 1100,
-				movement: 138.28
+				distance: 138.28
 			}
 		},
 		28: { // Traverse Cut
 			0: {
 				length: 2000,
-				movement: 160,
+				distance: 160,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 16, 17, 19, 21, 28, 29, 34, 36, 37],
 				chains: {
 					11: 30,
@@ -63,13 +63,13 @@ module.exports = {
 			},
 			30: {
 				length: 2650,
-				movement: 210
+				distance: 210
 			}
 		},
 		29: { // Blade Draw
 			0: {
 				length: 3000,
-				movement: 94.5,
+				distance: 94.5,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, '16-0', 18, 21, 27, 29, 34, 36, 37],
 				abnormals: {
 					100801: { skill: 370100 }
@@ -84,7 +84,7 @@ module.exports = {
 			},
 			30: {
 				length: 1333,
-				movement: 135,
+				distance: 135,
 				abnormals: {
 					100801: { skill: 370130 }
 				}
@@ -93,7 +93,7 @@ module.exports = {
 		30: { // Scythe
 			0: {
 				length: 1850,
-				movement: 150,
+				distance: 150,
 				noInterrupt: [1, 3, 8, 9, 10, 16, 17, 18, 19, 21, 27, 28, 34],
 				abnormals: {
 					100801: { skill: 380100 }
@@ -110,7 +110,7 @@ module.exports = {
 			},
 			30: {
 				length: 1385,
-				movement: 120,
+				distance: 120,
 				abnormals: {
 					100801: { skill: 380130 }
 				}
@@ -125,22 +125,22 @@ module.exports = {
 			}
 		},
 		36: { // Rain of Blows (Deadly Gamble)
-			'*': { movement: 151.87 },
+			'*': { distance: 151.87 },
 			0: { length: 2550 },
 			30: { length: 2000 }
 		},
 		37: { // Blade Draw (Deadly Gamble)
 			0: {
 				length: 3000,
-				movement: 94.5
+				distance: 94.5
 			},
 			30: {
 				length: 1333,
-				movement: 135
+				distance: 135
 			}
 		},
 		38: { // Scythe (Deadly Gamble)
-			'*': { movement: 150 },
+			'*': { distance: 150 },
 			0: { length: 1850 },
 			30: { length: 1385 }
 		}
@@ -149,15 +149,15 @@ module.exports = {
 		1: { // Combo Attack
 			0: {
 				length: 650,
-				movement: 75
+				distance: 75
 			},
 			1: {
 				length: 1025,
-				movement: 20
+				distance: 20
 			},
 			2: {
 				length: 1800,
-				movement: 66
+				distance: 66
 			}
 		},
 		2: { // Stand Fast
@@ -169,7 +169,7 @@ module.exports = {
 		},
 		3: { // Onslaught
 			'*': {
-				movement: [0, 100, 100, 100, 100, 62.7],
+				distance: [0, 100, 100, 100, 100, 62.7],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -192,7 +192,7 @@ module.exports = {
 		5: { // Shield Bash
 			0: {
 				length: 830,
-				movement: 43.69
+				distance: 43.69
 			}
 		},
 		7: { // Guardian Shout
@@ -204,7 +204,7 @@ module.exports = {
 		10: { // Debilitate
 			0: {
 				length: 925,
-				movement: 43.69
+				distance: 43.69
 			}
 		},
 		12: { // Infuriate
@@ -213,7 +213,7 @@ module.exports = {
 		13: { // Spring Attack
 			0: {
 				length: 2775,
-				movement: 85,
+				distance: 85,
 				noInterrupt: [3, 13, '18-0', 21, 25, 26],
 				chains: {
 					1: 30,
@@ -225,7 +225,7 @@ module.exports = {
 			},
 			30: {
 				length: 1850,
-				movement: 85
+				distance: 85
 			}
 		},
 		16: { // Second Wind
@@ -243,11 +243,11 @@ module.exports = {
 		18: { // Shield Barrage
 			0: {
 				length: 625,
-				movement: 122.66
+				distance: 122.66
 			},
 			1: {
 				length: 800,
-				movement: 66.04
+				distance: 66.04
 			}
 		},
 		19: { // Pledge of Protection
@@ -265,7 +265,7 @@ module.exports = {
 		21: { // Lockdown Blow
 			0: {
 				length: 1400,
-				movement: 122.66
+				distance: 122.66
 			}
 		},
 		22: { // Iron Will
@@ -280,7 +280,7 @@ module.exports = {
 		25: { // Wallop
 			0: {
 				length: 2375,
-				movement: 100,
+				distance: 100,
 				noInterrupt: [1, 3, 5, '18-0', 21, 25, 26],
 				chains: {
 					8: 30,
@@ -292,13 +292,13 @@ module.exports = {
 			},
 			30: {
 				length: 1900,
-				movement: 100
+				distance: 100
 			}
 		},
 		26: { // Backstep
 			0: {
 				length: 725,
-				movement: -150,
+				distance: -150,
 				stamina: 700,
 				instantStamina: true,
 				noInterrupt: [26],
@@ -316,7 +316,7 @@ module.exports = {
 		2: { // Knockdown Strike
 			0: {
 				length: 3100,
-				movement: 200,
+				distance: 200,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 24, 25],
 				chains: {
 					14: 30,
@@ -326,12 +326,12 @@ module.exports = {
 			},
 			30: {
 				length: 2400,
-				movement: 300
+				distance: 300
 			}
 		},
 		3: { // Whirlwind
 			length: 3125,
-			movement: 155
+			distance: 155
 		},
 		5: { // Dash
  			fixedSpeed: 1,
@@ -340,7 +340,7 @@ module.exports = {
 		8: { // Overhand Strike
 			0: {
 				length: 3365,
-				movement: 170,
+				distance: 170,
 				noInterrupt: [1, 4, 6, 8, 10, 17],
 				chains: {
 					2: 30,
@@ -358,41 +358,41 @@ module.exports = {
 		},
 		9: { // Leaping Strike
 			length: 2175,
-			movement: 250
+			distance: 250
 		},
 		12: { // Heart Thrust
 			length: 2315,
-			movement: 230
+			distance: 230
 		},
 		13: { // Stunning Backhand
 			length: 2115,
-			movement: 80
+			distance: 80
 		},
 		14: { // Distant Blade - Desync on 2nd and 3rd hit occurs randomly
 			0: {
 				length: 600,
-				movement: [-75, 75]
+				distance: [-75, 75]
 			},
 			1: {
 				length: 600,
-				movement: [-75, 75],
+				distance: [-75, 75],
 			},
 			2: {
 				length: 1500,
-				movement: [-120, 120]
+				distance: [-120, 120]
 			}
 		},
 		15: { // Startling Kick
 			length: 1475,
-			movement: 175
+			distance: 175
 		},
 		16: { // Fury Strike
 			length: 1000,
-			movement: 140
+			distance: 140
 		},
 		17: { // Headlong Rush
 			length: 1000,
-			movement: 413
+			distance: 413
 		},
 		18: {	// Overpower
 			fixedSpeed: 1,
@@ -409,7 +409,7 @@ module.exports = {
 		23: { // Measured Slice
 			0: {
 				length: 3685,
-				movement: 190,
+				distance: 190,
 				chains: {
 					8: 30,
 					24: 30,
@@ -421,7 +421,7 @@ module.exports = {
 		24: { // Eviscerate
 			0: {
 				length: 1900,
-				movement: 50,
+				distance: 50,
 				chains: {
 					2: 30,
 					3: 30,
@@ -438,7 +438,7 @@ module.exports = {
 		25: { // Ultimate Overhand Strike
 			0: {
 				length: 3365,
-				movement: 170,
+				distance: 170,
 				noInterrupt: [1, 4, 8, 17, 25],
 				chains: {
 					2: 30,
@@ -502,7 +502,7 @@ module.exports = {
 		6: { // Staggering Strike
 			'*': {
 				length: 1265,
-				movement: 80.47
+				distance: 80.47
 			},
 			0: {
 				abnormals: {
@@ -544,7 +544,7 @@ module.exports = {
 		26: { // Tackle
 			0: {
 				length: 1000,
-				movement: 80
+				distance: 80
 			}
 		}
 	},
@@ -570,7 +570,7 @@ module.exports = {
 		7: { // Backstep
 			0: {
 				length: 650,
-				movement: -200
+				distance: -200
 			}
 		},
 		10: { // Mana Barrier
@@ -591,7 +591,7 @@ module.exports = {
 		18: { // Glacial Retreat
 			0: {
 				length: 1100,
-				movement: -187.5
+				distance: -187.5
 			}
 		},
 		20: { // Flaming Barrage
@@ -665,13 +665,13 @@ module.exports = {
 		6: { // Backstep
 			0: {
 				length: 650,
-				movement: -200
+				distance: -200
 			}
 		},
 		// Super long animation that can't be cancelled if it breaks - Use at your own risk
 		/*7: { // Feign Death
 			length: [2950, 54525, 1675],
-			movement: [-114.05, 0, 0]
+			distance: [-114.05, 0, 0]
 		},*/
 		8: { // Rapid Fire
 			0: { length: 425 },
@@ -697,7 +697,7 @@ module.exports = {
 		16: { // Breakaway Bolt
 			0: {
 				length: 1325,
-				movement: -250
+				distance: -250
 			}
 		},
 		17: { // Web Arrow
@@ -706,11 +706,11 @@ module.exports = {
 		18: { // Close Quarters
 			0: {
 				length: 300,
-				movement: 89.8
+				distance: 89.8
 			},
 			1: {
 				length: 1200,
-				movement: 87.29
+				distance: 87.29
 			}
 		},
 		19: { // Poison Arrow
@@ -836,7 +836,7 @@ module.exports = {
 		26: { // Fiery Escape
 			0: {
 				length: 1125,
-				movement: -250.5
+				distance: -250.5
 			}
 		},
 		27: { // Final Reprisal
@@ -924,7 +924,7 @@ module.exports = {
 		38: { // Backstep
 			0: {
 				length: 650,
-				movement: -200
+				distance: -200
 			}
 		},
 		39: { // Grace of Resurrection
@@ -1173,10 +1173,27 @@ module.exports = {
 		},
 		5: { // Grim Strike
 			'*': {
-				controlledMovement: [120, 0]
+				inPlace: {
+					movement: [
+						[{
+							duration: 2416,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[{
+							duration: 1065,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}]
+					],
+					distance: [0, 0]
+				}
 			},
 			0: {
 				length: [2400, 975],
+				distance: [120, 0],
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 12],
 				chains: {
 					1: 30,
@@ -1231,13 +1248,22 @@ module.exports = {
 		9: { // Smite
 			0: {
 				length: 1725,
-				controlledMovement: 168
+				distance: 168,
+				inPlace: {
+					movement: [{
+						duration: 1832,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				}
 			}
 		},
 		10: { // Pendulum Strike
 			'*': {
 				length: 1000,
-				movement: -200,
+				distance: -200,
 				chains: {
 					1: 30,
 					3: 30,
@@ -1286,13 +1312,13 @@ module.exports = {
 		18: { // Shrouded Escape
 			0: {
 				length: 850,
-				movement: 150
+				distance: 150
 			}
 		},
 		40: { // Shadow Step
 			'*': {
 				length: 700,
-				movement: 180,
+				distance: 180,
 				abnormals: {
 					10151000: { chain: 30 }
 				}
@@ -1314,9 +1340,9 @@ module.exports = {
 		3: { // Scattershot
 			'*': {
 				length: 1725,
-				movement: -108,
+				distance: -108,
 				glyphs: {
-					30007: { movement: 0.6 }
+					30007: { distance: 0.6 }
 				},
 				chains: {
 					'2-1': 30,
@@ -1383,7 +1409,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 5800,
-				movement: -269.09,
+				distance: -269.09,
 				chains: { // TODO
 					15: 30,
 					40: 30
@@ -1425,7 +1451,7 @@ module.exports = {
 		40: { // Rolling Reload
 			0: {
 				length: 950,
-				movement: 172.5
+				distance: 172.5
 			}
 		}
 	},
@@ -1434,7 +1460,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				length: 1575,
-				movement: 71.28,
+				distance: 71.28,
 				noInterrupt: ['1-3'],
 				chains: {
 					'1-0': 1,
@@ -1448,19 +1474,19 @@ module.exports = {
 			},
 			1: {
 				length: 1575,
-				movement: 68.63
+				distance: 68.63
 			},
 			2: {
 				length: 925,
-				movement: 50.7
+				distance: 50.7
 			},
 			3: {
 				length: 1725,
-				movement: 121
+				distance: 121
 			},
 			30: {
 				length: 1575,
-				movement: 71.28,
+				distance: 71.28,
 				noInterrupt: ['1-3'],
 				chains: {
 					'1-0': 1,
@@ -1474,7 +1500,7 @@ module.exports = {
 			},
 			31: {
 				length: 1575,
-				movement: 71.28,
+				distance: 71.28,
 				noInterrupt: ['1-3'],
 				chains: {
 					'1-0': 1,
@@ -1488,25 +1514,25 @@ module.exports = {
 			},
 			32: {
 				length: 1575,
-				movement: 68.63
+				distance: 68.63
 			}
 		},
 		2: { // Counter
 			1: {
 				length: 1200,
-				movement: 139.97
+				distance: 139.97
 			},
 			2: {
 				length: 1800,
-				movement: 84
+				distance: 84
 			},
 			3: {
 				length: 1925,
-				movement: 131.2
+				distance: 131.2
 			},
 			4: {
 				length: 1950,
-				movement: 142.86
+				distance: 142.86
 			},
 			12: {
 				/*abnormals: {
@@ -1533,7 +1559,7 @@ module.exports = {
 			},
 			1: {
 				length: [,,],
-				movement: [,,],
+				distance: [,,],
 				chainType: 36
 			}
 		},*/
@@ -1545,13 +1571,13 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: [2950, 650],
-				movement: [0, 135]
+				distance: [0, 135]
 			}
 		},
 		6: { // Haymaker
 			'*': {
 				length: [1025, 1825],
-				movement: [0, 171.61],
+				distance: [0, 171.61],
 				abnormals: {
 					31120: { chain: 31 }
 				},
@@ -1582,19 +1608,19 @@ module.exports = {
 		7: { // Roundhouse Kick
 			0: {
 				length: 860,
-				movement: 105,
+				distance: 105,
 				noInterrupt: [7]
 			},
 			30: {
 				length: 860,
-				movement: 105,
+				distance: 105,
 				noInterrupt: [7]
 			}
 		},
 		8: { // Piledriver
 			'*': {
 				length: 1950,
-				movement: 164.94,
+				distance: 164.94,
 				abnormals: {
 					31120: { chain: 31 }
 				},
@@ -1625,7 +1651,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1540,
-				movement: 40,
+				distance: 40,
 				noInterrupt: [9],
 				abnormals: {
 					31120: { chain: 31 }
@@ -1654,15 +1680,15 @@ module.exports = {
 		16: { // Flip Kick
 			1: {
 				length: 2050,
-				movement: 134
+				distance: 134
 			},
 			2: {
 				length: 2050,
-				movement: 134
+				distance: 134
 			},
 			30: {
 				length: 2050,
-				movement: 134
+				distance: 134
 			}
 		},
 		21: { // Mounting Rage
@@ -1679,7 +1705,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 580,
-				movement: 144
+				distance: 144
 			}
 		}
 	},
@@ -1688,7 +1714,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 650,
-				movement: 45,
+				distance: 45,
 				chains: {
 					'1-0': 1,
 					'1-1': 2,
@@ -1715,43 +1741,43 @@ module.exports = {
 			1: {
 				fixedSpeed: 1,
 				length: 1125,
-				movement: 53,
+				distance: 53,
 				noRetry: true
 			},
 			2: {
 				fixedSpeed: 1,
 				length: 1200,
-				movement: 70,
+				distance: 70,
 				noRetry: true
 			},
 			3: {
 				fixedSpeed: 1,
 				length: 1225,
-				movement: 38,
+				distance: 38,
 				noRetry: true
 			},
 			4: {
 				fixedSpeed: 1,
 				length: 1700,
-				movement: 55,
+				distance: 55,
 				noRetry: true
 			},
 			5: {
 				fixedSpeed: 1,
 				length: 1500,
-				movement: 38,
+				distance: 38,
 				noRetry: true
 			},
 			6: {
 				fixedSpeed: 1,
 				length: 1150,
-				movement: 83,
+				distance: 83,
 				noRetry: true
 			},
 			30: {
 				fixedSpeed: 1,
 				length: 650,
-				movement: 45,
+				distance: 45,
 				noRetry: true
 			}
 		},
@@ -1765,7 +1791,7 @@ module.exports = {
 		14: { // Double Cut
 			1: {
 				length: 1425,
-				movement: 162,
+				distance: 162,
 				noInterrupt: [9, 18],
 				chains: {
 					1: 30,
@@ -1782,7 +1808,7 @@ module.exports = {
 			},
 			2: {
 				length: 1425,
-				movement: 162,
+				distance: 162,
 				noInterrupt: [9, 18],
 				chains: {
 					1: 30,
@@ -1799,7 +1825,7 @@ module.exports = {
 			},
 			30: {
 				length: 1425,
-				movement: 162
+				distance: 162
 			}
 		},
 		15: { // Burning Heart
