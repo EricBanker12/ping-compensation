@@ -8,6 +8,7 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Sorcerer: Most combat besides Arcane Pulse
 * Archer: Most besides Chase
 * Reaper: All besides Sundering Strike, Cable Step, Soul Reversal
+* Slayer: All besides Combo Attack, Evasive Roll, Exhausting Blow and Backstab
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
 * Ninja: Combo Attack, Burning Heart, Leaves on the Wind, Death Blossom, Attunement, Focus
 * Priest: All besides Mana Charge
