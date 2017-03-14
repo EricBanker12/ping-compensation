@@ -75,7 +75,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill)
 
-			if(info && info.movement) return false
+			if(info && info.distance) return false
 		}
 
 		currentLocation = {
@@ -199,7 +199,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		let walking = currentLocation.walking,
 			abnormalSpeed = 1,
-			movementMult = 1
+			distanceMult = 1
 
 		updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
 
@@ -234,7 +234,7 @@ module.exports = function SkillPrediction(dispatch) {
 					let glyph = info.glyphs[id]
 
 					if(glyph.speed) speed *= glyph.speed
-					if(glyph.movement) movementMult *= glyph.movement
+					if(glyph.distance) distanceMult *= glyph.distance
 					if(glyph.stamina) stamina += glyph.stamina
 				}
 
@@ -247,7 +247,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.instantStamina) currentStamina -= stamina
 		}
 
-		sendActionStage(skill, info, 0, speed, null, 0, movementMult, walking)
+		sendActionStage(skill, info, 0, speed, 0, distanceMult, walking)
 
 		if(send) dispatch.toServer(type, event)
 
@@ -373,8 +373,15 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	function sendActionStage(skill, info, stage, speed, movementInfo, distance, distanceMult, walking) {
+	function sendActionStage(skill, info, stage, speed, distance, distanceMult, walking) {
 		movePlayer(distance * distanceMult)
+
+		let movement = null
+
+		if(Array.isArray(info.length))
+			movement = !walking && get(info, 'inPlace', 'movement', stage) || get(info, 'movement', stage) || []
+		else
+			movement = !walking && get(info, 'inPlace', 'movement') || info.movement || []
 
 		dispatch.toClient('sActionStage', currentAction = {
 			source: cid,
@@ -394,31 +401,43 @@ module.exports = function SkillPrediction(dispatch) {
 			toZ: 0,
 			unk2: 0,
 			unk3: 0,
-			movement: movementInfo || []
+			movement
 		})
 
 		if(info.instantPressAndHold) return
 
 		let length = 0,
-			movement = 0
+			nextDistance = 0
 
 		if(Array.isArray(info.length)) {
 			length = info.length[stage] / speed
-			movement = (walking ? get(info, 'controlledMovement', stage) : 0) || get(info, 'movement', stage) || 0
+			nextDistance = get(info, 'distance', stage) || 0
+
+			if(!walking) {
+				let inPlaceDistance = get(info, 'inPlace', 'distance', stage)
+
+				if(inPlaceDistance !== undefined) nextDistance = inPlaceDistance
+			}
 
 			if(stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-				stageTimeout = setTimeout(sendActionStage, length, skill, info, stage + 1, speed, movement, distanceMult, walking)
+				stageTimeout = setTimeout(sendActionStage, length, skill, info, stage + 1, speed, nextDistance, distanceMult, walking)
 				return
 			}
 		}
 		else {
 			length = info.length / speed
-			movement = (walking ? info.controlledMovement : 0) || info.movement || 0
+			nextDistance = info.distance || 0
+
+			if(!walking) {
+				let inPlaceDistance = get(info, 'inPlace', 'distance')
+
+				if(inPlaceDistance !== undefined) nextDistance = inPlaceDistance
+			}
 		}
 
 		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-		stageTimeout = setTimeout(sendActionEnd, length, 0, movement, distanceMult)
+		stageTimeout = setTimeout(sendActionEnd, length, 0, nextDistance, distanceMult)
 	}
 
 	function sendActionEnd(type, distance, distanceMult) {
@@ -466,7 +485,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	}
 
-	// The real server uses loaded maps and a physics engine for skill movement, which would be costly to simulate
+	// The real server uses loaded maps and a physics engine for skill distance, which would be costly to simulate
 	// However the client avoids teleporting the player if the sent position is close enough, so we can simply approximate it instead
 	function movePlayer(distance) {
 		if(distance && !currentLocation.inAction) {
