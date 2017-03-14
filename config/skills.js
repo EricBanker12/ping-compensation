@@ -312,6 +312,149 @@ module.exports = {
 			0: { length: 620 }
 		}
 	},
+	2: { // Slayer
+		2: { // Knockdown Strike
+			0: {
+				length: 3100,
+				distance: 200,
+				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 24, 25],
+				chains: {
+					14: 30,
+					'14-1': 30,
+					'14-2': 30
+				}
+			},
+			30: {
+				length: 2400,
+				distance: 300
+			}
+		},
+		3: { // Whirlwind
+			length: 3125,
+			distance: 155
+		},
+		5: { // Dash
+ 			fixedSpeed: 1,
+			length: 700
+		},
+		8: { // Overhand Strike
+			0: {
+				length: 3365,
+				distance: 170,
+				noInterrupt: [1, 4, 6, 8, 10, 17],
+				chains: {
+					2: 30,
+					3: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					'14-2': 30,
+					15: 30,
+					16: 30,
+					24: 30
+				}
+			},
+			30: { length: 1325 }
+		},
+		9: { // Leaping Strike
+			length: 2175,
+			distance: 250
+		},
+		12: { // Heart Thrust
+			length: 2315,
+			distance: 230
+		},
+		13: { // Stunning Backhand
+			length: 2115,
+			distance: 80
+		},
+		14: { // Distant Blade - Desync on 2nd and 3rd hit occurs randomly
+			0: {
+				length: 600,
+				distance: [-75, 75]
+			},
+			1: {
+				length: 600,
+				distance: [-75, 75],
+			},
+			2: {
+				length: 1500,
+				distance: [-120, 120]
+			}
+		},
+		15: { // Startling Kick
+			length: 1475,
+			distance: 175
+		},
+		16: { // Fury Strike
+			length: 1000,
+			distance: 140
+		},
+		17: { // Headlong Rush
+			length: 1000,
+			distance: 413
+		},
+		18: { // Overpower
+			fixedSpeed: 1,
+			length: 200
+		},
+		19: { // Tenacity
+			fixedSpeed: 1,
+			length: 700
+		},
+		20: { // In Cold Blood
+			fixedSpeed: 1,
+			length: 1185
+		},
+		23: { // Measured Slice
+			0: {
+				length: 3685,
+				distance: 190,
+				chains: {
+					8: 30,
+					24: 30,
+					25: 30
+				}
+			},
+			30: { length: 1670 }
+ 		},
+		24: { // Eviscerate
+			0: {
+				length: 1900,
+				distance: 50,
+				chains: {
+					2: 30,
+					3: 30,
+					8: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					15: 30,
+					25: 30
+				}
+			},
+			30: { length: 1500 }
+		},
+		25: { // Ultimate Overhand Strike
+			0: {
+				length: 3365,
+				distance: 170,
+				noInterrupt: [1, 4, 8, 17, 25],
+				chains: {
+					2: 30,
+					3: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					'14-2': 30,
+					15: 30,
+					16: 30,
+					24: 30
+				}
+			},
+			30: { length: 1300 }
+		}
+	},
 	3: { // Berserker
 		// Somewhat broken - Nearly every single zerk skill should have a different animation # while in Intimidation
 		2: { // Axe Block
@@ -1045,7 +1188,7 @@ module.exports = {
 							distance: 0
 						}]
 					],
-					distance: 0
+					distance: [0, 0]
 				}
 			},
 			0: {
