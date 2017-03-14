@@ -3,6 +3,7 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 ## Changelog
 ### 1.11.1:
  * * Fixed interrupting non-emulated multi-stage skills sometimes causing your character to become stuck in animation
+ 
 ### 1.11.0:
  * + Added Berserker: Fiery Rage
  * * Unknown button release packets no longer update your current location (fixes player teleporting after interrupting a charging skill)
