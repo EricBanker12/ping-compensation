@@ -394,7 +394,7 @@ module.exports = {
 			length: 1000,
 			distance: 413
 		},
-		18: {	// Overpower
+		18: { // Overpower
 			fixedSpeed: 1,
 			length: 200
 		},
