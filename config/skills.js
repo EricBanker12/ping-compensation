@@ -1009,9 +1009,6 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': {
-			speed: 0.9
-		},
 		1: { // Blast
 			'*': {
 				fixedSpeed: 1,
@@ -1140,9 +1137,6 @@ module.exports = {
 		}
 	},
 	10: { // Brawler
-		'*': {
-			speed: 0.9
-		},
 		1: { // Punch
 			'*': { noRetry: true },
 			0: {

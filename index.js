@@ -49,7 +49,10 @@ module.exports = function SkillPrediction(dispatch) {
 		clearTimeout(stageTimeout)
 	})
 
-	dispatch.hook('sPlayerStatUpdate', event => { aspd = 1 + (event.bonusAttackSpeed / event.baseAttackSpeed) })
+	dispatch.hook('sPlayerStatUpdate', event => {
+		// Newer classes use a different speed algorithm
+		aspd = (event.baseAttackSpeed + event.bonusAttackSpeed) / (job >= 8 ? 100 : event.baseAttackSpeed)
+	})
 
 	dispatch.hook('sCrestInfo', event => {
 		currentGlyphs = {}
@@ -80,7 +83,8 @@ module.exports = function SkillPrediction(dispatch) {
 			x: (event.x1 / 2) + (event.x2 / 2),
 			y: (event.y1 / 2) + (event.y2 / 2),
 			z: (event.z1 / 2) + (event.z2 / 2),
-			w: event.w
+			w: event.w,
+			walking: event.type == 0
 		}
 	})
 
