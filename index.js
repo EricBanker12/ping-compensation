@@ -290,6 +290,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndType)
 
 			serverAction = currentAction = event
+			lastEndType = 6
 
 			updateLocation()
 		}
