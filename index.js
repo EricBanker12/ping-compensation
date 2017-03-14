@@ -485,7 +485,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	}
 
-	// The real server uses loaded maps and a physics engine for skill distance, which would be costly to simulate
+	// The real server uses loaded maps and a physics engine for skill movement, which would be costly to simulate
 	// However the client avoids teleporting the player if the sent position is close enough, so we can simply approximate it instead
 	function movePlayer(distance) {
 		if(distance && !currentLocation.inAction) {
