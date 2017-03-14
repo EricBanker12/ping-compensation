@@ -197,10 +197,11 @@ module.exports = function SkillPrediction(dispatch) {
 		// TODO: System Message
 		if(info.requiredBuff && !abnormality.exists(info.requiredBuff)) return false
 
-		updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
-
-		let abnormalSpeed = 1,
+		let walking = currentLocation.walking,
+			abnormalSpeed = 1,
 			movementMult = 1
+
+		updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
 
 		if(info.abnormals)
 			for(let id in info.abnormals)
@@ -246,7 +247,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.instantStamina) currentStamina -= stamina
 		}
 
-		sendActionStage(skill, info, 0, speed, 0, movementMult)
+		sendActionStage(skill, info, 0, speed, 0, movementMult, walking)
 
 		if(send) dispatch.toServer(type, event)
 
@@ -361,7 +362,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	function sendActionStage(skill, info, stage, speed, distance, distanceMult) {
+	function sendActionStage(skill, info, stage, speed, distance, distanceMult, walking) {
 		movePlayer(distance * distanceMult)
 
 		dispatch.toClient('sActionStage', currentAction = {
@@ -391,17 +392,17 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(Array.isArray(info.length)) {
 			length = info.length[stage] / speed
-			movement = get(info, 'movement', stage)
+			movement = (walking ? get(info, 'controlledMovement', stage) : 0) || get(info, 'movement', stage) || 0
 
 			if(stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-				stageTimeout = setTimeout(sendActionStage, length, skill, info, stage + 1, speed, movement, distanceMult)
+				stageTimeout = setTimeout(sendActionStage, length, skill, info, stage + 1, speed, movement, distanceMult, walking)
 				return
 			}
 		}
 		else {
 			length = info.length / speed
-			movement = info.movement
+			movement = (walking ? info.controlledMovement : 0) || info.movement || 0
 		}
 
 		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
