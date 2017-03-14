@@ -1065,7 +1065,8 @@ module.exports = {
 					10: 30,
 					11: 30,
 					12: 30
-				}
+				},
+				noRetry: true
 			},
 			0: true,
 			30: true,
