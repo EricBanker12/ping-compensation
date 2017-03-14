@@ -1025,7 +1025,7 @@ module.exports = {
 					11: 30
 				}
 			},
-			1: true,
+			0: true,
 			30: true
 		},
 		5: { // Grim Strike
@@ -1153,7 +1153,7 @@ module.exports = {
 					10151000: { chain: 30 }
 				}
 			},
-			1: true,
+			0: true,
 			30: true
 		}
 	},
