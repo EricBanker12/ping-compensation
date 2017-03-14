@@ -279,7 +279,7 @@ module.exports = function SkillPrediction(dispatch) {
 					effects = []
 
 					for(let e of event.effects)
-						effects.push(e.id + ' ' + e.unk1 + ' ' + e.unk2 + ' ' + e.unk3)
+						effects.push(e.duration + ' ' + e.speed + ' ' + e.unk + ' ' + e.distance)
 
 					effects = '(' + effects.join(', ') + ')'
 				}
@@ -373,7 +373,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	function sendActionStage(skill, info, stage, speed, movement, distance, distanceMult, walking) {
+	function sendActionStage(skill, info, stage, speed, movementInfo, distance, distanceMult, walking) {
 		movePlayer(distance * distanceMult)
 
 		dispatch.toClient('sActionStage', currentAction = {
@@ -394,7 +394,7 @@ module.exports = function SkillPrediction(dispatch) {
 			toZ: 0,
 			unk2: 0,
 			unk3: 0,
-			movement: movement || []
+			movement: movementInfo || []
 		})
 
 		if(info.instantPressAndHold) return
