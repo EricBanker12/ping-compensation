@@ -373,6 +373,7 @@ module.exports = {
 				distance: 170,
 				noInterrupt: [1, 4, 6, 8, 10, 17, 25],
 				chains: {
+					'1-3': 30,
 					2: 30,
 					3: 30,
 					9: 30,
@@ -512,6 +513,7 @@ module.exports = {
 				length: 3365,
 				noInterrupt: [1, 4, 8, 17, 22, 25],
 				chains: {
+					'1-3': 30,
 					2: 30,
 					3: 30,
 					9: 30,
