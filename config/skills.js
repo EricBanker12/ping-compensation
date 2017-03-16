@@ -316,11 +316,11 @@ module.exports = {
 		1: { // Combo Attack
 			0: {
 				length: 939,
-				movement: 32
+				distance: 32
 			},
 			1: {
 				length: 1121,
-				movement: 49
+				distance: 49
 			},
 			2: {
 				length: 848,
@@ -328,7 +328,7 @@ module.exports = {
 			},
 			3: {
 				length: 1848,
-				movement: 20
+				distance: 20
 			}
 		},
 		2: { // Knockdown Strike
@@ -529,7 +529,6 @@ module.exports = {
 		}
 	},
 	3: { // Berserker
-		// Somewhat broken - Nearly every single zerk skill should have a different animation # while in Intimidation
 		2: { // Axe Block
 			'*': {
 				fixedSpeed: 1,
