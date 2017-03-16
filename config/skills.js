@@ -371,7 +371,7 @@ module.exports = {
 			0: {
 				length: 3365,
 				distance: 170,
-				noInterrupt: [1, 4, 6, 8, 10, 17, 25],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, 17, 25],
 				chains: {
 					'1-3': 30,
 					2: 30,
@@ -511,7 +511,7 @@ module.exports = {
 			},
 			0: {
 				length: 3365,
-				noInterrupt: [1, 4, 8, 17, 22, 25],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 8, 17, 22, 25],
 				chains: {
 					'1-3': 30,
 					2: 30,
