@@ -1249,8 +1249,50 @@ module.exports = {
 			0: true,
 			30: true
 		},
+		4: { // Sundering Strike
+			0: {
+				length: [1175, 1750, 1025],
+				distance: [0, 100, 0],
+				inPlace: {
+					movement: [
+						[],
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0, 0]
+				},
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12],
+				chains: {
+					3: 30,
+					5: 30,
+					6: 30
+				}
+			},
+			30: {
+				length: [1750, 1025],
+				distance: [100, 0],
+				inPlace: {
+					movement: [
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0]
+				}
+			}
+		},
 		5: { // Grim Strike
 			'*': {
+				distance: [120, 0],
 				inPlace: {
 					movement: [
 						[{
@@ -1271,7 +1313,6 @@ module.exports = {
 			},
 			0: {
 				length: [2400, 975],
-				distance: [120, 0],
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 12],
 				chains: {
 					1: 30,
