@@ -83,8 +83,7 @@ module.exports = function SkillPrediction(dispatch) {
 			x: (event.x1 / 2) + (event.x2 / 2),
 			y: (event.y1 / 2) + (event.y2 / 2),
 			z: (event.z1 / 2) + (event.z2 / 2),
-			w: event.w,
-			walking: event.type == 0
+			w: event.w
 		}
 	})
 
@@ -124,6 +123,7 @@ module.exports = function SkillPrediction(dispatch) {
 				else console.log('-> %s %s %d %d\xb0 (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
 			}
 			else if(type == 'cPressSkill') console.log('->', type, skillId(event.skill), event.start, delayed ? 'Delayed' : '')
+			else if(type == 'cStartSkill') console.log('->', type, skillId(event.skill), event.unk1, event.unk2, event.unk3, delayed ? 'Delayed' : '')
 			else console.log('->', type, skillId(event.skill), delayed ? 'Delayed' : '')
 
 		if(delayed) {
@@ -197,11 +197,10 @@ module.exports = function SkillPrediction(dispatch) {
 		// TODO: System Message
 		if(info.requiredBuff && !abnormality.exists(info.requiredBuff)) return false
 
-		let walking = currentLocation.walking,
-			abnormalSpeed = 1,
-			distanceMult = 1
-
 		updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
+
+		let abnormalSpeed = 1,
+			distanceMult = 1
 
 		if(info.abnormals)
 			for(let id in info.abnormals)
@@ -247,7 +246,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.instantStamina) currentStamina -= stamina
 		}
 
-		sendActionStage(skill, info, 0, speed, 0, distanceMult, walking)
+		sendActionStage(skill, type == 'cStartSkill' && event.unk2 == 1, info, 0, speed, 0, distanceMult)
 
 		if(send) dispatch.toServer(type, event)
 
@@ -273,23 +272,23 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('sActionStage', event => {
 		if(event.source.equals(cid)) {
 			if(DEBUG) {
-				let effects = ''
+				let movement = ''
 
-				if(event.effects) {
-					effects = []
+				if(event.movement) {
+					movement = []
 
-					for(let e of event.effects)
-						effects.push(e.duration + ' ' + e.speed + ' ' + e.unk + ' ' + e.distance)
+					for(let e of event.movement)
+						movement.push(e.duration + ' ' + e.speed + ' ' + e.unk + ' ' + e.distance)
 
-					effects = '(' + effects.join(', ') + ')'
+					movement = '(' + movement.join(', ') + ')'
 				}
 
 				if(DEBUG_LOC) {
-					if(serverAction) console.log('<- sActionStage %s %d %dx %d\xb0 %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, effects, skillInfo(event.skill) ? 'X' : '')
-					else console.log('<- sActionStage %s %d %dx %d\xb0', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, effects, skillInfo(event.skill) ? 'X' : '')
+					if(serverAction) console.log('<- sActionStage %s %d %dx %d\xb0 %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
+					else console.log('<- sActionStage %s %d %dx %d\xb0', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
 				}
-				else if(serverAction) console.log('<- sActionStage %s %d %dx %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, effects, skillInfo(event.skill) ? 'X' : '')
-				else console.log('<- sActionStage %s %d %dx', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, effects, skillInfo(event.skill) ? 'X' : '')
+				else if(serverAction) console.log('<- sActionStage %s %d %dx %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
+				else console.log('<- sActionStage %s %d %dx', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
 
 				debugActionTime = Date.now()
 			}
@@ -373,15 +372,15 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	function sendActionStage(skill, info, stage, speed, distance, distanceMult, walking) {
+	function sendActionStage(skill, moving, info, stage, speed, distance, distanceMult) {
 		movePlayer(distance * distanceMult)
 
 		let movement = null
 
 		if(Array.isArray(info.length))
-			movement = !walking && get(info, 'inPlace', 'movement', stage) || get(info, 'movement', stage) || []
+			movement = !moving && get(info, 'inPlace', 'movement', stage) || get(info, 'movement', stage) || []
 		else
-			movement = !walking && get(info, 'inPlace', 'movement') || info.movement || []
+			movement = !moving && get(info, 'inPlace', 'movement') || info.movement || []
 
 		dispatch.toClient('sActionStage', currentAction = {
 			source: cid,
@@ -413,7 +412,7 @@ module.exports = function SkillPrediction(dispatch) {
 			length = info.length[stage] / speed
 			nextDistance = get(info, 'distance', stage) || 0
 
-			if(!walking) {
+			if(!moving) {
 				let inPlaceDistance = get(info, 'inPlace', 'distance', stage)
 
 				if(inPlaceDistance !== undefined) nextDistance = inPlaceDistance
@@ -421,7 +420,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-				stageTimeout = setTimeout(sendActionStage, length, skill, info, stage + 1, speed, nextDistance, distanceMult, walking)
+				stageTimeout = setTimeout(sendActionStage, length, skill, info, stage + 1, speed, nextDistance, distanceMult, moving)
 				return
 			}
 		}
@@ -429,7 +428,7 @@ module.exports = function SkillPrediction(dispatch) {
 			length = info.length / speed
 			nextDistance = info.distance || 0
 
-			if(!walking) {
+			if(!moving) {
 				let inPlaceDistance = get(info, 'inPlace', 'distance')
 
 				if(inPlaceDistance !== undefined) nextDistance = inPlaceDistance
