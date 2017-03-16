@@ -15,6 +15,13 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Teleport Jaunt, Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.14.1:
++ [*] Add forced clipping to iframes (fixes being able to iframe through gates)
++ [*] Support C_NOTIFY_LOCATION_IN_DASH
++ [*] Fixed incorrect parameters for multi-part skills
++ [*] Fixed Slayer: Combo Attack
++ [*] Temporarily disabled Slayer: Headlong Rush
+
 ### 1.14.0:
 + [+] Added Slayer: Combo Attack
 * [*] Fixed emulation of cast-while-moving (Reaper: Grim Strike, Smite)
