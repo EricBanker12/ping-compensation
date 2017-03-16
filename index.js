@@ -1,7 +1,10 @@
-const SKILL_RETRY_MS		= 50,	/* Desync reduction (0 = disabled) - Setting this too high may cause skills to go off twice,
-										and may cause desync compensation to fail.
+const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
+										Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 									*/
-	SKILL_DELAY_NEXT		= true,	// Desync compensation
+	SKILL_DELAY_NEXT		= true,	//	Desync compensation
+	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
+										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
+									*/
 	DEBUG					= false,
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
@@ -25,6 +28,8 @@ module.exports = function SkillPrediction(dispatch) {
 		delayNextTimeout = null,
 		actionNumber = 0x80000000,
 		currentLocation = null,
+		lastStartLocation = null,
+		oopsLocation = null,
 		currentAction = null,
 		serverAction = null,
 		lastEndType = 0,
@@ -87,8 +92,11 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('cNotifyLocationInAction', event => {
-		if(DEBUG_LOC) console.log('NotifyLocation %s %d (%d %d %d %d)', skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
+	dispatch.hook('cNotifyLocationInAction', notifyLocation.bind(null, 'cNotifyLocationInAction'))
+	dispatch.hook('cNotifyLocationInDash', notifyLocation.bind(null, 'cNotifyLocationInDash'))
+
+	function notifyLocation(type, event) {
+		if(DEBUG_LOC) console.log('<- cNotifyLocationInAction %s %d (%d %d %d %d)', skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
 
 		currentLocation = {
 			x: event.x,
@@ -105,7 +113,7 @@ module.exports = function SkillPrediction(dispatch) {
 				if(currentAction && currentAction.skill == event.skill && (!serverAction || serverAction.skill != event.skill))
 					dispatch.toServer('cNotifyLocationInAction', event)
 			}, SKILL_RETRY_MS)
-	})
+	}
 
 	dispatch.hook('cStartSkill', startSkill.bind(null, 'cStartSkill'))
 	dispatch.hook('cStartTargetedSkill', startSkill.bind(null, 'cStartTargetedSkill'))
@@ -198,6 +206,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(info.requiredBuff && !abnormality.exists(info.requiredBuff)) return false
 
 		updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
+		lastStartLocation = currentLocation
 
 		let abnormalSpeed = 1,
 			distanceMult = 1
@@ -272,16 +281,12 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('sActionStage', event => {
 		if(event.source.equals(cid)) {
 			if(DEBUG) {
-				let movement = ''
+				movement = []
 
-				if(event.movement) {
-					movement = []
+				for(let e of event.movement)
+					movement.push(e.duration + ' ' + e.speed + ' ' + e.unk + ' ' + e.distance)
 
-					for(let e of event.movement)
-						movement.push(e.duration + ' ' + e.speed + ' ' + e.unk + ' ' + e.distance)
-
-					movement = '(' + movement.join(', ') + ')'
-				}
+				movement = '(' + movement.join(', ') + ')'
 
 				if(DEBUG_LOC) {
 					if(serverAction) console.log('<- sActionStage %s %d %dx %d\xb0 %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
@@ -293,7 +298,17 @@ module.exports = function SkillPrediction(dispatch) {
 				debugActionTime = Date.now()
 			}
 
-			if(skillInfo(event.skill)) {
+			let info = skillInfo(event.skill)
+			if(info) {
+				if(info.forceClip && event.movement.length) {
+					let distance = 0
+					for(let m of event.movement) distance += m.distance
+
+					oopsLocation = applyDistance(lastStartLocation, distance)
+
+					if(!currentAction || currentAction.skill != event.skill) sendInstantMove()
+				}
+
 				// If the server sends 2 sActionStage in a row without a sActionEnd between them and the last one is an emulated skill,
 				// this stops your character from being stuck in the first animation (although slight desync will occur)
 				if(serverAction && serverAction == currentAction && !skillInfo(currentAction.skill)) sendActionEnd(6)
@@ -436,17 +451,22 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-		stageTimeout = setTimeout(sendActionEnd, length, 0, nextDistance, distanceMult)
+		stageTimeout = setTimeout(sendActionEnd, length, 0, nextDistance * distanceMult)
 	}
 
-	function sendActionEnd(type, distance, distanceMult) {
+	function sendActionEnd(type, distance) {
 		clearTimeout(stageTimeout)
 
 		if(!currentAction) return
 
 		if(DEBUG) console.log('<* sActionEnd %s %d %d\xb0 %du', skillId(currentAction.skill), type || 0, currentLocation.w, distance || 0)
 
-		movePlayer(distance * distanceMult)
+		if(oopsLocation && (FORCE_CLIP_STRICT || !currentLocation.inAction)) {
+			currentLocation = oopsLocation
+
+			sendInstantMove()
+		}
+		else movePlayer(distance)
 
 		dispatch.toClient('sActionEnd', {
 			source: cid,
@@ -463,7 +483,17 @@ module.exports = function SkillPrediction(dispatch) {
 		if(currentAction.id != actionNumber) lastEmulatedEnd = currentAction.id
 
 		actionNumber++
-		currentAction = null
+		oopsLocation = currentAction = null
+	}
+
+	function sendInstantMove() {
+		dispatch.toClient('sInstantMove', {
+			id: cid,
+			x: currentLocation.x,
+			y: currentLocation.y,
+			z: currentLocation.z,
+			w: currentLocation.w
+		})
 	}
 
 	function updateLocation(event, inAction, special) {
@@ -487,12 +517,15 @@ module.exports = function SkillPrediction(dispatch) {
 	// The real server uses loaded maps and a physics engine for skill movement, which would be costly to simulate
 	// However the client avoids teleporting the player if the sent position is close enough, so we can simply approximate it instead
 	function movePlayer(distance) {
-		if(distance && !currentLocation.inAction) {
-			let r = (currentLocation.w / 0x8000) * Math.PI
+		if(distance && !currentLocation.inAction) applyDistance(currentLocation, distance)
+	}
 
-			currentLocation.x += Math.cos(r) * distance
-			currentLocation.y += Math.sin(r) * distance
-		}
+	function applyDistance(loc, distance) {
+		let r = (loc.w / 0x8000) * Math.PI
+
+		loc.x += Math.cos(r) * distance
+		loc.y += Math.sin(r) * distance
+		return loc
 	}
 
 	function skillId(id, local) {

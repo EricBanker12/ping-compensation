@@ -299,6 +299,7 @@ module.exports = {
 			0: {
 				length: 725,
 				distance: -150,
+				forceClip: true,
 				stamina: 700,
 				instantStamina: true,
 				noInterrupt: [26],
@@ -491,7 +492,7 @@ module.exports = {
 			},
 			0: {
 				length: 1900,
-				noInterrupt: [22, 24],
+				noInterrupt: [4, 6, 22, 24],
 				chains: {
 					2: 30,
 					3: 30,
@@ -642,7 +643,8 @@ module.exports = {
 		7: { // Backstep
 			0: {
 				length: 650,
-				distance: -200
+				distance: -200,
+				forceClip: true
 			}
 		},
 		10: { // Mana Barrier
@@ -737,7 +739,8 @@ module.exports = {
 		6: { // Backstep
 			0: {
 				length: 650,
-				distance: -200
+				distance: -200,
+				forceClip: true
 			}
 		},
 		// Super long animation that can't be cancelled if it breaks - Use at your own risk
@@ -769,7 +772,8 @@ module.exports = {
 		16: { // Breakaway Bolt
 			0: {
 				length: 1325,
-				distance: -250
+				distance: -250,
+				forceClip: true
 			}
 		},
 		17: { // Web Arrow
@@ -908,7 +912,8 @@ module.exports = {
 		26: { // Fiery Escape
 			0: {
 				length: 1125,
-				distance: -250.5
+				distance: -250.5,
+				forceClip: true
 			}
 		},
 		27: { // Final Reprisal
@@ -996,7 +1001,8 @@ module.exports = {
 		38: { // Backstep
 			0: {
 				length: 650,
-				distance: -200
+				distance: -200,
+				forceClip: true
 			}
 		},
 		39: { // Grace of Resurrection
@@ -1391,6 +1397,7 @@ module.exports = {
 			'*': {
 				length: 700,
 				distance: 180,
+				forceClip: true,
 				abnormals: {
 					10151000: { chain: 30 }
 				}
@@ -1523,7 +1530,8 @@ module.exports = {
 		40: { // Rolling Reload
 			0: {
 				length: 950,
-				distance: 172.5
+				distance: 172.5,
+				forceClip: true
 			}
 		}
 	},
@@ -1777,7 +1785,8 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 580,
-				distance: 144
+				distance: 144,
+				forceClip: true
 			}
 		}
 	},
