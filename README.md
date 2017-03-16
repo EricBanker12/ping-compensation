@@ -15,6 +15,15 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Teleport Jaunt, Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.14.0:
++ [+] Added Slayer: Combo Attack
+* [*] Fixed emulation of cast-while-moving (Reaper: Grim Strike, Smite)
+* [*] Fixed Slayer: Heart Thrust, Stunning Backhand, Fury Strike, Whirlwind, Startling Kick, Headlong Rush, Leaping Strike, Overpower, In Cold Blood, Dash, Tenacity
+* [*] Fixed Slayer: Knockdown Strike speed buff
+* [*] Fixed Slayer: Combo Attack x4 > Overhand Strike chain
+* [*] Fixed Slayer: Overhand Strike interrupting Ultimate Overhand Strike, Eviscerate interrupting itself
+* [*] Fixed Slayer: Measured Slice (chained) and Ultimate Overhand Strike (chained) movement
+
 ### 1.13.0:
 * [+] Added Slayer: Knockdown Strike, Measured Slice, Overhand Strike, Heart Thrust, Eviscerate, Leaping Strike, Whirlwind, Stunning Backhand, Distant Blade, Startling Kick, Fury Strike, Headlong Rush, Overpower, Tenacity, In Cold Blood, Dash
 
