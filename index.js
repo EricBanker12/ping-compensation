@@ -304,6 +304,8 @@ module.exports = function SkillPrediction(dispatch) {
 					let distance = 0
 					for(let m of event.movement) distance += m.distance
 
+					if(info.distance < 0) distance = -distance
+
 					oopsLocation = applyDistance(lastStartLocation, distance)
 
 					if(!currentAction || currentAction.skill != event.skill) sendInstantMove()
