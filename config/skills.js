@@ -1250,11 +1250,9 @@ module.exports = {
 			30: true
 		},
 		4: { // Sundering Strike
-			'*': {
-				length: [1175, 1750, 1025],
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
+				length: [1175, 1750, 1025],
 				distance: [0, 100, 0],
 				inPlace: {
 					movement: [
