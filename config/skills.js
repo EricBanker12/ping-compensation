@@ -447,12 +447,12 @@ module.exports = {
 				distance: 140
 			}
 		},
-		17: { // Headlong Rush
+		/*17: { // Headlong Rush
 			0: {
 				length: 1000,
 				distance: 413
 			}
-		},
+		},*/
 		18: { // Overpower
 			0: {
 				fixedSpeed: 1,
