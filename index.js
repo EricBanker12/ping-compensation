@@ -420,7 +420,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-				stageTimeout = setTimeout(sendActionStage, length, skill, info, stage + 1, speed, nextDistance, distanceMult, moving)
+				stageTimeout = setTimeout(sendActionStage, length, skill, moving, info, stage + 1, speed, nextDistance, distanceMult)
 				return
 			}
 		}
