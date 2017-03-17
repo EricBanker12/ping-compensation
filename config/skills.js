@@ -316,20 +316,20 @@ module.exports = {
 	2: { // Slayer
 		1: { // Combo Attack
 			0: {
-				length: 939,
-				distance: 32
+				length: 850,
+				distance: 36.68
 			},
 			1: {
-				length: 1121,
-				distance: 49
+				length: 1025,
+				distance: 35.68
 			},
 			2: {
-				length: 848,
-				move: 19
+				length: 750,
+				distance: 28.05
 			},
 			3: {
-				length: 1848,
-				distance: 20
+				length: 1650,
+				distance: 46.76
 			}
 		},
 		2: { // Knockdown Strike
@@ -1834,7 +1834,7 @@ module.exports = {
 	},
 	11: { // Ninja
 		1: { // Combo Attack
-			0: {
+			'*': {
 				fixedSpeed: 1,
 				length: 650,
 				distance: 45,
@@ -1860,49 +1860,33 @@ module.exports = {
 					19: 30
 				},
 				noRetry: true
-			},
+			}
+			0: true,
 			1: {
-				fixedSpeed: 1,
 				length: 1125,
-				distance: 53,
-				noRetry: true
+				distance: 53
 			},
 			2: {
-				fixedSpeed: 1,
 				length: 1200,
-				distance: 70,
-				noRetry: true
+				distance: 70
 			},
 			3: {
-				fixedSpeed: 1,
 				length: 1225,
-				distance: 38,
-				noRetry: true
+				distance: 38
 			},
 			4: {
-				fixedSpeed: 1,
 				length: 1700,
-				distance: 55,
-				noRetry: true
+				distance: 55
 			},
 			5: {
-				fixedSpeed: 1,
 				length: 1500,
-				distance: 38,
-				noRetry: true
+				distance: 38
 			},
 			6: {
-				fixedSpeed: 1,
 				length: 1150,
-				distance: 83,
-				noRetry: true
+				distance: 83
 			},
-			30: {
-				fixedSpeed: 1,
-				length: 650,
-				distance: 45,
-				noRetry: true
-			}
+			30: true
 		},
 		3: { // Leaves on the Wind
 			0: { length: 1275 }
