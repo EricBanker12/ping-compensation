@@ -1865,7 +1865,7 @@ module.exports = {
 					19: 30
 				},
 				noRetry: true
-			}
+			},
 			0: true,
 			1: {
 				length: 1125,
