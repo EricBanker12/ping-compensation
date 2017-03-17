@@ -362,6 +362,11 @@ module.exports = {
 				}
 			}
 		},
+		4: { // Evasive Roll
+			length: 900,
+			movement: 150,
+			forceClip: true
+		},
 		5: { // Dash
 			0: {
 				fixedSpeed: 1,
