@@ -315,6 +315,7 @@ module.exports = {
 	},
 	2: { // Slayer
 		1: { // Combo Attack
+			'*': { noRetry: true },
 			0: {
 				length: 850,
 				distance: 36.68
@@ -340,12 +341,10 @@ module.exports = {
 			},
 			0: {
 				length: 3100,
-				distance: 200,
-				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 24, 25],
+				distance: 220.47,
+				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 17, 24, 25],
 				chains: {
-					14: 30,
-					'14-1': 30,
-					'14-2': 30
+					14: 30
 				}
 			},
 			30: {
@@ -356,9 +355,9 @@ module.exports = {
 		3: { // Whirlwind
 			0: {
 				length: 3125,
-				distance: 155,
+				distance: 128.69,
 				abnormals: {
-					23080: {speed: 1.25}
+					23080: { speed: 1.25 }
 				}
 			}
 		},
@@ -378,8 +377,11 @@ module.exports = {
 				length: 3365,
 				distance: 170,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, 17, 25],
+				abnormals: {
+					300801: {skill: 250100}
+				},
 				chains: {
-					'1-3': 30,
+					1: 30,
 					2: 30,
 					3: 30,
 					9: 30,
@@ -389,14 +391,11 @@ module.exports = {
 					15: 30,
 					16: 30,
 					24: 30
-				},
-				abnormals: {
-					300801: {skill: 250100}
 				}
 			},
 			30: { 
 				length: 1325,
-				distance: 170,
+				distance: 169.65,
 				abnormals: {
 					300801: {skill: 250130}
 				}
