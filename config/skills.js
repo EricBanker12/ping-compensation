@@ -170,7 +170,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
-				noInterrupt: [1, 3, 8, 10, 13, 18, 21, 25, 26]
+				noInterrupt: [1, 3, 8, 10, 13, 18, 21, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -1120,6 +1120,13 @@ module.exports = {
 		16: { // Aura of the Tenacious
 			0: { length: 1275 },
 			50: { length: 1275 }
+		},
+		17: { // Teleport Jaunt
+			0: {
+				length: [200, 260],
+				distance: [0, 333],
+				isTeleport: true
+			}
 		},
 		23: { // Metmorphic Smite
 			0: {
