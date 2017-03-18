@@ -1,20 +1,31 @@
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 ## Current supported class skills
-* Lancer: All besides Charging Lunge, Shield Counter, Master's Leash
+* Lancer: All besides Shield Counter
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
 * Warrior: Combative Strike, Traverse Cut, Blade Draw, Poison Blade, Scythe, Rain of Blows, Leaping Strike
 * Slayer: All besides Combo Attack, Evasive Roll, Exhausting Blow and Backstab
 * Berserker: Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
 * Sorcerer: Most combat besides Arcane Pulse
 * Archer: Most besides Chase
-* Reaper: All besides Sundering Strike, Cable Step, Soul Reversal
+* Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
 * Ninja: Combo Attack, Burning Heart, Leaves on the Wind, Death Blossom, Attunement, Focus
 * Priest: All besides Mana Charge
-* Mystic: All besides Teleport Jaunt, Arun's Vitae, Arun's Tears, Vow of Rebirth
+* Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.15.0
++ [+] Added Dash & Teleport support
++ [+] Added Lancer: Charging Lunge, Master's Leash
++ [+] Added Slayer: Evasive Roll
++ [+] Added Reaper: Sundering Strike
++ [+] Added Mystic: Teleport Jaunt
++ [*] Fixed interrupting multi-stage actions
++ [*] Fixed clipping for iframes with negative movement
++ [*] Fixed Slayer: Combo Attack
++ [*] Fixed Slayer: Knockdown Strike interrupting Headlong Rush
+
 ### 1.14.1:
 + [*] Add forced clipping to iframes (fixes being able to iframe through gates)
 + [*] Support C_NOTIFY_LOCATION_IN_DASH
