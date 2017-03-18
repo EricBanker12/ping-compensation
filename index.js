@@ -5,8 +5,8 @@ const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
-	DEBUG					= true,
-	DEBUG_LOC				= true,
+	DEBUG					= false,
+	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data').sysmsg,
@@ -350,9 +350,9 @@ module.exports = function SkillPrediction(dispatch) {
 			let info = skillInfo(event.skill)
 			if(info) {
 				if(info.isDash || info.isTeleport)
-					// If the skill ends early
+					// If the skill ends early then there should be no significant error
 					if(currentAction && event.skill == currentAction.skill) {
-						oopsLocation = {
+						currentLocation = {
 							x: event.x,
 							y: event.y,
 							z: event.z,
@@ -360,7 +360,8 @@ module.exports = function SkillPrediction(dispatch) {
 						}
 						sendActionEnd(event.type)
 					}
-					else if(Math.round(lastEndLocation.x / 100) != Math.round(event.x / 100) || Math.round(lastEndLocation.y / 100) != Math.round(event.y / 100) || Math.round(lastEndLocation.z / 100) != Math.round(event.z / 100))
+					// Worst case scenario, teleport the player back if the error was large enough for the client to act on it
+					else if(!lastEndLocation || Math.round(lastEndLocation.x / 100) != Math.round(event.x / 100) || Math.round(lastEndLocation.y / 100) != Math.round(event.y / 100) || Math.round(lastEndLocation.z / 100) != Math.round(event.z / 100))
 						sendInstantMove({
 							x: event.x,
 							y: event.y,
