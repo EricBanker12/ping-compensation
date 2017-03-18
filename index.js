@@ -5,8 +5,8 @@ const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
-	DEBUG					= false,
-	DEBUG_LOC				= false,
+	DEBUG					= true,
+	DEBUG_LOC				= true,
 	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data').sysmsg,
@@ -456,11 +456,12 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		if(info.isDash && nextDistance) {
+		if((info.isDash || info.isTeleport) && nextDistance) {
 			let calcDistance = Math.sqrt(Math.pow(event.x2 - lastStartLocation.x, 2) + Math.pow(event.y2 - lastStartLocation.y, 2))
 
 			if(calcDistance < nextDistance) {
-				length *= calcDistance / nextDistance
+				if(info.isDash) length *= calcDistance / nextDistance
+
 				nextDistance = calcDistance
 			}
 		}
