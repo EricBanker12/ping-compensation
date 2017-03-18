@@ -5,8 +5,8 @@ const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
-	DEBUG					= false,
-	DEBUG_LOC				= false,
+	DEBUG					= true,
+	DEBUG_LOC				= true,
 	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data').sysmsg,
@@ -29,6 +29,7 @@ module.exports = function SkillPrediction(dispatch) {
 		actionNumber = 0x80000000,
 		currentLocation = null,
 		lastStartLocation = null,
+		lastEndLocation = null,
 		oopsLocation = null,
 		currentAction = null,
 		serverAction = null,
@@ -309,7 +310,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 					oopsLocation = applyDistance(lastStartLocation, distance)
 
-					if(!currentAction || currentAction.skill != event.skill) sendInstantMove()
+					if(!currentAction || currentAction.skill != event.skill) sendInstantMove(oopsLocation)
 				}
 
 				// If the server sends 2 sActionStage in a row without a sActionEnd between them and the last one is an emulated skill,
@@ -346,7 +347,27 @@ module.exports = function SkillPrediction(dispatch) {
 				return false
 			}
 
-			if(skillInfo(event.skill)) {
+			let info = skillInfo(event.skill)
+			if(info) {
+				if(info.isDash || info.isTeleport)
+					// If the skill ends early
+					if(currentAction && event.skill == currentAction.skill) {
+						oopsLocation = {
+							x: event.x,
+							y: event.y,
+							z: event.z,
+							w: event.w
+						}
+						sendActionEnd(event.type)
+					}
+					else if(Math.round(lastEndLocation.x / 100) != Math.round(event.x / 100) || Math.round(lastEndLocation.y / 100) != Math.round(event.y / 100) || Math.round(lastEndLocation.z / 100) != Math.round(event.z / 100))
+						sendInstantMove({
+							x: event.x,
+							y: event.y,
+							z: event.z,
+							w: event.w
+						})
+
 				// Skills that may only be cancelled during part of the animation are hard to emulate, so we use server response instead
 				// This may cause bugs with very high ping and casting the same skill multiple times
 				if(currentAction && event.skill == currentAction.skill && event.type == 2) sendActionEnd(2)
@@ -477,11 +498,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(DEBUG) console.log('<* sActionEnd %s %d %d\xb0 %du', skillId(currentAction.skill), type || 0, currentLocation.w, distance || 0)
 
-		if(oopsLocation && (FORCE_CLIP_STRICT || !currentLocation.inAction)) {
-			currentLocation = oopsLocation
-
-			sendInstantMove()
-		}
+		if(oopsLocation && (FORCE_CLIP_STRICT || !currentLocation.inAction)) sendInstantMove(oopsLocation)
 		else movePlayer(distance)
 
 		dispatch.toClient('sActionEnd', {
@@ -496,13 +513,19 @@ module.exports = function SkillPrediction(dispatch) {
 			id: currentAction.id
 		})
 
-		if(currentAction.id != actionNumber) lastEndedId = currentAction.id
+		if(currentAction.id == actionNumber) {
+			let info = skillInfo(currentAction.skill)
+			if(info && (info.isDash || info.isTeleport)) lastEndLocation = currentLocation
+		}
+		else lastEndedId = currentAction.id
 
 		actionNumber++
 		oopsLocation = currentAction = null
 	}
 
-	function sendInstantMove() {
+	function sendInstantMove(location) {
+		if(location) currentLocation = location
+
 		dispatch.toClient('sInstantMove', {
 			id: cid,
 			x: currentLocation.x,
