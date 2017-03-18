@@ -5,8 +5,8 @@ const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
-	DEBUG					= true,
-	DEBUG_LOC				= true,
+	DEBUG					= false,
+	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data').sysmsg,
