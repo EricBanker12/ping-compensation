@@ -170,6 +170,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
+				noInterrupt: [1, 3, 8, 10, 13, 18, 21, 25, 26]
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -228,6 +229,14 @@ module.exports = {
 				distance: 85
 			}
 		},
+		15: { // Charging Lunge
+			0: {
+				length: 1125,
+				distance: 474.5,
+				isDash: true
+			},
+			1: { length: 925 }
+		},
 		16: { // Second Wind
 			0: {
 				fixedSpeed: 1,
@@ -272,6 +281,12 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 800
+			}
+		},
+		23: { // Master's Leash
+			0: {
+				length: [725, 850],
+				requiredBuff: 201000
 			}
 		},
 		24: { // Chained Leash
@@ -423,18 +438,18 @@ module.exports = {
 				distance: 80
 			}
 		},
-		14: { // Distant Blade - Desync on 2nd and 3rd hit occurs randomly
+		14: { // Distant Blade
 			0: {
 				length: 600,
-				distance: [-75, 75]
+				distance: 75
 			},
 			1: {
 				length: 600,
-				distance: [-75, 75],
+				distance: 100.02,
 			},
 			2: {
 				length: 1500,
-				distance: [-120, 120]
+				distance: 104.82
 			}
 		},
 		15: { // Startling Kick
