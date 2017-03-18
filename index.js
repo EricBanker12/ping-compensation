@@ -5,8 +5,8 @@ const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
-	DEBUG					= false,
-	DEBUG_LOC				= false,
+	DEBUG					= true,
+	DEBUG_LOC				= true,
 	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data').sysmsg,
@@ -33,7 +33,7 @@ module.exports = function SkillPrediction(dispatch) {
 		currentAction = null,
 		serverAction = null,
 		lastEndType = 0,
-		lastEmulatedEnd = 0,
+		lastEndedId = 0,
 		stageTimeout = null,
 		debugActionTime = 0
 
@@ -50,13 +50,14 @@ module.exports = function SkillPrediction(dispatch) {
 		currentAction = null
 		serverAction = null
 		lastEndType = 0
-		lastEmulatedEnd = 0
+		lastEndedId = 0
 		clearTimeout(stageTimeout)
 	})
 
 	dispatch.hook('sPlayerStatUpdate', event => {
 		// Newer classes use a different speed algorithm
 		aspd = (event.baseAttackSpeed + event.bonusAttackSpeed) / (job >= 8 ? 100 : event.baseAttackSpeed)
+		currentStamina = event.curRe
 	})
 
 	dispatch.hook('sCrestInfo', event => {
@@ -255,7 +256,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.instantStamina) currentStamina -= stamina
 		}
 
-		sendActionStage(skill, type == 'cStartSkill' && event.unk2 == 1, info, 0, speed, 0, distanceMult)
+		sendActionStage(type, event, skill, info, 0, speed, 0, distanceMult)
 
 		if(send) dispatch.toServer(type, event)
 
@@ -319,11 +320,13 @@ module.exports = function SkillPrediction(dispatch) {
 				return false
 			}
 
+			serverAction = event
+
+			if(event.id == lastEndedId) return false
+
 			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndType)
 
-			serverAction = currentAction = event
-			lastEndType = 6
-
+			currentAction = event
 			updateLocation()
 		}
 	})
@@ -331,15 +334,15 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('sActionEnd', event => {
 		if(event.source.equals(cid)) {
 			if(DEBUG) {
-				if(DEBUG_LOC) console.log('<- sActionEnd %s %d %d\xb0 %du %dms (%dms)', skillId(event.skill), event.type, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEmulatedEnd || skillInfo(event.skill)) ? 'X' : '')
-				else console.log('<- sActionEnd %s %d %du %dms (%dms)', skillId(event.skill), event.type, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEmulatedEnd || skillInfo(event.skill)) ? 'X' : '')
+				if(DEBUG_LOC) console.log('<- sActionEnd %s %d %d\xb0 %du %dms (%dms)', skillId(event.skill), event.type, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
+				else console.log('<- sActionEnd %s %d %du %dms (%dms)', skillId(event.skill), event.type, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
 			}
 
 			serverAction = null
 			lastEndType = event.type
 
-			if(event.id == lastEmulatedEnd) {
-				lastEmulatedEnd = 0
+			if(event.id == lastEndedId) {
+				lastEndedId = 0
 				return false
 			}
 
@@ -389,10 +392,11 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	function sendActionStage(skill, moving, info, stage, speed, distance, distanceMult) {
+	function sendActionStage(type, event, skill, info, stage, speed, distance, distanceMult) {
 		movePlayer(distance * distanceMult)
 
-		let movement = null
+		let moving = type == 'cStartSkill' && event.unk2 == 1,
+			movement = null
 
 		if(Array.isArray(info.length))
 			movement = !moving && get(info, 'inPlace', 'movement', stage) || get(info, 'movement', stage) || []
@@ -437,7 +441,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-				stageTimeout = setTimeout(sendActionStage, length, skill, moving, info, stage + 1, speed, nextDistance, distanceMult)
+				stageTimeout = setTimeout(sendActionStage, length, type, event, skill, info, stage + 1, speed, nextDistance, distanceMult)
 				return
 			}
 		}
@@ -452,8 +456,17 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
+		if(info.isDash && nextDistance) {
+			let calcDistance = Math.sqrt(Math.pow(event.x2 - lastStartLocation.x, 2) + Math.pow(event.y2 - lastStartLocation.y, 2))
+
+			if(calcDistance < nextDistance) {
+				length *= calcDistance / nextDistance
+				nextDistance = calcDistance
+			}
+		}
+
 		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-		stageTimeout = setTimeout(sendActionEnd, length, 0, nextDistance * distanceMult)
+		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, nextDistance * distanceMult)
 	}
 
 	function sendActionEnd(type, distance) {
@@ -482,7 +495,7 @@ module.exports = function SkillPrediction(dispatch) {
 			id: currentAction.id
 		})
 
-		if(currentAction.id != actionNumber) lastEmulatedEnd = currentAction.id
+		if(currentAction.id != actionNumber) lastEndedId = currentAction.id
 
 		actionNumber++
 		oopsLocation = currentAction = null
