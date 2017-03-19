@@ -231,6 +231,7 @@ module.exports = {
 		},
 		15: { // Charging Lunge
 			0: {
+				fixedSpeed: 1,
 				length: 1125,
 				distance: 474.5,
 				isDash: true
