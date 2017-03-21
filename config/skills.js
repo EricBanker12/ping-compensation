@@ -358,7 +358,7 @@ module.exports = {
 			0: {
 				length: 3100,
 				distance: 220.47,
-				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 17, 24, 25],
+				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 13, 15, 16, 17, 24, 25],
 				chains: {
 					14: 30
 				}
@@ -392,7 +392,7 @@ module.exports = {
 			0: {
 				length: 3365,
 				distance: 170,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, 17, 25],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 25],
 				abnormals: {
 					300801: {skill: 250100}
 				},
@@ -403,7 +403,7 @@ module.exports = {
 					9: 30,
 					12: 30,
 					13: 30,
-					'14-2': 30,
+					14: 30,
 					15: 30,
 					16: 30,
 					24: 30
@@ -435,8 +435,8 @@ module.exports = {
 		},
 		13: { // Stunning Backhand
 			0: {
-				length: 2115,
-				distance: 80
+				length: 2125,
+				distance: 76.71
 			}
 		},
 		14: { // Distant Blade
@@ -468,12 +468,14 @@ module.exports = {
 				distance: 140
 			}
 		},
-		/*17: { // Headlong Rush
+		17: { // Headlong Rush
 			0: {
+				fixedSpeed: 1,
 				length: 1000,
-				distance: 413
+				distance: 413,
+				isDash: true
 			}
-		},*/
+		},
 		18: { // Overpower
 			0: {
 				fixedSpeed: 1,
