@@ -1,4 +1,4 @@
-const DEBUG = false
+const DEBUG = true
 
 const handled = require('./config/abnormalities')
 
@@ -10,14 +10,14 @@ class AbnormalityPrediction {
 		this.myAbnormals =
 		null
 
-		dispatch.hook('sLogin', event => {
+		dispatch.hook('S_LOGIN', 1, event => {
 			this.cid = event.cid
 			this.myAbnormals = {}
 		})
 
-		let abnormalityUpdate = event => {
+		let abnormalityUpdate = (type, event) => {
 			if(event.target.equals(this.cid)) {
-				if(DEBUG) console.log('<- Abnormality', event.id, event.duration, event.stacks)
+				if(DEBUG) console.log('<-', type, event.id, event.duration, event.stacks)
 
 				if(handled[event.id]) return false
 
@@ -25,13 +25,13 @@ class AbnormalityPrediction {
 			}
 		}
 
-		dispatch.hook('sAbnormalityBegin', abnormalityUpdate)
-		dispatch.hook('sAbnormalityRefresh', abnormalityUpdate)
+		dispatch.hook('S_ABNORMALITY_BEGIN', 1, abnormalityUpdate.bind(null, 'S_ABNORMALITY_BEGIN'))
+		dispatch.hook('S_ABNORMALITY_REFRESH', 1, abnormalityUpdate.bind(null, 'S_ABNORMALITY_REFRESH'))
 
-		dispatch.hook('sAbnormalityEnd', event => {
+		dispatch.hook('S_ABNORMALITY_END', 1, event => {
 
 			if(event.target.equals(this.cid)) {
-				if(DEBUG) console.log('<- AbnormalityEnd', event.id)
+				if(DEBUG) console.log('<- S_ABNORMALITY_END', event.id)
 
 				if(handled[event.id]) return false
 
@@ -45,9 +45,11 @@ class AbnormalityPrediction {
 	}
 
 	add(id, duration, stacks) {
-		if(DEBUG) console.log('<* Abnormality', id, duration, stacks)
+		let type = this.myAbnormals[id] ? 'S_ABNORMALITY_REFRESH' : 'S_ABNORMALITY_BEGIN'
 
-		this.dispatch.toClient(this.myAbnormals[id] ? 'sAbnormalityRefresh' : 'sAbnormalityBegin', {
+		if(DEBUG) console.log('<*', type, id, duration, stacks)
+
+		this.dispatch.toClient(type, 1, {
 			target: this.cid,
 			source: this.cid,
 			id,
@@ -60,9 +62,9 @@ class AbnormalityPrediction {
 	}
 
 	remove(id) {
-		if(DEBUG) console.log('<* AbnormalityEnd', id)
+		if(DEBUG) console.log('<* S_ABNORMALITY_END', id)
 
-		this.dispatch.toClient('sAbnormalityEnd', {
+		this.dispatch.toClient('S_ABNORMALITY_END', 1, {
 			target: this.cid,
 			id
 		})
