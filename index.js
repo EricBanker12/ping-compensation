@@ -9,7 +9,7 @@ const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
-const sysmsg = require('tera-data').sysmsg,
+const sysmsg = require('tera-data-parser').sysmsg,
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills')
 
@@ -38,7 +38,7 @@ module.exports = function SkillPrediction(dispatch) {
 		stageTimeout = null,
 		debugActionTime = 0
 
-	dispatch.hook('sLogin', event => {
+	dispatch.hook('S_LOGIN', 1, event => {
 		skillsCache = {}
 		;({cid, model} = event)
 		job = (model - 10101) % 100
@@ -46,7 +46,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(DEBUG) console.log('Class', job)
 	})
 
-	dispatch.hook('sLoadTopo', () => {
+	dispatch.hook('S_LOAD_TOPO', 1, event => {
 		actionNumber = 0x8000000
 		currentAction = null
 		serverAction = null
@@ -55,28 +55,28 @@ module.exports = function SkillPrediction(dispatch) {
 		clearTimeout(stageTimeout)
 	})
 
-	dispatch.hook('sPlayerStatUpdate', event => {
+	dispatch.hook('S_PLAYER_STAT_UPDATE', 1, event => {
 		// Newer classes use a different speed algorithm
 		aspd = (event.baseAttackSpeed + event.bonusAttackSpeed) / (job >= 8 ? 100 : event.baseAttackSpeed)
 		currentStamina = event.curRe
 	})
 
-	dispatch.hook('sCrestInfo', event => {
+	dispatch.hook('S_CREST_INFO', 1, event => {
 		currentGlyphs = {}
 
 		for(let glyph of event.glyphs)
 			currentGlyphs[glyph.id] = glyph.enabled
 	})
 
-	dispatch.hook('sCrestApply', event => {
+	dispatch.hook('S_CREST_APPLY', 1, event => {
 		if(DEBUG_GLYPH) console.log('Glyph', event.id, event.enabled)
 
 		currentGlyphs[event.id] = event.enabled
 	})
 
-	dispatch.hook('sPlayerChangeStamina', event => { currentStamina = event.currentRe })
+	dispatch.hook('S_PLAYER_CHANGE_STAMINA', 1, event => { currentStamina = event.current })
 
-	dispatch.hook('cPlayerLocation', event => {
+	dispatch.hook('C_PLAYER_LOCATION', 1, event => {
 		if(DEBUG_LOC) console.log('Location %d %d (%d %d %d %d) > (%d %d %d)', event.type, event.speed, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), event.w, Math.round(event.x2), Math.round(event.y2), Math.round(event.z2))
 
 		if(currentAction) {
@@ -94,11 +94,11 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('cNotifyLocationInAction', notifyLocation.bind(null, 'cNotifyLocationInAction'))
-	dispatch.hook('cNotifyLocationInDash', notifyLocation.bind(null, 'cNotifyLocationInDash'))
+	dispatch.hook('C_NOTIFY_LOCATION_IN_ACTION', 1, notifyLocation.bind(null, 'C_NOTIFY_LOCATION_IN_ACTION', 1))
+	dispatch.hook('C_NOTIFY_LOCATION_IN_DASH', 1, notifyLocation.bind(null, 'C_NOTIFY_LOCATION_IN_DASH', 1))
 
-	function notifyLocation(type, event) {
-		if(DEBUG_LOC) console.log('<- cNotifyLocationInAction %s %d (%d %d %d %d)', skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
+	function notifyLocation(type, version, event) {
+		if(DEBUG_LOC) console.log('<- %s %s %d (%d %d %d %d)', type, skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
 
 		currentLocation = {
 			x: event.x,
@@ -113,48 +113,48 @@ module.exports = function SkillPrediction(dispatch) {
 		if(info && SKILL_RETRY_MS && !info.noRetry)
 			setTimeout(() => {
 				if(currentAction && currentAction.skill == event.skill && (!serverAction || serverAction.skill != event.skill))
-					dispatch.toServer('cNotifyLocationInAction', event)
+					dispatch.toServer(type, version, event)
 			}, SKILL_RETRY_MS)
 	}
 
-	dispatch.hook('cStartSkill', startSkill.bind(null, 'cStartSkill'))
-	dispatch.hook('cStartTargetedSkill', startSkill.bind(null, 'cStartTargetedSkill'))
-	dispatch.hook('cStartComboInstantSkill', startSkill.bind(null, 'cStartComboInstantSkill'))
-	dispatch.hook('cStartInstanceSkill', startSkill.bind(null, 'cStartInstanceSkill'))
-	dispatch.hook('cPressSkill', startSkill.bind(null, 'cPressSkill'))
+	dispatch.hook('C_START_SKILL', 1, startSkill.bind(null, 'C_START_SKILL', 1))
+	dispatch.hook('C_START_TARGETED_SKILL', 1, startSkill.bind(null, 'C_START_TARGETED_SKILL', 1))
+	dispatch.hook('C_START_COMBO_INSTANT_SKILL', 1, startSkill.bind(null, 'C_START_COMBO_INSTANT_SKILL', 1))
+	dispatch.hook('C_START_INSTANCE_SKILL', 1, startSkill.bind(null, 'C_START_INSTANCE_SKILL', 1))
+	dispatch.hook('C_PRESS_SKILL', 1, startSkill.bind(null, 'C_PRESS_SKILL', 1))
 
-	function startSkill(type, event) {
+	function startSkill(type, version, event) {
 		let delayed = delayNext && delayNextEnd >= Date.now()
 
 		if(DEBUG)
 			if(DEBUG_LOC) {
-				if(type == 'cStartSkill' || type == 'cStartTargetedSkill') console.log('-> %s %s %d\xb0 (%d %d %d) > (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), Math.round(event.x2), Math.round(event.y2), Math.round(event.z2), delayed ? 'Delayed' : '')
-				else if(type == 'cPressSkill') console.log('-> %s %s %d\xb0 (%d %d %d)', type, skillId(event.skill), event.start, event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
+				if(type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL') console.log('-> %s %s %d\xb0 (%d %d %d) > (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), Math.round(event.x2), Math.round(event.y2), Math.round(event.z2), delayed ? 'Delayed' : '')
+				else if(type == 'C_PRESS_SKILL') console.log('-> %s %s %d\xb0 (%d %d %d)', type, skillId(event.skill), event.start, event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
 				else console.log('-> %s %s %d %d\xb0 (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
 			}
-			else if(type == 'cPressSkill') console.log('->', type, skillId(event.skill), event.start, delayed ? 'Delayed' : '')
-			else if(type == 'cStartSkill') console.log('->', type, skillId(event.skill), event.unk1, event.unk2, event.unk3, delayed ? 'Delayed' : '')
+			else if(type == 'C_PRESS_SKILL') console.log('->', type, skillId(event.skill), event.start, delayed ? 'Delayed' : '')
+			else if(type == 'C_START_SKILL') console.log('->', type, skillId(event.skill), event.unk1, event.unk2, event.unk3, delayed ? 'Delayed' : '')
 			else console.log('->', type, skillId(event.skill), delayed ? 'Delayed' : '')
 
 		if(delayed) {
 			clearTimeout(delayNextTimeout)
-			delayNextTimeout = setTimeout(sendStartSkill, SKILL_RETRY_MS, type, event, true)
+			delayNextTimeout = setTimeout(sendStartSkill, SKILL_RETRY_MS, type, version, event, true)
 			return false
 		}
 
-		return sendStartSkill(type, event)
+		return sendStartSkill(type, version, event)
 	}
 
-	function sendStartSkill(type, event, send) {
+	function sendStartSkill(type, version, event, send) {
 		delayNext = false
 
 		let info = skillInfo(event.skill)
 		if(!info) {
-			if(type != 'cPressSkill' || event.start)
+			if(type != 'C_PRESS_SKILL' || event.start)
 				// Sometimes invalid (if this skill can't be used, but we have no way of knowing that)
-				updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
+				updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
 
-			if(send) dispatch.toServer(type, event)
+			if(send) dispatch.toServer(type, version, event)
 			return
 		}
 
@@ -162,13 +162,13 @@ module.exports = function SkillPrediction(dispatch) {
 			skillBase = Math.floor((skill - 0x4000000) / 10000),
 			interruptType = 0
 
-		if(type == 'cPressSkill' && !event.start) {
+		if(type == 'C_PRESS_SKILL' && !event.start) {
 			if(info.instantPressAndHold && currentAction && currentAction.skill == skill) {
 				updateLocation(event)
 				sendActionEnd(10)
 			}
 
-			if(send) dispatch.toServer(type, event)
+			if(send) dispatch.toServer(type, version, event)
 			return
 		}
 
@@ -197,9 +197,9 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skill != event.skill) {
 			info = skillInfo(skill)
 			if(!info) {
-				updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
+				updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
 
-				if(send) dispatch.toServer(type, event)
+				if(send) dispatch.toServer(type, version, event)
 				return
 			}
 		}
@@ -207,7 +207,7 @@ module.exports = function SkillPrediction(dispatch) {
 		// TODO: System Message
 		if(info.requiredBuff && !abnormality.exists(info.requiredBuff)) return false
 
-		updateLocation(event, false, type == 'cStartSkill' || type == 'cStartTargetedSkill')
+		updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
 		lastStartLocation = currentLocation
 
 		let abnormalSpeed = 1,
@@ -227,7 +227,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skill != event.skill) {
 			info = skillInfo(skill)
 			if(!info) {
-				if(send) dispatch.toServer(type, event)
+				if(send) dispatch.toServer(type, version, event)
 				return
 			}
 		}
@@ -250,7 +250,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(stamina) {
 			if(currentStamina < stamina) {
-				//dispatch.toClient('sSystemMessage', { message: '@' + sysmsg.map.name['smtBattleSkillFailLowStamina'] })
+				//dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['smtBattleSkillFailLowStamina'] })
 				return false
 			}
 
@@ -259,7 +259,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		sendActionStage(type, event, skill, info, 0, speed, 0, distanceMult)
 
-		if(send) dispatch.toServer(type, event)
+		if(send) dispatch.toServer(type, version, event)
 
 		// Normally the user can press the skill button again if it doesn't go off
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
@@ -267,12 +267,12 @@ module.exports = function SkillPrediction(dispatch) {
 			setTimeout(() => {
 				// Note: May fail with high ping and casting the same skill multiple times in very quick succession (ie. Lancer Combo Attack)
 				if(currentAction && currentAction.skill == skill && (!serverAction || serverAction.skill != skill))
-					dispatch.toServer(type, event)
+					dispatch.toServer(type, version, event)
 			}, SKILL_RETRY_MS)
 	}
 
-	dispatch.hook('cCancelSkill', event => {
-		if(DEBUG) console.log('-> cCancelSkill', skillId(event.skill), event.type)
+	dispatch.hook('C_CANCEL_SKILL', 1, event => {
+		if(DEBUG) console.log('-> C_CANCEL_SKILL', skillId(event.skill), event.type)
 
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill) // event.skill can be wrong, so use the known current skill instead
@@ -280,7 +280,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('sActionStage', event => {
+	dispatch.hook('S_ACTION_STAGE', 1, event => {
 		if(event.source.equals(cid)) {
 			if(DEBUG) {
 				movement = []
@@ -291,11 +291,11 @@ module.exports = function SkillPrediction(dispatch) {
 				movement = '(' + movement.join(', ') + ')'
 
 				if(DEBUG_LOC) {
-					if(serverAction) console.log('<- sActionStage %s %d %dx %d\xb0 %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
-					else console.log('<- sActionStage %s %d %dx %d\xb0', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
+					if(serverAction) console.log('<- S_ACTION_STAGE %s %d %dx %d\xb0 %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
+					else console.log('<- S_ACTION_STAGE %s %d %dx %d\xb0', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
 				}
-				else if(serverAction) console.log('<- sActionStage %s %d %dx %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
-				else console.log('<- sActionStage %s %d %dx', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
+				else if(serverAction) console.log('<- S_ACTION_STAGE %s %d %dx %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
+				else console.log('<- S_ACTION_STAGE %s %d %dx', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
 
 				debugActionTime = Date.now()
 			}
@@ -313,7 +313,7 @@ module.exports = function SkillPrediction(dispatch) {
 					if(!currentAction || currentAction.skill != event.skill) sendInstantMove(oopsLocation)
 				}
 
-				// If the server sends 2 sActionStage in a row without a sActionEnd between them and the last one is an emulated skill,
+				// If the server sends 2 S_ACTION_STAGE in a row without a S_ACTION_END between them and the last one is an emulated skill,
 				// this stops your character from being stuck in the first animation (although slight desync will occur)
 				if(serverAction && serverAction == currentAction && !skillInfo(currentAction.skill)) sendActionEnd(6)
 
@@ -332,11 +332,11 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('sActionEnd', event => {
+	dispatch.hook('S_ACTION_END', 1, event => {
 		if(event.source.equals(cid)) {
 			if(DEBUG) {
-				if(DEBUG_LOC) console.log('<- sActionEnd %s %d %d\xb0 %du %dms (%dms)', skillId(event.skill), event.type, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
-				else console.log('<- sActionEnd %s %d %du %dms (%dms)', skillId(event.skill), event.type, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
+				if(DEBUG_LOC) console.log('<- S_ACTION_END %s %d %d\xb0 %du %dms (%dms)', skillId(event.skill), event.type, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
+				else console.log('<- S_ACTION_END %s %d %du %dms (%dms)', skillId(event.skill), event.type, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
 			}
 
 			serverAction = null
@@ -377,15 +377,15 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 
 			if(!currentAction)
-				console.log('[SkillPrediction] sActionEnd: currentAction is null', skillId(event.skill), event.id)
+				console.log('[SkillPrediction] S_ACTION_END: currentAction is null', skillId(event.skill), event.id)
 			else if(event.skill != currentAction.skill)
-				console.log('[SkillPrediction] sActionEnd: skill mismatch', skillId(currentAction.skill), skillId(event.skill), currentAction.id, event.id)
+				console.log('[SkillPrediction] S_ACTION_END: skill mismatch', skillId(currentAction.skill), skillId(event.skill), currentAction.id, event.id)
 
 			currentAction = null
 		}
 	})
 
-	dispatch.hook('sEachSkillResult', event => {
+	dispatch.hook('S_EACH_SKILL_RESULT', 1, event => {
 		if(event.target.equals(cid) && event.setTargetAction) {
 			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndType)
 
@@ -403,8 +403,8 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('sCannotStartSkill', event => {
-		if(DEBUG) console.log('<- sCannotStartSkill', skillId(event.skill, true))
+	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
+		if(DEBUG) console.log('<- S_CANNOT_START_SKILL', skillId(event.skill, true))
 
 		if(skillInfo(event.skill, true)) {
 			if(SKILL_DELAY_NEXT && SKILL_RETRY_MS && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
@@ -417,7 +417,7 @@ module.exports = function SkillPrediction(dispatch) {
 	function sendActionStage(type, event, skill, info, stage, speed, distance, distanceMult) {
 		movePlayer(distance * distanceMult)
 
-		let moving = type == 'cStartSkill' && event.unk2 == 1,
+		let moving = type == 'C_START_SKILL' && event.unk2 == 1,
 			movement = null
 
 		if(Array.isArray(info.length))
@@ -425,7 +425,7 @@ module.exports = function SkillPrediction(dispatch) {
 		else
 			movement = !moving && get(info, 'inPlace', 'movement') || info.movement || []
 
-		dispatch.toClient('sActionStage', currentAction = {
+		dispatch.toClient('S_ACTION_STAGE', 1, currentAction = {
 			source: cid,
 			x: currentLocation.x,
 			y: currentLocation.y,
@@ -497,12 +497,12 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(!currentAction) return
 
-		if(DEBUG) console.log('<* sActionEnd %s %d %d\xb0 %du', skillId(currentAction.skill), type || 0, currentLocation.w, distance || 0)
+		if(DEBUG) console.log('<* S_ACTION_END %s %d %d\xb0 %du', skillId(currentAction.skill), type || 0, currentLocation.w, distance || 0)
 
 		if(oopsLocation && (FORCE_CLIP_STRICT || !currentLocation.inAction)) sendInstantMove(oopsLocation)
 		else movePlayer(distance)
 
-		dispatch.toClient('sActionEnd', {
+		dispatch.toClient('S_ACTION_END', 1, {
 			source: cid,
 			x: currentLocation.x,
 			y: currentLocation.y,
@@ -527,7 +527,7 @@ module.exports = function SkillPrediction(dispatch) {
 	function sendInstantMove(location) {
 		if(location) currentLocation = location
 
-		dispatch.toClient('sInstantMove', {
+		dispatch.toClient('S_INSTANT_MOVE', 1, {
 			id: cid,
 			x: currentLocation.x,
 			y: currentLocation.y,
