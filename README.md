@@ -15,26 +15,33 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.16.0
+* [+] Re-Added Slayer: Headlong Rush
+* [~] Updated for new tera-data-parser
+* [~] Removed Z axis fom dash teleport correction
+* [*] Fixed Lancer: Charging Lunge speed
+* [*] Fixed chains and length for a few Slayer skills
+
 ### 1.15.0
-+ [+] Added Dash & Teleport support
-+ [+] Added Lancer: Charging Lunge, Master's Leash
-+ [+] Added Slayer: Evasive Roll
-+ [+] Added Reaper: Sundering Strike
-+ [+] Added Mystic: Teleport Jaunt
-+ [*] Fixed interrupting multi-stage actions
-+ [*] Fixed clipping for iframes with negative movement
-+ [*] Fixed Slayer: Combo Attack
-+ [*] Fixed Slayer: Knockdown Strike interrupting Headlong Rush
+* [+] Added Dash & Teleport support
+* [+] Added Lancer: Charging Lunge, Master's Leash
+* [+] Added Slayer: Evasive Roll
+* [+] Added Reaper: Sundering Strike
+* [+] Added Mystic: Teleport Jaunt
+* [*] Fixed interrupting multi-stage actions
+* [*] Fixed clipping for iframes with negative movement
+* [*] Fixed Slayer: Combo Attack
+* [*] Fixed Slayer: Knockdown Strike interrupting Headlong Rush
 
 ### 1.14.1:
-+ [*] Add forced clipping to iframes (fixes being able to iframe through gates)
-+ [*] Support C_NOTIFY_LOCATION_IN_DASH
-+ [*] Fixed incorrect parameters for multi-part skills
-+ [*] Fixed Slayer: Combo Attack
-+ [*] Temporarily disabled Slayer: Headlong Rush
+* [*] Add forced clipping to iframes (fixes being able to iframe through gates)
+* [*] Support C_NOTIFY_LOCATION_IN_DASH
+* [*] Fixed incorrect parameters for multi-part skills
+* [*] Fixed Slayer: Combo Attack
+* [*] Temporarily disabled Slayer: Headlong Rush
 
 ### 1.14.0:
-+ [+] Added Slayer: Combo Attack
+* [+] Added Slayer: Combo Attack
 * [*] Fixed emulation of cast-while-moving (Reaper: Grim Strike, Smite)
 * [*] Fixed Slayer: Heart Thrust, Stunning Backhand, Fury Strike, Whirlwind, Startling Kick, Headlong Rush, Leaping Strike, Overpower, In Cold Blood, Dash, Tenacity
 * [*] Fixed Slayer: Knockdown Strike speed buff
