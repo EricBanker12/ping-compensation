@@ -183,7 +183,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub)))
 				return false
 
-			if(currentSkill == 68209065 || currentSkill == 68209066) return false // Stagger, Knockdown
+			if(currentSkillBase == 6820) return false // Stagger, Knockdown
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
