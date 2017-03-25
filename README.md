@@ -3,18 +3,26 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 ## Current supported class skills
 * Lancer: All besides Shield Counter
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
-* Warrior: Combative Strike, Traverse Cut, Blade Draw, Poison Blade, Scythe, Rain of Blows, Leaping Strike
+* Warrior: Combative Strike, Traverse Cut, Blade Draw, Poison Blade, Scythe, Rain of Blows, Torrent of Blows, Leaping Strike
 * Slayer: All besides Combo Attack, Evasive Roll, Exhausting Blow and Backstab
 * Berserker: Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
 * Sorcerer: Most combat besides Arcane Pulse
 * Archer: Most besides Chase
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
-* Ninja: Combo Attack, Burning Heart, Leaves on the Wind, Death Blossom, Attunement, Focus
+* Ninja: Combo Attack, Double Cut, Burning Heart, Fire Avalanche, Jagged Path, Leaves on the Wind, Death Blossom, Attunement, Focus
 * Priest: All besides Mana Charge
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.17.0
+* [+] Allow array for requiredBuff
+* [+] Added Warrior: Torrent of Blows
+* [+] Added Ninja: Fire Avalanche, Jagged Path
+* [*] Fixed Warrior: Cross Parry with pre-65 Defensive Stance
+* [*] Fixed Slayer: Several chains
+* [*] Fixed Reaper: Smite > Double Shear chain
+
 ### 1.16.1
 * [~] Abnormality system updated for new tera-data-parser
 * [*] Stagger/knockdown is now detected by skill group
