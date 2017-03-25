@@ -1262,7 +1262,7 @@ module.exports = {
 		3: { // Double Shear
 			'*': {
 				length: 2025,
-				noInterrupt: ['1-0', '1-1', '1-2', 3, 4, 9, 12],
+				noInterrupt: ['1-0', '1-1', '1-2', 3, 4, 9, 12, 20],
 				abnormals: {
 					29030: { speed: 1.25 }
 				},
@@ -1296,7 +1296,7 @@ module.exports = {
 					],
 					distance: [0, 0, 0]
 				},
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12],
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
 				chains: {
 					3: 30,
 					5: 30,
@@ -1343,7 +1343,7 @@ module.exports = {
 			},
 			0: {
 				length: [2400, 975],
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 12],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 12, 20],
 				chains: {
 					1: 30,
 					3: 30,
@@ -1384,7 +1384,7 @@ module.exports = {
 		8: { // Whipsaw
 			'*': {
 				length: 2500,
-				noInterrupt: [4, 5, 6, 8, 9, 11, 12],
+				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 20],
 				chains: {
 					1: 30,
 					3: 30,
@@ -1407,7 +1407,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12]
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 20]
 			}
 		},
 		10: { // Pendulum Strike
@@ -1438,7 +1438,7 @@ module.exports = {
 			},
 			0: {
 				length: 3225,
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11],
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 20],
 				chains: {
 					12: 1
 				}
