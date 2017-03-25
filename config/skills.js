@@ -1928,6 +1928,19 @@ module.exports = {
 		3: { // Leaves on the Wind
 			0: { length: 1275 }
 		},
+		4: { // Jagged Path
+			1: {
+				fixedSpeed: 1,
+				length: 665,
+				distance: 469,
+				isDash: true
+			},
+			10: { length: 1500 },
+			11: {
+				length: 300,
+				distance: 150
+			}
+		},
 		8: { // Fire Avalanche
 			'*': {
 				length: [1375, 325],
