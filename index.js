@@ -128,7 +128,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(DEBUG)
 			if(DEBUG_LOC) {
-				if(type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL') console.log('-> %s %s %d\xb0 (%d %d %d) > (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), Math.round(event.x2), Math.round(event.y2), Math.round(event.z2), delayed ? 'Delayed' : '')
+				if(type == 'C_START_SKILL') console.log('-> %s %s %d %d %d %d\xb0 (%d %d %d) > (%d %d %d)', type, skillId(event.skill), event.unk1, event.unk2, event.unk3, event.w, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), Math.round(event.x2), Math.round(event.y2), Math.round(event.z2), delayed ? 'Delayed' : '')
+				else if(type == 'C_START_TARGETED_SKILL') console.log('-> %s %s %d\xb0 (%d %d %d) > (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), Math.round(event.x2), Math.round(event.y2), Math.round(event.z2), delayed ? 'Delayed' : '')
 				else if(type == 'C_PRESS_SKILL') console.log('-> %s %s %d\xb0 (%d %d %d)', type, skillId(event.skill), event.start, event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
 				else console.log('-> %s %s %d %d\xb0 (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
 			}
@@ -206,7 +207,20 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		// TODO: System Message
-		if(info.requiredBuff && !abnormality.exists(info.requiredBuff)) return false
+		if(info.requiredBuff) {
+			if(Array.isArray(info.requiredBuff)) {
+				let found = false
+
+				for(let buff of info.requiredBuff)
+					if(abnormality.exists(buff)) {
+						found = true
+						break
+					}
+
+				if(!found) return false
+			}
+			else if(!abnormality.exists(info.requiredBuff)) return false
+		}
 
 		updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
 		lastStartLocation = currentLocation
