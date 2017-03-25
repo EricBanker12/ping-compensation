@@ -126,7 +126,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				instantPressAndHold: true,
-				requiredBuff: 100203,
+				requiredBuff: [100200, 100201, 100202, 100203],
 				stamina: 50
 			}
 		},
