@@ -5,6 +5,12 @@
 
 module.exports = {
 	0: { // Warrior
+		3: { // Torrent of Blows
+			0: {
+				length: 1600,
+				distance: 68.26
+			}
+		},
 		4: { // Rain of Blows
 			'*': { distance: 151.87 },
 			0: {
