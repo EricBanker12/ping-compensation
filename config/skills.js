@@ -1928,6 +1928,22 @@ module.exports = {
 		3: { // Leaves on the Wind
 			0: { length: 1275 }
 		},
+		8: { // Fire Avalanche
+			'*': {
+				length: [1375, 325],
+				noRetry: true
+			},
+			0: {
+				length: [700, 1375, 325],
+				distance: [0, 367.31, 0],
+				abnormals: {
+					10154080: { chain: 1 },
+					10154081: { chain: 2 }
+				}
+			},
+			1: { distance: [411.39, 0] },
+			2: { distance: [455.47, 0] }
+		},
 		11: { // Focus
 			0: { length: 1430 },
 			50: { length: 1430 }
