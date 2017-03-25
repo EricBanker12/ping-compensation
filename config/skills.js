@@ -400,7 +400,7 @@ module.exports = {
 				distance: 170,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 25],
 				abnormals: {
-					300801: {skill: 250100}
+					300801: { skill: 250100 }
 				},
 				chains: {
 					1: 30,
@@ -419,7 +419,7 @@ module.exports = {
 				length: 1325,
 				distance: 169.65,
 				abnormals: {
-					300801: {skill: 250130}
+					300801: { skill: 250130 }
 				}
 			}
 		},
@@ -434,8 +434,8 @@ module.exports = {
 				length: 2315,
 				distance: 230,
 				abnormals: {
-					23060: {speed: 1.25},
-					23061: {speed: 1.35}
+					23060: { speed: 1.25 },
+					23061: { speed: 1.35 }
 				}
 			}
 		},
@@ -506,6 +506,7 @@ module.exports = {
 			},
 			0: {
 				length: 3685,
+				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
 				chains: {
 					8: 30,
 					24: 30,
@@ -520,8 +521,9 @@ module.exports = {
 			},
 			0: {
 				length: 1900,
-				noInterrupt: [4, 6, 22, 24],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 22, 24],
 				chains: {
+					1: 30,
 					2: 30,
 					3: 30,
 					8: 30,
@@ -538,22 +540,7 @@ module.exports = {
 			'*': {
 				distance: 170
 			},
-			0: {
-				length: 3365,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 8, 17, 22, 25],
-				chains: {
-					'1-3': 30,
-					2: 30,
-					3: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					'14-2': 30,
-					15: 30,
-					16: 30,
-					24: 30
-				}
-			},
+			0: { length: 3365 },
 			30: { length: 1300 }
 		}
 	},
