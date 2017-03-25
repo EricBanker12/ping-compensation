@@ -465,7 +465,7 @@ module.exports = {
 		16: { // Fury Strike
 			0: {
 				length: 1000,
-				distance: 140
+				distance: 142.53
 			}
 		},
 		17: { // Headlong Rush
@@ -1406,7 +1406,8 @@ module.exports = {
 						distance: 0
 					}],
 					distance: 0
-				}
+				},
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12]
 			}
 		},
 		10: { // Pendulum Strike
