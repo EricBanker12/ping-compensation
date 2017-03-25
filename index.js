@@ -1,7 +1,7 @@
 const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 										Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 									*/
-	SKILL_DELAY_NEXT		= true,	//	Desync compensation
+	SKILL_DELAY_NEXT		= true, //	Desync compensation
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
@@ -183,7 +183,8 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub)))
 				return false
 
-			if(currentSkillBase == 6820) return false // Stagger, Knockdown
+			// 6819 = Pushback, Stun - 6820 = Stagger, Knockdown
+			if(currentSkillBase == 6819 || currentSkillBase == 6820) return false
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
