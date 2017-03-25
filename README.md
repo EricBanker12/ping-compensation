@@ -15,6 +15,13 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.16.1
+* [~] Abnormality system updated for new tera-data-parser
+* [*] Stagger/knockdown is now detected by skill group
+* [*] Disable skills during pushback/stun
+* [*] Fixed Warrior: Several skills interrupting Backstab
+* [*] Fixed Reaper: Several skills interrupting Cable Step, and Smite interrupting several skills
+
 ### 1.16.0
 * [+] Re-Added Slayer: Headlong Rush
 * [~] Updated for new tera-data-parser
