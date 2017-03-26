@@ -23,6 +23,8 @@ module.exports = function SkillPrediction(dispatch) {
 		aspd = 1,
 		currentGlyphs = null,
 		currentStamina = 0,
+		inventory = null,
+		equippedWeapon = false,
 		delayNext = false,
 		delayNextEnd = 0,
 		delayNextTimeout = null,
@@ -75,6 +77,19 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_PLAYER_CHANGE_STAMINA', 1, event => { currentStamina = event.current })
+
+	dispatch.hook('S_INVEN', 2, event => {
+		inventory = !inventory ? event.items : inventory.concat(event.items)
+
+		if(!event.more) {
+			equippedWeapon = false
+
+			for(let item of inventory)
+				if(item.slot == 1) equippedWeapon = true
+
+			inventory = null
+		}
+	})
 
 	dispatch.hook('C_PLAYER_LOCATION', 1, event => {
 		if(DEBUG_LOC) console.log('Location %d %d (%d %d %d %d) > (%d %d %d)', event.type, event.speed, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), event.w, Math.round(event.x2), Math.round(event.y2), Math.round(event.z2))
@@ -171,6 +186,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(send) dispatch.toServer(type, version, event)
 			return
+		}
+
+		if(!equippedWeapon) {
+			dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['SMT_BATTLE_SKILL_NEED_WEAPON'] })
+			return false
 		}
 
 		if(currentAction) {
