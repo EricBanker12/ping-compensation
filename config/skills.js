@@ -651,7 +651,8 @@ module.exports = {
 					25069: { speed: 1.25 }
 				},
 				abnormals: {
-					501603: { skill: 320100 }
+					500150: { skill: 320100 },
+					501600: { skill: 320150 }
 				}
 			}
 		},
@@ -713,13 +714,14 @@ module.exports = {
 			0: { length: 475 }
 		},
 		32: { // Meteor Shower
-			0: {
-				length: 6475,
+			'*': {
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
 				}
 			}
+			0: { length: 6475 },
+			50: { length: 3700 }
 		},
 		34: { // Mana Boost
 			0: { length: 750 }
