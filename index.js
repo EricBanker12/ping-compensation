@@ -5,8 +5,8 @@ const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
-	DEBUG					= false,
-	DEBUG_LOC				= false,
+	DEBUG					= true,
+	DEBUG_LOC				= true,
 	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data-parser').sysmsg,
@@ -204,8 +204,8 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub)))
 				return false
 
-			// 6819 = Pushback, Stun - 6820 = Stagger, Knockdown
-			if(currentSkillBase == 6819 || currentSkillBase == 6820) return false
+			// 6190 = Pushback, Stun - 6820 = Stagger, Knockdown
+			if(currentSkillBase == 6190 || currentSkillBase == 6820) return false
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
