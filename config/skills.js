@@ -1930,7 +1930,7 @@ module.exports = {
 				distance: 150
 			}
 		},
-		4: { // One Thousand Cuts
+		6: { // One Thousand Cuts
 			1: {
 				fixedSpeed: 1,
 				length: 300,
