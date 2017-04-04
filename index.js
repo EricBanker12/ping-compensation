@@ -113,7 +113,7 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('C_NOTIFY_LOCATION_IN_DASH', 1, notifyLocation.bind(null, 'C_NOTIFY_LOCATION_IN_DASH', 1))
 
 	function notifyLocation(type, version, event) {
-		if(DEBUG_LOC) console.log('<- %s %s %d (%d %d %d %d)', type, skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
+		if(DEBUG_LOC) console.log('-> %s %s %d (%d %d %d %d)', type, skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
 
 		currentLocation = {
 			x: event.x,
@@ -294,6 +294,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 		sendActionStage(type, event, skill, info, 0, speed, 0, distanceMult)
 
+		if(info.isDash) sendInstantDash({x: event.x2, y: event.y2, z: event.z2})
+
 		if(send) dispatch.toServer(type, version, event)
 
 		// Normally the user can press the skill button again if it doesn't go off
@@ -364,6 +366,16 @@ module.exports = function SkillPrediction(dispatch) {
 
 			currentAction = event
 			updateLocation()
+		}
+	})
+
+	dispatch.hook('S_INSTANT_DASH', 1, event => {
+		if(event.source.equals(cid)) {
+			if(DEBUG)
+				if(DEBUG_LOC) console.log('<- S_INSTANT_DASH %d %d %d %d\xb0 (%d %d %d)', event.unk1, event.unk2, event.unk3, event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z))
+				else console.log('<- S_INSTANT_DASH', event.unk1, event.unk2, event.unk3)
+
+			if(serverAction && skillInfo(serverAction.skill)) return false
 		}
 	})
 
@@ -525,6 +537,19 @@ module.exports = function SkillPrediction(dispatch) {
 
 		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
 		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, nextDistance * distanceMult)
+	}
+
+	function sendInstantDash(location) {
+		dispatch.toClient('S_INSTANT_DASH', 1, {
+			source: cid,
+			unk1: 0,
+			unk2: 0,
+			unk3: 0,
+			x: location.x,
+			y: location.y,
+			z: location.z,
+			w: currentLocation.w
+		})
 	}
 
 	function sendActionEnd(type, distance) {
