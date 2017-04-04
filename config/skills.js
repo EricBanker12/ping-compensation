@@ -1930,6 +1930,15 @@ module.exports = {
 				distance: 150
 			}
 		},
+		4: { // One Thousand Cuts
+			1: {
+				fixedSpeed: 1,
+				length: 300,
+				distance: 246,
+				isDash: true
+			},
+			10: { length: 3500 }
+		},
 		8: { // Fire Avalanche
 			'*': {
 				length: [700, 1375, 325],
@@ -1951,12 +1960,61 @@ module.exports = {
 			},
 			30: true
 		},
+		9: { // Smoke Bomb
+			0: { length: 700 }
+		},
 		11: { // Focus
 			0: { length: 1430 },
 			50: { length: 1430 }
 		},
+		12: { // Skyfall
+			'*': {
+				length: 1325,
+				distance: 154.72,
+				noInterrupt: [9, 18],
+				chains: {
+					1: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					13: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					19: 30
+				}
+			},
+			1: true,
+			2: true,
+			30: true
+		},
+		13: { // Circle of Steel
+			'*': {
+				length: 3225,
+				distance: 245.06,
+				noInterrupt: [9, 18],
+				chains: {
+					1: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					12: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					19: 30
+				}
+			},
+			1: true,
+			2: true,
+			30: true
+		},
 		14: { // Double Cut
-			1: {
+			'*': {
 				length: 1425,
 				distance: 162,
 				noInterrupt: [9, 18],
@@ -1970,30 +2028,13 @@ module.exports = {
 					13: 30,
 					15: 30,
 					16: 30,
+					17: 30,
 					19: 30
 				}
 			},
-			2: {
-				length: 1425,
-				distance: 162,
-				noInterrupt: [9, 18],
-				chains: {
-					1: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					19: 30
-				}
-			},
-			30: {
-				length: 1425,
-				distance: 162
-			}
+			1: true,
+			2: true,
+			30: true
 		},
 		15: { // Burning Heart
 			'*': {
@@ -2022,6 +2063,14 @@ module.exports = {
 		},
 		17: { // Attunement
 			0: { length: 1000 }
-		}
+		},
+		18: { // Bladestorm
+			0: { length: 1000 }
+		}/*,
+		19: { // Chakra Thrust
+			'*': { length: [250, 800] },
+			0: true,
+			30: true
+		}*/
 	}
 }
