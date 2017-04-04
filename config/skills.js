@@ -221,7 +221,7 @@ module.exports = {
 			0: {
 				length: 2775,
 				distance: 85,
-				noInterrupt: [3, 13, '18-0', 21, 25, 26],
+				noInterrupt: ['1-0', '1-1', 3, 13, '18-0', 21, 25, 26],
 				chains: {
 					1: 30,
 					5: 30,
@@ -1932,19 +1932,24 @@ module.exports = {
 		},
 		8: { // Fire Avalanche
 			'*': {
-				length: [1375, 325],
-				noRetry: true
-			},
-			0: {
 				length: [700, 1375, 325],
 				distance: [0, 367.31, 0],
 				abnormals: {
 					10154080: { chain: 1 },
 					10154081: { chain: 2 }
-				}
+				},
+				noRetry: true
 			},
-			1: { distance: [411.39, 0] },
-			2: { distance: [455.47, 0] }
+			0: true,
+			1: {
+				length: [1375, 325],
+				distance: [411.39, 0]
+			},
+			2: {
+				length: [1375, 325],
+				distance: [455.47, 0]
+			},
+			30: true
 		},
 		11: { // Focus
 			0: { length: 1430 },
