@@ -12,11 +12,18 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Archer: Most besides Chase
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
-* Ninja: Combo Attack, Double Cut, Burning Heart, Fire Avalanche, Jagged Path, Leaves on the Wind, Death Blossom, Attunement, Focus
+* Ninja: All besides Decoy Jutsu, Chakra Thrust, Death Blossom, Impact Bomb, Shadow Jump, Clone Jutsu
 * Priest: All besides Mana Charge
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.18.0
++ [+] Emulate S_INSTANT_DASH
+* [+] Added Ninja: Skyfall, Circle of Steel, One Thousand Cuts, Bladestorm, Smoke Bomb
+* [*] Fixed Sorcerer: Meteor Strike animation during Warp Barrier
+* [*] Fixed Ninja: Combo Attack behavior, Fire Avalache chain
+* [*] Prevent using skills without an equipped weapon
+
 ### 1.17.0
 * [+] Allow array for requiredBuff
 * [+] Added Warrior: Torrent of Blows
