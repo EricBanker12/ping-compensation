@@ -965,10 +965,24 @@ module.exports = {
 				}
 			}
 		},
+		31: { // Tenacity
+			0: {
+				fixedSpeed: 1,
+				length: [500, 700]
+			}
+		},
 		32: { // Find Weakness
 			0: {
 				fixedSpeed: 1,
 				length: 1300
+			}
+		},
+		33: { // Chase
+			0: {
+				fixedSpeed: 1,
+				length: 1000,
+				distance: 413,
+				isDash: true
 			}
 		}
 	},
