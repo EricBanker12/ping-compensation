@@ -2066,6 +2066,12 @@ module.exports = {
 				distance: 150
 			}
 		},
+		5: { // Impact Bomb
+			0: {
+				length: 1025,
+				distance: -291.6
+			}
+		},
 		6: { // One Thousand Cuts
 			1: {
 				fixedSpeed: 1,
