@@ -5,6 +5,38 @@
 
 module.exports = {
 	0: { // Warrior
+		1: { // Combo Attack
+			0: {
+				length: 565,
+				distance: 62.29
+			},
+			1: {
+				length: 650,
+				distance: 51.69
+			},
+			2: {
+				length: 650,
+				distance: 28.08
+			},
+			3: {
+				length: 900,
+				distance: 73.34
+			}
+		},
+		2: { // Evasive Roll
+			0: {
+				length: 825,
+				distance: 150,
+				forceClip: true,
+				stamina: 500,
+				instantStamina: true,
+				glyphs: {
+					21015: { stamina: -100 },
+					21067: { stamina: -100 },
+					21101: { stamina: -120 }
+				}
+			}
+		},
 		3: { // Torrent of Blows
 			0: {
 				length: 1600,
@@ -32,6 +64,12 @@ module.exports = {
 				}
 			}
 		},
+		5: { // Battle Cry
+			0: { length: 1665 }
+		},
+		10: { // Death From Above
+			0: { length: 2025 }
+		},
 		11: { // Poison Blade
 			0: {
 				length: 925,
@@ -44,6 +82,15 @@ module.exports = {
 				distance: 250
 			}
 		},
+		16: { // Charging Slash
+			0: {
+				fixedSpeed: 1,
+				length: 1100,
+				distance: 467.88,
+				isDash: true
+			},
+			1: { length: 800 }
+		},
 		17: { // Vortex Slash
 			0: {
 				length: 1600,
@@ -54,6 +101,34 @@ module.exports = {
 			0: {
 				length: 1100,
 				distance: 138.28
+			}
+		},
+		19: { // Rising Fury
+			0: {
+				length: 725,
+				distance: 170.61
+			},
+			1: {
+				length: 1400,
+				distance: 122.34
+			}
+		},
+		21: { // Cascade of Stuns
+			0: {
+				length: 1400,
+				distance: 122.34
+			}
+		},
+		24: { // Smoke Aggressor
+			0: {
+				fixedSpeed: 1,
+				length: 475
+			}
+		},
+		27: { // Pounce
+			0: {
+				length: 2000,
+				distance: 180
 			}
 		},
 		28: { // Traverse Cut
@@ -122,6 +197,19 @@ module.exports = {
 				}
 			}
 		},
+		31: { // Reaping Slash
+			'*': { distance: 110 },
+			0: {
+				length: 2275,
+				distance: 110,
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 16, 17, 19, 21, 22, 27, 28, 29, 34, 36, 37],
+				chains: {
+					4: 30,
+					18: 30,
+				}
+			},
+			30: { length: 1665 }
+		},
 		32: { // Cross Parry
 			0: {
 				fixedSpeed: 1,
@@ -129,6 +217,9 @@ module.exports = {
 				requiredBuff: [100200, 100201, 100202, 100203],
 				stamina: 50
 			}
+		},
+		34: { // Binding Sword
+			0: { length: 1900 }
 		},
 		36: { // Rain of Blows (Deadly Gamble)
 			'*': { distance: 151.87 },
