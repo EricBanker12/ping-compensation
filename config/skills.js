@@ -72,6 +72,20 @@ module.exports = {
 				}
 			}
 		},
+		8: { // Assault Stance
+			0: {
+				length: 575,
+				stamina: 1000
+			},
+			50: { length: 575 }
+		},
+		9: { // Defensive Stance
+			0: {
+				length: 575,
+				stamina: 1000
+			},
+			50: { length: 575 }
+		},
 		10: { // Death From Above
 			0: { length: 2025 }
 		},
@@ -116,6 +130,12 @@ module.exports = {
 			1: {
 				length: 1400,
 				distance: 122.34
+			}
+		},
+		20: { // Deadly Gamble
+			0: {
+				fixedSpeed: 1,
+				length: 300
 			}
 		},
 		21: { // Cascade of Stuns
@@ -241,6 +261,9 @@ module.exports = {
 		},
 		34: { // Binding Sword
 			0: { length: 1900 }
+		},
+		35: { // Infuriate
+			0: { length: 2425 }
 		},
 		36: { // Rain of Blows (Deadly Gamble)
 			'*': { distance: 151.87 },
