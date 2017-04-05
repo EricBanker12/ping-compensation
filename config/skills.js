@@ -65,7 +65,12 @@ module.exports = {
 			}
 		},
 		5: { // Battle Cry
-			0: { length: 1665 }
+			0: {
+				length: 1665,
+				glyphs: {
+					21040: { speed: 1.5 }
+				}
+			}
 		},
 		10: { // Death From Above
 			0: { length: 2025 }
@@ -125,10 +130,26 @@ module.exports = {
 				length: 475
 			}
 		},
+		25: { // Command: Attack
+			0: {
+				fixedSpeed: 1,
+				length: 700
+			}
+		},
+		26: { // Command: Follow
+			0: {
+				fixedSpeed: 1,
+				length: 700
+			}
+		},
 		27: { // Pounce
 			0: {
 				length: 2000,
-				distance: 180
+				distance: 180,
+				glyphs: {
+					21048: { speed: 1.3 },
+					21082: { speed: 1.3 }
+				}
 			}
 		},
 		28: { // Traverse Cut
