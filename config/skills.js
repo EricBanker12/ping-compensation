@@ -816,7 +816,8 @@ module.exports = {
 		18: { // Glacial Retreat
 			0: {
 				length: 1100,
-				distance: -187.5
+				distance: -187.5,
+				forceClip: true
 			}
 		},
 		20: { // Flaming Barrage
