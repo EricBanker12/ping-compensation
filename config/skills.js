@@ -2085,11 +2085,11 @@ module.exports = {
 			'*': {
 				length: 1025,
 				distance: -291.6,
+				noInterrupt: [5],
 				forceClip: true,
 				noRetry: true
 			},
 			0: {
-				noInterrupt: [5],
 				chainType: 4,
 				isInterruptChain: true
 			},
