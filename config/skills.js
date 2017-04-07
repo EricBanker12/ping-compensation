@@ -2082,10 +2082,18 @@ module.exports = {
 			}
 		},
 		5: { // Impact Bomb
-			0: {
+			'*': {
 				length: 1025,
-				distance: -291.6
-			}
+				distance: -291.6,
+				forceClip: true,
+				noRetry: true
+			},
+			0: {
+				noInterrupt: [5],
+				chainType: 4,
+				isInterruptChain: true
+			},
+			30: true
 		},
 		6: { // One Thousand Cuts
 			1: {
