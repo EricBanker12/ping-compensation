@@ -267,7 +267,14 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		if(interruptType) sendActionEnd(interruptType)
+		if(interruptType) {
+			sendActionEnd(interruptType)
+
+			if(info.isInterruptChain) {
+				if(send) dispatch.toServer(type, version, event)
+				return
+			}
+		}
 
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,
