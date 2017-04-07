@@ -461,6 +461,15 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
+	dispatch.hook('S_CREATURE_LIFE', 1, event => {
+		if(event.target.equals(cid) && !event.alive) {
+			Object.assign(currentLocation, event.location, { inAction: true })
+			oopsLocation = null
+
+			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndType)
+		}
+	})
+
 	function sendActionStage(type, event, skill, info, stage, speed, distance, distanceMult) {
 		movePlayer(distance * distanceMult)
 
