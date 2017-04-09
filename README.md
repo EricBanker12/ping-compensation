@@ -5,20 +5,31 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 ## Current supported class skills
 * Lancer: All besides Shield Counter
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
-* Warrior: Combative Strike, Traverse Cut, Blade Draw, Poison Blade, Scythe, Rain of Blows, Torrent of Blows, Leaping Strike
+* Warrior: All besides Backstab, Staggering Counter, Smoke Flanker
 * Slayer: All besides Combo Attack, Evasive Roll, Exhausting Blow and Backstab
 * Berserker: Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
 * Sorcerer: Most combat besides Arcane Pulse
-* Archer: Most besides Chase
+* Archer: All besides Feign Death
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
-* Ninja: All besides Decoy Jutsu, Chakra Thrust, Death Blossom, Impact Bomb, Shadow Jump, Clone Jutsu
+* Ninja: All besides Decoy Jutsu, Chakra Thrust, Death Blossom, Shadow Jump, Clone Jutsu
 * Priest: All besides Mana Charge
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.19.0
+* [+] Added Warrior: Combo Attack, Evasive Roll, Battle Cry, Assault Stance, Defensive Stance, Death from Above, Charging Slash, Rising Fury, Deadly Gamble, Smoke Aggressor, Command: Attack, Command: Follow, Pounce, Reaping Slash, Binding Sword, Infuriate
+* [+] Added Archer: Tenacity, Chase
+* [+] Added Ninja: Impact Bomb
+* [*] Fixed character sometimes becoming stuck in animation upon death
+* [*] Fixed jumping after using a skill without an equipped weapon
+* [*] Fixed Warrior: Blade Draw incorrectly chaining from the first hit of Rising Fury
+* [*] Fixed Warrior: Rain of Blows > Reaping Slash chain during Deadly Gamble
+* [*] Fixed Slayer: Startling Kick clipping through gates
+* [*] Fixed Sorcerer: Glacial Retreat clipping through gates
+
 ### 1.18.0
-+ [+] Emulate S_INSTANT_DASH
+* [+] Emulate S_INSTANT_DASH
 * [+] Added Ninja: Skyfall, Circle of Steel, One Thousand Cuts, Bladestorm, Smoke Bomb
 * [*] Fixed Sorcerer: Meteor Strike animation during Warp Barrier
 * [*] Fixed Ninja: Combo Attack behavior, Fire Avalache chain
