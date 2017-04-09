@@ -599,6 +599,7 @@ module.exports = {
 			0: {
 				length: 1475,
 				distance: -175,
+				forceClip: true,
 				glyphs: {
 					23060: { speed: 1.25 }
 				}
