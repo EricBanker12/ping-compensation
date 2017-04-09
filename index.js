@@ -189,6 +189,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(!equippedWeapon) {
+			dispatch.toClient('S_CANNOT_START_SKILL', 1, { skill: currentAction.skill })
 			dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['SMT_BATTLE_SKILL_NEED_WEAPON'] })
 			return false
 		}
