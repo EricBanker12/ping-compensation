@@ -6,18 +6,25 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Lancer: All besides Shield Counter
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
 * Warrior: All besides Backstab, Staggering Counter, Smoke Flanker
-* Slayer: All besides Combo Attack, Evasive Roll, Exhausting Blow and Backstab
+* Slayer: All besides Exhausting Blow, Backstab
 * Berserker: Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
 * Sorcerer: Most combat besides Arcane Pulse
 * Archer: All besides Radiant Arrow, Penetrating Arrow, Feign Death
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
-* Ninja: All besides Decoy Jutsu, Chakra Thrust, Death Blossom, Shadow Jump, Clone Jutsu
+* Ninja: All
 * Valkyrie: All
 * Priest: All besides Mana Charge
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.21.0
+* [+] Added C_NOTIFY_LOCATION_IN_ACTION rainbow tables (player location desync reduction)
+* [+] Added Ninja: Shadow Jump, Decoy Jutsu, Chakra Thrust, Clone Jutsu
+* [*] Fixed Brawler: Boss occasionally turning while tanking
+* [*] Fixed Brawler: Punch > Counter chains at high ping
+* [*] Fixed Berserker: Raze and Flatten incorrectly interrupting Flatten
+
 ### 1.20.0
 * [+] Added all Valkyrie skills
 * [+] Added S_INSTANT_MOVE support
