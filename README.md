@@ -9,7 +9,7 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Slayer: All besides Combo Attack, Evasive Roll, Exhausting Blow and Backstab
 * Berserker: Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
 * Sorcerer: Most combat besides Arcane Pulse
-* Archer: All besides Feign Death
+* Archer: All besides Radiant Arrow, Penetrating Arrow, Feign Death
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
 * Ninja: All besides Decoy Jutsu, Chakra Thrust, Death Blossom, Shadow Jump, Clone Jutsu
