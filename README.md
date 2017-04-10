@@ -13,10 +13,16 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
 * Ninja: All besides Decoy Jutsu, Chakra Thrust, Death Blossom, Shadow Jump, Clone Jutsu
+* Valkyrie: All
 * Priest: All besides Mana Charge
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.12.0
++ [+] Added all Valkyrie skills
++ [+] Added S_INSTANT_MOVE support
+* [*] Prevent skills from being retried while dead
+
 ### 1.19.0
 * [+] Added Warrior: Combo Attack, Evasive Roll, Battle Cry, Assault Stance, Defensive Stance, Death from Above, Charging Slash, Rising Fury, Deadly Gamble, Smoke Aggressor, Command: Attack, Command: Follow, Pounce, Reaping Slash, Binding Sword, Infuriate
 * [+] Added Archer: Tenacity, Chase
