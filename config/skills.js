@@ -1982,7 +1982,7 @@ module.exports = {
 				distance: 134,
 				notifyRainbow: [1, 2, 30]
 			},
-			1: true
+			1: true,
 			2: true,
 			30: true
 		},
