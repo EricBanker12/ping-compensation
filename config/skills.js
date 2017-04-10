@@ -2036,7 +2036,8 @@ module.exports = {
 					15: 30,
 					16: 30,
 					18: 30,
-					19: 30
+					19: 30,
+					20: 30
 				},
 				noRetry: true
 			},
@@ -2065,6 +2066,19 @@ module.exports = {
 				length: 1150,
 				distance: 83
 			},
+			30: true
+		},
+		2: { // Shadow Jump
+			'*': {
+				fixedSpeed: 1,
+				length: 650,
+				distance: 175,
+				forceClip: true,
+				abnormals: {
+					10154010: { chain: 30 }
+				}
+			},
+			0: true,
 			30: true
 		},
 		3: { // Leaves on the Wind
@@ -2106,6 +2120,9 @@ module.exports = {
 			},
 			10: { length: 3500 }
 		},
+		7: { // Decoy Jutsu
+			0: { length: 1550 }
+		},
 		8: { // Fire Avalanche
 			'*': {
 				length: [700, 1375, 325],
@@ -2126,7 +2143,8 @@ module.exports = {
 					15: 30,
 					16: 30,
 					17: 30,
-					19: 30
+					19: 30,
+					20: 30
 				},
 				noRetry: true
 			},
@@ -2164,7 +2182,8 @@ module.exports = {
 					15: 30,
 					16: 30,
 					17: 30,
-					19: 30
+					19: 30,
+					20: 30
 				}
 			},
 			1: true,
@@ -2187,7 +2206,8 @@ module.exports = {
 					15: 30,
 					16: 30,
 					17: 30,
-					19: 30
+					19: 30,
+					20: 30
 				}
 			},
 			1: true,
@@ -2210,7 +2230,8 @@ module.exports = {
 					15: 30,
 					16: 30,
 					17: 30,
-					19: 30
+					19: 30,
+					20: 30
 				}
 			},
 			1: true,
@@ -2247,12 +2268,37 @@ module.exports = {
 		},
 		18: { // Bladestorm
 			0: { length: 1000 }
-		}/*,
+		},
 		19: { // Chakra Thrust
-			'*': { length: [250, 800] },
+			'*': {
+				length: [225, 825],
+				distance: 127.5,
+				chains: {
+					1: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					19: 30,
+					20: 30
+				}
+			},
 			0: true,
 			30: true
-		}*/
+		},
+		20: { // Clone Jutsu
+			0: {
+				fixedSpeed: 1,
+				length: 1275
+			}
+		}
 	},
 	12: { // Valkyrie
 		1: { // Slash
