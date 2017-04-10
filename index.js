@@ -125,12 +125,28 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		let info = skillInfo(event.skill)
-
-		if(info && SKILL_RETRY_MS && !info.noRetry)
-			setTimeout(() => {
-				if(currentAction && currentAction.skill == event.skill && (!serverAction || serverAction.skill != event.skill))
+		if(info) {
+			// Since we're not 100% sure which chain the server used, we just try all of them
+			if(info.notifyRainbow) {
+				for(let chain of info.notifyRainbow) {
+					event.skill += chain - ((event.skill - 0x4000000) % 100)
 					dispatch.toServer(type, version, event)
-			}, SKILL_RETRY_MS)
+				}
+
+				if(SKILL_RETRY_MS && !info.noRetry)
+					setTimeout(() => {
+						for(let chain of info.notifyRainbow) {
+							event.skill += chain - ((event.skill - 0x4000000) % 100)
+							dispatch.toServer(type, version, event)
+						}
+					}, SKILL_RETRY_MS)
+
+				return false
+			}
+
+			if(SKILL_RETRY_MS && !info.noRetry)
+				setTimeout(() => { dispatch.toServer(type, version, event) }, SKILL_RETRY_MS)
+		}
 	}
 
 	dispatch.hook('C_START_SKILL', 1, startSkill.bind(null, 'C_START_SKILL', 1))
