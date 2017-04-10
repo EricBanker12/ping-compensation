@@ -31,7 +31,7 @@ class AbnormalityPrediction {
 		dispatch.hook('S_ABNORMALITY_END', 1, event => {
 
 			if(event.target.equals(this.cid)) {
-				if(DEBUG) console.log('<- S_ABNORMALITY_END', event.id)
+				if(DEBUG) console.log('<- S_ABNORMALITY_END', event.id, handled[event.id] ? 'X' : '')
 
 				if(handled[event.id]) return false
 
