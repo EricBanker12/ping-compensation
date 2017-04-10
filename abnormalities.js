@@ -17,7 +17,7 @@ class AbnormalityPrediction {
 
 		let abnormalityUpdate = (type, event) => {
 			if(event.target.equals(this.cid)) {
-				if(DEBUG) console.log('<-', type, event.id, event.duration, event.stacks)
+				if(DEBUG) console.log('<-', type, event.id, event.duration, event.stacks, handled[event.id] ? 'X' : '')
 
 				if(handled[event.id]) return false
 
@@ -29,7 +29,6 @@ class AbnormalityPrediction {
 		dispatch.hook('S_ABNORMALITY_REFRESH', 1, abnormalityUpdate.bind(null, 'S_ABNORMALITY_REFRESH'))
 
 		dispatch.hook('S_ABNORMALITY_END', 1, event => {
-
 			if(event.target.equals(this.cid)) {
 				if(DEBUG) console.log('<- S_ABNORMALITY_END', event.id, handled[event.id] ? 'X' : '')
 
