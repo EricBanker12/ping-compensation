@@ -211,8 +211,8 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub)))
 				return false
 
-			// 6190 = Pushback, Stun - 6820 = Stagger, Knockdown
-			if(currentSkillBase == 6190 || currentSkillBase == 6820) return false
+			// 6190 = Pushback, Stun - 6819-6820 = Stagger, Knockdown
+			if(currentSkillBase == 6190 || currentSkillBase == 6819 || currentSkillBase == 6820) return false
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
@@ -310,6 +310,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(info.isDash) sendInstantDash({x: event.x2, y: event.y2, z: event.z2})
 
+		if(info.linkedAbnormal) abnormality.add(info.linkedAbnormal.id, info.linkedAbnormal.length, info.linkedAbnormal.stacks || 1)
+
 		if(send) dispatch.toServer(type, version, event)
 
 		// Normally the user can press the skill button again if it doesn't go off
@@ -390,6 +392,22 @@ module.exports = function SkillPrediction(dispatch) {
 				else console.log('<- S_INSTANT_DASH', event.unk1, event.unk2, event.unk3)
 
 			if(serverAction && skillInfo(serverAction.skill)) return false
+		}
+	})
+
+	dispatch.hook('S_INSTANT_MOVE', 1, event => {
+		if(event.id.equals(cid)) {
+			if(DEBUG)
+				if(DEBUG_LOC) console.log('<- S_INSTANT_MOVE %d\xb0 (%d %d %d)', event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z))
+				else console.log('<- S_INSTANT_MOVE')
+
+			currentLocation = {
+				x: event.x,
+				y: event.y,
+				z: event.z,
+				w: event.w,
+				inAction: true
+			}
 		}
 	})
 
@@ -603,7 +621,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(currentAction.id == actionNumber) {
 			let info = skillInfo(currentAction.skill)
-			if(info && (info.isDash || info.isTeleport)) lastEndLocation = currentLocation
+			if(info) {
+				if(info.linkedAbnormal) abnormality.remove(info.linkedAbnormal.id)
+
+				if(info.isDash || info.isTeleport) lastEndLocation = currentLocation
+			}
 		}
 		else lastEndedId = currentAction.id
 
