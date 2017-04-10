@@ -1757,10 +1757,13 @@ module.exports = {
 	},
 	10: { // Brawler
 		1: { // Punch
-			'*': { noRetry: true },
-			0: {
+			'*': {
 				length: 1575,
 				distance: 71.28,
+				linkedAbnormal: {
+					id: 10153060,
+					length: 3000
+				},
 				noInterrupt: ['1-3'],
 				chains: {
 					'1-0': 1,
@@ -1769,9 +1772,13 @@ module.exports = {
 					'1-30': 1,
 					'1-31': 32,
 					'1-32': 2,
-					2: 31
-				}
+					'2-2': 31,
+					'2-3': 31,
+					2: 30
+				},
+				noRetry: true
 			},
+			0: true,
 			1: {
 				length: 1575,
 				distance: 68.63
@@ -1784,55 +1791,46 @@ module.exports = {
 				length: 1725,
 				distance: 121
 			},
-			30: {
-				length: 1575,
-				distance: 71.28,
-				noInterrupt: ['1-3'],
-				chains: {
-					'1-0': 1,
-					'1-1': 2,
-					'1-2': 3,
-					'1-30': 1,
-					'1-31': 32,
-					'1-32': 2,
-					2: 31
-				}
-			},
-			31: {
-				length: 1575,
-				distance: 71.28,
-				noInterrupt: ['1-3'],
-				chains: {
-					'1-0': 1,
-					'1-1': 2,
-					'1-2': 3,
-					'1-30': 1,
-					'1-31': 32,
-					'1-32': 2,
-					2: 31
-				}
-			},
+			30: true,
+			31: true,
 			32: {
 				length: 1575,
 				distance: 68.63
 			}
 		},
 		2: { // Counter
+			'*': { noRetry: true },
 			1: {
 				length: 1200,
-				distance: 139.97
+				distance: 139.97,
+				linkedAbnormal: {
+					id: 10153001,
+					length: 0x7fffffff
+				}
 			},
 			2: {
 				length: 1800,
-				distance: 84
+				distance: 84,
+				linkedAbnormal: {
+					id: 10153002,
+					length: 0x7fffffff
+				}
 			},
 			3: {
 				length: 1925,
-				distance: 131.2
+				distance: 131.2,
+				linkedAbnormal: {
+					id: 10153003,
+					length: 0x7fffffff
+				}
 			},
 			4: {
 				length: 1950,
-				distance: 142.86
+				distance: 142.86,
+				linkedAbnormal: {
+					id: 10153004,
+					length: 0x7fffffff
+				}
 			},
 			12: {
 				/*abnormals: {
