@@ -18,9 +18,9 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
-### 1.12.0
-+ [+] Added all Valkyrie skills
-+ [+] Added S_INSTANT_MOVE support
+### 1.20.0
+* [+] Added all Valkyrie skills
+* [+] Added S_INSTANT_MOVE support
 * [*] Prevent skills from being retried while dead
 
 ### 1.19.0
