@@ -1862,8 +1862,9 @@ module.exports = {
 			}
 		},*/
 		4: { // Ground Pound
-			0: { length: 3225 },
-			30: { length: 3225 }
+			'*': { length: 3225 },
+			0: true,
+			30: true
 		},
 		5: { // Bullrush
 			0: {
@@ -1896,7 +1897,8 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				}
+				},
+				notifyRainbow: [1, 2, 30, 31]
 			},
 			1: true,
 			2: true,
@@ -1904,16 +1906,14 @@ module.exports = {
 			31: true
 		},
 		7: { // Roundhouse Kick
-			0: {
+			'*': {
 				length: 860,
 				distance: 105,
-				noInterrupt: [7]
+				noInterrupt: [7],
+				notifyRainbow: [0, 30]
 			},
-			30: {
-				length: 860,
-				distance: 105,
-				noInterrupt: [7]
-			}
+			0: true,
+			30: true
 		},
 		8: { // Piledriver
 			'*': {
@@ -1938,7 +1938,8 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				}
+				},
+				notifyRainbow: [1, 2, 30, 31]
 			},
 			1: true,
 			2: true,
@@ -1953,7 +1954,8 @@ module.exports = {
 				noInterrupt: [9],
 				abnormals: {
 					31120: { chain: 31 }
-				}
+				},
+				notifyRainbow: [1, 2, 30, 31]
 			},
 			1: true,
 			2: true,
@@ -1961,43 +1963,36 @@ module.exports = {
 			31: true
 		},
 		13: { // Provoke
-			1: {
+			'*': {
 				fixedSpeed: 1,
 				length: 1275
 			},
-			2: {
-				fixedSpeed: 1,
-				length: 1275
-			}
+			1: true,
+			2: true
 		},
 		14: { // Infuriate
-			1: { length: 1650 },
-			2: { length: 1650 },
-			30: { length: 1650 }
+			'*': { length: 1650 },
+			1: true,
+			2: true,
+			30: true
 		},
 		16: { // Flip Kick
-			1: {
+			'*': {
 				length: 2050,
-				distance: 134
+				distance: 134,
+				notifyRainbow: [1, 2, 30]
 			},
-			2: {
-				length: 2050,
-				distance: 134
-			},
-			30: {
-				length: 2050,
-				distance: 134
-			}
+			1: true
+			2: true,
+			30: true
 		},
 		21: { // Mounting Rage
-			1: {
+			'*': {
 				fixedSpeed: 1,
 				length: 1275
 			},
-			2: {
-				fixedSpeed: 1,
-				length: 1275
-			}
+			1: true,
+			2: true
 		},
 		40: { // Quick Dash
 			0: {
