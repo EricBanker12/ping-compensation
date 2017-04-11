@@ -2568,6 +2568,9 @@ module.exports = {
 				length: 1775,
 				distance: 11.18,
 				noInterrupt: [10],
+				glyphs: {
+					33020: { speed: 1.2 }
+				},
 				chains: {
 					1: 30,
 					2: 30,
