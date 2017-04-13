@@ -376,6 +376,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1125,
 				distance: 474.5,
+				noInterrupt: [15],
 				isDash: true
 			},
 			1: { length: 925 }
@@ -1663,6 +1664,7 @@ module.exports = {
 		4: { // Point Blank
 			'*': {
 				length: 1525,
+				distance: 137.88,
 				noInterrupt: ['4-3', '4-4'],
 				chains: {
 					'2-1': 30,
@@ -1680,8 +1682,14 @@ module.exports = {
 			},
 			1: true,
 			2: true,
-			3: { length: 1200 },
-			4: { length: 1200 },
+			3: {
+				length: 1200,
+				distance: -198.53
+			},
+			4: {
+				length: 1200,
+				distance: -198.53
+			},
 			30: true
 		},
 		5: { // Burst Fire
@@ -2471,6 +2479,7 @@ module.exports = {
 			'*': {
 				length: 1775,
 				distance: 139.72,
+				noInterrupt: ['7-2'],
 				abnormals: {
 					10155070: { chain: 1 },
 					10155071: { chain: 2 }
