@@ -3,7 +3,7 @@
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 ## Current supported class skills
-* Lancer: All besides Shield Counter
+* Lancer: All
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
 * Warrior: All besides Backstab, Staggering Counter, Smoke Flanker
 * Slayer: All besides Exhausting Blow, Backstab
@@ -18,6 +18,16 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.22.0
+* [+] Added S_DEFEND_SUCCESS support
+* [+] Added Lancer: Shield Counter
+* [~] Default SKILL_RETRY_MS from 50 > 60
+* [*] Emulate S_CANNOT_START_SKILL (fixes occasionally not being able to jump or use skills after death)
+* [*] Fixed Warrior: Not being able to chain Blade Draw from Cross Parry (after releasing button) or Torrent of Blows in Defensive Stance
+* [*] Fixed Gunner: Point Blank rubberbanding
+* [*] Fixed Valkyrie: Dream Slash incorrectly interrupting itself + speedcast glyph
+* [*] Fixed Valkyrie: Spinning Death third hit being able to cast multiple times
+
 ### 1.21.0
 * [+] Added C_NOTIFY_LOCATION_IN_ACTION rainbow tables (player location desync reduction)
 * [+] Added Ninja: Shadow Jump, Decoy Jutsu, Chakra Thrust, Clone Jutsu
