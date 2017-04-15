@@ -1,4 +1,4 @@
-const SKILL_RETRY_MS		= 100,	/*	Desync reduction (0 = disabled).
+const SKILL_RETRY_MS		= 60,	/*	Desync reduction (0 = disabled).
 										Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 									*/
 	SKILL_DELAY_NEXT		= true, //	Desync compensation.
