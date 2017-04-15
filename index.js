@@ -1,7 +1,7 @@
-const SKILL_RETRY_MS		= 50,	/*	Desync reduction (0 = disabled).
+const SKILL_RETRY_MS		= 100,	/*	Desync reduction (0 = disabled).
 										Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 									*/
-	SKILL_DELAY_NEXT		= true, //	Desync compensation
+	SKILL_DELAY_NEXT		= true, //	Desync compensation.
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 									*/
@@ -206,12 +206,13 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(recentlyDead) {
+			sendCannotStartSkill(event.skill)
 			recentlyDead = false
 			return false
 		}
 
 		if(!equippedWeapon) {
-			dispatch.toClient('S_CANNOT_START_SKILL', 1, { skill: currentAction.skill })
+			sendCannotStartSkill(event.skill)
 			dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['SMT_BATTLE_SKILL_NEED_WEAPON'] })
 			return false
 		}
@@ -224,11 +225,16 @@ module.exports = function SkillPrediction(dispatch) {
 				currentSkillSub = currentSkill % 100
 
 			// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
-			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub)))
+			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
+				sendCannotStartSkill(event.skill)
 				return false
+			}
 
 			// 6190 = Pushback, Stun - 6819-6820 = Stagger, Knockdown
-			if(currentSkillBase == 6190 || currentSkillBase == 6819 || currentSkillBase == 6820) return false
+			if(currentSkillBase == 6190 || currentSkillBase == 6819 || currentSkillBase == 6820) {
+				sendCannotStartSkill(event.skill)
+				return false
+			}
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
@@ -260,9 +266,15 @@ module.exports = function SkillPrediction(dispatch) {
 						break
 					}
 
-				if(!found) return false
+				if(!found) {
+					sendCannotStartSkill(event.skill)
+					return false
+				}
 			}
-			else if(!abnormality.exists(info.requiredBuff)) return false
+			else if(!abnormality.exists(info.requiredBuff)) {
+				sendCannotStartSkill(event.skill)
+				return false
+			}
 		}
 
 		updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
@@ -315,6 +327,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(stamina) {
 			if(currentStamina < stamina) {
+				sendCannotStartSkill(event.skill)
 				//dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['smtBattleSkillFailLowStamina'] })
 				return false
 			}
@@ -659,6 +672,10 @@ module.exports = function SkillPrediction(dispatch) {
 			z: currentLocation.z,
 			w: currentLocation.w
 		})
+	}
+
+	function sendCannotStartSkill(skill) {
+		dispatch.toClient('S_CANNOT_START_SKILL', 1, {skill})
 	}
 
 	function updateLocation(event, inAction, special) {
