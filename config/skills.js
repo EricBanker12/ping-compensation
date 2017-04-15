@@ -193,10 +193,15 @@ module.exports = {
 				length: 3000,
 				distance: 94.5,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37],
+				interruptibleWithAbnormal: {
+					102010: 3
+				},
 				abnormals: {
+					102010: { chain: 30 },
 					100801: { skill: 370100 }
 				},
 				chains: {
+					3: 30,
 					16: 30,
 					17: 30,
 					19: 30,
@@ -274,7 +279,10 @@ module.exports = {
 		37: { // Blade Draw (Deadly Gamble)
 			0: {
 				length: 3000,
-				distance: 94.5
+				distance: 94.5,
+				abnormals: {
+					102010: { chain: 30 }
+				}
 			},
 			30: {
 				length: 1333,
@@ -340,6 +348,12 @@ module.exports = {
 		},
 		7: { // Guardian Shout
 			0: { length: 550 }
+		},
+		8: { // Shield Counter
+			0: {
+				length: 1450,
+				onlyDefenceSuccess: true
+			}
 		},
 		9: { // Leash
 			0: { length: [725, 850] }

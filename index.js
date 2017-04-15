@@ -213,7 +213,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(!equippedWeapon) {
 			sendCannotStartSkill(event.skill)
-			dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['SMT_BATTLE_SKILL_NEED_WEAPON'] })
+			sendSystemMessage('SMT_BATTLE_SKILL_NEED_WEAPON')
 			return false
 		}
 
@@ -226,8 +226,17 @@ module.exports = function SkillPrediction(dispatch) {
 
 			// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
 			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
-				sendCannotStartSkill(event.skill)
-				return false
+				let canInterrupt = false
+
+				if(info.interruptibleWithAbnormal)
+					for(let abnormal in info.interruptibleWithAbnormal)
+						if(abnormality.exists(abnormal) && currentSkillBase == info.interruptibleWithAbnormal[abnormal])
+							canInterrupt = true
+
+				if(!canInterrupt) {
+					sendCannotStartSkill(event.skill)
+					return false
+				}
 			}
 
 			// 6190 = Pushback, Stun - 6819-6820 = Stagger, Knockdown
@@ -243,6 +252,14 @@ module.exports = function SkillPrediction(dispatch) {
 				interruptType = info.chainType || 4
 			}
 		}
+
+		if(info.onlyDefenceSuccess)
+			if(currentAction && currentAction.defendSuccess) interruptType = 3
+			else {
+				sendCannotStartSkill(event.skill)
+				sendSystemMessage('SMT_SKILL_ONLY_DEFENCE_SUCCESS')
+				return false
+			}
 
 		// Skill override (chain)
 		if(skill != event.skill) {
@@ -511,6 +528,11 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
+	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
+		if(event.cid.equals(cid) && currentAction && currentAction.skill == serverAction.skill)
+			currentAction.defendSuccess = true
+	})
+
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
 		if(DEBUG) console.log('<- S_CANNOT_START_SKILL', skillId(event.skill, true))
 
@@ -676,6 +698,15 @@ module.exports = function SkillPrediction(dispatch) {
 
 	function sendCannotStartSkill(skill) {
 		dispatch.toClient('S_CANNOT_START_SKILL', 1, {skill})
+	}
+
+	function sendSystemMessage(type, vars) {
+		let message = '@' + sysmsg.map.name[type]
+
+		for(let key in vars)
+			message += '\x0b' + key + '\x0b' + vars[key]
+
+		dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message })
 	}
 
 	function updateLocation(event, inAction, special) {
