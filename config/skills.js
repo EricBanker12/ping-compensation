@@ -312,7 +312,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
-				noInterrupt: [1, 3, 8, 10, 13, 18, 21, 25, 26],
+				noInterrupt: [1, 2, 3, 8, 10, 13, 18, 21, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -357,7 +357,7 @@ module.exports = {
 			0: {
 				length: 2775,
 				distance: 85,
-				noInterrupt: ['1-0', '1-1', 3, 13, '18-0', 21, 25, 26],
+				noInterrupt: ['1-0', '1-1', 2, 3, 13, '18-0', 21, 25, 26],
 				chains: {
 					1: 30,
 					5: 30,
@@ -440,7 +440,7 @@ module.exports = {
 			0: {
 				length: 2375,
 				distance: 100,
-				noInterrupt: [1, 3, 5, '18-0', 21, 25, 26],
+				noInterrupt: [1, 2, 3, 5, '18-0', 21, 25, 26],
 				chains: {
 					8: 30,
 					10: 30,
