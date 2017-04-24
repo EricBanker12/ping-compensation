@@ -238,11 +238,13 @@ module.exports = function SkillPrediction(dispatch) {
 					return false
 				}
 			}
-
-			// 6190 = Pushback, Stun - 6819-6820 = Stagger, Knockdown
-			if(currentSkillBase == 6190 || currentSkillBase == 6819 || currentSkillBase == 6820) {
-				sendCannotStartSkill(event.skill)
-				return false
+			
+			// 6190 = Pushback, Stun - 6811-6820 = Stagger, Knockdown
+			for (let CC_ID of [6190,6811,6812,6813,6814,6815,6816,6817,6818,6819,6820]) {
+				if (currentSkillBase == CC_ID) {
+					sendCannotStartSkill(event.skill)
+					return false
+				}
 			}
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
