@@ -195,7 +195,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(!info) {
 			if(type != 'C_PRESS_SKILL' || event.start)
 				// Sometimes invalid (if this skill can't be used, but we have no way of knowing that)
-				updateLocation(event, false, specialLoc)
+				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
 			if(send) dispatch.toServer(type, version, event)
 			return
@@ -275,7 +275,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skill != event.skill) {
 			info = skillInfo(skill)
 			if(!info) {
-				updateLocation(event, false, specialLoc)
+				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
 				if(send) dispatch.toServer(type, version, event)
 				return
@@ -304,7 +304,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		updateLocation(event, false, specialLoc)
+		if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 		lastStartLocation = currentLocation
 
 		let abnormalSpeed = 1,
