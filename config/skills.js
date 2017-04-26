@@ -410,7 +410,10 @@ module.exports = {
 		18: { // Shield Barrage
 			0: {
 				length: 625,
-				distance: 122.66
+				distance: 122.66,
+				abnormals: {
+					201550: { speed: 1.2 }
+				}
 			},
 			1: {
 				length: 800,
