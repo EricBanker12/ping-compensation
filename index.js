@@ -19,6 +19,7 @@ module.exports = function SkillPrediction(dispatch) {
 	let skillsCache = null,
 		cid = null,
 		model = 0,
+		race = -1,
 		job = -1,
 		aspd = 1,
 		currentGlyphs = null,
@@ -44,6 +45,7 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_LOGIN', 1, event => {
 		skillsCache = {}
 		;({cid, model} = event)
+		race = Math.floor((model - 10101) / 100)
 		job = (model - 10101) % 100
 
 		if(DEBUG) console.log('Class', job)
@@ -238,13 +240,11 @@ module.exports = function SkillPrediction(dispatch) {
 					return false
 				}
 			}
-			
-			// 6190 = Pushback, Stun - 6811-6820 = Stagger, Knockdown
-			for (let CC_ID of [6190,6811,6812,6813,6814,6815,6816,6817,6818,6819,6820]) {
-				if (currentSkillBase == CC_ID) {
-					sendCannotStartSkill(event.skill)
-					return false
-				}
+
+			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
+			if(currentSkillBase == 6190 || currentSkillBase == 6811 + race) {
+				sendCannotStartSkill(event.skill)
+				return false
 			}
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
