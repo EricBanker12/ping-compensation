@@ -151,11 +151,16 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	}
 
-	dispatch.hook('C_START_SKILL', 1, startSkill.bind(null, 'C_START_SKILL', 1))
-	dispatch.hook('C_START_TARGETED_SKILL', 1, startSkill.bind(null, 'C_START_TARGETED_SKILL', 1))
-	dispatch.hook('C_START_COMBO_INSTANT_SKILL', 1, startSkill.bind(null, 'C_START_COMBO_INSTANT_SKILL', 1))
-	dispatch.hook('C_START_INSTANCE_SKILL', 1, startSkill.bind(null, 'C_START_INSTANCE_SKILL', 1))
-	dispatch.hook('C_PRESS_SKILL', 1, startSkill.bind(null, 'C_PRESS_SKILL', 1))
+	for(let packet of [
+			['C_START_SKILL', 1],
+			['C_START_TARGETED_SKILL', 1],
+			['C_START_COMBO_INSTANT_SKILL', 1],
+			['C_START_INSTANCE_SKILL', 1],
+			['C_START_INSTANCE_SKILL_EX', 1],
+			['C_PRESS_SKILL', 1],
+			['C_NOTIMELINE_SKILL', 1]
+		])
+		dispatch.hook(packet[0], packet[1], startSkill.bind(null, packet[0], packet[1]))
 
 	function startSkill(type, version, event) {
 		let delayed = delayNext && delayNextEnd >= Date.now()
@@ -169,6 +174,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 			else if(type == 'C_PRESS_SKILL') console.log('->', type, skillId(event.skill), event.start, delayed ? 'Delayed' : '')
 			else if(type == 'C_START_SKILL') console.log('->', type, skillId(event.skill), event.unk1, event.unk2, event.unk3, delayed ? 'Delayed' : '')
+			else if(type == 'C_START_INSTANCE_SKILL_EX') console.log('->', type, skillId(event.skill), event.unk, delayed ? 'Delayed' : '')
 			else console.log('->', type, skillId(event.skill), delayed ? 'Delayed' : '')
 
 		if(delayed) {
@@ -183,11 +189,13 @@ module.exports = function SkillPrediction(dispatch) {
 	function sendStartSkill(type, version, event, send) {
 		delayNext = false
 
-		let info = skillInfo(event.skill)
+		let info = skillInfo(event.skill),
+			specialLoc = type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX'
+
 		if(!info) {
 			if(type != 'C_PRESS_SKILL' || event.start)
 				// Sometimes invalid (if this skill can't be used, but we have no way of knowing that)
-				updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
+				updateLocation(event, false, specialLoc)
 
 			if(send) dispatch.toServer(type, version, event)
 			return
@@ -267,7 +275,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skill != event.skill) {
 			info = skillInfo(skill)
 			if(!info) {
-				updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
+				updateLocation(event, false, specialLoc)
 
 				if(send) dispatch.toServer(type, version, event)
 				return
@@ -296,7 +304,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		updateLocation(event, false, type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL')
+		updateLocation(event, false, specialLoc)
 		lastStartLocation = currentLocation
 
 		let abnormalSpeed = 1,
@@ -332,6 +340,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,
+			movement = null,
 			stamina = info.stamina
 
 		if(info.glyphs)
@@ -340,6 +349,7 @@ module.exports = function SkillPrediction(dispatch) {
 					let glyph = info.glyphs[id]
 
 					if(glyph.speed) speed *= glyph.speed
+					if(glyph.movement) movement = glyph.movement
 					if(glyph.distance) distanceMult *= glyph.distance
 					if(glyph.stamina) stamina += glyph.stamina
 				}
@@ -354,7 +364,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(info.instantStamina) currentStamina -= stamina
 		}
 
-		sendActionStage(type, event, skill, info, 0, speed, 0, distanceMult)
+		sendActionStage(type, event, skill, info, 0, speed, movement, 0, distanceMult)
 
 		if(info.isDash) sendInstantDash({x: event.x2, y: event.y2, z: event.z2})
 
@@ -559,16 +569,15 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	function sendActionStage(type, event, skill, info, stage, speed, distance, distanceMult) {
+	function sendActionStage(type, event, skill, info, stage, speed, movement, distance, distanceMult) {
 		movePlayer(distance * distanceMult)
 
-		let moving = type == 'C_START_SKILL' && event.unk2 == 1,
-			movement = null
+		let moving = type == 'C_START_SKILL' && event.unk2 == 1
 
 		if(Array.isArray(info.length))
-			movement = !moving && get(info, 'inPlace', 'movement', stage) || get(info, 'movement', stage) || []
+			movement = movement && movement[stage] || !moving && get(info, 'inPlace', 'movement', stage) || get(info, 'movement', stage) || []
 		else
-			movement = !moving && get(info, 'inPlace', 'movement') || info.movement || []
+			movement = movement || !moving && get(info, 'inPlace', 'movement') || info.movement || []
 
 		dispatch.toClient('S_ACTION_STAGE', 1, currentAction = {
 			source: cid,
@@ -608,7 +617,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-				stageTimeout = setTimeout(sendActionStage, length, type, event, skill, info, stage + 1, speed, nextDistance, distanceMult)
+				stageTimeout = setTimeout(sendActionStage, length, type, event, skill, info, stage + 1, speed, movement, nextDistance, distanceMult)
 				return
 			}
 		}

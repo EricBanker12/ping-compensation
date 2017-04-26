@@ -536,7 +536,7 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			length: 900,
-			movement: 150,
+			distance: 150,
 			forceClip: true
 		},
 		5: { // Dash
@@ -1656,7 +1656,29 @@ module.exports = {
 				length: 1725,
 				distance: -108,
 				glyphs: {
-					30007: { distance: 0.6 }
+					30007: {
+						movement: [
+							{
+								duration: 394,
+								speed: 1,
+								unk: 1,
+								distance: 0
+							},
+							{
+								duration: 111,
+								speed: 1,
+								unk: 1,
+								distance: 0
+							},
+							{
+								duration: 1333,
+								speed: 1.8,
+								unk: 1,
+								distance: 64.8
+							}
+						],
+						distance: 0.6
+					}
 				},
 				chains: {
 					'2-1': 30,
@@ -1725,6 +1747,18 @@ module.exports = {
 			},
 			1: true,
 			2: true
+		},
+		7: { // Arcane Barrage
+			'*': { length: 1525 },
+			1: {
+				fixedSpeed: 1,
+				noInterrupt: [6]
+			},
+			2: {
+				fixedSpeed: 1,
+				noInterrupt: [6]
+			},
+			3: { length: 1200 }
 		},
 		13: { // Balder's Vengeance
 			'*': {
