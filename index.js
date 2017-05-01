@@ -52,7 +52,7 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_LOAD_TOPO', 1, event => {
-		actionNumber = 0x8000000
+		actionNumber = 0x80000000
 		currentAction = null
 		serverAction = null
 		lastEndType = 0
