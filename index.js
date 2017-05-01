@@ -367,6 +367,7 @@ module.exports = function SkillPrediction(dispatch) {
 		sendActionStage(type, event, skill, info, 0, speed, movement, 0, distanceMult)
 
 		if(info.isDash) sendInstantDash({x: event.x2, y: event.y2, z: event.z2})
+		if(info.isTeleport) sendInstantMove({x: event.x2, y: event.y2, z: event.z2, w: currentLocation.w})
 
 		if(info.linkedAbnormal) abnormality.add(info.linkedAbnormal.id, info.linkedAbnormal.length, info.linkedAbnormal.stacks || 1)
 
@@ -457,7 +458,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(event.id.equals(cid)) {
 			if(DEBUG)
 				if(DEBUG_LOC) console.log('<- S_INSTANT_MOVE %d\xb0 (%d %d %d)', event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z))
-				else console.log('<- S_INSTANT_MOVE')
+				else console.log('<- S_INSTANT_MOVE %dms (%dms)', Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed))
 
 			currentLocation = {
 				x: event.x,
@@ -466,6 +467,10 @@ module.exports = function SkillPrediction(dispatch) {
 				w: event.w,
 				inAction: true
 			}
+
+			let info = serverAction && skillInfo(serverAction.skill)
+
+			if(info && info.isTeleport) return false
 		}
 	})
 
