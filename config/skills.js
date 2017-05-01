@@ -2679,7 +2679,10 @@ module.exports = {
 					20: 30
 				}
 			},
-			0: { distance: 227.49 },
+			0: {
+				distance: 227.49,
+				noInterrupt: [11]
+			},
 			1: {
 				length: 2500,
 				chains: {
