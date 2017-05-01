@@ -1237,6 +1237,7 @@ module.exports = {
 		8: { // Metmorphic Blast
 			0: {
 				length: 820,
+				noInterrupt: [1],
 				chains: {
 					8: 30,
 					23: 30
@@ -1299,6 +1300,7 @@ module.exports = {
 		23: { // Metmorphic Smite
 			0: {
 				length: 1430,
+				noInterrupt: [1],
 				chains: {
 					8: 30
 				}
