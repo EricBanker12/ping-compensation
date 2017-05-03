@@ -637,7 +637,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		if((info.isDash || info.isTeleport) && nextDistance) {
+		if(info.isDash && nextDistance) {
 			let calcDistance = Math.sqrt(Math.pow(event.x2 - lastStartLocation.x, 2) + Math.pow(event.y2 - lastStartLocation.y, 2))
 
 			if(calcDistance < nextDistance) {
@@ -648,7 +648,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, nextDistance * distanceMult)
+		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, info.isTeleport ? 0 : nextDistance * distanceMult)
 	}
 
 	function sendInstantDash(location) {
