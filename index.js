@@ -663,7 +663,7 @@ module.exports = function SkillPrediction(dispatch) {
 				if(inPlaceDistance !== undefined) opts.distance = inPlaceDistance
 			}
 
-			if(opts.stage + 1 < info.length.length) {
+			if(opts.stage < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
 				stageTimeout = setTimeout(sendActionStage, length, opts)
 				return
