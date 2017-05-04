@@ -681,7 +681,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(info.isDash && opts.distance) {
-			let calcDistance = Math.sqrt(Math.pow(targetLoc.x - lastStartLocation.x, 2) + Math.pow(targetLoc.y - lastStartLocation.y, 2))
+			let calcDistance = Math.sqrt(Math.pow(opts.targetLoc.x - lastStartLocation.x, 2) + Math.pow(opts.targetLoc.y - lastStartLocation.y, 2))
 
 			if(calcDistance < opts.distance) {
 				if(info.isDash) length *= calcDistance / opts.distance
