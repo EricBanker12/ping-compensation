@@ -18,6 +18,19 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
 
 ## Changelog
+### 1.23.0
+* [+] Support basic charging, timed press-and-hold and chain-on-release skills
+* [+] Added Gunner: Arcane Barrage
+* [*] Fixed incorrect animation IDs after teleporting
+* [*] Fix race-based knockdown/stagger detection
+* [*] Teleport skills now send S_INSTANT_MOVE (fixes delay)
+* [*] Update S_ABNORMALITY_BEGIN to V2 (fixes parsing errors from other mods)
+* [*] Fixed Lancer: Shield Barrage speed buff from Combo Attack
+* [*] Fixed Slayer: Evasive Roll distance
+* [*] Fixed Gunner: Scattershot recoil glyph
+* [*] Fixed Valkyrie: Shining Crescent interrupting itself at high ping
+* [*] Fixed Mystic: Metamorphic Blast and Metamorphic Smite incorrectly interrupting a few skills
+
 ### 1.22.0
 * [+] Added S_DEFEND_SUCCESS support
 * [+] Added Lancer: Shield Counter
