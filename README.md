@@ -18,6 +18,10 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Vow of Rebirth (cast)
 
 ## Changelog
+### 1.23.1
+* [*] Fixed broken animations due to malformed S_ACTION_STAGE
+* [*] Fixed Mystic: Teleport Jaunt and Boomerang Pulse incorrectly interrupting themselves
+
 ### 1.23.0
 * [+] Support basic charging, timed press-and-hold and chain-on-release skills
 * [+] Added Gunner: Arcane Barrage
