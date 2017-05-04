@@ -644,7 +644,7 @@ module.exports = function SkillPrediction(dispatch) {
 			toZ: 0,
 			unk2: 0,
 			unk3: 0,
-			movement: opts.movement
+			movement
 		})
 
 		if(info.type == 'holdInfinite') return
