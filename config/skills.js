@@ -1313,6 +1313,7 @@ module.exports = {
 			0: {
 				length: [200, 260],
 				distance: [0, 333],
+				noInterrupt: [17],
 				isTeleport: true
 			}
 		},
@@ -1470,7 +1471,10 @@ module.exports = {
 			}
 		},
 		42: { // Boomerang Pulse
-			0: { length: 530 }
+			0: {
+				length: 530,
+				noInterrupt: [42]
+			}
 		}
 	},
 	8: { // Reaper
