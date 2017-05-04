@@ -206,9 +206,26 @@ module.exports = function SkillPrediction(dispatch) {
 			interruptType = 0
 
 		if(type == 'C_PRESS_SKILL' && !event.start) {
-			if(info.instantPressAndHold && currentAction && currentAction.skill == skill) {
+			if((info.type == 'hold' || info.type == 'holdInfinite') && currentAction && currentAction.skill == skill) {
 				updateLocation(event)
-				sendActionEnd(10)
+
+				if(info.chainOnRelease) {
+					sendActionEnd(11)
+
+					info = skillInfo(skill += info.chainOnRelease - ((skill - 0x4000000) % 100))
+					if(!info) {
+						if(send) dispatch.toServer(type, version, event)
+						return
+					}
+
+					startAction({
+						skill,
+						info,
+						stage: 0,
+						speed: info.fixedSpeed || aspd * (info.speed || 1)
+					})
+				}
+				else sendActionEnd(10)
 			}
 
 			if(send) dispatch.toServer(type, version, event)
@@ -234,32 +251,34 @@ module.exports = function SkillPrediction(dispatch) {
 				currentSkillBase = Math.floor(currentSkill / 10000),
 				currentSkillSub = currentSkill % 100
 
-			// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
-			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
-				let canInterrupt = false
-
-				if(info.interruptibleWithAbnormal)
-					for(let abnormal in info.interruptibleWithAbnormal)
-						if(abnormality.exists(abnormal) && currentSkillBase == info.interruptibleWithAbnormal[abnormal])
-							canInterrupt = true
-
-				if(!canInterrupt) {
-					sendCannotStartSkill(event.skill)
-					return false
-				}
-			}
-
 			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
 			if(currentSkillBase == 6190 || currentSkillBase == 6811 + race) {
 				sendCannotStartSkill(event.skill)
 				return false
 			}
 
-			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
+			if(info.type != 'chargeCast') {
+				// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
+				if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
+					let canInterrupt = false
 
-			if(chain) {
-				skill += chain - ((skill - 0x4000000) % 100)
-				interruptType = info.chainType || 4
+					if(info.interruptibleWithAbnormal)
+						for(let abnormal in info.interruptibleWithAbnormal)
+							if(abnormality.exists(abnormal) && currentSkillBase == info.interruptibleWithAbnormal[abnormal])
+								canInterrupt = true
+
+					if(!canInterrupt) {
+						sendCannotStartSkill(event.skill)
+						return false
+					}
+				}
+
+				let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
+
+				if(chain) {
+					skill += chain - ((skill - 0x4000000) % 100)
+					interruptType = info.chainType || 4
+				}
 			}
 		}
 
@@ -357,19 +376,27 @@ module.exports = function SkillPrediction(dispatch) {
 		if(stamina) {
 			if(currentStamina < stamina) {
 				sendCannotStartSkill(event.skill)
-				//dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['smtBattleSkillFailLowStamina'] })
+				//dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message: '@' + sysmsg.map.name['SMT_BATTLE_SKILL_FAIL_LOW_STAMINA'] })
 				return false
 			}
 
 			if(info.instantStamina) currentStamina -= stamina
 		}
 
-		sendActionStage(type, event, skill, info, 0, speed, movement, 0, distanceMult)
-
-		if(info.isDash) sendInstantDash({x: event.x2, y: event.y2, z: event.z2})
-		if(info.isTeleport) sendInstantMove({x: event.x2, y: event.y2, z: event.z2, w: currentLocation.w})
-
-		if(info.linkedAbnormal) abnormality.add(info.linkedAbnormal.id, info.linkedAbnormal.length, info.linkedAbnormal.stacks || 1)
+		startAction({
+			skill,
+			info,
+			stage: 0,
+			speed,
+			movement,
+			moving: type == 'C_START_SKILL' && event.unk2 == 1,
+			distanceMult,
+			targetLoc: specialLoc ? {
+				x: event.x2,
+				y: event.y2,
+				z: event.z2
+			} : null
+		})
 
 		if(send) dispatch.toServer(type, version, event)
 
@@ -574,15 +601,30 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	function sendActionStage(type, event, skill, info, stage, speed, movement, distance, distanceMult) {
-		movePlayer(distance * distanceMult)
+	function startAction(opts) {
+		let info = opts.info
 
-		let moving = type == 'C_START_SKILL' && event.unk2 == 1
+		sendActionStage(opts)
+
+		if(info.isDash) sendInstantDash(opts.targetLoc)
+		if(info.isTeleport) sendInstantMove(Object.assign({w: currentLocation.w}, opts.targetLoc))
+
+		if(info.linkedAbnormal) abnormality.add(info.linkedAbnormal.id, info.linkedAbnormal.length, info.linkedAbnormal.stacks || 1)
+	}
+
+	function sendActionStage(opts) {
+		opts.stage = opts.stage || 0
+		opts.distanceMult = opts.distanceMult || 1
+
+		let info = opts.info,
+			movement = opts.movement
+
+		movePlayer(opts.distance * opts.distanceMult)
 
 		if(Array.isArray(info.length))
-			movement = movement && movement[stage] || !moving && get(info, 'inPlace', 'movement', stage) || get(info, 'movement', stage) || []
+			movement = movement && movement[opts.stage] || !opts.moving && get(info, 'inPlace', 'movement', opts.stage) || get(info, 'movement', opts.stage) || []
 		else
-			movement = movement || !moving && get(info, 'inPlace', 'movement') || info.movement || []
+			movement = movement || !opts.moving && get(info, 'inPlace', 'movement') || info.movement || []
 
 		dispatch.toClient('S_ACTION_STAGE', 1, currentAction = {
 			source: cid,
@@ -591,9 +633,9 @@ module.exports = function SkillPrediction(dispatch) {
 			z: currentLocation.z,
 			w: currentLocation.w,
 			model,
-			skill,
-			stage,
-			speed,
+			skill: opts.skill,
+			stage: opts.stage,
+			speed: opts.speed,
 			id: actionNumber,
 			unk: 1,
 			unk1: 0,
@@ -602,53 +644,59 @@ module.exports = function SkillPrediction(dispatch) {
 			toZ: 0,
 			unk2: 0,
 			unk3: 0,
-			movement
+			movement: opts.movement
 		})
 
-		if(info.instantPressAndHold) return
+		if(info.type == 'holdInfinite') return
 
-		let length = 0,
-			nextDistance = 0
+		opts.stage += 1
+
+		let length = 0
 
 		if(Array.isArray(info.length)) {
-			length = info.length[stage] / speed
-			nextDistance = get(info, 'distance', stage) || 0
+			length = info.length[opts.stage] / opts.speed
+			opts.distance = get(info, 'distance', opts.stage) || 0
 
-			if(!moving) {
-				let inPlaceDistance = get(info, 'inPlace', 'distance', stage)
+			if(!opts.moving) {
+				let inPlaceDistance = get(info, 'inPlace', 'distance', opts.stage)
 
-				if(inPlaceDistance !== undefined) nextDistance = inPlaceDistance
+				if(inPlaceDistance !== undefined) opts.distance = inPlaceDistance
 			}
 
-			if(stage + 1 < info.length.length) {
+			if(opts.stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-				stageTimeout = setTimeout(sendActionStage, length, type, event, skill, info, stage + 1, speed, movement, nextDistance, distanceMult)
+				stageTimeout = setTimeout(sendActionStage, length, opts)
 				return
 			}
 		}
 		else {
-			length = info.length / speed
-			nextDistance = info.distance || 0
+			length = info.length / opts.speed
+			opts.distance = info.distance || 0
 
-			if(!moving) {
+			if(!opts.moving) {
 				let inPlaceDistance = get(info, 'inPlace', 'distance')
 
-				if(inPlaceDistance !== undefined) nextDistance = inPlaceDistance
+				if(inPlaceDistance !== undefined) opts.distance = inPlaceDistance
 			}
 		}
 
-		if(info.isDash && nextDistance) {
-			let calcDistance = Math.sqrt(Math.pow(event.x2 - lastStartLocation.x, 2) + Math.pow(event.y2 - lastStartLocation.y, 2))
+		if(info.isDash && opts.distance) {
+			let calcDistance = Math.sqrt(Math.pow(targetLoc.x - lastStartLocation.x, 2) + Math.pow(targetLoc.y - lastStartLocation.y, 2))
 
-			if(calcDistance < nextDistance) {
-				if(info.isDash) length *= calcDistance / nextDistance
+			if(calcDistance < opts.distance) {
+				if(info.isDash) length *= calcDistance / opts.distance
 
-				nextDistance = calcDistance
+				opts.distance = calcDistance
 			}
+		}
+
+		if(info.type == 'charging') {
+			stageTimeout = setTimeout(sendActionStage, length, opts)
+			return
 		}
 
 		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
-		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, info.isTeleport ? 0 : nextDistance * distanceMult)
+		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, info.isTeleport ? 0 : opts.distance * opts.distanceMult)
 	}
 
 	function sendInstantDash(location) {
@@ -660,6 +708,18 @@ module.exports = function SkillPrediction(dispatch) {
 			x: location.x,
 			y: location.y,
 			z: location.z,
+			w: currentLocation.w
+		})
+	}
+
+	function sendInstantMove(location) {
+		if(location) currentLocation = location
+
+		dispatch.toClient('S_INSTANT_MOVE', 1, {
+			id: cid,
+			x: currentLocation.x,
+			y: currentLocation.y,
+			z: currentLocation.z,
 			w: currentLocation.w
 		})
 	}
@@ -698,18 +758,6 @@ module.exports = function SkillPrediction(dispatch) {
 
 		actionNumber++
 		oopsLocation = currentAction = null
-	}
-
-	function sendInstantMove(location) {
-		if(location) currentLocation = location
-
-		dispatch.toClient('S_INSTANT_MOVE', 1, {
-			id: cid,
-			x: currentLocation.x,
-			y: currentLocation.y,
-			z: currentLocation.z,
-			w: currentLocation.w
-		})
 	}
 
 	function sendCannotStartSkill(skill) {

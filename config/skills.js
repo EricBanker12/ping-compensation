@@ -259,8 +259,8 @@ module.exports = {
 		},
 		32: { // Cross Parry
 			0: {
+				type: 'holdInfinite',
 				fixedSpeed: 1,
-				instantPressAndHold: true,
 				requiredBuff: [100200, 100201, 100202, 100203],
 				stamina: 50
 			}
@@ -312,8 +312,8 @@ module.exports = {
 		},
 		2: { // Stand Fast
 			0: {
+				type: 'holdInfinite',
 				fixedSpeed: 1,
-				instantPressAndHold: true,
 				stamina: 50
 			}
 		},
@@ -702,8 +702,8 @@ module.exports = {
 	3: { // Berserker
 		2: { // Axe Block
 			'*': {
-				fixedSpeed: 1,
-				instantPressAndHold: true
+				type: 'holdInfinite',
+				fixedSpeed: 1
 			},
 			30: true,
 			31: true
@@ -1217,6 +1217,14 @@ module.exports = {
 			2: { length: 675 },
 			3: { length: 675 }
 		},
+		2: { // Corruption Ring
+			0: {
+				type: 'hold',
+				length: 10850,
+				chainOnRelease: 11
+			},
+			11: { length: 825 }
+		},
 		4: { // Ancient Binding
 			0: { length: 1275 }
 		},
@@ -1274,6 +1282,17 @@ module.exports = {
 		11: { // Summon: Party
 			0: { length: 4400 }
 		},
+		12: { // Vow of Rebirth
+			0: {
+				fixedSpeed: 1,
+				length: 59900,
+				canCancel: true
+			}/*,
+			10: {
+				length: 1940,
+				chainType: 36
+			}*/
+		},
 		13: { // Aura of the Merciless
 			0: { length: 1275 },
 			50: { length: 1275 }
@@ -1295,6 +1314,35 @@ module.exports = {
 				length: [200, 260],
 				distance: [0, 333],
 				isTeleport: true
+			}
+		},
+		18: { // Arun's Vitae
+			0: {
+				type: 'charging',
+				fixedSpeed: 1,
+				length: 1250
+			},
+			10: {
+				type: 'chargeCast',
+				length: 850,
+				abnormals: {
+					27070: { speed: 1.25 },
+					27080: { speed: 1.25 }
+				}
+			}
+		},
+		22: { // Arun's Tears
+			0: {
+				type: 'charging',
+				fixedSpeed: 1,
+				length: 1250
+			},
+			10: {
+				type: 'chargeCast',
+				length: 850,
+				abnormals: {
+					27100: { speed: 1.25 }
+				}
 			}
 		},
 		23: { // Metmorphic Smite
