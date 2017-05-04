@@ -649,8 +649,6 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(info.type == 'holdInfinite') return
 
-		opts.stage += 1
-
 		let length = 0
 
 		if(Array.isArray(info.length)) {
@@ -663,8 +661,10 @@ module.exports = function SkillPrediction(dispatch) {
 				if(inPlaceDistance !== undefined) opts.distance = inPlaceDistance
 			}
 
-			if(opts.stage < info.length.length) {
+			if(opts.stage + 1 < info.length.length) {
 				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
+
+				opts.stage += 1
 				stageTimeout = setTimeout(sendActionStage, length, opts)
 				return
 			}
@@ -691,6 +691,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(info.type == 'charging') {
+			opts.stage += 1
 			stageTimeout = setTimeout(sendActionStage, length, opts)
 			return
 		}
