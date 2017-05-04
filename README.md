@@ -15,12 +15,13 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Ninja: All
 * Valkyrie: All
 * Priest: All besides Mana Charge
-* Mystic: All besides Arun's Vitae, Arun's Tears, Vow of Rebirth
+* Mystic: All besides Vow of Rebirth (cast)
 
 ## Changelog
 ### 1.23.0
 * [+] Support basic charging, timed press-and-hold and chain-on-release skills
 * [+] Added Gunner: Arcane Barrage
+* [+] Added Mystic: Arun's Vitae, Arun's Tears, Corruption Ring, Vow of Rebirth (lockon)
 * [*] Fixed incorrect animation IDs after teleporting
 * [*] Fix race-based knockdown/stagger detection
 * [*] Teleport skills now send S_INSTANT_MOVE (fixes delay)
