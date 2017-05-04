@@ -25,7 +25,7 @@ class AbnormalityPrediction {
 			}
 		}
 
-		dispatch.hook('S_ABNORMALITY_BEGIN', 1, abnormalityUpdate.bind(null, 'S_ABNORMALITY_BEGIN'))
+		dispatch.hook('S_ABNORMALITY_BEGIN', 2, abnormalityUpdate.bind(null, 'S_ABNORMALITY_BEGIN'))
 		dispatch.hook('S_ABNORMALITY_REFRESH', 1, abnormalityUpdate.bind(null, 'S_ABNORMALITY_REFRESH'))
 
 		dispatch.hook('S_ABNORMALITY_END', 1, event => {
@@ -44,17 +44,19 @@ class AbnormalityPrediction {
 	}
 
 	add(id, duration, stacks) {
-		let type = this.myAbnormals[id] ? 'S_ABNORMALITY_REFRESH' : 'S_ABNORMALITY_BEGIN'
+		let type = this.myAbnormals[id] ? 'S_ABNORMALITY_REFRESH' : 'S_ABNORMALITY_BEGIN',
+			version = this.myAbnormals[id] ? 1 : 2
 
 		if(DEBUG) console.log('<*', type, id, duration, stacks)
 
-		this.dispatch.toClient(type, 1, {
+		this.dispatch.toClient(type, version, {
 			target: this.cid,
 			source: this.cid,
 			id,
 			duration,
 			unk: 0,
-			stacks
+			stacks,
+			unk2: 0
 		})
 
 		this.myAbnormals[id] = Date.now() + duration
