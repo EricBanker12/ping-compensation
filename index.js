@@ -359,6 +359,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,
+			chargeSpeed = info.chargeSpeed,
 			movement = null,
 			stamina = info.stamina
 
@@ -368,6 +369,7 @@ module.exports = function SkillPrediction(dispatch) {
 					let glyph = info.glyphs[id]
 
 					if(glyph.speed) speed *= glyph.speed
+					if(glyph.chargeSpeed) speed *= glyph.chargeSpeed
 					if(glyph.movement) movement = glyph.movement
 					if(glyph.distance) distanceMult *= glyph.distance
 					if(glyph.stamina) stamina += glyph.stamina
@@ -388,6 +390,7 @@ module.exports = function SkillPrediction(dispatch) {
 			info,
 			stage: 0,
 			speed,
+			chargeSpeed,
 			movement,
 			moving: type == 'C_START_SKILL' && event.unk2 == 1,
 			distanceMult,
@@ -652,7 +655,7 @@ module.exports = function SkillPrediction(dispatch) {
 		let length = 0
 
 		if(Array.isArray(info.length)) {
-			length = info.length[opts.stage] / opts.speed
+			length = info.length[opts.stage] / (opts.chargeSpeed || opts.speed)
 			opts.distance = get(info, 'distance', opts.stage) || 0
 
 			if(!opts.moving) {
@@ -670,7 +673,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 		else {
-			length = info.length / opts.speed
+			length = info.length / (opts.chargeSpeed || opts.speed)
 			opts.distance = info.distance || 0
 
 			if(!opts.moving) {
