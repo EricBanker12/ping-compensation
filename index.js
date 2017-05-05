@@ -255,30 +255,28 @@ module.exports = function SkillPrediction(dispatch) {
 				return false
 			}
 
-			if(info.type != 'chargeCast') {
-				interruptType = info.chainType || 6
+			interruptType = info.chainType || 6
 
-				// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
-				if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
-					let canInterrupt = false
+			// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
+			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
+				let canInterrupt = false
 
-					if(info.interruptibleWithAbnormal)
-						for(let abnormal in info.interruptibleWithAbnormal)
-							if(abnormality.exists(abnormal) && currentSkillBase == info.interruptibleWithAbnormal[abnormal])
-								canInterrupt = true
+				if(info.interruptibleWithAbnormal)
+					for(let abnormal in info.interruptibleWithAbnormal)
+						if(abnormality.exists(abnormal) && currentSkillBase == info.interruptibleWithAbnormal[abnormal])
+							canInterrupt = true
 
-					if(!canInterrupt) {
-						sendCannotStartSkill(event.skill)
-						return false
-					}
+				if(!canInterrupt) {
+					sendCannotStartSkill(event.skill)
+					return false
 				}
+			}
 
-				let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
+			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
-				if(chain) {
-					skill += chain - ((skill - 0x4000000) % 100)
-					interruptType = info.chainType || 4
-				}
+			if(chain) {
+				skill += chain - ((skill - 0x4000000) % 100)
+				interruptType = info.chainType || 4
 			}
 		}
 
@@ -351,7 +349,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(interruptType) {
-			sendActionEnd(interruptType)
+			info.type == 'chargeCast' ? clearTimeout(stageTimeout) : sendActionEnd(interruptType)
 
 			if(info.isInterruptChain) {
 				if(send) dispatch.toServer(type, version, event)
