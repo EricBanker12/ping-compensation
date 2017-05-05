@@ -784,6 +784,37 @@ module.exports = {
 			},
 			30: { length: 1750 }
 		},
+		10: { // Cyclone
+			'*': { type: 'chargeCast' },
+			0: {
+				type: 'charging',
+				length: [650, 650, 650],
+				glyphs: {
+					24009: { chargeSpeed: 0.25 },
+					24052: { chargeSpeed: 0.25 },
+					24096: { chargeSpeed: 0.3 }
+				},
+				abnormals: {
+					24190: { chargeSpeed: 0.3 }
+				}
+			},
+			10: {
+				length: 1325,
+				distance: 50 // Cast F. - TODO
+			},
+			11: {
+				length: [375, 375, 1325],
+				distance: [33.33, 33.33, 0]
+			},
+			12: {
+				length: [375, 375, 375, 375, 1325],
+				distance: [33.33, 33.33, 33.33, 33.33, 0]
+			},
+			13: {
+				length: [375, 375, 375, 375, 1325],
+				distance: [33.33, 33.33, 33.33, 33.33, 0]
+			}
+		},
 		21: { // Bloodlust
 			0: {
 				fixedSpeed: 1,
