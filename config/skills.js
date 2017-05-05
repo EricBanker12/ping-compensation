@@ -862,9 +862,24 @@ module.exports = {
 					25140: { chargeSpeed: 0.3 }
 				}
 			},
-			10: true,
-			11: true,
-			12: true
+			10: {
+				abnormals: {
+					500150: { skill: 330110 },
+					501600: { skill: 330150 }
+				}
+			},
+			11: {
+				abnormals: {
+					500150: { skill: 330111 },
+					501600: { skill: 330150 }
+				}
+			},
+			12: {
+				abnormals: {
+					500150: { skill: 330112 },
+					501600: { skill: 330150 }
+				}
+			}
 		},
 		6: { // Meteor Strike
 			0: {
@@ -946,6 +961,17 @@ module.exports = {
 			},
 			0: { length: 6475 },
 			50: { length: 3700 }
+		},
+		33: { // Arcane Pulse (Mana Boost)
+			'*': {
+				type: 'chargeCast',
+				length: 1275,
+				noRetry: true
+			},
+			10: true,
+			11: true,
+			12: true,
+			50: true
 		},
 		34: { // Mana Boost
 			0: { length: 750 }
