@@ -708,7 +708,11 @@ module.exports = {
 			30: true,
 			31: true
 		},
-		/*3: { // Thunderstrike
+		3: { // Thunderstrike
+			'*': {
+				type: 'chargeCast',
+				length: 1750
+			},
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
@@ -720,23 +724,11 @@ module.exports = {
 					24170: { chargeSpeed: 0.25 }
 				}
 			},
-			10: {
-				type: 'chargeCast',
-				length: 850
-			},
-			11: {
-				type: 'chargeCast',
-				length: 850
-			},
-			12: {
-				type: 'chargeCast',
-				length: 850
-			},
-			13: {
-				type: 'chargeCast',
-				length: 850
-			}
-		},*/
+			10: { distance: 85.74 }, // Cast F. - TODO
+			11: { distance: 85.74 },
+			12: { distance: 85.74 },
+			13: { distance: 85.74 }
+		},
 		4: { // Flatten
 			'*': {
 				length: 3100,
