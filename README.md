@@ -19,9 +19,9 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 ## Changelog
 ### 1.24.0
-+ [+] Support abnormality correction (game bugfixes)
-+ [+] Added Berserker: Thunderstrike, Cyclone
-+ [+] Added Sorcerer: Arcane Pulse
+* [+] Support abnormality correction (game bugfixes)
+* [+] Added Berserker: Thunderstrike, Cyclone
+* [+] Added Sorcerer: Arcane Pulse
 * [*] Fix regressions with multi-stage actions + dashes
 * [*] Fix infinite stage loop for final charging stage
 * [*] Correct charging speed algorithm + animation override
