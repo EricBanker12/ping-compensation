@@ -7,8 +7,8 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
 * Warrior: All besides Backstab, Staggering Counter, Smoke Flanker
 * Slayer: All besides Exhausting Blow, Backstab
-* Berserker: Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
-* Sorcerer: Most combat besides Arcane Pulse
+* Berserker: Thunderstrike, Cyclone, Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
+* Sorcerer: Most combat
 * Archer: All besides Radiant Arrow, Penetrating Arrow, Feign Death
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
