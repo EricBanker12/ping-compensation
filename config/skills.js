@@ -708,6 +708,35 @@ module.exports = {
 			30: true,
 			31: true
 		},
+		/*3: { // Thunderstrike
+			0: {
+				type: 'charging',
+				length: [650, 650, 650],
+				glyphs: {
+					24067: { chargeSpeed: 0.25 }
+				},
+				abnormals: {
+					24130: { chargeSpeed: 0.3 },
+					24170: { chargeSpeed: 0.25 }
+				}
+			},
+			10: {
+				type: 'chargeCast',
+				length: 850
+			},
+			11: {
+				type: 'chargeCast',
+				length: 850
+			},
+			12: {
+				type: 'chargeCast',
+				length: 850
+			},
+			13: {
+				type: 'chargeCast',
+				length: 850
+			}
+		},*/
 		4: { // Flatten
 			'*': {
 				length: 3100,
@@ -1320,8 +1349,7 @@ module.exports = {
 		18: { // Arun's Vitae
 			0: {
 				type: 'charging',
-				fixedSpeed: 1,
-				length: 1250
+				length: 1475
 			},
 			10: {
 				type: 'chargeCast',
@@ -1335,7 +1363,6 @@ module.exports = {
 		22: { // Arun's Tears
 			0: {
 				type: 'charging',
-				fixedSpeed: 1,
 				length: 1250
 			},
 			10: {

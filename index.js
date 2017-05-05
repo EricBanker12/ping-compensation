@@ -327,6 +327,7 @@ module.exports = function SkillPrediction(dispatch) {
 		lastStartLocation = currentLocation
 
 		let abnormalSpeed = 1,
+			chargeSpeed = 1,
 			distanceMult = 1
 
 		if(info.abnormals)
@@ -335,6 +336,7 @@ module.exports = function SkillPrediction(dispatch) {
 					let abnormal = info.abnormals[id]
 
 					if(abnormal.speed) abnormalSpeed *= abnormal.speed
+					if(abnormal.chargeSpeed) chargeSpeed += abnormal.chargeSpeed
 					if(abnormal.chain) skill += abnormal.chain - ((skill - 0x4000000) % 100)
 					if(abnormal.skill) skill = 0x4000000 + abnormal.skill
 				}
@@ -359,7 +361,6 @@ module.exports = function SkillPrediction(dispatch) {
 
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,
-			chargeSpeed = info.chargeSpeed,
 			movement = null,
 			stamina = info.stamina
 
@@ -369,7 +370,7 @@ module.exports = function SkillPrediction(dispatch) {
 					let glyph = info.glyphs[id]
 
 					if(glyph.speed) speed *= glyph.speed
-					if(glyph.chargeSpeed) speed *= glyph.chargeSpeed
+					if(glyph.chargeSpeed) chargeSpeed += glyph.chargeSpeed
 					if(glyph.movement) movement = glyph.movement
 					if(glyph.distance) distanceMult *= glyph.distance
 					if(glyph.stamina) stamina += glyph.stamina
@@ -638,7 +639,7 @@ module.exports = function SkillPrediction(dispatch) {
 			model,
 			skill: opts.skill,
 			stage: opts.stage,
-			speed: opts.speed,
+			speed: info.type == 'charging' ? 1 : opts.speed,
 			id: actionNumber,
 			unk: 1,
 			unk1: 0,
@@ -652,10 +653,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(info.type == 'holdInfinite') return
 
-		let length = 0
+		let speed = opts.speed * (info.type == 'charging' ? opts.chargeSpeed : 1),
+			length = 0
 
 		if(Array.isArray(info.length)) {
-			length = info.length[opts.stage] / (opts.chargeSpeed || opts.speed)
+			length = info.length[opts.stage] / speed
 			opts.distance = get(info, 'distance', opts.stage) || 0
 
 			if(!opts.moving) {
@@ -673,7 +675,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 		else {
-			length = info.length / (opts.chargeSpeed || opts.speed)
+			length = info.length / speed
 			opts.distance = info.distance || 0
 
 			if(!opts.moving) {
