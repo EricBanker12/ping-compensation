@@ -1,4 +1,8 @@
 module.exports = {
+	/* Archer */
+	26180: { overrides: 601450 }, // Poison Arrow glyph
+	601450: { overrides: 26180 }, // Focus
+
 	/* Gunner */
 	//30030: true, // Slick Scattershot (linked)
 

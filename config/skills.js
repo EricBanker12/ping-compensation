@@ -947,6 +947,24 @@ module.exports = {
 				chainType: 36
 			}
 		},
+		3: { // Radiant Arrow
+			'*': {
+				type: 'chargeCast',
+				length: 1750
+			},
+			0: {
+				type: 'charging',
+				length: [600, 600, 600],
+				abnormals: {
+					26180: { chargeSpeed: 0.3 },
+					601450: { chargeSpeed: 0.5 }
+				}
+			},
+			10: { distance: -100 }, // Cast F. - TODO
+			11: { distance: -100 },
+			12: { distance: -100 },
+			13: { distance: -100 }
+		},
 		5: { // Rain of Arrows
 			0: {
 				length: 3150,
