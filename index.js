@@ -245,8 +245,6 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(currentAction) {
-			interruptType = info.chainType || 6
-
 			let currentSkill = currentAction.skill - 0x4000000,
 				currentSkillBase = Math.floor(currentSkill / 10000),
 				currentSkillSub = currentSkill % 100
@@ -258,6 +256,8 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 
 			if(info.type != 'chargeCast') {
+				interruptType = info.chainType || 6
+
 				// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
 				if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
 					let canInterrupt = false
@@ -651,7 +651,7 @@ module.exports = function SkillPrediction(dispatch) {
 			movement
 		})
 
-		if(info.type == 'holdInfinite') return
+		if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) return
 
 		let speed = opts.speed * (info.type == 'charging' ? opts.chargeSpeed : 1),
 			length = 0
