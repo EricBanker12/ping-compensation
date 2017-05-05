@@ -1363,7 +1363,7 @@ module.exports = {
 		22: { // Arun's Tears
 			0: {
 				type: 'charging',
-				length: 1250
+				length: 1475
 			},
 			10: {
 				type: 'chargeCast',
