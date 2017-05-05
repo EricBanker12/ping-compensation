@@ -850,6 +850,22 @@ module.exports = {
 		3: { // Lightning Trap
 			0: { length: 1300 }
 		},
+		4: { // Arcane Pulse
+			'*': {
+				type: 'chargeCast',
+				length: 1275
+			},
+			0: {
+				type: 'charging',
+				length: [1000, 1000],
+				abnormals: {
+					25140: { chargeSpeed: 0.3 }
+				}
+			},
+			10: true,
+			11: true,
+			12: true
+		},
 		6: { // Meteor Strike
 			0: {
 				length: 3700,
