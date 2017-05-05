@@ -18,6 +18,15 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Vow of Rebirth (cast)
 
 ## Changelog
+### 1.24.0
++ [+] Support abnormality correction (game bugfixes)
++ [+] Added Berserker: Thunderstrike, Cyclone
++ [+] Added Sorcerer: Arcane Pulse
+* [*] Fix regressions with multi-stage actions + dashes
+* [*] Fix infinite stage loop for final charging stage
+* [*] Correct charging speed algorithm + animation override
+* [*] Fix Slayer: Heart Thrust incorrectly interrupting Knockdown Strike
+
 ### 1.23.1
 * [*] Fixed broken animations due to malformed S_ACTION_STAGE
 * [*] Fixed Mystic: Teleport Jaunt and Boomerang Pulse incorrectly interrupting themselves
