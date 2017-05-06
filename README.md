@@ -9,7 +9,7 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Slayer: All besides Exhausting Blow, Backstab
 * Berserker: Thunderstrike, Cyclone, Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
 * Sorcerer: Most combat
-* Archer: All besides Radiant Arrow, Penetrating Arrow, Feign Death
+* Archer: All besides Penetrating Arrow, Feign Death
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
 * Ninja: All
@@ -22,6 +22,7 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * [+] Support abnormality correction (game bugfixes)
 * [+] Added Berserker: Thunderstrike, Cyclone
 * [+] Added Sorcerer: Arcane Pulse
+* [+] Added Archer: Radiant Arrow
 * [*] Fix regressions with multi-stage actions + dashes
 * [*] Fix infinite stage loop for final charging stage
 * [*] Correct charging speed algorithm + animation override
