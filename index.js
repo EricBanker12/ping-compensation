@@ -325,7 +325,7 @@ module.exports = function SkillPrediction(dispatch) {
 		lastStartLocation = currentLocation
 
 		let abnormalSpeed = 1,
-			chargeSpeed = 1,
+			chargeSpeed = 0,
 			distanceMult = 1
 
 		if(info.abnormals)
@@ -651,7 +651,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) return
 
-		let speed = opts.speed * (info.type == 'charging' ? opts.chargeSpeed : 1),
+		let speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0),
 			length = 0
 
 		if(Array.isArray(info.length)) {
