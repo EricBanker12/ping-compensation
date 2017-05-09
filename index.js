@@ -14,7 +14,7 @@ const sysmsg = require('tera-data-parser').sysmsg,
 	skills = require('./config/skills')
 
 module.exports = function SkillPrediction(dispatch) {
-	const sysmsgMap = sysmsg.maps.get(dispatch.base.protocolMap),
+	const sysmsgMap = sysmsg.maps.get(dispatch.base.protocolVersion),
 		abnormality = new AbnormalityPrediction(dispatch)
 
 	let skillsCache = null,
