@@ -18,6 +18,10 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All besides Vow of Rebirth (cast)
 
 ## Changelog
+### 1.24.1
+* [~] Update for new sysmsg
+* [*] Correct charging speed algorithm
+
 ### 1.24.0
 * [+] Support abnormality correction (game bugfixes)
 * [+] Added Berserker: Thunderstrike, Cyclone
