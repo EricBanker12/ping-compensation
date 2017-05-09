@@ -14,8 +14,7 @@ const sysmsg = require('tera-data-parser').sysmsg,
 	skills = require('./config/skills')
 
 module.exports = function SkillPrediction(dispatch) {
-	const sysmsgMap = sysmsg.maps.get(dispatch.base.protocolVersion),
-		abnormality = new AbnormalityPrediction(dispatch)
+	const abnormality = new AbnormalityPrediction(dispatch)
 
 	let skillsCache = null,
 		cid = null,
@@ -770,7 +769,7 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function sendSystemMessage(type, vars) {
-		let message = '@' + sysmsgMap.name.get(type)
+		let message = '@' + sysmsg.maps.get(dispatch.base.protocolVersion).name.get(type)
 
 		for(let key in vars)
 			message += '\x0b' + key + '\x0b' + vars[key]
