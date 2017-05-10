@@ -2048,6 +2048,18 @@ module.exports = {
 			},
 			3: { length: 1200 }
 		},
+		9: { // Mana Missiles
+			'*': {
+				type: 'chargeCast',
+				length: 1250
+			},
+			0: {
+				type: 'charging',
+				length: 1200
+			},
+			10: { distance: -50 },
+			11: { distance: -100 }
+		},
 		13: { // Balder's Vengeance
 			'*': {
 				fixedSpeed: 1,
