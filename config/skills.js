@@ -1228,6 +1228,22 @@ module.exports = {
 			},
 			30: { length: 1040 }
 		},
+		28: { // Mana Charge
+			'*': {
+				type: 'chargeCast',
+				length: 825
+			},
+			0: {
+				type: 'charging',
+				length: [800, 1600],
+				abnormals: {
+					28031: { chargeSpeed: 0.25 }
+				}
+			},
+			10: true,
+			11: true,
+			12: true
+		},
 		29: { // Triple Nemesis
 			0: { length: 800 },
 			1: { length: 800 },
