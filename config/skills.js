@@ -1137,6 +1137,7 @@ module.exports = {
 			distance: [-114.05, 0, 0]
 		},*/
 		8: { // Rapid Fire
+			'*': { noRetry: true },
 			0: { length: 425 },
 			1: { length: 600 },
 			2: { length: 700 },
