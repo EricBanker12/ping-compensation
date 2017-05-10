@@ -969,13 +969,13 @@ module.exports = {
 		},
 		20: { // Flaming Barrage
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				length: 1500,
-				chainType: 36,
 				glyphs: {
 					25001: { speed: 1.3 },
 					25096: { speed: 1.4 }
@@ -987,50 +987,50 @@ module.exports = {
 		},
 		21: { // Nerve Exhaustion
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1200],
-				chainType: 36
+				length: [300, 1200]
 			}
 		},
 		22: { // Burning Breath
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1200],
-				chainType: 36
+				length: [300, 1200]
 			}
 		},
 		23: { // Mana Volley
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [325, 875],
-				chainType: 36
+				length: [325, 875]
 			}
 		},
 		25: { // Time Gyre
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 700,
-				chainType: 36
+				length: 700
 			}
 		},
 		26: { // Teleport Jaunt
@@ -1083,13 +1083,13 @@ module.exports = {
 	5: { // Archer
 		2: { // Arrow Volley
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
-				length: 1225,
-				chainType: 36
+				type: 'lockonCast',
+				length: 1225
 			}
 		},
 		3: { // Radiant Arrow
@@ -1297,13 +1297,13 @@ module.exports = {
 		},
 		19: { // Focus Heal
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
-				canCancel: true
+				length: 54440
 			},
 			10: {
-				length: 1940,
-				chainType: 36
+				type: 'lockonCast',
+				length: 1940
 			}
 		},
 		22: { // Kaia's Shield
@@ -1355,14 +1355,14 @@ module.exports = {
 		},
 		30: { // Plague of Exhaustion
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				chainType: 36
+				length: 1430
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -1379,14 +1379,14 @@ module.exports = {
 		},
 		33: { // Ishara's Lulliby
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1430],
-				chainType: 36
+				length: [300, 1430]
 			}
 		},
 		34: { // Restorative Burst
@@ -1394,29 +1394,29 @@ module.exports = {
 		},
 		35: { // Energy Stars
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				chainType: 36
+				length: 1430
 			}
 		},
 		37: { // Healing Immersion
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [37],
-				canCancel: true,
 				noRetry: true
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1430,
-				noInterrupt: ['37-10'],
-				chainType: 36
+				noInterrupt: ['37-10']
 			}
 		},
 		38: { // Backstep
@@ -1434,13 +1434,13 @@ module.exports = {
 		},
 		41: { // Divine Intervention
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
-				canCancel: true
+				length: 54440
 			},
 			10: {
-				length: 925,
-				chainType: 36
+				type: 'lockonCast',
+				length: 925
 			}
 		}
 	},
@@ -1464,13 +1464,13 @@ module.exports = {
 		},
 		5: { // Titanic Favor
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
-				canCancel: true
+				length: 59900
 			},
 			10: {
-				length: 1940,
-				chainType: 36
+				type: 'lockonCast',
+				length: 1940
 			}
 		},
 		6: { // Shara's Lash
@@ -1489,13 +1489,13 @@ module.exports = {
 		},
 		9: { // Arun's Cleansing
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
-				canCancel: true
+				length: 59900
 			},
 			10: {
-				length: 790,
-				chainType: 36
+				type: 'lockonCast',
+				length: 790
 			}
 		},
 		10: { // Resurrect
@@ -1518,13 +1518,13 @@ module.exports = {
 		},
 		12: { // Vow of Rebirth
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
-				canCancel: true
+				length: 59900
 			}/*,
 			10: {
-				length: 1940,
-				chainType: 36
+				type: 'lockonCast',
+				length: 1940
 			}*/
 		},
 		13: { // Aura of the Merciless
@@ -1565,6 +1565,13 @@ module.exports = {
 				}
 			}
 		},
+		21: { // Retaliate
+			0: {
+				type: 'retaliate',
+				length: 1625,
+				noRetry: true
+			}
+		},
 		22: { // Arun's Tears
 			0: {
 				type: 'charging',
@@ -1590,14 +1597,14 @@ module.exports = {
 		},
 		24: { // Volley of Curses
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [525, 675],
-				chainType: 36
+				length: [525, 675]
 			}
 		},
 		25: { // Thrall of Protection
@@ -1614,14 +1621,14 @@ module.exports = {
 		},
 		28: { // Sonorous Dreams
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				chainType: 36
+				length: 1430
 			}
 		},
 		29: { // Regression
@@ -1630,38 +1637,38 @@ module.exports = {
 		},
 		30: { // Curse of Exhaustion
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				chainType: 36
+				length: 1430
 			}
 		},
 		31: { // Curse of Confusion
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				chainType: 36
+				length: 1430
 			}
 		},
 		32: { // Mire
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
+				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				chainType: 36
+				length: 1430
 			}
 		},
 		33: { // Thrall of Vengeance
@@ -1693,13 +1700,13 @@ module.exports = {
 		},
 		41: { // Contagion
 			0: {
+				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				canCancel: true
+				length: 4900
 			},
 			10: {
-				length: 1000,
-				chainType: 36
+				type: 'lockonCast',
+				length: 1000
 			}
 		},
 		42: { // Boomerang Pulse
@@ -2213,9 +2220,9 @@ module.exports = {
 				length: 29900
 			},
 			1: {
+				type: 'lockonCast',
 				length: [,,],
-				distance: [,,],
-				chainType: 36
+				distance: [,,]
 			}
 		},*/
 		4: { // Ground Pound
@@ -2455,10 +2462,7 @@ module.exports = {
 				forceClip: true,
 				noRetry: true
 			},
-			0: {
-				chainType: 4,
-				isInterruptChain: true
-			},
+			0: { type: 'nullChain' },
 			30: true
 		},
 		6: { // One Thousand Cuts

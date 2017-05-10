@@ -13,6 +13,12 @@ const sysmsg = require('tera-data-parser').sysmsg,
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills')
 
+const INTERRUPT_TYPES = {
+	'nullChain': 4,
+	'retaliate': 5,
+	'lockonCast': 36
+}
+
 module.exports = function SkillPrediction(dispatch) {
 	const abnormality = new AbnormalityPrediction(dispatch)
 
@@ -252,12 +258,10 @@ module.exports = function SkillPrediction(dispatch) {
 				currentSkillSub = currentSkill % 100
 
 			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
-			if(currentSkillBase == 6190 || currentSkillBase == 6811 + race) {
+			if(currentSkillBase == 6190 || (currentSkillBase == 6811 + race && info.type != 'retaliate')) {
 				sendCannotStartSkill(event.skill)
 				return false
 			}
-
-			interruptType = info.chainType || 6
 
 			// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
 			if(info.noInterrupt && (info.noInterrupt.includes(currentSkillBase) || info.noInterrupt.includes(currentSkillBase + '-' + currentSkillSub))) {
@@ -278,8 +282,9 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(chain) {
 				skill += chain - ((skill - 0x4000000) % 100)
-				interruptType = info.chainType || 4
+				interruptType = INTERRUPT_TYPES[info.type] || 4
 			}
+			else interruptType = INTERRUPT_TYPES[info.type] || 6
 		}
 
 		if(info.onlyDefenceSuccess)
@@ -353,7 +358,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(interruptType) {
 			info.type == 'chargeCast' ? clearTimeout(stageTimeout) : sendActionEnd(interruptType)
 
-			if(info.isInterruptChain) {
+			if(info.type == 'nullChain') {
 				if(send) dispatch.toServer(type, version, event)
 				return
 			}
@@ -419,7 +424,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill) // event.skill can be wrong, so use the known current skill instead
-			if(info && info.canCancel) sendActionEnd(event.type)
+			if(info && info.type == 'lockon') sendActionEnd(event.type)
 		}
 	})
 
