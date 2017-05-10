@@ -1187,7 +1187,8 @@ module.exports = {
 		22: { // Sequential Fire
 			0: {
 				length: 425,
-				requiredBuff: 600200
+				requiredBuff: 600200,
+				noRetry: true
 			}
 		},
 		25: { // Incendiary Trap Arrow
