@@ -1288,12 +1288,14 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 4900,
+				noInterrupt: [37],
 				canCancel: true,
 				noRetry: true
 			},
 			10: {
 				fixedSpeed: 1,
 				length: 1430,
+				noInterrupt: ['37-10'],
 				chainType: 36
 			}
 		},
@@ -1883,8 +1885,8 @@ module.exports = {
 					40: 30
 				}
 			},
-			1: true,
-			2: true,
+			1: { noRetry: true },
+			2: { noRetry: true },
 			3: {
 				length: 1200,
 				distance: -198.53
@@ -1893,7 +1895,7 @@ module.exports = {
 				length: 1200,
 				distance: -198.53
 			},
-			30: true
+			30: { noRetry: true }
 		},
 		5: { // Burst Fire
 			0: { length: 850 },
