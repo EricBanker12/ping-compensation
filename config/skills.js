@@ -954,6 +954,19 @@ module.exports = {
 				forceClip: true
 			}
 		},
+		19: { // Mana Siphon
+			'*': {
+				type: 'chargeCast',
+				length: 900
+			},
+			0: {
+				type: 'charging',
+				length: [1000, 1000]
+			},
+			10: true,
+			11: true,
+			12: true
+		},
 		20: { // Flaming Barrage
 			0: {
 				fixedSpeed: 1,
@@ -970,6 +983,54 @@ module.exports = {
 				abnormals: {
 					25060: { speed: 1.25 }
 				}
+			}
+		},
+		21: { // Nerve Exhaustion
+			0: {
+				fixedSpeed: 1,
+				length: 4900,
+				canCancel: true
+			},
+			10: {
+				fixedSpeed: 1,
+				length: [300, 1200],
+				chainType: 36
+			}
+		},
+		22: { // Burning Breath
+			0: {
+				fixedSpeed: 1,
+				length: 4900,
+				canCancel: true
+			},
+			10: {
+				fixedSpeed: 1,
+				length: [300, 1200],
+				chainType: 36
+			}
+		},
+		23: { // Mana Volley
+			0: {
+				fixedSpeed: 1,
+				length: 4900,
+				canCancel: true
+			},
+			10: {
+				fixedSpeed: 1,
+				length: [325, 875],
+				chainType: 36
+			}
+		},
+		25: { // Time Gyre
+			0: {
+				fixedSpeed: 1,
+				length: 4900,
+				canCancel: true
+			},
+			10: {
+				fixedSpeed: 1,
+				length: 700,
+				chainType: 36
 			}
 		},
 		26: { // Teleport Jaunt
