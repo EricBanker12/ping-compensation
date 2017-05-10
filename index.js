@@ -37,6 +37,7 @@ module.exports = function SkillPrediction(dispatch) {
 		oopsLocation = null,
 		currentAction = null,
 		serverAction = null,
+		lastEndSkill = 0,
 		lastEndType = 0,
 		lastEndedId = 0,
 		stageTimeout = null,
@@ -55,6 +56,7 @@ module.exports = function SkillPrediction(dispatch) {
 		actionNumber = 0x80000000
 		currentAction = null
 		serverAction = null
+		lastEndSkill = 0
 		lastEndType = 0
 		lastEndedId = 0
 		clearTimeout(stageTimeout)
@@ -466,7 +468,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(event.id == lastEndedId) return false
 
-			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndType)
+			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndSkill == currentAction.skill ? lastEndType || 6 : 6)
 
 			currentAction = event
 			updateLocation()
@@ -511,6 +513,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 
 			serverAction = null
+			lastEndSkill = event.skill
 			lastEndType = event.type
 
 			if(event.id == lastEndedId) {
@@ -558,7 +561,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_EACH_SKILL_RESULT', 1, event => {
 		if(event.target.equals(cid) && event.setTargetAction) {
-			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndType)
+			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
 
 			currentAction = serverAction = {
 				x: event.targetX,
@@ -598,7 +601,7 @@ module.exports = function SkillPrediction(dispatch) {
 				Object.assign(currentLocation, event.location, { inAction: true })
 				oopsLocation = null
 
-				if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(lastEndType)
+				if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
 			}
 		}
 	})
