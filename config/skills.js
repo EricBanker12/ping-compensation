@@ -851,7 +851,12 @@ module.exports = {
 			0: { length: 1000 }
 		},
 		3: { // Lightning Trap
-			0: { length: 1300 }
+			0: {
+				length: 1300,
+				abnormals: {
+					25090: { speed: 1.4 }
+				}
+			}
 		},
 		4: { // Arcane Pulse
 			'*': {
@@ -884,6 +889,9 @@ module.exports = {
 				}
 			}
 		},
+		5: { // Mana Infusion
+			0: { length: 4600 }
+		},
 		6: { // Meteor Strike
 			0: {
 				length: 3700,
@@ -892,6 +900,7 @@ module.exports = {
 					25069: { speed: 1.25 }
 				},
 				abnormals: {
+					25100: { speed: 1.25 },
 					500150: { skill: 320100 },
 					501600: { skill: 320150 }
 				}
@@ -904,6 +913,14 @@ module.exports = {
 				forceClip: true
 			}
 		},
+		8: { // Flame Pillar
+			0: {
+				length: 1200,
+				abnormals: {
+					25070: { speed: 1.25 }
+				}
+			}
+		},
 		10: { // Mana Barrier
 			0: { length: 625 }
 		},
@@ -912,6 +929,17 @@ module.exports = {
 		},
 		12: { // Void Pulse
 			0: { length: 925 }
+		},
+		13: { // Mindblast
+			0: {
+				length: 2325,
+				glyphs: {
+					25048: { speed: 1.3 }
+				},
+				abnormals: {
+					25110: { speed: 1.4 }
+				}
+			}
 		},
 		16: { // Painblast
 			0: { length: 1330 }
@@ -938,6 +966,9 @@ module.exports = {
 				glyphs: {
 					25001: { speed: 1.3 },
 					25096: { speed: 1.4 }
+				},
+				abnormals: {
+					25060: { speed: 1.25 }
 				}
 			}
 		},
