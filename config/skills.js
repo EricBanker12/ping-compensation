@@ -844,6 +844,9 @@ module.exports = {
 		}
 	},
 	4: { // Sorcerer
+		1: { // Fireball
+			0: { length: 725 }
+		},
 		2: { // Frost Sphere
 			0: { length: 1000 }
 		},
@@ -936,6 +939,14 @@ module.exports = {
 					25001: { speed: 1.3 },
 					25096: { speed: 1.4 }
 				}
+			}
+		},
+		26: { // Teleport Jaunt
+			0: {
+				length: [200, 260],
+				distance: [0, 333],
+				noInterrupt: [17],
+				isTeleport: true
 			}
 		},
 		27: { // Hailstorm
