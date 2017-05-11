@@ -168,7 +168,7 @@ module.exports = function SkillPrediction(dispatch) {
 			['C_PRESS_SKILL', 1],
 			['C_NOTIMELINE_SKILL', 1]
 		])
-		dispatch.hook(packet[0], packet[1], {order: 100, type: 'all'}, startSkill.bind(null, packet[0], packet[1]))
+		dispatch.hook(packet[0], packet[1], {order: 100}, startSkill.bind(null, packet[0], packet[1]))
 
 	function startSkill(type, version, event) {
 		let delayed = delayNext && delayNextEnd >= Date.now()
