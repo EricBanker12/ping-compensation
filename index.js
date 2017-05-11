@@ -113,9 +113,9 @@ module.exports = function SkillPrediction(dispatch) {
 
 		currentLocation = {
 			// This is not correct, but the midpoint location seems to be "close enough" for the client to not teleport the player
-			x: (event.x1 / 2) + (event.x2 / 2),
-			y: (event.y1 / 2) + (event.y2 / 2),
-			z: (event.z1 / 2) + (event.z2 / 2),
+			x: (event.x1 + event.x2) / 2,
+			y: (event.y1 + event.y2) / 2,
+			z: (event.z1 + event.z2) / 2,
 			w: event.w
 		}
 	})
@@ -168,7 +168,7 @@ module.exports = function SkillPrediction(dispatch) {
 			['C_PRESS_SKILL', 1],
 			['C_NOTIMELINE_SKILL', 1]
 		])
-		dispatch.hook(packet[0], packet[1], startSkill.bind(null, packet[0], packet[1]))
+		dispatch.hook(packet[0], packet[1], {order: 100, type: 'all'}, startSkill.bind(null, packet[0], packet[1]))
 
 	function startSkill(type, version, event) {
 		let delayed = delayNext && delayNextEnd >= Date.now()
