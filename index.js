@@ -1,6 +1,7 @@
 const SKILL_RETRY_MS		= 60,	/*	Desync reduction (0 = disabled).
 										Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 									*/
+	SKILL_RETRY_ALWAYS		= true, //	Set to false if your ping is lower than SKILL_RETRY_MS.
 	SKILL_DELAY_NEXT		= true, //	Desync compensation.
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
@@ -412,7 +413,10 @@ module.exports = function SkillPrediction(dispatch) {
 		// Normally the user can press the skill button again if it doesn't go off
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(SKILL_RETRY_MS && !info.noRetry)
-			setTimeout(() => { dispatch.toServer(type, version, event) }, SKILL_RETRY_MS)
+			setTimeout(() => {
+				if(SKILL_RETRY_ALWAYS || currentAction && currentAction.skill == skill && (!serverAction || serverAction.skill != skill))
+					dispatch.toServer(type, version, event)
+			}, SKILL_RETRY_MS)
 	}
 
 	dispatch.hook('C_CANCEL_SKILL', 1, event => {
@@ -480,7 +484,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(event.source.equals(cid)) {
 			if(DEBUG)
 				if(DEBUG_LOC) console.log('<- S_INSTANT_DASH %d %d %d %d\xb0 (%d %d %d)', event.unk1, event.unk2, event.unk3, event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z))
-				else console.log('<- S_INSTANT_DASH', event.unk1, event.unk2, event.unk3)
+				else console.log('<- S_INSTANT_DASH %d %d %d %dms (%dms)', event.unk1, event.unk2, event.unk3, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed))
 
 			if(serverAction && skillInfo(serverAction.skill)) return false
 		}
