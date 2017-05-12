@@ -8,16 +8,28 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Warrior: All besides Backstab, Staggering Counter, Smoke Flanker
 * Slayer: All besides Exhausting Blow, Backstab
 * Berserker: Thunderstrike, Cyclone, Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
-* Sorcerer: Most combat
+* Sorcerer: All besides Stone Skin
 * Archer: All besides Penetrating Arrow, Feign Death
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
 * Ninja: All
 * Valkyrie: All
-* Priest: All besides Mana Charge
-* Mystic: All besides Vow of Rebirth (cast)
+* Priest: All
+* Mystic: All
 
 ## Changelog
+### 1.25.0
+* [+] Added Sorcerer: Fireball, Teleport Jaunt, Flame Pillar, Mindblast, Time Gyre, Burning Breath, Nerve Exhaustion, Mana Infusion, Mana Siphon, Mana Volley
+* [+] Added Gunner: Mana Missiles
+* [+] Added Priest: Mana Charge
+* [+] Added Mystic: Retaliate
+* [~] Always retry skills by default (better consistency for Warrior's Charging Slash, Gunner's Burst Fire, etc.)
+* [*] Compatibility with mods that modify skill packets
+* [*] Force end type 9 on CC/death and type 6 on 0 or non-same-skill interrupt (fixes some cases of stuck in animation on CC/death)
+* [*] Fixed Sorcerer: Lightning Trap and Meteor Strike speedcast powerlinks
+* [*] Fixed Archer: Rapid Fire retries interrupting the combo and Sequential Fire error messages
+* [*] Fixed Gunner: Point Blank occasionally going on cooldown after the first hit
+
 ### 1.24.1
 * [~] Update for new sysmsg
 * [*] Correct charging speed algorithm
