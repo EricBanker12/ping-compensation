@@ -412,11 +412,7 @@ module.exports = function SkillPrediction(dispatch) {
 		// Normally the user can press the skill button again if it doesn't go off
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(SKILL_RETRY_MS && !info.noRetry)
-			setTimeout(() => {
-				// Note: May fail with high ping and casting the same skill multiple times in very quick succession (ie. Lancer Combo Attack)
-				if(currentAction && currentAction.skill == skill && (!serverAction || serverAction.skill != skill))
-					dispatch.toServer(type, version, event)
-			}, SKILL_RETRY_MS)
+			setTimeout(() => { dispatch.toServer(type, version, event) }, SKILL_RETRY_MS)
 	}
 
 	dispatch.hook('C_CANCEL_SKILL', 1, event => {
