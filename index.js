@@ -414,7 +414,7 @@ module.exports = function SkillPrediction(dispatch) {
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(SKILL_RETRY_MS && !info.noRetry)
 			setTimeout(() => {
-				if(SKILL_RETRY_ALWAYS || currentAction && currentAction.skill == skill && (!serverAction || serverAction.skill != skill))
+				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill && (!serverAction || serverAction.skill != skill))
 					dispatch.toServer(type, version, event)
 			}, SKILL_RETRY_MS)
 	}
