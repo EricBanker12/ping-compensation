@@ -1,7 +1,7 @@
 const SKILL_RETRY_MS		= 60,	/*	Desync reduction (0 = disabled).
 										Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 									*/
-	SKILL_RETRY_ALWAYS		= true, //	Set to false if your ping is lower than SKILL_RETRY_MS.
+	SKILL_RETRY_ALWAYS		= false, //	Setting this to true will reduce ghosting, but may cause specific skills to fail.
 	SKILL_DELAY_NEXT		= true, //	Desync compensation.
 	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
 										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
@@ -414,7 +414,7 @@ module.exports = function SkillPrediction(dispatch) {
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(SKILL_RETRY_MS && !info.noRetry)
 			setTimeout(() => {
-				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill && (!serverAction || serverAction.skill != skill))
+				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill)
 					dispatch.toServer(type, version, event)
 			}, SKILL_RETRY_MS)
 	}
