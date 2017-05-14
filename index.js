@@ -1,11 +1,17 @@
-const SKILL_RETRY_MS		= 60,	/*	Desync reduction (0 = disabled).
-										Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
-									*/
-	SKILL_RETRY_ALWAYS		= false, //	Setting this to true will reduce ghosting, but may cause specific skills to fail.
-	SKILL_DELAY_NEXT		= true, //	Desync compensation.
-	FORCE_CLIP_STRICT		= true, /*	Set this to false for smoother, less accurate iframing near walls.
-										Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
-									*/
+const RESPONSE_THRESHOLD	= 0,		/*	Jitter compensation (0 = disabled).
+											Delays the next skill if the previous skill took longer than RESPONSE_THRESHOLD ms to respond.
+
+											Recommended: Set this to your average ping to prevent most desync.
+											Set this to your minimum ping to prevent virtually all desync, at the cost of slower rotations.
+										*/
+	SKILL_RETRY_MS			= 60,		/*	Desync reduction (0 = disabled).
+											Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
+										*/
+	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting, but may cause specific skills to fail.
+	SKILL_DELAY_NEXT		= true,		//	Desync compensation.
+	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
+											Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
+										*/
 	DEBUG					= false,
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
@@ -34,11 +40,12 @@ module.exports = function SkillPrediction(dispatch) {
 		inventory = null,
 		recentlyDead = false,
 		equippedWeapon = false,
-		delayNext = false,
+		delayNext = 0,
 		delayNextEnd = 0,
 		delayNextTimeout = null,
 		actionNumber = 0x80000000,
 		currentLocation = null,
+		lastStartTime = 0,
 		lastStartLocation = null,
 		lastEndLocation = null,
 		oopsLocation = null,
@@ -172,23 +179,28 @@ module.exports = function SkillPrediction(dispatch) {
 		dispatch.hook(packet[0], packet[1], {order: 100}, startSkill.bind(null, packet[0], packet[1]))
 
 	function startSkill(type, version, event) {
-		let delayed = delayNext && delayNextEnd >= Date.now()
+		let delay = 0
 
-		if(DEBUG)
-			if(DEBUG_LOC) {
-				if(type == 'C_START_SKILL') console.log('-> %s %s %d %d %d %d\xb0 (%d %d %d) > (%d %d %d)', type, skillId(event.skill), event.unk1, event.unk2, event.unk3, event.w, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), Math.round(event.x2), Math.round(event.y2), Math.round(event.z2), delayed ? 'Delayed' : '')
-				else if(type == 'C_START_TARGETED_SKILL') console.log('-> %s %s %d\xb0 (%d %d %d) > (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), Math.round(event.x2), Math.round(event.y2), Math.round(event.z2), delayed ? 'Delayed' : '')
-				else if(type == 'C_PRESS_SKILL') console.log('-> %s %s %d\xb0 (%d %d %d)', type, skillId(event.skill), event.start, event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
-				else console.log('-> %s %s %d %d\xb0 (%d %d %d)', type, skillId(event.skill), event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z), delayed ? 'Delayed' : '')
-			}
-			else if(type == 'C_PRESS_SKILL') console.log('->', type, skillId(event.skill), event.start, delayed ? 'Delayed' : '')
-			else if(type == 'C_START_SKILL') console.log('->', type, skillId(event.skill), event.unk1, event.unk2, event.unk3, delayed ? 'Delayed' : '')
-			else if(type == 'C_START_INSTANCE_SKILL_EX') console.log('->', type, skillId(event.skill), event.unk, delayed ? 'Delayed' : '')
-			else console.log('->', type, skillId(event.skill), delayed ? 'Delayed' : '')
+		if(delayNext && Date.now() <= delayNextEnd + delayNext) delay = delayNext
 
-		if(delayed) {
-			clearTimeout(delayNextTimeout)
-			delayNextTimeout = setTimeout(sendStartSkill, SKILL_RETRY_MS, type, version, event, true)
+		if(DEBUG) {
+			let strs = ['->', type, skillId(event.skill)]
+
+			if(DEBUG_LOC)
+				if(type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX')
+					strs.push(...[event.w + '\xb0', '(' + Math.round(event.x1), Math.round(event.y1), Math.round(event.z1) + ')', '>', '(' + Math.round(event.x2), Math.round(event.y2), Math.round(event.z2) + ')'])
+				else
+					strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+
+			if(delay) strs.push('DELAY=' + delay)
+
+			console.log(strs.join(' '))
+		}
+
+		clearTimeout(delayNextTimeout)
+
+		if(delay) {
+			delayNextTimeout = setTimeout(sendStartSkill, delay, type, version, event, true)
 			return false
 		}
 
@@ -196,7 +208,7 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function sendStartSkill(type, version, event, send) {
-		delayNext = false
+		delayNext = 0
 
 		let info = skillInfo(event.skill),
 			specialLoc = type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX'
@@ -408,6 +420,8 @@ module.exports = function SkillPrediction(dispatch) {
 			} : null
 		})
 
+		lastStartTime = Date.now()
+
 		if(send) dispatch.toServer(type, version, event)
 
 		// Normally the user can press the skill button again if it doesn't go off
@@ -450,6 +464,12 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = skillInfo(event.skill)
 			if(info) {
+				if(RESPONSE_THRESHOLD && event.stage == 0) {
+					let delay = Date.now() - lastStartTime - RESPONSE_THRESHOLD
+
+					if(delay > 0 && delay < 1000) delayNext = delay
+				}
+
 				if(info.forceClip && event.movement.length) {
 					let distance = 0
 					for(let m of event.movement) distance += m.distance
@@ -592,7 +612,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(skillInfo(event.skill, true)) {
 			if(SKILL_DELAY_NEXT && SKILL_RETRY_MS && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
-				delayNext = true
+				delayNext = SKILL_RETRY_MS
 
 			return false
 		}
@@ -688,7 +708,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 
 			if(opts.stage + 1 < info.length.length) {
-				delayNextEnd = Date.now() + length + SKILL_RETRY_MS
+				delayNextEnd = Date.now() + length
 
 				opts.stage += 1
 				stageTimeout = setTimeout(sendActionStage, length, opts)
@@ -722,7 +742,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		delayNextEnd = Date.now() + length + SKILL_RETRY_MS
+		delayNextEnd = Date.now() + length
 		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, info.isTeleport ? 0 : opts.distance * opts.distanceMult)
 	}
 
