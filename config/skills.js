@@ -2171,10 +2171,8 @@ module.exports = {
 			'*': {
 				length: 1575,
 				distance: 71.28,
-				linkedAbnormal: {
-					id: 10153060,
-					length: 3000
-				},
+				triggerAbnormal: { 10153060: 3000 },
+				consumeAbnormalEnd: 10153060,
 				noInterrupt: ['1-3'],
 				chains: {
 					'1-0': 1,
@@ -2214,34 +2212,26 @@ module.exports = {
 			1: {
 				length: 1200,
 				distance: 139.97,
-				linkedAbnormal: {
-					id: 10153001,
-					length: 0x7fffffff
-				}
+				triggerAbnormal: { 10153001: 0x7fffffff },
+				consumeAbnormalEnd: 10153001
 			},
 			2: {
 				length: 1800,
 				distance: 84,
-				linkedAbnormal: {
-					id: 10153002,
-					length: 0x7fffffff
-				}
+				triggerAbnormal: { 10153002: 0x7fffffff },
+				consumeAbnormalEnd: 10153002
 			},
 			3: {
 				length: 1925,
 				distance: 131.2,
-				linkedAbnormal: {
-					id: 10153003,
-					length: 0x7fffffff
-				}
+				triggerAbnormal: { 10153003: 0x7fffffff },
+				consumeAbnormalEnd: 10153003
 			},
 			4: {
 				length: 1950,
 				distance: 142.86,
-				linkedAbnormal: {
-					id: 10153004,
-					length: 0x7fffffff
-				}
+				triggerAbnormal: { 10153004: 0x7fffffff },
+				consumeAbnormalEnd: 10153004
 			},
 			12: {
 				/*abnormals: {

@@ -626,9 +626,6 @@ module.exports = function SkillPrediction(dispatch) {
 		if(info.isDash) sendInstantDash(opts.targetLoc)
 		if(info.isTeleport) sendInstantMove(Object.assign({w: currentLocation.w}, opts.targetLoc))
 
-		// TODO: Deprecated
-		if(info.linkedAbnormal) abnormality.add(info.linkedAbnormal.id, info.linkedAbnormal.length, info.linkedAbnormal.stacks || 1)
-
 		if(info.triggerAbnormal)
 			for(let id in info.triggerAbnormal) {
 				let abnormal = info.triggerAbnormal[id]
@@ -779,9 +776,6 @@ module.exports = function SkillPrediction(dispatch) {
 		if(currentAction.id == actionNumber) {
 			let info = skillInfo(currentAction.skill)
 			if(info) {
-				// TODO: Deprecated
-				if(info.linkedAbnormal) abnormality.remove(info.linkedAbnormal.id)
-
 				if(info.consumeAbnormalEnd)
 					if(Array.isArray(info.consumeAbnormalEnd))
 						for(let id of info.consumeAbnormalEnd)
