@@ -476,7 +476,7 @@ module.exports = {
 				length: 725,
 				distance: -150,
 				forceClip: true,
-				stamina: 700,
+				stamina: 800,
 				instantStamina: true,
 				noInterrupt: [26],
 				glyphs: {
