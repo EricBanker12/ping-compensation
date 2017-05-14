@@ -26,7 +26,7 @@ class AbnormalityPrediction {
 					if(info.overrides && this.exists(info.overrides)) this.remove(info.overrides)
 				}
 
-				if(this.exists(event.id)) {
+				if(type == 'S_ABNORMALITY_BEGIN' && this.exists(event.id)) {
 					this.add(event.id, event.duration, event.stacks)
 					return false
 				}
