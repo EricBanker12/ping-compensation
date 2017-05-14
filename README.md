@@ -11,13 +11,22 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Sorcerer: All besides Stone Skin
 * Archer: All besides Penetrating Arrow, Feign Death
 * Reaper: All besides Cable Step, Soul Reversal
-* Gunner: Blast, Rolling Reload, Burst Fire, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Point Blank, HB
+* Gunner: Blast, Rolling Reload, Burst Fire, Mana Missiles, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Arc Bomb, Point Blank, HB
 * Ninja: All
 * Valkyrie: All
 * Priest: All
 * Mystic: All
 
 ## Changelog
+### 1.26.0
+* [+] Added jitter compensation (disabled by default)
+* [+] Added Gunner: Arc Bomb
+* [~] Updated abnormality prediction system
+* [*] Fixed behavior of SKILL_RETRY_ALWAYS and disabled by default
+* [*] Fixed Lancer: Backstep RE cost
+* [*] Fixed Gunner: Arcane Barrage not being able to detonate immediately at high ping
+* [*] Fixed Ninja: Combo Attack sideways movement
+
 ### 1.25.0
 * [+] Added Sorcerer: Fireball, Teleport Jaunt, Flame Pillar, Mindblast, Time Gyre, Burning Breath, Nerve Exhaustion, Mana Infusion, Mana Siphon, Mana Volley
 * [+] Added Gunner: Mana Missiles
