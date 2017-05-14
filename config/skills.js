@@ -47,7 +47,7 @@ module.exports = {
 			'*': { distance: 151.87 },
 			0: {
 				length: 2550,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 16, 17, 19, 22, 28, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 34, 36, 37],
 				abnormals: {
 					100801: { skill: 360100 }
 				},
@@ -176,7 +176,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 16, 17, 19, 21, 22, 28, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 36, 37],
 				chains: {
 					11: 30,
 					18: 30,
@@ -192,7 +192,7 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37],
 				interruptibleWithAbnormal: {
 					102010: 3
 				},
@@ -221,7 +221,7 @@ module.exports = {
 			0: {
 				length: 1850,
 				distance: 150,
-				noInterrupt: [1, 3, 8, 9, 10, 16, 17, 18, 19, 21, 22, 27, 28, 34],
+				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34],
 				abnormals: {
 					100801: { skill: 380100 }
 				},
@@ -248,7 +248,7 @@ module.exports = {
 			0: {
 				length: 2275,
 				distance: 110,
-				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 16, 17, 19, 21, 22, 27, 28, 29, 34, 37],
+				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 27, 28, 29, 34, 37],
 				chains: {
 					4: 30,
 					18: 30,
@@ -1458,7 +1458,8 @@ module.exports = {
 				length: 10850,
 				chainOnRelease: 11
 			},
-			11: { length: 825 }
+			11: { length: 825 },
+			12: { length: 1275 }
 		},
 		4: { // Ancient Binding
 			0: { length: 1275 }
@@ -1522,11 +1523,11 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 59900
-			}/*,
+			},
 			10: {
 				type: 'lockonCast',
 				length: 1940
-			}*/
+			}
 		},
 		13: { // Aura of the Merciless
 			0: { length: 1275 },
@@ -2373,7 +2374,10 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 650,
-				distance: 45,
+				distance: 44.86,
+				noRetry: true
+			},
+			0: {
 				abnormals: {
 					10154000: { chain: 1 },
 					10154001: { chain: 2 },
@@ -2396,35 +2400,83 @@ module.exports = {
 					18: 30,
 					19: 30,
 					20: 30
-				},
-				noRetry: true
+				}
 			},
-			0: true,
 			1: {
 				length: 1125,
-				distance: 53
+				distance: 52.47
 			},
 			2: {
 				length: 1200,
-				distance: 70
+				distance: 69.96
 			},
 			3: {
 				length: 1225,
-				distance: 38
+				distance: 38.01
 			},
 			4: {
 				length: 1700,
-				distance: 55
+				distance: 54.69
 			},
 			5: {
 				length: 1500,
-				distance: 38
+				distance: 37.80
 			},
 			6: {
 				length: 1150,
-				distance: 83
+				distance: 82.62
 			},
-			30: true
+			30: true,
+			40: {
+				abnormals: {
+					10154000: { chain: 41 },
+					10154001: { chain: 42 },
+					10154002: { chain: 43 },
+					10154003: { chain: 44 },
+					10154004: { chain: 45 },
+					10154005: { chain: 46 }
+				},
+				chains: {
+					1: 70,
+					4: 70,
+					6: 70,
+					7: 70,
+					9: 70,
+					12: 70,
+					13: 70,
+					14: 70,
+					15: 70,
+					16: 70,
+					18: 70,
+					19: 70,
+					20: 70
+				}
+			},
+			41: {
+				length: 1125,
+				distance: 52.47
+			},
+			42: {
+				length: 1200,
+				distance: 69.96
+			},
+			43: {
+				length: 1225,
+				distance: 38.01
+			},
+			44: {
+				length: 1700,
+				distance: 54.69
+			},
+			45: {
+				length: 1500,
+				distance: 37.80
+			},
+			46: {
+				length: 1150,
+				distance: 82.62
+			},
+			70: true
 		},
 		2: { // Shadow Jump
 			'*': {
