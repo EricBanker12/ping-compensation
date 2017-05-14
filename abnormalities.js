@@ -26,7 +26,12 @@ class AbnormalityPrediction {
 					if(info.overrides && this.exists(info.overrides)) this.remove(info.overrides)
 				}
 
-				this.myAbnormals[event.id] = event.duration == 0x7fffffff ? Infinity : Date.now() + event.duration
+				if(this.exists(event.id)) {
+					this.add(event.id, event.duration, event.stacks)
+					return false
+				}
+
+				this._add(event.id, event.duration)
 			}
 		}
 
@@ -39,13 +44,15 @@ class AbnormalityPrediction {
 
 				if(abnormals[event.id] == true) return false
 
-				delete this.myAbnormals[event.id]
+				if(!this.myAbnormals[event.id]) return false
+
+				this._remove(event.id)
 			}
 		})
 	}
 
 	exists(id) {
-		return this.myAbnormals[id] > Date.now()
+		return !!this.myAbnormals[id]
 	}
 
 	add(id, duration, stacks) {
@@ -64,10 +71,12 @@ class AbnormalityPrediction {
 			unk2: 0
 		})
 
-		this.myAbnormals[id] = Date.now() + duration
+		this._add(id, duration)
 	}
 
 	remove(id) {
+		if(!this.exists(id)) return
+
 		if(DEBUG) console.log('<* S_ABNORMALITY_END', id)
 
 		this.dispatch.toClient('S_ABNORMALITY_END', 1, {
@@ -75,6 +84,16 @@ class AbnormalityPrediction {
 			id
 		})
 
+		this._remove(id)
+	}
+
+	_add(id, duration) {
+		clearTimeout(this.myAbnormals[id])
+		this.myAbnormals[id] = duration >= 0x7fffffff ? true : setTimeout(() => { this.remove(id) }, duration)
+	}
+
+	_remove(id) {
+		clearTimeout(this.myAbnormals[id])
 		delete this.myAbnormals[id]
 	}
 }

@@ -2050,13 +2050,18 @@ module.exports = {
 			'*': { length: 1525 },
 			1: {
 				fixedSpeed: 1,
-				noInterrupt: [7]
+				noInterrupt: [7],
+				triggerAbnormal: { 10152040: 500 } // Actually 3.1 sec, but we're only compensating for ping
 			},
 			2: {
 				fixedSpeed: 1,
-				noInterrupt: [7]
+				noInterrupt: [7],
+				triggerAbnormal: { 10152040: 500 }
 			},
-			3: { length: 1200 }
+			3: {
+				length: 1200,
+				consumeAbnormal: 10152040
+			}
 		},
 		9: { // Mana Missiles
 			'*': {
@@ -2375,6 +2380,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 650,
 				distance: 44.86,
+				triggerAbnormal: { 10154000: 1650 },
 				noRetry: true
 			},
 			0: {
@@ -2404,29 +2410,50 @@ module.exports = {
 			},
 			1: {
 				length: 1125,
-				distance: 52.47
+				distance: 52.47,
+				consumeAbnormal: 10154000,
+				triggerAbnormal: { 10154001: 1500 }
 			},
 			2: {
 				length: 1200,
-				distance: 69.96
+				distance: 69.96,
+				consumeAbnormal: 10154001,
+				triggerAbnormal: { 10154002: 1400 }
 			},
 			3: {
 				length: 1225,
-				distance: 38.01
+				distance: 38.01,
+				consumeAbnormal: 10154002,
+				triggerAbnormal: { 10154003: 1400 }
 			},
 			4: {
 				length: 1700,
-				distance: 54.69
+				distance: 54.69,
+				consumeAbnormal: 10154003,
+				triggerAbnormal: { 10154004: 1400 }
 			},
 			5: {
 				length: 1500,
-				distance: 37.80
+				distance: 37.80,
+				consumeAbnormal: 10154004,
+				triggerAbnormal: { 10154005: 1600 }
 			},
 			6: {
 				length: 1150,
-				distance: 82.62
+				distance: 82.62,
+				consumeAbnormal: 10154005,
+				triggerAbnormal: { 10154006: 100 }
 			},
-			30: true,
+			30: {
+				abnormals: {
+					10154000: { chain: 1 },
+					10154001: { chain: 2 },
+					10154002: { chain: 3 },
+					10154003: { chain: 4 },
+					10154004: { chain: 5 },
+					10154005: { chain: 6 }
+				}
+			},
 			40: {
 				abnormals: {
 					10154000: { chain: 41 },
@@ -2454,29 +2481,50 @@ module.exports = {
 			},
 			41: {
 				length: 1125,
-				distance: 52.47
+				distance: 52.47,
+				consumeAbnormal: 10154000,
+				triggerAbnormal: { 10154001: 1500 }
 			},
 			42: {
 				length: 1200,
-				distance: 69.96
+				distance: 69.96,
+				consumeAbnormal: 10154001,
+				triggerAbnormal: { 10154002: 1400 }
 			},
 			43: {
 				length: 1225,
-				distance: 38.01
+				distance: 38.01,
+				consumeAbnormal: 10154002,
+				triggerAbnormal: { 10154003: 1400 }
 			},
 			44: {
 				length: 1700,
-				distance: 54.69
+				distance: 54.69,
+				consumeAbnormal: 10154003,
+				triggerAbnormal: { 10154004: 1400 }
 			},
 			45: {
 				length: 1500,
-				distance: 37.80
+				distance: 37.80,
+				consumeAbnormal: 10154004,
+				triggerAbnormal: { 10154005: 1600 }
 			},
 			46: {
 				length: 1150,
-				distance: 82.62
+				distance: 82.62,
+				consumeAbnormal: 10154005,
+				triggerAbnormal: { 10154006: 100 }
 			},
-			70: true
+			70: {
+				abnormals: {
+					10154000: { chain: 41 },
+					10154001: { chain: 42 },
+					10154002: { chain: 43 },
+					10154003: { chain: 44 },
+					10154004: { chain: 45 },
+					10154005: { chain: 46 }
+				}
+			}
 		},
 		2: { // Shadow Jump
 			'*': {
