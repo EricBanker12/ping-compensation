@@ -2405,6 +2405,7 @@ module.exports = {
 		}
 	},
 	11: { // Ninja
+		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006] },
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
