@@ -1,10 +1,10 @@
-const RESPONSE_THRESHOLD	= 150,		/*	Jitter compensation (0 = disabled).
+const RESPONSE_THRESHOLD	= 0,		/*	Jitter compensation (0 = disabled).
 											Delays the next skill if the previous skill took longer than RESPONSE_THRESHOLD ms to respond.
 
 											Recommended: Set this to your average ping to prevent most desync.
 											Set this to your minimum ping to prevent virtually all desync, at the cost of slower rotations.
 										*/
-	SKILL_RETRY_MS			= 20,		/*	Desync reduction (0 = disabled).
+	SKILL_RETRY_MS			= 60,		/*	Desync reduction (0 = disabled).
 											Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 										*/
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting, but may cause specific skills to fail.
