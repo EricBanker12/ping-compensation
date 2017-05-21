@@ -2052,18 +2052,13 @@ module.exports = {
 			'*': { length: 1525 },
 			1: {
 				fixedSpeed: 1,
-				noInterrupt: [7],
-				triggerAbnormal: { 10152040: 500 } // Actually 3.1 sec, but we're only compensating for ping
+				noInterrupt: [7]
 			},
 			2: {
 				fixedSpeed: 1,
-				noInterrupt: [7],
-				triggerAbnormal: { 10152040: 500 }
+				noInterrupt: [7]
 			},
-			3: {
-				length: 1200,
-				consumeAbnormal: 10152040
-			}
+			3: { length: 1200 }
 		},
 		9: { // Mana Missiles
 			'*': {
