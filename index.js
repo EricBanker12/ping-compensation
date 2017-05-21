@@ -1,10 +1,10 @@
-const RESPONSE_THRESHOLD	= 0,		/*	Jitter compensation (0 = disabled).
+const RESPONSE_THRESHOLD	= 150,		/*	Jitter compensation (0 = disabled).
 											Delays the next skill if the previous skill took longer than RESPONSE_THRESHOLD ms to respond.
 
 											Recommended: Set this to your average ping to prevent most desync.
 											Set this to your minimum ping to prevent virtually all desync, at the cost of slower rotations.
 										*/
-	SKILL_RETRY_MS			= 60,		/*	Desync reduction (0 = disabled).
+	SKILL_RETRY_MS			= 20,		/*	Desync reduction (0 = disabled).
 											Setting this too high may cause skills to go off twice, and may cause desync compensation to fail.
 										*/
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting, but may cause specific skills to fail.
@@ -34,6 +34,7 @@ module.exports = function SkillPrediction(dispatch) {
 		model = 0,
 		race = -1,
 		job = -1,
+		vehicleEx = null,
 		aspd = 1,
 		currentGlyphs = null,
 		currentStamina = 0,
@@ -67,6 +68,8 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_LOAD_TOPO', 1, event => {
+		vehicleEx = null
+
 		actionNumber = 0x80000000
 		currentAction = null
 		serverAction = null
@@ -108,6 +111,14 @@ module.exports = function SkillPrediction(dispatch) {
 
 			inventory = null
 		}
+	})
+
+	dispatch.hook('S_MOUNT_VEHICLE_EX', 1, event => {
+		if(cid.equals(event.target)) vehicleEx = event.vehicle
+	})
+
+	dispatch.hook('S_UNMOUNT_VEHICLE_EX', 1, event => {
+		if(cid.equals(event.target)) vehicleEx = null
 	})
 
 	dispatch.hook('C_PLAYER_LOCATION', 1, event => {
@@ -194,7 +205,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(delay) strs.push('DELAY=' + delay)
 
-			console.log(strs.join(' '))
+			debug(strs.join(' '))
 		}
 
 		clearTimeout(delayNextTimeout)
@@ -434,7 +445,7 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	dispatch.hook('C_CANCEL_SKILL', 1, event => {
-		if(DEBUG) console.log('-> C_CANCEL_SKILL', skillId(event.skill), event.type)
+		if(DEBUG) debug(['-> C_CANCEL_SKILL', skillId(event.skill), event.type].join(' '))
 
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill) // event.skill can be wrong, so use the known current skill instead
@@ -443,22 +454,24 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_ACTION_STAGE', 1, event => {
-		if(event.source.equals(cid)) {
+		if(isMe(event.source)) {
 			if(DEBUG) {
-				movement = []
+				let strs = [skillInfo(event.skill) ? '<X' : '<-', 'S_ACTION_STAGE', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000]
 
-				for(let e of event.movement)
-					movement.push(e.duration + ' ' + e.speed + ' ' + e.unk + ' ' + e.distance)
+				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
-				movement = '(' + movement.join(', ') + ')'
+				strs.push(...[, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3])
 
-				if(DEBUG_LOC) {
-					if(serverAction) console.log('<- S_ACTION_STAGE %s %d %dx %d\xb0 %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
-					else console.log('<- S_ACTION_STAGE %s %d %dx %d\xb0', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.w, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
+				if(event.movement.length) {
+					let movement = []
+
+					for(let e of event.movement)
+						movement.push(e.duration + ' ' + e.speed + ' ' + e.unk + ' ' + e.distance)
+
+					strs.push('(' + movement.join(', ') + ')')
 				}
-				else if(serverAction) console.log('<- S_ACTION_STAGE %s %d %dx %du %dms (%dms)', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
-				else console.log('<- S_ACTION_STAGE %s %d %dx', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3, movement, skillInfo(event.skill) ? 'X' : '')
 
+				debug(strs.join(' '))
 				debugActionTime = Date.now()
 			}
 
@@ -501,20 +514,43 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_INSTANT_DASH', 1, event => {
-		if(event.source.equals(cid)) {
-			if(DEBUG)
-				if(DEBUG_LOC) console.log('<- S_INSTANT_DASH %d %d %d %d\xb0 (%d %d %d)', event.unk1, event.unk2, event.unk3, event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z))
-				else console.log('<- S_INSTANT_DASH %d %d %d %dms (%dms)', event.unk1, event.unk2, event.unk3, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed))
+		if(isMe(event.source)) {
+			if(DEBUG) {
+				let duration = Date.now() - debugActionTime,
+					strs = [(serverAction && skillInfo(serverAction.skill)) ? '<X' : '<-', 'S_INSTANT_DASH', event.unk1, event.unk2, event.unk3]
+
+				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+
+				strs.push(...[
+					(Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000) + 'u',
+					duration + 'ms',
+					'(' + Math.round(duration * serverAction.speed) + 'ms)'
+				])
+
+				debug(strs.join(' '))
+			}
 
 			if(serverAction && skillInfo(serverAction.skill)) return false
 		}
 	})
 
 	dispatch.hook('S_INSTANT_MOVE', 1, event => {
-		if(event.id.equals(cid)) {
-			if(DEBUG)
-				if(DEBUG_LOC) console.log('<- S_INSTANT_MOVE %d\xb0 (%d %d %d)', event.w, Math.round(event.x), Math.round(event.y), Math.round(event.z))
-				else console.log('<- S_INSTANT_MOVE %dms (%dms)', Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed))
+		if(isMe(event.id)) {
+			if(DEBUG) {
+				let info = serverAction && skillInfo(serverAction.skill),
+					duration = Date.now() - debugActionTime,
+					strs = ['<- S_INSTANT_MOVE']
+
+				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+
+				strs.push(...[
+					(Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000) + 'u',
+					duration + 'ms',
+					'(' + Math.round(duration * serverAction.speed) + 'ms)'
+				])
+
+				debug(strs.join(' '))
+			}
 
 			currentLocation = {
 				x: event.x,
@@ -526,15 +562,26 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = serverAction && skillInfo(serverAction.skill)
 
-			if(info && info.isTeleport) return false
+			if(info && info.isTeleport && (!currentAction || currentAction.skill != serverAction.skill))
+				oopsLocation = currentLocation
 		}
 	})
 
 	dispatch.hook('S_ACTION_END', 1, event => {
-		if(event.source.equals(cid)) {
+		if(isMe(event.source)) {
 			if(DEBUG) {
-				if(DEBUG_LOC) console.log('<- S_ACTION_END %s %d %d\xb0 %du %dms (%dms)', skillId(event.skill), event.type, event.w, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
-				else console.log('<- S_ACTION_END %s %d %du %dms (%dms)', skillId(event.skill), event.type, Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000, Date.now() - debugActionTime, Math.round((Date.now() - debugActionTime) * serverAction.speed), (event.id == lastEndedId || skillInfo(event.skill)) ? 'X' : '')
+				let duration = Date.now() - debugActionTime,
+					strs = [(event.id == lastEndedId || skillInfo(event.skill)) ? '<X' : '<-', 'S_ACTION_END', skillId(event.skill), event.type]
+
+				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+
+				strs.push(...[
+					(Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000) + 'u',
+					duration + 'ms',
+					'(' + Math.round(duration * serverAction.speed) + 'ms)'
+				])
+
+				debug(strs.join(' '))
 			}
 
 			serverAction = null
@@ -548,7 +595,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = skillInfo(event.skill)
 			if(info) {
-				if(info.isDash || info.isTeleport)
+				if(info.isDash)
 					// If the skill ends early then there should be no significant error
 					if(currentAction && event.skill == currentAction.skill) {
 						currentLocation = {
@@ -585,7 +632,16 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_EACH_SKILL_RESULT', 1, event => {
-		if(event.target.equals(cid) && event.setTargetAction) {
+		if(isMe(event.target) && event.setTargetAction) {
+			if(DEBUG) {
+				let duration = Date.now() - debugActionTime,
+					strs = ['<- S_EACH_SKILL_RESULT.setTargetAction', skillId(event.targetAction), event.targetStage]
+
+				if(DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
+
+				debug(strs.join(' '))
+			}
+
 			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
 
 			currentAction = serverAction = {
@@ -603,12 +659,12 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
-		if(event.cid.equals(cid) && currentAction && currentAction.skill == serverAction.skill)
+		if(isMe(event.cid) && currentAction && currentAction.skill == serverAction.skill)
 			currentAction.defendSuccess = true
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
-		if(DEBUG) console.log('<- S_CANNOT_START_SKILL', skillId(event.skill, true))
+		if(DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, true))
 
 		if(skillInfo(event.skill, true)) {
 			if(SKILL_DELAY_NEXT && SKILL_RETRY_MS && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
@@ -619,7 +675,7 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_CREATURE_LIFE', 1, event => {
-		if(event.target.equals(cid)) {
+		if(isMe(event.target)) {
 			recentlyDead = !event.alive
 
 			if(!event.alive) {
@@ -672,7 +728,7 @@ module.exports = function SkillPrediction(dispatch) {
 			movement = movement || !opts.moving && get(info, 'inPlace', 'movement') || info.movement || []
 
 		dispatch.toClient('S_ACTION_STAGE', 1, currentAction = {
-			source: cid,
+			source: myChar(),
 			x: currentLocation.x,
 			y: currentLocation.y,
 			z: currentLocation.z,
@@ -748,7 +804,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 	function sendInstantDash(location) {
 		dispatch.toClient('S_INSTANT_DASH', 1, {
-			source: cid,
+			source: myChar(),
 			unk1: 0,
 			unk2: 0,
 			unk3: 0,
@@ -763,7 +819,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(location) currentLocation = location
 
 		dispatch.toClient('S_INSTANT_MOVE', 1, {
-			id: cid,
+			id: myChar(),
 			x: currentLocation.x,
 			y: currentLocation.y,
 			z: currentLocation.z,
@@ -776,13 +832,13 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(!currentAction) return
 
-		if(DEBUG) console.log('<* S_ACTION_END %s %d %d\xb0 %du', skillId(currentAction.skill), type || 0, currentLocation.w, distance || 0)
+		if(DEBUG) debug(['<* S_ACTION_END', skillId(currentAction.skill), type || 0, currentLocation.w + '\xb0', (distance || 0) + 'u'].join(' '))
 
 		if(oopsLocation && (FORCE_CLIP_STRICT || !currentLocation.inAction)) sendInstantMove(oopsLocation)
 		else movePlayer(distance)
 
 		dispatch.toClient('S_ACTION_END', 1, {
-			source: cid,
+			source: myChar(),
 			x: currentLocation.x,
 			y: currentLocation.y,
 			z: currentLocation.z,
@@ -803,7 +859,7 @@ module.exports = function SkillPrediction(dispatch) {
 					else
 						abnormality.remove(info.consumeAbnormalEnd)
 
-				if(info.isDash || info.isTeleport) lastEndLocation = currentLocation
+				if(info.isDash) lastEndLocation = currentLocation
 			}
 		}
 		else lastEndedId = currentAction.id
@@ -869,12 +925,21 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skillsCache[id] !== undefined) return skillsCache[id]
 
 		let group = Math.floor(id / 10000),
+			level = Math.floor(id / 100) % 100,
 			sub = id % 100,
 			info = [get(skills, job, '*'), get(skills, job, group, '*'), get(skills, job, group, sub)]
 
 		if(info[info.length - 1]) return skillsCache[id] = Object.assign({}, ...info)
 
 		return skillsCache[id] = null
+	}
+
+	function isMe(id) {
+		return cid.equals(id) || vehicleEx && vehicleEx.equals(id)
+	}
+
+	function myChar() {
+		return vehicleEx ? vehicleEx : cid
 	}
 
 	function get(obj, ...keys) {
@@ -885,5 +950,9 @@ module.exports = function SkillPrediction(dispatch) {
 				return
 
 		return obj
+	}
+
+	function debug(msg) {
+		console.log('[%d] %s', ('0000' + (Date.now() % 10000)).substr(-4,4), msg)
 	}
 }
