@@ -766,7 +766,8 @@ module.exports = {
 		6: { // Staggering Strike
 			'*': {
 				length: 1265,
-				distance: 80.47
+				distance: 80.47,
+				noRetry: true
 			},
 			0: {
 				abnormals: {
