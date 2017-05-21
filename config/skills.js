@@ -3166,7 +3166,9 @@ module.exports = {
 					19: 30,
 					20: 30
 				}
-			}
+			},
+			0: true,
+			30: true
 		},
 		13: { // Bloodflower
 			'*': {
