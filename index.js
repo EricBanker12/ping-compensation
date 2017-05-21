@@ -562,7 +562,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = serverAction && skillInfo(serverAction.skill)
 
-			if(info && info.isTeleport && (!currentAction || currentAction.skill != serverAction.skill))
+			if(info && info.isTeleport && currentAction && currentAction.skill != serverAction.skill)
 				oopsLocation = currentLocation
 		}
 	})
