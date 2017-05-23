@@ -108,7 +108,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(!alive) {
 				clearTimeout(stageTimeout)
-				oopsLocation = null
+				oopsLocation = currentAction = serverAction = null
 			}
 		}
 	})
