@@ -38,8 +38,8 @@ module.exports = function SkillPrediction(dispatch) {
 		aspd = 1,
 		currentGlyphs = null,
 		currentStamina = 0,
+		alive = false,
 		inventory = null,
-		recentlyDead = false,
 		equippedWeapon = false,
 		delayNext = 0,
 		delayNextEnd = 0,
@@ -99,6 +99,19 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_PLAYER_CHANGE_STAMINA', 1, event => { currentStamina = event.current })
+
+	dispatch.hook('S_SPAWN_ME', 1, event => { alive = event.alive })
+
+	dispatch.hook('S_CREATURE_LIFE', 1, event => {
+		if(isMe(event.target)) {
+			alive = event.alive
+
+			if(!alive) {
+				clearTimeout(stageTimeout)
+				oopsLocation = null
+			}
+		}
+	})
 
 	dispatch.hook('S_INVEN', 2, event => {
 		inventory = !inventory ? event.items : inventory.concat(event.items)
@@ -264,9 +277,8 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		if(recentlyDead) {
+		if(!alive) {
 			sendCannotStartSkill(event.skill)
-			recentlyDead = false
 			return false
 		}
 
@@ -671,19 +683,6 @@ module.exports = function SkillPrediction(dispatch) {
 				delayNext = SKILL_RETRY_MS
 
 			return false
-		}
-	})
-
-	dispatch.hook('S_CREATURE_LIFE', 1, event => {
-		if(isMe(event.target)) {
-			recentlyDead = !event.alive
-
-			if(!event.alive) {
-				Object.assign(currentLocation, event.location, { inAction: true })
-				oopsLocation = null
-
-				if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
-			}
 		}
 	})
 
