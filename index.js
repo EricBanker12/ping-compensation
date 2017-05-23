@@ -443,8 +443,6 @@ module.exports = function SkillPrediction(dispatch) {
 			} : null
 		})
 
-		lastStartTime = Date.now()
-
 		if(send) dispatch.toServer(type, version, event)
 
 		// Normally the user can press the skill button again if it doesn't go off
@@ -710,6 +708,8 @@ module.exports = function SkillPrediction(dispatch) {
 				else
 					abnormality.add(id, abnormal, 1)
 			}
+
+		lastStartTime = Date.now()
 	}
 
 	function sendActionStage(opts) {
