@@ -6,13 +6,18 @@ class AbnormalityPrediction {
 	constructor(dispatch) {
 		this.dispatch = dispatch
 
-		this.cid =
-		this.myAbnormals =
-		null
+		this.cid = null
+		this.myAbnormals = {}
 
 		dispatch.hook('S_LOGIN', 1, event => {
 			this.cid = event.cid
-			this.myAbnormals = {}
+			this._removeAll()
+		})
+
+		dispatch.hook('C_RETURN_TO_LOBBY', 1, () => { this._removeAll() })
+
+		dispatch.hook('S_CREATURE_LIFE', 1, event => {
+			if(event.target.equals(this.cid) && !event.alive) this._removeAll()
 		})
 
 		let abnormalityUpdate = (type, event) => {
@@ -95,6 +100,14 @@ class AbnormalityPrediction {
 	_remove(id) {
 		clearTimeout(this.myAbnormals[id])
 		delete this.myAbnormals[id]
+	}
+
+	_removeAll() {
+		if(Object.keys(this.myAbnormals).length) {
+			for(let id in this.myAbnormals) clearTimeout(this.myAbnormals[id])
+
+			this.myAbnormals = {}
+		}
 	}
 }
 
