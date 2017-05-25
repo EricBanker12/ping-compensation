@@ -18,6 +18,16 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All
 
 ## Changelog
+### 1.26.1
+* [*] Fixed small positional errors with teleports causing you to clip through solid entities
+* [*] Fixed abnormalities not being re-applied after resurrecting
+* [*] Fixed chain-on-release skills causing incorrect jitter compensation
+* [*] Fixed Slayer: Evasive Roll
+* [*] Fixed Berserker: Staggering Strike resets
+* [*] Fixed Gunner: Arcane Barrage failing to detonate at high ping
+* [*] Fixed Ninja: Combo Attack appearing to continue from the last hit after being interrupted
+* [*] Fixed Valkyrie: Ragnarok
+
 ### 1.26.0
 * [+] Added jitter compensation (disabled by default)
 * [+] Added Gunner: Arc Bomb
