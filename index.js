@@ -617,7 +617,7 @@ module.exports = function SkillPrediction(dispatch) {
 						sendActionEnd(event.type)
 					}
 					// Worst case scenario, teleport the player back if the error was large enough for the client to act on it
-					else if(!lastEndLocation || Math.round(lastEndLocation.x / 100) != Math.round(event.x / 100) || Math.round(lastEndLocation.y / 100) != Math.round(event.y / 100))
+					else if(!lastEndLocation || Math.round(lastEndLocation.x / 100) != Math.round(event.x / 100) || Math.round(lastEndLocation.y / 100) != Math.round(event.y / 100) || Math.round(lastEndLocation.z / 100) != Math.round(event.z / 100))
 						sendInstantMove({
 							x: event.x,
 							y: event.y,
