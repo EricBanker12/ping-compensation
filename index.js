@@ -485,6 +485,8 @@ module.exports = function SkillPrediction(dispatch) {
 				debugActionTime = Date.now()
 			}
 
+			if(!alive) console.log('[SkillPrediction] S_ACTION_STAGE: player is already dead', skillId(event.skill))
+
 			let info = skillInfo(event.skill)
 			if(info) {
 				if(RESPONSE_THRESHOLD && event.stage == 0) {
