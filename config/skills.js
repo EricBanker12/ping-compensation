@@ -2054,11 +2054,13 @@ module.exports = {
 			'*': { length: 1525 },
 			1: {
 				fixedSpeed: 1,
-				noInterrupt: [7]
+				noInterrupt: [7],
+				noRetry: true
 			},
 			2: {
 				fixedSpeed: 1,
-				noInterrupt: [7]
+				noInterrupt: [7],
+				noRetry: true
 			},
 			3: { length: 1200 }
 		},
