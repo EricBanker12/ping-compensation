@@ -33,7 +33,7 @@ class AbnormalityPrediction {
 
 				let duration = event.duration
 
-				if(duration != 0x7fffffff) duration -= ping.min
+				if(duration != 0x7fffffff) duration -= this.ping.min
 
 				if(type == 'S_ABNORMALITY_BEGIN' && this.exists(event.id)) {
 					this.add(event.id, duration, event.stacks)
