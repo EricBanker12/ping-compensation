@@ -240,8 +240,7 @@ module.exports = function SkillPrediction(dispatch) {
 	function sendStartSkill(type, version, event, info, send) {
 		delayNext = 0
 
-		let info = skillInfo(event.skill),
-			specialLoc = type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX'
+		let specialLoc = type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX'
 
 		if(!info) {
 			if(type != 'C_PRESS_SKILL' || event.start)
