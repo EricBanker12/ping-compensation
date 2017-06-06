@@ -66,7 +66,6 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_LOAD_TOPO', 1, event => {
 		vehicleEx = null
 
-		actionNumber = 0x80000000
 		currentAction = null
 		serverAction = null
 		lastEndSkill = 0
@@ -871,6 +870,8 @@ module.exports = function SkillPrediction(dispatch) {
 		else lastEndedId = currentAction.id
 
 		actionNumber++
+		if(actionNumber > 0xffffffff) actionNumber = 0x80000000
+
 		oopsLocation = currentAction = null
 	}
 
