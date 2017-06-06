@@ -31,16 +31,15 @@ class AbnormalityPrediction {
 					if(info.overrides && this.exists(info.overrides)) this.remove(info.overrides)
 				}
 
-				let duration = event.duration
-
-				if(duration != 0x7fffffff) duration -= this.ping.min
+				if(event.duration != 0x7fffffff) event.duration = Math.max(event.duration - this.ping.min, 0)
 
 				if(type == 'S_ABNORMALITY_BEGIN' && this.exists(event.id)) {
-					this.add(event.id, duration, event.stacks)
+					this.add(event.id, event.duration, event.stacks)
 					return false
 				}
 
-				this._add(event.id, duration)
+				this._add(event.id, event.duration)
+				return true
 			}
 		}
 
