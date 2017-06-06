@@ -1,8 +1,4 @@
 module.exports = {
-	/* Archer */
-	26180: { overrides: 601450 }, // Poison Arrow glyph
-	601450: { overrides: 26180 }, // Focus
-
 	/* Brawler */
 	10153060: true, // Punch (linked)
 	10153001: true, // Punch > Counter 1 (linked)
