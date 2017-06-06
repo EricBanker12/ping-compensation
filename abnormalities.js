@@ -96,7 +96,7 @@ class AbnormalityPrediction {
 	}
 
 	removeAll() {
-		for(let id in this.myAbnormals) remove(id)
+		for(let id in this.myAbnormals) this.remove(id)
 	}
 
 	_add(id, duration) {
