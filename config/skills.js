@@ -1609,7 +1609,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [525, 675]
+				length: [525, 675],
+				noRetry: true
 			}
 		},
 		25: { // Thrall of Protection
