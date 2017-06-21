@@ -7,9 +7,9 @@ const JITTER_COMPENSATION	= true,
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 										*/
-	DEBUG					= true,
+	DEBUG					= false,
 	DEBUG_LOC				= false,
-	DEBUG_GLYPH				= true
+	DEBUG_GLYPH				= false
 
 const sysmsg = require('tera-data-parser').sysmsg,
 	Ping = require('./ping'),
