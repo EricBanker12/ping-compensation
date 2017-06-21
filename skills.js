@@ -587,7 +587,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = serverAction && skillInfo(serverAction.skill)
 
-			if(info && info.isTeleport && currentAction && currentAction.skill != serverAction.skill)
+			if(info && info.type == 'teleport' && currentAction && currentAction.skill != serverAction.skill)
 				oopsLocation = currentLocation
 		}
 	})
@@ -620,7 +620,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = skillInfo(event.skill)
 			if(info) {
-				if(info.isDash)
+				if(info.type == 'dash')
 					// If the skill ends early then there should be no significant error
 					if(currentAction && event.skill == currentAction.skill) {
 						currentLocation = {
@@ -711,8 +711,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 		sendActionStage(opts)
 
-		if(info.isDash) sendInstantDash(opts.targetLoc)
-		if(info.isTeleport) sendInstantMove(Object.assign({w: currentLocation.w}, opts.targetLoc))
+		if(info.type == 'dash') sendInstantDash(opts.targetLoc)
+		else if(info.type == 'teleport') {
+			let distance = calcDistance(currentLocation, opts.targetLoc)
+			sendInstantMove(Object.assign(distance > info.distance ? applyDistance(currentLocation, distance) : opts.targetLoc, {z: opts.targetLoc.z, w: currentLocation.w}))
+		}
 
 		if(info.triggerAbnormal)
 			for(let id in info.triggerAbnormal) {
@@ -799,13 +802,12 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		if(info.isDash && opts.distance) {
-			let calcDistance = Math.sqrt(Math.pow(opts.targetLoc.x - lastStartLocation.x, 2) + Math.pow(opts.targetLoc.y - lastStartLocation.y, 2))
+		if(info.type == 'dash' && opts.distance) {
+			let distance = calcDistance(lastStartLocation, opts.targetLoc)
 
-			if(calcDistance < opts.distance) {
-				if(info.isDash) length *= calcDistance / opts.distance
-
-				opts.distance = calcDistance
+			if(distance < opts.distance) {
+				length *= distance / opts.distance
+				opts.distance = distance
 			}
 		}
 
@@ -817,7 +819,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		stageEnd = sendActionEnd.bind(null, info.isDash ? 39 : 0, info.isTeleport ? 0 : opts.distance * opts.distanceMult)
+		stageEnd = sendActionEnd.bind(null, info.type == 'dash' ? 39 : 0, info.type == 'teleport' ? 0 : opts.distance * opts.distanceMult)
 		stageEndTime = Date.now() + length
 		stageEndTimeout = setTimeout(stageEnd, length)
 	}
@@ -884,7 +886,7 @@ module.exports = function SkillPrediction(dispatch) {
 					else
 						abnormality.remove(info.consumeAbnormalEnd)
 
-				if(info.isDash) lastEndLocation = currentLocation
+				if(info.type == 'dash') lastEndLocation = currentLocation
 			}
 		}
 		else lastEndedId = currentAction.id
@@ -930,6 +932,10 @@ module.exports = function SkillPrediction(dispatch) {
 	// However the client avoids teleporting the player if the sent position is close enough, so we can simply approximate it instead
 	function movePlayer(distance) {
 		if(distance && !currentLocation.inAction) applyDistance(currentLocation, distance)
+	}
+
+	function calcDistance(loc1, loc2) {
+		return Math.sqrt(Math.pow(loc2.x - loc1.x, 2) + Math.pow(loc2.y - loc1.y, 2))
 	}
 
 	function applyDistance(loc, distance) {

@@ -103,10 +103,10 @@ module.exports = {
 		},
 		16: { // Charging Slash
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1100,
-				distance: 467.88,
-				isDash: true
+				distance: 467.88
 			},
 			1: { length: 800 }
 		},
@@ -387,11 +387,11 @@ module.exports = {
 		},
 		15: { // Charging Lunge
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1125,
 				distance: 474.5,
-				noInterrupt: [15],
-				isDash: true
+				noInterrupt: [15]
 			},
 			1: { length: 925 }
 		},
@@ -633,10 +633,10 @@ module.exports = {
 		},
 		17: { // Headlong Rush
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1000,
-				distance: 413,
-				isDash: true
+				distance: 413
 			}
 		},
 		18: { // Overpower
@@ -1038,10 +1038,11 @@ module.exports = {
 		},
 		26: { // Teleport Jaunt
 			0: {
+				type: 'teleport',
 				length: [200, 260],
 				distance: [0, 333],
-				noInterrupt: [17],
-				isTeleport: true
+				noInterrupt: [26],
+				noRetry: true
 			}
 		},
 		27: { // Hailstorm
@@ -1220,10 +1221,10 @@ module.exports = {
 		},
 		33: { // Chase
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1000,
-				distance: 413,
-				isDash: true
+				distance: 413
 			}
 		}
 	},
@@ -1550,10 +1551,11 @@ module.exports = {
 		},
 		17: { // Teleport Jaunt
 			0: {
+				type: 'teleport',
 				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [17],
-				isTeleport: true
+				noRetry: true
 			}
 		},
 		18: { // Arun's Vitae
@@ -2576,10 +2578,10 @@ module.exports = {
 		},
 		4: { // Jagged Path
 			1: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 665,
-				distance: 469,
-				isDash: true
+				distance: 469
 			},
 			10: { length: 1500 },
 			11: {
@@ -2600,10 +2602,10 @@ module.exports = {
 		},
 		6: { // One Thousand Cuts
 			1: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 300,
-				distance: 246,
-				isDash: true
+				distance: 246
 			},
 			10: { length: 3500 }
 		},
@@ -2892,11 +2894,11 @@ module.exports = {
 		},
 		4: { // Charge
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 550,
 				distance: 436,
-				noInterrupt: ['4-0'],
-				isDash: true
+				noInterrupt: ['4-0']
 			},
 			10: { length: 900 },
 			11: {
