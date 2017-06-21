@@ -7,9 +7,9 @@ const JITTER_COMPENSATION	= true,
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 										*/
-	DEBUG					= false,
+	DEBUG					= true,
 	DEBUG_LOC				= false,
-	DEBUG_GLYPH				= false
+	DEBUG_GLYPH				= true
 
 const sysmsg = require('tera-data-parser').sysmsg,
 	Ping = require('./ping'),
@@ -476,7 +476,9 @@ module.exports = function SkillPrediction(dispatch) {
 
 				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
-				strs.push(...[, event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3])
+				if(serverAction) strs.push((Math.round(calcDistance(serverAction, event) * 1000) / 1000) + 'u')
+
+				strs.push(...[event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3])
 
 				if(event.movement.length) {
 					let movement = []
@@ -547,7 +549,7 @@ module.exports = function SkillPrediction(dispatch) {
 				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
 				strs.push(...[
-					(Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000) + 'u',
+					(Math.round(calcDistance(serverAction, event) * 1000) / 1000) + 'u',
 					duration + 'ms',
 					'(' + Math.round(duration * serverAction.speed) + 'ms)'
 				])
@@ -712,10 +714,6 @@ module.exports = function SkillPrediction(dispatch) {
 		sendActionStage(opts)
 
 		if(info.type == 'dash') sendInstantDash(opts.targetLoc)
-		else if(info.type == 'teleport') {
-			let distance = calcDistance(currentLocation, opts.targetLoc)
-			sendInstantMove(Object.assign(distance > info.distance ? applyDistance(currentLocation, distance) : opts.targetLoc, {z: opts.targetLoc.z, w: currentLocation.w}))
-		}
 
 		if(info.triggerAbnormal)
 			for(let id in info.triggerAbnormal) {
@@ -735,11 +733,12 @@ module.exports = function SkillPrediction(dispatch) {
 		opts.distanceMult = opts.distanceMult || 1
 
 		let info = opts.info,
+			multiStage = Array.isArray(info.length),
 			movement = opts.movement
 
 		movePlayer(opts.distance * opts.distanceMult)
 
-		if(Array.isArray(info.length))
+		if(multiStage)
 			movement = movement && movement[opts.stage] || !opts.moving && get(info, 'inPlace', 'movement', opts.stage) || get(info, 'movement', opts.stage) || []
 		else
 			movement = movement || !opts.moving && get(info, 'inPlace', 'movement') || info.movement || []
@@ -765,7 +764,14 @@ module.exports = function SkillPrediction(dispatch) {
 			movement
 		})
 
-		if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) {
+		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
+
+		if(info.type == 'teleport' && opts.stage == info.teleportStage) {
+			opts.distance = Math.min(opts.distance, Math.max(0, calcDistance(currentLocation, opts.targetLoc) - 15)) // Client is approx. 15 units off
+			sendInstantMove(Object.assign(applyDistance(currentLocation, opts.distance), {z: opts.targetLoc.z, w: currentLocation.w}))
+			opts.distance = 0
+		}
+		else if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) {
 			stageEnd = null
 			return
 		}
@@ -773,9 +779,8 @@ module.exports = function SkillPrediction(dispatch) {
 		let speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0),
 			length = 0
 
-		if(Array.isArray(info.length)) {
+		if(multiStage) {
 			length = info.length[opts.stage] / speed
-			opts.distance = get(info, 'distance', opts.stage) || 0
 
 			if(!opts.moving) {
 				let inPlaceDistance = get(info, 'inPlace', 'distance', opts.stage)
@@ -793,7 +798,6 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 		else {
 			length = info.length / speed
-			opts.distance = info.distance || 0
 
 			if(!opts.moving) {
 				let inPlaceDistance = get(info, 'inPlace', 'distance')
@@ -819,7 +823,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		stageEnd = sendActionEnd.bind(null, info.type == 'dash' ? 39 : 0, info.type == 'teleport' ? 0 : opts.distance * opts.distanceMult)
+		stageEnd = sendActionEnd.bind(null, info.type == 'dash' ? 39 : 0, opts.distance * opts.distanceMult)
 		stageEndTime = Date.now() + length
 		stageEndTimeout = setTimeout(stageEnd, length)
 	}

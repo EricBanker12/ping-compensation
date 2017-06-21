@@ -1042,6 +1042,7 @@ module.exports = {
 				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [26],
+				teleportStage: 1,
 				noRetry: true
 			}
 		},
@@ -1555,6 +1556,7 @@ module.exports = {
 				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [17],
+				teleportStage: 1,
 				noRetry: true
 			}
 		},
