@@ -1,6 +1,7 @@
 const JITTER_COMPENSATION	= true,
 	JITTER_ADJUST			= 0,		//	This number is added to your detected minimum ping to get the compensation amount.
-	SKILL_RETRY_MS			= 20,		//	Desync reduction (0 = disabled). Setting this too high may cause skills to go off twice.
+	SKILL_RETRY_MS			= 40,		//	Desync reduction (0 = disabled). Setting this too high may cause skills to go off twice.
+	SKILL_RETRY_JITTERCOMP	= 10,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting, but may cause specific skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
@@ -38,7 +39,6 @@ module.exports = function SkillPrediction(dispatch) {
 		inventory = null,
 		equippedWeapon = false,
 		delayNext = 0,
-		delayNextEnd = 0,
 		delayNextTimeout = null,
 		actionNumber = 0x80000000,
 		currentLocation = null,
@@ -51,7 +51,9 @@ module.exports = function SkillPrediction(dispatch) {
 		lastEndSkill = 0,
 		lastEndType = 0,
 		lastEndedId = 0,
-		stageTimeout = null,
+		stageEnd = null,
+		stageEndTime = 0,
+		stageEndTimeout = null,
 		debugActionTime = 0
 
 	dispatch.hook('S_LOGIN', 1, event => {
@@ -71,7 +73,7 @@ module.exports = function SkillPrediction(dispatch) {
 		lastEndSkill = 0
 		lastEndType = 0
 		lastEndedId = 0
-		clearTimeout(stageTimeout)
+		clearTimeout(stageEndTimeout)
 	})
 
 	dispatch.hook('S_PLAYER_STAT_UPDATE', 1, event => {
@@ -102,13 +104,13 @@ module.exports = function SkillPrediction(dispatch) {
 			alive = event.alive
 
 			if(!alive) {
-				clearTimeout(stageTimeout)
+				clearTimeout(stageEndTimeout)
 				oopsLocation = currentAction = serverAction = null
 			}
 		}
 	})
 
-	dispatch.hook('S_INVEN', 2, event => {
+	dispatch.hook('S_INVEN', 3, event => {
 		inventory = !inventory ? event.items : inventory.concat(event.items)
 
 		if(!event.more) {
@@ -202,11 +204,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 		let info = skillInfo(event.skill)
 
-		if(delayNext && Date.now() <= delayNextEnd + delayNext) {
+		if(delayNext && Date.now() <= stageEndTime) {
 			delay = delayNext
 
 			if(info && !info.noRetry && SKILL_RETRY_MS) {
-				delay -= SKILL_RETRY_MS / 2
+				delay -= SKILL_RETRY_JITTERCOMP
 
 				if(delay < 0) delay = 0
 			}
@@ -396,7 +398,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(interruptType) {
-			info.type == 'chargeCast' ? clearTimeout(stageTimeout) : sendActionEnd(interruptType)
+			info.type == 'chargeCast' ? clearTimeout(stageEndTimeout) : sendActionEnd(interruptType)
 
 			if(info.type == 'nullChain') {
 				if(send) dispatch.toServer(type, version, event)
@@ -493,10 +495,17 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = skillInfo(event.skill)
 			if(info) {
-				if(JITTER_COMPENSATION && event.stage == 0) {
+				if(JITTER_COMPENSATION && event.stage == 0 && currentAction && event.skill == currentAction.skill) {
 					let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
 
-					if(delay > 0 && delay < 1000) delayNext = delay
+					if(delay > 0 && delay < 1000) {
+						delayNext = delay
+
+						if(stageEnd) {
+							stageEndTime += delay
+							refreshStageEnd()
+						}
+					}
 				}
 
 				if(info.forceClip && event.movement.length) {
@@ -753,7 +762,10 @@ module.exports = function SkillPrediction(dispatch) {
 			movement
 		})
 
-		if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) return
+		if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) {
+			stageEnd = null
+			return
+		}
 
 		let speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0),
 			length = 0
@@ -769,10 +781,10 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 
 			if(opts.stage + 1 < info.length.length) {
-				delayNextEnd = Date.now() + length
-
 				opts.stage += 1
-				stageTimeout = setTimeout(sendActionStage, length, opts)
+				stageEnd = sendActionStage.bind(null, opts)
+				stageEndTime = Date.now() + length
+				stageEndTimeout = setTimeout(stageEnd, length)
 				return
 			}
 		}
@@ -799,12 +811,20 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(info.type == 'charging') {
 			opts.stage += 1
-			stageTimeout = setTimeout(sendActionStage, length, opts)
+			stageEnd = sendActionStage.bind(null, opts)
+			stageEndTime = Date.now() + length
+			stageEndTimeout = setTimeout(stageEnd, length)
 			return
 		}
 
-		delayNextEnd = Date.now() + length
-		stageTimeout = setTimeout(sendActionEnd, length, info.isDash ? 39 : 0, info.isTeleport ? 0 : opts.distance * opts.distanceMult)
+		stageEnd = sendActionEnd.bind(null, info.isDash ? 39 : 0, info.isTeleport ? 0 : opts.distance * opts.distanceMult)
+		stageEndTime = Date.now() + length
+		stageEndTimeout = setTimeout(stageEnd, length)
+	}
+
+	function refreshStageEnd() {
+		clearTimeout(stageEndTimeout)
+		stageEndTimeout = setTimeout(stageEnd, stageEndTime - Date.now())
 	}
 
 	function sendInstantDash(location) {
@@ -833,7 +853,7 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function sendActionEnd(type, distance) {
-		clearTimeout(stageTimeout)
+		clearTimeout(stageEndTimeout)
 
 		if(!currentAction) return
 
