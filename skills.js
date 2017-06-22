@@ -4,6 +4,7 @@ const JITTER_COMPENSATION	= true,
 	SKILL_RETRY_JITTERCOMP	= 10,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting, but may cause specific skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
+	SERVER_TIMEOUT			= 100,		//	This number is added to your maximum ping + SKILL_RETRY_MS to set the failure threshold for skills.
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 										*/
@@ -51,6 +52,7 @@ module.exports = function SkillPrediction(dispatch) {
 		lastEndSkill = 0,
 		lastEndType = 0,
 		lastEndedId = 0,
+		serverTimeout = null,
 		stageEnd = null,
 		stageEndTime = 0,
 		stageEndTimeout = null,
@@ -73,7 +75,7 @@ module.exports = function SkillPrediction(dispatch) {
 		lastEndSkill = 0
 		lastEndType = 0
 		lastEndedId = 0
-		clearTimeout(stageEndTimeout)
+		clearStage()
 	})
 
 	dispatch.hook('S_PLAYER_STAT_UPDATE', 1, event => {
@@ -104,7 +106,7 @@ module.exports = function SkillPrediction(dispatch) {
 			alive = event.alive
 
 			if(!alive) {
-				clearTimeout(stageEndTimeout)
+				clearStage()
 				oopsLocation = currentAction = serverAction = null
 			}
 		}
@@ -398,7 +400,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(interruptType) {
-			info.type == 'chargeCast' ? clearTimeout(stageEndTimeout) : sendActionEnd(interruptType)
+			info.type == 'chargeCast' ? clearStage() : sendActionEnd(interruptType)
 
 			if(info.type == 'nullChain') {
 				if(send) dispatch.toServer(type, version, event)
@@ -497,15 +499,19 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = skillInfo(event.skill)
 			if(info) {
-				if(JITTER_COMPENSATION && event.stage == 0 && currentAction && event.skill == currentAction.skill) {
-					let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
+				if(currentAction && event.skill == currentAction.skill) {
+					clearTimeout(serverTimeout)
 
-					if(delay > 0 && delay < 1000) {
-						delayNext = delay
+					if(JITTER_COMPENSATION && event.stage == 0) {
+						let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
 
-						if(stageEnd) {
-							stageEndTime += delay
-							refreshStageEnd()
+						if(delay > 0 && delay < 1000) {
+							delayNext = delay
+
+							if(stageEnd) {
+								stageEndTime += delay
+								refreshStageEnd()
+							}
 						}
 					}
 				}
@@ -777,11 +783,12 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		let speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0),
-			length = 0
+			length = Math.round((multiStage ? info.length[opts.stage] : info.length) / speed),
+			serverTimeoutTime = ping.max + SKILL_RETRY_MS + SERVER_TIMEOUT
+
+		if(length > serverTimeoutTime) serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
 
 		if(multiStage) {
-			length = info.length[opts.stage] / speed
-
 			if(!opts.moving) {
 				let inPlaceDistance = get(info, 'inPlace', 'distance', opts.stage)
 
@@ -796,15 +803,12 @@ module.exports = function SkillPrediction(dispatch) {
 				return
 			}
 		}
-		else {
-			length = info.length / speed
-
+		else
 			if(!opts.moving) {
 				let inPlaceDistance = get(info, 'inPlace', 'distance')
 
 				if(inPlaceDistance !== undefined) opts.distance = inPlaceDistance
 			}
-		}
 
 		if(info.type == 'dash' && opts.distance) {
 			let distance = calcDistance(lastStartLocation, opts.targetLoc)
@@ -826,6 +830,11 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEnd = sendActionEnd.bind(null, info.type == 'dash' ? 39 : 0, opts.distance * opts.distanceMult)
 		stageEndTime = Date.now() + length
 		stageEndTimeout = setTimeout(stageEnd, length)
+	}
+
+	function clearStage() {
+		clearTimeout(serverTimeout)
+		clearTimeout(stageEndTimeout)
 	}
 
 	function refreshStageEnd() {
@@ -859,7 +868,7 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function sendActionEnd(type, distance) {
-		clearTimeout(stageEndTimeout)
+		clearStage()
 
 		if(!currentAction) return
 
