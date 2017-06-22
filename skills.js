@@ -772,19 +772,21 @@ module.exports = function SkillPrediction(dispatch) {
 
 		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
 
+		let serverTimeoutTime = ping.max + SKILL_RETRY_MS + SERVER_TIMEOUT
+
 		if(info.type == 'teleport' && opts.stage == info.teleportStage) {
 			opts.distance = Math.min(opts.distance, Math.max(0, calcDistance(currentLocation, opts.targetLoc) - 15)) // Client is approx. 15 units off
 			sendInstantMove(Object.assign(applyDistance(currentLocation, opts.distance), {z: opts.targetLoc.z, w: currentLocation.w}))
 			opts.distance = 0
 		}
 		else if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) {
+			serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
 			stageEnd = null
 			return
 		}
 
 		let speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0),
-			length = Math.round((multiStage ? info.length[opts.stage] : info.length) / speed),
-			serverTimeoutTime = ping.max + SKILL_RETRY_MS + SERVER_TIMEOUT
+			length = Math.round((multiStage ? info.length[opts.stage] : info.length) / speed)
 
 		if(length > serverTimeoutTime) serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
 
