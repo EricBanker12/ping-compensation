@@ -499,8 +499,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = skillInfo(event.skill)
 			if(info) {
-				if(currentAction && event.skill == currentAction.skill) {
-					clearTimeout(serverTimeout)
+				if(currentAction && (event.skill == currentAction.skill || Math.floor((event.skill - 0x4000000) / 10000) == Math.floor((currentAction.skill - 0x4000000) / 10000))) {
+					if(event.stage == currentAction.stage) clearTimeout(serverTimeout)
 
 					if(JITTER_COMPENSATION && event.stage == 0) {
 						let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
