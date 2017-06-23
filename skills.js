@@ -711,7 +711,6 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('C_CAN_LOCKON_TARGET', 1, event => {
 		if(skillInfo(event.skill)) {
 			dispatch.toClient('S_CAN_LOCKON_TARGET', Object.assign({ ok: true }, event))
-			return false
 		}
 	})
 
