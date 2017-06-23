@@ -499,8 +499,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let info = skillInfo(event.skill)
 			if(info) {
-				if(currentAction && (event.skill == currentAction.skill || Math.floor((event.skill - 0x4000000) / 10000) == Math.floor((currentAction.skill - 0x4000000) / 10000))) {
-					if(event.stage == currentAction.stage) clearTimeout(serverTimeout)
+				if(currentAction && (event.skill == currentAction.skill || Math.floor((event.skill - 0x4000000) / 10000) == Math.floor((currentAction.skill - 0x4000000) / 10000)) && event.stage == currentAction.stage) {
+					clearTimeout(serverTimeout)
 
 					if(JITTER_COMPENSATION && event.stage == 0) {
 						let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
@@ -692,8 +692,9 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
-		if(isMe(event.cid) && currentAction && currentAction.skill == serverAction.skill)
-			currentAction.defendSuccess = true
+		if(isMe(event.cid))
+			if(currentAction && currentAction.skill == serverAction.skill) currentAction.defendSuccess = true
+			else return false
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
@@ -706,6 +707,15 @@ module.exports = function SkillPrediction(dispatch) {
 			return false
 		}
 	})
+
+	dispatch.hook('C_CAN_LOCKON_TARGET', 1, event => {
+		if(skillInfo(event.skill)) {
+			dispatch.toClient('S_CAN_LOCKON_TARGET', Object.assign({ ok: true }, event))
+			return false
+		}
+	})
+
+	dispatch.hook('S_CAN_LOCKON_TARGET', 1, event => skillInfo(event.skill) ? false : undefined)
 
 	function startAction(opts) {
 		let info = opts.info
