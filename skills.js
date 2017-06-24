@@ -39,6 +39,7 @@ module.exports = function SkillPrediction(dispatch) {
 		alive = false,
 		inventory = null,
 		equippedWeapon = false,
+		partyMembers = null,
 		delayNext = 0,
 		delayNextTimeout = null,
 		actionNumber = 0x80000000,
@@ -124,6 +125,16 @@ module.exports = function SkillPrediction(dispatch) {
 			inventory = null
 		}
 	})
+
+	dispatch.hook('S_PARTY_MEMBER_LIST', 1, event => {
+		partyMembers = []
+
+		for(let member of event.members)
+			if(!member.cID.equals(cid))
+				partyMembers.push(member.cID)
+	})
+
+	dispatch.hook('S_LEAVE_PARTY', () => { partyMembers = null })
 
 	dispatch.hook('S_MOUNT_VEHICLE_EX', 1, event => {
 		if(cid.equals(event.target)) vehicleEx = event.vehicle
@@ -709,8 +720,22 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('C_CAN_LOCKON_TARGET', 1, event => {
-		if(skillInfo(event.skill)) {
-			dispatch.toClient('S_CAN_LOCKON_TARGET', Object.assign({ ok: true }, event))
+		let info = skillInfo(event.skill)
+		if(info) {
+			let ok = true
+
+			if(info.partyOnly) {
+				ok = false
+
+				if(partyMembers) 
+					for(let member of partyMembers)
+						if(member.equals(event.target)) {
+							ok = true
+							break
+						}
+			}
+
+			dispatch.toClient('S_CAN_LOCKON_TARGET', Object.assign({ok}, event))
 		}
 	})
 
