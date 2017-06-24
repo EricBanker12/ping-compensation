@@ -13,11 +13,21 @@ if(CHECK_COMPATABILITY)
 		}
 		catch(e) {}
 
-const MODS = [
-	require('./skills'),
-	require('./cooldowns')
-]
+const sysmsg = require('tera-data-parser').sysmsg
+	MODS = [
+		require('./skills'),
+		require('./cooldowns')
+	]
 
 module.exports = function SkillPredictionCore(dispatch) {
-	if(!error) for(let mod of MODS) mod(dispatch)
+	if(error) return
+
+	dispatch.hook('C_CHECK_VERSION', 1, () => {
+		if(sysmsg.maps.get(dispatch.base.protocolVersion).name.size === 0) {
+			console.error('ERROR: sysmsg is not initialized, your version of tera-proxy is too old to run Skill Prediction')
+			process.exit()
+		}
+	})
+
+	for(let mod of MODS) mod(dispatch)
 }
