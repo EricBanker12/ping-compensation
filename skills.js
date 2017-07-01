@@ -113,7 +113,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('S_INVEN', 3, event => {
+	dispatch.hook('S_INVEN', dispatch.base.protocolVersion >= 314651 ? 5 : 4, event => {
 		inventory = !inventory ? event.items : inventory.concat(event.items)
 
 		if(!event.more) {
@@ -202,15 +202,15 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	for(let packet of [
-			['C_START_SKILL', 1],
-			['C_START_TARGETED_SKILL', 1],
+			['C_START_SKILL', 3],
+			['C_START_TARGETED_SKILL', 2],
 			['C_START_COMBO_INSTANT_SKILL', 1],
 			['C_START_INSTANCE_SKILL', 1],
 			['C_START_INSTANCE_SKILL_EX', 1],
 			['C_PRESS_SKILL', 1],
 			['C_NOTIMELINE_SKILL', 1]
 		])
-		dispatch.hook(packet[0], packet[1], {order: 100}, startSkill.bind(null, packet[0], packet[1]))
+		dispatch.hook(...packet, {order: 100}, startSkill.bind(null, packet[0], packet[1]))
 
 	function startSkill(type, version, event) {
 		let delay = 0
@@ -230,11 +230,14 @@ module.exports = function SkillPrediction(dispatch) {
 		if(DEBUG) {
 			let strs = ['->', type, skillId(event.skill)]
 
-			if(DEBUG_LOC)
+			if(type == 'C_START_SKILL') strs.push(...[event.unk ? 1 : 0, event.moving ? 1 : 0, event.continue ? 1 : 0])
+
+			if(DEBUG_LOC) {
+				strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+
 				if(type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX')
-					strs.push(...[event.w + '\xb0', '(' + Math.round(event.x1), Math.round(event.y1), Math.round(event.z1) + ')', '>', '(' + Math.round(event.x2), Math.round(event.y2), Math.round(event.z2) + ')'])
-				else
-					strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+					strs.push(...['>', '(' + Math.round(event.toX), Math.round(event.toY), Math.round(event.toZ) + ')'])
+			}
 
 			if(delay) strs.push('DELAY=' + delay)
 
@@ -456,9 +459,9 @@ module.exports = function SkillPrediction(dispatch) {
 			moving: type == 'C_START_SKILL' && event.unk2 == 1,
 			distanceMult,
 			targetLoc: specialLoc ? {
-				x: event.x2,
-				y: event.y2,
-				z: event.z2
+				x: event.toX,
+				y: event.toY,
+				z: event.toZ
 			} : null
 		})
 
@@ -963,9 +966,9 @@ module.exports = function SkillPrediction(dispatch) {
 		event = event || currentAction
 
 		currentLocation = special ? {
-			x: event.x1,
-			y: event.y1,
-			z: event.z1,
+			x: event.x,
+			y: event.y,
+			z: event.z,
 			w: event.w || currentLocation.w, // Should be a skill flag maybe?
 			inAction
 		} : {
