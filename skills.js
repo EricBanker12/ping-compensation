@@ -206,7 +206,7 @@ module.exports = function SkillPrediction(dispatch) {
 			['C_START_TARGETED_SKILL', 2],
 			['C_START_COMBO_INSTANT_SKILL', 1],
 			['C_START_INSTANCE_SKILL', 1],
-			['C_START_INSTANCE_SKILL_EX', 1],
+			['C_START_INSTANCE_SKILL_EX', 2],
 			['C_PRESS_SKILL', 1],
 			['C_NOTIMELINE_SKILL', 1]
 		])
@@ -456,7 +456,7 @@ module.exports = function SkillPrediction(dispatch) {
 			speed,
 			chargeSpeed,
 			movement,
-			moving: type == 'C_START_SKILL' && event.unk2 == 1,
+			moving: type == 'C_START_SKILL' && event.moving == 1,
 			distanceMult,
 			targetLoc: specialLoc ? {
 				x: event.toX,
