@@ -113,7 +113,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('S_INVEN', dispatch.base.protocolVersion >= 314651 ? 5 : 4, event => {
+	dispatch.hook('S_INVEN', [313623, 313624].includes(dispatch.base.protocolVersion) ? 4 : 5, event => {
 		inventory = !inventory ? event.items : inventory.concat(event.items)
 
 		if(!event.more) {
