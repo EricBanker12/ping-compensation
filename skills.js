@@ -4,7 +4,7 @@ const JITTER_COMPENSATION	= true,
 	SKILL_RETRY_JITTERCOMP	= 10,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting, but may cause specific skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
-	SERVER_TIMEOUT			= 100,		//	This number is added to your maximum ping + SKILL_RETRY_MS to set the failure threshold for skills.
+	SERVER_TIMEOUT			= 200,		//	This number is added to your maximum ping + SKILL_RETRY_MS to set the failure threshold for skills.
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
 										*/
@@ -59,6 +59,21 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTimeout = null,
 		debugActionTime = 0
 
+	dispatch.hook('c_CHECK_VERSION', 1, () => {
+		dispatch.hook('S_INVEN', [313623, 313624].includes(dispatch.base.protocolVersion) ? 4 : 5, event => {
+			inventory = !inventory ? event.items : inventory.concat(event.items)
+
+			if(!event.more) {
+				equippedWeapon = false
+
+				for(let item of inventory)
+					if(item.slot == 1) equippedWeapon = true
+
+				inventory = null
+			}
+		})
+	})
+
 	dispatch.hook('S_LOGIN', 1, event => {
 		skillsCache = {}
 		;({cid, model} = event)
@@ -110,19 +125,6 @@ module.exports = function SkillPrediction(dispatch) {
 				clearStage()
 				oopsLocation = currentAction = serverAction = null
 			}
-		}
-	})
-
-	dispatch.hook('S_INVEN', [313623, 313624].includes(dispatch.base.protocolVersion) ? 4 : 5, event => {
-		inventory = !inventory ? event.items : inventory.concat(event.items)
-
-		if(!event.more) {
-			equippedWeapon = false
-
-			for(let item of inventory)
-				if(item.slot == 1) equippedWeapon = true
-
-			inventory = null
 		}
 	})
 
