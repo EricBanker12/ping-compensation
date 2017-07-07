@@ -27,7 +27,8 @@ module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
 		abnormality = AbnormalityPrediction(dispatch)
 
-	let skillsCache = null,
+	let hooks = {},
+		skillsCache = null,
 		cid = null,
 		model = 0,
 		race = -1,
@@ -212,9 +213,9 @@ module.exports = function SkillPrediction(dispatch) {
 			['C_PRESS_SKILL', 1],
 			['C_NOTIMELINE_SKILL', 1]
 		])
-		dispatch.hook(...packet, {order: 100}, startSkill.bind(null, packet[0], packet[1]))
+		hook(...packet, {order: 100, filter: {fake: null}}, startSkill.bind(null, packet[0]))
 
-	function startSkill(type, version, event) {
+	function startSkill(type, event) {
 		let delay = 0
 
 		let info = skillInfo(event.skill)
@@ -249,14 +250,14 @@ module.exports = function SkillPrediction(dispatch) {
 		clearTimeout(delayNextTimeout)
 
 		if(delay) {
-			delayNextTimeout = setTimeout(sendStartSkill, delay, type, version, event, info, true)
+			delayNextTimeout = setTimeout(handleStartSkill, delay, type, event, info, true)
 			return false
 		}
 
-		return sendStartSkill(type, version, event, info)
+		return handleStartSkill(type, event, info)
 	}
 
-	function sendStartSkill(type, version, event, info, send) {
+	function handleStartSkill(type, event, info, send) {
 		delayNext = 0
 
 		let specialLoc = type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX'
@@ -266,7 +267,7 @@ module.exports = function SkillPrediction(dispatch) {
 				// Sometimes invalid (if this skill can't be used, but we have no way of knowing that)
 				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
-			if(send) dispatch.toServer(type, version, event)
+			if(send) sendStartSkill(type, event)
 			return
 		}
 
@@ -283,7 +284,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 					info = skillInfo(skill += info.chainOnRelease - ((skill - 0x4000000) % 100))
 					if(!info) {
-						if(send) dispatch.toServer(type, version, event)
+						if(send) sendStartSkill(type, event)
 						return
 					}
 
@@ -297,7 +298,7 @@ module.exports = function SkillPrediction(dispatch) {
 				else sendActionEnd(10)
 			}
 
-			if(send) dispatch.toServer(type, version, event)
+			if(send) sendStartSkill(type, event)
 			return
 		}
 
@@ -361,7 +362,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(!info) {
 				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
-				if(send) dispatch.toServer(type, version, event)
+				if(send) sendStartSkill(type, event)
 				return
 			}
 		}
@@ -410,7 +411,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skill != event.skill) {
 			info = skillInfo(skill)
 			if(!info) {
-				if(send) dispatch.toServer(type, version, event)
+				if(send) sendStartSkill(type, event)
 				return
 			}
 		}
@@ -419,7 +420,7 @@ module.exports = function SkillPrediction(dispatch) {
 			info.type == 'chargeCast' ? clearStage() : sendActionEnd(interruptType)
 
 			if(info.type == 'nullChain') {
-				if(send) dispatch.toServer(type, version, event)
+				if(send) sendStartSkill(type, event)
 				return
 			}
 		}
@@ -467,15 +468,23 @@ module.exports = function SkillPrediction(dispatch) {
 			} : null
 		})
 
-		if(send) dispatch.toServer(type, version, event)
+		if(send) sendStartSkill(type, event)
 
 		// Normally the user can press the skill button again if it doesn't go off
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(SKILL_RETRY_MS && !info.noRetry)
 			setTimeout(() => {
 				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill)
-					dispatch.toServer(type, version, event)
+					sendStartSkill(type, event)
 			}, SKILL_RETRY_MS)
+	}
+
+	function sendStartSkill(name, event) {
+		let info = hooks[name]
+
+		dispatch.unhook(info.hook)
+		dispatch.toServer(name, info[1], event)
+		hook(...hooks[name])
 	}
 
 	dispatch.hook('C_CANCEL_SKILL', 1, event => {
@@ -1037,6 +1046,11 @@ module.exports = function SkillPrediction(dispatch) {
 				return
 
 		return obj
+	}
+
+	function hook(name) {
+		hooks[name] = [...arguments]
+		hooks[name].hook = dispatch.hook(...arguments)
 	}
 
 	function debug(msg) {
