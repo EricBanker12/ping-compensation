@@ -13,7 +13,7 @@ if(CHECK_COMPATABILITY)
 		}
 		catch(e) {}
 
-const sysmsg = require('tera-data-parser').sysmsg
+const sysmsg = require('tera-data-parser').sysmsg,
 	MODS = [
 		require('./skills'),
 		require('./cooldowns')
