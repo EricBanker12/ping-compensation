@@ -23,8 +23,8 @@ module.exports = function SkillPredictionCore(dispatch) {
 	if(error) return
 
 	dispatch.hook('C_CHECK_VERSION', 1, () => {
-		if(sysmsg.maps.get(dispatch.base.protocolVersion).name.size === 0) {
-			console.error('ERROR: sysmsg is not initialized, your version of tera-proxy is too old to run Skill Prediction')
+		if(!sysmsg.maps.get(dispatch.base.protocolVersion) || sysmsg.maps.get(dispatch.base.protocolVersion).name.size === 0) {
+			console.error('ERROR: Your version of tera-proxy is too old to run Skill Prediction')
 			process.exit()
 		}
 	})
