@@ -138,7 +138,10 @@ module.exports = function SkillPrediction(dispatch) {
 				equippedWeapon = false
 
 				for(let item of inventory)
-					if(item.slot == 1) equippedWeapon = true
+					if(item.slot == 1) {
+						equippedWeapon = true
+						break
+					}
 
 				inventory = null
 
