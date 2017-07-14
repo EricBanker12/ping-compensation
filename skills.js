@@ -69,6 +69,8 @@ module.exports = function SkillPrediction(dispatch) {
 		job = (model - 10101) % 100
 
 		if(DEBUG) console.log('Class', job)
+
+		hookInventory()
 	})
 
 	dispatch.hook('S_LOAD_TOPO', 1, event => {
@@ -120,31 +122,33 @@ module.exports = function SkillPrediction(dispatch) {
 		if(event.target.equals(cid)) {
 			inCombat = event.status == 1
 
-			if(!inCombat) {
-				if(!inventoryHook) inventoryHook = dispatch.hook('S_INVEN', 5, event => {
-					inventory = event.first ? event.items : inventory.concat(event.items)
-
-					if(!event.more) {
-						equippedWeapon = false
-
-						for(let item of inventory)
-							if(item.slot == 1) equippedWeapon = true
-
-						inventory = null
-
-						if(inCombat) {
-							dispatch.unhook(inventoryHook)
-							inventoryHook = null
-						}
-					}
-				})
-			}
+			if(!inCombat) hookInventory()
 			else if(!inventory) {
 				dispatch.unhook(inventoryHook)
 				inventoryHook = null
 			}
 		}
 	})
+
+	function hookInventory() {
+		if(!inventoryHook) inventoryHook = dispatch.hook('S_INVEN', 5, event => {
+			inventory = event.first ? event.items : inventory.concat(event.items)
+
+			if(!event.more) {
+				equippedWeapon = false
+
+				for(let item of inventory)
+					if(item.slot == 1) equippedWeapon = true
+
+				inventory = null
+
+				if(inCombat) {
+					dispatch.unhook(inventoryHook)
+					inventoryHook = null
+				}
+			}
+		})
+	}
 
 	dispatch.hook('S_PARTY_MEMBER_LIST', 1, event => {
 		partyMembers = []
