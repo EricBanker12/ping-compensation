@@ -38,6 +38,8 @@ module.exports = function SkillPrediction(dispatch) {
 		currentGlyphs = null,
 		currentStamina = 0,
 		alive = false,
+		inCombat = false,
+		inventoryHook = null,
 		inventory = null,
 		equippedWeapon = false,
 		partyMembers = null,
@@ -59,21 +61,6 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTime = 0,
 		stageEndTimeout = null,
 		debugActionTime = 0
-
-	dispatch.hook('C_CHECK_VERSION', 1, () => {
-		dispatch.hook('S_INVEN', [313623, 313624].includes(dispatch.base.protocolVersion) ? 4 : 5, event => {
-			inventory = !inventory ? event.items : inventory.concat(event.items)
-
-			if(!event.more) {
-				equippedWeapon = false
-
-				for(let item of inventory)
-					if(item.slot == 1) equippedWeapon = true
-
-				inventory = null
-			}
-		})
-	})
 
 	dispatch.hook('S_LOGIN', 1, event => {
 		skillsCache = {}
@@ -125,6 +112,36 @@ module.exports = function SkillPrediction(dispatch) {
 			if(!alive) {
 				clearStage()
 				oopsLocation = currentAction = serverAction = null
+			}
+		}
+	})
+
+	dispatch.hook('S_USER_STATUS', 1, event => {
+		if(event.target.equals(cid)) {
+			inCombat = event.status == 1
+
+			if(!inCombat) {
+				if(!inventoryHook) inventoryHook = dispatch.hook('S_INVEN', 5, event => {
+					inventory = event.first ? event.items : inventory.concat(event.items)
+
+					if(!event.more) {
+						equippedWeapon = false
+
+						for(let item of inventory)
+							if(item.slot == 1) equippedWeapon = true
+
+						inventory = null
+
+						if(inCombat) {
+							dispatch.unhook(inventoryHook)
+							inventoryHook = null
+						}
+					}
+				})
+			}
+			else if(!inventory) {
+				dispatch.unhook(inventoryHook)
+				inventoryHook = null
 			}
 		}
 	})
