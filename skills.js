@@ -123,7 +123,7 @@ module.exports = function SkillPrediction(dispatch) {
 			inCombat = event.status == 1
 
 			if(!inCombat) hookInventory()
-			else if(!inventory) {
+			else if(!inventory && inventoryHook) {
 				dispatch.unhook(inventoryHook)
 				inventoryHook = null
 			}
