@@ -702,6 +702,29 @@ module.exports = {
 		}
 	},
 	3: { // Berserker
+		1: { // Combo Attack (TODO: Check)
+			'*': { noRetry: true },
+			0: {
+				fixedSpeed: 1,
+				length: 850,
+				distance: 36.68
+			},
+			1: {
+				fixedSpeed: 1,
+				length: 1025,
+				distance: 35.68
+			},
+			2: {
+				fixedSpeed: 1,
+				length: 750,
+				distance: 28.05
+			},
+			3: {
+				fixedSpeed: 1,
+				length: 1650,
+				distance: 46.76
+			}
+		},
 		2: { // Axe Block
 			'*': {
 				type: 'holdInfinite',
@@ -818,6 +841,12 @@ module.exports = {
 				distance: [33.33, 33.33, 33.33, 33.33, 0]
 			}
 		},
+		18: { // Lethal Strike (TODO: Check)
+			0: {
+				type: 'charging',
+				length: [650, 650, 650]
+			}
+		},
 		21: { // Bloodlust
 			0: {
 				fixedSpeed: 1,
@@ -843,6 +872,37 @@ module.exports = {
 			0: {
 				length: 1000,
 				distance: 80
+			}
+		},
+		29: { // Evasive Roll (TODO: Check)
+			0: {
+				length: 900,
+				distance: 150,
+				forceClip: true
+			}
+		},
+		30: { // Axe Counter (TODO: Check)
+			0: {
+				length: 1450,
+				onlyDefenceSuccess: true
+			}
+		},
+		31: { // Overwhelm (TODO: Check)
+			0: {
+				type: 'dash',
+				fixedSpeed: 1,
+				length: 1100,
+				distance: 467.88
+			}
+		},
+		32: { // Punishing Strike (TODO: Check)
+			0: {
+				length: 725,
+				distance: 170.61
+			},
+			1: {
+				length: 1400,
+				distance: 122.34
 			}
 		}
 	},
