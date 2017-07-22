@@ -2463,12 +2463,17 @@ module.exports = {
 			2: true
 		},
 		40: { // Quick Dash
-			0: {
+			'*': {
 				fixedSpeed: 1,
 				length: 580,
 				distance: 144,
-				forceClip: true
-			}
+				forceClip: true,
+				noRetry: true
+			},
+			0: true, // TODO: Figure out which animations are correct
+			1: true,
+			30: true,
+			31: true
 		}
 	},
 	11: { // Ninja
