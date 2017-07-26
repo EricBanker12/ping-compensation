@@ -3187,7 +3187,8 @@ module.exports = {
 			},
 			0: {
 				distance: 227.49,
-				noInterrupt: [11]
+				noInterrupt: [11],
+				notifyRainbow: [0, 30]
 			},
 			1: {
 				length: 2500,
@@ -3212,7 +3213,10 @@ module.exports = {
 					20: 31
 				}
 			},
-			30: { distance: 227.49 },
+			30: {
+				distance: 227.49,
+				notifyRainbow: [0, 30]
+			},
 			31: { length: 2500 }
 		},
 		12: { // Ragnarok
