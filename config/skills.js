@@ -2956,7 +2956,8 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				}
+				},
+				notifyRainbow: [0, 30]
 			},
 			0: true,
 			30: true
@@ -2999,7 +3000,8 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				}
+				},
+				notifyRainbow: [0, 30]
 			},
 			0: true,
 			30: true
@@ -3027,7 +3029,8 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				}
+				},
+				notifyRainbow: [0, 30]
 			},
 			0: true,
 			30: true
@@ -3063,13 +3066,13 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: true,
+			0: { notifyRainbow: [0, 30] },
 			1: true,
 			2: {
 				length: 2300,
 				distance: 197.82
 			},
-			30: true
+			30: { notifyRainbow: [0, 30] }
 		},
 		8: { // Titansbane
 			'*': {
