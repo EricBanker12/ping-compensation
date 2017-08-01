@@ -937,19 +937,19 @@ module.exports = {
 			10: {
 				abnormals: {
 					500150: { skill: 330110 },
-					501600: { skill: 330150 }
+					501650: { skill: 330150 }
 				}
 			},
 			11: {
 				abnormals: {
 					500150: { skill: 330111 },
-					501600: { skill: 330150 }
+					501650: { skill: 330150 }
 				}
 			},
 			12: {
 				abnormals: {
 					500150: { skill: 330112 },
-					501600: { skill: 330150 }
+					501650: { skill: 330150 }
 				}
 			}
 		},
@@ -965,7 +965,8 @@ module.exports = {
 				},
 				abnormals: {
 					25100: { speed: 1.25 },
-					500150: { skill: 320100 }
+					500150: { skill: 320100 },
+					501650: { skill: 320150 }
 				}
 			}
 		},
@@ -1118,16 +1119,22 @@ module.exports = {
 			}
 		},
 		31: { // Warp Barrier
-			0: { length: 475 }
+			'*': { length: 475 },
+			0: true,
+			10: true,
+			20: true
 		},
 		32: { // Meteor Shower
-			0: {
+			'*': {
 				length: 6475,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
-				}
-			}
+				},
+				noRetry: true
+			},
+			0: true,
+			50: { length: 3700 }
 		},
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
