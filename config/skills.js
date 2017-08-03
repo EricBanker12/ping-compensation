@@ -321,7 +321,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
-				noInterrupt: [1, 2, 3, 8, 10, 13, 18, 21, 25, 26],
+				noInterrupt: [1, 2, 3, 8, 10, 13, 15, 18, 21, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -372,7 +372,7 @@ module.exports = {
 			0: {
 				length: 2775,
 				distance: 85,
-				noInterrupt: ['1-0', '1-1', 2, 3, 13, '18-0', 21, 25, 26],
+				noInterrupt: ['1-0', '1-1', 2, 3, 13, 15, '18-0', 21, 25, 26],
 				chains: {
 					1: 30,
 					5: 30,
@@ -542,8 +542,16 @@ module.exports = {
 			0: {
 				length: 900,
 				distance: 150,
-				forceClip: true
-			}
+				forceclip: true,
+				abnormals: {
+					40300: { chain: 30 }
+				}
+			},
+			30: { length: 900,
+				  distance: 150,
+				  forceclip: true
+
+            }
 		},
 		5: { // Dash
 			0: {
@@ -647,7 +655,7 @@ module.exports = {
 			}
 		},
 		19: { // Tenacity
-			0: {
+			'*': {
 				fixedSpeed: 1,
 				length: 700
 			}
@@ -679,7 +687,7 @@ module.exports = {
 			},
 			0: {
 				length: 1900,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 22, 24],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24],
 				chains: {
 					1: 30,
 					2: 30,
@@ -706,23 +714,19 @@ module.exports = {
 		1: { // Combo Attack (TODO: Check)
 			'*': { noRetry: true },
 			0: {
-				fixedSpeed: 1,
-				length: 850,
-				distance: 36.68
+				length: 1125,
+				distance: 80.68
 			},
 			1: {
-				fixedSpeed: 1,
-				length: 1025,
-				distance: 35.68
+				length: 1125,
+				distance: 18.68
 			},
 			2: {
-				fixedSpeed: 1,
-				length: 750,
-				distance: 28.05
+				length: 1125,
+				distance: 25.05
 			},
 			3: {
-				fixedSpeed: 1,
-				length: 1650,
+				length: 1825,
 				distance: 46.76
 			}
 		},
@@ -742,6 +746,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
+				noInterrupt: [2],
 				glyphs: {
 					24067: { chargeSpeed: 0.25 }
 				},
@@ -764,7 +769,7 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, '10-10', '10-11', '10-12', '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', 26, '32-0'],
+				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, '10-10', '10-11', '10-12', 11, '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, 31, '32-0'],
 				abnormals: {
 					401400: { chain: 1 }
 				},
@@ -801,6 +806,12 @@ module.exports = {
 				}
 			},
 			30: true
+		},
+		7: { // Mocking Shout
+			'*': {
+			    length: 1285,
+				fixedSpeed: 1 
+			}
 		},
 		8: { // Fiery Rage
 			0: {
@@ -842,10 +853,30 @@ module.exports = {
 				distance: [33.33, 33.33, 33.33, 33.33, 0]
 			}
 		},
-		18: { // Lethal Strike (TODO: Check)
+		11: { // Leaping Strike
 			0: {
-				type: 'charging',
-				length: [650, 650, 650]
+				length: 2175,
+				distance: 250
+			}
+		},
+		18: { // Lethal Strike (TODO: Check)
+	                '*': { type: 'chargeCast',
+                              length: 1750
+			},
+			0: {
+				  type: 'charging',
+				  length: [700, 700, 700],
+				  noInterrupt: [2]
+			},
+			10: { distance: 171.48 },
+			11: { distance: 171.48 },
+			12: { distance: 171.48 },
+                        13: { distance: 171.48 }			
+		},
+		19: { // Tenacity
+			'*': {
+				fixedSpeed: 1,
+				length: 700,
 			}
 		},
 		21: { // Bloodlust
@@ -857,7 +888,7 @@ module.exports = {
 		25: { // Raze
 			'*': { length: 1200 },
 			0: {
-				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, 6, '6-30', '10-10', '10-11', '10-12', '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', 26, '32-0'],
+				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, 6, '6-30', '10-10', '10-11', '10-12', '10-13', 11, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
 				abnormals: {
 					401400: { chain: 1 }
 				},
@@ -875,11 +906,12 @@ module.exports = {
 				distance: 80
 			}
 		},
-		29: { // Evasive Roll (TODO: Check)
+				29: { // Evasive Roll (TODO: Check)
 			0: {
 				length: 900,
 				distance: 150,
-				forceClip: true
+				forceClip: true,
+				noInterrupt: [29]
 			}
 		},
 		30: { // Axe Counter (TODO: Check)
