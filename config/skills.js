@@ -547,7 +547,8 @@ module.exports = {
 					40300: { chain: 30 }
 				}
 			},
-			30: { length: 900,
+			30: {
+				length: 900,
 				distance: 150,
 				forceclip: true
 			}
