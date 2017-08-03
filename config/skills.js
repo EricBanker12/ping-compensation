@@ -548,10 +548,9 @@ module.exports = {
 				}
 			},
 			30: { length: 900,
-				  distance: 150,
-				  forceclip: true
-
-            }
+				distance: 150,
+				forceclip: true
+			}
 		},
 		5: { // Dash
 			0: {
@@ -580,7 +579,7 @@ module.exports = {
 					24: 30
 				}
 			},
-			30: { 
+			30: {
 				length: 1325,
 				distance: 169.65,
 				abnormals: {
@@ -809,9 +808,10 @@ module.exports = {
 		},
 		7: { // Mocking Shout
 			'*': {
-			    length: 1285,
-				fixedSpeed: 1 
-			}
+				length: 1285,
+				fixedSpeed: 1
+			},
+			0: true
 		},
 		8: { // Fiery Rage
 			0: {
@@ -860,24 +860,26 @@ module.exports = {
 			}
 		},
 		18: { // Lethal Strike (TODO: Check)
-	                '*': { type: 'chargeCast',
-                              length: 1750
+			'*': {
+				type: 'chargeCast',
+				length: 1750
 			},
 			0: {
-				  type: 'charging',
-				  length: [700, 700, 700],
-				  noInterrupt: [2]
+				type: 'charging',
+				length: [700, 700, 700],
+				noInterrupt: [2]
 			},
 			10: { distance: 171.48 },
 			11: { distance: 171.48 },
 			12: { distance: 171.48 },
-                        13: { distance: 171.48 }			
+			13: { distance: 171.48 }
 		},
 		19: { // Tenacity
 			'*': {
 				fixedSpeed: 1,
-				length: 700,
-			}
+				length: 700
+			},
+			0: true
 		},
 		21: { // Bloodlust
 			0: {
@@ -906,7 +908,7 @@ module.exports = {
 				distance: 80
 			}
 		},
-				29: { // Evasive Roll (TODO: Check)
+		29: { // Evasive Roll (TODO: Check)
 			0: {
 				length: 900,
 				distance: 150,
