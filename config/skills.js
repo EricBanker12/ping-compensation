@@ -1829,6 +1829,9 @@ module.exports = {
 				length: 530,
 				noInterrupt: [42]
 			}
+		},
+		43: { // Release (KR)
+			0: { length: 575 }
 		}
 	},
 	8: { // Reaper
