@@ -735,6 +735,7 @@ module.exports = {
 				type: 'holdInfinite',
 				fixedSpeed: 1
 			},
+			0: true,
 			30: true,
 			31: true
 		},
