@@ -1,6 +1,6 @@
 {
 	"name": "skill-prediction",
-	"version": "1.26.1",
+	"version": "2.0.0",
 	"description": "Simulates skills client-side, eliminating ping-based delays and animation lock.",
 	"repository": {
 		"type": "git",
