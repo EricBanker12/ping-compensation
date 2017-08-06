@@ -1217,6 +1217,27 @@ module.exports = {
 			12: { distance: -100 },
 			13: { distance: -100 }
 		},
+		4: { // Penetrating Arrow
+			'*': {
+				type: 'chargeCast',
+				length: 1300
+			},
+			0: {
+				type: 'charging',
+				length: [800, 800, 800],
+				abnormals: {
+					26160: { chargeSpeed: 0.3 },
+					26170: { chargeSpeed: 0.3 },
+					26171: { chargeSpeed: 0.4 },
+					26190: { chargeSpeed: 0.3 },
+					601450: { chargeSpeed: 0.5 }
+				}
+			},
+			10: { distance: -50 }, // Cast F. - TODO
+			11: { distance: -50 },
+			12: { distance: -50 },
+			13: { distance: -50 }
+		},
 		5: { // Rain of Arrows
 			0: {
 				length: 3150,
