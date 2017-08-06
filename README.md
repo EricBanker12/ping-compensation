@@ -7,9 +7,9 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
 * Warrior: All besides Backstab, Staggering Counter, Smoke Flanker
 * Slayer: All besides Exhausting Blow, Backstab
-* Berserker: Thunderstrike, Cyclone, Axe Block, Raze, Flatten, Tackle, Staggering Strike, Bloodlust, Dash
+* Berserker: Most skills
 * Sorcerer: All besides Stone Skin
-* Archer: All besides Penetrating Arrow, Feign Death
+* Archer: All besides Penetrating Arrow
 * Reaper: All besides Cable Step, Soul Reversal
 * Gunner: Blast, Rolling Reload, Burst Fire, Mana Missiles, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Arc Bomb, Point Blank, HB
 * Ninja: All
@@ -18,6 +18,37 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 * Mystic: All
 
 ## Changelog
+### 2.0.0
+* [+] Added compatability check to avoid seemingly random crashes with conflicting mods and outdated proxy versions
+* [+] Added automatic handling of skills sent by third party mods
+* [+] Added automatic ping detection
+* [+] Added ping compensation to abnormality (buff/debuff) lengths
+* [+] Added timeout to skills to prevent getting locked in wrong animation
+* [+] Merged Cooldowns (ping compensation for cooldown lengths)
+* [+] Merged Lockons (lockon prediction)
+* [+] Added Berserker: Combo Attack, Lethal Strike, Evasive Roll, Axe Counter, Overwhelm, Punishing Strike, Mocking Shout, Leaping Strike, Tenacity
+* [+] Added Archer: Feign Death
+* [~] Jitter compensation is now automatic and enabled by default
+* [~] Jitter compensation now applies to all stages and may increase animation lock to prevent rubberbanding on the server
+* [~] Equipped weapon check is now only performed out of combat (optimization)
+* [*] Fixed dashes occasionally teleporting you under the map
+* [*] Fixed skills having no animation for some number of uses after teleporting
+* [*] Fixed "This skill requires an equipped weapon." message due to protocol changes
+* [*] Fixed Warrior: Charging Slash occasionally desyncing due to short animation length at point blank
+* [*] Fixed Lancer: Onslaught and Spring Attack incorrectly interrupting Charging Lunge
+* [*] Fixed Slayer Evasive Roll animation
+* [*] Fixed Slayer: Eviscerate being usable during Fury Strike, Headlong rush, and the third hit of Distant Blade
+* [*] Fixed Berserker: Axe Block incorrectly interrupting Thunderstrike charging animation
+* [*] Fixed Berserker: Axe Block, Raze and Flatten incorrectpy interrupting Evasive Roll
+* [*] Fixed Sorcerer: Teleport Jaunt awkward animation and camera stutter
+* [*] Fixed Sorcerer: Warp Barrier/Meteor Strike/Arcane Pulse changes
+* [*] Fixed Archer: Poison Arrow speed glyph now stacks with Focus buff
+* [*] Fixed Mystic: Volley of Curses consuming 2 Noctenium Infusion instead of 1
+* [*] Fixed Mystic: Teleport Jaunt awkward animation and camera stutter
+* [*] Fixed Gunner: Arcane barrage occasionally emitting 2 projectiles (only one can be detonated)
+* [*] Fixed Brawler: Quick Dash second use animation
+* [*] Fixed Valkyrie: Glaive Strike, Maelstrom, Leaping Strike, Spinning Death, and Shining Crescent occasionally causing your character's hitbox to pass through the target
+
 ### 1.26.1
 * [*] Fixed small positional errors with teleports causing you to clip through solid entities
 * [*] Fixed abnormalities not being re-applied after resurrecting

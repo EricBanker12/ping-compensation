@@ -1,23 +1,23 @@
 const DEBUG = false
 
-const abnormals = require('./config/abnormalities')
+const Ping = require('./ping'),
+	abnormals = require('./config/abnormalities')
 
 class AbnormalityPrediction {
 	constructor(dispatch) {
 		this.dispatch = dispatch
 
+		this.ping = Ping(dispatch)
+
 		this.cid = null
 		this.myAbnormals = {}
 
-		dispatch.hook('S_LOGIN', 1, event => {
-			this.cid = event.cid
-			this._removeAll()
-		})
+		dispatch.hook('S_LOGIN', 1, event => { this.cid = event.cid })
 
-		dispatch.hook('C_RETURN_TO_LOBBY', 1, () => { this._removeAll() })
+		dispatch.hook('S_RETURN_TO_LOBBY', 1, () => { this.removeAll() })
 
 		dispatch.hook('S_CREATURE_LIFE', 1, event => {
-			if(event.target.equals(this.cid) && !event.alive) this._removeAll()
+			if(event.target.equals(this.cid) && !event.alive) this.removeAll()
 		})
 
 		let abnormalityUpdate = (type, event) => {
@@ -31,12 +31,15 @@ class AbnormalityPrediction {
 					if(info.overrides && this.exists(info.overrides)) this.remove(info.overrides)
 				}
 
+				if(event.duration != 0x7fffffff) event.duration = Math.max(event.duration - this.ping.min, 0)
+
 				if(type == 'S_ABNORMALITY_BEGIN' && this.exists(event.id)) {
 					this.add(event.id, event.duration, event.stacks)
 					return false
 				}
 
 				this._add(event.id, event.duration)
+				return true
 			}
 		}
 
@@ -92,6 +95,10 @@ class AbnormalityPrediction {
 		this._remove(id)
 	}
 
+	removeAll() {
+		for(let id in this.myAbnormals) this.remove(id)
+	}
+
 	_add(id, duration) {
 		clearTimeout(this.myAbnormals[id])
 		this.myAbnormals[id] = duration >= 0x7fffffff ? true : setTimeout(() => { this.remove(id) }, duration)
@@ -101,14 +108,14 @@ class AbnormalityPrediction {
 		clearTimeout(this.myAbnormals[id])
 		delete this.myAbnormals[id]
 	}
-
-	_removeAll() {
-		if(Object.keys(this.myAbnormals).length) {
-			for(let id in this.myAbnormals) clearTimeout(this.myAbnormals[id])
-
-			this.myAbnormals = {}
-		}
-	}
 }
 
-module.exports = AbnormalityPrediction
+let map = new WeakMap()
+
+module.exports = function Require(dispatch) {
+	if(map.has(dispatch.base)) return map.get(dispatch.base)
+
+	let ping = new AbnormalityPrediction(dispatch)
+	map.set(dispatch.base, ping)
+	return ping
+}

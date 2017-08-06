@@ -103,10 +103,11 @@ module.exports = {
 		},
 		16: { // Charging Slash
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1100,
 				distance: 467.88,
-				isDash: true
+				noRetry: true
 			},
 			1: { length: 800 }
 		},
@@ -320,7 +321,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
-				noInterrupt: [1, 2, 3, 8, 10, 13, 18, 21, 25, 26],
+				noInterrupt: [1, 2, 3, 8, 10, 13, 15, 18, 21, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -371,7 +372,7 @@ module.exports = {
 			0: {
 				length: 2775,
 				distance: 85,
-				noInterrupt: ['1-0', '1-1', 2, 3, 13, '18-0', 21, 25, 26],
+				noInterrupt: ['1-0', '1-1', 2, 3, 13, 15, '18-0', 21, 25, 26],
 				chains: {
 					1: 30,
 					5: 30,
@@ -387,11 +388,11 @@ module.exports = {
 		},
 		15: { // Charging Lunge
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1125,
 				distance: 474.5,
-				noInterrupt: [15],
-				isDash: true
+				noInterrupt: [15]
 			},
 			1: { length: 925 }
 		},
@@ -541,7 +542,15 @@ module.exports = {
 			0: {
 				length: 900,
 				distance: 150,
-				forceClip: true
+				forceclip: true,
+				abnormals: {
+					40300: { chain: 30 }
+				}
+			},
+			30: {
+				length: 900,
+				distance: 150,
+				forceclip: true
 			}
 		},
 		5: { // Dash
@@ -571,7 +580,7 @@ module.exports = {
 					24: 30
 				}
 			},
-			30: { 
+			30: {
 				length: 1325,
 				distance: 169.65,
 				abnormals: {
@@ -633,10 +642,10 @@ module.exports = {
 		},
 		17: { // Headlong Rush
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1000,
-				distance: 413,
-				isDash: true
+				distance: 413
 			}
 		},
 		18: { // Overpower
@@ -646,7 +655,7 @@ module.exports = {
 			}
 		},
 		19: { // Tenacity
-			0: {
+			'*': {
 				fixedSpeed: 1,
 				length: 700
 			}
@@ -678,7 +687,7 @@ module.exports = {
 			},
 			0: {
 				length: 1900,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 22, 24],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24],
 				chains: {
 					1: 30,
 					2: 30,
@@ -702,6 +711,25 @@ module.exports = {
 		}
 	},
 	3: { // Berserker
+		1: { // Combo Attack (TODO: Check)
+			'*': { noRetry: true },
+			0: {
+				length: 1125,
+				distance: 80.68
+			},
+			1: {
+				length: 1125,
+				distance: 18.68
+			},
+			2: {
+				length: 1125,
+				distance: 25.05
+			},
+			3: {
+				length: 1825,
+				distance: 46.76
+			}
+		},
 		2: { // Axe Block
 			'*': {
 				type: 'holdInfinite',
@@ -718,6 +746,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
+				noInterrupt: [2],
 				glyphs: {
 					24067: { chargeSpeed: 0.25 }
 				},
@@ -740,7 +769,7 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, '10-10', '10-11', '10-12', '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', 26, '32-0'],
+				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, '10-10', '10-11', '10-12', 11, '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, 31, '32-0'],
 				abnormals: {
 					401400: { chain: 1 }
 				},
@@ -777,6 +806,13 @@ module.exports = {
 				}
 			},
 			30: true
+		},
+		7: { // Mocking Shout
+			'*': {
+				length: 1285,
+				fixedSpeed: 1
+			},
+			0: true
 		},
 		8: { // Fiery Rage
 			0: {
@@ -818,6 +854,34 @@ module.exports = {
 				distance: [33.33, 33.33, 33.33, 33.33, 0]
 			}
 		},
+		11: { // Leaping Strike
+			0: {
+				length: 2175,
+				distance: 250
+			}
+		},
+		18: { // Lethal Strike (TODO: Check)
+			'*': {
+				type: 'chargeCast',
+				length: 1750
+			},
+			0: {
+				type: 'charging',
+				length: [700, 700, 700],
+				noInterrupt: [2]
+			},
+			10: { distance: 171.48 },
+			11: { distance: 171.48 },
+			12: { distance: 171.48 },
+			13: { distance: 171.48 }
+		},
+		19: { // Tenacity
+			'*': {
+				fixedSpeed: 1,
+				length: 700
+			},
+			0: true
+		},
 		21: { // Bloodlust
 			0: {
 				fixedSpeed: 1,
@@ -827,7 +891,7 @@ module.exports = {
 		25: { // Raze
 			'*': { length: 1200 },
 			0: {
-				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, 6, '6-30', '10-10', '10-11', '10-12', '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', 26, '32-0'],
+				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, 6, '6-30', '10-10', '10-11', '10-12', '10-13', 11, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
 				abnormals: {
 					401400: { chain: 1 }
 				},
@@ -843,6 +907,38 @@ module.exports = {
 			0: {
 				length: 1000,
 				distance: 80
+			}
+		},
+		29: { // Evasive Roll (TODO: Check)
+			0: {
+				length: 900,
+				distance: 150,
+				forceClip: true,
+				noInterrupt: [29]
+			}
+		},
+		30: { // Axe Counter (TODO: Check)
+			0: {
+				length: 1450,
+				onlyDefenceSuccess: true
+			}
+		},
+		31: { // Overwhelm (TODO: Check)
+			0: {
+				type: 'dash',
+				fixedSpeed: 1,
+				length: 1100,
+				distance: 467.88
+			}
+		},
+		32: { // Punishing Strike (TODO: Check)
+			0: {
+				length: 725,
+				distance: 170.61
+			},
+			1: {
+				length: 1400,
+				distance: 122.34
 			}
 		}
 	},
@@ -876,19 +972,19 @@ module.exports = {
 			10: {
 				abnormals: {
 					500150: { skill: 330110 },
-					501600: { skill: 330150 }
+					501650: { skill: 330150 }
 				}
 			},
 			11: {
 				abnormals: {
 					500150: { skill: 330111 },
-					501600: { skill: 330150 }
+					501650: { skill: 330150 }
 				}
 			},
 			12: {
 				abnormals: {
 					500150: { skill: 330112 },
-					501600: { skill: 330150 }
+					501650: { skill: 330150 }
 				}
 			}
 		},
@@ -905,7 +1001,7 @@ module.exports = {
 				abnormals: {
 					25100: { speed: 1.25 },
 					500150: { skill: 320100 },
-					501600: { skill: 320150 }
+					501650: { skill: 320150 }
 				}
 			}
 		},
@@ -1038,10 +1134,12 @@ module.exports = {
 		},
 		26: { // Teleport Jaunt
 			0: {
+				type: 'teleport',
 				length: [200, 260],
 				distance: [0, 333],
-				noInterrupt: [17],
-				isTeleport: true
+				noInterrupt: [26],
+				teleportStage: 1,
+				noRetry: true
 			}
 		},
 		27: { // Hailstorm
@@ -1056,16 +1154,21 @@ module.exports = {
 			}
 		},
 		31: { // Warp Barrier
-			0: { length: 475 }
+			'*': { length: 475 },
+			0: true,
+			10: true,
+			20: true
 		},
 		32: { // Meteor Shower
 			'*': {
+				length: 6475,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
-				}
+				},
+				noRetry: true
 			},
-			0: { length: 6475 },
+			0: true,
 			50: { length: 3700 }
 		},
 		33: { // Arcane Pulse (Mana Boost)
@@ -1134,11 +1237,12 @@ module.exports = {
 				forceClip: true
 			}
 		},
-		// Super long animation that can't be cancelled if it breaks - Use at your own risk
-		/*7: { // Feign Death
-			length: [2950, 54525, 1675],
-			distance: [-114.05, 0, 0]
-		},*/
+		7: { // Feign Death
+			0: {
+				length: [2950, 54525, 1675],
+				distance: [-114.05, 0, 0]
+			}
+		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
 			0: { length: 425 },
@@ -1220,10 +1324,10 @@ module.exports = {
 		},
 		33: { // Chase
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 1000,
-				distance: 413,
-				isDash: true
+				distance: 413
 			}
 		}
 	},
@@ -1414,6 +1518,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [37],
+				partyOnly: true,
 				noRetry: true
 			},
 			10: {
@@ -1440,7 +1545,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440
+				length: 54440,
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1525,7 +1631,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1550,10 +1657,12 @@ module.exports = {
 		},
 		17: { // Teleport Jaunt
 			0: {
+				type: 'teleport',
 				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [17],
-				isTeleport: true
+				teleportStage: 1,
+				noRetry: true
 			}
 		},
 		18: { // Arun's Vitae
@@ -1609,7 +1718,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [525, 675]
+				length: [525, 675],
+				noRetry: true
 			}
 		},
 		25: { // Thrall of Protection
@@ -2396,12 +2506,17 @@ module.exports = {
 			2: true
 		},
 		40: { // Quick Dash
-			0: {
+			'*': {
 				fixedSpeed: 1,
 				length: 580,
 				distance: 144,
-				forceClip: true
-			}
+				forceClip: true,
+				noRetry: true
+			},
+			0: true, // TODO: Figure out which animations are correct
+			1: true,
+			30: true,
+			31: true
 		}
 	},
 	11: { // Ninja
@@ -2575,10 +2690,10 @@ module.exports = {
 		},
 		4: { // Jagged Path
 			1: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 665,
-				distance: 469,
-				isDash: true
+				distance: 469
 			},
 			10: { length: 1500 },
 			11: {
@@ -2599,10 +2714,10 @@ module.exports = {
 		},
 		6: { // One Thousand Cuts
 			1: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 300,
-				distance: 246,
-				isDash: true
+				distance: 246
 			},
 			10: { length: 3500 }
 		},
@@ -2884,18 +2999,19 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				}
+				},
+				notifyRainbow: [0, 30]
 			},
 			0: true,
 			30: true
 		},
 		4: { // Charge
 			0: {
+				type: 'dash',
 				fixedSpeed: 1,
 				length: 550,
 				distance: 436,
-				noInterrupt: ['4-0'],
-				isDash: true
+				noInterrupt: ['4-0']
 			},
 			10: { length: 900 },
 			11: {
@@ -2927,7 +3043,8 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				}
+				},
+				notifyRainbow: [0, 30]
 			},
 			0: true,
 			30: true
@@ -2955,7 +3072,8 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				}
+				},
+				notifyRainbow: [0, 30]
 			},
 			0: true,
 			30: true
@@ -2991,13 +3109,13 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: true,
+			0: { notifyRainbow: [0, 30] },
 			1: true,
 			2: {
 				length: 2300,
 				distance: 197.82
 			},
-			30: true
+			30: { notifyRainbow: [0, 30] }
 		},
 		8: { // Titansbane
 			'*': {
@@ -3115,7 +3233,8 @@ module.exports = {
 			},
 			0: {
 				distance: 227.49,
-				noInterrupt: [11]
+				noInterrupt: [11],
+				notifyRainbow: [0, 30]
 			},
 			1: {
 				length: 2500,
@@ -3140,7 +3259,10 @@ module.exports = {
 					20: 31
 				}
 			},
-			30: { distance: 227.49 },
+			30: {
+				distance: 227.49,
+				notifyRainbow: [0, 30]
+			},
 			31: { length: 2500 }
 		},
 		12: { // Ragnarok
