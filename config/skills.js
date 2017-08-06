@@ -1238,8 +1238,10 @@ module.exports = {
 			}
 		},
 		7: { // Feign Death
-			length: [2950, 54525, 1675],
-			distance: [-114.05, 0, 0]
+			0: {
+				length: [2950, 54525, 1675],
+				distance: [-114.05, 0, 0]
+			}
 		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
