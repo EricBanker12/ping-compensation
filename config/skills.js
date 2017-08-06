@@ -1855,6 +1855,7 @@ module.exports = {
 		4: { // Sundering Strike
 			'*': { noRetry: true },
 			0: {
+				type: 'nullChain',
 				length: [1175, 1750, 1025],
 				distance: [0, 100, 0],
 				inPlace: {
