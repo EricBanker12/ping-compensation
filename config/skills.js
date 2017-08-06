@@ -1237,11 +1237,10 @@ module.exports = {
 				forceClip: true
 			}
 		},
-		// Super long animation that can't be cancelled if it breaks - Use at your own risk
-		/*7: { // Feign Death
+		7: { // Feign Death
 			length: [2950, 54525, 1675],
 			distance: [-114.05, 0, 0]
-		},*/
+		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
 			0: { length: 425 },
