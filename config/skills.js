@@ -1871,12 +1871,7 @@ module.exports = {
 					],
 					distance: [0, 0, 0]
 				},
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
-				chains: {
-					3: 30,
-					5: 30,
-					6: 30
-				}
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20]
 			},
 			30: {
 				length: [1750, 1025],
