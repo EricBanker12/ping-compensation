@@ -6,8 +6,8 @@ if(CHECK_COMPATABILITY)
 	for(let mod of ['cooldowns', 'lockons', 'lockons-master', 'fastfire', 'fast-fire', 'fast-fire-master', 'fast-block'])
 		try {
 			require(mod)
-			console.error('ERROR: Skill Prediction is not compatible with the mod "' + mod + '", please remove it and try again.')
-			console.error('To disable compatability checking, edit index.js and set CHECK_COMPATABILITY to false')
+			console.error('ERROR: Skill Prediction is not compatible with the obsolete mod "' + mod + '", please remove it and try again.')
+			console.error('**For advanced users only**: To disable compatability checking, edit index.js and set CHECK_COMPATABILITY to false')
 			error = true
 			break
 		}
