@@ -2139,7 +2139,12 @@ module.exports = {
 			'*': { length: 1250 },
 			0: {
 				length: 2150,
-				triggerAbnormal: { 10151040: 2000 }
+				triggerAbnormal: { 10151040: 2000 },
+				abnormals: {
+					10151040: { chain: 1 },
+					10151041: { chain: 2 },
+					10151042: { chain: 3 }
+				},
 			},
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
