@@ -711,23 +711,23 @@ module.exports = {
 		}
 	},
 	3: { // Berserker
-		1: { // Combo Attack (TODO: Check)
+		1: { // Combo Attack
 			'*': { noRetry: true },
 			0: {
 				length: 1125,
-				distance: 80.68
+				distance: 78
 			},
 			1: {
-				length: 1125,
-				distance: 18.68
+				length: 925,
+				distance: 21.05
 			},
 			2: {
 				length: 1125,
-				distance: 25.05
+				distance: 31.84
 			},
 			3: {
 				length: 1825,
-				distance: 46.76
+				distance: 54.28
 			}
 		},
 		2: { // Axe Block
