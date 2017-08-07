@@ -1857,10 +1857,117 @@ module.exports = {
 		}
 	},
 	8: { // Reaper
+		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10151023, 10151040, 10151041, 10151042] },
+		1: { // Spiral Barrage
+			'*': {
+				length: 1000,
+				distance: 48,
+				inPlace: {
+					movement: [{
+						duration: 766,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					},
+					{
+						duration: 346,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				},
+				noInterrupt: [3, 4, 12, 20],
+				triggerAbnormal: { 10151020: 2000 },
+				abnormals: {
+					10151020: { chain: 2 },
+					10151021: { chain: 3 },
+					10151022: { chain: 4 },
+					10151023: { chain: 5 }
+				},
+				chains: { 1: 1 },
+				noRetry: true
+			},
+			0: true,
+			1: true,
+			2: {
+				length: 1200,
+				distance: 42,
+				inPlace: {
+					movement: [{
+						duration: 950,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					},
+					{
+						duration: 346,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				},
+				triggerAbnormal: { 10151021: 2000 }
+			},
+			3: {
+				length: 860,
+				distance: 56,
+				inPlace: {
+					movement: [{
+						duration: 616,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					},
+					{
+						duration: 346,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				},
+				triggerAbnormal: { 10151022: 1800 }
+			},
+			4: {
+				length: 1400,
+				distance: 60,
+				inPlace: {
+					movement: [{
+						duration: 1150,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					},
+					{
+						duration: 346,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				},
+				triggerAbnormal: { 10151023: 2000 }
+			},
+			5: {
+				length: 1900,
+				distance: 91,
+				inPlace: {
+					movement: [{
+						duration: 2016,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				}
+			}
+		},
 		3: { // Double Shear
 			'*': {
 				length: 2025,
-				noInterrupt: ['1-0', '1-1', '1-2', 3, 4, 12, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 20],
 				abnormals: {
 					29030: { speed: 1.25 }
 				},
@@ -1938,7 +2045,7 @@ module.exports = {
 			},
 			0: {
 				length: [2400, 975],
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 12, 20],
+				noInterrupt: ['1-0', '1-2', 4, 12, 20],
 				chains: {
 					1: 30,
 					3: 30,
@@ -2024,6 +2131,16 @@ module.exports = {
 			},
 			0: true,
 			30: true
+		},
+		11: { // Shadow Lash
+			'*': { length: 1250 },
+			0: {
+				length: 2150,
+				triggerAbnormal: { 10151040: 2000 }
+			},
+			1: { triggerAbnormal: { 10151041: 2000 } },
+			2: { triggerAbnormal: { 10151042: 2000 } },
+			3: true
 		},
 		12: { // Shadow Burst
 			'*': {
