@@ -1188,6 +1188,9 @@ module.exports = {
 		}
 	},
 	5: { // Archer
+		1: { // Arrow
+			0: { length: 400 }
+		},
 		2: { // Arrow Volley
 			0: {
 				type: 'lockon',
