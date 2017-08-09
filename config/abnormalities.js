@@ -1,4 +1,7 @@
 module.exports = {
+	/* Slayer */
+	23220: true, // Distant Blade (linked)
+
 	/* Brawler */
 	10153060: true, // Punch (linked)
 	10153001: true, // Punch > Counter 1 (linked)
