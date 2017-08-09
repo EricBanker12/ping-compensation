@@ -512,7 +512,7 @@ module.exports = {
 		},
 		2: { // Knockdown Strike
 			'*': {
-				length: 3100,
+				length: 2385,
 				distance: 220.47,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
 				abnormals: {
