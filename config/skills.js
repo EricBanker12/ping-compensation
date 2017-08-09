@@ -976,18 +976,21 @@ module.exports = {
 			10: {
 				abnormals: {
 					500150: { skill: 330110 },
+					501600: { skill: 330150 },
 					501650: { skill: 330150 }
 				}
 			},
 			11: {
 				abnormals: {
 					500150: { skill: 330111 },
+					501600: { skill: 330150 },
 					501650: { skill: 330150 }
 				}
 			},
 			12: {
 				abnormals: {
 					500150: { skill: 330112 },
+					501600: { skill: 330150 },
 					501650: { skill: 330150 }
 				}
 			}
@@ -1005,6 +1008,7 @@ module.exports = {
 				abnormals: {
 					25100: { speed: 1.25 },
 					500150: { skill: 320100 },
+					501600: { skill: 320150 },
 					501650: { skill: 320150 }
 				}
 			}
