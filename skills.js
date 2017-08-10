@@ -230,7 +230,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 	for(let packet of [
 			['C_START_SKILL', 3],
-			['C_START_TARGETED_SKILL', 2],
+			['C_START_TARGETED_SKILL', 3],
 			['C_START_COMBO_INSTANT_SKILL', 1],
 			['C_START_INSTANCE_SKILL', 1],
 			['C_START_INSTANCE_SKILL_EX', 2],
@@ -258,6 +258,13 @@ module.exports = function SkillPrediction(dispatch) {
 			let strs = ['->', type, skillId(event.skill)]
 
 			if(type == 'C_START_SKILL') strs.push(...[event.unk ? 1 : 0, event.moving ? 1 : 0, event.continue ? 1 : 0])
+			else if(type == 'C_START_TARGETED_SKILL') {
+				let tmp = []
+
+				for(let e of event.targets) tmp.push([e.id.toString(), e.unk].join(' '))
+
+				strs.push('[' + tmp.join(', ') + ']')
+			}
 
 			if(DEBUG_LOC) {
 				strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
@@ -379,6 +386,11 @@ module.exports = function SkillPrediction(dispatch) {
 				sendSystemMessage('SMT_SKILL_ONLY_DEFENCE_SUCCESS')
 				return false
 			}
+
+		if(info.onlyTarget && event.targets[0].id.equals(0)) {
+			sendCannotStartSkill(event.skill)
+			return false
+		}
 
 		// Skill override (chain)
 		if(skill != event.skill) {
@@ -523,13 +535,19 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_ACTION_STAGE', 1, event => {
 		if(isMe(event.source)) {
 			if(DEBUG) {
-				let strs = [skillInfo(event.skill) ? '<X' : '<-', 'S_ACTION_STAGE', skillId(event.skill), event.stage, Math.round(event.speed * 1000) / 1000]
+				let duration = Date.now() - debugActionTime,
+					strs = [skillInfo(event.skill) ? '<X' : '<-', 'S_ACTION_STAGE', skillId(event.skill), event.stage, (Math.round(event.speed * 1000) / 1000) + 'x']
 
 				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
-				if(serverAction) strs.push((Math.round(calcDistance(serverAction, event) * 1000) / 1000) + 'u')
-
 				strs.push(...[event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3])
+
+				if(serverAction)
+					strs.push(...[
+						(Math.round(calcDistance(serverAction, event) * 1000) / 1000) + 'u',
+						duration + 'ms',
+						'(' + Math.round(duration * serverAction.speed) + 'ms)'
+					])
 
 				if(event.movement.length) {
 					let movement = []

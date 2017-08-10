@@ -2875,7 +2875,10 @@ module.exports = {
 			10: { length: 3500 }
 		},
 		7: { // Decoy Jutsu
-			0: { length: 1550 }
+			0: {
+				length: 1550,
+				onlyTarget: true
+			}
 		},
 		8: { // Fire Avalanche
 			'*': {
@@ -3577,7 +3580,10 @@ module.exports = {
 			30: true
 		},
 		20: { // Backstab
-			0: { length: 1500 }
+			0: {
+				length: 1500,
+				onlyTarget: true
+			}
 		},
 		21: { // Dark Herald
 			0: {
