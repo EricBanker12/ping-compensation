@@ -2383,7 +2383,8 @@ module.exports = {
 					15: 30,
 					19: 30,
 					40: 30
-				}
+				},
+				noRetry: true
 			},
 			1: true,
 			2: true,
