@@ -1292,7 +1292,7 @@ module.exports = {
 			0: { length: 1150 }
 		},
 		12: { // Velik's Mark
-			0: { length: 1000 }
+			0: { length: 200 }
 		},
 		15: { // Incendiary Trap
 			0: { length: 1150 }
@@ -1351,7 +1351,7 @@ module.exports = {
 		32: { // Find Weakness
 			0: {
 				fixedSpeed: 1,
-				length: 1300
+				length: 200
 			}
 		},
 		33: { // Chase
