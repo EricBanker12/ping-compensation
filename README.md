@@ -3,21 +3,35 @@
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 ## Current supported class skills
-* Lancer: All
-* Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Counterpunch
-* Warrior: All besides Backstab, Staggering Counter, Smoke Flanker
-* Slayer: All besides Exhausting Blow, Backstab
+* Lancer: All besides Retaliate
+* Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Retaliate
+* Warrior: All besides Backstab, Staggering Counter, Smoke Flanker, Retaliate
+* Slayer: All besides Exhausting Blow, Backstab, Retaliate
 * Berserker: Most skills
-* Sorcerer: All besides Stone Skin
-* Archer: All besides Penetrating Arrow
+* Sorcerer: All besides Stone Skin, Retaliate
+* Archer: All besides Retaliate
 * Reaper: All besides Cable Step, Soul Reversal
-* Gunner: Blast, Rolling Reload, Burst Fire, Mana Missiles, Balder's Vengeance, Replenishment, Scattershot, Time Bomb, Arc Bomb, Point Blank, HB
-* Ninja: All
-* Valkyrie: All
-* Priest: All
+* Gunner: Most skills besides Retaliate
+* Ninja: All besides Retaliate
+* Valkyrie: All besides Retaliate
+* Priest: All besides Retaliate
 * Mystic: All
 
 ## Changelog
+### 2.1.0
+* [+] Added Berserker: Vampiric Blow (unchained), Retaliate
+* [+] Added Archer: Arrow, Penetrating Arrow
+* [+] Added Mystic: Release (translation pending)
+* [+] Added Reaper: Spiral Barrage, Shadow Lash
+* [+] Added Gunner: Rocket Jump
+* [+] Added Brawler: Counter, Counterpunch
+* [~] Restored old no-target behavior of Ninja: Decoy Jutsu and Valkyrie: Backstab
+* [*] Fixed Slayer: Knockdown Strike
+* [*] Fixed Berserker: Combo Attack 2nd hit length, Axe Block (pre-65)
+* [*] Fixed Archer: Velik's Mark, Find Weakness, Feign Death cancel
+* [*] Fixed Reaper: Sundering Strike chained animation
+* [*] Fixed Gunner: Balder's Vengeance occasionally dealing 0 damage
+
 ### 2.0.0
 * [+] Added compatability check to avoid seemingly random crashes with conflicting mods and outdated proxy versions
 * [+] Added automatic handling of skills sent by third party mods
