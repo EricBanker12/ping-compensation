@@ -8,6 +8,8 @@ module.exports = {
 	10153002: true, // Punch > Counter 2 (linked)
 	10153003: true, // Punch > Counter 3 (linked)
 	10153004: true, // Punch > Counter 4 (linked)
+	10153005: true, // Counter (linked)
+	10153006: true, // Counter (linked)
 
 	/* Ninja */
 	// Combo Attack

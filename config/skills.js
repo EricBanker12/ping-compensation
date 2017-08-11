@@ -2528,6 +2528,22 @@ module.exports = {
 				triggerAbnormal: { 10153004: 0x7fffffff },
 				consumeAbnormalEnd: 10153004
 			},
+			10: {
+				type: 'holdInfinite',
+				fixedSpeed: 1,
+				length: 800,
+				distance: 33.38,
+				triggerAbnormal: { 10153006: 0x7fffffff },
+				consumeAbnormalEnd: 10153006
+			},
+			11: {
+				type: 'holdInfinite',
+				fixedSpeed: 1,
+				length: 800,
+				distance: 33.38,
+				triggerAbnormal: { 10153005: 0x7fffffff },
+				consumeAbnormalEnd: 10153005
+			},
 			12: {
 				/*abnormals: {
 					10153061: { chain: 1 },

@@ -258,6 +258,7 @@ module.exports = function SkillPrediction(dispatch) {
 			let strs = ['->', type, skillId(event.skill)]
 
 			if(type == 'C_START_SKILL') strs.push(...[event.unk ? 1 : 0, event.moving ? 1 : 0, event.continue ? 1 : 0])
+			if(type == 'C_PRESS_SKILL') strs.push(event.start)
 			else if(type == 'C_START_TARGETED_SKILL') {
 				let tmp = []
 
@@ -325,6 +326,15 @@ module.exports = function SkillPrediction(dispatch) {
 						stage: 0,
 						speed: info.fixedSpeed || aspd * (info.speed || 1)
 					})
+				}
+				else if(info.length) {
+					let length = lastStartTime + info.length - Date.now()
+					if(length > 0) {
+						stageEnd = sendActionEnd.bind(null, 51, info.distance)
+						stageEndTime = Date.now() + length
+						stageEndTimeout = setTimeout(stageEnd, length)
+					}
+					else sendActionEnd(51)
 				}
 				else sendActionEnd(10)
 			}
@@ -611,6 +621,10 @@ module.exports = function SkillPrediction(dispatch) {
 			currentAction = event
 			updateLocation()
 		}
+	})
+
+	dispatch.hook('S_GRANT_SKILL', 1, event => {
+		if(DEBUG) debug(['<- S_GRANT_SKILL', skillId(event.skill)].join(' '))
 	})
 
 	dispatch.hook('S_INSTANT_DASH', 1, event => {
