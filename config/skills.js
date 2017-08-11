@@ -2674,6 +2674,13 @@ module.exports = {
 			30: true,
 			31: true
 		},
+		10: { // Counterpunch
+			0: {
+				length: 1850,
+				distance: 155,
+				requiredBuff: 10153000
+			}
+		},
 		13: { // Provoke
 			'*': {
 				fixedSpeed: 1,
