@@ -923,6 +923,28 @@ module.exports = {
 				length: 700
 			}
 		},
+		24: { // Evasive Smash (TODO: Check)
+			0: {
+				length: 1000,
+				distance: 150
+			},
+			10: {
+				length: 1825,
+				distance: 173.19
+			},
+			11: {
+				length: 1825,
+				distance: 173.19
+			},
+			12: {
+				length: 1825,
+				distance: 173.19
+			},
+			13: {
+				length: 1825,
+				distance: 173.19
+			}
+		},
 		25: { // Raze
 			'*': { length: 1200 },
 			0: {
