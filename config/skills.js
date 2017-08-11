@@ -2675,11 +2675,32 @@ module.exports = {
 			31: true
 		},
 		10: { // Counterpunch
-			0: {
+			'*': {
 				length: 1850,
 				distance: 155,
-				requiredBuff: 10153000
-			}
+				requiredBuff: 10153000,
+				chains: {
+					1: 30,
+					2: 30,
+					'3-1': 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					40: 30
+				},
+				notifyRainbow: [0, 30]
+			},
+			0: true,
+			30: true
 		},
 		13: { // Provoke
 			'*': {
