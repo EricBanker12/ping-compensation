@@ -864,6 +864,13 @@ module.exports = {
 				distance: 250
 			}
 		},
+		13: { // Retaliate (TODO: Check)
+			0: {
+				type: 'retaliate',
+				length: 1625,
+				noRetry: true
+			}
+		},
 		18: { // Lethal Strike (TODO: Check)
 			'*': {
 				type: 'chargeCast',
