@@ -2396,6 +2396,33 @@ module.exports = {
 			2: true,
 			30: true
 		},
+		11: { // Rocket Jump
+			'*': {
+				length: 1400,
+				distance: 415.45,
+				chains: {
+					'2-1': 30,
+					3: 30,
+					4: 30,
+					'7-3': 30,
+					'9-10': 30,
+					'9-11': 30,
+					10: 30,
+					11: 30,
+					13: 30,
+					15: 30,
+					19: 30,
+					40: 31
+				}
+			},
+			1: true,
+			2: true,
+			30: true,
+			31: {
+				length: 1700,
+				distance: 503.64
+			}
+		},
 		13: { // Balder's Vengeance
 			'*': {
 				fixedSpeed: 1,
