@@ -871,6 +871,30 @@ module.exports = {
 				noRetry: true
 			}
 		},
+		15: { // Vampiric Blow
+			'*': {
+				type: 'chargeCast',
+				length: 1925
+			},
+			0: {
+				type: 'charging',
+				length: [800, 800, 800],
+				noInterrupt: [2],
+				chains: {
+					'3-13': 14,
+					'10-13': 14,
+					'18-13': 14
+				}
+			},
+			10: { distance: 85.74 },
+			11: { distance: 85.74 },
+			12: { distance: 85.74 },
+			13: { distance: 85.74 },
+			/*14: {
+				type: 'brokenSkill',
+				distance: 85.74
+			}*/
+		},
 		18: { // Lethal Strike (TODO: Check)
 			'*': {
 				type: 'chargeCast',
