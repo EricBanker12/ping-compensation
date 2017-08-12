@@ -2500,7 +2500,8 @@ module.exports = {
 		},
 		40: { // Rolling Reload
 			0: {
-				length: 950,
+				fixedSpeed: 1,
+				length: 800,
 				distance: 172.5,
 				forceClip: true
 			}
