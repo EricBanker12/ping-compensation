@@ -2267,6 +2267,7 @@ module.exports = {
 			'*': {
 				length: 1725,
 				distance: -108,
+				noInterrupt: [3],
 				glyphs: {
 					30007: {
 						movement: [
