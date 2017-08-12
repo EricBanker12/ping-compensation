@@ -924,26 +924,18 @@ module.exports = {
 			}
 		},
 		24: { // Evasive Smash (TODO: Check)
+			'*': {
+				length: 1825,
+				distance: 173.19
+			},
 			0: {
 				length: 1000,
 				distance: 150
 			},
-			10: {
-				length: 1825,
-				distance: 173.19
-			},
-			11: {
-				length: 1825,
-				distance: 173.19
-			},
-			12: {
-				length: 1825,
-				distance: 173.19
-			},
-			13: {
-				length: 1825,
-				distance: 173.19
-			}
+			10: true,
+			11: true,
+			12: true,
+			13: true
 		},
 		25: { // Raze
 			'*': { length: 1200 },
@@ -2196,7 +2188,10 @@ module.exports = {
 			30: true
 		},
 		11: { // Shadow Lash
-			'*': { length: 1250 },
+			'*': {
+				length: 1250,
+				noRetry: true
+			},
 			0: {
 				length: 2150,
 				triggerAbnormal: { 10151040: 2000 },
@@ -2204,7 +2199,7 @@ module.exports = {
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
-				},
+				}
 			},
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
