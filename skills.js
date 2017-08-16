@@ -1,12 +1,17 @@
 const JITTER_COMPENSATION	= true,
 	JITTER_ADJUST			= 0,		//	This number is added to your detected minimum ping to get the compensation amount.
-	SKILL_RETRY_MS			= 40,		//	Desync reduction (0 = disabled). Setting this too high may cause skills to go off twice.
-	SKILL_RETRY_JITTERCOMP	= 10,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
-	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting, but may cause specific skills to fail.
+	SKILL_RETRY_COUNT		= 2,		//	Number of times to retry each skill (0 = disabled). Recommended 1-3.
+	SKILL_RETRY_MS			= 30,		/*	Time to wait between each retry.
+											SKILL_RETRY_MS * SKILL_RETRY_COUNT should be under 100, otherwise skills may go off twice.
+										*/
+	SKILL_RETRY_JITTERCOMP	= 15,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
+	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting for extremely short skills, but may cause other skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
-	SERVER_TIMEOUT			= 200,		//	This number is added to your maximum ping + SKILL_RETRY_MS to set the failure threshold for skills.
+	SERVER_TIMEOUT			= 200,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
+											If animations are being cancelled while damage is still applied, increase this number.
+										*/
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
-											Warning: Will cause occasional clipping through gates when disabled. DO NOT abuse this.
+											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
 	DEBUG					= false,
 	DEBUG_LOC				= false,
@@ -212,19 +217,19 @@ module.exports = function SkillPrediction(dispatch) {
 					dispatch.toServer(type, version, event)
 				}
 
-				if(SKILL_RETRY_MS && !info.noRetry)
-					setTimeout(() => {
+				if(!info.noRetry)
+					retry(() => {
 						for(let chain of info.notifyRainbow) {
 							event.skill += chain - ((event.skill - 0x4000000) % 100)
-							dispatch.toServer(type, version, event)
+							if(!dispatch.toServer(type, version, event)) return false
 						}
-					}, SKILL_RETRY_MS)
+						return true
+					})
 
 				return false
 			}
 
-			if(SKILL_RETRY_MS && !info.noRetry)
-				setTimeout(() => { dispatch.toServer(type, version, event) }, SKILL_RETRY_MS)
+			if(!info.noRetry) retry(() => dispatch.toServer(type, version, event))
 		}
 	}
 
@@ -247,7 +252,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(delayNext && Date.now() <= stageEndTime) {
 			delay = delayNext
 
-			if(info && !info.noRetry && SKILL_RETRY_MS) {
+			if(info && !info.noRetry && SKILL_RETRY_COUNT) {
 				delay -= SKILL_RETRY_JITTERCOMP
 
 				if(delay < 0) delay = 0
@@ -518,19 +523,22 @@ module.exports = function SkillPrediction(dispatch) {
 
 		// Normally the user can press the skill button again if it doesn't go off
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
-		if(SKILL_RETRY_MS && !info.noRetry)
-			setTimeout(() => {
+		if(!info.noRetry)
+			retry(() => {
 				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill)
-					sendStartSkill(type, event)
-			}, SKILL_RETRY_MS)
+					return sendStartSkill(type, event)
+				return false
+			})
 	}
 
 	function sendStartSkill(name, event) {
 		let info = hooks[name]
 
 		dispatch.unhook(info.hook)
-		dispatch.toServer(name, info[1], event)
+		let success = dispatch.toServer(name, info[1], event)
 		hook(...hooks[name])
+
+		return success
 	}
 
 	dispatch.hook('C_CANCEL_SKILL', 1, event => {
@@ -782,8 +790,8 @@ module.exports = function SkillPrediction(dispatch) {
 		if(DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, true))
 
 		if(skillInfo(event.skill, true)) {
-			if(SKILL_DELAY_ON_FAIL && SKILL_RETRY_MS && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
-				delayNext = SKILL_RETRY_MS
+			if(SKILL_DELAY_ON_FAIL && SKILL_RETRY_COUNT && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
+				delayNext += SKILL_RETRY_MS
 
 			return false
 		}
@@ -876,7 +884,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
 
-		let serverTimeoutTime = ping.max + SKILL_RETRY_MS + SERVER_TIMEOUT
+		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + SERVER_TIMEOUT
 
 		if(info.type == 'teleport' && opts.stage == info.teleportStage) {
 			opts.distance = Math.min(opts.distance, Math.max(0, calcDistance(currentLocation, opts.targetLoc) - 15)) // Client is approx. 15 units off
@@ -1045,6 +1053,14 @@ module.exports = function SkillPrediction(dispatch) {
 			w: event.w,
 			inAction
 		}
+	}
+
+	function retry(cb, count = 1) {
+		if(count > SKILL_RETRY_COUNT) return
+
+		setTimeout(() => {
+			if(cb()) retry(cb, count + 1)
+		}, SKILL_RETRY_MS)
 	}
 
 	// The real server uses loaded maps and a physics engine for skill movement, which would be costly to simulate
