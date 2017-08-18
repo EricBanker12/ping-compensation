@@ -300,15 +300,18 @@ module.exports = {
 		1: { // Combo Attack
 			0: {
 				length: 650,
-				distance: 75
+				distance: 75,
+				noInterrupt: [1-0]			
 			},
 			1: {
 				length: 1025,
-				distance: 20
+				distance: 20,
+				noInterrupt: [1-1]
 			},
 			2: {
 				length: 1800,
-				distance: 66
+				distance: 66,
+				noInterrupt: [1-2]
 			}
 		},
 		2: { // Stand Fast
