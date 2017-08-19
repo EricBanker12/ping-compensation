@@ -987,17 +987,19 @@ module.exports = {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1100,
-				distance: 467.88
-			}
+				distance: 474.53,
+				noRetry: true
+			},
+			1: { length: 1300 }
 		},
 		32: { // Punishing Strike (TODO: Check)
 			0: {
-				length: 725,
-				distance: 170.61
+				length: 750,
+				distance: 31.575
 			},
 			1: {
-				length: 1400,
-				distance: 122.34
+				length: 800,
+				distance: 134.1
 			}
 		}
 	},
