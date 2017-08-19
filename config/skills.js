@@ -717,7 +717,7 @@ module.exports = {
 		25: { // Ultimate Overhand Strike
 			'*': {
 				distance: 170,
-				noInterrupt: [23]
+				noInterrupt: [21]
 			},
 			0: { length: 3365 },
 			30: { length: 1300 }
