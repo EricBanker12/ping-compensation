@@ -497,8 +497,8 @@ module.exports = {
 		1: { // Combo Attack
 			'*': { noRetry: true },
 			0: {
-				length: 850,
-				distance: 36.68
+				length: 750,
+				distance: 36.78
 			},
 			1: {
 				length: 1025,
