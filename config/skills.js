@@ -968,6 +968,10 @@ module.exports = {
 				distance: 80
 			}
 		},
+		28: { // Intimidation
+		    0:  { length: 1500 },
+		    50: { length: 1500 }
+		},
 		29: { // Evasive Roll (TODO: Check)
 			0: {
 				length: 900,
@@ -987,7 +991,7 @@ module.exports = {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1100,
-				distance: 474.53,
+				distance: 467.09,
 				noRetry: true
 			},
 			1: { length: 1300 }
