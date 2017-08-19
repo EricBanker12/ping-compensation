@@ -565,7 +565,7 @@ module.exports = {
 			0: {
 				length: 3365,
 				distance: 170,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 25],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
 					300801: { skill: 250100 }
 				},
@@ -672,13 +672,19 @@ module.exports = {
 				length: 1185
 			}
 		},
+		21: { //Exausting Blow
+		    0: {
+				length: 1175,
+			    distance: 75,
+			},
+		},
 		23: { // Measured Slice
 			'*': {
 				distance: 190
 			},
 			0: {
 				length: 3685,
-				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
+				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 21, 22],
 				chains: {
 					8: 30,
 					24: 30,
@@ -693,7 +699,7 @@ module.exports = {
 			},
 			0: {
 				length: 1900,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 21, 22, 24],
 				chains: {
 					1: 30,
 					2: 30,
@@ -710,7 +716,8 @@ module.exports = {
 		},
 		25: { // Ultimate Overhand Strike
 			'*': {
-				distance: 170
+				distance: 170,
+				noInterrupt: [23]
 			},
 			0: { length: 3365 },
 			30: { length: 1300 }
