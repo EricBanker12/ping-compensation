@@ -515,7 +515,7 @@ module.exports = {
 		},
 		2: { // Knockdown Strike
 			'*': {
-				length: 2385,
+				length: 2800,
 				distance: 220.47,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
 				abnormals: {
@@ -528,7 +528,7 @@ module.exports = {
 			2: true,
 			30: {
 				length: 2400,
-				distance: 300
+				distance: 220.472
 			}
 		},
 		3: { // Whirlwind
