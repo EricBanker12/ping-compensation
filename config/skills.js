@@ -1358,6 +1358,13 @@ module.exports = {
 		12: { // Velik's Mark
 			0: { length: 200 }
 		},
+		14: { // Retaliate
+		    0: {
+		               type: 'retaliate',
+			       length: 1600,
+                               noRetry: true	
+			}
+		},
 		15: { // Incendiary Trap
 			0: { length: 1150 }
 		},
