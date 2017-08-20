@@ -1394,6 +1394,9 @@ module.exports = {
 				noRetry: true
 			}
 		},
+		23: { // Stunning Trap Arrow
+			0: { length: 1400 }
+		},
 		25: { // Incendiary Trap Arrow
 			0: { length: 1200 }
 		},
