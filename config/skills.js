@@ -1387,6 +1387,10 @@ module.exports = {
 		20: { // Restraining Arrow
 			0: { length: 525 }
 		},
+		21: { // Sniper's Eye
+		    0:  { length: 625 },
+		    50: { length: 625 }
+		},
 		22: { // Sequential Fire
 			0: {
 				length: 425,
