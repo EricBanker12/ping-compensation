@@ -972,8 +972,8 @@ module.exports = {
 			}
 		},
 		28: { // Intimidation
-		    0:  { length: 1500 },
-		    50: { length: 1500 }
+		    0:  { length: 1550 },
+		    50: { length: 1550 }
 		},
 		29: { // Evasive Roll (TODO: Check)
 			0: {
