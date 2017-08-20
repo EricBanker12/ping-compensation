@@ -1153,7 +1153,8 @@ module.exports = {
 				},
 				abnormals: {
 					25060: { speed: 1.25 }
-				}
+				},
+				noRetry: true
 			}
 		},
 		21: { // Nerve Exhaustion
@@ -1341,7 +1342,10 @@ module.exports = {
 		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
-			0: { length: 425 },
+			0: {
+				length: 425,
+				noInterrupt: [6]
+			},
 			1: { length: 600 },
 			2: { length: 700 },
 			3: { length: 700 },
