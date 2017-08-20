@@ -830,7 +830,7 @@ module.exports = {
 		},
 		8: { // Fiery Rage
 			0: {
-				length: 1285,
+				length: 600,
 				abnormals: {
 					401400: { chain: 30 }
 				}
