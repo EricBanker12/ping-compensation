@@ -821,13 +821,11 @@ module.exports = {
 			},
 			30: true
 		},
-		9: { // Mocking Shout
-		        '*': {
-				length: 1100,
-				fixedSpeed: 1
-			},
-			0: { noInterrupt: [4, 25]},
-			1: true
+		7: { // Mocking Shout
+		        0: {
+				fixedSpeed: 1,
+				length: [300, 1100]	   
+		        },
                 },
 		8: { // Fiery Rage
 			0: {
@@ -921,14 +919,12 @@ module.exports = {
 			12: { distance: 171.48 },
 			13: { distance: 171.48 }
 		},
-		18: { // Tenacity
-			'*': {
-				length: 700,
+		19: { // Tenacity
+			0: {
 				fixedSpeed: 1,
+				length: [500, 700]
 				
 			},
-			0: true,
-			1: true
                 },
 		21: { // Bloodlust
 			0: {
