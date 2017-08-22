@@ -986,10 +986,13 @@ module.exports = {
 			}
 		},
 		30: { // Axe Counter (TODO: Check)
-			0: {
-				length: 1450,
-				onlyDefenceSuccess: true
-			}
+		    '*': {
+				length: 650,
+				distance: 21.05 ,
+				requiredBuff: 401404,
+			},
+			0: true,
+			30: true 
 		},
 		31: { // Overwhelm (TODO: Check)
 			0: {
