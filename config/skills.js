@@ -301,17 +301,17 @@ module.exports = {
 			0: {
 				length: 650,
 				distance: 75,
-				noInterrupt: [1-0]			
+				noInterrupt: [1-0, 2]			
 			},
 			1: {
 				length: 1025,
 				distance: 20,
-				noInterrupt: [1-1]
+				noInterrupt: [1-1, 2]
 			},
 			2: {
 				length: 1800,
 				distance: 66,
-				noInterrupt: [1-2]
+				noInterrupt: [1-2, 2]
 			}
 		},
 		2: { // Stand Fast
@@ -338,6 +338,7 @@ module.exports = {
 		4: { // Challenging Shout
 			0: {
 				length: 2175,
+				noInterrupt: [2],
 				glyphs: {
 					22056: { speed: 1.25 },
 					22085: { speed: 1.25 }
@@ -347,29 +348,41 @@ module.exports = {
 		5: { // Shield Bash
 			0: {
 				length: 830,
-				distance: 43.69
+				distance: 43.69,
+				noInterrupt: [2]
 			}
 		},
 		7: { // Guardian Shout
-			0: { length: 550 }
+			0: { 
+				length: 550,
+				noInterrupt: [2]
+			}
 		},
 		8: { // Shield Counter
 			0: {
 				length: 1450,
+				distance: 108.06,
 				onlyDefenceSuccess: true
 			}
 		},
 		9: { // Leash
-			0: { length: [725, 850] }
+			0: { 
+				length: [725, 850],
+				noInterrupt: [2]
+		        }
 		},
 		10: { // Debilitate
 			0: {
 				length: 925,
-				distance: 43.69
+				distance: 43.69,
+				noInterrupt: [2]
 			}
 		},
 		12: { // Infuriate
-			0: { length: 2400 }
+			0: { 
+				length: 2400,
+				noInterrupt: [2]
+		        }
 		},
 		13: { // Spring Attack
 			0: {
@@ -395,67 +408,82 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1125,
 				distance: 474.5,
-				noInterrupt: [15]
+				noInterrupt: [2, 15]
 			},
-			1: { length: 925 }
+			1: { 
+				length: 925,
+				noInterrupt: [2]
+		        }
 		},
 		16: { // Second Wind
 			0: {
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				noInterrupt: [2]
 			}
 		},
 		17: { // Adrenaline Rush
 			0: {
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				noInterrupt: [2]
 			}
 		},
 		18: { // Shield Barrage
 			0: {
 				length: 625,
 				distance: 122.66,
+				noInterrupt: [2],
 				abnormals: {
 					201550: { speed: 1.2 }
 				}
 			},
 			1: {
 				length: 800,
-				distance: 66.04
+				distance: 66.04,
+				noInterrupt: [2]
 			}
 		},
 		19: { // Pledge of Protection
 			0: {
 				fixedSpeed: 1,
-				length: 1000
+				length: 1000,
+				noInterrupt: [2]
 			}
 		},
 		20: { // Menacing Wave
 			0: {
 				fixedSpeed: 1,
-				length: [700, 800]
+				length: [700, 800],
+				noInterrupt: [2]
 			}
 		},
 		21: { // Lockdown Blow
 			0: {
 				length: 1400,
-				distance: 122.66
+				distance: 122.66,
+				noInterrupt: [2]
 			}
 		},
 		22: { // Iron Will
 			0: {
 				fixedSpeed: 1,
-				length: 800
+				length: 800,
+				noInterrupt: [2]
 			}
 		},
 		23: { // Master's Leash
 			0: {
 				length: [725, 850],
-				requiredBuff: 201000
+				requiredBuff: 201000,
+				noInterrupt: [2]
 			}
 		},
 		24: { // Chained Leash
-			0: { length: [725, 850] }
+			0: { 
+				length: [725, 850],
+				noInterrupt: [2]
+		        }
 		},
 		25: { // Wallop
 			0: {
@@ -482,7 +510,7 @@ module.exports = {
 				forceClip: true,
 				stamina: 800,
 				instantStamina: true,
-				noInterrupt: [26],
+				noInterrupt: [2, 26],
 				glyphs: {
 					22067: { stamina: -100 },
 					22089: { stamina: -100 }
@@ -490,7 +518,10 @@ module.exports = {
 			}
 		},
 		27: { // Rallying Cry
-			0: { length: 620 }
+			0: { 
+				length: 620,
+			    noInterrupt: [2]
+		        }
 		}
 	},
 	2: { // Slayer
