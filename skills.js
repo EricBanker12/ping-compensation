@@ -697,11 +697,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
-				strs.push(...[
-					(serverAction ? (Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000) : '???') + 'u',
+				strs.push(serverAction ? ...[
+					(Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000) + 'u',
 					duration + 'ms',
 					'(' + Math.round(duration * serverAction.speed) + 'ms)'
-				])
+				] : '???')
 
 				debug(strs.join(' '))
 			}
