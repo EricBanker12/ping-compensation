@@ -776,9 +776,9 @@ module.exports = {
 		},
 		2: { // Axe Block
 			'*': { type: 'holdInfinite'	},
-			0: true,
+			0: { fixedSpeed: 1},
 			30: true,
-			31: true,
+			31: true
 		},
 		3: { // Thunderstrike
 			'*': {
