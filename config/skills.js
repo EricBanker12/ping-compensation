@@ -1120,6 +1120,7 @@ module.exports = {
 			12: true
 		},
 		20: { // Flaming Barrage
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1134,11 +1135,11 @@ module.exports = {
 				},
 				abnormals: {
 					25060: { speed: 1.25 }
-				},
-				noRetry: true
+				}
 			}
 		},
 		21: { // Nerve Exhaustion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1151,6 +1152,7 @@ module.exports = {
 			}
 		},
 		22: { // Burning Breath
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1163,6 +1165,7 @@ module.exports = {
 			}
 		},
 		23: { // Mana Volley
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1175,6 +1178,7 @@ module.exports = {
 			}
 		},
 		25: { // Time Gyre
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
