@@ -6,6 +6,7 @@
 module.exports = {
 	0: { // Warrior
 		1: { // Combo Attack
+			'*': { noInterrupt: [32] },
 			0: {
 				length: 565,
 				distance: 62.29
@@ -30,6 +31,7 @@ module.exports = {
 				forceClip: true,
 				stamina: 500,
 				instantStamina: true,
+				noInterrupt: [32, 10],
 				glyphs: {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
@@ -40,14 +42,15 @@ module.exports = {
 		3: { // Torrent of Blows
 			0: {
 				length: 1600,
-				distance: 68.26
+				distance: 68.26,
+				noInterrupt: [32]
 			}
 		},
 		4: { // Rain of Blows
 			'*': { distance: 151.87 },
 			0: {
 				length: 2550,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 32, 34, 36, 37],
 				abnormals: {
 					100801: { skill: 360100 }
 				},
@@ -67,38 +70,46 @@ module.exports = {
 		5: { // Battle Cry
 			0: {
 				length: 1665,
+				noInterrupt: [32],
 				glyphs: {
 					21040: { speed: 1.5 }
 				}
 			}
 		},
 		8: { // Assault Stance
-			0: {
-				length: 575,
-				stamina: 1000
+			'*': {
+				length: 575, 
+				noInterrupt: [32]
 			},
-			50: { length: 575 }
+			0: { stamina: 1000 },
+			50: true
 		},
 		9: { // Defensive Stance
-			0: {
-				length: 575,
-				stamina: 1000
+			'*': {
+				length: 575, 
+				noInterrupt: [32]
 			},
-			50: { length: 575 }
+			0: { stamina: 1000 },
+			50: true
 		},
 		10: { // Death From Above
-			0: { length: 2025 }
+			0: {
+				length: 2025,
+				noInterrupt: [32]
+			}
 		},
 		11: { // Poison Blade
 			0: {
 				length: 925,
-				distance: 54.85
+				distance: 54.85,
+				noInterrupt: [32]
 			}
 		},
 		12: { // Leaping Strike
 			0: {
 				length: 1525,
-				distance: 250
+				distance: 250,
+				noInterrupt: [32]
 			}
 		},
 		16: { // Charging Slash
@@ -107,26 +118,31 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1100,
 				distance: 467.88,
-				noRetry: true
+				noRetry: true,
+				noInterrupt: [32]
 			},
 			1: { length: 800 }
 		},
 		17: { // Vortex Slash
 			0: {
 				length: 1600,
-				requiredBuff: 100400
+				requiredBuff: 100400,
+				noInterrupt: [32]
 			}
 		},
 		18: { // Combative Strike
 			0: {
 				length: 1100,
-				distance: 138.28
+				distance: 138.28,
+				noInterrupt: [32]
 			}
 		},
 		19: { // Rising Fury
+			'*': { noInterrupt: [32] },
 			0: {
 				length: 725,
-				distance: 170.61
+				distance: 170.61,
+				
 			},
 			1: {
 				length: 1400,
@@ -136,37 +152,45 @@ module.exports = {
 		20: { // Deadly Gamble
 			0: {
 				fixedSpeed: 1,
-				length: 300
+				length: 300,
+				noInterrupt: [32]
 			}
 		},
 		21: { // Cascade of Stuns
 			0: {
 				length: 1400,
-				distance: 122.34
+				distance: 122.34,
+				noInterrupt: [32]
 			}
 		},
 		24: { // Smoke Aggressor
 			0: {
 				fixedSpeed: 1,
-				length: 475
+				length: 475,
+				noInterrupt: [32]
 			}
 		},
 		25: { // Command: Attack
 			0: {
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				requiredBuff: 102600,
+				noInterrupt: [32]
 			}
 		},
 		26: { // Command: Follow
 			0: {
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				requiredBuff: 102600,
+				noInterrupt: [32]
 			}
 		},
 		27: { // Pounce
 			0: {
 				length: 2000,
 				distance: 180,
+				noInterrupt: [32],
 				glyphs: {
 					21048: { speed: 1.3 },
 					21082: { speed: 1.3 }
@@ -177,7 +201,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37],
 				chains: {
 					11: 30,
 					18: 30,
@@ -222,7 +246,7 @@ module.exports = {
 			0: {
 				length: 1850,
 				distance: 150,
-				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34],
+				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 32, 34],
 				abnormals: {
 					100801: { skill: 380100 }
 				},
@@ -249,7 +273,7 @@ module.exports = {
 			0: {
 				length: 2275,
 				distance: 110,
-				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 27, 28, 29, 34, 37],
+				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37],
 				chains: {
 					4: 30,
 					18: 30,
@@ -267,14 +291,23 @@ module.exports = {
 			}
 		},
 		34: { // Binding Sword
-			0: { length: 1900 }
+			0: { 
+				length: 1900,
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 35, 36, 37]
+			}
 		},
 		35: { // Infuriate
-			0: { length: 2425 }
+			0: { 
+				length: 2425,
+				noInterrupt: [32]
+			}
 		},
 		36: { // Rain of Blows (Deadly Gamble)
 			'*': { distance: 151.87 },
-			0: { length: 2550 },
+			0: { 
+				length: 2550,
+				noInterrupt: [32]
+		    },
 			30: { length: 2000 }
 		},
 		37: { // Blade Draw (Deadly Gamble)
@@ -292,7 +325,10 @@ module.exports = {
 		},
 		38: { // Scythe (Deadly Gamble)
 			'*': { distance: 150 },
-			0: { length: 1850 },
+			0: { 
+				length: 1850,
+				noInterrupt: [32]
+			},
 			30: { length: 1385 }
 		}
 	},
@@ -324,7 +360,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
-				noInterrupt: [1, 2, 3, 8, 10, 13, 15, 18, 21, 25, 26],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 15, 18, 21, 23, 24, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -388,14 +424,14 @@ module.exports = {
 			0: {
 				length: 2775,
 				distance: 85,
-				noInterrupt: ['1-0', '1-1', 2, 3, 13, 15, '18-0', 21, 25, 26],
+				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 12, 13, 15, '18-0', 21, 23, 24, 25, 26],
 				chains: {
 					1: 30,
 					5: 30,
 					8: 30,
 					10: 30,
 					18: 30
-				}
+			    }
 			},
 			30: {
 				length: 1850,
@@ -496,7 +532,7 @@ module.exports = {
 					13: 30,
 					15: 30,
 					18: 30
-				}
+			    }
 			},
 			30: {
 				length: 1900,
@@ -792,7 +828,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
-				noInterrupt: [2-0, 4, 10, 15, 18, 24, 25, 30],
+				noInterrupt: [2-0, 4, 10, 15-0, 15-14, 18, 24, 25, 30],
 				glyphs: {
 					24067: { chargeSpeed: 0.25 }
 				},
@@ -804,24 +840,25 @@ module.exports = {
 			},
 			10: { 
 				distance: 85.74, // Cast F. - TODO
-                noInterrupt: [2-0, 4, 10, 15, 18, 24, 25, 30]			
+                noInterrupt: [2-0, 4, 10, 15-0, 18, 24, 25, 30]			
 			}, 
 			11: { 
 				distance: 85.74,
-                noInterrupt: [2-0, 4, 10, 15, 18, 24, 25, 30]
+                noInterrupt: [2-0, 4, 10, 15-0, 18, 24, 25, 30]
 			},
 			12: { 
 				distance: 85.74,
-                noInterrupt: [2-0, 4, 10, 15, 18, 24, 25, 30]		
+                noInterrupt: [2-0, 4, 10, 15-0, 18, 24, 25, 30]		
 	        },
 			13: { 
 				distance: 85.74,
-				noInterrupt: [2-0, 4, 10, 15, 18, 24, 25, 30]		  
+				noInterrupt: [2-0, 4, 10, 15-0, 15-14, 18, 24, 25, 30]		  
 			}
 		},
 		4: { // Flatten
 			'*': {
 				length: 3100,
+				distance: 105.685,
 				glyphs: {
 					24008: { speed: 1.25 },
 					24050: { speed: 1.25 }
@@ -897,7 +934,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
-			    noInterrupt: [2-0, 3, 4, 15, 18, 24, 25, 30],
+			    noInterrupt: [2-0, 3, 4, 15-0, 15-14, 18, 24, 25, 30],
 				glyphs: {
 					24009: { chargeSpeed: 0.25 },
 					24052: { chargeSpeed: 0.25 },
@@ -912,22 +949,22 @@ module.exports = {
 			10: {
 				length: 1325, // Cast F. - TODO
 				distance: 50,
-				noInterrupt: [2-0, 3, 4, 15, 18, 24, 25, 30] 
+				noInterrupt: [2-0, 3, 4, 15-0, 18, 24, 25, 30] 
 			},
 			11: {	
 				length: [375, 375, 1325],
 				distance: [33.33, 33.33, 0],
-				noInterrupt: [2-0, 3, 4, 15, 18, 24, 25, 30]
+				noInterrupt: [2-0, 3, 4, 15-0, 18, 24, 25, 30]
 			},
 			12: {
 				length: [375, 375, 375, 375, 1325],
 				distance: [33.33, 33.33, 33.33, 33.33, 0],
-				noInterrupt: [2-0, 3, 4, 15, 18, 24, 25, 30]
+				noInterrupt: [2-0, 3, 4, 15-0, 18, 24, 25, 30]
 			},
 			13: {
 				length: [375, 375, 375, 375, 1325],
 				distance: [33.33, 33.33, 33.33, 33.33, 0],
-				noInterrupt: [2-0, 3, 4, 15, 18, 24, 25, 30]
+				noInterrupt: [2-0, 3, 4, 15-0, 15-14, 18, 24, 25, 30]
 			}
 		},
 		11: { // Leaping Strike 
@@ -990,7 +1027,7 @@ module.exports = {
 				type: 'brokenSkill',
 				distance: 85.74
 			}
-        },*/
+		},*/
 		16: { // Fearsome Shout
 		    0: {
 				fixedSpeed: 1,
@@ -1011,23 +1048,23 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
-				noInterrupt: [2-0, 4, 24, 25, 30]
+				noInterrupt: [2-0, 4, 15-0, 15-14, 24, 25, 30]
 			},
 			10: { 
 			    distance: 171.48,
-                noInterrupt: [2-0, 4, 24, 25, 30]
+                noInterrupt: [2-0, 4, 15-0, 24, 25, 30]
 			},
 			11: { 
 				distance: 171.48,
-				noInterrupt: [2-0, 4, 24, 25, 30]
+				noInterrupt: [2-0, 4, 15-0, 24, 25, 30]
 			 },
 			12: { 
 				distance: 171.48,
-				noInterrupt: [2-0, 4, 24, 25, 30]
+				noInterrupt: [2-0, 4, 15-0, 24, 25, 30]
 		    },
 			13: { 
 				distance: 171.48,
-				noInterrupt: [2-0, 4, 24, 25, 30]
+				noInterrupt: [2-0, 4, 15-0, 15-14, 24, 25, 30]
 			}
 		},
 		19: { // Tenacity
@@ -1417,11 +1454,13 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noInterrupt: [22]
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1225
+				length: 1225,
+				noInterrupt: [22]
 			}
 		},
 		3: { // Radiant Arrow
@@ -1432,15 +1471,28 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
+				noInterrupt: [4, 22],
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
 					601450: { chargeSpeed: 0.5 }
 				}
 			},
-			10: { distance: -100 }, // Cast F. - TODO
-			11: { distance: -100 },
-			12: { distance: -100 },
-			13: { distance: -100 }
+			10: { 
+				distance: -100,
+				noInterrupt: [22]
+			}, // Cast F. - TODO
+			11: { 
+				distance: -100,
+				noInterrupt: [22]
+			},
+			12: { 
+				distance: -100,
+				noInterrupt: [22]
+			},
+			13: { 
+				distance: -100,
+				noInterrupt: [22]
+			}
 		},
 		4: { // Penetrating Arrow
 			'*': {
@@ -1450,6 +1502,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
+				noInterrupt: [3, 22],
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
@@ -1458,10 +1511,22 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				}
 			},
-			10: { distance: -50 }, // Cast F. - TODO
-			11: { distance: -50 },
-			12: { distance: -50 },
-			13: { distance: -50 }
+			10: { 
+				distance: -50,
+				noInterrupt: [22]
+			}, // Cast F. - TODO
+			11: { 
+				distance: -50,
+				noInterrupt: [22]
+		    },
+			12: { 
+				distance: -50,
+				noInterrupt: [22]
+			},
+			13: { 
+				distance: -50,
+				noInterrupt: [22]
+			}
 		},
 		5: { // Rain of Arrows
 			0: {
@@ -1491,7 +1556,10 @@ module.exports = {
 			}
 		},
 		8: { // Rapid Fire
-			'*': { noRetry: true },
+			'*': { 
+				noRetry: true,
+				noInterrupt: [22]
+			},
 			0: { 
 				length: 425,
 				noInterrupt: [6] 
@@ -1530,7 +1598,10 @@ module.exports = {
 			}
 		},
 		17: { // Web Arrow
-			0: { length: 525 }
+			0: { 
+				length: 525,
+				noInterrupt: [22]
+			}
 		},
 		18: { // Close Quarters
 			0: {
@@ -1543,10 +1614,16 @@ module.exports = {
 			}
 		},
 		19: { // Poison Arrow
-			0: { length: 1125 }
+			0: { 
+				length: 1125,
+				noInterrupt: [22]
+			}
 		},
 		20: { // Restraining Arrow
-			0: { length: 525 }
+			0: { 
+				length: 525,
+				noInterrupt: [22]
+			}
 		},
 		21: { // Sniper's Eye
 		    0:  { length: 625 },
@@ -1568,6 +1645,7 @@ module.exports = {
 		29: { // Thunderbolt
 			0: {
 				length: 3750,
+				noInterrupt: [22],
 				glyphs: {
 					26089: { speed: 1.3 },
 					26102: { speed: 1.3 }
@@ -1712,13 +1790,14 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 1600],
+				noInterrupt: [26, 38],
 				abnormals: {
 					28031: { chargeSpeed: 0.25 }
 				}
 			},
-			10: true,
-			11: true,
-			12: true
+			10: { noInterrupt: [26, 38] },
+			11: { noInterrupt: [26, 38] },
+			12: { noInterrupt: [26, 38] }
 		},
 		29: { // Triple Nemesis
 			0: { length: 800 },
@@ -1851,7 +1930,7 @@ module.exports = {
 		6: { // Shara's Lash
 			0: { length: 1275 }
 		},
-		8: { // Metmorphic Blast
+		8: { // Metamorphic Blast
 			0: {
 				length: 820,
 				noInterrupt: [1, 2, 17],
@@ -1930,6 +2009,7 @@ module.exports = {
 			}
 		},
 		18: { // Arun's Vitae
+			'*': { noInterrupt: [17, 23] },
 			0: {
 				type: 'charging',
 				length: 1475
@@ -1951,6 +2031,7 @@ module.exports = {
 			}
 		},
 		22: { // Arun's Tears
+		    '*': { noInterrupt: [17, 23] },
 			0: {
 				type: 'charging',
 				length: 1475
