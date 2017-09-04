@@ -1124,7 +1124,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1143,7 +1144,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1156,7 +1158,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1169,7 +1172,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1182,7 +1186,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1252,7 +1257,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1492,7 +1498,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440
+				length: 54440,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1550,7 +1557,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1574,7 +1582,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1589,7 +1598,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1631,7 +1641,8 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54440,
-				partyOnly: true
+				partyOnly: true,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1662,7 +1673,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1687,7 +1699,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1717,7 +1730,8 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 59900,
-				partyOnly: true
+				partyOnly: true,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1798,7 +1812,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1823,7 +1838,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1839,7 +1855,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1851,7 +1868,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1863,7 +1881,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1902,7 +1921,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
