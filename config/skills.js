@@ -1333,10 +1333,12 @@ module.exports = {
 			12: true
 		},
 		20: { // Flaming Barrage
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1347,15 +1349,16 @@ module.exports = {
 				},
 				abnormals: {
 					25060: { speed: 1.25 }
-				},
-				noRetry: true
+				}
 			}
 		},
 		21: { // Nerve Exhaustion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1364,10 +1367,12 @@ module.exports = {
 			}
 		},
 		22: { // Burning Breath
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1376,10 +1381,12 @@ module.exports = {
 			}
 		},
 		23: { // Mana Volley
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1388,10 +1395,12 @@ module.exports = {
 			}
 		},
 		25: { // Time Gyre
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1463,6 +1472,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [22]
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1756,7 +1766,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440
+				length: 54440,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1815,7 +1826,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1839,7 +1851,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1854,7 +1867,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1896,7 +1910,8 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54440,
-				partyOnly: true
+				partyOnly: true,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1927,7 +1942,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1952,7 +1968,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1982,7 +1999,8 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 59900,
-				partyOnly: true
+				partyOnly: true,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2065,7 +2083,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2090,7 +2109,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2106,7 +2126,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2118,7 +2139,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2130,7 +2152,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2169,7 +2192,8 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
