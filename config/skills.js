@@ -299,7 +299,8 @@ module.exports = {
 		35: { // Infuriate
 			0: { 
 				length: 2425,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				requiredBuff: [100200, 100201, 100202, 100203]
 			}
 		},
 		36: { // Rain of Blows (Deadly Gamble)
@@ -559,7 +560,7 @@ module.exports = {
 			    noInterrupt: [2]
 		    }
 		}
-	},
+	},	
 	2: { // Slayer
 		1: { // Combo Attack
 			'*': { noRetry: true },
@@ -611,7 +612,7 @@ module.exports = {
 			'*': { 
 				length: 900,
 				distance: 150,
-				forceclip: true,
+				forceclip: true
 			},
 			0: true,
 			30: { requiredBuff: 10153093 }
@@ -705,8 +706,8 @@ module.exports = {
 				forceClip: true,
 				glyphs: {
 					23060: { speed: 1.25 }
-				}
-			}
+			    }
+		    }
 		},
 		16: { // Fury Strike
 			0: {
@@ -730,8 +731,8 @@ module.exports = {
 		},
 		19: { // Tenacity
 			0: {
-				length: [500, 700],
-				fixedSpeed: 1,	
+				fixedSpeed: 1,
+				length: [500, 700]
 			}
         },
 		20: { // In Cold Blood
@@ -792,34 +793,37 @@ module.exports = {
 		}
 	},
 	3: { // Berserker
-		1: { // Combo Attack
-			'*': { 
-				noRetry: true,
-				noInterrupt: [2-0, 4]
+			1: { // Combo Attack
+				'*': { 
+					noRetry: true,
+					noInterrupt: [1, 2-0, 4]
+				},
+				0: {
+					length: 1125,
+					distance: 78
+				},
+				1: {
+					length: 925,
+					distance: 21.05
+				},
+				2: {
+					length: 1125,
+					distance: 31.84
+				},
+				3: {
+					length: 1825,
+					distance: 54.28
+				}
 			},
-			0: {
-				length: 1125,
-				distance: 78
+			2: { // Axe Block
+				'*': { 
+					type: 'holdInfinite',
+					noInterrupt: [2]
+				},
+				0: { fixedSpeed: 1 },
+				30: true,
+				31: { fixedSpeed: 1 }
 			},
-			1: {
-				length: 925,
-				distance: 21.05
-			},
-			2: {
-				length: 1125,
-				distance: 31.84
-			},
-			3: {
-				length: 1825,
-				distance: 54.28
-			}
-		},
-		2: { // Axe Block
-			'*': { type: 'holdInfinite' },
-			0: { fixedSpeed: 1 },
-			30: true,
-			31: { fixedSpeed: 1 }
-		},
 		3: { // Thunderstrike
 			'*': {
 				type: 'chargeCast',
@@ -862,17 +866,20 @@ module.exports = {
 				glyphs: {
 					24008: { speed: 1.25 },
 					24050: { speed: 1.25 }
+				},
+				abnormals: {
+					24101: { speed: 1.30 }
 				}
 			},
 			0: {
-				noInterrupt: [1, 2-0, '3-10', '3-11', '3-12', '3-13', 4, 8-30, '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 27, 28, 29, 30, 31, '32-0'],
+				noInterrupt: [1, 2-0, '3-10', '3-11', '3-12', '3-13', 4, '5', '6', '7', '8-0', '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', '19', '20', '21', 24, '25', 27, 28, 29, 30, 31, '32-0'],
 				abnormals: {
 					401400: { chain: 1 }
 				},
 				chains: {
 					6: 30,
 					25: 30,
-					32: 31
+					32: 31				
 				}
 			},
 			1: { chains: {
@@ -910,23 +917,21 @@ module.exports = {
 		},
 		7: { // Mocking Shout
 		    0: {
-				length: [300, 1100],
 				fixedSpeed: 1,
+				length: [300, 1100],
 				noInterrupt: [2-0]
 				
 			}
         },
 		8: { // Fiery Rage
+			'*': { noInterrupt: [2-0] },
 			0: {
-				length: 600,
-				noInterrupt: [2-0],
-				abnormals: {
-					401400: { chain: 30 }
-				}
+				fixedSpeed: 1,
+				length: 600
 			},
 			30: { 
 				length: 1750,
-				noInterrupt: [2-0],
+				requiredBuff: 401400
 		    }
 		},
 		10: { // Cyclone
@@ -996,7 +1001,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [750, 750, 750],
+				length: [800, 800, 800],
 				noInterrupt: [2-0, 4, 24, 25, 30],
 				abnormals: {
 					4010150: { chargeSpeed: 0.20 }
@@ -1069,8 +1074,8 @@ module.exports = {
 		},
 		19: { // Tenacity
 			0: {
-				length: [500, 700],
 				fixedSpeed: 1,
+				length: [500, 700],
 				noInterrupt: [2-0]				
 			}
         },
@@ -1090,7 +1095,7 @@ module.exports = {
 		},
 		24: { // Evasive Smash (TODO: Check)
 			'*': {
-				length: 1615,
+				length: 1630,
 				distance: 167.625
 			},
 			0: {
@@ -1105,10 +1110,13 @@ module.exports = {
 		25: { // Raze
 			'*': { 
 				length: 1200,
-			    distance: 96
+				distance: 96,
+				glyphs: {
+					24078: { speed: 1.25 }
+				}
 			},
 			0: {
-				noInterrupt: [2-0, '3-10', '3-11', '3-12', '3-13', 4, 6, '6-30', 8-30, '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
+				noInterrupt: [2-0, '3-10', '3-11', '3-12', '3-13', 4, '5', '6', '7', '8-0', '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', '19', '20', '21', 24, 25, 26, 27, 28, 29, '32-0'],
 				interruptibleWithAbnormal: { 
 					401404: 2
 				}, 
@@ -1130,8 +1138,7 @@ module.exports = {
 			0: {
 				length: 1000,
 				distance: 80,
-				noInterrupt: [2-0],
-				noRetry: true
+				noInterrupt: [2-0]
 			}
 		},
 		27: { // Unbreakable
@@ -1162,7 +1169,7 @@ module.exports = {
 		    '*': {
 				length: 650,
 				distance: 21.05 ,
-				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, 6, '6-30', 8, '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
+				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '5', '6', '7', '6-30', 8, '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', '19', '20', '21', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
 			},
 			0: true,
@@ -1183,17 +1190,17 @@ module.exports = {
             }
 		},
 		32: { // Punishing Strike (TODO: Check)
-			0: {
-				length: 750,
-				distance: 31.575,
+			'*': {
 				noInterrupt: [2-0],
 				requiredBuff: 401400
 			},
+			0: {
+				length: 750,
+				distance: 31.575
+			},
 			1: {
 				length: 800,
-				distance: 134.1,
-				noInterrupt: [2-0],
-				requiredBuff: 401400
+				distance: 134.1
 			}
 		}
 	},
@@ -2009,7 +2016,7 @@ module.exports = {
 			}
 		},
 		18: { // Arun's Vitae
-			'*': { noInterrupt: [17, 23] },
+			'*': { noInterrupt: [8, 17, 23] },
 			0: {
 				type: 'charging',
 				length: 1475
@@ -2031,7 +2038,7 @@ module.exports = {
 			}
 		},
 		22: { // Arun's Tears
-		    '*': { noInterrupt: [17, 23] },
+		    '*': { noInterrupt: [8, 17, 23] },
 			0: {
 				type: 'charging',
 				length: 1475
