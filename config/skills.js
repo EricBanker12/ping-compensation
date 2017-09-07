@@ -946,6 +946,7 @@ module.exports = {
 					24096: { chargeSpeed: 0.3 }
 				},
 				abnormals: {
+					24010: { chargeSpeed: 0.3 },
 					24190: { chargeSpeed: 0.3 },
 					4010150: { chargeSpeed: 0.20 },
 					401400: { chain: 6 }
@@ -1568,6 +1569,7 @@ module.exports = {
 		},
 		7: { // Feign Death
 			0: {
+				fixedSpeed: 1,
 				length: [2950, 54525, 1675],
 				distance: [-114.05, 0, 0]
 			}
