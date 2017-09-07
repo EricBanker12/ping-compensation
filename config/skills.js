@@ -1471,7 +1471,7 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 4900,
-				noInterrupt: [22]
+				noInterrupt: [22],
 				noRetry: true
 			},
 			10: {
