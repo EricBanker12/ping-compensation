@@ -6,7 +6,7 @@
 module.exports = {
 	0: { // Warrior
 		1: { // Combo Attack
-			'*': { noInterrupt: [32] },
+			'*': { noInterrupt: [1, 32] },
 			0: {
 				length: 565,
 				distance: 62.29
@@ -335,20 +335,18 @@ module.exports = {
 	},
 	1: { // Lancer
 		1: { // Combo Attack
+			'*': { noInterrupt: [1, 2] },
 			0: {
 				length: 650,
-				distance: 75,
-				noInterrupt: [1-0, 2]			
+				distance: 75,	
 			},
 			1: {
 				length: 1025,
 				distance: 20,
-				noInterrupt: [1-1, 2]
 			},
 			2: {
 				length: 1800,
 				distance: 66,
-				noInterrupt: [1-2, 2]
 			}
 		},
 		2: { // Stand Fast
@@ -830,6 +828,7 @@ module.exports = {
 				length: 1750
 			},
 			0: {
+				triggerAbnormal: { 2147483647: 900300 },
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2-0, 4, 10, 15-0, 15-14, 18, 24, 25, 30],
@@ -839,24 +838,28 @@ module.exports = {
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { chargeSpeed: 0.25 },
-					4010150: { chargeSpeed: 0.20 }
+					4010150: { chargeSpeed: 0.2 }
 				}
 			},
 			10: { 
+				consumeAbnormal: 900300,
 				distance: 85.74, // Cast F. - TODO
                 noInterrupt: [2-0, 4, 10, 15-0, 18, 24, 25, 30]			
 			}, 
 			11: { 
+				consumeAbnormal: 900300,
 				distance: 85.74,
                 noInterrupt: [2-0, 4, 10, 15-0, 18, 24, 25, 30]
 			},
-			12: { 
+			12: {
+				consumeAbnormal: 900300, 
 				distance: 85.74,
                 noInterrupt: [2-0, 4, 10, 15-0, 18, 24, 25, 30]		
 	        },
 			13: { 
+				consumeAbnormal: 900300,	
 				distance: 85.74,
-				noInterrupt: [2-0, 4, 10, 15-0, 15-14, 18, 24, 25, 30]		  
+				noInterrupt: [2-0, 4, 10, 15-0, 15-14, 18, 24, 25, 30]			  
 			}
 		},
 		4: { // Flatten
@@ -937,6 +940,8 @@ module.exports = {
 		10: { // Cyclone
 			'*': { type: 'chargeCast' },
 			0: {
+				triggerAbnormal: { 2147483647: 900300 },
+				consumeAbnormal: 900300,
 				type: 'charging',
 				length: [650, 650, 650],
 			    noInterrupt: [2-0, 3, 4, 15-0, 15-14, 18, 24, 25, 30],
@@ -948,26 +953,30 @@ module.exports = {
 				abnormals: {
 					24010: { chargeSpeed: 0.3 },
 					24190: { chargeSpeed: 0.3 },
-					4010150: { chargeSpeed: 0.20 },
+					4010150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 				}
 			},
 			10: {
+				consumeAbnormal: 900300,
 				length: 1325, // Cast F. - TODO
 				distance: 50,
 				noInterrupt: [2-0, 3, 4, 15-0, 18, 24, 25, 30] 
 			},
 			11: {	
+				consumeAbnormal: 900300,
 				length: [375, 375, 1325],
 				distance: [33.33, 33.33, 0],
 				noInterrupt: [2-0, 3, 4, 15-0, 18, 24, 25, 30]
 			},
 			12: {
+				consumeAbnormal: 900300,
 				length: [375, 375, 375, 375, 1325],
 				distance: [33.33, 33.33, 33.33, 33.33, 0],
 				noInterrupt: [2-0, 3, 4, 15-0, 18, 24, 25, 30]
 			},
 			13: {
+				consumeAbnormal: 900300,
 				length: [375, 375, 375, 375, 1325],
 				distance: [33.33, 33.33, 33.33, 33.33, 0],
 				noInterrupt: [2-0, 3, 4, 15-0, 15-14, 18, 24, 25, 30]
@@ -996,43 +1005,45 @@ module.exports = {
 			}
 		},
 		/*15: { // Vampiric Blow
-			'*': {
-				type: 'chargeCast',
-				length: 1925
-			},
-			0: {
-				type: 'charging',
+            '*': {                    // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        
+				type: 'chargeCast',  //                    2. Must be in combat when used.  
+				length: 1930        //                    Else the animation of VB won't go off causing slight desync.
+			 },                                                		                               
+            0: {         
+				triggerAbnormal: { 2147483647: 900300 },               
+                type: 'charging',       
 				length: [800, 800, 800],
 				noInterrupt: [2-0, 4, 24, 25, 30],
 				abnormals: {
-					4010150: { chargeSpeed: 0.20 }
+					4010150: { chargeSpeed: 0.2 }
 				},
-				chains: {
-					'3-13': 14,
-					'10-13': 14,
-					'18-13': 14
-				}
+                chains: {
+                    '3-13': 14,
+                    '10-13': 14,
+                    '18-13': 14
+                }
+            },
+            10: { 
+				consumeAbnormal: 900300,
+				distance: 72.78,
+				noInterrupt: [2-0, 4, 24, 25, 30]
 			},
-			10: { 
-			distance: 85.74,
-			noInterrupt: [2-0, 4, 24, 25, 30]
+            11: { 
+				consumeAbnormal: 900300,
+				distance: 72.78,
+				noInterrupt: [2-0, 4, 24, 25, 30]
 			},
-			11: { 
-			distance: 85.74,
-			noInterrupt: [2-0, 4, 24, 25, 30]
+            12: { 
+				consumeAbnormal: 900300,
+				distance: 72.78,
+				noInterrupt: [2-0, 4, 24, 25, 30]
 			},
-			12: { 
-			distance: 85.74,
-			noInterrupt: [2-0, 4, 24, 25, 30]
+            13: { 
+				consumeAbnormal: 900300,
+				distance: 72.78,
+				noInterrupt: [2-0, 4, 24, 25, 30]
 			},
-			13: { 
-			distance: 85.74,
-			noInterrupt: [2-0, 4, 24, 25, 30]
-			},
-			14: {
-				type: 'brokenSkill',
-				distance: 85.74
-			}
+            14: { distance: 72.78 }
 		},*/
 		16: { // Fearsome Shout
 		    0: {
@@ -1047,28 +1058,33 @@ module.exports = {
 				length: 1500,
 				abnormals:  {
 					24120: { chargeSpeed: 0.3 },
-					4010150: { chargeSpeed: 0.20 },
+					4010150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 			    }
 		    },
 			0: {
+				triggerAbnormal: { 2147483647: 900300 },
 				type: 'charging',
 				length: [800, 800, 800],
 				noInterrupt: [2-0, 4, 15-0, 15-14, 24, 25, 30]
 			},
 			10: { 
+				consumeAbnormal: 900300,
 			    distance: 171.48,
                 noInterrupt: [2-0, 4, 15-0, 24, 25, 30]
 			},
 			11: { 
+				consumeAbnormal: 900300,
 				distance: 171.48,
 				noInterrupt: [2-0, 4, 15-0, 24, 25, 30]
 			 },
 			12: { 
+				consumeAbnormal: 900300,
 				distance: 171.48,
 				noInterrupt: [2-0, 4, 15-0, 24, 25, 30]
 		    },
 			13: { 
+				consumeAbnormal: 900300,
 				distance: 171.48,
 				noInterrupt: [2-0, 4, 15-0, 15-14, 24, 25, 30]
 			}
