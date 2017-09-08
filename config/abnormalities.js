@@ -21,5 +21,5 @@ module.exports = {
 	10154005: true,
 	10154006: true
 	/*Berserker*/
-	900300: true, // Charging Skills shared abnormal
+	900300: true // Charging Skills shared abnormal
 }
