@@ -1,68 +1,109 @@
-const PING_INTERVAL = 6000,
-	PING_TIMEOUT = 30000,
-	PING_HISTORY_MAX = 20
+/*
+  Ping.js fix by undefined#3394 - Skill-Prediction by PinkiePie: https://github.com/pinkipi/skill-prediction
+  => Retrieve your ping needed by skill-prediction but using passive methods.
+  => Less accurate ping than original but also prevent you from getting banned for spamming packets to server.
+  => Remember to set SKILL_RETRY_COUNT = 0 in skills.js if you want to use safe-proxy together with skill-prediction.
+*/
+
+const PING_HISTORY_MAX = 20;
+const debug = false;
 
 class Ping {
-	constructor(dispatch) {
-		this._timeout = null
-		this._waiting = false
-		this._lastSent = this.min = this.max = this.avg = 0
-		this.history = []
+  constructor(dispatch) {
+    this.min = this.max = this.avg = 0;
+    this.history = [];
+  
+    const updatePing = ping => {
+      this.history.pop();
+      this.history.push(ping);
 
-		let ping = () => {
-			dispatch.toServer('C_REQUEST_GAMESTAT_PING', 1)
-			this._waiting = true
-			this._lastSent = Date.now()
-			this._timeout = setTimeout(ping, PING_TIMEOUT)
-		}
+      if(this.history.length > PING_HISTORY_MAX) this.history.shift();
 
-		dispatch.hook('S_SPAWN_ME', 1, () => { ping() })
-		dispatch.hook('S_LOAD_TOPO', 1, event => { clearTimeout(this._timeout) })
-		dispatch.hook('S_RETURN_TO_LOBBY', 1, () => { clearTimeout(this._timeout) })
+      // Recalculate statistics variables
+      this.min = this.max = this.history[0];
+      this.avg = 0;
 
-		// Disable inaccurate ingame ping so we have exclusive use of ping packets
-		dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, () => {
-			dispatch.toClient('S_RESPONSE_GAMESTAT_PONG', 1)
-			return false
-		})
+      for(let p of this.history) {
+        if(p < this.min) this.min = p;
+        else if(p > this.max) this.max = p;
+        
+        this.avg += p;
+      }
 
-		dispatch.hook('S_RESPONSE_GAMESTAT_PONG', 1, () => {
-			let result = Date.now() - this._lastSent
+      this.avg /= this.history.length;
+    };
 
-			clearTimeout(this._timeout)
+    //---
+    
+    let cid;
+    let ping = 0;
+    let pingStack = {};
 
-			if(!this._waiting) this.history.pop() // Oops! We need to recalculate the last value
+    const pingStart = id => {
+      if(!id) return;
+      pingStack[id] = Date.now();
+    };
+    const pingEnd = id => {
+      if(!pingStack[id]) return;
+      ping = Date.now() - pingStack[id];
+      updatePing(ping);
+      delete pingStack[id];
+      if(debug) console.log('=> PING:', ping, pingStack);
+    };
 
-			this.history.push(result)
+    const skillId = id => {
+      return ((id > 0x4000000) ? id - 0x4000000 : id);
+    };
+    
+    dispatch.hook('C_CHECK_VERSION', 1, pingStart.bind(null, 1));
+    dispatch.hook('S_CHECK_VERSION', 1, pingEnd.bind(null, 1));
+    dispatch.hook('S_LOGIN', 1, e => { ({cid} = e); });
 
-			if(this.history.length > PING_HISTORY_MAX) this.history.shift()
+    const skillHook = e => {
+      pingStart(skillId(e.skill));
+    };
 
-			// Recalculate statistics variables
-			this.min = this.max = this.history[0]
-			this.avg = 0
+    for(let packet of [
+      ['C_START_SKILL', 3],
+      ['C_START_TARGETED_SKILL', 3],
+      ['C_START_COMBO_INSTANT_SKILL', 1],
+      ['C_START_INSTANCE_SKILL', 1],
+      ['C_START_INSTANCE_SKILL_EX', 2],
+      //['C_PRESS_SKILL', 1],
+      ['C_NOTIMELINE_SKILL', 1], //not sure about this one
+      ['C_CAN_LOCKON_TARGET', 1],
+    ]) dispatch.hook(packet[0], packet[1], { filter: { fake: false, modified: false }, order: 1000 }, skillHook);
 
-			for(let p of this.history) {
-				if(p < this.min) this.min = p
-				else if(p > this.max) this.max = p
+    dispatch.hook('C_CANCEL_SKILL', 1, e => {
+      delete pingStack[skillId(e.skill)];
+    });
 
-				this.avg += p
-			}
+    const actionHook = e => {
+      if(e.source && !e.source.equals(cid)) return;
+      pingEnd(skillId(e.skill));
+    };
 
-			this.avg /= this.history.length
+    for(let packet of [
+      ['S_ACTION_STAGE', 1],
+      ['S_CANNOT_START_SKILL', 1],
+      ['S_CAN_LOCKON_TARGET', 1],
+      ['S_INSTANT_DASH', 1],
+      //['S_INSTANT_MOVE', 1], //uses id instead of source
+    ]) dispatch.hook(packet[0], packet[1], { filter: { fake: false, modified: false, silenced: null }, order: -1000 }, actionHook);
 
-			this._waiting = false
-			this._timeout = setTimeout(ping, PING_INTERVAL - result)
-			return false
-		})
-	}
+    dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, () => {
+      setTimeout(() => { dispatch.toClient('S_RESPONSE_GAMESTAT_PONG', 1); }, ping);
+      return false;
+    });
+    
+  }
 }
 
-let map = new WeakMap()
-
+let map = new WeakMap();
 module.exports = function Require(dispatch) {
-	if(map.has(dispatch.base)) return map.get(dispatch.base)
+  if(map.has(dispatch.base)) return map.get(dispatch.base);
 
-	let ping = new Ping(dispatch)
-	map.set(dispatch.base, ping)
-	return ping
+  let ping = new Ping(dispatch);
+  map.set(dispatch.base, ping);
+  return ping;
 }
