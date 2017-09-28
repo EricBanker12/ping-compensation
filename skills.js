@@ -287,7 +287,14 @@ module.exports = function SkillPrediction(dispatch) {
 
 		clearTimeout(delayNextTimeout)
 
-		if(delay) {
+    if(info && info.waitStage && inStage) {
+      nextFunction = () => {
+        handleStartSkill(type, event, info, true);
+      }
+      return false;
+    }
+    
+		if(info && !info.noDelay && delay) {
 			delayNextTimeout = setTimeout(handleStartSkill, delay, type, event, info, true)
 			return false
 		}
@@ -551,8 +558,12 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
+  let inStage = false;
+  let nextFunction;
 	dispatch.hook('S_ACTION_STAGE', 1, event => {
 		if(isMe(event.source)) {
+      inStage = true;
+      
 			if(DEBUG) {
 				let duration = Date.now() - debugActionTime,
 					strs = [skillInfo(event.skill) ? '<X' : '<-', 'S_ACTION_STAGE', skillId(event.skill), event.stage, (Math.round(event.speed * 1000) / 1000) + 'x']
@@ -692,6 +703,13 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_ACTION_END', 1, event => {
 		if(isMe(event.source)) {
+      inStage = false;
+      if(nextFunction) {
+        let fn = nextFunction;
+        nextFunction = null;
+        fn();
+      }
+      
 			if(DEBUG) {
 				let duration = Date.now() - debugActionTime,
 					strs = [(event.id == lastEndedId || skillInfo(event.skill)) ? '<X' : '<-', 'S_ACTION_END', skillId(event.skill), event.type]
