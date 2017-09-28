@@ -2,7 +2,6 @@
   Ping.js fix by undefined#3394 - Skill-Prediction by PinkiePie: https://github.com/pinkipi/skill-prediction
   => Retrieve your ping needed by skill-prediction but using passive methods.
   => Less accurate ping than original but also prevent you from getting banned for spamming packets to server.
-  => Works better using JITTER_COMPENSATION = false.
   => Remember to set SKILL_RETRY_COUNT = 0 in skills.js if you want to use safe-proxy together with skill-prediction.
 */
 
