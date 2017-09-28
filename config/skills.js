@@ -1320,7 +1320,7 @@ module.exports = {
 		},
 		6: { // Backstep
 			0: {
-				length: 650,
+				length: 725, //650,
 				distance: -200,
 				forceClip: true
 			}
@@ -1335,8 +1335,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				length: 425,
-				noInterrupt: [6],
-				waitStage: true
+				noInterrupt: [6]
 			},
 			1: { length: 600 },
 			2: { length: 700 },
@@ -2462,7 +2461,7 @@ module.exports = {
 					40: 31
 				}
 			},
-			1: { waitStage: true },
+			1: true,
 			2: true,
 			30: true,
 			31: {
