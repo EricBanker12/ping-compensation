@@ -50,7 +50,7 @@ module.exports = {
 			'*': { distance: 151.87 },
 			0: {
 				length: 2550,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 32, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37],
 				abnormals: {
 					100801: { skill: 360100 }
 				},
@@ -163,6 +163,19 @@ module.exports = {
 				noInterrupt: [32]
 			}
 		},
+		23: { // Spinning Counter
+			0: {
+				length: 1055,
+				requiredBuff: 100700,
+				abnormals: {
+					100200: { chain: 6 },
+					100201: { chain: 6 },
+					100202: { chain: 6 },
+					100203: { chain: 6 }
+				}
+			}
+		
+		},
 		24: { // Smoke Aggressor
 			0: {
 				fixedSpeed: 1,
@@ -217,7 +230,7 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
 				interruptibleWithAbnormal: {
 					102010: 3
 				},
@@ -246,7 +259,7 @@ module.exports = {
 			0: {
 				length: 1850,
 				distance: 150,
-				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 32, 34],
+				noInterrupt: [1, 3, 5,  8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35],
 				abnormals: {
 					100801: { skill: 380100 }
 				},
@@ -581,25 +594,26 @@ module.exports = {
 		},
 		2: { // Knockdown Strike
 			'*': {
+				consumeAbnormal: 23220,
 				length: 2800,
 				distance: 220.47,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
 				abnormals: {
-					23070: {speed: 1.25}
+					23070: { speed: 1.25 }
 				},
-				chains: { 14: 30 }
+				chains: {
+					14: 30,
+					20: 0
+				 }
 			},
 			0: true,
 			1: true,
 			2: true,
-			30: {
-				length: 2400,
-				distance: 220.472
-			}
+			30: { length: 2400 }
 		},
 		3: { // Whirlwind
 			0: {
-				length: 3125,
+				length: 2850,
 				distance: 128.69,
 				abnormals: {
 					23080: { speed: 1.25 }
@@ -735,6 +749,7 @@ module.exports = {
         },
 		20: { // In Cold Blood
 			0: {
+				triggerAbnormal: { 23220: 2000 },
 				fixedSpeed: 1,
 				length: 1185
 			}
@@ -811,10 +826,7 @@ module.exports = {
 				}
 			},
 			2: { // Axe Block
-				'*': { 
-					type: 'holdInfinite',
-					noInterrupt: [2]
-				},
+				'*': { type: 'holdInfinite' },
 				0: { fixedSpeed: 1 },
 				30: true,
 				31: { fixedSpeed: 1 }
@@ -868,6 +880,7 @@ module.exports = {
 					24050: { speed: 1.25 }
 				},
 				abnormals: {
+					24100: { speed: 1.25 },
 					24101: { speed: 1.30 }
 				}
 			},
@@ -1116,10 +1129,10 @@ module.exports = {
 				length: 1000,
 				distance: 150
 			},
-			10: { noInterrupt: [2-0, 4, 25, 30] },
-			11: { noInterrupt: [2-0, 4, 25, 30] },
-			12: { noInterrupt: [2-0, 4, 25, 30] },
-			13: { noInterrupt: [2-0, 4, 25, 30] }
+			10: { noInterrupt: [2, 4, 25, 30] },
+			11: { noInterrupt: [2, 4, 25, 30] },
+			12: { noInterrupt: [2, 4, 25, 30] },
+			13: { noInterrupt: [2, 4, 25, 30] }
 		},
 		25: { // Raze
 			'*': { 
@@ -1182,9 +1195,9 @@ module.exports = {
 		30: { // Axe Counter (TODO: Check)
 		    '*': {
 				length: 650,
-				distance: 21.05 ,
+				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '5', '6', '7', '6-30', 8, '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', '19', '20', '21', 24, 25, 26, 27, 28, 29, 30, 31, 32],
-				requiredBuff: 401402,
+				requiredBuff: 401402
 			},
 			0: true,
 			30: true
@@ -1291,7 +1304,7 @@ module.exports = {
 		},
 		7: { // Backstep
 			0: {
-				length: 650,
+				length: 625,
 				distance: -200,
 				forceClip: true
 			}
@@ -1810,7 +1823,7 @@ module.exports = {
 		27: { // Final Reprisal
 			0: {
 				length: 2600,
-				noInterrupt: [27],
+				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, 28-10, 34, 38, 41-10],
 				chains: {
 					11: 30,
 					16: 30,
@@ -1828,14 +1841,14 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 1600],
-				noInterrupt: [26, 38],
+				noInterrupt: [26, 27, 38],
 				abnormals: {
 					28031: { chargeSpeed: 0.25 }
 				}
 			},
-			10: { noInterrupt: [26, 38] },
-			11: { noInterrupt: [26, 38] },
-			12: { noInterrupt: [26, 38] }
+			10: { noInterrupt: [26, 27, 38] },
+			11: { noInterrupt: [26, 27, 38] },
+			12: { noInterrupt: [26, 27, 38] }
 		},
 		29: { // Triple Nemesis
 			0: { length: 800 },
@@ -1867,7 +1880,7 @@ module.exports = {
 				length: [1300, 900]
 			}
 		},
-		33: { // Ishara's Lulliby
+		33: { // Ishara's Lullaby
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1914,7 +1927,7 @@ module.exports = {
 		},
 		38: { // Backstep
 			0: {
-				length: 650,
+				length: 625,
 				distance: -200,
 				forceClip: true
 			}

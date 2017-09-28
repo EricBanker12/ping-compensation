@@ -1,6 +1,6 @@
 module.exports = {
 	/* Slayer */
-	23220: true, // Distant Blade (linked)
+	23220: true, // Distant Blade & ICB (linked)
 
 	/* Brawler */
 	10153060: true, // Punch (linked)
