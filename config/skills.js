@@ -1335,7 +1335,8 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				length: 425,
-				noInterrupt: [6]
+				noInterrupt: [6],
+        waitStage: true
 			},
 			1: { length: 600 },
 			2: { length: 700 },
