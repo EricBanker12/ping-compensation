@@ -36,7 +36,7 @@ class Ping {
     //---
     
     let cid;
-    let ping = 0;
+    this.last = 0;
     let pingStack = {};
 
     const pingStart = id => {
@@ -45,10 +45,10 @@ class Ping {
     };
     const pingEnd = id => {
       if(!pingStack[id]) return;
-      ping = Date.now() - pingStack[id];
-      updatePing(ping);
+      this.last = Date.now() - pingStack[id];
+      updatePing(this.last);
       delete pingStack[id];
-      if(debug) console.log('=> PING:', ping, pingStack);
+      if(debug) console.log('=> PING:', this.last, pingStack);
     };
 
     const skillId = id => {
@@ -92,7 +92,7 @@ class Ping {
     ]) dispatch.hook(packet[0], packet[1], { filter: { fake: false, modified: false, silenced: null }, order: -1000 }, actionHook);
 
     dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, () => {
-      setTimeout(() => { dispatch.toClient('S_RESPONSE_GAMESTAT_PONG', 1); }, ping);
+      setTimeout(() => { dispatch.toClient('S_RESPONSE_GAMESTAT_PONG', 1); }, this.last);
       return false;
     });
     
