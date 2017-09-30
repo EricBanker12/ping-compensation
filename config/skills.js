@@ -2448,7 +2448,7 @@ module.exports = {
 		},
 		6: { // Death Spiral
 			'*': {
-				length: 1250,
+				length: 1225,
 				abnormals: {
 					10151131: { chain: 31 }
 				},
@@ -2501,7 +2501,7 @@ module.exports = {
 		},
 		10: { // Pendulum Strike
 			'*': {
-				length: 1000,
+				length: 970,
 				distance: -200,
 				chains: {
 					1: 30,
@@ -2522,10 +2522,11 @@ module.exports = {
 		11: { // Shadow Lash
 			'*': {
 				length: 900,
-				noRetry: true
+				noRetry: true,
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 1825,
+				length: 1800,
 				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
 					10151040: { chain: 1 },
@@ -2535,7 +2536,7 @@ module.exports = {
 			},
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
-			3: { length: 1250 }
+			3: { length: 1225 }
 		},
 		12: { // Shadow Burst
 			'*': {
