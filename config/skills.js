@@ -595,7 +595,7 @@ module.exports = {
 		2: { // Knockdown Strike
 			'*': {
 				consumeAbnormal: 23220,
-				length: 2800,
+				length: 2850,
 				distance: 220.47,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
 				abnormals: {
@@ -609,11 +609,11 @@ module.exports = {
 			0: true,
 			1: true,
 			2: true,
-			30: { length: 2400 }
+			30: { length: 2450 }
 		},
 		3: { // Whirlwind
 			0: {
-				length: 2850,
+				length: 2900,
 				distance: 128.69,
 				abnormals: {
 					23080: { speed: 1.25 }
@@ -637,7 +637,7 @@ module.exports = {
 		},
 		8: { // Overhand Strike
 			0: {
-				length: 3365,
+				length: 3400,
 				distance: 170,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
@@ -689,7 +689,7 @@ module.exports = {
 		},
 		13: { // Stunning Backhand
 			0: {
-				length: 2125,
+				length: 2150,
 				distance: 76.71
 			}
 		},
@@ -798,7 +798,7 @@ module.exports = {
 		},
 		25: { // Ultimate Overhand Strike
 			'*': { distance: 170 },
-			0: { length: 3365 },
+			0: { length: 3400 },
 			30: { length: 1300 }
 		}
 	},
@@ -809,7 +809,7 @@ module.exports = {
 					noInterrupt: [1, 2, 4]
 				},
 				0: {
-					length: 1125,
+					length: 1155,
 					distance: 78
 				},
 				1: {
@@ -873,7 +873,7 @@ module.exports = {
 		},
 		4: { // Flatten
 			'*': {
-				length: 3100,
+				length: 3150,
 				distance: 105.685,
 				glyphs: {
 					24008: { speed: 1.25 },
@@ -885,7 +885,7 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '5', '6', '7', '8-0', '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', '19', '20', '21', 24, '25', 27, 28, 29, 30, 31, '32-0'],
+				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', 24, 27, 28, 29, 30, 31, '32-0'],
 				abnormals: {
 					401400: { chain: 1 }
 				},
@@ -900,8 +900,8 @@ module.exports = {
 					25: 31
 				 }
 		    },
-			30: { length: 2325 },
-			31: { length: 2325 }
+			30: { length: 2350 },
+			31: { length: 2350 }
 		},
 		5: { // Dash
 			0: {
@@ -910,9 +910,9 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		6: { // Staggering Strike
+		6: { // Sweeping Strike
 			'*': {
-				length: 1265,
+				length: 1285,
 				distance: 80.47,
 				noRetry: true
 			},
@@ -931,7 +931,7 @@ module.exports = {
 		7: { // Mocking Shout
 		    0: {
 				fixedSpeed: 1,
-				length: [300, 1100],
+				length: [315, 1100],
 				noInterrupt: [2]
 				
 			}
@@ -943,7 +943,7 @@ module.exports = {
 				length: 600
 			},
 			30: { 
-				length: 1750,
+				length: 1760,
 				requiredBuff: 401400
 		    }
 		},
@@ -994,14 +994,14 @@ module.exports = {
 		},
 		11: { // Leaping Strike 
 			0: {
-				length: 2200,
+				length: 2225,
 				distance: 250,
 				noInterrupt: [2]
 			}
 		},
 		12: { // Unchained Anger
 			'*': { 
-				length: [1000, 550],
+				length: [1050, 550],
 				noInterrupt: [2]
 			},
 			30: true,
@@ -1017,7 +1017,7 @@ module.exports = {
 		/*15: { // Vampiric Blow
             '*': {                    // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        
 				type: 'chargeCast',  //                    2. Must be in combat when used.  
-				length: 1925        //                    Else the animation of VB won't go off causing slight desync.
+				length: 1940        //                    Else the animation of VB won't go off causing slight desync.
 			 },                                                		                               
             0: {         
 				triggerAbnormal: { 2147483647: 900300 },               
@@ -1065,7 +1065,7 @@ module.exports = {
 		18: { // Lethal Strike (TODO: Check)
 			'*': {
 				type: 'chargeCast',
-				length: 1500,
+				length: 1515,
 				abnormals:  {
 					24120: { chargeSpeed: 0.3 },
 					4010150: { chargeSpeed: 0.2 },
@@ -1102,7 +1102,7 @@ module.exports = {
 		19: { // Tenacity
 			0: {
 				fixedSpeed: 1,
-				length: [500, 700],
+				length: [500, 710],
 				noInterrupt: [2]				
 			}
         },
@@ -1122,7 +1122,7 @@ module.exports = {
 		},
 		24: { // Evasive Smash (TODO: Check)
 			'*': {
-				length: 1630,
+				length: 1640,
 				distance: 167.625
 			},
 			0: {
@@ -1136,14 +1136,14 @@ module.exports = {
 		},
 		25: { // Raze
 			'*': { 
-				length: 1200,
+				length: 1205,
 				distance: 96,
 				glyphs: {
 					24078: { speed: 1.25 }
 				}
 			},
 			0: {
-				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, '5', '6', '7', '8-0', '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', '19', '20', '21', 24, 25, 26, 27, 28, 29, '32-0'],
+				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
 				interruptibleWithAbnormal: { 
 					401404: 2
 				}, 
@@ -1158,8 +1158,8 @@ module.exports = {
 				}
 			},
 			1: true,
-			30: { length: 960 },
-			31: { length: 960 }
+			30: { length: 965 },
+			31: { length: 965 }
 		},
 		26: { // Tackle
 			0: {
@@ -1170,7 +1170,7 @@ module.exports = {
 		},
 		27: { // Unbreakable
 			0: { 
-				length: 2050,
+				length: 2100,
 				noInterrupt: [2] 
 			},
 		},
@@ -1196,7 +1196,7 @@ module.exports = {
 		    '*': {
 				length: 650,
 				distance: 21.05,
-				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '5', '6', '7', '6-30', 8, '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', '19', '20', '21', 24, 25, 26, 27, 28, 29, 30, 31, 32],
+				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402
 			},
 			0: true,
@@ -1222,21 +1222,21 @@ module.exports = {
 				requiredBuff: 401400
 			},
 			0: {
-				length: 750,
+				length: 795,
 				distance: 31.575
 			},
 			1: {
-				length: 800,
+				length: 835,
 				distance: 134.1
 			}
 		}
 	},
 	4: { // Sorcerer
 		1: { // Fireball
-			0: { length: 720 }
+			0: { length: 735 }
 		},
 		2: { // Frost Sphere
-			0: { length: 1000 }
+			0: { length: 1010 }
 		},
 		3: { // Lightning Trap
 			0: {
@@ -1289,7 +1289,7 @@ module.exports = {
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3700,
+				length: 3725,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
@@ -1304,7 +1304,7 @@ module.exports = {
 		},
 		7: { // Backstep
 			0: {
-				length: 625,
+				length: 660,
 				distance: -200,
 				forceClip: true
 			}
@@ -1321,10 +1321,10 @@ module.exports = {
 			0: { length: 625 }
 		},
 		11: { // Lightning Strike
-			0: { length: 800 }
+			0: { length: 805 }
 		},
 		12: { // Void Pulse
-			0: { length: 910 }
+			0: { length: 935 }
 		},
 		13: { // Mindblast
 			0: {
@@ -1451,7 +1451,7 @@ module.exports = {
 			}
 		},
 		27: { // Hailstorm
-			0: { length: 950 }
+			0: { length: 980 }
 		},
 		30: { // Nova
 			0: {
@@ -1546,7 +1546,7 @@ module.exports = {
 		4: { // Penetrating Arrow
 			'*': {
 				type: 'chargeCast',
-				length: 1300
+				length: 1315
 			},
 			0: {
 				type: 'charging',
@@ -1579,7 +1579,7 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
-				length: 3150,
+				length: 3200,
 				glyphs: {
 					26077: { speed: 1.4 }
 				},
@@ -1593,7 +1593,7 @@ module.exports = {
 		},
 		6: { // Backstep
 			0: {
-				length: 650,
+				length: 705,
 				distance: -200,
 				forceClip: true
 			}
@@ -1611,15 +1611,15 @@ module.exports = {
 				noInterrupt: [22]
 			},
 			0: { 
-				length: 425,
+				length: 460,
 				noInterrupt: [6] 
 			},
 			1: { length: 600 },
 			2: { length: 700 },
-			3: { length: 700 },
+			3: { length: 800 },
 			4: { length: 700 },
-			5: { length: 700 },
-			6: { length: 1235 }
+			5: { length: 800 },
+			6: { length: 1275 }
 		},
 		9: { // Slow Trap
 			0: { length: 1150 }
@@ -1642,7 +1642,7 @@ module.exports = {
 		},
 		16: { // Breakaway Bolt
 			0: {
-				length: 1325,
+				length: 1375,
 				distance: -250,
 				forceClip: true
 			}
@@ -1681,9 +1681,10 @@ module.exports = {
 		},
 		22: { // Sequential Fire
 			0: {
-				length: 425,
+				length: 500,
 				requiredBuff: 600200,
-				noRetry: true
+				noRetry: true,
+				noInterrupt: [22]
 			}
 		},
 		23: { // Stunning Trap Arrow
@@ -1705,7 +1706,7 @@ module.exports = {
 		31: { // Tenacity
 			0: {
 				fixedSpeed: 1,
-				length: [500, 700]
+				length: [500, 750]
 			}
 		},
 		32: { // Find Weakness
@@ -1718,7 +1719,7 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1000,
+				length: 1075,
 				distance: 413
 			}
 		}
@@ -1927,7 +1928,7 @@ module.exports = {
 		},
 		38: { // Backstep
 			0: {
-				length: 625,
+				length: 660,
 				distance: -200,
 				forceClip: true
 			}
@@ -2448,7 +2449,7 @@ module.exports = {
 		},
 		6: { // Death Spiral
 			'*': {
-				length: 1225,
+				length: 1250,
 				abnormals: {
 					10151131: { chain: 31 }
 				},
@@ -2501,7 +2502,7 @@ module.exports = {
 		},
 		10: { // Pendulum Strike
 			'*': {
-				length: 970,
+				length: 1000,
 				distance: -200,
 				chains: {
 					1: 30,
@@ -2521,12 +2522,12 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 900,
+				length: 1230,
 				noRetry: true,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 1800,
+				length: 2160,
 				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
 					10151040: { chain: 1 },
@@ -2536,7 +2537,7 @@ module.exports = {
 			},
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
-			3: { length: 1225 }
+			3: true
 		},
 		12: { // Shadow Burst
 			'*': {
