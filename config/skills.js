@@ -1126,7 +1126,7 @@ module.exports = {
 				distance: 167.625
 			},
 			0: {
-				length: 1000,
+				length: 1020,
 				distance: 150
 			},
 			10: { noInterrupt: [2, 4, 25, 30] },
@@ -1186,7 +1186,7 @@ module.exports = {
 		},
 		29: { // Evasive Roll (TODO: Check)
 			0: {
-				length: 900,
+				length: 940,
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29]
