@@ -358,7 +358,7 @@ module.exports = {
 				distance: 20,
 			},
 			2: {
-				length: 1800,
+				length: 1815,
 				distance: 66,
 			}
 		},
@@ -372,7 +372,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 15, 18, 21, 23, 24, 25, 26],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -385,7 +385,7 @@ module.exports = {
 		},
 		4: { // Challenging Shout
 			0: {
-				length: 2175,
+				length: 2225,
 				noInterrupt: [2],
 				glyphs: {
 					22056: { speed: 1.25 },
@@ -428,7 +428,7 @@ module.exports = {
 		},
 		12: { // Infuriate
 			0: { 
-				length: 2400,
+				length: 2425,
 				noInterrupt: [2]
 		    }
 		},
@@ -436,7 +436,7 @@ module.exports = {
 			0: {
 				length: 2775,
 				distance: 85,
-				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 12, 13, 15, '18-0', 21, 23, 24, 25, 26],
+				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 12, 13, 15, '18-0', 21, 23, 24, 25, 26, 27],
 				chains: {
 					1: 30,
 					5: 30,
@@ -537,7 +537,7 @@ module.exports = {
 			0: {
 				length: 2375,
 				distance: 100,
-				noInterrupt: [1, 2, 3, 5, '18-0', 21, 25, 26],
+				noInterrupt: [1, 2, 3, 4, 5, 9, 12, '18-0', 21, 23, 24, 25, 26, 27],
 				chains: {
 					8: 30,
 					10: 30,
@@ -622,12 +622,12 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': { 
-				length: 900,
+				length: 905,
 				distance: 150,
 				forceclip: true
 			},
 			0: true,
-			30: { requiredBuff: 10153093 }
+			30: { requiredBuff: 301200 }
 		},
 		5: { // Dash
 			0: {
@@ -1065,18 +1065,18 @@ module.exports = {
 		18: { // Lethal Strike (TODO: Check)
 			'*': {
 				type: 'chargeCast',
-				length: 1515,
-				abnormals:  {
-					24120: { chargeSpeed: 0.3 },
-					4010150: { chargeSpeed: 0.2 },
-					401400: { chain: 6 }
-			    }
+				length: 1515
 		    },
 			0: {
 				triggerAbnormal: { 2147483647: 900300 },
 				type: 'charging',
 				length: [800, 800, 800],
-				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 30]
+				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 30],
+				abnormals:  {
+					24120: { chargeSpeed: 0.3 },
+					4010150: { chargeSpeed: 0.2 },
+					401400: { chain: 6 }
+			    }
 			},
 			10: { 
 				consumeAbnormal: 900300,
@@ -1129,10 +1129,10 @@ module.exports = {
 				length: 1020,
 				distance: 150
 			},
-			10: { noInterrupt: [2, 4, 25, 30] },
-			11: { noInterrupt: [2, 4, 25, 30] },
-			12: { noInterrupt: [2, 4, 25, 30] },
-			13: { noInterrupt: [2, 4, 25, 30] }
+			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
+			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
+			12: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
+			13: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] }
 		},
 		25: { // Raze
 			'*': { 
@@ -1515,7 +1515,7 @@ module.exports = {
 		3: { // Radiant Arrow
 			'*': {
 				type: 'chargeCast',
-				length: 1750
+				length: 1760
 			},
 			0: {
 				type: 'charging',
@@ -1688,10 +1688,10 @@ module.exports = {
 			}
 		},
 		23: { // Stunning Trap Arrow
-			0: { length: 1400 }
+			0: { length: 1450 }
 		},
 		25: { // Incendiary Trap Arrow
-			0: { length: 1200 }
+			0: { length: 1225 }
 		},
 		29: { // Thunderbolt
 			0: {
@@ -2522,12 +2522,12 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 1230,
+				length: 1250,
 				noRetry: true,
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 18, 20, 40]
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 2160,
+				length: 2150,
 				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
 					10151040: { chain: 1 },
@@ -3794,30 +3794,33 @@ module.exports = {
 				noInterrupt: [10],
 				glyphs: {
 					33020: { speed: 1.2 }
-				},
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
 				}
 			},
-			0: true,
-			30: true
+			0: { 
+				chains: {
+					1: 4,
+					2: 4,
+					3: 4,
+					//'4-0': 4,
+					//'4-10': 4,
+					//'4-11': 4,
+					5: 4,
+					6: 4,
+					7: 4,
+					8: 4,
+					9: 4,
+					10: 4,
+					11: 4,
+					12: 4,
+					13: 4,
+					14: 4,
+					15: 4,
+					16: 4,
+					19: 4,
+					20: 4,
+			    }
+		    },
+			30: true // 17, 21
 		},
 		11: { // Shining Crescent
 			'*': {
@@ -3937,14 +3940,14 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 825,
 				distance: 188.18,
-				forceClip: true,
-				abnormals: {
-					10155020: { chain: 1 }
-				}
+				forceClip: true
 			},
 			0: true,
-			1: true
-		},
+			1: {
+				consumeAbnormal: 10155020, 
+				requiredBuff: 10155020
+			 }
+			},
 		15: { // Windslash
 			'*': {
 				length: 1100,
