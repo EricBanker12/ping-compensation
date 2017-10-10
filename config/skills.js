@@ -1769,7 +1769,7 @@ module.exports = {
 			0: {
 				length: 5900,
 				glyphs: {
-					28045: { speed: 1.3 }
+					28045: { speed: 1.15 }
 				},
 				abnormals: {
 					902: { speed: 1.15 },
@@ -2014,8 +2014,8 @@ module.exports = {
 			0: {
 				length: 8050,
 				glyphs: {
-					27049: { speed: 1.4 },
-					27079: { speed: 1.4 }
+					27049: { speed: 1.2 },
+					27079: { speed: 1.2 }
 				},
 				abnormals: {
 					902: { speed: 1.25 },
@@ -2240,7 +2240,7 @@ module.exports = {
 				noInterrupt: [42]
 			}
 		},
-		43: { // Release (KR)
+		43: { // Release
 			0: { length: 575 }
 		}
 	},
@@ -2777,7 +2777,6 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				fixedSpeed: 1,
 				length: 5800,
 				distance: -269.09,
 				chains: {
