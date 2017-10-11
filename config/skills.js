@@ -131,11 +131,13 @@ module.exports = {
 			}
 		},
 		18: { // Combative Strike
-			0: {
+			'*': {
 				length: 1100,
 				distance: 138.28,
 				noInterrupt: [32]
-			}
+			},
+			1: true,
+			2: true
 		},
 		19: { // Rising Fury
 			'*': { noInterrupt: [32] },
@@ -214,7 +216,13 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
+				abnormals: {
+					100200:{ skill: 390100 },
+					100201:{ skill: 390100 },
+					100202:{ skill: 390100 },
+					100203:{ skill: 390100 }
+				},
 				chains: {
 					11: 30,
 					18: 30,
@@ -223,7 +231,10 @@ module.exports = {
 			},
 			30: {
 				length: 2650,
-				distance: 210
+				distance: 210,
+				abnormals: {
+					100201: { skill: 390130 }
+				}
 			}
 		},
 		29: { // Blade Draw
@@ -244,7 +255,8 @@ module.exports = {
 					17: 30,
 					19: 30,
 					28: 30,
-					32: 30
+					32: 30,
+					39: 30
 				}
 			},
 			30: {
@@ -344,7 +356,23 @@ module.exports = {
 				noInterrupt: [32]
 			},
 			30: { length: 1385 }
-		}
+		},
+		39: { // Traverse Cut (Defensive Stance)
+			0: {
+				length: 2000,
+				distance: 160,
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
+				chains: {
+					11: 30,
+					18: 30,
+					27: 30
+				}
+			},
+			30: {
+				length: 2650,
+				distance: 210
+			}
+		},
 	},
 	1: { // Lancer
 		1: { // Combo Attack
@@ -1767,7 +1795,7 @@ module.exports = {
 		},
 		12: { // Resurrect
 			0: {
-				length: 5900,
+				length: 5915, // 5900
 				glyphs: {
 					28045: { speed: 1.15 }
 				},
@@ -2012,7 +2040,7 @@ module.exports = {
 		},
 		10: { // Resurrect
 			0: {
-				length: 8050,
+				length: 8080, // 8050
 				glyphs: {
 					27049: { speed: 1.2 },
 					27079: { speed: 1.2 }
@@ -2106,7 +2134,7 @@ module.exports = {
 		23: { // Metamorphic Smite
 			0: {
 				length: 1430,
-				noInterrupt: [1, 2, 6, 10, 13, 14, 15, 16, 17, 21, 37],
+				noInterrupt: [1, 2, 6, 10, 13, 14, 15, 16, 17, 21, 23, 37],
 				chains: {
 					8: 30
 				}
@@ -2236,13 +2264,13 @@ module.exports = {
 		},
 		42: { // Boomerang Pulse
 			0: {
-				length: 530,
+				length: 550, // 530, 550, 575
 				noInterrupt: [42]
 			}
 		},
-		43: { // Release
-			0: { length: 575 }
-		}
+		/*43: { // Release																																																																							
+			0: { length: [385, 575] }
+		}*/
 	},
 	8: { // Reaper
 		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10151023, 10151040, 10151041, 10151042] },
