@@ -1022,7 +1022,7 @@ module.exports = {
 		},
 		11: { // Leaping Strike 
 			0: {
-				length: 2225,
+				length: 2290,
 				distance: 250,
 				noInterrupt: [2]
 			}
