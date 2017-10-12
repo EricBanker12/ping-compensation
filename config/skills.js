@@ -116,7 +116,7 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1100,
+				length: 1125,
 				distance: 467.88,
 				noRetry: true,
 				noInterrupt: [32]
