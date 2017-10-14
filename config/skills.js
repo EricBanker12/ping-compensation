@@ -2570,15 +2570,17 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3250,
+				length: 3265,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 20],
 				abnormals: { 
-					29090: { speed: 1.5 },
-					10151150: { chain: 1 }
+					29090: { speed: 1.5 }
+				},
+				chains: {
+					12: 1
 				}
 			},
 			1: {
-				length: 2025,
+				length: 2060,
 				noInterrupt: ['12-1']
 			}
 		},
