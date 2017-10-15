@@ -13,6 +13,7 @@ const JITTER_COMPENSATION	= true,
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
+	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
 	DEBUG					= false,
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
@@ -26,8 +27,7 @@ const INTERRUPT_TYPES = {
 	'nullChain': 4,
 	'retaliate': 5,
 	'lockonCast': 36
-},
-	JOBS_NON_CRITICAL_BLOCK = [10] // QoL: List of classes that do not have any time-sensitive response to S_DEFEND_SUCCESS
+}
 
 module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
@@ -788,7 +788,7 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
 		if(isMe(event.cid))
 			if(currentAction && currentAction.skill == serverAction.skill) currentAction.defendSuccess = true
-			else if(!JOBS_NON_CRITICAL_BLOCK.includes(job)) return false
+			else if(!DEFEND_SUCCESS_STRICT && job == 10) return false
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
