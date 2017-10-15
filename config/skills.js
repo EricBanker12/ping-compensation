@@ -871,7 +871,7 @@ module.exports = {
 				noRetry: true
 			}
 		},
-		15: { // Vampiric Blow
+		/*15: { // Vampiric Blow
 			'*': {
 				type: 'chargeCast',
 				length: 1925
@@ -890,11 +890,11 @@ module.exports = {
 			11: { distance: 85.74 },
 			12: { distance: 85.74 },
 			13: { distance: 85.74 },
-			/*14: {
+			14: {
 				type: 'brokenSkill',
 				distance: 85.74
-			}*/
-		},
+			}
+		},*/
 		18: { // Lethal Strike (TODO: Check)
 			'*': {
 				type: 'chargeCast',
@@ -1929,7 +1929,7 @@ module.exports = {
 				noInterrupt: [42]
 			}
 		},
-		43: { // Release (KR)
+		43: { // Unsummon Thrall
 			0: { length: 575 }
 		}
 	},
@@ -2465,7 +2465,6 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				fixedSpeed: 1,
 				length: 5800,
 				distance: -269.09,
 				chains: {
