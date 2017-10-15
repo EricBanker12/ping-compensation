@@ -872,28 +872,40 @@ module.exports = {
 			}
 		},
 		/*15: { // Vampiric Blow
-			'*': {
-				type: 'chargeCast',
-				length: 1925
-			},
-			0: {
-				type: 'charging',
+            '*': {                    // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        
+				type: 'chargeCast',  //                    2. Must be in combat when used.  
+				length: 1940        //                    Else the animation of VB won't go off causing slight desync.
+			 },                                                		                               
+            0: {             
+                type: 'charging',       
 				length: [800, 800, 800],
-				noInterrupt: [2],
+				noInterrupt: [2, 4, 24, 25, 30],
+				abnormals: {
+					4010150: { chargeSpeed: 0.2 }
+				},
 				chains: {
-					'3-13': 14,
-					'10-13': 14,
-					'18-13': 14
-				}
+                    3: 14,
+                    10: 14,
+                    18: 14
+                }
+            },
+            10: {
+				distance: 72.78,
+				noInterrupt: [2, 4, 24, 25, 30]
 			},
-			10: { distance: 85.74 },
-			11: { distance: 85.74 },
-			12: { distance: 85.74 },
-			13: { distance: 85.74 },
-			14: {
-				type: 'brokenSkill',
-				distance: 85.74
-			}
+            11: {
+				distance: 72.78,
+				noInterrupt: [2, 4, 24, 25, 30]
+			},
+            12: {
+				distance: 72.78,
+				noInterrupt: [2, 4, 24, 25, 30]
+			},
+            13: {
+				distance: 72.78,
+				noInterrupt: [2, 4, 24, 25, 30]
+			},
+            14: { distance: 72.78 }
 		},*/
 		18: { // Lethal Strike (TODO: Check)
 			'*': {
@@ -1929,8 +1941,8 @@ module.exports = {
 				noInterrupt: [42]
 			}
 		},
-		43: { // Unsummon Thrall
-			0: { length: 575 }
+		43: { // Release																																																																							
+			0: { length: [400, 575] }
 		}
 	},
 	8: { // Reaper
