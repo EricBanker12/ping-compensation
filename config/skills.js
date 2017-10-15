@@ -1249,6 +1249,7 @@ module.exports = {
 			0: { length: 400 }
 		},
 		2: { // Arrow Volley
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1489,6 +1490,7 @@ module.exports = {
 			0: { length: 1250 }
 		},
 		19: { // Focus Heal
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1547,6 +1549,7 @@ module.exports = {
 			2: { length: 1250 }
 		},
 		30: { // Plague of Exhaustion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1571,6 +1574,7 @@ module.exports = {
 			}
 		},
 		33: { // Ishara's Lulliby
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1586,6 +1590,7 @@ module.exports = {
 			0: { length: 1430 }
 		},
 		35: { // Energy Stars
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1598,13 +1603,13 @@ module.exports = {
 			}
 		},
 		37: { // Healing Immersion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [37],
-				partyOnly: true,
-				noRetry: true
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1627,6 +1632,7 @@ module.exports = {
 			0: { length: 1050 }
 		},
 		41: { // Divine Intervention
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1659,6 +1665,7 @@ module.exports = {
 			0: { length: 1275 }
 		},
 		5: { // Titanic Favor
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1684,6 +1691,7 @@ module.exports = {
 			30: { length: 820 }
 		},
 		9: { // Arun's Cleansing
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1713,6 +1721,7 @@ module.exports = {
 			0: { length: 4400 }
 		},
 		12: { // Vow of Rebirth
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1795,6 +1804,7 @@ module.exports = {
 			30: { length: 1100 }
 		},
 		24: { // Volley of Curses
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1803,8 +1813,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [525, 675],
-				noRetry: true
+				length: [525, 675]
 			}
 		},
 		25: { // Thrall of Protection
@@ -1820,6 +1829,7 @@ module.exports = {
 			}
 		},
 		28: { // Sonorous Dreams
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1836,6 +1846,7 @@ module.exports = {
 			length: [500, 700]
 		},
 		30: { // Curse of Exhaustion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1848,6 +1859,7 @@ module.exports = {
 			}
 		},
 		31: { // Curse of Confusion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1860,6 +1872,7 @@ module.exports = {
 			}
 		},
 		32: { // Mire
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1899,6 +1912,7 @@ module.exports = {
 			0: { length: 1900 }
 		},
 		41: { // Contagion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
