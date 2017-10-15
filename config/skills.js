@@ -1124,8 +1124,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1144,8 +1143,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1158,8 +1156,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1172,8 +1169,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1186,8 +1182,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1257,8 +1252,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1498,8 +1492,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
-				noRetry: true
+				length: 54440
 			},
 			10: {
 				type: 'lockonCast',
@@ -1557,8 +1550,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1582,8 +1574,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1598,8 +1589,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1641,8 +1631,7 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54440,
-				partyOnly: true,
-				noRetry: true
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1673,8 +1662,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
-				noRetry: true
+				length: 59900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1699,8 +1687,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
-				noRetry: true
+				length: 59900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1730,8 +1717,7 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 59900,
-				partyOnly: true,
-				noRetry: true
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1812,8 +1798,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1838,8 +1823,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1855,8 +1839,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1868,8 +1851,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1881,8 +1863,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1921,8 +1902,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -2683,8 +2663,7 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				},
-				notifyRainbow: [1, 2, 30, 31]
+				}
 			},
 			1: true,
 			2: true,
@@ -2696,7 +2675,7 @@ module.exports = {
 				length: 860,
 				distance: 105,
 				noInterrupt: [7],
-				notifyRainbow: [0, 30]
+				hasChains: true
 			},
 			0: true,
 			30: true
@@ -2724,8 +2703,7 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				},
-				notifyRainbow: [1, 2, 30, 31]
+				}
 			},
 			1: true,
 			2: true,
@@ -2741,7 +2719,7 @@ module.exports = {
 				abnormals: {
 					31120: { chain: 31 }
 				},
-				notifyRainbow: [1, 2, 30, 31]
+				hasChains: true
 			},
 			1: true,
 			2: true,
@@ -2770,8 +2748,7 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -2794,7 +2771,7 @@ module.exports = {
 			'*': {
 				length: 2050,
 				distance: 134,
-				notifyRainbow: [1, 2, 30]
+				hasChains: true
 			},
 			1: true,
 			2: true,
@@ -2814,6 +2791,7 @@ module.exports = {
 				length: 580,
 				distance: 144,
 				forceClip: true,
+				hasChains: true,
 				noRetry: true
 			},
 			0: true, // TODO: Figure out which animations are correct
@@ -3305,8 +3283,7 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -3349,8 +3326,7 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -3378,8 +3354,7 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -3415,13 +3390,13 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: { notifyRainbow: [0, 30] },
+			0: true,
 			1: true,
 			2: {
 				length: 2300,
 				distance: 197.82
 			},
-			30: { notifyRainbow: [0, 30] }
+			30: true
 		},
 		8: { // Titansbane
 			'*': {
@@ -3539,8 +3514,7 @@ module.exports = {
 			},
 			0: {
 				distance: 227.49,
-				noInterrupt: [11],
-				notifyRainbow: [0, 30]
+				noInterrupt: [11]
 			},
 			1: {
 				length: 2500,
@@ -3565,10 +3539,7 @@ module.exports = {
 					20: 31
 				}
 			},
-			30: {
-				distance: 227.49,
-				notifyRainbow: [0, 30]
-			},
+			30: { distance: 227.49 },
 			31: { length: 2500 }
 		},
 		12: { // Ragnarok

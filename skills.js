@@ -59,6 +59,8 @@ module.exports = function SkillPrediction(dispatch) {
 		oopsLocation = null,
 		currentAction = null,
 		serverAction = null,
+		serverConfirmedAction = false,
+		queuedNotifyLocation = [],
 		lastEndSkill = 0,
 		lastEndType = 0,
 		lastEndedId = 0,
@@ -210,27 +212,26 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		let info = skillInfo(event.skill)
-		if(info) {
-			// Since we're not 100% sure which chain the server used, we just try all of them
-			if(info.notifyRainbow) {
-				for(let chain of info.notifyRainbow) {
-					event.skill += chain - ((event.skill - 0x4000000) % 100)
-					dispatch.toServer(type, version, event)
+		// The server rejects and logs packets with an incorrect skill, so if a skill has multiple possible IDs then we wait for a response
+		if(info && !info.chains && !info.hasChains)
+			if(serverConfirmedAction) {
+				if(event.skill !== serverAction.skill) {
+					event.skill = serverAction.skill
+					return true
 				}
-
-				if(!info.noRetry)
-					retry(() => {
-						for(let chain of info.notifyRainbow) {
-							event.skill += chain - ((event.skill - 0x4000000) % 100)
-							if(!dispatch.toServer(type, version, event)) return false
-						}
-						return true
-					})
-
+			}
+			else {
+				queuedNotifyLocation.push([type, version, event])
 				return false
 			}
+	}
 
-			if(!info.noRetry) retry(() => dispatch.toServer(type, version, event))
+	function dequeueNotifyLocation() {
+		if(queuedNotifyLocation.length) {
+			if(serverConfirmedAction)
+				for(let args of queuedNotifyLocation) dispatch.toServer(...args)
+
+			queuedNotifyLocation = []
 		}
 	}
 
@@ -296,6 +297,8 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function handleStartSkill(type, event, info, send) {
+		serverConfirmedAction = false
+		dequeueNotifyLocation()
 		delayNext = 0
 
 		let specialLoc = type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX'
@@ -581,12 +584,12 @@ module.exports = function SkillPrediction(dispatch) {
 				debugActionTime = Date.now()
 			}
 
-			if(!alive) console.log('[SkillPrediction] S_ACTION_STAGE: player is already dead', skillId(event.skill))
-
 			let info = skillInfo(event.skill)
 			if(info) {
 				if(currentAction && (event.skill == currentAction.skill || Math.floor((event.skill - 0x4000000) / 10000) == Math.floor((currentAction.skill - 0x4000000) / 10000)) && event.stage == currentAction.stage) {
 					clearTimeout(serverTimeout)
+					serverConfirmedAction = true
+					dequeueNotifyLocation()
 
 					if(JITTER_COMPENSATION && event.stage == 0) {
 						let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
