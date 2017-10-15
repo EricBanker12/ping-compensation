@@ -1501,7 +1501,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [22],
-				noRetry: true
+				noRetry: true,
 				length: 4900
 			},
 			10: {
