@@ -17,7 +17,7 @@ const JITTER_COMPENSATION	= true,
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
-const sysmsg = require('tera-data-parser').sysmsg,
+const {protocol, sysmsg} = require('tera-data-parser'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills')
@@ -33,7 +33,7 @@ module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
 		abnormality = AbnormalityPrediction(dispatch)
 
-	let hooks = {},
+	let sending = false,
 		skillsCache = null,
 		cid = null,
 		model = 0,
@@ -244,12 +244,14 @@ module.exports = function SkillPrediction(dispatch) {
 			['C_PRESS_SKILL', 1],
 			['C_NOTIMELINE_SKILL', 1]
 		])
-		hook(...packet, {order: 100, filter: {fake: null}}, startSkill.bind(null, packet[0]))
+		dispatch.hook(packet[0], 'raw', {order: -10, filter: {fake: null}}, startSkill.bind(null, ...packet))
 
-	function startSkill(type, event) {
-		let delay = 0
+	function startSkill(type, version, code, data) {
+		if(sending) return
 
-		let info = skillInfo(event.skill)
+		let event = protocol.parse(dispatch.base.protocolVersion, type, version, data = Buffer.from(data)),
+			info = skillInfo(event.skill),
+			delay = 0
 
 		if(delayNext && Date.now() <= stageEndTime) {
 			delay = delayNext
@@ -289,14 +291,14 @@ module.exports = function SkillPrediction(dispatch) {
 		clearTimeout(delayNextTimeout)
 
 		if(delay) {
-			delayNextTimeout = setTimeout(handleStartSkill, delay, type, event, info, true)
+			delayNextTimeout = setTimeout(handleStartSkill, delay, type, event, info, data, true)
 			return false
 		}
 
-		return handleStartSkill(type, event, info)
+		return handleStartSkill(type, event, info, data)
 	}
 
-	function handleStartSkill(type, event, info, send) {
+	function handleStartSkill(type, event, info, data, send) {
 		serverConfirmedAction = false
 		dequeueNotifyLocation()
 		delayNext = 0
@@ -308,7 +310,7 @@ module.exports = function SkillPrediction(dispatch) {
 				// Sometimes invalid (if this skill can't be used, but we have no way of knowing that)
 				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
-			if(send) sendStartSkill(type, event)
+			if(send) toServerLocked(data)
 			return
 		}
 
@@ -325,7 +327,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 					info = skillInfo(skill += info.chainOnRelease - ((skill - 0x4000000) % 100))
 					if(!info) {
-						if(send) sendStartSkill(type, event)
+						if(send) toServerLocked(data)
 						return
 					}
 
@@ -348,7 +350,7 @@ module.exports = function SkillPrediction(dispatch) {
 				else sendActionEnd(10)
 			}
 
-			if(send) sendStartSkill(type, event)
+			if(send) toServerLocked(data)
 			return
 		}
 
@@ -417,7 +419,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(!info) {
 				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
-				if(send) sendStartSkill(type, event)
+				if(send) toServerLocked(data)
 				return
 			}
 		}
@@ -466,7 +468,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skill != event.skill) {
 			info = skillInfo(skill)
 			if(!info) {
-				if(send) sendStartSkill(type, event)
+				if(send) toServerLocked(data)
 				return
 			}
 		}
@@ -475,7 +477,7 @@ module.exports = function SkillPrediction(dispatch) {
 			info.type == 'chargeCast' ? clearStage() : sendActionEnd(interruptType)
 
 			if(info.type == 'nullChain') {
-				if(send) sendStartSkill(type, event)
+				if(send) toServerLocked(data)
 				return
 			}
 		}
@@ -523,24 +525,21 @@ module.exports = function SkillPrediction(dispatch) {
 			} : null
 		})
 
-		if(send) sendStartSkill(type, event)
+		if(send) toServerLocked(data)
 
 		// Normally the user can press the skill button again if it doesn't go off
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(!info.noRetry)
 			retry(() => {
-				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill)
-					return sendStartSkill(type, event)
+				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill) return toServerLocked(data)
 				return false
 			})
 	}
 
-	function sendStartSkill(name, event) {
-		let info = hooks[name]
-
-		dispatch.unhook(info.hook)
-		let success = dispatch.toServer(name, info[1], event)
-		hook(...hooks[name])
+	function toServerLocked(data) {
+		sending = true
+		let success = dispatch.toServer(data)
+		sending = false
 
 		return success
 	}
@@ -1124,11 +1123,6 @@ module.exports = function SkillPrediction(dispatch) {
 				return
 
 		return obj
-	}
-
-	function hook(name) {
-		hooks[name] = [...arguments]
-		hooks[name].hook = dispatch.hook(...arguments)
 	}
 
 	function debug(msg) {
