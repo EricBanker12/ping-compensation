@@ -1370,8 +1370,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1390,8 +1389,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1404,8 +1402,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1418,8 +1415,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1432,8 +1428,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1500,12 +1495,14 @@ module.exports = {
 			0: { length: 400 }
 		},
 		2: { // Arrow Volley
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [22],
 				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1798,11 +1795,11 @@ module.exports = {
 			0: { length: 1250 }
 		},
 		19: { // Focus Heal
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
-				noRetry: true
+				length: 54440
 			},
 			10: {
 				type: 'lockonCast',
@@ -1858,11 +1855,11 @@ module.exports = {
 			2: { length: 1250 }
 		},
 		30: { // Plague of Exhaustion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1882,7 +1879,8 @@ module.exports = {
 				length: [1300, 900]
 			}
 		},
-		33: { // Ishara's Lullaby
+		33: { // Ishara's Lulliby
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -1899,11 +1897,11 @@ module.exports = {
 			0: { length: 1430 }
 		},
 		35: { // Energy Stars
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -1912,13 +1910,13 @@ module.exports = {
 			}
 		},
 		37: { // Healing Immersion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [37],
-				partyOnly: true,
-				noRetry: true
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1941,12 +1939,12 @@ module.exports = {
 			0: { length: 1080 }
 		},
 		41: { // Divine Intervention
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54440,
-				partyOnly: true,
-				noRetry: true
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -1974,11 +1972,11 @@ module.exports = {
 			0: { length: 1275 }
 		},
 		5: { // Titanic Favor
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
-				noRetry: true
+				length: 59900
 			},
 			10: {
 				type: 'lockonCast',
@@ -2000,11 +1998,11 @@ module.exports = {
 			30: { length: 820 }
 		},
 		9: { // Arun's Cleansing
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
-				noRetry: true
+				length: 59900
 			},
 			10: {
 				type: 'lockonCast',
@@ -2030,12 +2028,12 @@ module.exports = {
 			0: { length: 4400 }
 		},
 		12: { // Vow of Rebirth
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 59900,
-				partyOnly: true,
-				noRetry: true
+				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2119,17 +2117,16 @@ module.exports = {
 			30: { length: 1100 }
 		},
 		24: { // Volley of Curses
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [525, 675],
-				noRetry: true
+				length: [525, 675]
 			}
 		},
 		25: { // Thrall of Protection
@@ -2145,11 +2142,11 @@ module.exports = {
 			}
 		},
 		28: { // Sonorous Dreams
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -2162,11 +2159,11 @@ module.exports = {
 			length: [500, 700]
 		},
 		30: { // Curse of Exhaustion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -2175,11 +2172,11 @@ module.exports = {
 			}
 		},
 		31: { // Curse of Confusion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -2188,11 +2185,11 @@ module.exports = {
 			}
 		},
 		32: { // Mire
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -2228,11 +2225,11 @@ module.exports = {
 			0: { length: 1900 }
 		},
 		41: { // Contagion
+			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
-				noRetry: true
+				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
@@ -3020,8 +3017,7 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				},
-				notifyRainbow: [1, 2, 30, 31]
+				}
 			},
 			1: true,
 			2: true,
@@ -3033,7 +3029,7 @@ module.exports = {
 				length: 860,
 				distance: 105,
 				noInterrupt: [7],
-				notifyRainbow: [0, 30]
+				hasChains: true
 			},
 			0: true,
 			30: true
@@ -3061,8 +3057,7 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				},
-				notifyRainbow: [1, 2, 30, 31]
+				}
 			},
 			1: true,
 			2: true,
@@ -3078,7 +3073,7 @@ module.exports = {
 				abnormals: {
 					31120: { chain: 31 }
 				},
-				notifyRainbow: [1, 2, 30, 31]
+				hasChains: true
 			},
 			1: true,
 			2: true,
@@ -3107,8 +3102,7 @@ module.exports = {
 					18: 30,
 					20: 30,
 					40: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -3131,7 +3125,7 @@ module.exports = {
 			'*': {
 				length: 2050,
 				distance: 134,
-				notifyRainbow: [1, 2, 30]
+				hasChains: true
 			},
 			1: true,
 			2: true,
@@ -3151,6 +3145,7 @@ module.exports = {
 				length: 580,
 				distance: 144,
 				forceClip: true,
+				hasChains: true,
 				noRetry: true
 			},
 			0: true, // TODO: Figure out which animations are correct
@@ -3642,8 +3637,7 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -3686,8 +3680,7 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -3715,8 +3708,7 @@ module.exports = {
 					16: 30,
 					19: 30,
 					20: 30
-				},
-				notifyRainbow: [0, 30]
+				}
 			},
 			0: true,
 			30: true
@@ -3752,13 +3744,13 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: { notifyRainbow: [0, 30] },
+			0: true,
 			1: true,
 			2: {
 				length: 2300,
 				distance: 197.82
 			},
-			30: { notifyRainbow: [0, 30] }
+			30: true
 		},
 		8: { // Titansbane
 			'*': {
@@ -3879,8 +3871,7 @@ module.exports = {
 			},
 			0: {
 				distance: 227.49,
-				noInterrupt: [11],
-				notifyRainbow: [0, 30]
+				noInterrupt: [11]
 			},
 			1: {
 				length: 2500,
@@ -3905,10 +3896,7 @@ module.exports = {
 					20: 31
 				}
 			},
-			30: {
-				distance: 227.49,
-				notifyRainbow: [0, 30]
-			},
+			30: { distance: 227.49 },
 			31: { length: 2500 }
 		},
 		12: { // Ragnarok

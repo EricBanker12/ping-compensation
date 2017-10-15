@@ -13,11 +13,12 @@ const JITTER_COMPENSATION	= true,
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
+	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
 	DEBUG					= false,
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
-const sysmsg = require('tera-data-parser').sysmsg,
+const {protocol, sysmsg} = require('tera-data-parser'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills')
@@ -26,14 +27,13 @@ const INTERRUPT_TYPES = {
 	'nullChain': 4,
 	'retaliate': 5,
 	'lockonCast': 36
-},
-	JOBS_NON_CRITICAL_BLOCK = [10] // QoL: List of classes that do not have any time-sensitive response to S_DEFEND_SUCCESS
+}
 
 module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
 		abnormality = AbnormalityPrediction(dispatch)
 
-	let hooks = {},
+	let sending = false,
 		skillsCache = null,
 		cid = null,
 		model = 0,
@@ -59,6 +59,8 @@ module.exports = function SkillPrediction(dispatch) {
 		oopsLocation = null,
 		currentAction = null,
 		serverAction = null,
+		serverConfirmedAction = false,
+		queuedNotifyLocation = [],
 		lastEndSkill = 0,
 		lastEndType = 0,
 		lastEndedId = 0,
@@ -210,27 +212,27 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		let info = skillInfo(event.skill)
-		if(info) {
-			// Since we're not 100% sure which chain the server used, we just try all of them
-			if(info.notifyRainbow) {
-				for(let chain of info.notifyRainbow) {
-					event.skill += chain - ((event.skill - 0x4000000) % 100)
-					dispatch.toServer(type, version, event)
+		// The server rejects and logs packets with an incorrect skill, so if a skill has multiple possible IDs then we wait for a response
+		if(info && !info.chains && !info.hasChains)
+			if(serverConfirmedAction) {
+				if(!serverAction) return false
+				else if(event.skill !== serverAction.skill) {
+					event.skill = serverAction.skill
+					return true
 				}
-
-				if(!info.noRetry)
-					retry(() => {
-						for(let chain of info.notifyRainbow) {
-							event.skill += chain - ((event.skill - 0x4000000) % 100)
-							if(!dispatch.toServer(type, version, event)) return false
-						}
-						return true
-					})
-
+			}
+			else {
+				queuedNotifyLocation.push([type, version, event])
 				return false
 			}
+	}
 
-			if(!info.noRetry) retry(() => dispatch.toServer(type, version, event))
+	function dequeueNotifyLocation() {
+		if(queuedNotifyLocation.length) {
+			if(serverConfirmedAction)
+				for(let args of queuedNotifyLocation) dispatch.toServer(...args)
+
+			queuedNotifyLocation = []
 		}
 	}
 
@@ -243,12 +245,14 @@ module.exports = function SkillPrediction(dispatch) {
 			['C_PRESS_SKILL', 1],
 			['C_NOTIMELINE_SKILL', 1]
 		])
-		hook(...packet, {order: 100, filter: {fake: null}}, startSkill.bind(null, packet[0]))
+		dispatch.hook(packet[0], 'raw', {order: -10, filter: {fake: null}}, startSkill.bind(null, ...packet))
 
-	function startSkill(type, event) {
-		let delay = 0
+	function startSkill(type, version, code, data) {
+		if(sending) return
 
-		let info = skillInfo(event.skill)
+		let event = protocol.parse(dispatch.base.protocolVersion, type, version, data = Buffer.from(data)),
+			info = skillInfo(event.skill),
+			delay = 0
 
 		if(delayNext && Date.now() <= stageEndTime) {
 			delay = delayNext
@@ -288,14 +292,16 @@ module.exports = function SkillPrediction(dispatch) {
 		clearTimeout(delayNextTimeout)
 
 		if(delay) {
-			delayNextTimeout = setTimeout(handleStartSkill, delay, type, event, info, true)
+			delayNextTimeout = setTimeout(handleStartSkill, delay, type, event, info, data, true)
 			return false
 		}
 
-		return handleStartSkill(type, event, info)
+		return handleStartSkill(type, event, info, data)
 	}
 
-	function handleStartSkill(type, event, info, send) {
+	function handleStartSkill(type, event, info, data, send) {
+		serverConfirmedAction = false
+		dequeueNotifyLocation()
 		delayNext = 0
 
 		let specialLoc = type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX'
@@ -305,7 +311,7 @@ module.exports = function SkillPrediction(dispatch) {
 				// Sometimes invalid (if this skill can't be used, but we have no way of knowing that)
 				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
-			if(send) sendStartSkill(type, event)
+			if(send) toServerLocked(data)
 			return
 		}
 
@@ -322,7 +328,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 					info = skillInfo(skill += info.chainOnRelease - ((skill - 0x4000000) % 100))
 					if(!info) {
-						if(send) sendStartSkill(type, event)
+						if(send) toServerLocked(data)
 						return
 					}
 
@@ -345,7 +351,7 @@ module.exports = function SkillPrediction(dispatch) {
 				else sendActionEnd(10)
 			}
 
-			if(send) sendStartSkill(type, event)
+			if(send) toServerLocked(data)
 			return
 		}
 
@@ -414,7 +420,7 @@ module.exports = function SkillPrediction(dispatch) {
 			if(!info) {
 				if(type != 'C_NOTIMELINE_SKILL') updateLocation(event, false, specialLoc)
 
-				if(send) sendStartSkill(type, event)
+				if(send) toServerLocked(data)
 				return
 			}
 		}
@@ -463,7 +469,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(skill != event.skill) {
 			info = skillInfo(skill)
 			if(!info) {
-				if(send) sendStartSkill(type, event)
+				if(send) toServerLocked(data)
 				return
 			}
 		}
@@ -472,7 +478,7 @@ module.exports = function SkillPrediction(dispatch) {
 			info.type == 'chargeCast' ? clearStage() : sendActionEnd(interruptType)
 
 			if(info.type == 'nullChain') {
-				if(send) sendStartSkill(type, event)
+				if(send) toServerLocked(data)
 				return
 			}
 		}
@@ -520,24 +526,21 @@ module.exports = function SkillPrediction(dispatch) {
 			} : null
 		})
 
-		if(send) sendStartSkill(type, event)
+		if(send) toServerLocked(data)
 
 		// Normally the user can press the skill button again if it doesn't go off
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(!info.noRetry)
 			retry(() => {
-				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill)
-					return sendStartSkill(type, event)
+				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill) return toServerLocked(data)
 				return false
 			})
 	}
 
-	function sendStartSkill(name, event) {
-		let info = hooks[name]
-
-		dispatch.unhook(info.hook)
-		let success = dispatch.toServer(name, info[1], event)
-		hook(...hooks[name])
+	function toServerLocked(data) {
+		sending = true
+		let success = dispatch.toServer(data)
+		sending = false
 
 		return success
 	}
@@ -581,12 +584,12 @@ module.exports = function SkillPrediction(dispatch) {
 				debugActionTime = Date.now()
 			}
 
-			if(!alive) console.log('[SkillPrediction] S_ACTION_STAGE: player is already dead', skillId(event.skill))
-
 			let info = skillInfo(event.skill)
 			if(info) {
 				if(currentAction && (event.skill == currentAction.skill || Math.floor((event.skill - 0x4000000) / 10000) == Math.floor((currentAction.skill - 0x4000000) / 10000)) && event.stage == currentAction.stage) {
 					clearTimeout(serverTimeout)
+					serverConfirmedAction = true
+					dequeueNotifyLocation()
 
 					if(JITTER_COMPENSATION && event.stage == 0) {
 						let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
@@ -786,7 +789,7 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
 		if(isMe(event.cid))
 			if(currentAction && currentAction.skill == serverAction.skill) currentAction.defendSuccess = true
-			else if(!JOBS_NON_CRITICAL_BLOCK.includes(job)) return false
+			else if(!DEFEND_SUCCESS_STRICT && job == 10) return false
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
@@ -1121,11 +1124,6 @@ module.exports = function SkillPrediction(dispatch) {
 				return
 
 		return obj
-	}
-
-	function hook(name) {
-		hooks[name] = [...arguments]
-		hooks[name].hook = dispatch.hook(...arguments)
 	}
 
 	function debug(msg) {
