@@ -213,7 +213,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		let info = skillInfo(event.skill)
 		// The server rejects and logs packets with an incorrect skill, so if a skill has multiple possible IDs then we wait for a response
-		if(info && !info.chains && !info.hasChains)
+		if(info && (info.chains || info.hasChains))
 			if(serverConfirmedAction) {
 				if(!serverAction) return false
 				else if(event.skill !== serverAction.skill) {
