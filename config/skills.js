@@ -94,7 +94,7 @@ module.exports = {
 		},
 		10: { // Death From Above
 			0: {
-				length: 2025,
+				length: 2010,
 				noInterrupt: [32]
 			}
 		},
@@ -1250,7 +1250,7 @@ module.exports = {
 		4: { // Arcane Pulse
 			'*': {
 				type: 'chargeCast',
-				length: 1255 // Elin: 1015  | Rest of races: 1265
+				length: 1285 // Elin: 1015  | Any other race: 1285
 			},
 			0: {
 				type: 'charging',
@@ -1290,7 +1290,7 @@ module.exports = {
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3725, // 3925 for non elin
+				length: 3725, // Elin: 3725 | Any other race: 3925
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
@@ -1322,7 +1322,7 @@ module.exports = {
 			0: { length: 625 }
 		},
 		11: { // Lightning Strike
-			0: { length: 805 } // Elin: 805  | Rest of races: 835
+			0: { length: 805 } // Elin: 805  | Any other race: 835
 		},
 		12: { // Void Pulse
 			0: { length: 935 }
@@ -1339,7 +1339,7 @@ module.exports = {
 			}
 		},
 		16: { // Painblast
-			0: { length: 1330 } // Painblast: 1330 | Popori: 1580
+			0: { length: 1330 } // Elin: 1330 | Popori: 1580
 		},
 		17: { // Painful Trap
 			0: { length: 1100 }
@@ -1478,7 +1478,7 @@ module.exports = {
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
 				type: 'chargeCast',
-				length: 1275,
+				length: 1285,
 				noRetry: true
 			},
 			10: true,
