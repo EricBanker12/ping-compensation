@@ -94,7 +94,7 @@ module.exports = {
 		},
 		10: { // Death From Above
 			0: {
-				length: 2010,
+				length: 2025,
 				noInterrupt: [32]
 			}
 		},
@@ -312,7 +312,7 @@ module.exports = {
 		34: { // Binding Sword
 			0: { 
 				length: 1900,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 35, 36, 37, 39]
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
 			}
 		},
 		35: { // Infuriate
@@ -1478,7 +1478,7 @@ module.exports = {
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
 				type: 'chargeCast',
-				length: 1285,
+				length: 1285, // Elin: 1015  | Any other race: 1285
 				noRetry: true
 			},
 			10: true,
@@ -1879,7 +1879,7 @@ module.exports = {
 				length: [1300, 900]
 			}
 		},
-		33: { // Ishara's Lulliby
+		33: { // Ishara's Lullaby
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
@@ -1969,7 +1969,7 @@ module.exports = {
 			12: { length: 1275 }
 		},
 		4: { // Ancient Binding
-			0: { length: 1275 }
+			0: { length: 1280 }
 		},
 		5: { // Titanic Favor
 			'*': { noRetry: true },
@@ -1989,7 +1989,7 @@ module.exports = {
 		8: { // Metamorphic Blast
 			0: {
 				length: 820,
-				noInterrupt: [1, 2, 17, 43],
+				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, 21, '18-10', '22-10', 37, '41-10', 43], // The skill behaves the same way Metamorphic Smite does from lvls 1 to 10 then at lvl 11 it loses its cancelling properties
 				chains: {
 					8: 30,
 					23: 30
@@ -2109,7 +2109,7 @@ module.exports = {
 		23: { // Metamorphic Smite
 			0: {
 				length: 1430,
-				noInterrupt: [1, 2, 6, 10, 13, 14, 15, 16, 17, 21, 23, 37, 43],
+				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43],
 				chains: {
 					8: 30
 				}
@@ -2480,7 +2480,7 @@ module.exports = {
 			},
 			0: { noInterrupt: ['6-31'] },
 			30: true,
-			31: { consumeAbnormal: 10151131 },
+			31: true
 		},
 		8: { // Whipsaw
 			'*': {
