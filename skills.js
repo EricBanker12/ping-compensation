@@ -789,7 +789,7 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
 		if(isMe(event.cid))
 			if(currentAction && currentAction.skill == serverAction.skill) currentAction.defendSuccess = true
-			else if(!DEFEND_SUCCESS_STRICT && job == 10) return false
+			else if(DEFEND_SUCCESS_STRICT || job != 10) return false
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
