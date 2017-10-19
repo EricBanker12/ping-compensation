@@ -26,7 +26,7 @@ module.exports = {
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 835,
+				length: 830,
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
@@ -659,7 +659,7 @@ module.exports = {
 		},
 		8: { // Overhand Strike
 			0: {
-				length: 3400,
+				length: 3365,
 				distance: 170,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
@@ -788,7 +788,7 @@ module.exports = {
 			},
 			0: {
 				length: 3685,
-				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 17, 21, 22],
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22],
 				chains: {
 					8: 30,
 					24: 30,
@@ -802,7 +802,7 @@ module.exports = {
 				distance: 50
 			},
 			0: {
-				length: 1900,
+				length: 1915,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 21, 22, 24],
 				chains: {
 					1: 30,
@@ -820,8 +820,8 @@ module.exports = {
 		},
 		25: { // Ultimate Overhand Strike
 			'*': { distance: 170 },
-			0: { length: 3400 },
-			30: { length: 1300 }
+			0: { length: 3365 },
+			30: { length: 1325 }
 		}
 	},
 	3: { // Berserker
@@ -1127,7 +1127,7 @@ module.exports = {
 				distance: 167.625
 			},
 			0: {
-				length: 1020,
+				length: 1015,
 				distance: 150
 			},
 			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
@@ -1187,7 +1187,7 @@ module.exports = {
 		},
 		29: { // Evasive Roll (TODO: Check)
 			0: {
-				length: 940,
+				length: 910,
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29]
@@ -1234,10 +1234,10 @@ module.exports = {
 	},
 	4: { // Sorcerer
 		1: { // Fireball
-			0: { length: 735 }
+			0: { length: 730 }
 		},
 		2: { // Frost Sphere
-			0: { length: 1010 } // Popori/M.Casta/M.Helf/M.Human/F.Casta/F.Aman/F.Helf/F.Human: 815 | Baraka: 915 | Elin: 1015 | M.Aman: 1255
+			0: { length: 1010 } // Popori/M.Casta/M.Helf/M.Human/F.Casta/F.Aman/F.Helf/F.Human: 810 | Baraka: 910 | Elin: 1010 | M.Aman: 1255
 		},
 		3: { // Lightning Trap
 			0: {
@@ -1322,7 +1322,7 @@ module.exports = {
 			0: { length: 625 }
 		},
 		11: { // Lightning Strike
-			0: { length: 805 } // Elin: 805  | Any other race: 835
+			0: { length: 805 } // Elin: 805  | Any other race: 835/845
 		},
 		12: { // Void Pulse
 			0: { length: 935 }
@@ -1465,7 +1465,7 @@ module.exports = {
 		},
 		32: { // Meteor Shower
 			'*': {
-				length: 6475,
+				length: 6475, // Elin: 6475 | M.Helf/F.Casta: 6750/6775
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
@@ -1609,7 +1609,7 @@ module.exports = {
 				noInterrupt: [22]
 			},
 			0: { 
-				length: 460,
+				length: 433,
 				noInterrupt: [6] 
 			},
 			1: { length: 600 },
@@ -1617,7 +1617,7 @@ module.exports = {
 			3: { length: 800 },
 			4: { length: 700 },
 			5: { length: 800 },
-			6: { length: 1275 }
+			6: { length: 1233 }
 		},
 		9: { // Slow Trap
 			0: { length: 1150 }
@@ -2041,22 +2041,22 @@ module.exports = {
 			}
 		},
 		13: { // Aura of the Merciless
-			'*': { length: 1310 },
+			'*': { length: 1300 },
 			0: true,
 			50: true
 		},
 		14: { // Aura of the Swift
-			'*': { length: 1310 },
+			'*': { length: 1300 },
 			0: true,
 			50: true
 		},
 		15: { // Aura of the Unyielding
-			'*': { length: 1310 },
+			'*': { length: 1300 },
 			0: true,
 			50: true
 		},
 		16: { // Aura of the Tenacious
-			'*': { length: 1310 },
+			'*': { length: 1300 },
 			0: true,
 			50: true
 		},
@@ -2132,7 +2132,7 @@ module.exports = {
 		25: { // Thrall of Protection
 			0: {
 				fixedSpeed: 1,
-				length: [1000, 1725]
+				length: [1000, 1720]
 			}
 		},
 		27: { // Thrall of Life
@@ -3648,13 +3648,14 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 550,
 				distance: 436,
-				noInterrupt: ['4-0']
+				noInterrupt: ['4-0'],
+				noRetry: true
 			},
 			10: { length: 900 },
 			11: {
 				length: 400,
 				distance: 50,
-				noInterrupt: ['4-11']
+				noInterrupt: [1, 2, '4-11', 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21]
 			}
 		},
 		5: { // Maelstrom
@@ -3693,7 +3694,8 @@ module.exports = {
 					1: 30,
 					2: 30,
 					3: 30,
-					4: 30,
+					'4-10': 30,
+					'4-11': 30,
 					5: 30,
 					6: 30,
 					7: 30,
@@ -3813,26 +3815,23 @@ module.exports = {
 		10: { // Dream Slash
 			'*': {
 				length: 1775,
-				distance: 11.18,
-				noInterrupt: [10],
+				distance: 11,
 				glyphs: {
 					33020: { speed: 1.2 }
 				}
 			},
-			0: { 
+			0: {
 				chains: {
 					1: 4,
 					2: 4,
 					3: 4,
-					//'4-0': 4,
-					//'4-10': 4,
-					//'4-11': 4,
+					'4-10': 4,
+					'4-11': 4,
 					5: 4,
 					6: 4,
 					7: 4,
 					8: 4,
 					9: 4,
-					10: 4,
 					11: 4,
 					12: 4,
 					13: 4,
@@ -3852,7 +3851,8 @@ module.exports = {
 					1: 30,
 					2: 30,
 					3: 30,
-					4: 30,
+					'4-10': 30,
+					'4-11': 30,					
 					5: 30,
 					6: 30,
 					7: 30,
@@ -3965,8 +3965,8 @@ module.exports = {
 			1: {
 				consumeAbnormal: 10155020, 
 				requiredBuff: 10155020
-			 }
-			},
+			}
+		},
 		15: { // Windslash
 			'*': {
 				length: 1100,
