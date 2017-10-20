@@ -2781,6 +2781,7 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				length: 1400,
+				noInterrupt: [15],
 				distance: 415.45,
 				chains: {
 					'2-1': 30,
@@ -2792,7 +2793,7 @@ module.exports = {
 					10: 30,
 					11: 30,
 					13: 30,
-					15: 30,
+					//15: 30, fixed with noInterrupt but anyway it can't chain
 					19: 30,
 					40: 31
 				}
