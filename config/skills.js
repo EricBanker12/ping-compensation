@@ -2620,6 +2620,7 @@ module.exports = {
 		1: { // Blast
 			'*': {
 				fixedSpeed: 1,
+				noRetry: true,
 				length: 1200,
 				noInterrupt: [1]
 			},
