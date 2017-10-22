@@ -227,10 +227,13 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 	}
 
-	function dequeueNotifyLocation() {
+	function dequeueNotifyLocation(skill) {
 		if(queuedNotifyLocation.length) {
-			if(serverConfirmedAction)
-				for(let args of queuedNotifyLocation) dispatch.toServer(...args)
+			if(skill)
+				for(let [type, version, event] of queuedNotifyLocation) {
+					event.skill = skill
+					dispatch.toServer(type, version, event)
+				}
 
 			queuedNotifyLocation = []
 		}
@@ -589,7 +592,7 @@ module.exports = function SkillPrediction(dispatch) {
 				if(currentAction && (event.skill == currentAction.skill || Math.floor((event.skill - 0x4000000) / 10000) == Math.floor((currentAction.skill - 0x4000000) / 10000)) && event.stage == currentAction.stage) {
 					clearTimeout(serverTimeout)
 					serverConfirmedAction = true
-					dequeueNotifyLocation()
+					dequeueNotifyLocation(event.skill)
 
 					if(JITTER_COMPENSATION && event.stage == 0) {
 						let delay = Date.now() - lastStartTime - ping.min - JITTER_ADJUST
