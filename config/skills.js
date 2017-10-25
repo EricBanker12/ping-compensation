@@ -2585,28 +2585,30 @@ module.exports = {
 				length: 1250,
 				noRetry: true,
 				abnormals: {
-					29090: { speed: 1.5 }
-				},
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
-			},
-			0: {
-				length: 2150,
-				triggerAbnormal: { 10151040: 2000 },
-				abnormals: {
+					29090: { speed: 1.5 },
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
 				}
 			},
+			0: {
+				triggerAbnormal: { 10151040: 2000 },
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
+			},
 			1: {
 				consumeAbnormal: 10151040,
-				triggerAbnormal: { 10151041: 2000 }
+				triggerAbnormal: { 10151041: 2000 },
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-0', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			2: {
 				consumeAbnormal: 10151041,
-				triggerAbnormal: { 10151042: 2000 }
+				triggerAbnormal: { 10151042: 2000 },
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-1', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
-			3: { consumeAbnormal: 10151042 }
+			3: {
+				consumeAbnormal: 10151042,
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-2', 12, 13, 14, 15, 16, 18, 20, 40]
+			}
 		},
 		12: { // Shadow Burst
 			'*': {
