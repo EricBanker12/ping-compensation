@@ -6,7 +6,7 @@
 module.exports = {
 	0: { // Warrior
 		1: { // Combo Attack
-			'*': { noInterrupt: [1, 2, 32] },
+			'*': { noInterrupt: [1, 32] },
 			0: {
 				length: 565,
 				distance: 62.29
@@ -26,12 +26,12 @@ module.exports = {
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 830,	//Popori: 1060
+				length: 830, // Popori: 1060
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
 				instantStamina: true,
-				noInterrupt: [2, 32, 10],	//2 is a must for popori, as its evasive roll work differently than other races(with C_PLAYER_LOCATION:0 and 7 involved)
+				noInterrupt: [2, 32, 10], //2 is a must for popori, as its evasive roll work differently than other races(with C_PLAYER_LOCATION:0 and 7 involved)
 				glyphs: {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
@@ -43,14 +43,14 @@ module.exports = {
 			0: {
 				length: 1600,
 				distance: 68.26,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		4: { // Rain of Blows
 			'*': { distance: 151.87 },
 			0: {
 				length: 2550,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
+				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
 				abnormals: {
 					100801: { skill: 360100 }
 				},
@@ -70,7 +70,7 @@ module.exports = {
 		5: { // Battle Cry
 			0: {
 				length: 1665,
-				noInterrupt: [2, 32],
+				noInterrupt: [32],
 				glyphs: {
 					21040: { speed: 1.5 }
 				}
@@ -79,7 +79,7 @@ module.exports = {
 		8: { // Assault Stance
 			'*': {
 				length: 575, 
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
 			50: true
@@ -87,7 +87,7 @@ module.exports = {
 		9: { // Defensive Stance
 			'*': {
 				length: 575, 
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
 			50: true
@@ -102,14 +102,14 @@ module.exports = {
 			0: {
 				length: 925,
 				distance: 54.85,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		12: { // Leaping Strike
 			0: {
 				length: 1525,
 				distance: 250,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		/*13: { // Retaliate
@@ -127,7 +127,7 @@ module.exports = {
 				length: 1135,
 				distance: 467.88,
 				noRetry: true,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			},
 			1: { length: 825 }
 		},
@@ -135,20 +135,20 @@ module.exports = {
 			0: {
 				length: 1600,
 				requiredBuff: 100400,
-				noInterrupt: [2, 32]	//not sure vortex can interrupt evasive roll
+				noInterrupt: [32]
 			}
 		},
 		18: { // Combative Strike
 			'*': {
 				length: 1100,
 				distance: 138.28,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			},
 			1: true,
 			2: true
 		},
 		19: { // Rising Fury
-			'*': { noInterrupt: [2, 32] },
+			'*': { noInterrupt: [32] },
 			0: {
 				length: 725,
 				distance: 170.61,
@@ -163,14 +163,14 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 300,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		21: { // Cascade of Stuns
 			0: {
 				length: 1400,
 				distance: 122.34,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		23: { // Spinning Counter
@@ -187,7 +187,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 475,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		25: { // Command: Attack
@@ -195,7 +195,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 700,
 				requiredBuff: 102600,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		26: { // Command: Follow
@@ -210,7 +210,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 180,
-				noInterrupt: [2, 32],
+				noInterrupt: [32],
 				glyphs: {
 					21048: { speed: 1.3 },
 					21082: { speed: 1.3 }
@@ -221,7 +221,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
+				noInterrupt: [13, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
 				abnormals: {
 					100201:{ skill: 390100 }
 				},
@@ -243,7 +243,7 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
+				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
 				interruptibleWithAbnormal: {
 					102010: 3
 				},
@@ -300,7 +300,7 @@ module.exports = {
 			0: {
 				length: 2275,
 				distance: 110,
-				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
+				noInterrupt: [1, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
 				chains: {
 					4: 30,
 					18: 30,
@@ -320,13 +320,13 @@ module.exports = {
 		34: { // Binding Sword
 			0: { 
 				length: 1900,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
+				noInterrupt: [1, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
 			}
 		},
 		35: { // Infuriate
 			0: { 
 				length: 2425,
-				noInterrupt: [2, 32],
+				noInterrupt: [32],
 				requiredBuff: [100201]
 			}
 		},
@@ -334,7 +334,7 @@ module.exports = {
 			'*': { distance: 151.87 },
 			0: { 
 				length: 2550,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 		    },
 			30: { length: 2000 }
 		},
@@ -363,7 +363,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
+				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
 				chains: {
 					11: 30,
 					18: 30,
@@ -664,9 +664,9 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': { 
-				length: 905,	//Popori: 1150
+				length: 905, //Popori: 1150
 				distance: 150,
-				noInterrupt: [4],	//again, C_PLAYER_LOCATION, for popori's special roll only
+				noInterrupt: [4], //again, C_PLAYER_LOCATION, for popori's special roll only
 				forceclip: true,
 			},
 			0: true,
@@ -1164,7 +1164,7 @@ module.exports = {
 				distance: 167.625
 			},
 			0: {
-				length: 1015,	//there is no C_PLAYER_LOCATION affects popo zerk when use this dodge.
+				length: 1015, //there is no C_PLAYER_LOCATION affects popo zerk when use this dodge.
 				distance: 150
 			},
 			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 29, 30] },
@@ -1224,7 +1224,7 @@ module.exports = {
 		},
 		29: { // Evasive Roll (TODO: Check)
 			0: {
-				length: 910,	//but this one, C_PLAYER_LOCATION is again applied on popori
+				length: 910, //but this one, C_PLAYER_LOCATION is again applied on popori
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29]
