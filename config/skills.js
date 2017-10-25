@@ -112,6 +112,14 @@ module.exports = {
 				noInterrupt: [32]
 			}
 		},
+		/*13: { // Retaliate
+			0: {
+				type: 'retaliate',
+				length: 1630,
+				noInterrupt: [32],
+				noRetry: true
+			}
+		},*/
 		16: { // Charging Slash
 			0: {
 				type: 'dash',
@@ -312,7 +320,7 @@ module.exports = {
 		34: { // Binding Sword
 			0: { 
 				length: 1900,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
 			}
 		},
 		35: { // Infuriate
@@ -394,7 +402,7 @@ module.exports = {
 		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 62.7],
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -424,7 +432,7 @@ module.exports = {
 		},
 		7: { // Guardian Shout
 			0: { 
-				length: 550,
+				length: 550, // Popori: 800
 				noInterrupt: [2]
 			}
 		},
@@ -448,6 +456,14 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
+		/*11: { // Retaliate
+			0: {
+				type: 'retaliate',
+				length: 1645,
+				noInterrupt: [2],
+				noRetry: true
+			}
+		},*/
 		12: { // Infuriate
 			0: { 
 				length: 2425,
@@ -458,7 +474,7 @@ module.exports = {
 			0: {
 				length: 2775,
 				distance: 85,
-				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 12, 13, 15, '18-0', 21, 23, 24, 25, 26, 27],
+				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, '18-0', 21, 23, 24, 25, 26, 27],
 				chains: {
 					1: 30,
 					5: 30,
@@ -501,7 +517,7 @@ module.exports = {
 		},
 		18: { // Shield Barrage
 			0: {
-				length: 625,
+				length: 625, // M.Helf: 525
 				distance: 122.66,
 				noInterrupt: [2],
 				abnormals: {
@@ -559,7 +575,7 @@ module.exports = {
 			0: {
 				length: 2375,
 				distance: 100,
-				noInterrupt: [1, 2, 3, 4, 5, 9, 12, '18-0', 21, 23, 24, 25, 26, 27],
+				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, '18-0', 21, 23, 24, 25, 26, 27],
 				chains: {
 					8: 30,
 					10: 30,
@@ -803,7 +819,7 @@ module.exports = {
 			},
 			0: {
 				length: 1915,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 21, 22, 24],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 24],
 				chains: {
 					1: 30,
 					2: 30,
@@ -1022,6 +1038,7 @@ module.exports = {
 			0: {
 				type: 'retaliate',
 				length: 1625,
+				noInterrupt: [2],
 				noRetry: true
 			}
 		},
@@ -2267,7 +2284,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				noInterrupt: [3, 4, 12, 20],
+				noInterrupt: [3, 4, 12, 14, 20],
 				triggerAbnormal: { 10151020: 2000 },
 				abnormals: {
 					29090: { speed: 1.5 },
@@ -2358,7 +2375,7 @@ module.exports = {
 		3: { // Double Shear
 			'*': {
 				length: 2025,
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
 				abnormals: {
 					29030: { speed: 1.25 },
 					29090: { speed: 1.5 }
@@ -2395,7 +2412,7 @@ module.exports = {
 					],
 					distance: [0, 0, 0]
 				},
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20],
 				abnormals: {
 					29090: { speed: 1.5 }
 				}
@@ -2440,7 +2457,7 @@ module.exports = {
 			},
 			0: {
 				length: [2400, 975],
-				noInterrupt: ['1-0', '1-2', 4, 12, 20],
+				noInterrupt: ['1-0', '1-2', 4, 12, 14, 20],
 				abnormals: {
 					29090: { speed: 1.5 }
 				},
@@ -2485,7 +2502,7 @@ module.exports = {
 		8: { // Whipsaw
 			'*': {
 				length: 2500,
-				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 20],
+				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 14, 20],
 				abnormals: {
 					29090: { speed: 1.5 }
 				},
@@ -2514,7 +2531,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 20]
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 14, 20]
 			}
 		},
 		10: { // Pendulum Strike
@@ -2534,7 +2551,8 @@ module.exports = {
 					8: 30,
 					9: 30,
 					11: 30,
-					12: 30
+					12: 30,
+					14: 30
 				}
 			},
 			0: true,
@@ -2544,7 +2562,7 @@ module.exports = {
 			'*': {
 				length: 1250,
 				noRetry: true,
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 15, 16, 18, 20, 40]
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
 				length: 2150,
@@ -2568,7 +2586,7 @@ module.exports = {
 			},
 			0: {
 				length: 3265,
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 20],
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
 				abnormals: { 
 					29090: { speed: 1.5 }
 				},
@@ -2581,6 +2599,13 @@ module.exports = {
 				noInterrupt: ['12-1']
 			}
 		},
+		/*14: { // retaliate
+			0: {
+				type: 'retaliate',
+				length: 1610,
+				noRetry: true
+			}
+		},*/
 		15: { // Retribution
 			0: {
 				fixedSpeed: 1,
@@ -3840,6 +3865,7 @@ module.exports = {
 					14: 4,
 					15: 4,
 					16: 4,
+					18: 4,
 					19: 4,
 					20: 4,
 			    }
@@ -4032,6 +4058,13 @@ module.exports = {
 				length: 1075
 			}
 		},
+		/*18: { // Retaliate
+			0: { 
+				type: 'retaliate',
+				length: 1630,
+				noRetry: true 
+			}
+		},*/
 		19: { // Reclamation
 			'*': {
 				length: 1525,
