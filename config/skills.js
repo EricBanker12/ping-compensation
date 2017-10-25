@@ -26,12 +26,12 @@ module.exports = {
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 830, // Popori: 1060
+				length: 830,	//Popori: 1085, other races: 830
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
 				instantStamina: true,
-				noInterrupt: [2, 32, 10], //2 is a must for popori, as its evasive roll work differently than other races(with C_PLAYER_LOCATION:0 and 7 involved)
+				noInterrupt: [2, 10, 32],
 				glyphs: {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
@@ -50,7 +50,7 @@ module.exports = {
 			'*': { distance: 151.87 },
 			0: {
 				length: 2550,
-				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
 				abnormals: {
 					100801: { skill: 360100 }
 				},
@@ -135,7 +135,7 @@ module.exports = {
 			0: {
 				length: 1600,
 				requiredBuff: 100400,
-				noInterrupt: [32]
+				noInterrupt: [32]	//not sure vortex can interrupt evasive roll
 			}
 		},
 		18: { // Combative Strike
@@ -203,7 +203,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 700,
 				requiredBuff: 102600,
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			}
 		},
 		27: { // Pounce
@@ -221,7 +221,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [13, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
 				abnormals: {
 					100201:{ skill: 390100 }
 				},
@@ -243,7 +243,7 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
 				interruptibleWithAbnormal: {
 					102010: 3
 				},
@@ -273,7 +273,7 @@ module.exports = {
 			0: {
 				length: 1850,
 				distance: 150,
-				noInterrupt: [1, 3, 5,  8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
+				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
 				abnormals: {
 					100801: { skill: 380100 }
 				},
@@ -300,7 +300,7 @@ module.exports = {
 			0: {
 				length: 2275,
 				distance: 110,
-				noInterrupt: [1, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
+				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
 				chains: {
 					4: 30,
 					18: 30,
@@ -320,7 +320,7 @@ module.exports = {
 		34: { // Binding Sword
 			0: { 
 				length: 1900,
-				noInterrupt: [1, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
 			}
 		},
 		35: { // Infuriate
@@ -363,7 +363,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
 				chains: {
 					11: 30,
 					18: 30,
@@ -613,7 +613,7 @@ module.exports = {
 	2: { // Slayer
 		1: { // Combo Attack
 			'*': {
-				noInterrupt: [1, 4],
+				noInterrupt: [1],
 				noRetry: true
 			},
 			0: {
@@ -638,14 +638,14 @@ module.exports = {
 				consumeAbnormal: 23220,
 				length: 2850,
 				distance: 220.47,
-				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
+				noInterrupt: [1, 2, 3, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
 				abnormals: {
 					23070: { speed: 1.25 }
 				},
 				chains: {
 					14: 30,
 					20: 0
-				 }
+				}
 			},
 			0: true,
 			1: true,
@@ -656,7 +656,6 @@ module.exports = {
 			0: {
 				length: 2900,
 				distance: 128.69,
-				noInterrupt: [4],
 				abnormals: {
 					23080: { speed: 1.25 }
 				}
@@ -664,9 +663,9 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': { 
-				length: 905, //Popori: 1150
+				length: 905,	//Popori: 1185, Other races: 905
 				distance: 150,
-				noInterrupt: [4], //again, C_PLAYER_LOCATION, for popori's special roll only
+				noInterrupt: [4],
 				forceclip: true,
 			},
 			0: true,
@@ -676,7 +675,6 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 700,
-				noInterrupt: [4]
 			}
 		},
 		8: { // Overhand Strike
@@ -712,7 +710,6 @@ module.exports = {
 			0: {
 				length: 2175,
 				distance: 250,
-				noInterrupt: [4]
 			}
 		},
 		10: { // Retaliate
@@ -726,7 +723,6 @@ module.exports = {
 			0: {
 				length: 2315,
 				distance: 230,
-				noInterrupt: [4],
 				abnormals: {
 					23060: { speed: 1.25 },
 					23061: { speed: 1.35 }
@@ -737,12 +733,10 @@ module.exports = {
 			0: {
 				length: 2150,
 				distance: 76.71,
-				noInterrupt: [4]
 			}
 		},
 		14: { // Distant Blade
 			'*': {
-				noInterrupt: [4],
 				triggerAbnormal: { 23220: 3000 },
 				consumeAbnormalEnd: 23220
 			},
@@ -763,7 +757,6 @@ module.exports = {
 			0: {
 				length: 1475,
 				distance: -175,
-				noInterrupt: [4],
 				forceClip: true,
 				glyphs: {
 					23060: { speed: 1.25 }
@@ -774,7 +767,6 @@ module.exports = {
 			0: {
 				length: 1000,
 				distance: 142.53,
-				noInterrupt: [4]
 			}
 		},
 		17: { // Headlong Rush
@@ -783,21 +775,19 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1000,
 				distance: 413,
-				noInterrupt: [4]
 			}
 		},
 		18: { // Overpower
 			0: {
 				fixedSpeed: 1,
 				length: 200,
-				noInterrupt: [4]
 			}
 		},
 		19: { // Tenacity
 			0: {
 				fixedSpeed: 1,
 				length: [500, 700],
-				noInterrupt: [4]
+				//noInterrupt: [4]
 			}
         },
 		20: { // In Cold Blood
@@ -805,14 +795,14 @@ module.exports = {
 				triggerAbnormal: { 23220: 2000 },
 				fixedSpeed: 1,
 				length: 1185,
-				noInterrupt: [4]
+				//noInterrupt: [4]
 			}
 		},
 		21: { //Exausting Blow
 		    0: {
 				length: 1175,
 			    distance: 75,
-				noInterrupt: [4]
+				//noInterrupt: [4]
 			},
 		},
 		23: { // Measured Slice
@@ -853,10 +843,7 @@ module.exports = {
 		},
 		25: { // Ultimate Overhand Strike
 			'*': { distance: 170 },
-			0: {
-				length: 3365,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
-			},
+			0: { length: 3365},
 			30: { length: 1325 }
 		}
 	},
@@ -864,7 +851,7 @@ module.exports = {
 			1: { // Combo Attack
 				'*': { 
 					noRetry: true,
-					noInterrupt: [1, 2, 4, 29]
+					noInterrupt: [1, 2, 4]
 				},
 				0: {
 					length: 1155,
@@ -883,12 +870,12 @@ module.exports = {
 					distance: 54.28
 				}
 			},
-			2: { // Axe Block
-				'*': { type: 'holdInfinite' },
-				0: { fixedSpeed: 1 },
-				30: true,
-				31: { fixedSpeed: 1 }
-			},
+		2: { // Axe Block
+			'*': { type: 'holdInfinite' },
+			0: { fixedSpeed: 1 },
+			30: true,
+			31: { fixedSpeed: 1 }
+		},
 		3: { // Thunderstrike
 			'*': {
 				type: 'chargeCast',
@@ -897,7 +884,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
-				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 29, 30],
+				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
 				glyphs: {
 					24067: { chargeSpeed: 0.25 }
 				},
@@ -907,21 +894,21 @@ module.exports = {
 					4010150: { chargeSpeed: 0.2 }
 				}
 			},
-			10: {
+			10: {	//Charge stage 0
 				distance: 85.74, // Cast F. - TODO
-                noInterrupt: [2, 4, 24, 25, 29, 30]			
+                noInterrupt: [2, 4, 24, 25, 30]			
 			}, 
-			11: {
+			11: {	//Charge stage 1
 				distance: 85.74,
-                noInterrupt: [2, 4, 24, 25, 29, 30]
+                noInterrupt: [2, 4, 24, 25, 30]
 			},
-			12: {
+			12: {	//Charge stage 2
 				distance: 85.74,
-                noInterrupt: [2, 4, 24, 25, 29, 30]		
+                noInterrupt: [2, 4, 24, 25, 30]		
 	        },
-			13: {	
+			13: {	//Charge stage 3 and above
 				distance: 85.74,
-				noInterrupt: [2, 4, 24, 25, 29, 30]			  
+				noInterrupt: [2, 4, 24, 25, 30]			  
 			}
 		},
 		4: { // Flatten
@@ -960,7 +947,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 700,
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 			}
 		},
 		6: { // Sweeping Strike
@@ -970,7 +957,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: { 
-				noInterrupt: [2, 29],
+				noInterrupt: [2],
 			    interruptibleWithAbnormal: {
 				    401404: 2
 				},
@@ -985,12 +972,12 @@ module.exports = {
 		    0: {
 				fixedSpeed: 1,
 				length: [315, 1100],
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 				
 			}
         },
 		8: { // Fiery Rage
-			'*': { noInterrupt: [2, 29] },
+			'*': { noInterrupt: [2] },
 			0: {
 				fixedSpeed: 1,
 				length: 600
@@ -1005,7 +992,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
-			    noInterrupt: [2, 3, 4, 15, 18, 24, 25, 29, 30],
+			    noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
 				glyphs: {
 					24009: { chargeSpeed: 0.25 },
 					24052: { chargeSpeed: 0.25 },
@@ -1021,35 +1008,35 @@ module.exports = {
 			10: {
 				length: 1325, // Cast F. - TODO
 				distance: 50,
-				noInterrupt: [2, 4, 24, 25, 29, 30] 
+				noInterrupt: [2, 4, 24, 25, 30] 
 			},
 			11: {
 				length: [375, 375, 1325],
 				distance: [33.33, 33.33, 0],
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 			},
 			12: {
 				length: [375, 375, 375, 375, 1325],
 				distance: [33.33, 33.33, 33.33, 33.33, 0],
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 			},
 			13: {
 				length: [375, 375, 375, 375, 1325],
 				distance: [33.33, 33.33, 33.33, 33.33, 0],
-				noInterrupt: [2, 4, 15, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 15, 24, 25, 30]
 			}
 		},
 		11: { // Leaping Strike 
 			0: {
 				length: 2290,
 				distance: 250,
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 			}
 		},
 		12: { // Unchained Anger
 			'*': { 
 				length: [1050, 550],
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 			},
 			30: true,
 			31: true
@@ -1058,7 +1045,7 @@ module.exports = {
 			0: {
 				type: 'retaliate',
 				length: 1625,
-				noInterrupt: [2, 29],
+				noInterrupt: [2],
 				noRetry: true
 			}
 		},
@@ -1070,7 +1057,7 @@ module.exports = {
             0: {             
                 type: 'charging',       
 				length: [800, 800, 800],
-				noInterrupt: [2, 4, 24, 25, 29, 30],
+				noInterrupt: [2, 4, 24, 25, 30],
 				abnormals: {
 					4010150: { chargeSpeed: 0.2 }
 				},
@@ -1082,19 +1069,19 @@ module.exports = {
             },
             10: {
 				distance: 72.78,
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 			},
             11: {
 				distance: 72.78,
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 			},
             12: {
 				distance: 72.78,
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 			},
             13: {
 				distance: 72.78,
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 			},
             14: { distance: 72.78 }
 		},*/
@@ -1102,7 +1089,7 @@ module.exports = {
 		    0: {
 				fixedSpeed: 1,
 				length: [700, 1425],
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 			}
 		},
 		18: { // Lethal Strike (TODO: Check)
@@ -1113,7 +1100,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
-				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 29, 30],
+				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 30],
 				abnormals:  {
 					24120: { chargeSpeed: 0.3 },
 					4010150: { chargeSpeed: 0.2 },
@@ -1122,40 +1109,40 @@ module.exports = {
 			},
 			10: {
 			    distance: 171.48,
-                noInterrupt: [2, 4, 24, 25, 29, 30]
+                noInterrupt: [2, 4, 24, 25, 30]
 			},
 			11: {
 				distance: 171.48,
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 			 },
 			12: {
 				distance: 171.48,
-				noInterrupt: [2, 4, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 24, 25, 30]
 		    },
 			13: {
 				distance: 171.48,
-				noInterrupt: [2, 4, 15, 24, 25, 29, 30]
+				noInterrupt: [2, 4, 15, 24, 25, 30]
 			}
 		},
 		19: { // Tenacity
 			0: {
 				fixedSpeed: 1,
 				length: [500, 710],
-				noInterrupt: [2, 29]				
+				noInterrupt: [2]				
 			}
         },
 		20: { // Inescapable Doom
 		    0: { 
 			    fixedSpeed: 1,
 				length: [600, 900],
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 			}
 		},			
 		21: { // Bloodlust
 			0: {
 				fixedSpeed: 1,
 				length: 700,
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 			}
 		},
 		24: { // Evasive Smash (TODO: Check)
@@ -1164,13 +1151,13 @@ module.exports = {
 				distance: 167.625
 			},
 			0: {
-				length: 1015, //there is no C_PLAYER_LOCATION affects popo zerk when use this dodge.
-				distance: 150
+				length: 1015,
+				distance: 150,
 			},
-			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 29, 30] },
-			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 29, 30] },
-			12: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 29, 30] },
-			13: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 29, 30] }
+			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
+			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
+			12: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
+			13: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] }
 		},
 		25: { // Raze
 			'*': { 
@@ -1203,28 +1190,28 @@ module.exports = {
 			0: {
 				length: 1000,
 				distance: 80,
-				noInterrupt: [2, 29]
+				noInterrupt: [2]
 			}
 		},
 		27: { // Unbreakable
 			0: { 
 				length: 2100,
-				noInterrupt: [2, 29] 
+				noInterrupt: [2] 
 			},
 		},
 		28: { // Intimidation
 		    0: {
 				length: 1560,
-				noInterrupt: [2, 29]               
+				noInterrupt: [2]               
 			},
 		    50: { 
 			    length: 1560,
-                noInterrupt: [2, 29]
+                noInterrupt: [2]
 			}
 		},
 		29: { // Evasive Roll (TODO: Check)
 			0: {
-				length: 910, //but this one, C_PLAYER_LOCATION is again applied on popori
+				length: 920,
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29]
@@ -1246,17 +1233,17 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1135,
 				distance: 470,
-				noInterrupt: [2, 29],
+				noInterrupt: [2],
 				noRetry: true
 			},
 			1: { 
 				length: 1340,
-			    noInterrupt: [2, 29]
+			    noInterrupt: [2]
             }
 		},
 		32: { // Punishing Strike (TODO: Check)
 			'*': {
-				noInterrupt: [2, 29],
+				noInterrupt: [2],
 				requiredBuff: 401400
 			},
 			0: {
@@ -3217,7 +3204,11 @@ module.exports = {
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
+				length: 650,
+				distance: 44.86,
 				noRetry: true,
+			},
+			0: {
 				abnormals: {
 					10154000: { chain: 1 },
 					10154001: { chain: 2 },
@@ -3226,6 +3217,7 @@ module.exports = {
 					10154004: { chain: 5 },
 					10154005: { chain: 6 }
 				},
+				triggerAbnormal: { 10154000: 1650 },
 				chains: {
 					1: 30,
 					4: 30,
@@ -3241,11 +3233,6 @@ module.exports = {
 					19: 30,
 					20: 30
 				}
-			},
-			0: {
-				length: 650,
-				distance: 44.86,
-				triggerAbnormal: { 10154000: 1650 },
 			},
 			1: {
 				length: 1125,
@@ -3291,7 +3278,8 @@ module.exports = {
 					10154003: { chain: 4 },
 					10154004: { chain: 5 },
 					10154005: { chain: 6 }
-				}
+				},
+				triggerAbnormal: { 10154000: 1650 }
 			},
 			40: {
 				abnormals: {
@@ -3302,6 +3290,7 @@ module.exports = {
 					10154004: { chain: 45 },
 					10154005: { chain: 46 }
 				},
+				triggerAbnormal: { 10154000: 1650 },
 				chains: {
 					1: 70,
 					4: 70,
@@ -3362,7 +3351,8 @@ module.exports = {
 					10154003: { chain: 44 },
 					10154004: { chain: 45 },
 					10154005: { chain: 46 }
-				}
+				},
+				triggerAbnormal: { 10154000: 1650 }
 			}
 		},
 		2: { // Shadow Jump
