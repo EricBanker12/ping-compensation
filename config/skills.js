@@ -638,7 +638,7 @@ module.exports = {
 				consumeAbnormal: 23220,
 				length: 2850,
 				distance: 220.47,
-				noInterrupt: [1, 2, 3, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
+				//KDS now has skill queue after other skills, noInterrupt is no longer required
 				abnormals: {
 					23070: { speed: 1.25 }
 				},
