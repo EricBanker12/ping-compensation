@@ -135,7 +135,7 @@ module.exports = {
 			0: {
 				length: 1600,
 				requiredBuff: 100400,
-				noInterrupt: [32]	//not sure vortex can interrupt evasive roll
+				noInterrupt: [32]
 			}
 		},
 		18: { // Combative Strike
@@ -638,7 +638,6 @@ module.exports = {
 				consumeAbnormal: 23220,
 				length: 2850,
 				distance: 220.47,
-				//KDS now has skill queue after other skills, noInterrupt is no longer required
 				abnormals: {
 					23070: { speed: 1.25 }
 				},
@@ -663,7 +662,7 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': { 
-				length: 905,	//Popori: 1185, Other races: 905
+				length: 1185,	//Popori: 1185, Other races: 905
 				distance: 150,
 				noInterrupt: [4],
 				forceclip: true,
@@ -2292,7 +2291,6 @@ module.exports = {
 				},
 				noInterrupt: [3, 4, 12, 14, 20],
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151020: { chain: 2 },
 					10151021: { chain: 3 },
 					10151022: { chain: 4 },
@@ -2387,7 +2385,6 @@ module.exports = {
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
 				abnormals: {
 					29030: { speed: 1.25 },
-					29090: { speed: 1.5 }
 				},
 				chains: {
 					1: 30,
@@ -2422,9 +2419,6 @@ module.exports = {
 					distance: [0, 0, 0]
 				},
 				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20],
-				abnormals: {
-					29090: { speed: 1.5 }
-				}
 			},
 			30: {
 				length: [1750, 1025],
@@ -2467,9 +2461,6 @@ module.exports = {
 			0: {
 				length: [2400, 975],
 				noInterrupt: ['1-0', '1-2', 4, 12, 14, 20],
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -2487,7 +2478,6 @@ module.exports = {
 			'*': {
 				length: 1250,
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151131: { chain: 31 }
 				},
 				chains: {
@@ -2512,9 +2502,6 @@ module.exports = {
 			'*': {
 				length: 2500,
 				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 14, 20],
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -2528,9 +2515,6 @@ module.exports = {
 			0: {
 				length: 1725,
 				distance: 168,
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				inPlace: {
 					movement: [{
 						duration: 1832,
@@ -2547,9 +2531,6 @@ module.exports = {
 			'*': {
 				length: 1000,
 				distance: -200,
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				noInterrupt: [10],
 				chains: {
 					1: 30,
@@ -2569,38 +2550,41 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 1250,
 				noRetry: true,
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
 				}
 			},
 			0: {
+				length: 2150,
 				triggerAbnormal: { 10151040: 2000 },
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			1: {
+				length: 1250,
 				consumeAbnormal: 10151040,
 				triggerAbnormal: { 10151041: 2000 },
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-0', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			2: {
+				length: 1250,
 				consumeAbnormal: 10151041,
 				triggerAbnormal: { 10151042: 2000 },
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-1', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			3: {
+				length: 1250,
 				consumeAbnormal: 10151042,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-2', 12, 13, 14, 15, 16, 18, 20, 40]
 			}
 		},
 		12: { // Shadow Burst
 			'*': {
-				glyphs: { 29026: { speed: 1.25 } ,
-				abnormals: { 29090: { speed: 1.5 } },
+				glyphs: {
+					29026: { speed: 1.25 },
+				}
 			},
 			0: {
 				length: 3265,
@@ -2637,9 +2621,6 @@ module.exports = {
 			0: {
 				length: 850,
 				distance: 150,
-				abnormals: {
-					29090: { speed: 1.5 }
-				}
 			}
 		},
 		40: { // Shadow Step
@@ -2648,7 +2629,6 @@ module.exports = {
 				distance: 180,
 				forceClip: true,
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151000: { chain: 30 }
 				}
 			},
