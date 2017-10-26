@@ -26,7 +26,7 @@ module.exports = {
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 830,	//Popori: 1085, other races: 830
+				length: 830, //Popori: 1085 | Any other race: 830
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
@@ -381,15 +381,15 @@ module.exports = {
 			'*': { noInterrupt: [1, 2] },
 			0: {
 				length: 650,
-				distance: 75,	
+				distance: 75	
 			},
 			1: {
 				length: 1025,
-				distance: 20,
+				distance: 20
 			},
 			2: {
 				length: 1815,
-				distance: 66,
+				distance: 66
 			}
 		},
 		2: { // Stand Fast
@@ -662,10 +662,10 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': { 
-				length: 1185,	//Popori: 1185, Other races: 905
+				length: 1185, //Popori: 1185 | Any other race: 905
 				distance: 150,
-				noInterrupt: [4],
 				forceclip: true,
+				noInterrupt: [4]
 			},
 			0: true,
 			30: { requiredBuff: 301200 }
@@ -673,7 +673,7 @@ module.exports = {
 		5: { // Dash
 			0: {
 				fixedSpeed: 1,
-				length: 700,
+				length: 700
 			}
 		},
 		8: { // Overhand Strike
@@ -708,7 +708,7 @@ module.exports = {
 		9: { // Leaping Strike
 			0: {
 				length: 2175,
-				distance: 250,
+				distance: 250
 			}
 		},
 		10: { // Retaliate
@@ -731,7 +731,7 @@ module.exports = {
 		13: { // Stunning Backhand
 			0: {
 				length: 2150,
-				distance: 76.71,
+				distance: 76.71
 			}
 		},
 		14: { // Distant Blade
@@ -765,7 +765,7 @@ module.exports = {
 		16: { // Fury Strike
 			0: {
 				length: 1000,
-				distance: 142.53,
+				distance: 142.53
 			}
 		},
 		17: { // Headlong Rush
@@ -773,19 +773,19 @@ module.exports = {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1000,
-				distance: 413,
+				distance: 413
 			}
 		},
 		18: { // Overpower
 			0: {
 				fixedSpeed: 1,
-				length: 200,
+				length: 200
 			}
 		},
 		19: { // Tenacity
 			0: {
 				fixedSpeed: 1,
-				length: [500, 700],
+				length: [500, 700]
 				//noInterrupt: [4]
 			}
         },
@@ -793,7 +793,7 @@ module.exports = {
 			0: {
 				triggerAbnormal: { 23220: 2000 },
 				fixedSpeed: 1,
-				length: 1185,
+				length: 1185
 				//noInterrupt: [4]
 			}
 		},
@@ -842,7 +842,7 @@ module.exports = {
 		},
 		25: { // Ultimate Overhand Strike
 			'*': { distance: 170 },
-			0: { length: 3365},
+			0: { length: 3365 },
 			30: { length: 1325 }
 		}
 	},
@@ -882,7 +882,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [650, 650, 650],
+				length: [650, 650, 650], // These are the charging states, overcharging isn't emulated
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
 				glyphs: {
 					24067: { chargeSpeed: 0.25 }
@@ -893,19 +893,19 @@ module.exports = {
 					4010150: { chargeSpeed: 0.2 }
 				}
 			},
-			10: {	//Charge stage 0
+			10: {
 				distance: 85.74, // Cast F. - TODO
                 noInterrupt: [2, 4, 24, 25, 30]			
 			}, 
-			11: {	//Charge stage 1
+			11: {
 				distance: 85.74,
                 noInterrupt: [2, 4, 24, 25, 30]
 			},
-			12: {	//Charge stage 2
+			12: {
 				distance: 85.74,
                 noInterrupt: [2, 4, 24, 25, 30]		
 	        },
-			13: {	//Charge stage 3 and above
+			13: {
 				distance: 85.74,
 				noInterrupt: [2, 4, 24, 25, 30]			  
 			}
@@ -1151,7 +1151,7 @@ module.exports = {
 			},
 			0: {
 				length: 1015,
-				distance: 150,
+				distance: 150
 			},
 			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
 			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
@@ -2319,7 +2319,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				consumeAbonrmal: 10151020,
+				consumeAbnormal: 10151020,
 				triggerAbnormal: { 10151021: 2000 }
 			},
 			3: {
@@ -2340,7 +2340,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				consumeAbonrmal: 10151021,
+				consumeAbnormal: 10151021,
 				triggerAbnormal: { 10151022: 1800 }
 			},
 			4: {
@@ -2361,7 +2361,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				consumeAbonrmal: 10151022,
+				consumeAbnormal: 10151022,
 				triggerAbnormal: { 10151023: 2000 }
 			},
 			5: {
@@ -2384,7 +2384,7 @@ module.exports = {
 				length: 2025,
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
 				abnormals: {
-					29030: { speed: 1.25 },
+					29030: { speed: 1.25 }
 				},
 				chains: {
 					1: 30,
@@ -2418,7 +2418,7 @@ module.exports = {
 					],
 					distance: [0, 0, 0]
 				},
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20]
 			},
 			30: {
 				length: [1750, 1025],
@@ -2550,40 +2550,33 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
+				length: 1250, // Length for any stage unless the stage itself has one stated already
 				noRetry: true,
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
+			},
+			0: {
+				length: 2150, // Specific length for stage 0
+				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
 				}
 			},
-			0: {
-				length: 2150,
-				triggerAbnormal: { 10151040: 2000 },
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
-			},
-			1: {
-				length: 1250,
+			1: { 
 				consumeAbnormal: 10151040,
-				triggerAbnormal: { 10151041: 2000 },
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-0', 12, 13, 14, 15, 16, 18, 20, 40]
-			},
-			2: {
-				length: 1250,
+				triggerAbnormal: { 10151041: 2000 }
+				},
+			2: { 
 				consumeAbnormal: 10151041,
-				triggerAbnormal: { 10151042: 2000 },
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-1', 12, 13, 14, 15, 16, 18, 20, 40]
-			},
-			3: {
-				length: 1250,
-				consumeAbnormal: 10151042,
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-2', 12, 13, 14, 15, 16, 18, 20, 40]
-			}
+				triggerAbnormal: { 10151042: 2000 }
+			 },
+			3: { consumeAbnormal: 10151042 }
 		},
 		12: { // Shadow Burst
 			'*': {
 				glyphs: {
-					29026: { speed: 1.25 },
+					29026: { speed: 1.25 }
 				}
 			},
 			0: {
@@ -2620,7 +2613,7 @@ module.exports = {
 		18: { // Shrouded Escape
 			0: {
 				length: 850,
-				distance: 150,
+				distance: 150
 			}
 		},
 		40: { // Shadow Step
@@ -2767,7 +2760,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: 1200	//advised to set a bit longer, like 1300, because otherwise auto-release full charge will shoot 2 missiles in reality
+				length: 1200 // Advised to set a bit longer, like 1300, because otherwise auto-release full charge will shoot 2 missiles in reality
 			},
 			10: { distance: -50 },
 			11: { distance: -100 }
@@ -3182,7 +3175,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 650,
 				distance: 44.86,
-				noRetry: true,
+				noRetry: true
 			},
 			0: {
 				abnormals: {
