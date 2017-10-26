@@ -2599,12 +2599,8 @@ module.exports = {
 		},
 		12: { // Shadow Burst
 			'*': {
-				glyphs: {
-					29026: { speed: 1.25 },
-					abnormals: { 
-						29090: { speed: 1.5 }
-					},
-				}
+				glyphs: { 29026: { speed: 1.25 } ,
+				abnormals: { 29090: { speed: 1.5 } },
 			},
 			0: {
 				length: 3265,
