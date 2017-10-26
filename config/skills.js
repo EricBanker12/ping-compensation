@@ -2288,7 +2288,6 @@ module.exports = {
 				noInterrupt: [3, 4, 12, 14, 20],
 				triggerAbnormal: { 10151020: 2000 },
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151020: { chain: 2 },
 					10151021: { chain: 3 },
 					10151022: { chain: 4 },
@@ -2378,8 +2377,7 @@ module.exports = {
 				length: 2025,
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
 				abnormals: {
-					29030: { speed: 1.25 },
-					29090: { speed: 1.5 }
+					29030: { speed: 1.25 }
 				},
 				chains: {
 					1: 30,
@@ -2413,10 +2411,7 @@ module.exports = {
 					],
 					distance: [0, 0, 0]
 				},
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20],
-				abnormals: {
-					29090: { speed: 1.5 }
-				}
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20]
 			},
 			30: {
 				length: [1750, 1025],
@@ -2459,9 +2454,6 @@ module.exports = {
 			0: {
 				length: [2400, 975],
 				noInterrupt: ['1-0', '1-2', 4, 12, 14, 20],
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -2479,7 +2471,6 @@ module.exports = {
 			'*': {
 				length: 1250,
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151131: { chain: 31 }
 				},
 				chains: {
@@ -2504,9 +2495,6 @@ module.exports = {
 			'*': {
 				length: 2500,
 				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 14, 20],
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -2520,9 +2508,6 @@ module.exports = {
 			0: {
 				length: 1725,
 				distance: 168,
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				inPlace: {
 					movement: [{
 						duration: 1832,
@@ -2539,9 +2524,6 @@ module.exports = {
 			'*': {
 				length: 1000,
 				distance: -200,
-				abnormals: {
-					29090: { speed: 1.5 }
-				},
 				noInterrupt: [10],
 				chains: {
 					1: 30,
@@ -2569,7 +2551,6 @@ module.exports = {
 				length: 2150,
 				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
@@ -2588,9 +2569,6 @@ module.exports = {
 			0: {
 				length: 3265,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
-				abnormals: { 
-					29090: { speed: 1.5 }
-				},
 				chains: {
 					12: 1
 				}
@@ -2622,10 +2600,7 @@ module.exports = {
 		18: { // Shrouded Escape
 			0: {
 				length: 850,
-				distance: 150,
-				abnormals: {
-					29090: { speed: 1.5 }
-				}
+				distance: 150
 			}
 		},
 		40: { // Shadow Step
@@ -2634,7 +2609,6 @@ module.exports = {
 				distance: 180,
 				forceClip: true,
 				abnormals: {
-					29090: { speed: 1.5 },
 					10151000: { chain: 30 }
 				}
 			},
