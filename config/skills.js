@@ -144,6 +144,7 @@ module.exports = {
 				distance: 138.28,
 				noInterrupt: [32]
 			},
+			0: true,
 			1: true,
 			2: true
 		},
@@ -381,15 +382,15 @@ module.exports = {
 			'*': { noInterrupt: [1, 2] },
 			0: {
 				length: 650,
-				distance: 75,	
+				distance: 75
 			},
 			1: {
 				length: 1025,
-				distance: 20,
+				distance: 20
 			},
 			2: {
 				length: 1815,
-				distance: 66,
+				distance: 66
 			}
 		},
 		2: { // Stand Fast
@@ -2599,7 +2600,7 @@ module.exports = {
 				noInterrupt: ['12-1']
 			}
 		},
-		/*14: { // retaliate
+		/*14: { // Retaliate
 			0: {
 				type: 'retaliate',
 				length: 1610,
@@ -3371,7 +3372,28 @@ module.exports = {
 				forceClip: true,
 				noRetry: true
 			},
-			0: { type: 'nullChain' },
+			0: { chains: {
+				1: 4,
+				2: 4,
+				3: 4,
+				4: 4,
+				6: 4,
+				7: 4,
+				8: 4,
+				9: 4,
+				11: 4,
+				12: 4,
+				13: 4,
+				14: 4,
+				15: 4,
+				16: 4,
+				17: 4,
+				18: 4,
+				19: 4,
+				20: 4,
+
+			    }
+		    },
 			30: true
 		},
 		6: { // One Thousand Cuts
@@ -3435,8 +3457,11 @@ module.exports = {
 		12: { // Skyfall
 			'*': {
 				length: 1325,
-				distance: 154.72,
-				noInterrupt: [9, 18],
+				distance: 154.72
+			},
+			1: true,
+			2: {
+				noInterrupt: [9, 12, 18],
 				chains: {
 					1: 30,
 					4: 30,
@@ -3452,39 +3477,41 @@ module.exports = {
 					20: 30
 				}
 			},
-			1: true,
-			2: true,
 			30: true
 		},
 		13: { // Circle of Steel
 			'*': {
 				length: 3225,
-				distance: 245.06,
-				noInterrupt: [9, 18],
-				chains: {
-					1: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
+				distance: 245.06
 			},
 			1: true,
-			2: true,
+			2: {
+				noInterrupt: [9, 13, 18],
+			    chains: {
+				1: 30,
+				4: 30,
+				6: 30,
+				7: 30,
+				8: 30,
+				12: 30,
+				14: 30,
+				15: 30,
+				16: 30,
+				17: 30,
+				19: 30,
+				20: 30
+				}
+			},
 			30: true
 		},
 		14: { // Double Cut
 			'*': {
 				length: 1425,
-				distance: 162,
-				noInterrupt: [9, 18],
+				distance: 162
+			},
+			1: true,
+			2: {
+				noInterrupt: [9, 14, 18],
 				chains: {
 					1: 30,
 					4: 30,
@@ -3500,8 +3527,6 @@ module.exports = {
 					20: 30
 				}
 			},
-			1: true,
-			2: true,
 			30: true
 		},
 		15: { // Burning Heart
@@ -3524,13 +3549,17 @@ module.exports = {
 			9: { length: 390 }
 		},
 		16: { // Death Blossom
-			0: {
+			'*': {
 				fixedSpeed: 1,
 				length: 1525
-			}
+			},
+			0: true,
+			30: true
 		},
 		17: { // Attunement
-			0: { length: 1000 }
+			'*': { length: 1000 },
+			0: true,
+			30: true
 		},
 		18: { // Bladestorm
 			0: { length: 1000 }
