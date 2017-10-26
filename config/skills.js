@@ -26,12 +26,12 @@ module.exports = {
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 830,
+				length: 830, //Popori: 1085 | Any other race: 830
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
 				instantStamina: true,
-				noInterrupt: [32, 10],
+				noInterrupt: [2, 10, 32],
 				glyphs: {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
@@ -95,7 +95,7 @@ module.exports = {
 		10: { // Death From Above
 			0: {
 				length: 2025,
-				noInterrupt: [32]
+				noInterrupt: [2, 32]
 			}
 		},
 		11: { // Poison Blade
@@ -274,7 +274,7 @@ module.exports = {
 			0: {
 				length: 1850,
 				distance: 150,
-				noInterrupt: [1, 3, 5,  8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
+				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
 				abnormals: {
 					100801: { skill: 380100 }
 				},
@@ -382,7 +382,7 @@ module.exports = {
 			'*': { noInterrupt: [1, 2] },
 			0: {
 				length: 650,
-				distance: 75
+				distance: 75	
 			},
 			1: {
 				length: 1025,
@@ -636,14 +636,13 @@ module.exports = {
 				consumeAbnormal: 23220,
 				length: 2850,
 				distance: 220.47,
-				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
 				abnormals: {
 					23070: { speed: 1.25 }
 				},
 				chains: {
 					14: 30,
 					20: 0
-				 }
+				}
 			},
 			0: true,
 			1: true,
@@ -661,9 +660,10 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': { 
-				length: 905,
+				length: 1185, //Popori: 1185 | Any other race: 905
 				distance: 150,
-				forceclip: true
+				forceclip: true,
+				noInterrupt: [4]
 			},
 			0: true,
 			30: { requiredBuff: 301200 }
@@ -784,6 +784,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: [500, 700]
+				//noInterrupt: [4]
 			}
         },
 		20: { // In Cold Blood
@@ -791,12 +792,14 @@ module.exports = {
 				triggerAbnormal: { 23220: 2000 },
 				fixedSpeed: 1,
 				length: 1185
+				//noInterrupt: [4]
 			}
 		},
 		21: { //Exausting Blow
 		    0: {
 				length: 1175,
 			    distance: 75,
+				//noInterrupt: [4]
 			},
 		},
 		23: { // Measured Slice
@@ -861,12 +864,12 @@ module.exports = {
 					distance: 54.28
 				}
 			},
-			2: { // Axe Block
-				'*': { type: 'holdInfinite' },
-				0: { fixedSpeed: 1 },
-				30: true,
-				31: { fixedSpeed: 1 }
-			},
+		2: { // Axe Block
+			'*': { type: 'holdInfinite' },
+			0: { fixedSpeed: 1 },
+			30: true,
+			31: { fixedSpeed: 1 }
+		},
 		3: { // Thunderstrike
 			'*': {
 				type: 'chargeCast',
@@ -874,7 +877,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [650, 650, 650],
+				length: [650, 650, 650], // These are the charging states, overcharging isn't emulated
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
 				glyphs: {
 					24067: { chargeSpeed: 0.25 }
@@ -897,7 +900,7 @@ module.exports = {
 				distance: 85.74,
                 noInterrupt: [2, 4, 24, 25, 30]		
 	        },
-			13: {	
+			13: {
 				distance: 85.74,
 				noInterrupt: [2, 4, 24, 25, 30]			  
 			}
@@ -1202,7 +1205,7 @@ module.exports = {
 		},
 		29: { // Evasive Roll (TODO: Check)
 			0: {
-				length: 910,
+				length: 920,
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29]
@@ -1265,7 +1268,7 @@ module.exports = {
 		4: { // Arcane Pulse
 			'*': {
 				type: 'chargeCast',
-				length: 1285 // Elin: 1015  | Any other race: 1285
+				length: 1015 // Elin: 1015  | Any other race: 1285
 			},
 			0: {
 				type: 'charging',
@@ -1493,7 +1496,7 @@ module.exports = {
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
 				type: 'chargeCast',
-				length: 1285, // Elin: 1015  | Any other race: 1285
+				length: 1015, // Elin: 1015  | Any other race: 1285
 				noRetry: true
 			},
 			10: true,
@@ -2262,7 +2265,6 @@ module.exports = {
 		}
 	},
 	8: { // Reaper
-		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10151023, 10151040, 10151041, 10151042] },
 		1: { // Spiral Barrage
 			'*': {
 				length: 1000,
@@ -2283,7 +2285,6 @@ module.exports = {
 					distance: 0
 				},
 				noInterrupt: [3, 4, 12, 14, 20],
-				triggerAbnormal: { 10151020: 2000 },
 				abnormals: {
 					10151020: { chain: 2 },
 					10151021: { chain: 3 },
@@ -2293,8 +2294,8 @@ module.exports = {
 				chains: { 1: 1 },
 				noRetry: true
 			},
-			0: true,
-			1: true,
+			0: { triggerAbnormal: { 10151020: 2000 } },
+			1: { triggerAbnormal: { 10151020: 2000 } },
 			2: {
 				length: 1200,
 				distance: 42,
@@ -2313,6 +2314,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
+				consumeAbnormal: 10151020,
 				triggerAbnormal: { 10151021: 2000 }
 			},
 			3: {
@@ -2333,6 +2335,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
+				consumeAbnormal: 10151021,
 				triggerAbnormal: { 10151022: 1800 }
 			},
 			4: {
@@ -2353,6 +2356,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
+				consumeAbnormal: 10151022,
 				triggerAbnormal: { 10151023: 2000 }
 			},
 			5: {
@@ -2366,7 +2370,8 @@ module.exports = {
 						distance: 0
 					}],
 					distance: 0
-				}
+				},
+				consumeAbnormal: 10151023
 			}
 		},
 		3: { // Double Shear
@@ -2540,12 +2545,12 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 1250,
+				length: 1250, // Length for any stage unless the stage itself has one stated already
 				noRetry: true,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 2150,
+				length: 2150, // Specific length for stage 0
 				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
 					10151040: { chain: 1 },
@@ -2553,9 +2558,15 @@ module.exports = {
 					10151042: { chain: 3 }
 				}
 			},
-			1: { triggerAbnormal: { 10151041: 2000 } },
-			2: { triggerAbnormal: { 10151042: 2000 } },
-			3: true
+			1: { 
+				consumeAbnormal: 10151040,
+				triggerAbnormal: { 10151041: 2000 }
+			},
+			2: { 
+				consumeAbnormal: 10151041,
+				triggerAbnormal: { 10151042: 2000 }
+			},
+			3: { consumeAbnormal: 10151042 }
 		},
 		12: { // Shadow Burst
 			'*': {
@@ -2744,7 +2755,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: 1200
+				length: 1200 // Advised to set a bit longer, like 1300, because otherwise auto-release full charge will shoot 2 missiles in reality
 			},
 			10: { distance: -50 },
 			11: { distance: -100 }
@@ -3154,13 +3165,11 @@ module.exports = {
 		}
 	},
 	11: { // Ninja
-		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006] },
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
 				length: 650,
 				distance: 44.86,
-				triggerAbnormal: { 10154000: 1650 },
 				noRetry: true
 			},
 			0: {
@@ -3172,6 +3181,7 @@ module.exports = {
 					10154004: { chain: 5 },
 					10154005: { chain: 6 }
 				},
+				triggerAbnormal: { 10154000: 1650 },
 				chains: {
 					1: 30,
 					4: 30,
@@ -3232,7 +3242,8 @@ module.exports = {
 					10154003: { chain: 4 },
 					10154004: { chain: 5 },
 					10154005: { chain: 6 }
-				}
+				},
+				triggerAbnormal: { 10154000: 1650 }
 			},
 			40: {
 				abnormals: {
@@ -3243,6 +3254,7 @@ module.exports = {
 					10154004: { chain: 45 },
 					10154005: { chain: 46 }
 				},
+				triggerAbnormal: { 10154000: 1650 },
 				chains: {
 					1: 70,
 					4: 70,
@@ -3303,7 +3315,8 @@ module.exports = {
 					10154003: { chain: 44 },
 					10154004: { chain: 45 },
 					10154005: { chain: 46 }
-				}
+				},
+				triggerAbnormal: { 10154000: 1650 }
 			}
 		},
 		2: { // Shadow Jump
@@ -3674,7 +3687,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 550,
 				distance: 436,
-				noInterrupt: ['4-0'],
+				noInterrupt: ['4-0','4-10'],	//prevent double charges if first one did'nt hit a target.
 				noRetry: true
 			},
 			10: { length: 900 },
