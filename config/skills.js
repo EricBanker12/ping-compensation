@@ -613,7 +613,7 @@ module.exports = {
 	},	
 	2: { // Slayer
 		1: { // Combo Attack
-			'*': { noRetry: true },
+			'*': { noInterrupt: [1] },
 			0: {
 				length: 750,
 				distance: 36.78
@@ -843,10 +843,7 @@ module.exports = {
 	},
 	3: { // Berserker
 			1: { // Combo Attack
-				'*': { 
-					noRetry: true,
-					noInterrupt: [1, 2, 4]
-				},
+				'*': { noInterrupt: [1, 2, 4] },
 				0: {
 					length: 1155,
 					distance: 78
@@ -3364,8 +3361,7 @@ module.exports = {
 				17: 4,
 				18: 4,
 				19: 4,
-				20: 4,
-
+				20: 4
 			    }
 		    },
 			30: true
