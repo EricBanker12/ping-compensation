@@ -1683,6 +1683,7 @@ module.exports = {
 		19: { // Poison Arrow
 			0: { 
 				length: 1125,
+				distance: -12.5,
 				noInterrupt: [22]
 			}
 		},
@@ -1713,7 +1714,7 @@ module.exports = {
 		29: { // Thunderbolt
 			0: {
 				length: 3750,
-				distance: 100,
+				distance: -100,
 				noInterrupt: [22],
 				glyphs: {
 					26089: { speed: 1.3 },
