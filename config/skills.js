@@ -2285,7 +2285,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				noInterrupt: [3, 4, 12, 14, 20, 40],
+				noInterrupt: [3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 20, 40],
 				abnormals: {
 					10151020: { chain: 2 },
 					10151021: { chain: 3 },
