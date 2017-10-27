@@ -2265,6 +2265,7 @@ module.exports = {
 		}
 	},
 	8: { // Reaper
+		'*' : { consumeAbnormal: [10151020, 10151021, 10151022, 10141023] },
 		1: { // Spiral Barrage
 			'*': {
 				length: 1000,
@@ -2284,7 +2285,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				noInterrupt: [3, 4, 12, 14, 20],
+				noInterrupt: [3, 4, 12, 14, 20, 40],
 				abnormals: {
 					10151020: { chain: 2 },
 					10151021: { chain: 3 },
@@ -2314,8 +2315,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				consumeAbnormal: 10151020,
-				triggerAbnormal: { 10151021: 2000 }
+				triggerAbnormal: { 10151021: 2000 },
 			},
 			3: {
 				length: 860,
@@ -2335,8 +2335,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				consumeAbnormal: 10151021,
-				triggerAbnormal: { 10151022: 1800 }
+				triggerAbnormal: { 10151022: 1800 },
 			},
 			4: {
 				length: 1400,
@@ -2356,8 +2355,7 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				consumeAbnormal: 10151022,
-				triggerAbnormal: { 10151023: 2000 }
+				triggerAbnormal: { 10151023: 2000 },
 			},
 			5: {
 				length: 1900,
@@ -2370,8 +2368,7 @@ module.exports = {
 						distance: 0
 					}],
 					distance: 0
-				},
-				consumeAbnormal: 10151023
+				}
 			}
 		},
 		3: { // Double Shear
