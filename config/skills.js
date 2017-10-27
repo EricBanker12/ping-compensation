@@ -818,11 +818,9 @@ module.exports = {
 			30: { length: 1670 }
  		},
 		24: { // Eviscerate
-			'*': {
-				distance: 50
-			},
 			0: {
 				length: 1915,
+				distance: 50,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 24],
 				chains: {
 					1: 30,
@@ -836,7 +834,10 @@ module.exports = {
 					25: 30
 				}
 			},
-			30: { length: 1500 }
+			30: {
+				 length: 1500,
+				 distance: 100
+			}
 		},
 		25: { // Ultimate Overhand Strike
 			'*': { distance: 170 },
@@ -1712,6 +1713,7 @@ module.exports = {
 		29: { // Thunderbolt
 			0: {
 				length: 3750,
+				distance: 100,
 				noInterrupt: [22],
 				glyphs: {
 					26089: { speed: 1.3 },
