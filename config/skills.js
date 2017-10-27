@@ -660,7 +660,7 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': { 
-				length: 1185, //Popori: 1185 | Any other race: 905
+				length: 905, //Popori: 1185 | Any other race: 905
 				distance: 150,
 				forceclip: true,
 				noInterrupt: [4]
@@ -795,10 +795,10 @@ module.exports = {
 				//noInterrupt: [4]
 			}
 		},
-		21: { //Exausting Blow
+		21: { //Exhausting Blow
 		    0: {
 				length: 1175,
-			    distance: 75,
+			    distance: 75
 				//noInterrupt: [4]
 			},
 		},
@@ -845,27 +845,27 @@ module.exports = {
 		}
 	},
 	3: { // Berserker
-			1: { // Combo Attack
-				'*': { noInterrupt: [1, 2, 4] },
-				0: {
-					length: 1155,
-					distance: 78
-				},
-				1: {
-					length: 925,
-					distance: 21.05
-				},
-				2: {
-					length: 1125,
-					distance: 31.84
-				},
-				3: {
-					length: 1825,
-					distance: 54.28
-				}
+		1: { // Combo Attack
+			'*': { noInterrupt: [1, 2, 4] },
+			0: {
+				length: 1155,
+				distance: 78
 			},
+			1: {
+				length: 925,
+				distance: 21.05
+			},
+			2: {
+				length: 1125,
+				distance: 31.84
+			},
+			3: {
+				length: 1825,
+				distance: 54.28
+			}
+		},
 		2: { // Axe Block
-			'*': { type: 'holdInfinite' },
+		    '*': { type: 'holdInfinite' },
 			0: { fixedSpeed: 1 },
 			30: true,
 			31: { fixedSpeed: 1 }
@@ -3165,11 +3165,13 @@ module.exports = {
 		}
 	},
 	11: { // Ninja
+		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006] },
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
 				length: 650,
 				distance: 44.86,
+				triggerAbnormal: { 10154000: 1650 },
 				noRetry: true
 			},
 			0: {
@@ -3181,7 +3183,6 @@ module.exports = {
 					10154004: { chain: 5 },
 					10154005: { chain: 6 }
 				},
-				triggerAbnormal: { 10154000: 1650 },
 				chains: {
 					1: 30,
 					4: 30,
@@ -3242,8 +3243,7 @@ module.exports = {
 					10154003: { chain: 4 },
 					10154004: { chain: 5 },
 					10154005: { chain: 6 }
-				},
-				triggerAbnormal: { 10154000: 1650 }
+				}
 			},
 			40: {
 				abnormals: {
@@ -3254,7 +3254,6 @@ module.exports = {
 					10154004: { chain: 45 },
 					10154005: { chain: 46 }
 				},
-				triggerAbnormal: { 10154000: 1650 },
 				chains: {
 					1: 70,
 					4: 70,
@@ -3315,8 +3314,7 @@ module.exports = {
 					10154003: { chain: 44 },
 					10154004: { chain: 45 },
 					10154005: { chain: 46 }
-				},
-				triggerAbnormal: { 10154000: 1650 }
+				}
 			}
 		},
 		2: { // Shadow Jump
@@ -3440,10 +3438,7 @@ module.exports = {
 		12: { // Skyfall
 			'*': {
 				length: 1325,
-				distance: 154.72
-			},
-			1: true,
-			2: {
+				distance: 154.72,
 				noInterrupt: [9, 12, 18],
 				chains: {
 					1: 30,
@@ -3460,15 +3455,14 @@ module.exports = {
 					20: 30
 				}
 			},
+			1: true,
+			2: true,
 			30: true
 		},
 		13: { // Circle of Steel
 			'*': {
 				length: 3225,
-				distance: 245.06
-			},
-			1: true,
-			2: {
+				distance: 245.06,
 				noInterrupt: [9, 13, 18],
 			    chains: {
 				1: 30,
@@ -3485,15 +3479,14 @@ module.exports = {
 				20: 30
 				}
 			},
+			1: true,
+			2: true,
 			30: true
 		},
 		14: { // Double Cut
 			'*': {
 				length: 1425,
-				distance: 162
-			},
-			1: true,
-			2: {
+				distance: 162,
 				noInterrupt: [9, 14, 18],
 				chains: {
 					1: 30,
@@ -3510,6 +3503,8 @@ module.exports = {
 					20: 30
 				}
 			},
+			1: true,
+			2: true,
 			30: true
 		},
 		15: { // Burning Heart
@@ -3522,6 +3517,7 @@ module.exports = {
 				}
 			},
 			0: { length: 880 },
+			1: { length: 390 },
 			2: { length: 390 },
 			3: { length: 390 },
 			4: { length: 390 },
