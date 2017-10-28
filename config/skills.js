@@ -1862,7 +1862,7 @@ module.exports = {
 				type: 'charging',
 				length: [800, 1600],
 				noInterrupt: [26, 27, 38],
-				abnormals: {
+				glyphs: {
 					28031: { chargeSpeed: 0.25 }
 				}
 			},
