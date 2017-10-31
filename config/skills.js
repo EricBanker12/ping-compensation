@@ -298,6 +298,7 @@ module.exports = {
 	},
 	1: { // Lancer
 		1: { // Combo Attack
+			'*': { noInterrupt: [1, 2] },
 			0: {
 				length: 635,
 				distance: 74.45
