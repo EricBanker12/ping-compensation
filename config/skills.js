@@ -1103,7 +1103,6 @@ module.exports = {
 				abnormals: {
 					25100: { speed: 1.25 },
 					500150: { skill: 320100 },
-					501600: { skill: 320150 },
 					501650: { skill: 320150 }
 				},
 				race: {
