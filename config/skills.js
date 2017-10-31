@@ -1,6 +1,20 @@
-/* Note:
-	* '*' can be used in place of the skill group or sub-skill to set default values
+/*	Notes:
+	* '*' can be used in place of the skill or sub-skill to set default values
 	* Processing order is 'noInterrupt' > 'chains' > 'abnormals'
+	* Default race is Elin unless specified
+
+	Races:
+	0 = Male Human
+	1 = Female Human
+	2 = Male High Elf
+	3 = Female High Elf
+	4 = Male Aman
+	5 = Female Aman
+	6 = Male Castanic
+	7 = Female Castanic
+	8 = Popori
+	9 = Elin
+	10 = Baraka
 */
 
 module.exports = {
@@ -36,6 +50,9 @@ module.exports = {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
 					21101: { stamina: -120 }
+				},
+				race: {
+					8: { length: 1085 } // Popori
 				}
 			}
 		},
@@ -222,8 +239,9 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37],
 				abnormals: {
+					100200:{ skill: 390100 },
 					100201:{ skill: 390100 }
 				},
 				chains: {
@@ -375,22 +393,22 @@ module.exports = {
 				length: 2650,
 				distance: 210
 			}
-		},
+		}
 	},
 	1: { // Lancer
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2] },
 			0: {
-				length: 650,
-				distance: 75	
+				length: 635,
+				distance: 74.45
 			},
 			1: {
 				length: 1025,
-				distance: 20
+				distance: 19.2
 			},
 			2: {
 				length: 1815,
-				distance: 66
+				distance: 66.07
 			}
 		},
 		2: { // Stand Fast
@@ -416,11 +434,13 @@ module.exports = {
 		},
 		4: { // Challenging Shout
 			0: {
-				length: 2225,
-				noInterrupt: [2],
+				length: 2225, // TODO: Verify
 				glyphs: {
 					22056: { speed: 1.25 },
 					22085: { speed: 1.25 }
+				},
+				race: {
+					9: { length: 2175 } // Elin
 				}
 			}
 		},
@@ -432,9 +452,11 @@ module.exports = {
 			}
 		},
 		7: { // Guardian Shout
-			0: { 
-				length: 550, // Popori: 800
-				noInterrupt: [2]
+			0: {
+				length: 550,
+				race: {
+					8: { length: 800 } // Popori
+				}
 			}
 		},
 		8: { // Shield Counter
@@ -457,19 +479,15 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		/*11: { // Retaliate
+		11: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1645,
-				noInterrupt: [2],
+				length: 1625,
 				noRetry: true
 			}
-		},*/
+		},
 		12: { // Infuriate
-			0: { 
-				length: 2425,
-				noInterrupt: [2]
-		    }
+			0: { length: 2425 }
 		},
 		13: { // Spring Attack
 			0: {
@@ -523,12 +541,31 @@ module.exports = {
 				noInterrupt: [2],
 				abnormals: {
 					201550: { speed: 1.2 }
+				},
+				race: {
+					0: { distance: 100.13 }, // Male Human
+					2: { // Male High Elf
+						length: 525,
+						distance: 102.7
+					},
+					4: { // Male Aman
+						length: 595,
+						distance: 95
+					},
+					5: { distance: 100.13 }, // Female Aman
+					8: { distance: 92.39 } // Popori
 				}
 			},
 			1: {
 				length: 800,
 				distance: 66.04,
-				noInterrupt: [2]
+				race: {
+					0: { distance: 74.84 }, // Male Human
+					2: { distance: 80.43 }, // Male High Elf
+					4: { distance: 87 }, // Male Aman
+					5: { distance: 74.84 }, // Female Aman
+					8: { distance: 89.46 } // Popori
+				}
 			}
 		},
 		19: { // Pledge of Protection
@@ -663,7 +700,9 @@ module.exports = {
 				length: 905, //Popori: 1185 | Any other race: 905
 				distance: 150,
 				forceclip: true,
-				noInterrupt: [4]
+				race: {
+					8: { length: 1185 } // Popori
+				}
 			},
 			0: true,
 			30: { requiredBuff: 301200 }
@@ -1256,7 +1295,14 @@ module.exports = {
 			0: { length: 730 }
 		},
 		2: { // Frost Sphere
-			0: { length: 1010 } // Popori/M.Casta/M.Helf/M.Human/F.Casta/F.Aman/F.Helf/F.Human: 810 | Baraka: 910 | Elin: 1010 | M.Aman: 1255
+			0: {
+				length: 800,
+				race: {
+					4: { length: 1250 }, // Male Aman
+					9: { length: 1000 }, // Elin
+					10: { length: 900 } // Baraka
+				}
+			}
 		},
 		3: { // Lightning Trap
 			0: {
@@ -1269,7 +1315,10 @@ module.exports = {
 		4: { // Arcane Pulse
 			'*': {
 				type: 'chargeCast',
-				length: 1015 // Elin: 1015  | Any other race: 1285
+				length: 1285,
+				race: {
+					9: { length: 1015 } // Elin
+				}
 			},
 			0: {
 				type: 'charging',
@@ -1309,7 +1358,7 @@ module.exports = {
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3725, // Elin: 3725 | Any other race: 3925
+				length: 3925,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
@@ -1319,6 +1368,9 @@ module.exports = {
 					500150: { skill: 320100 },
 					//501600: { skill: 320150 },
 					501650: { skill: 320150 }
+				},
+				race: {
+					9: { length: 3700 } // Elin
 				}
 			}
 		},
@@ -1341,7 +1393,12 @@ module.exports = {
 			0: { length: 625 }
 		},
 		11: { // Lightning Strike
-			0: { length: 805 } // Elin: 805  | Any other race: 835/845
+			0: {
+				length: 840,
+				race: {
+					9: { length: 800 } // Elin
+				}
+			}
 		},
 		12: { // Void Pulse
 			0: { length: 935 }
@@ -1358,7 +1415,12 @@ module.exports = {
 			}
 		},
 		16: { // Painblast
-			0: { length: 1330 } // Elin: 1330 | Popori: 1580
+			0: {
+				length: 1580,
+				race: {
+					9: { length: 1330 } // Elin
+				}
+			}
 		},
 		17: { // Painful Trap
 			0: { length: 1100 }
@@ -1484,12 +1546,15 @@ module.exports = {
 		},
 		32: { // Meteor Shower
 			'*': {
-				length: 6475, // Elin: 6475 | M.Helf/F.Casta: 6750/6775
+				length: 6775,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
 				},
-				noRetry: true
+				noRetry: true,
+				race: {
+					9: { length: 6475 } // Elin
+				}
 			},
 			0: true,
 			50: { length: 3700 }
@@ -1497,8 +1562,11 @@ module.exports = {
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
 				type: 'chargeCast',
-				length: 1015, // Elin: 1015  | Any other race: 1285
-				noRetry: true
+				length: 1275,
+				noRetry: true,
+				race: {
+					9: { length: 1015 } // Elin
+				}
 			},
 			10: true,
 			11: true,
