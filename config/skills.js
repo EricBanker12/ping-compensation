@@ -472,12 +472,29 @@ module.exports = {
 					201550: { speed: 1.2 }
 				},
 				race: {
-					2: { length: 525 } // Male High Elf
+					0: { distance: 100.13 }, // Male Human
+					2: { // Male High Elf
+						length: 525
+						distance: 102.7
+					},
+					4: { // Male Aman
+						length: 595
+						distance: 95
+					},
+					5: { distance: 100.13 }, // Female Aman
+					8: { distance: 92.39 } // Popori
 				}
 			},
 			1: {
 				length: 800,
-				distance: 66.04
+				distance: 66.04,
+				race: {
+					0: { distance: 74.84 }, // Male Human
+					2: { distance: 80.43 }, // Male High Elf
+					4: { distance: 87 }, // Male Aman
+					5: { distance: 74.84 }, // Female Aman
+					8: { distance: 89.46 } // Popori
+				}
 			}
 		},
 		19: { // Pledge of Protection
