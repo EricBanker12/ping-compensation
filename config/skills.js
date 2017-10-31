@@ -48,6 +48,9 @@ module.exports = {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
 					21101: { stamina: -120 }
+				},
+				race: {
+					8: { length: 1085 } // Popori
 				}
 			}
 		},
@@ -578,6 +581,9 @@ module.exports = {
 				forceclip: true,
 				abnormals: {
 					40300: { chain: 30 }
+				},
+				race: {
+					8: { length: 1185 } // Popori
 				}
 			},
 			30: {
@@ -1030,7 +1036,14 @@ module.exports = {
 			0: { length: 725 }
 		},
 		2: { // Frost Sphere
-			0: { length: 1000 }
+			0: {
+				length: 800,
+				race: {
+					4: { length: 1250 }, // Male Aman
+					9: { length: 1000 }, // Elin
+					10: { length: 900 } // Baraka
+				}
+			}
 		},
 		3: { // Lightning Trap
 			0: {
@@ -1043,7 +1056,10 @@ module.exports = {
 		4: { // Arcane Pulse
 			'*': {
 				type: 'chargeCast',
-				length: 1275
+				length: 1285,
+				race: {
+					9: { length: 1015 } // Elin
+				}
 			},
 			0: {
 				type: 'charging',
@@ -1079,7 +1095,7 @@ module.exports = {
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3700,
+				length: 3925,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
@@ -1089,6 +1105,9 @@ module.exports = {
 					500150: { skill: 320100 },
 					501600: { skill: 320150 },
 					501650: { skill: 320150 }
+				},
+				race: {
+					9: { length: 3700 } // Elin
 				}
 			}
 		},
@@ -1111,7 +1130,12 @@ module.exports = {
 			0: { length: 625 }
 		},
 		11: { // Lightning Strike
-			0: { length: 800 }
+			0: {
+				length: 840,
+				race: {
+					9: { length: 800 } // Elin
+				}
+			}
 		},
 		12: { // Void Pulse
 			0: { length: 925 }
@@ -1128,7 +1152,12 @@ module.exports = {
 			}
 		},
 		16: { // Painblast
-			0: { length: 1330 }
+			0: {
+				length: 1580,
+				race: {
+					9: { length: 1330 } // Elin
+				}
+			}
 		},
 		17: { // Painful Trap
 			0: { length: 1100 }
@@ -1253,12 +1282,15 @@ module.exports = {
 		},
 		32: { // Meteor Shower
 			'*': {
-				length: 6475,
+				length: 6775,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
 				},
-				noRetry: true
+				noRetry: true,
+				race: {
+					9: { length: 6475 } // Elin
+				}
 			},
 			0: true,
 			50: { length: 3700 }
@@ -1267,7 +1299,10 @@ module.exports = {
 			'*': {
 				type: 'chargeCast',
 				length: 1275,
-				noRetry: true
+				noRetry: true,
+				race: {
+					9: { length: 1015 } // Elin
+				}
 			},
 			10: true,
 			11: true,
