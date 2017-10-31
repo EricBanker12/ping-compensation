@@ -1044,20 +1044,20 @@ module.exports = {
 				noRetry: true
 			}
 		},
-		/*15: { // Vampiric Blow
-            '*': {                    // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        
-				type: 'chargeCast',  //                    2. Must be in combat when used.  
-				length: 1940        //                    Else the animation of VB won't go off causing slight desync.
-			 },                                                		                               
-            0: {             
-                type: 'charging',       
+		/*15: { // Vampiric Blow  // Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work and you may as well before that trigger sCannotStartSkill
+            '*': {                            
+				type: 'chargeCast',  
+				length: 1940        
+			 },                               // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
+            0: {                             //                    2. Must be in combat when used.  
+                type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
-				noInterrupt: [2, '3-10', '3-11', '3-12', 4, '10-10', '10-11', '10-12', '18-10', '18-11', '18-12', 24, 25, 30],
+				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30], // VB can't chain to stages 10, 11 or 12 in the client, it only can on stages 13
 				abnormals: {
 					4010150: { chargeSpeed: 0.2 }
 				},
 				chains: {
-                    '3-13': 14,
+                    '3-13': 14, // this is fine though maybe uneeded, 13: 14 does the same
                     '10-13': 14,
                     '18-13': 14
                 }
@@ -1163,7 +1163,7 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
+				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
 				interruptibleWithAbnormal: { 
 					401404: 2
 				}, 
@@ -3331,7 +3331,9 @@ module.exports = {
 			30: true
 		},
 		3: { // Leaves on the Wind
-			0: { length: 1275 }
+			'*': { length: 1275 },
+			0: { type: 'nullChain' },
+			30: true
 		},
 		4: { // Jagged Path
 			1: {
@@ -3348,43 +3350,43 @@ module.exports = {
 		},
 		5: { // Impact Bomb
 			'*': {
-				length: 1025,
+				length: 1008,
 				distance: -291.6,
 				noInterrupt: [5],
 				forceClip: true,
 				noRetry: true
 			},
-			0: { chains: {
-				1: 4,
-				2: 4,
-				3: 4,
-				4: 4,
-				6: 4,
-				7: 4,
-				8: 4,
-				9: 4,
-				11: 4,
-				12: 4,
-				13: 4,
-				14: 4,
-				15: 4,
-				16: 4,
-				17: 4,
-				18: 4,
-				19: 4,
-				20: 4
-			    }
-		    },
+			0: { type: 'nullChain' },
 			30: true
 		},
 		6: { // One Thousand Cuts
-			1: {
+			'*': { 
+				length: 400,
+				chains: { // Needed to state we want to trigger substage 4, else it will trigger 6
+					1: 30,
+					5: 30,
+					7: 30,
+					//8: 30, sometimes uses it, sometimes it doesn't
+					9: 30,
+					12: 30,
+					13: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					18: 30,
+					19: 30,
+					20: 30
+				}
+			 },
+			0: true,
+			1: { // 0/30(iframe) -> 1(dash, also iframes) -> 10(deeps, doesn't iframe in the very beginning) 
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 300,
 				distance: 246
 			},
-			10: { length: 3500 }
+			10: { length: 3500 },
+			30: true 
 		},
 		7: { // Decoy Jutsu
 			0: {
@@ -3396,7 +3398,6 @@ module.exports = {
 			'*': {
 				length: [700, 1375, 325],
 				distance: [0, 367.31, 0],
-				noInterrupt: [9, 18],
 				abnormals: {
 					10154080: { chain: 1 },
 					10154081: { chain: 2 }
@@ -3404,14 +3405,16 @@ module.exports = {
 				chains: {
 					1: 30,
 					4: 30,
+					5: 30,
 					6: 30,
 					7: 30,
+					9: 30,
 					12: 30,
 					13: 30,
 					14: 30,
 					15: 30,
 					16: 30,
-					17: 30,
+					18: 30,
 					19: 30,
 					20: 30
 				},
@@ -3429,29 +3432,37 @@ module.exports = {
 			30: true
 		},
 		9: { // Smoke Bomb
-			0: { length: 700 }
+			'*': { length: 725 },
+			0: { type: 'nullChain' },
+			30: true
 		},
 		11: { // Focus
-			0: { length: 1430 },
-			50: { length: 1430 }
+			'*': {
+				length: 1430,
+				noInterrupt: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+			},
+			0: true,
+			50: true
 		},
 		12: { // Skyfall
 			'*': {
 				length: 1325,
 				distance: 154.72,
-				noInterrupt: [9, 12, 18],
-				chains: {
+				chains: { // Chains from 3, 11, 17 are accepted on the server but not the client /shrug
 					1: 30,
+					2: 30, // Rarely triggers, does not affect its normal usage
 					4: 30,
+					5: 30, 
 					6: 30,
 					7: 30,
 					8: 30,
+					9: 30,
 					13: 30,
 					14: 30,
 					15: 30,
 					16: 30,
-					17: 30,
 					19: 30,
+					18: 30,
 					20: 30
 				}
 			},
@@ -3463,18 +3474,20 @@ module.exports = {
 			'*': {
 				length: 3225,
 				distance: 245.06,
-				noInterrupt: [9, 13, 18],
 			    chains: {
 				1: 30,
+				2: 30, 
 				4: 30,
+				5: 30, 
 				6: 30,
 				7: 30,
 				8: 30,
+				9: 30,
 				12: 30,
 				14: 30,
 				15: 30,
 				16: 30,
-				17: 30,
+				18: 30,
 				19: 30,
 				20: 30
 				}
@@ -3487,18 +3500,20 @@ module.exports = {
 			'*': {
 				length: 1425,
 				distance: 162,
-				noInterrupt: [9, 14, 18],
 				chains: {
 					1: 30,
+					2: 30,
 					4: 30,
+					5: 30,
 					6: 30,
 					7: 30,
 					8: 30,
+					9: 30,
 					12: 30,
 					13: 30,
 					15: 30,
 					16: 30,
-					17: 30,
+					18: 30,
 					19: 30,
 					20: 30
 				}
@@ -3532,35 +3547,61 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1525
 			},
-			0: true,
+			0: { type: 'nullChain' },
 			30: true
 		},
 		17: { // Attunement
-			'*': { length: 1000 },
-			0: true,
-			30: true
-		},
-		18: { // Bladestorm
-			0: { length: 1000 }
-		},
-		19: { // Chakra Thrust
-			'*': {
-				length: [225, 825],
-				distance: 127.5,
+			'*': { 
+				length: 1000,
 				chains: {
 					1: 30,
+					2: 30,
 					4: 30,
+					5: 30,
 					6: 30,
 					7: 30,
 					8: 30,
 					9: 30,
 					12: 30,
 					13: 30,
+					14: 30,
 					15: 30,
 					16: 30,
-					17: 30,
 					18: 30,
 					19: 30,
+					20: 30
+				}
+			},
+			0: true,
+			30: true
+		},
+		18: { // Bladestorm
+			'*': { 
+				length: 1000,
+				distance: 68.535
+			 },
+			0: { type: 'nullChain' },
+			30: true
+		},
+		19: { // Chakra Thrust
+			'*': {
+				length: [225, 825],
+				distance: 127.5,
+				noInterrupt: [19],
+				chains: {
+					1: 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					12: 30,
+					14: 30,
+					13: 30,
+					15: 30,
+					16: 30,
+					18: 30,
 					20: 30
 				}
 			},
@@ -3683,7 +3724,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 550,
 				distance: 436,
-				noInterrupt: ['4-0','4-10'],	//prevent double charges if first one did'nt hit a target.
+				noInterrupt: ['4-0','4-10'], //prevent double charges if first one did'nt hit a target.
 				noRetry: true
 			},
 			10: { length: 900 },
