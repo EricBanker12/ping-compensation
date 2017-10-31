@@ -397,7 +397,7 @@ module.exports = {
 			}
 		},
 		12: { // Infuriate
-			0: { length: 2400 }
+			0: { length: 2425 }
 		},
 		13: { // Spring Attack
 			0: {
