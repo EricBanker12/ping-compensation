@@ -195,6 +195,12 @@ module.exports = {
 				length: 2000,
 				distance: 160,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 36, 37],
+				abnormals: {
+					100200: { skill: 390100 },
+					100201: { skill: 390100 },
+					100202: { skill: 390100 },
+					100203: { skill: 390100 }
+				},
 				chains: {
 					11: 30,
 					18: 30,
@@ -311,6 +317,22 @@ module.exports = {
 			'*': { distance: 150 },
 			0: { length: 1850 },
 			30: { length: 1385 }
+		},
+		39: { // Traverse Cut (Defensive Stance)
+			0: {
+				length: 2000,
+				distance: 160,
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
+				chains: {
+					11: 30,
+					18: 30,
+					27: 30
+				}
+			},
+			30: {
+				length: 2650,
+				distance: 210
+			}
 		}
 	},
 	1: { // Lancer
