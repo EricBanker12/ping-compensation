@@ -389,6 +389,13 @@ module.exports = {
 				distance: 43.69
 			}
 		},
+		11: { // Retaliate
+			0: {
+				type: 'retaliate',
+				length: 1625,
+				noRetry: true
+			}
+		},
 		12: { // Infuriate
 			0: { length: 2400 }
 		},
