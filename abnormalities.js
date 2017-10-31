@@ -63,6 +63,12 @@ class AbnormalityPrediction {
 		return !!this.myAbnormals[id]
 	}
 
+	inMap(map) {
+		for(let id in this.myAbnormals)
+			if(map[id]) return true
+		return false
+	}
+
 	add(id, duration, stacks) {
 		let type = this.myAbnormals[id] ? 'S_ABNORMALITY_REFRESH' : 'S_ABNORMALITY_BEGIN',
 			version = this.myAbnormals[id] ? 1 : 2

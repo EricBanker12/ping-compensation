@@ -21,7 +21,11 @@ const JITTER_COMPENSATION	= true,
 const {protocol, sysmsg} = require('tera-data-parser'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
-	skills = require('./config/skills')
+	skills = require('./config/skills'),
+	silence = require('./config/silence').reduce((map, value) => { // Convert array to object for fast lookup
+		map[value] = true
+		return map
+	}, {})
 
 const INTERRUPT_TYPES = {
 	'nullChain': 4,
@@ -358,7 +362,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		if(!alive) {
+		if(!alive || abnormality.inMap(silence)) {
 			sendCannotStartSkill(event.skill)
 			return false
 		}
