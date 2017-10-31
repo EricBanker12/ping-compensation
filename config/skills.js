@@ -445,6 +445,9 @@ module.exports = {
 				distance: 122.66,
 				abnormals: {
 					201550: { speed: 1.2 }
+				},
+				race: {
+					2: { length: 525 } // Male High Elf
 				}
 			},
 			1: {
