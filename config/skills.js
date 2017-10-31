@@ -299,16 +299,16 @@ module.exports = {
 	1: { // Lancer
 		1: { // Combo Attack
 			0: {
-				length: 650,
-				distance: 75
+				length: 635,
+				distance: 74.45
 			},
 			1: {
 				length: 1025,
-				distance: 20
+				distance: 19.2
 			},
 			2: {
-				length: 1800,
-				distance: 66
+				length: 1815,
+				distance: 66.07
 			}
 		},
 		2: { // Stand Fast
