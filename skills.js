@@ -1099,14 +1099,28 @@ module.exports = function SkillPrediction(dispatch) {
 	function skillInfo(id, local) {
 		if(!local) id -= 0x4000000
 
-		if(skillsCache[id] !== undefined) return skillsCache[id]
+		let cached = skillsCache[id]
+
+		if(cached !== undefined) return cached
 
 		let group = Math.floor(id / 10000),
-			level = Math.floor(id / 100) % 100,
+			//level = Math.floor(id / 100) % 100,
 			sub = id % 100,
-			info = [get(skills, job, '*'), get(skills, job, group, '*'), get(skills, job, group, sub)]
+			info = [ // Ordered by least specific < most specific
+				get(skills, job, '*'),
+				get(skills, job, '*', 'race', race),
+				get(skills, job, group, '*'),
+				get(skills, job, group, '*', 'race', race),
+				get(skills, job, group, sub),
+				get(skills, job, group, sub, 'race', race)
+			]
 
-		if(info[info.length - 1]) return skillsCache[id] = Object.assign({}, ...info)
+		// Note: Exact skill (group, sub) must be specified for prediction to be enabled. This helps to avoid breakage in future patches
+		if(info[4]) {
+			cached = skillsCache[id] = Object.assign({}, ...info)
+			delete cached.race // Sanitize to reduce memory usage
+			return cached
+		}
 
 		return skillsCache[id] = null
 	}
