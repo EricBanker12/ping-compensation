@@ -474,11 +474,11 @@ module.exports = {
 				race: {
 					0: { distance: 100.13 }, // Male Human
 					2: { // Male High Elf
-						length: 525
+						length: 525,
 						distance: 102.7
 					},
 					4: { // Male Aman
-						length: 595
+						length: 595,
 						distance: 95
 					},
 					5: { distance: 100.13 }, // Female Aman
