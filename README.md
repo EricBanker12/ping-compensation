@@ -2,6 +2,8 @@
 
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
+Wiki/Race Specific Skill animation time and distance status: https://github.com/Leyki/skill-prediction/wiki
+
 ## Current supported class skills
 * Lancer: All besides Retaliate
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Retaliate
