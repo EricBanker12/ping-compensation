@@ -22,25 +22,37 @@ module.exports = {
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 32] },
 			0: {
-				length: 565,
-				distance: 62.29
+				length: 565, // Pori/Elin
+				distance: 62.29,
+				race: {
+					8: { distance: 54.32 } // Pori
+				}
 			},
 			1: {
-				length: 650,
-				distance: 51.69
+				length: 650, // Pori/Elin
+				distance: 51.69,
+				race: {
+					8: { distance: 21.171 }
+				}
 			},
 			2: {
-				length: 650,
-				distance: 28.08
+				length: 650, // Pori/Elin
+				distance: 28.08,
+				race: {
+					8: { distance: 56.196 }
+				}
 			},
 			3: {
-				length: 900,
-				distance: 73.34
+				length: 900, // Pori/Elin
+				distance: 73.34,
+				race: {
+					8: { distance: 63.529 }
+				}
 			}
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 830, //Popori: 1085 | Any other race: 830
+				length: 830, // Elin/M.Helf | Any other race?: 830
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
@@ -52,21 +64,29 @@ module.exports = {
 					21101: { stamina: -120 }
 				},
 				race: {
-					8: { length: 1085 } // Popori
+					8: { length: 1060 } // Popori
 				}
 			}
 		},
 		3: { // Torrent of Blows
 			0: {
-				length: 1600,
+				length: 1600, // Elin/Popori
 				distance: 68.26,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				race: {
+					8: { distance: 75 } // Popori
+				}
 			}
 		},
 		4: { // Rain of Blows
-			'*': { distance: 151.87 },
+			'*': { 
+				distance: 151.87,
+				race: {
+					8: { distance: 148.904 } // Popori
+				}
+			},
 			0: {
-				length: 2550,
+				length: 2550, // 2540 in Popori, seems like the same to me though, needs confirmation
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
 				abnormals: {
 					100801: { skill: 360100 }
@@ -75,10 +95,10 @@ module.exports = {
 					18: 30,
 					21: 30,
 					27: 30
-				}
+				},
 			},
 			30: {
-				length: 2000,
+				length: 2000, // Pori/Elin
 				abnormals: {
 					100801: { skill: 360130 }
 				}
@@ -86,7 +106,7 @@ module.exports = {
 		},
 		5: { // Battle Cry
 			0: {
-				length: 1665,
+				length: 1665, // Pori/Elin
 				noInterrupt: [32],
 				glyphs: {
 					21040: { speed: 1.5 }
@@ -95,7 +115,7 @@ module.exports = {
 		},
 		8: { // Assault Stance
 			'*': {
-				length: 575, 
+				length: 575, // Pori/Elin
 				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
@@ -103,7 +123,7 @@ module.exports = {
 		},
 		9: { // Defensive Stance
 			'*': {
-				length: 575, 
+				length: 575, //
 				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
@@ -111,22 +131,34 @@ module.exports = {
 		},
 		10: { // Death From Above
 			0: {
-				length: 2025,
-				noInterrupt: [2, 32]
+				length: 2025, // 2055 on Popori, need confirmation
+				noInterrupt: [2, 32],
+				/*race: {
+					8: { length: 2055 } // Popori
+				}*/
 			}
 		},
 		11: { // Poison Blade
 			0: {
 				length: 925,
 				distance: 54.85,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				race: {
+					8: { // Popori
+						length: 830,
+						distance: 35
+					} 
+				}
 			}
 		},
 		12: { // Leaping Strike
 			0: {
 				length: 1525,
 				distance: 250,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				race: {
+					8: { length: 1710 } // Popori
+				}	
 			}
 		},
 		/*13: { // Retaliate
@@ -146,20 +178,23 @@ module.exports = {
 				noRetry: true,
 				noInterrupt: [32]
 			},
-			1: { length: 825 }
+			1: { length: 825 } // Pori/Elin/M.Helf
 		},
 		17: { // Vortex Slash
 			0: {
-				length: 1600,
+				length: 1600, // Pori/Elin
 				requiredBuff: 100400,
 				noInterrupt: [32]
 			}
 		},
 		18: { // Combative Strike
 			'*': {
-				length: 1100,
+				length: 1100, // 1110
 				distance: 138.28,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				race: {
+					8: { distance: 128.889 } // Popori
+				}
 			},
 			0: true,
 			1: true,
@@ -168,35 +203,48 @@ module.exports = {
 		19: { // Rising Fury
 			'*': { noInterrupt: [32] },
 			0: {
-				length: 725,
+				length: 725, // Pori/Elin/M.Helf
 				distance: 170.61,
-				
+				race: {
+					8: { distance: 161.738 } // Popori
+				}	
 			},
 			1: {
-				length: 1400,
-				distance: 122.34
+				length: 1415, // Pori/Elin/M.Helf
+				distance: 122.34,
+				race: {
+					8: { distance: 116.629 } // Popori
+				}
 			}
 		},
 		20: { // Deadly Gamble
 			0: {
 				fixedSpeed: 1,
-				length: 300,
+				length: 310, // Pori/Elin
 				noInterrupt: [32]
 			}
 		},
 		21: { // Cascade of Stuns
 			0: {
-				length: 1400,
+				length: 1400, //Pori/Elin
 				distance: 122.34,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				race: {
+					8: { distance: 116.63 } // Popori
+				}
 			}
 		},
 		23: { // Spinning Counter
 			0: {
-				length: 1055,
+				length: 1075, // Pori/Elin
+				distance: 77.359,
 				requiredBuff: 100700,
 				abnormals: {
+					100200: { chain: 6 },
 					100201: { chain: 6 }
+				},
+				race: {
+					8: { distance: 65.344 } // Popori
 				}
 			}
 		
@@ -226,8 +274,8 @@ module.exports = {
 		},
 		27: { // Pounce
 			0: {
-				length: 2000,
-				distance: 180,
+				length: 2000, // Pori/Elin
+				distance: 180, // Pori/Elin
 				noInterrupt: [32],
 				glyphs: {
 					21048: { speed: 1.3 },
@@ -237,8 +285,8 @@ module.exports = {
 		},
 		28: { // Traverse Cut
 			0: {
-				length: 2000,
-				distance: 160,
+				length: 2000, // Pori/Elin
+				distance: 160, // Pori/Elin
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37],
 				abnormals: {
 					100200:{ skill: 390100 },
@@ -251,8 +299,8 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 2650,
-				distance: 210,
+				length: 2650, // Pori/Elin
+				distance: 210, // Pori/Elin
 				abnormals: {
 					100201: { skill: 390130 }
 				}
@@ -260,8 +308,8 @@ module.exports = {
 		},
 		29: { // Blade Draw
 			0: {
-				length: 3000,
-				distance: 94.5,
+				length: 3000, // Pori/Elin
+				distance: 94.5, // Pori/Elin
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
 				interruptibleWithAbnormal: {
 					102010: 3
@@ -281,8 +329,8 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1335,
-				distance: 135,
+				length: 1335, // Pori/Elin
+				distance: 135, // Pori/Elin
 				abnormals: {
 					100801: { skill: 370130 }
 				}
@@ -290,8 +338,8 @@ module.exports = {
 		},
 		30: { // Scythe
 			0: {
-				length: 1850,
-				distance: 150,
+				length: 1850, // Pori/Elin
+				distance: 150, // Pori/Elin
 				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
 				abnormals: {
 					100801: { skill: 380100 }
@@ -307,18 +355,17 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1385,
-				distance: 120,
+				length: 1385, // Pori/Elin
+				distance: 120, // Pori/Elin
 				abnormals: {
 					100801: { skill: 380130 }
 				}
 			}
 		},
 		31: { // Reaping Slash
-			'*': { distance: 110 },
+			'*': { distance: 110 }, // Pori/Elin
 			0: {
 				length: 2275,
-				distance: 110,
 				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
 				chains: {
 					4: 30,
@@ -338,29 +385,37 @@ module.exports = {
 		},
 		34: { // Binding Sword
 			0: { 
-				length: 1900,
+				length: 1900, // Pori/Elin
 				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
 			}
 		},
 		35: { // Infuriate
 			0: { 
-				length: 2425,
+				length: 2425, // Pori/Elin
 				noInterrupt: [32],
 				requiredBuff: [100201]
 			}
 		},
 		36: { // Rain of Blows (Deadly Gamble)
-			'*': { distance: 151.87 },
+			'*': { 
+				distance: 151.87,
+				race: {
+					8: { distance: 148.905 } // Popori
+				}
+			},
 			0: { 
 				length: 2550,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				race: {
+					8: { length: 2800 } // Popori
+				}
 		    },
-			30: { length: 2000 }
+			30: { length: 2000 } // Pori/Elin
 		},
 		37: { // Blade Draw (Deadly Gamble)
 			0: {
-				length: 3000,
-				distance: 94.5,
+				length: 3000, // Pori/Elin
+				distance: 94.5, // Pori/Elin
 				abnormals: {
 					102010: { chain: 30 }
 				}
@@ -371,17 +426,17 @@ module.exports = {
 			}
 		},
 		38: { // Scythe (Deadly Gamble)
-			'*': { distance: 150 },
+			'*': { distance: 150 }, // Pori/Elin
 			0: { 
-				length: 1850,
+				length: 1850, // Pori/Elin
 				noInterrupt: [32]
 			},
-			30: { length: 1385 }
+			30: { length: 1385 } // Pori/Elin
 		},
 		39: { // Traverse Cut (Defensive Stance)
 			0: {
-				length: 2000,
-				distance: 160,
+				length: 2000, // Pori/Elin
+				distance: 160, // Pori/Elin
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
 				chains: {
 					11: 30,
@@ -390,8 +445,8 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 2650,
-				distance: 210
+				length: 2650, // Pori/Elin
+				distance: 210 // Pori/Elin
 			}
 		}
 	},
