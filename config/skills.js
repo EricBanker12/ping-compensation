@@ -614,9 +614,7 @@ module.exports = {
 						length: 525,
 						distance: 102.7
 					},
-					4: { // Male Aman
-						distance: 95
-					},
+					4: { distance: 95 }, //Male Aman
 					5: { distance: 100.13 }, // Female Aman
 					8: { distance: 92.39 } // Popori
 				}
@@ -1682,7 +1680,12 @@ module.exports = {
 				}
 			},
 			0: true,
-			50: { length: 3700 }
+			50: {
+				length: 3925,
+			     	race: {
+					9: { length: 3700 } // Elin
+				}
+			}
 		},
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
