@@ -198,8 +198,6 @@ module.exports = {
 				abnormals: {
 					100200: { skill: 390100 },
 					100201: { skill: 390100 },
-					100202: { skill: 390100 },
-					100203: { skill: 390100 }
 				},
 				chains: {
 					11: 30,
@@ -285,7 +283,7 @@ module.exports = {
 			0: {
 				type: 'holdInfinite',
 				fixedSpeed: 1,
-				requiredBuff: [100200, 100201, 100202, 100203],
+				requiredBuff: [100200, 100201],
 				stamina: 50
 			}
 		},
