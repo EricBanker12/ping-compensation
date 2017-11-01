@@ -291,7 +291,10 @@ module.exports = {
 			0: { length: 1900 }
 		},
 		35: { // Infuriate
-			0: { length: 2425 }
+			0: {
+				length: 2425,
+				requiredBuff: [100200, 100201]
+			}
 		},
 		36: { // Rain of Blows (Deadly Gamble)
 			'*': { distance: 151.87 },
