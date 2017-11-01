@@ -604,7 +604,6 @@ module.exports = {
 						distance: 102.7
 					},
 					4: { // Male Aman
-						length: 595,
 						distance: 95
 					},
 					5: { distance: 100.13 }, // Female Aman
