@@ -63,6 +63,12 @@ module.exports = {
 					21067: { stamina: -100 },
 					21101: { stamina: -120 }
 				},
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				},
 				race: {
 					8: { length: 1060 } // Popori
 				}
@@ -95,7 +101,7 @@ module.exports = {
 					18: 30,
 					21: 30,
 					27: 30
-				},
+				}
 			},
 			30: {
 				length: 2000, // Pori/Elin
@@ -133,6 +139,12 @@ module.exports = {
 			0: {
 				length: 2025, // 2055 on Popori, need confirmation
 				noInterrupt: [2, 32],
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 				/*race: {
 					8: { length: 2055 } // Popori
 				}*/
@@ -247,7 +259,6 @@ module.exports = {
 					8: { distance: 65.344 } // Popori
 				}
 			}
-		
 		},
 		24: { // Smoke Aggressor
 			0: {
@@ -692,6 +703,12 @@ module.exports = {
 				glyphs: {
 					22067: { stamina: -100 },
 					22089: { stamina: -100 }
+				},
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
 				}
 			}
 		},
@@ -754,6 +771,12 @@ module.exports = {
 				length: 905, //Popori: 1185 | Any other race: 905
 				distance: 150,
 				forceclip: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				},
 				race: {
 					8: { length: 1185 } // Popori
 				}
@@ -764,7 +787,13 @@ module.exports = {
 		5: { // Dash
 			0: {
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		8: { // Overhand Strike
@@ -850,7 +879,13 @@ module.exports = {
 				forceClip: true,
 				glyphs: {
 					23060: { speed: 1.25 }
-			    }
+				},
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 		    }
 		},
 		16: { // Fury Strike
@@ -864,7 +899,13 @@ module.exports = {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1000,
-				distance: 413
+				distance: 413,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		18: { // Overpower
@@ -1035,7 +1076,13 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 700,
-				noInterrupt: [2]
+				noInterrupt: [2],
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		6: { // Sweeping Strike
@@ -1240,7 +1287,13 @@ module.exports = {
 			},
 			0: {
 				length: 1015,
-				distance: 150
+				distance: 150,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			},
 			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
 			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
@@ -1302,7 +1355,13 @@ module.exports = {
 				length: 920,
 				distance: 150,
 				forceClip: true,
-				noInterrupt: [2, 29]
+				noInterrupt: [2, 29],
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		30: { // Axe Counter (TODO: Check)
@@ -1432,7 +1491,13 @@ module.exports = {
 			0: {
 				length: 660,
 				distance: -200,
-				forceClip: true
+				forceClip: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		8: { // Flame Pillar
@@ -1578,7 +1643,13 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [26],
 				teleportStage: 1,
-				noRetry: true
+				noRetry: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		27: { // Hailstorm
@@ -1734,7 +1805,13 @@ module.exports = {
 			0: {
 				length: 705,
 				distance: -200,
-				forceClip: true
+				forceClip: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		7: { // Feign Death
@@ -1861,20 +1938,26 @@ module.exports = {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1075,
-				distance: 413
+				distance: 413,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		}
 	},
 	6: { // Priest
 		1: { // Divine Radiance
-			0: { length: 625 },
-			1: { length: 650 },
-			2: { length: 675 },
-			3: { length: 725 }
+			0: { length: 625 }, // Elin/M.Casta
+			1: { length: 650 }, //
+			2: { length: 675 }, //
+			3: { length: 725 } //
 		},
 		2: { // Regeneration Circle
 			0: {
-				length: 3150,
+				length: 3150, // Elin/M.Casta
 				abnormals: {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
@@ -1884,31 +1967,31 @@ module.exports = {
 			}
 		},
 		3: { // Healing Circle
-			0: { length: 1750 }
+			0: { length: 1750 } // Elin/M.Casta
 		},
 		5: { // Blessing of Shakan
-			0: { length: 1300 }
+			0: { length: 1300 } // Elin/M.Casta
 		},
 		6: { // Arise
-			0: { length: 830 }
+			0: { length: 830 } // Elin/M.Casta
 		},
 		8: { // Mana Infusion
 			0: {
-				length: 4600,
+				length: 4600, // Elin/M.Casta
 				glyphs: {
 					28044: { speed: 1.25 }
 				}
 			}
 		},
 		10: { // Purifying Circle
-			0: { length: 1275 }
+			0: { length: 1275 } // Elin/M.Casta
 		},
 		11: { // Metamorphic Blast
-			0: { length: 830 }
+			0: { length: 830 } // Elin/M.Casta
 		},
 		12: { // Resurrect
 			0: {
-				length: 5915, // 5900
+				length: 5915, // Elin/M.Casta
 				glyphs: {
 					28045: { speed: 1.15 }
 				},
@@ -1921,50 +2004,50 @@ module.exports = {
 			}
 		},
 		14: { // Summon: Party
-			0: { length: 4500 }
+			0: { length: 4500 } // Elin/M.Casta
 		},
 		16: { // Shocking Implosion
-			0: { length: 1700 }
+			0: { length: 1700 } // Elin/M.Casta
 		},
 		17: { // Prayer of Peace
 			0: {
-				length: [925, 925, 850],
+				length: [925, 925, 850], // Elin/M.Casta
 				glyphs: {
 					28021: { speed: 2 }
 				}
 			}
 		},
 		18: { // Heal Thyself
-			0: { length: 1250 }
+			0: { length: 1250 } // Elin/M.Casta
 		},
 		19: { // Focus Heal
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440
+				length: 54440 // Elin/M.Casta
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940
+				length: 1940 // Elin/M.Casta
 			}
 		},
 		22: { // Kaia's Shield
-			0: { length: 650 }
+			0: { length: 650 } // Elin/M.Casta
 		},
 		23: { // Blessing of Balder
-			0: { length: 1300 }
+			0: { length: 1300 } // Elin/M.Casta
 		},
 		26: { // Fiery Escape
 			0: {
-				length: 1125,
-				distance: -250.5,
+				length: 1125, // Elin/M.Casta
+				distance: -250.5, // Elin/M.Casta
 				forceClip: true
 			}
 		},
 		27: { // Final Reprisal
 			0: {
-				length: 2600,
+				length: 2600, // Elin/M.Casta
 				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, 28-10, 34, 38, 41-10],
 				chains: {
 					11: 30,
@@ -1973,12 +2056,12 @@ module.exports = {
 					40: 30
 				}
 			},
-			30: { length: 1040 }
+			30: { length: 1040 } // Elin/M.Casta
 		},
 		28: { // Mana Charge
 			'*': {
 				type: 'chargeCast',
-				length: 825
+				length: 825 // Elin/M.Casta
 			},
 			0: {
 				type: 'charging',
@@ -1993,33 +2076,33 @@ module.exports = {
 			12: { noInterrupt: [26, 27, 38] }
 		},
 		29: { // Triple Nemesis
-			0: { length: 800 },
-			1: { length: 800 },
-			2: { length: 1250 }
+			0: { length: 800 }, // Elin/M.Casta
+			1: { length: 800 }, // Elin/M.Casta
+			2: { length: 1250 } // Elin/M.Casta
 		},
 		30: { // Plague of Exhaustion
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900 // Elin/M.Casta
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430 // Elin/M.Casta
 			}
 		},
 		31: { // Guardian Sanctuary
 			0: {
 				fixedSpeed: 1,
-				length: 700
+				length: 700 // Elin/M.Casta
 			}
 		},
 		32: { // Divine Respite
 			0: {
 				fixedSpeed: 1,
-				length: [1300, 900]
+				length: [1300, 900] // Elin/M.Casta
 			}
 		},
 		33: { // Ishara's Lullaby
@@ -2027,29 +2110,29 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 4900, // Elin/M.Casta
 				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1430]
+				length: [300, 1430] // Elin/M.Casta
 			}
 		},
 		34: { // Restorative Burst
-			0: { length: 1430 }
+			0: { length: 1430 } // Elin/M.Casta
 		},
 		35: { // Energy Stars
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900 // Elin/M.Casta
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430 // Elin/M.Casta
 			}
 		},
 		37: { // Healing Immersion
@@ -2057,41 +2140,47 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 4900, // Elin/M.Casta
 				noInterrupt: [37],
 				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1430, // Elin/M.Casta
 				noInterrupt: ['37-10']
 			}
 		},
 		38: { // Backstep
 			0: {
-				length: 665,
-				distance: -200,
-				forceClip: true
+				length: 665, // Elin/M.Casta
+				distance: -200, // Elin/M.Casta
+				forceClip: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		39: { // Grace of Resurrection
-			0: { length: 5900 }
+			0: { length: 5900 } // Elin/M.Casta
 		},
 		40: { // Zenobia's Vortex
-			0: { length: 1080 }
+			0: { length: 1080 } // Elin/M.Casta
 		},
 		41: { // Divine Intervention
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
+				length: 54440, // Elin/M.Casta
 				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
-				length: 925
+				length: 925 // Elin/M.Casta
 			}
 		}
 	},
@@ -2210,7 +2299,13 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
-				noRetry: true
+				noRetry: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		18: { // Arun's Vitae
@@ -2641,6 +2736,12 @@ module.exports = {
 					}],
 					distance: 0
 				},
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				},
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 14, 20]
 			}
 		},
@@ -2730,7 +2831,13 @@ module.exports = {
 		18: { // Shrouded Escape
 			0: {
 				length: 850,
-				distance: 150
+				distance: 150,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		40: { // Shadow Step
@@ -2739,7 +2846,11 @@ module.exports = {
 				distance: 180,
 				forceClip: true,
 				abnormals: {
-					10151000: { chain: 30 }
+					10151000: { chain: 30 },
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
 				}
 			},
 			0: true,
@@ -2926,6 +3037,12 @@ module.exports = {
 					//15: 30, fixed with noInterrupt but anyway it can't chain
 					19: 30,
 					40: 31
+				},
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
 				}
 			},
 			1: true,
@@ -3278,7 +3395,13 @@ module.exports = {
 				distance: 144,
 				forceClip: true,
 				hasChains: true,
-				noRetry: true
+				noRetry: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			},
 			0: true, // TODO: Figure out which animations are correct
 			1: true,
@@ -3446,7 +3569,11 @@ module.exports = {
 				distance: 175,
 				forceClip: true,
 				abnormals: {
-					10154010: { chain: 30 }
+					10154010: { chain: 30 },
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
 				}
 			},
 			0: true,
@@ -3462,7 +3589,13 @@ module.exports = {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 665,
-				distance: 469
+				distance: 469,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}	
 			},
 			10: { length: 1500 },
 			11: {
@@ -3476,7 +3609,13 @@ module.exports = {
 				distance: -291.6,
 				noInterrupt: [5],
 				forceClip: true,
-				noRetry: true
+				noRetry: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			},
 			0: { type: 'nullChain' },
 			30: true
@@ -3498,6 +3637,12 @@ module.exports = {
 					18: 30,
 					19: 30,
 					20: 30
+				},
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
 				}
 			 },
 			0: true,
@@ -3513,7 +3658,13 @@ module.exports = {
 		7: { // Decoy Jutsu
 			0: {
 				length: 1550,
-				onlyTarget: true
+				onlyTarget: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			}
 		},
 		8: { // Fire Avalanche
@@ -3555,7 +3706,15 @@ module.exports = {
 		},
 		9: { // Smoke Bomb
 			'*': { length: 725 },
-			0: { type: 'nullChain' },
+			0: { 
+				type: 'nullChain',
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
+			 },
 			30: true
 		},
 		11: { // Focus
@@ -4141,7 +4300,13 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 825,
 				distance: 188.18,
-				forceClip: true
+				forceClip: true,
+				abnormals: {
+					501320: { chain: 6 },
+					501321: { chain: 6 },
+					501322: { chain: 6 },
+					501323: { chain: 6 }
+				}
 			},
 			0: true,
 			1: {

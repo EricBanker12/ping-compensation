@@ -5,12 +5,12 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 ## Current supported class skills
 * Lancer: All besides Retaliate
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Retaliate
-* Warrior: All besides Backstab, Staggering Counter, Smoke Flanker, Retaliate
-* Slayer: All besides Exhausting Blow, Backstab, Retaliate
-* Berserker: Most skills
+* Warrior: All besides Backstab, Smoke Flanker, Retaliate
+* Slayer: All besides Backstab, Retaliate
+* Berserker: All besides Vampiric Blow which somewhat works if uncommented
 * Sorcerer: All besides Stone Skin, Retaliate
-* Archer: All besides Retaliate
-* Reaper: All besides Cable Step, Soul Reversal
+* Archer: All besides Snare, Retaliate
+* Reaper: All besides Cable Step, Soul Reversal, Retaliate
 * Gunner: Most skills besides Retaliate
 * Ninja: All besides Retaliate
 * Valkyrie: All besides Retaliate
