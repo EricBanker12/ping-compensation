@@ -3963,31 +3963,14 @@ module.exports = {
 				noInterrupt: [10],
 				glyphs: {
 					33020: { speed: 1.2 }
+				},
+				chains: {
+					17: 30, // Not correct since still triggers substage 4 on them.
+					21: 30 //  But for now it works /shrug
 				}
 			},
-			0: {
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					'4-10': 30,
-					'4-11': 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					18: 30,
-					19: 30
-			    }
-			},
-			30: true
+			0: { type: 'nullChain' }, // This skill triggers substage 4 on most skills and simply adding the chains doesn't do so we add nullChain. But
+			30: true // if we add a chain to a skill that we want to trigger substage 4 on, it will break, ghosting if there's no fast enough server response.
 		},
 		11: { // Shining Crescent
 			'*': {
