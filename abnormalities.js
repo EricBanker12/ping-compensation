@@ -33,7 +33,7 @@ class AbnormalityPrediction {
 
 				if(event.duration != 0x7fffffff) event.duration = Math.max(event.duration - this.ping.min, 0)
 
-				if(type == 'S_ABNORMALITY_BEGIN' && this.exists(event.id)) {
+				if(type === 'S_ABNORMALITY_BEGIN' === this.exists(event.id)) { // Transform packet type so it will always be valid
 					this.add(event.id, event.duration, event.stacks)
 					return false
 				}
