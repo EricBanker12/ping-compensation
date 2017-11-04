@@ -400,7 +400,7 @@ module.exports = {
 			0: {
 				type: 'holdInfinite',
 				fixedSpeed: 1,
-				requiredBuff: [100201],
+				requiredBuff: [100200, 100201],
 				stamina: 50
 			}
 		},
@@ -414,7 +414,7 @@ module.exports = {
 			0: { 
 				length: 2425, // M.Helf/Pori/Elin
 				noInterrupt: [32],
-				requiredBuff: [100201]
+				requiredBuff: [100200, 100201]
 			}
 		},
 		36: { // Rain of Blows (Deadly Gamble)
