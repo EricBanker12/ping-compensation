@@ -2,7 +2,9 @@
 
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
-Wiki/Race Specific Skill animation time and distance status: https://github.com/Leyki/skill-prediction/wiki
+Wiki: https://github.com/Leyki/skill-prediction/wiki
+
+Disabling a skill in SP: https://github.com/Leyki/skill-prediction/wiki#commenting-in-javascriptaka-if-you-want-a-skill-to-not-be-afected-by-sp
 
 ## Current supported class skills
 * Lancer: All besides Retaliate
