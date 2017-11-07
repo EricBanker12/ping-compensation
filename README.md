@@ -4,7 +4,7 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 Wiki: https://github.com/Leyki/skill-prediction/wiki
 
-Disabling a skill in SP: https://github.com/Leyki/skill-prediction/wiki#commenting-in-javascriptaka-if-you-want-a-skill-to-not-be-afected-by-sp
+Disabling a skill in SP: https://github.com/Leyki/skill-prediction/wiki#commenting-in-javascriptaka-if-you-want-a-skill-to-not-be-affected-by-sp
 
 ## Current supported class skills
 * Lancer: All besides Retaliate
