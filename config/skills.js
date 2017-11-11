@@ -1026,6 +1026,8 @@ module.exports = {
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { chargeSpeed: 0.25 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
 					4010150: { chargeSpeed: 0.2 }
 				}
 			},
@@ -1142,6 +1144,8 @@ module.exports = {
 				abnormals: {
 					24010: { chargeSpeed: 0.3 },
 					24190: { chargeSpeed: 0.3 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
 					4010150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 				}
@@ -1200,6 +1204,8 @@ module.exports = {
 				length: [800, 800, 800],
 				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30], // VB can't chain to stages 10, 11 or 12 in the client, it only can on stages 13
 				abnormals: {
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
 					4010150: { chargeSpeed: 0.2 }
 				},
 				chains: {
@@ -1244,6 +1250,8 @@ module.exports = {
 				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 30],
 				abnormals:  {
 					24120: { chargeSpeed: 0.3 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
 					4010150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 			    }
