@@ -518,7 +518,7 @@ module.exports = {
 		},
 		3: { // Onslaught
 			'*': {
-				distance: [0, 100, 100, 100, 100, 62,7], // 15~ M.Human, Popori and M.Aman?, do not log this skill with low fps
+				distance: [0, 100, 100, 100, 100, 62.7], // 15~ M.Human, Popori and M.Aman?, do not log this skill with low fps
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27],
 				abnormals: {
 					22060: { speed: 1.25 }
