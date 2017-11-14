@@ -96,10 +96,12 @@ module.exports = function SkillPrediction(dispatch) {
 		clearStage()
 	})
 
-	dispatch.hook('S_PLAYER_STAT_UPDATE', 1, event => {
-		// Newer classes use a different speed algorithm
-		aspd = (event.baseAttackSpeed + event.bonusAttackSpeed) / (job >= 8 ? 100 : event.baseAttackSpeed)
-		currentStamina = event.curRe
+	dispatch.hook('C_CHECK_VERSION', 'raw', () => {
+		dispatch.hook('S_PLAYER_STAT_UPDATE', dispatch.base.protocolVersion === 323309 ? 7 : 6, event => {
+			// Newer classes use a different speed algorithm
+			aspd = (event.attackSpeed + event.attackSpeedBonus) / (job >= 8 ? 100 : event.attackSpeedBonus)
+			currentStamina = event.stamina
+		})
 	})
 
 	dispatch.hook('S_CREST_INFO', 1, event => {
