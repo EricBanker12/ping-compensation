@@ -3324,10 +3324,10 @@ module.exports = {
 		10: { // Arc Bomb
 			'*': {
 				length: 1325,
-				chains: {
+				/*chains: {
 					15: 30,
 					40: 30
-				},
+				},*/
 				chains: {
 					'2-1': 30,
 					3: 30,
