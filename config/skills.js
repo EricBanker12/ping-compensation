@@ -2522,10 +2522,10 @@ module.exports = {
 		10: { // Arc Bomb
 			'*': {
 				length: 1325,
-				chains: {
+				/*chains: {
 					15: 30,
 					40: 30
-				},
+				},*/
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -2631,9 +2631,12 @@ module.exports = {
 		40: { // Rolling Reload
 			0: {
 				fixedSpeed: 1,
-				length: 800,
+				length: 950,
 				distance: 172.5,
-				forceClip: true
+				forceClip: true,
+				race: {
+					7: { length: 800 } // Female Castanic
+				}
 			}
 		}
 	},
