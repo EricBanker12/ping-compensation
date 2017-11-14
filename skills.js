@@ -768,7 +768,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('S_EACH_SKILL_RESULT', 1, event => {
+	dispatch.hook('S_EACH_SKILL_RESULT', 2, event => {
 		if(isMe(event.target) && event.setTargetAction) {
 			if(DEBUG) {
 				let duration = Date.now() - debugActionTime,
