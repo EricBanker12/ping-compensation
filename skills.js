@@ -97,7 +97,7 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('C_CHECK_VERSION', 'raw', () => {
-		dispatch.hook('S_PLAYER_STAT_UPDATE', dispatch.base.protocolVersion === 323309 ? 7 : 6, event => {
+		dispatch.hook('S_PLAYER_STAT_UPDATE', [321553, 321554].includes(dispatch.base.protocolVersion) ? 6 : 7, event => {
 			// Newer classes use a different speed algorithm
 			aspd = (event.attackSpeed + event.attackSpeedBonus) / (job >= 8 ? 100 : event.attackSpeed)
 			currentStamina = event.stamina
@@ -1112,21 +1112,29 @@ module.exports = function SkillPrediction(dispatch) {
 		if(cached !== undefined) return cached
 
 		let group = Math.floor(id / 10000),
-			//level = Math.floor(id / 100) % 100,
+			level = (Math.floor(id / 100) % 100) - 1,
 			sub = id % 100,
 			info = [ // Ordered by least specific < most specific
 				get(skills, job, '*'),
+				get(skills, job, '*', 'level', level),
 				get(skills, job, '*', 'race', race),
+				get(skills, job, '*', 'race', race, 'level', level),
 				get(skills, job, group, '*'),
+				get(skills, job, group, '*', 'level', level),
 				get(skills, job, group, '*', 'race', race),
+				get(skills, job, group, '*', 'race', race, 'level', level),
 				get(skills, job, group, sub),
-				get(skills, job, group, sub, 'race', race)
+				get(skills, job, group, sub, 'level', level),
+				get(skills, job, group, sub, 'race', race),
+				get(skills, job, group, sub, 'race', race, 'level', level)
 			]
 
 		// Note: Exact skill (group, sub) must be specified for prediction to be enabled. This helps to avoid breakage in future patches
-		if(info[4]) {
+		if(info[8]) {
 			cached = skillsCache[id] = Object.assign({}, ...info)
-			delete cached.race // Sanitize to reduce memory usage
+			// Sanitize to reduce memory usage
+			delete cached.race
+			delete cached.level
 			return cached
 		}
 

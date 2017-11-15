@@ -2486,7 +2486,14 @@ module.exports = {
 				instantStamina: true,
 				glyphs: {
 					30046: { stamina: -10 }
-				}
+				},
+				level: [
+					{ stamina: 50 },
+					{ stamina: 55 },
+					{ stamina: 60 },
+					{ stamina: 65 },
+					{ stamina: 70 }
+				]
 			}
 		},
 		6: { // Time Bomb
