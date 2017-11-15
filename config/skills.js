@@ -2392,7 +2392,7 @@ module.exports = {
 		1: { // Blast
 			'*': {
 				fixedSpeed: 1,
-				length: 1200,
+				length: 1195,
 				noInterrupt: [1]
 			},
 			1: true,
@@ -2465,14 +2465,17 @@ module.exports = {
 					40: 30
 				}
 			},
-			1: { noRetry: true },
+			1: {
+				noInterrupt: [4],
+				noRetry: true
+			},
 			2: { noRetry: true },
 			3: {
-				length: 1200,
+				length: 1195,
 				distance: -198.53
 			},
 			4: {
-				length: 1200,
+				length: 1195,
 				distance: -198.53
 			},
 			30: { noRetry: true }
@@ -2491,8 +2494,7 @@ module.exports = {
 					{ stamina: 50 },
 					{ stamina: 55 },
 					{ stamina: 60 },
-					{ stamina: 65 },
-					{ stamina: 70 }
+					{ stamina: 65 }
 				]
 			}
 		},
@@ -2533,33 +2535,17 @@ module.exports = {
 		10: { // Arc Bomb
 			'*': {
 				length: 1325,
-				/*chains: {
-					15: 30,
-					40: 30
-				},*/
-				chains: {
-					'2-1': 30,
-					3: 30,
-					4: 30,
-					'7-3': 30,
-					'9-10': 30,
-					'9-11': 30,
-					10: 30,
-					11: 30,
-					13: 30,
-					15: 30,
-					19: 30,
-					40: 30
-				}
+				noRetry: true
 			},
-			1: true,
-			2: true,
+			1: { type: 'nullChain' },
+			2: { type: 'nullChain' },
 			30: true
 		},
 		11: { // Rocket Jump
 			'*': {
 				length: 1400,
 				distance: 415.45,
+				noInterrupt: [15],
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -2579,8 +2565,14 @@ module.exports = {
 			2: true,
 			30: true,
 			31: {
-				length: 1700,
-				distance: 503.64
+				length: 1675,
+				distance: 506.27,
+				race: {
+					7: { // Female Castanic
+						length: 1700,
+						distance: 503.64
+					}
+				}
 			}
 		},
 		13: { // Balder's Vengeance
@@ -2639,10 +2631,19 @@ module.exports = {
 			1: true,
 			2: true
 		},
+		19: { // ST
+			'*': {
+				length: 1325,
+				noRetry: true
+			},
+			1: { type: 'nullChain' },
+			2: { type: 'nullChain' },
+			30: true
+		},
 		40: { // Rolling Reload
 			0: {
 				fixedSpeed: 1,
-				length: 950,
+				length: 935,
 				distance: 172.5,
 				forceClip: true
 			}
