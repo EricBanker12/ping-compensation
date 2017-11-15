@@ -318,7 +318,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
 				abnormals: {
 					100200:{ skill: 390100 },
 					100201:{ skill: 390100 }
@@ -333,6 +333,7 @@ module.exports = {
 				length: 2650,
 				distance: 210,
 				abnormals: {
+					100200: { skill: 390130 },
 					100201: { skill: 390130 }
 				}
 			}
