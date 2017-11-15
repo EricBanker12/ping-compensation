@@ -768,31 +768,33 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('S_EACH_SKILL_RESULT', 1, event => {
-		if(isMe(event.target) && event.setTargetAction) {
-			if(DEBUG) {
-				let duration = Date.now() - debugActionTime,
-					strs = ['<- S_EACH_SKILL_RESULT.setTargetAction', skillId(event.targetAction), event.targetStage]
+	dispatch.hook('C_CHECK_VERSION', 'raw', () => {
+		dispatch.hook('S_EACH_SKILL_RESULT', [321553, 321554].includes(dispatch.base.protocolVersion) ? 3 : 4, event => {
+			if(isMe(event.target) && event.setTargetAction) {
+				if(DEBUG) {
+					let duration = Date.now() - debugActionTime,
+						strs = ['<- S_EACH_SKILL_RESULT.setTargetAction', skillId(event.targetAction), event.targetStage]
 
-				if(DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
+					if(DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
 
-				debug(strs.join(' '))
+					debug(strs.join(' '))
+				}
+
+				if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
+
+				currentAction = serverAction = {
+					x: event.targetX,
+					y: event.targetY,
+					z: event.targetZ,
+					w: event.targetW,
+					skill: event.targetAction,
+					stage: event.targetStage,
+					id: event.targetId
+				}
+
+				updateLocation()
 			}
-
-			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
-
-			currentAction = serverAction = {
-				x: event.targetX,
-				y: event.targetY,
-				z: event.targetZ,
-				w: event.targetW,
-				skill: event.targetAction,
-				stage: event.targetStage,
-				id: event.targetId
-			}
-
-			updateLocation()
-		}
+		})
 	})
 
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
