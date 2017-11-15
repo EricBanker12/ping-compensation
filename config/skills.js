@@ -207,7 +207,11 @@ module.exports = {
 			},
 			30: {
 				length: 2650,
-				distance: 210
+				distance: 210,
+				abnormals: {
+					100200: { skill: 390130 },
+					100201: { skill: 390130 }
+				}
 			}
 		},
 		29: { // Blade Draw
