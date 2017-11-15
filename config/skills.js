@@ -2633,10 +2633,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 950,
 				distance: 172.5,
-				forceClip: true,
-				race: {
-					7: { length: 800 } // Female Castanic
-				}
+				forceClip: true
 			}
 		}
 	},
