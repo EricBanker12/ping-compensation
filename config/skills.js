@@ -190,6 +190,7 @@ module.exports = {
 					2: { distance: 0 }, // M.Helf
 					5: { distance: 40 }, // F.Aman
 					8: { distance: 35 }, // Popori
+					7: { length: 925 }, // F.Casta
 					9: {	// Elin
 						length: 925,
 						distance: 54.85	// 54.582
