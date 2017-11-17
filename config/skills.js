@@ -1004,6 +1004,7 @@ module.exports = {
 				length: 905,
 				distance: 150,
 				forceclip: true,
+				noInterrupt: [4],
 				abnormals: {
 					400800: { chain: 6 },
 					400801: { chain: 6 },
