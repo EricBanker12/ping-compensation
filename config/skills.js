@@ -680,7 +680,7 @@ module.exports = {
 				noRetry: true,
 				noInterrupt: [2],
 				race: {
-					9: { distance: 1625 } // Elin, also this?
+					9: { length: 1625 } // Elin, also this?
 				}
 			}
 		},
