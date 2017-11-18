@@ -382,7 +382,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
 			if(currentSkillBase == 6190 || (currentSkillBase == 6811 + race && info.type != 'retaliate')) {
-				if(currentAction.skill != 67538964 && (!abnormality.exists(9691000) || !abnormality.exists(9691016))) {
+				if(currentAction.skill != 67129664 && (!abnormality.exists(9691000) || !abnormality.exists(9691016))) {
 				    sendCannotStartSkill(event.skill)
 					return false
 				}
