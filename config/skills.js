@@ -3454,6 +3454,7 @@ module.exports = {
 		1: { // Blast
 			'*': {
 				fixedSpeed: 1,
+				noRetry: true,
 				length: 1195,
 				noInterrupt: [1]
 			},
@@ -3511,7 +3512,7 @@ module.exports = {
 			'*': {
 				length: 1525,
 				distance: 137.88,
-				noInterrupt: ['4-3'],
+				noInterrupt: ['4-3', '4-4'],
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3543,7 +3544,7 @@ module.exports = {
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire
-			0: { length: 850 },
+			0: { length: 855 },
 			1: {
 				fixedSpeed: 1,
 				length: 122,
@@ -3563,7 +3564,7 @@ module.exports = {
 		6: { // Time Bomb
 			'*': {
 				fixedSpeed: 1,
-				length: 1000
+				length: 1010
 			},
 			1: true,
 			2: true
@@ -3580,7 +3581,10 @@ module.exports = {
 				noInterrupt: [7],
 				noRetry: true
 			},
-			3: { length: 1200 }
+			3: {
+				requiredBuff: 10152040,
+				length: 1200
+			}
 		},
 		9: { // Mana Missiles
 			'*': {
@@ -3589,7 +3593,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: 1200 // Advised to set a bit longer, like 1300, because otherwise auto-release full charge will shoot 2 missiles in reality
+				length: 1250
 			},
 			10: { distance: -50 },
 			11: { distance: -100 }
@@ -3608,7 +3612,6 @@ module.exports = {
 				length: 1400,
 				noInterrupt: [15],
 				distance: 415.45,
-				noInterrupt: [15],
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3619,7 +3622,6 @@ module.exports = {
 					10: 30,
 					11: 30,
 					13: 30,
-					//15: 30, fixed with noInterrupt but anyway it can't chain
 					19: 30,
 					40: 31
 				},
@@ -3699,7 +3701,7 @@ module.exports = {
 		18: { // HB
 			'*': {
 				fixedSpeed: 1,
-				length: 1430
+				length: 1420
 			},
 			1: true,
 			2: true
@@ -3716,7 +3718,8 @@ module.exports = {
 		40: { // Rolling Reload
 			0: {
 				fixedSpeed: 1,
-				length: 935,
+				length: 930,
+				noInterrupt: [11],
 				distance: 172.5,
 				abnormals: {
 					7692002: { chain: 6 },
