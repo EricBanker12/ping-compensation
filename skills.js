@@ -18,6 +18,9 @@ const JITTER_COMPENSATION	= true,
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
+//Class based fixes
+const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
+
 const {protocol, sysmsg} = require('tera-data-parser'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
@@ -47,6 +50,7 @@ module.exports = function SkillPrediction(dispatch) {
 		aspd = 1,
 		currentGlyphs = null,
 		currentStamina = 0,
+		staminaModifier = 0, //For gunner's chest roll 'Reduces Willpower cost of Burst Fire by 5.'
 		alive = false,
 		inCombat = false,
 		inventoryHook = null,
@@ -156,6 +160,33 @@ module.exports = function SkillPrediction(dispatch) {
 						equippedWeapon = true
 						break
 					}
+				//Body WP roll check for gunner, only inventory parse :( So weird
+				if (job == 9 )
+				{   
+					staminaModifier = 0
+					for (var item of inventory) {
+						if(item.slot == 3 && WP_BODY_ROLL_CONTROL)
+						{
+							for(var set of item.passivitySets)
+							{
+								if(set.index != item.passivitySet)
+								continue
+							
+								for(var id of set.passivities)
+								{
+								   //console.log('[inv] ID', id)
+								   if (id.dbid == 350905 )
+								   {
+									// console.log('[inv] ID 350905 rolled')
+									 staminaModifier = -5
+								   }
+								}
+	
+							}
+							break
+						}
+					}
+				}
 
 				inventory = null
 
@@ -497,7 +528,7 @@ module.exports = function SkillPrediction(dispatch) {
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,
 			movement = null,
-			stamina = info.stamina
+			stamina = info.stamina + staminaModifier
 
 		if(info.glyphs)
 			for(let id in info.glyphs)
