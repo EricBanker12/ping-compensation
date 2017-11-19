@@ -12,9 +12,11 @@ const JITTER_COMPENSATION	= true,
 											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
 	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
-	DEBUG					= true,
+	
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
+
+var DEBUG					= true
 
 //Class based fixes
 const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
@@ -37,7 +39,8 @@ const INTERRUPT_TYPES = {
 
 module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
-		abnormality = AbnormalityPrediction(dispatch)
+		abnormality = AbnormalityPrediction(dispatch),
+		const command = Command(dispatch)
 
 	let sending = false,
 		skillsCache = null,
@@ -78,6 +81,14 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTime = 0,
 		stageEndTimeout = null,
 		debugActionTime = 0
+
+	command.add('spdbg', () => {
+		if(DEBUG)
+			console.log('[Skill Prediction] Debug deactivated')
+		else
+			console.log('[Skill Prediction] Debug activated')
+		DEBUG = !DEBUG
+	});
 
 	dispatch.hook('S_LOGIN', 1, event => {
 		skillsCache = {}
