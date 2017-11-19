@@ -3606,7 +3606,7 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				length: 1325,
+				length: 1320,
 				noRetry: true
 			},
 			1: { type: 'nullChain' },
@@ -3707,14 +3707,14 @@ module.exports = {
 		18: { // HB
 			'*': {
 				fixedSpeed: 1,
-				length: 1420
+				length: 1425
 			},
 			1: true,
 			2: true
 		},
 		19: { // ST
 			'*': {
-				length: 1325,
+				length: 1315,
 				noRetry: true
 			},
 			1: { type: 'nullChain' },
