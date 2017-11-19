@@ -7,14 +7,12 @@ const JITTER_COMPENSATION	= true,
 	SKILL_RETRY_JITTERCOMP	= 15,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting for extremely short skills, but may cause other skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
-	SERVER_TIMEOUT			= 200,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
-											If animations are being cancelled while damage is still applied, increase this number.
-										*/
+
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
 	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
-	DEBUG					= false,
+	DEBUG					= true,
 	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
@@ -25,6 +23,7 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills'),
+	timeouts = require('./config/serverTimeouts'),
 	silence = require('./config/silence').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
 		return map
@@ -42,6 +41,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 	let sending = false,
 		skillsCache = null,
+		classBasedServerTimeout = null,
 		cid = null,
 		model = 0,
 		race = -1,
@@ -84,9 +84,17 @@ module.exports = function SkillPrediction(dispatch) {
 		;({cid, model} = event)
 		race = Math.floor((model - 10101) / 100)
 		job = (model - 10101) % 100
-
 		if(DEBUG) console.log('Class', job)
-
+		
+		let timeoutData = get(timeouts, 'timeouts', job) || get(timeouts, 'timeouts', '*')
+		if(timeoutData)	{
+			classBasedServerTimeout = timeoutData
+			if(DEBUG) console.log('Class based server timeout:', timeoutData)
+		}
+		else{
+			classBasedServerTimeout = 200 //failover
+			if(DEBUG) console.log('Class based server timeout (failover!):', classBasedServerTimeout)
+		}
 		hookInventory()
 	})
 
@@ -956,7 +964,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
 
-		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + SERVER_TIMEOUT
+		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + classBasedServerTimeout
 
 		if(info.type == 'teleport' && opts.stage == info.teleportStage) {
 			opts.distance = Math.min(opts.distance, Math.max(0, calcDistance(currentLocation, opts.targetLoc) - 15)) // Client is approx. 15 units off
