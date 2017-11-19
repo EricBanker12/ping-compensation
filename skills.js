@@ -47,6 +47,7 @@ module.exports = function SkillPrediction(dispatch) {
 		race = -1,
 		job = -1,
 		vehicleEx = null,
+		mounted = false,
 		aspd = 1,
 		currentGlyphs = null,
 		currentStamina = 0,
@@ -91,6 +92,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_LOAD_TOPO', 1, event => {
 		vehicleEx = null
+		mounted = false
 
 		currentAction = null
 		serverAction = null
@@ -214,6 +216,20 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_UNMOUNT_VEHICLE_EX', 1, event => {
 		if(cid.equals(event.target)) vehicleEx = null
+	})
+
+	dispatch.hook('S_MOUNT_VEHICLE',1, event => {
+        if (cid.equals(event.target)) {
+            mounted = true
+            if (DEBUG) console.log('Your character mounted')
+        }
+    })
+
+	dispatch.hook('S_UNMOUNT_VEHICLE', 1, event => {
+        if (cid.equals(event.target)) {
+            mounted = false
+            if (DEBUG) console.log('Your character unmounted')
+        }
 	})
 
 	dispatch.hook('C_PLAYER_LOCATION', 1, event => {
@@ -395,6 +411,12 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
+		if (mounted) {
+			sendCannotStartSkill(event.skill)
+			//sendSystemMessage('SMT_CANT_SKILL_USER_CONDITION')
+	        return false
+		}
+		
 		if(!alive || abnormality.inMap(silence)) {
 			sendCannotStartSkill(event.skill)
 			return false
