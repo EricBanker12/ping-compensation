@@ -2,7 +2,14 @@ const CHECK_COMPATABILITY = true
 
 let error = false
 
-if(CHECK_COMPATABILITY)
+if(CHECK_COMPATABILITY){
+	try {
+		require('commands')
+		console.error('ERROR: Skill Prediction require "Commands" module for work')
+	}
+	catch(e){
+		error = true
+	}
 	for(let mod of ['cooldowns', 'lockons', 'lockons-master', 'fastfire', 'fast-fire', 'fast-fire-master', 'fast-block'])
 		try {
 			require(mod)
@@ -12,6 +19,7 @@ if(CHECK_COMPATABILITY)
 			break
 		}
 		catch(e) {}
+}
 
 const sysmsg = require('tera-data-parser').sysmsg,
 	MODS = [
