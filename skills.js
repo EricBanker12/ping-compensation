@@ -627,7 +627,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 				// If the server sends 2 S_ACTION_STAGE in a row without a S_ACTION_END between them and the last one is an emulated skill,
 				// this stops your character from being stuck in the first animation (although slight desync will occur)
-				if(serverAction && serverAction == currentAction && !skillInfo(currentAction.skill)) sendActionEnd(6)
+				if(currentAction && event.skill == currentAction.skill && (event.type === 2 || event.type === 25 || event.type === 43))
+					sendActionEnd(event.type)
 
 				serverAction = event
 				return false
