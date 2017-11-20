@@ -5,10 +5,11 @@ let error = false
 if(CHECK_COMPATABILITY){
 	try {
 		require('command')
-		console.error('ERROR: Skill Prediction require "Commands" module for work')
+		
 	}
 	catch(e){
 		error = true
+		console.error('ERROR: Skill Prediction require "Commands" module for work')
 	}
 	for(let mod of ['cooldowns', 'lockons', 'lockons-master', 'fastfire', 'fast-fire', 'fast-fire-master', 'fast-block'])
 		try {
