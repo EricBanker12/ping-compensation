@@ -28,7 +28,6 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 	}, {})
 
 const INTERRUPT_TYPES = {
-	'nullChain': 4,
 	'retaliate': 5,
 	'lockonCast': 36
 }
@@ -404,6 +403,12 @@ module.exports = function SkillPrediction(dispatch) {
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
 			if(chain) {
+				if(chain === null) {
+					sendActionEnd(4)
+					if(send) toServerLocked(data)
+					return
+				}
+
 				skill += chain - ((skill - 0x4000000) % 100)
 				interruptType = INTERRUPT_TYPES[info.type] || 4
 			}
@@ -483,14 +488,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		if(interruptType) {
-			info.type == 'chargeCast' ? clearStage() : sendActionEnd(interruptType)
-
-			if(info.type == 'nullChain') {
-				if(send) toServerLocked(data)
-				return
-			}
-		}
+		if(interruptType) event.continue ? clearStage() : sendActionEnd(interruptType)
 
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,

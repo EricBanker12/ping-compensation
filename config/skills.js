@@ -828,10 +828,7 @@ module.exports = {
 			31: true
 		},
 		3: { // Thunderstrike
-			'*': {
-				type: 'chargeCast',
-				length: 1750
-			},
+			'*': { length: 1750 },
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
@@ -913,7 +910,6 @@ module.exports = {
 			30: { length: 1750 }
 		},
 		10: { // Cyclone
-			'*': { type: 'chargeCast' },
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
@@ -956,11 +952,9 @@ module.exports = {
 				noRetry: true
 			}
 		},
+		// Note: Chained version cannot be emulated properly with the current codebase
 		/*15: { // Vampiric Blow
-			'*': {
-				type: 'chargeCast',
-				length: 1925
-			},
+			'*': { length: 1925 },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -981,10 +975,7 @@ module.exports = {
 			}
 		},*/
 		18: { // Lethal Strike (TODO: Check)
-			'*': {
-				type: 'chargeCast',
-				length: 1750
-			},
+			'*': { length: 1750 },
 			0: {
 				type: 'charging',
 				length: [700, 700, 700],
@@ -1100,7 +1091,6 @@ module.exports = {
 		},
 		4: { // Arcane Pulse
 			'*': {
-				type: 'chargeCast',
 				length: 1285,
 				race: {
 					9: { length: 1015 } // Elin
@@ -1214,10 +1204,7 @@ module.exports = {
 			}
 		},
 		19: { // Mana Siphon
-			'*': {
-				type: 'chargeCast',
-				length: 900
-			},
+			'*': { length: 900 },
 			0: {
 				type: 'charging',
 				length: [1000, 1000]
@@ -1341,7 +1328,6 @@ module.exports = {
 		},
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
-				type: 'chargeCast',
 				length: 1275,
 				noRetry: true,
 				race: {
@@ -1374,10 +1360,7 @@ module.exports = {
 			}
 		},
 		3: { // Radiant Arrow
-			'*': {
-				type: 'chargeCast',
-				length: 1750
-			},
+			'*': { length: 1750 },
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
@@ -1392,10 +1375,7 @@ module.exports = {
 			13: { distance: -100 }
 		},
 		4: { // Penetrating Arrow
-			'*': {
-				type: 'chargeCast',
-				length: 1300
-			},
+			'*': { length: 1300 },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1641,10 +1621,7 @@ module.exports = {
 			30: { length: 1040 }
 		},
 		28: { // Mana Charge
-			'*': {
-				type: 'chargeCast',
-				length: 825
-			},
+			'*': { length: 825 },
 			0: {
 				type: 'charging',
 				length: [800, 1600],
@@ -1878,7 +1855,6 @@ module.exports = {
 				length: 1475
 			},
 			10: {
-				type: 'chargeCast',
 				length: 850,
 				abnormals: {
 					27070: { speed: 1.25 },
@@ -1899,7 +1875,6 @@ module.exports = {
 				length: 1475
 			},
 			10: {
-				type: 'chargeCast',
 				length: 850,
 				abnormals: {
 					27100: { speed: 1.25 }
@@ -2175,9 +2150,22 @@ module.exports = {
 			30: true
 		},
 		4: { // Sundering Strike
-			'*': { noRetry: true },
+			'*': {
+				chains: {
+					1: null,
+					3: null,
+					4: null,
+					5: null,
+					6: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null
+				},
+				noRetry: true
+			},
 			0: {
-				type: 'nullChain',
 				length: [1175, 1750, 1025],
 				distance: [0, 100, 0],
 				inPlace: {
@@ -2398,6 +2386,21 @@ module.exports = {
 			1: true,
 			2: true
 		},
+		2: { // Bombardment
+			'*': { noRetry: true },
+			0: {
+				type: 'lockon',
+				fixedSpeed: 1,
+				length: 995
+			},
+			1: {
+				type: 'lockonCast',
+				length: 3000,
+				glyphs: {
+					30004: { speed: 1.25 }
+				}
+			}
+		},
 		3: { // Scattershot
 			'*': {
 				length: 1725,
@@ -2521,10 +2524,7 @@ module.exports = {
 			3: { length: 1200 }
 		},
 		9: { // Mana Missiles
-			'*': {
-				type: 'chargeCast',
-				length: 1250
-			},
+			'*': { length: 1250 },
 			0: {
 				type: 'charging',
 				length: 1200
@@ -2535,10 +2535,24 @@ module.exports = {
 		10: { // Arc Bomb
 			'*': {
 				length: 1325,
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				},
 				noRetry: true
 			},
-			1: { type: 'nullChain' },
-			2: { type: 'nullChain' },
+			1: true,
+			2: true,
 			30: true
 		},
 		11: { // Rocket Jump
@@ -2634,10 +2648,24 @@ module.exports = {
 		19: { // ST
 			'*': {
 				length: 1325,
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				},
 				noRetry: true
 			},
-			1: { type: 'nullChain' },
-			2: { type: 'nullChain' },
+			1: true,
+			2: true,
 			30: true
 		},
 		40: { // Rolling Reload
@@ -3128,10 +3156,24 @@ module.exports = {
 				length: 1025,
 				distance: -291.6,
 				noInterrupt: [5],
+				chains: {
+					1: null,
+					4: null,
+					6: null,
+					7: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
+					17: null,
+					19: null,
+					20: null
+				},
 				forceClip: true,
 				noRetry: true
 			},
-			0: { type: 'nullChain' },
+			0: true,
 			30: true
 		},
 		6: { // One Thousand Cuts
