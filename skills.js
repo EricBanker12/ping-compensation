@@ -26,6 +26,7 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills'),
 	timeouts = require('./config/serverTimeouts'),
+	const Command = require('command'),
 	silence = require('./config/silence').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
 		return map
@@ -40,7 +41,7 @@ const INTERRUPT_TYPES = {
 module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
 		abnormality = AbnormalityPrediction(dispatch),
-		const command = Command(dispatch)
+		command = Command(dispatch)
 
 	let sending = false,
 		skillsCache = null,
