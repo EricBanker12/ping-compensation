@@ -83,12 +83,33 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTimeout = null,
 		debugActionTime = 0
 
-	command.add('spdbg', () => {
-		if(DEBUG)
-			console.log('[Skill Prediction] Debug deactivated')
-		else
-			console.log('[Skill Prediction] Debug activated')
-		DEBUG = !DEBUG
+	command.add('sp', (option) => {
+		switch (option) {
+			case 'debug': 
+				if(DEBUG)
+					command.message('[Skill Prediction] Debug deactivated')
+				else
+					command.message('[Skill Prediction] Debug activated')
+
+				DEBUG = !DEBUG
+				break
+			case 'debugloc':
+				if(DEBUG_LOC)
+					command.message('[Skill Prediction] Glyphs debug deactivated')
+				else
+					command.message('[Skill Prediction] Glyphs debug activated')
+
+				DEBUG_LOC = !DEBUG_LOC
+				break
+			case 'strictDef': //WARNING! YOU MUST USE THIS OPTION ONLY OUT OF COMBAT
+				if(DEFEND_SUCCESS_STRICT)
+					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT deactivated')
+				else
+					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
+
+				DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
+				break
+		}
 	});
 
 	dispatch.hook('S_LOGIN', 1, event => {
@@ -96,16 +117,16 @@ module.exports = function SkillPrediction(dispatch) {
 		;({cid, model} = event)
 		race = Math.floor((model - 10101) / 100)
 		job = (model - 10101) % 100
-		if(DEBUG) console.log('Class', job)
+		if(DEBUG) console.log('[Skill Prediction] Class', job)
 		
 		let timeoutData = get(timeouts, 'timeouts', job) || get(timeouts, 'timeouts', '*')
 		if(timeoutData)	{
 			classBasedServerTimeout = timeoutData
-			if(DEBUG) console.log('Class based server timeout:', timeoutData)
+			if(DEBUG) console.log('[Skill Prediction] Class based server timeout:', timeoutData)
 		}
 		else{
 			classBasedServerTimeout = 200 //failover
-			if(DEBUG) console.log('Class based server timeout (failover!):', classBasedServerTimeout)
+			if(DEBUG) console.log('[Skill Prediction] Class based server timeout (failover!):', classBasedServerTimeout)
 		}
 		hookInventory()
 	})
@@ -199,7 +220,7 @@ module.exports = function SkillPrediction(dispatch) {
 								   //console.log('[inv] ID', id)
 								   if (id.dbid == 350905 )
 								   {
-									// console.log('[inv] ID 350905 rolled')
+									 if(DEBUG) console.log('[Skill Prediction (INVEN)] ID 350905 rolled')
 									 staminaModifier = -5
 								   }
 								}
@@ -241,14 +262,14 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_MOUNT_VEHICLE',1, event => {
         if (cid.equals(event.target)) {
             mounted = true
-            if (DEBUG) console.log('Your character mounted')
+            if (DEBUG) console.log('[Skill Prediction] Your character mounted')
         }
     })
 
 	dispatch.hook('S_UNMOUNT_VEHICLE', 1, event => {
         if (cid.equals(event.target)) {
             mounted = false
-            if (DEBUG) console.log('Your character unmounted')
+            if (DEBUG) console.log('[Skill Prediction] Your character unmounted')
         }
 	})
 
@@ -835,9 +856,9 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 
 			if(!currentAction)
-				console.log('[SkillPrediction] S_ACTION_END: currentAction is null', skillId(event.skill), event.id)
+				console.log('[Skill Prediction] S_ACTION_END: currentAction is null', skillId(event.skill), event.id)
 			else if(event.skill != currentAction.skill)
-				console.log('[SkillPrediction] S_ACTION_END: skill mismatch', skillId(currentAction.skill), skillId(event.skill), currentAction.id, event.id)
+				console.log('[Skill Prediction] S_ACTION_END: skill mismatch', skillId(currentAction.skill), skillId(event.skill), currentAction.id, event.id)
 
 			currentAction = null
 		}
