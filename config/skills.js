@@ -228,7 +228,7 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1135,
+				length: 1115,
 				distance: 467.88,
 				abnormals: {
 					7692002: { chain: 6 },
@@ -236,10 +236,7 @@ module.exports = {
 				},
 				
 				noRetry: true,
-				noInterrupt: [32],
-				race: {
-					7: { length: 1115},
-				}	
+				noInterrupt: [32]	
 			},
 			1: { length: 825 }
 		},
@@ -718,7 +715,7 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1135,
+				length: 1115,
 				distance: 474.5,
 				abnormals: {
 					7692002: { chain: 6 },
@@ -1870,7 +1867,7 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1135,
+				length: 1115,
 				distance: 470,
 				abnormals: {
 					7692002: { chain: 6 },
