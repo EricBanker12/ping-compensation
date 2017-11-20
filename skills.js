@@ -100,13 +100,18 @@ module.exports = function SkillPrediction(dispatch) {
 
 				DEBUG_LOC = !DEBUG_LOC
 				break
-			case 'strictDef': //WARNING! YOU MUST USE THIS OPTION ONLY OUT OF COMBAT
-				if(DEFEND_SUCCESS_STRICT)
-					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT deactivated')
-				else
-					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
+			case 'strictdef': 
+				if(inCombat){ 
+					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT can be changed only out of combat' )
+				}
+				else {
+					if(DEFEND_SUCCESS_STRICT)
+						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT deactivated')
+					else
+						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
 
-				DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
+					DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
+				}
 				break
 		}
 	});
