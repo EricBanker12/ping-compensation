@@ -4,7 +4,7 @@ let error = false
 
 if(CHECK_COMPATABILITY){
 	try {
-		require('commands')
+		require('command')
 		console.error('ERROR: Skill Prediction require "Commands" module for work')
 	}
 	catch(e){
