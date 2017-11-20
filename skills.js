@@ -11,12 +11,11 @@ const JITTER_COMPENSATION	= true,
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
-	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
-	
-	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
 
-var DEBUG					= true
+var DEBUG				= true,
+DEFEND_SUCCESS_STRICT	= true,			//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
+DEBUG_LOC				= false	
 
 //Class based fixes
 const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
@@ -95,9 +94,9 @@ module.exports = function SkillPrediction(dispatch) {
 				break
 			case 'debugloc':
 				if(DEBUG_LOC)
-					command.message('[Skill Prediction] Glyphs debug deactivated')
+					command.message('[Skill Prediction] Location debug deactivated')
 				else
-					command.message('[Skill Prediction] Glyphs debug activated')
+					command.message('[Skill Prediction] Location debug activated')
 
 				DEBUG_LOC = !DEBUG_LOC
 				break
