@@ -210,7 +210,7 @@ module.exports = {
 				race: {
 					2: { length: 1525 }, // M.Helf
 					5: { length: 1525 }, // F.Aman
-					7: { length: 1710 }, // F.Castanic
+					7: { length: 1700 }, // F.Castanic
 					8: { length: 1710 }, // Popori
 					9: { length: 1525 } // Elin
 				}	
@@ -228,14 +228,15 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1135,
+				length: 1115,
 				distance: 467.88,
 				abnormals: {
 					7692002: { chain: 6 },
 					9692002: { chain: 6 }
 				},
+				
 				noRetry: true,
-				noInterrupt: [32]
+				noInterrupt: [32]	
 			},
 			1: { length: 825 }
 		},
@@ -252,8 +253,10 @@ module.exports = {
 				distance: 120.28,
 				noInterrupt: [32],
 				race: {
+					
 					2: { distance: 120.28 }, // M.Helf: 120.277
 					5: { distance: 120.28 }, // F.Aman: 120.277
+					7: { length:1080},
 					8: { distance: 128.89 }, // Popori: 128.889
 					9: { distance: 138.28 } // Elin: 138.284
 				}
@@ -712,7 +715,7 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1135,
+				length: 1115,
 				distance: 474.5,
 				abnormals: {
 					7692002: { chain: 6 },
@@ -1903,7 +1906,7 @@ module.exports = {
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1135,
+				length: 1115,
 				distance: 470,
 				abnormals: {
 					7692002: { chain: 6 },
@@ -3673,7 +3676,7 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				length: 1325,
+				length: 1320, // 1325
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3788,14 +3791,14 @@ module.exports = {
 		18: { // HB
 			'*': {
 				fixedSpeed: 1,
-				length: 1420
+				length: 1425
 			},
 			1: true,
 			2: true
 		},
 		19: { // ST
 			'*': {
-				length: 1325,
+				length: 1315, // 1325
 				chains: {
 					'2-1': null,
 					3: null,

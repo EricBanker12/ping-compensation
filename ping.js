@@ -1,6 +1,10 @@
 const PING_INTERVAL = 6000,
 	PING_TIMEOUT = 30000,
-	PING_HISTORY_MAX = 20
+	PING_HISTORY_MAX = 20,
+	EXTERNAL_PING_TIMEOUT = 2000,
+	USE_EXTERNAL_PING_CHECKER = false,
+	EXTERNAL_PROGRAM_NAME = '\\ConnectionStats.exe',
+	DEBUG = false
 
 class Ping {
 	constructor(dispatch) {
@@ -57,12 +61,45 @@ class Ping {
 	}
 }
 
+class ExternalPingBridge {
+	constructor(dispatch) {
+		this.spawnProcess = require('child_process').spawn
+		this.externalPingChecker = this.spawnProcess(__dirname+EXTERNAL_PROGRAM_NAME, [process.pid.toString(), EXTERNAL_PING_TIMEOUT.toString()])
+		this.min = this.max = 0
+		
+		this.externalPingChecker.stdout.on('data', (data) => {
+			if(data != null)
+			{
+			  data = data.toString()
+			  var parsedData = data.split(',')
+			  this.max = Number(parsedData[0])
+			  this.min = Number(parsedData[1])
+			  if (DEBUG) console.log(parsedData[0], parsedData[1])
+			}
+		});
+		this.externalPingChecker.on('close', (code, signal) => {
+            console.log(`[Skill-Prediction] Child process terminated due to receipt of signal ${signal}`);
+		});
+		this.externalPingChecker.on('exit', (code, signal) => {
+            console.log(`[Skill-Prediction] Child process closed due to receipt of signal ${signal}`);
+        });
+	}
+	destructor(){
+		this.externalPingChecker.kill();
+	}
+}
+
 let map = new WeakMap()
 
 module.exports = function Require(dispatch) {
 	if(map.has(dispatch.base)) return map.get(dispatch.base)
-
-	let ping = new Ping(dispatch)
+	let ping = null
+	if(USE_EXTERNAL_PING_CHECKER)
+	{
+		ping = new ExternalPingBridge(dispatch)
+	}
+	else
+		ping = new Ping(dispatch)
 	map.set(dispatch.base, ping)
 	return ping
 }

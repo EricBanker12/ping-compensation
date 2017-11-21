@@ -1,27 +1,31 @@
 const JITTER_COMPENSATION	= true,
 	JITTER_ADJUST			= 0,		//	This number is added to your detected minimum ping to get the compensation amount.
-	SKILL_RETRY_COUNT		= 2,		//	Number of times to retry each skill (0 = disabled). Recommended 1-3.
+	SKILL_RETRY_COUNT		= 1,		//	Number of times to retry each skill (0 = disabled). Recommended 1-3.
 	SKILL_RETRY_MS			= 30,		/*	Time to wait between each retry.
 											SKILL_RETRY_MS * SKILL_RETRY_COUNT should be under 100, otherwise skills may go off twice.
 										*/
 	SKILL_RETRY_JITTERCOMP	= 15,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting for extremely short skills, but may cause other skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
-	SERVER_TIMEOUT			= 200,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
-											If animations are being cancelled while damage is still applied, increase this number.
-										*/
+
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
 											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
-	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
-	DEBUG					= false,
-	DEBUG_LOC				= false,
 	DEBUG_GLYPH				= false
+
+var DEBUG				= true,
+DEFEND_SUCCESS_STRICT	= true,			//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
+DEBUG_LOC				= false	
+
+//Class based fixes
+const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
 
 const {protocol, sysmsg} = require('tera-data-parser'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills'),
+	timeouts = require('./config/serverTimeouts'),
+	Command = require('command'),
 	silence = require('./config/silence').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
 		return map
@@ -34,18 +38,22 @@ const INTERRUPT_TYPES = {
 
 module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
-		abnormality = AbnormalityPrediction(dispatch)
+		abnormality = AbnormalityPrediction(dispatch),
+		command = Command(dispatch)
 
 	let sending = false,
 		skillsCache = null,
+		classBasedServerTimeout = null,
 		cid = null,
 		model = 0,
 		race = -1,
 		job = -1,
 		vehicleEx = null,
+		mounted = false,
 		aspd = 1,
 		currentGlyphs = null,
 		currentStamina = 0,
+		staminaModifier = 0, //For gunner's chest roll 'Reduces Willpower cost of Burst Fire by 5.'
 		alive = false,
 		inCombat = false,
 		inventoryHook = null,
@@ -73,19 +81,62 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTimeout = null,
 		debugActionTime = 0
 
+	command.add('sp', (option) => {
+		switch (option) {
+			case 'debug': 
+				if(DEBUG)
+					command.message('[Skill Prediction] Debug deactivated')
+				else
+					command.message('[Skill Prediction] Debug activated')
+
+				DEBUG = !DEBUG
+				break
+			case 'debugloc':
+				if(DEBUG_LOC)
+					command.message('[Skill Prediction] Location debug deactivated')
+				else
+					command.message('[Skill Prediction] Location debug activated')
+
+				DEBUG_LOC = !DEBUG_LOC
+				break
+			case 'strictdef': 
+				if(inCombat){ 
+					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT can be changed only out of combat' )
+				}
+				else {
+					if(DEFEND_SUCCESS_STRICT)
+						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT deactivated')
+					else
+						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
+
+					DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
+				}
+				break
+		}
+	});
+
 	dispatch.hook('S_LOGIN', 1, event => {
 		skillsCache = {}
 		;({cid, model} = event)
 		race = Math.floor((model - 10101) / 100)
 		job = (model - 10101) % 100
-
-		if(DEBUG) console.log('Class', job)
-
+		if(DEBUG) console.log('[Skill Prediction] Class', job)
+		
+		let timeoutData = get(timeouts, 'timeouts', job) || get(timeouts, 'timeouts', '*')
+		if(timeoutData)	{
+			classBasedServerTimeout = timeoutData
+			if(DEBUG) console.log('[Skill Prediction] Class based server timeout:', timeoutData)
+		}
+		else{
+			classBasedServerTimeout = 200 //failover
+			if(DEBUG) console.log('[Skill Prediction] Class based server timeout (failover!):', classBasedServerTimeout)
+		}
 		hookInventory()
 	})
 
 	dispatch.hook('S_LOAD_TOPO', 1, event => {
 		vehicleEx = null
+		mounted = false
 
 		currentAction = null
 		serverAction = null
@@ -155,6 +206,33 @@ module.exports = function SkillPrediction(dispatch) {
 						equippedWeapon = true
 						break
 					}
+				//Body WP roll check for gunner, only inventory parse :( So weird
+				if (job == 9 )
+				{   
+					staminaModifier = 0
+					for (var item of inventory) {
+						if(item.slot == 3 && WP_BODY_ROLL_CONTROL)
+						{
+							for(var set of item.passivitySets)
+							{
+								if(set.index != item.passivitySet)
+								continue
+							
+								for(var id of set.passivities)
+								{
+								   //console.log('[inv] ID', id)
+								   if (id.dbid == 350905 )
+								   {
+									 if(DEBUG) console.log('[Skill Prediction (INVEN)] ID 350905 rolled')
+									 staminaModifier = -5
+								   }
+								}
+	
+							}
+							break
+						}
+					}
+				}
 
 				inventory = null
 
@@ -182,6 +260,20 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_UNMOUNT_VEHICLE_EX', 1, event => {
 		if(cid.equals(event.target)) vehicleEx = null
+	})
+
+	dispatch.hook('S_MOUNT_VEHICLE',1, event => {
+        if (cid.equals(event.target)) {
+            mounted = true
+            if (DEBUG) console.log('[Skill Prediction] Your character mounted')
+        }
+    })
+
+	dispatch.hook('S_UNMOUNT_VEHICLE', 1, event => {
+        if (cid.equals(event.target)) {
+            mounted = false
+            if (DEBUG) console.log('[Skill Prediction] Your character unmounted')
+        }
 	})
 
 	dispatch.hook('C_PLAYER_LOCATION', 1, event => {
@@ -363,6 +455,12 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
+		if (mounted) {
+			sendCannotStartSkill(event.skill)
+			//sendSystemMessage('SMT_CANT_SKILL_USER_CONDITION')
+	        return false
+		}
+		
 		if(!alive || abnormality.inMap(silence)) {
 			sendCannotStartSkill(event.skill)
 			return false
@@ -495,7 +593,7 @@ module.exports = function SkillPrediction(dispatch) {
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,
 			movement = null,
-			stamina = info.stamina
+			stamina = info.stamina + staminaModifier
 
 		if(info.glyphs)
 			for(let id in info.glyphs)
@@ -761,9 +859,9 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 
 			if(!currentAction)
-				console.log('[SkillPrediction] S_ACTION_END: currentAction is null', skillId(event.skill), event.id)
+				console.log('[Skill Prediction] S_ACTION_END: currentAction is null', skillId(event.skill), event.id)
 			else if(event.skill != currentAction.skill)
-				console.log('[SkillPrediction] S_ACTION_END: skill mismatch', skillId(currentAction.skill), skillId(event.skill), currentAction.id, event.id)
+				console.log('[Skill Prediction] S_ACTION_END: skill mismatch', skillId(currentAction.skill), skillId(event.skill), currentAction.id, event.id)
 
 			currentAction = null
 		}
@@ -902,7 +1000,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
 
-		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + SERVER_TIMEOUT
+		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + classBasedServerTimeout
 
 		if(info.type == 'teleport' && opts.stage == info.teleportStage) {
 			opts.distance = Math.min(opts.distance, Math.max(0, calcDistance(currentLocation, opts.targetLoc) - 15)) // Client is approx. 15 units off
