@@ -28,7 +28,6 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 	}, {})
 
 const INTERRUPT_TYPES = {
-	'nullChain': 4,
 	'retaliate': 5,
 	'lockonCast': 36
 }
@@ -406,6 +405,12 @@ module.exports = function SkillPrediction(dispatch) {
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
 			if(chain) {
+				if(chain === null) {
+					sendActionEnd(4)
+					if(send) toServerLocked(data)
+					return
+				}
+
 				skill += chain - ((skill - 0x4000000) % 100)
 				interruptType = INTERRUPT_TYPES[info.type] || 4
 			}
@@ -485,14 +490,7 @@ module.exports = function SkillPrediction(dispatch) {
 			}
 		}
 
-		if(interruptType) {
-			info.type == 'chargeCast' ? clearStage() : sendActionEnd(interruptType)
-
-			if(info.type == 'nullChain') {
-				if(send) toServerLocked(data)
-				return
-			}
-		}
+		if(interruptType) event.continue ? clearStage() : sendActionEnd(interruptType)
 
 		// Finish calculations and send the final skill
 		let speed = info.fixedSpeed || aspd * (info.speed || 1) * abnormalSpeed,
@@ -756,7 +754,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 				// Skills that may only be cancelled during part of the animation are hard to emulate, so we use server response instead
 				// This may cause bugs with very high ping and casting the same skill multiple times
-				if(currentAction && event.skill == currentAction.skill && (event.type == 2 || event.type == 25)) sendActionEnd(event.type)
+				if(currentAction && event.skill == currentAction.skill && [2, 25, 29, 37, 43].includes(event.type))
+					sendActionEnd(event.type)
 
 				return false
 			}

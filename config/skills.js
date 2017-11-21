@@ -1370,11 +1370,8 @@ module.exports = {
 			30: true,
 			31: { fixedSpeed: 1 }
 		},
-		/*3: { // Thunderstrike
-			'*': {
-				type: 'chargeCast',
-				length: 1750
-			},
+		3: { // Thunderstrike
+			'*': { length: 1750 },
 			0: {
 				type: 'charging',
 				length: [650, 650, 650], // Overcharge hold charge time: 2515 | Charge hold time is fixed, so therefore the more attack speed you have the more free time you have after a fully charging to reposition.
@@ -1440,7 +1437,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}			  
 			}
-		},*/
+		},
 		4: { // Flatten
 			'*': {
 				length: 3150, // 3120 pori?
@@ -1532,7 +1529,7 @@ module.exports = {
 			'*': { noInterrupt: [2] },
 			0: {
 				fixedSpeed: 1,
-				length: [450, 650]
+				length: [450, 605] // Idk if Helf is longer but i'm getting this
 			},
 			30: { 
 				length: 1760, // /Need M.Casta
@@ -1540,7 +1537,6 @@ module.exports = {
 		    }
 		},
 		10: { // Cyclone
-			'*': { type: 'chargeCast' },
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
@@ -1625,10 +1621,7 @@ module.exports = {
 			}
 		},
 		/*15: { // Vampiric Blow  // Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work and you may as well before that trigger sCannotStartSkill
-            '*': {    // Same animation as thunder strike, just slower                        
-				type: 'chargeCast',  
-				length: 1940        
-			 },                               // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
+            '*': { length: 1940 },            // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
             0: {                             //                    2. Must be in combat when used.  
                 type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
@@ -1712,10 +1705,7 @@ module.exports = {
 			}
 		},
 		18: { // Lethal Strike (TODO: Check)
-			'*': {
-				type: 'chargeCast',
-				length: 1500
-		    },
+			'*': { length: 1500 },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1979,7 +1969,6 @@ module.exports = {
 		},
 		4: { // Arcane Pulse
 			'*': {
-				type: 'chargeCast',
 				length: 1285,
 				race: {
 					9: { length: 1015 } // Elin
@@ -1997,7 +1986,7 @@ module.exports = {
 				noInterrupt: [7, 26],
 				abnormals: {
 					500150: { skill: 330110 },
-					501600: { skill: 330150 },
+					//501600: { skill: 330150 },
 					501650: { skill: 330150 }
 				}
 			},
@@ -2005,7 +1994,7 @@ module.exports = {
 				noInterrupt: [7, 26],
 				abnormals: {
 					500150: { skill: 330111 },
-					501600: { skill: 330150 },
+					//501600: { skill: 330150 },
 					501650: { skill: 330150 }
 				}
 			},
@@ -2013,7 +2002,7 @@ module.exports = {
 				noInterrupt: [7, 26],
 				abnormals: {
 					500150: { skill: 330112 },
-					501600: { skill: 330150 },
+					//501600: { skill: 330150 },
 					501650: { skill: 330150 }
 				}
 			}
@@ -2112,10 +2101,7 @@ module.exports = {
 			}
 		},
 		19: { // Mana Siphon
-			'*': {
-				type: 'chargeCast',
-				length: 900
-			},
+			'*': { length: 900 },
 			0: {
 				type: 'charging',
 				length: [1000, 1000],
@@ -2255,7 +2241,6 @@ module.exports = {
 		},
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
-				type: 'chargeCast',
 				length: 1285,
 				noRetry: true,
 				race: {
@@ -2293,7 +2278,6 @@ module.exports = {
 		},
 		3: { // Radiant Arrow
 			'*': {
-				type: 'chargeCast',
 				length: 1760,
 				races: {
 					1: { length: 1600 }	// F.Human
@@ -2344,10 +2328,9 @@ module.exports = {
 		},
 		4: { // Penetrating Arrow
 			'*': {
-				type: 'chargeCast',
 				length: 1315,
 				races: {
-					1: { length: 1275 }	// F.Human
+					1: { length: 1275 }	// F.Human, inb4 racechange
 				}
 			},
 			0: {
@@ -2693,10 +2676,7 @@ module.exports = {
 			30: { length: 1040 }
 		},
 		28: { // Mana Charge
-			'*': {
-				type: 'chargeCast',
-				length: 825
-			},
+			'*': { length: 825 },
 			0: {
 				type: 'charging',
 				length: [800, 1600],
@@ -2960,7 +2940,6 @@ module.exports = {
 				length: 1475
 			},
 			10: {
-				type: 'chargeCast',
 				length: 850,
 				abnormals: {
 					27070: { speed: 1.25 },
@@ -2982,7 +2961,6 @@ module.exports = {
 				length: 1475
 			},
 			10: {
-				type: 'chargeCast',
 				length: 850, // 810 female high elf
 				abnormals: {
 					27100: { speed: 1.25 }
@@ -3257,9 +3235,22 @@ module.exports = {
 			30: true
 		},
 		4: { // Sundering Strike
-			'*': { noRetry: true },
+			'*': {
+				chains: {
+					1: null,
+					3: null,
+					4: null,
+					5: null,
+					6: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null
+				},
+				noRetry: true
+			},
 			0: {
-				type: 'nullChain',
 				length: [1175, 1750, 1025],
 				distance: [0, 100, 0],
 				inPlace: {
@@ -3531,6 +3522,21 @@ module.exports = {
 			1: true,
 			2: true
 		},
+		2: { // Bombardment
+			'*': { noRetry: true },
+			0: {
+				type: 'lockon',
+				fixedSpeed: 1,
+				length: 995
+			},
+			1: {
+				type: 'lockonCast',
+				length: 3000,
+				glyphs: {
+					30004: { speed: 1.25 }
+				}
+			}
+		},
 		3: { // Scattershot
 			'*': {
 				length: 1725,
@@ -3657,10 +3663,7 @@ module.exports = {
 			}
 		},
 		9: { // Mana Missiles
-			'*': {
-				type: 'chargeCast',
-				length: 1250
-			},
+			'*': { length: 1250 },
 			0: {
 				type: 'charging',
 				length: 1250
@@ -3671,10 +3674,24 @@ module.exports = {
 		10: { // Arc Bomb
 			'*': {
 				length: 1325,
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				},
 				noRetry: true
 			},
-			1: { type: 'nullChain' },
-			2: { type: 'nullChain' },
+			1: true,
+			2: true,
 			30: true
 		},
 		11: { // Rocket Jump
@@ -3779,10 +3796,24 @@ module.exports = {
 		19: { // ST
 			'*': {
 				length: 1325,
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				},
 				noRetry: true
 			},
-			1: { type: 'nullChain' },
-			2: { type: 'nullChain' },
+			1: true,
+			2: true,
 			30: true
 		},
 		40: { // Rolling Reload
@@ -4081,6 +4112,13 @@ module.exports = {
 			2: true,
 			30: true
 		},
+		20: { // Retaliate
+			0: {
+				type: 'retaliate',
+				length: 1485,
+				noRetry: true
+			}
+		},
 		21: { // Mounting Rage
 			'*': {
 				fixedSpeed: 1,
@@ -4289,8 +4327,30 @@ module.exports = {
 			30: true
 		},
 		3: { // Leaves on the Wind
-			'*': { length: 1275 },
-			0: { type: 'nullChain' },
+			'*': { 
+				length: 1275,
+				chains: {
+					1: null,
+					2: null,
+					4: null,
+					5: null,
+					6: null,
+					7: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
+					17: null,
+					19: null,
+					20: null
+				},
+			 },
+			0: true,
 			30: true
 		},
 		4: { // Jagged Path
@@ -4321,6 +4381,26 @@ module.exports = {
 				length: 1008,
 				distance: -291.6,
 				noInterrupt: [5],
+				chains: {
+					1: null,
+					2: null,
+					3: null,
+					4: null,
+					6: null,
+					//7
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
+					17: null,
+					19: null,
+					20: null
+				},
 				forceClip: true,
 				noRetry: true,
 				abnormals: {
@@ -4334,11 +4414,11 @@ module.exports = {
 					9692002: { chain: 6 }
 				}
 			},
-			0: { type: 'nullChain' },
+			0: true,
 			30: true
 		},
 		6: { // One Thousand Cuts
-			'*': { 
+			'*': {
 				length: 440,
 				chains: { // Needed to state we want to trigger substage 4, else it will trigger 6
 					1: 30,
@@ -4431,9 +4511,29 @@ module.exports = {
 			30: true
 		},
 		9: { // Smoke Bomb
-			'*': { length: 725 },
+			'*': { 
+				length: 725,
+				chains: {
+					1: null,
+					2: null,
+					4: null,
+					5: null,
+					6: null,
+					7: null,
+					8: null,
+					10: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
+					17: null,
+					19: null,
+					20: null
+				},
+			 },
 			0: { 
-				type: 'nullChain',
 				abnormals: {
 					400800: { chain: 6 },
 					400801: { chain: 6 },
@@ -4554,9 +4654,28 @@ module.exports = {
 		16: { // Death Blossom
 			'*': {
 				fixedSpeed: 1,
-				length: 1525
+				length: 1525,
+				chains: {
+					1: null,
+					2: null,
+					4: null,
+					5: null,
+					6: null,
+					7: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					17: null,
+					19: null,
+					20: null
+				},
 			},
-			0: { type: 'nullChain' },
+			0: true,
 			30: true
 		},
 		17: { // Attunement
@@ -4587,9 +4706,29 @@ module.exports = {
 		18: { // Bladestorm
 			'*': { 
 				length: 1000,
-				distance: 68.535
+				distance: 68.535,
+				chains: {
+					1: null,
+					2: null,
+					4: null,
+					5: null,
+					6: null,
+					7: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
+					17: null,
+					19: null,
+					20: null
+				},
 			 },
-			0: { type: 'nullChain' },
+			0: true,
 			30: true
 		},
 		19: { // Chakra Thrust
@@ -4900,11 +5039,29 @@ module.exports = {
 					33020: { speed: 1.2 }
 				},
 				chains: {
+					1: null,
+					2: null,
+					3: null,
+					4: null,
+					5: null,
+					6: null,
+					7: null,
+					8: null,
+					9: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
 					17: 30, // Not correct since still triggers substage 4 on them.
+					18: null,
+					19: null,
+					20: null,
 					21: 30 //  But for now it works /shrug
 				}
 			},
-			0: { type: 'nullChain' }, // This skill triggers substage 4 on most skills and simply adding the chains doesn't do so we add nullChain. But
+			0: true,
 			30: true // if we add a chain to a skill that we want to trigger substage 4 on, it will break, ghosting if there's no fast enough server response.
 		},
 		11: { // Shining Crescent
