@@ -3683,7 +3683,7 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				length: 1400,
-				noInterrupt: [15],
+				noInterrupt: [15,3],
 				distance: 415.45,
 				evasiveSkill:true, //??? maybe
 				chains: {
