@@ -485,7 +485,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return false
 		}
 
-		if(info.movementSkill && abnormality.inMap(movblock)) {	
+		if(info.evasiveSkill && abnormality.inMap(movblock)) {	
 			sendCannotStartSkill(event.skill)
 			return false
 		}
