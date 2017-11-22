@@ -16,8 +16,8 @@ const JITTER_COMPENSATION	= true,
 var DEBUG					= true,
 	DEFEND_SUCCESS_STRICT	= true,			//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
 	DEBUG_LOC				= false,
-	MOUNTCHECK				= true
-
+	MOUNTCHECK				= true,
+	
 //Class based fixes
 const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
 
@@ -27,7 +27,11 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 	skills = require('./config/skills'),
 	timeouts = require('./config/serverTimeouts'),
 	Command = require('command'),
-	silence = require('./config/silence').reduce((map, value) => { // Convert array to object for fast lookup
+	silence = require('./config/data/silence').reduce((map, value) => { // Convert array to object for fast lookup
+		map[value] = true
+		return map
+	}, {})
+	movblock = require('./config/data/movementblock').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
 		return map
 	}, {})
@@ -481,6 +485,11 @@ module.exports = function SkillPrediction(dispatch) {
 			return false
 		}
 
+		if(info.movementSkill && abnormality.inMap(movblock)) {	
+			sendCannotStartSkill(event.skill)
+			return false
+		}
+
 		if(currentAction) {
 			let currentSkill = currentAction.skill - 0x4000000,
 				currentSkillBase = Math.floor(currentSkill / 10000),
@@ -488,7 +497,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
 			if(currentSkillBase == 6190 || (currentSkillBase == 6811 + race && info.type != 'retaliate')) {
-				if(currentAction.skill != 67129664 && (!abnormality.exists(9691000) || !abnormality.exists(9691016))) {
+				if(currentAction.skill != 20800 && (!abnormality.exists(9691000) || !abnormality.exists(9691016))) {
 				    sendCannotStartSkill(event.skill)
 					return false
 				}
