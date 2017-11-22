@@ -3676,7 +3676,7 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				length: 1320, // 1325
+				length: 1325,
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3822,7 +3822,7 @@ module.exports = {
 		40: { // Rolling Reload
 			0: {
 				fixedSpeed: 1,
-				length: 930,
+				length: 935,
 				noInterrupt: [11],
 				distance: 172.5,
 				abnormals: {
