@@ -3765,14 +3765,14 @@ module.exports = {
 		18: { // HB
 			'*': {
 				fixedSpeed: 1,
-				length: 1425
+				length: 1430
 			},
 			1: true,
 			2: true
 		},
 		19: { // ST
 			'*': {
-				length: 1315, // 1325
+				length: 1325, 
 				chains: {
 					'2-1': null,
 					3: null,
