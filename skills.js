@@ -16,7 +16,7 @@ const JITTER_COMPENSATION	= true,
 var DEBUG					= true,
 	DEFEND_SUCCESS_STRICT	= true,			//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
 	DEBUG_LOC				= false,
-	MOUNTCHECK				= true,
+	MOUNTCHECK				= true
 	
 //Class based fixes
 const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
