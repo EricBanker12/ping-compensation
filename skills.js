@@ -13,9 +13,10 @@ const JITTER_COMPENSATION	= true,
 										*/
 	DEBUG_GLYPH				= false
 
-var DEBUG				= true,
-DEFEND_SUCCESS_STRICT	= true,			//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
-DEBUG_LOC				= false	
+var DEBUG					= true,
+	DEFEND_SUCCESS_STRICT	= true,			//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
+	DEBUG_LOC				= false,
+	MOUNTCHECK				= true
 
 //Class based fixes
 const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
@@ -109,8 +110,16 @@ module.exports = function SkillPrediction(dispatch) {
 					else
 						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
 
-					DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
+				DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
 				}
+				break
+			case 'mount':
+				if(MOUNTCHECK)
+					command.message('[Skill Prediction] Mount detection deactivated')
+				else
+					command.message('[Skill Prediction] Mount detection activated')
+
+				MOUNTCHECK = !MOUNTCHECK
 				break
 		}
 	});
@@ -455,7 +464,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		if (mounted) {
+		if (mounted && MOUNTCHECK) {
 			sendCannotStartSkill(event.skill)
 			//sendSystemMessage('SMT_CANT_SKILL_USER_CONDITION')
 	        return false
