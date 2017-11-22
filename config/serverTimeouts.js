@@ -6,7 +6,7 @@ module.exports = {
 	timeouts:
 	{
 		'*': 200, //Default value
-		3: 1000,  //Berserker
-		9: 85	  //Gunner
+		3: 2500,  //Berserker
+		9: 100	  //Gunner
 	}
 }
