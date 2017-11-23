@@ -2668,6 +2668,13 @@ module.exports = {
 			2: true,
 			30: true
 		},
+		20: { // Retaliate
+			0: {
+				type: 'retaliate',
+				length: 1485,
+				noRetry: true
+			}
+		},
 		40: { // Rolling Reload
 			0: {
 				fixedSpeed: 1,
@@ -2938,13 +2945,6 @@ module.exports = {
 			1: true,
 			2: true,
 			30: true
-		},
-		20: { // Retaliate
-			0: {
-				type: 'retaliate',
-				length: 1485,
-				noRetry: true
-			}
 		},
 		21: { // Mounting Rage
 			'*': {
