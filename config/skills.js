@@ -1314,16 +1314,12 @@ module.exports = {
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2, 4] },
 			0: {
-				length: 1155,
+				length: 1105, // 1100 new length, at least on Elin and M.Casta, maybe some ninja equalization?
 				distance: 78,
 				race: {
 					3: { distance: 63.24 }, // F.Helf: 63.236
 					6: { distance: 55.69 }, // M.Casta: 56.687
 					8: { distance: 48.89 }, // Popori: 48.886
-					9: {	// Elin: 1110, 78.005
-						length: 1110,
-						distance: 78
-					},
 					10: { distance: 44.22 } // Baraka: 44.217
 				}
 			},
