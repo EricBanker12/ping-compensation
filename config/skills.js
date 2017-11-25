@@ -1335,7 +1335,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 1125,
+				length: 1120,
 				distance: 31.84,
 				race: {
 					3: { distance: 32.47 }, // F.Helf: 32.474
@@ -1439,7 +1439,7 @@ module.exports = {
 		},
 		4: { // Flatten
 			'*': {
-				length: 3150, // 3120 pori?
+				length: 3125, // 3100 pori?
 				distance: 105.685,
 				glyphs: {
 					24008: { speed: 1.25 },
@@ -1560,7 +1560,7 @@ module.exports = {
 				]
 			},
 			10: {
-				length: 1325, // Cast F. - TODO
+				length: 1350, // Cast F. - TODO
 				distance: 50,
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
@@ -1568,7 +1568,7 @@ module.exports = {
 				}
 			},
 			11: {
-				length: [375, 375, 1325],
+				length: [375, 375, 1350],
 				distance: [33.33, 33.33, 50],
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
@@ -1576,7 +1576,7 @@ module.exports = {
 				}
 			},
 			12: {
-				length: [375, 375, 375, 375, 1325],
+				length: [375, 375, 375, 375, 1350],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
@@ -1584,17 +1584,17 @@ module.exports = {
 				}
 			},
 			13: {
-				length: [375, 375, 375, 375, 1325],
+				length: [375, 375, 375, 375, 1350],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				noInterrupt: [2, 4, 15, 24, 25, 30],
 				races: {
-					3: { length: 1800 }	// F.Helf
+					3: { length: 1800 }	// F.Helf  <- Is this all right? Shouldn't be an array??
 				}
 			}
 		},
 		11: { // Leaping Strike 
 			0: {
-				length: 2290, // 2250 popori?
+				length: 2190, // 2180
 				distance: 250,
 				abnormals: {
 					7692002: { chain: 6 },
@@ -1605,7 +1605,7 @@ module.exports = {
 		},
 		12: { // Unchained Anger
 			'*': { 
-				length: [1050, 550],
+				length: [1035, 550],
 				noInterrupt: [2]
 			},
 			30: true,
@@ -1620,7 +1620,7 @@ module.exports = {
 			}
 		},
 		/*15: { // Vampiric Blow  // Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work and you may as well before that trigger sCannotStartSkill
-            '*': { length: 1940 },            // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
+            '*': { length: 1930 },            // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
             0: {                             //                    2. Must be in combat when used.  
                 type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
@@ -1786,7 +1786,7 @@ module.exports = {
 		},
 		24: { // Evasive Smash (TODO: Check)
 			'*': {	// Same animation as lethal strike cast, just slower
-				length: 1640,
+				length: 1635, // 1630
 				distance: 167.63, // 167.624
 				race: {
 					6: { distance: 168.11 }, // M.Casta: 168.112
@@ -1796,7 +1796,7 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 1015,
+				length: 1015, // 1000, 1025
 				distance: 150,
 				abnormals: {
 					400800: { chain: 6 },
@@ -1922,7 +1922,7 @@ module.exports = {
 				requiredBuff: 401400
 			},
 			0: {
-				length: 795,
+				length: 790,
 				distance: 31.58,
 				race: {
 					8: { // Popori: 930, 61.387
