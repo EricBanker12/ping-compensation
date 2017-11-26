@@ -1572,7 +1572,7 @@ module.exports = {
 				distance: [33.33, 33.33, 50],
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
-					3: { length: 1800 }	// F.Helf
+					3: { length: [375, 375, 1800] }	// F.Helf
 				}
 			},
 			12: {
@@ -1580,7 +1580,7 @@ module.exports = {
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
-					3: { length: 1800 }	// F.Helf
+					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf
 				}
 			},
 			13: {
@@ -1588,7 +1588,7 @@ module.exports = {
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				noInterrupt: [2, 4, 15, 24, 25, 30],
 				races: {
-					3: { length: 1800 }	// F.Helf  <- Is this all right? Shouldn't be an array??
+					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf  <- Is this all right? Shouldn't be an array??
 				}
 			}
 		},
