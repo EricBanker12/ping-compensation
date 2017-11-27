@@ -1380,7 +1380,7 @@ module.exports = {
 				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
-					24170: { chargeSpeed: 0.25 },
+					24170: { speed: 1.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
 					4010150: { chargeSpeed: 0.2 } // All of these do not
