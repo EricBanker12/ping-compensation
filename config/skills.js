@@ -3602,6 +3602,9 @@ module.exports = {
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire
+			'*':{
+				blockCancelPacket: true
+			},
 			0: { length: 855 },
 			1: {
 				fixedSpeed: 1,
@@ -3645,7 +3648,10 @@ module.exports = {
 			}
 		},
 		9: { // Mana Missiles
-			'*': { length: 1250 },
+			'*': { 
+				blockCancelPacket: true,
+				length: 1250 
+			},
 			0: {
 				type: 'charging',
 				length: 1250
@@ -3655,6 +3661,7 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
+				blockCancelPacket: true,
 				length: 1325,
 				chains: {
 					'2-1': null,

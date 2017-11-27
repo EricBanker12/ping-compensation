@@ -671,6 +671,10 @@ module.exports = function SkillPrediction(dispatch) {
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill) // event.skill can be wrong, so use the known current skill instead
 			if(info && info.type == 'lockon') sendActionEnd(event.type)
+			if(info && info.blockCancelPacket) {
+				if(DEBUG) console.log('[Skill Prediction] C_CANCEL_SKILL was dropped') 
+				return false
+			}
 		}
 	})
 
