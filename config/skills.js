@@ -1370,7 +1370,10 @@ module.exports = {
 			31: { fixedSpeed: 1 }
 		},
 		3: { // Thunderstrike
-			'*': { length: 1750 },
+			'*': { 
+				length: 1750,
+				abnormals: { 24170: { speed: 1.25 } }
+			},
 			0: {
 				type: 'charging',
 				length: [650, 650, 650], // Overcharge hold charge time: 2515 | Charge hold time is fixed, so therefore the more attack speed you have the more free time you have after a fully charging to reposition.
@@ -1380,7 +1383,6 @@ module.exports = {
 				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
-					24170: { speed: 1.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
 					4010150: { chargeSpeed: 0.2 } // All of these do not
