@@ -13,20 +13,27 @@ const JITTER_COMPENSATION	= true,
 										*/
 	DEBUG_GLYPH				= false
 
-var DEBUG				= false,
-DEFEND_SUCCESS_STRICT	= true,			//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
-DEBUG_LOC				= false	
 
 //Class based fixes
 const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
 
+let DEBUG					= true,
+	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
+	DEBUG_LOC				= false,
+	MOUNTCHECK				= true,
+	WP_BODY_ROLL_CONTROL	= false     //	Reduces Willpower cost of Burst Fire by 5
+
 const {protocol, sysmsg} = require('tera-data-parser'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
+	Command = require('command'),
 	skills = require('./config/skills'),
 	timeouts = require('./config/serverTimeouts'),
-	Command = require('command'),
-	silence = require('./config/silence').reduce((map, value) => { // Convert array to object for fast lookup
+	silence = require('./config/data/silence').reduce((map, value) => { // Convert array to object for fast lookup
+		map[value] = true
+		return map
+	}, {}),
+	movblock = require('./config/data/movementblock').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
 		return map
 	}, {})
@@ -100,7 +107,7 @@ module.exports = function SkillPrediction(dispatch) {
 				DEBUG_LOC = !DEBUG_LOC
 				break
 			case 'strictdef': 
-				if(inCombat){ 
+				if(inCombat) { 
 					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT can be changed only out of combat' )
 				}
 				else {
@@ -109,8 +116,16 @@ module.exports = function SkillPrediction(dispatch) {
 					else
 						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
 
-					DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
+				DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
 				}
+				break
+			case 'mount':
+				if(MOUNTCHECK)
+					command.message('[Skill Prediction] Mount detection deactivated')
+				else
+					command.message('[Skill Prediction] Mount detection activated')
+
+				MOUNTCHECK = !MOUNTCHECK
 				break
 		}
 	});
@@ -206,25 +221,20 @@ module.exports = function SkillPrediction(dispatch) {
 						equippedWeapon = true
 						break
 					}
+					
+				staminaModifier = 0
 				//Body WP roll check for gunner, only inventory parse :( So weird
-				if (job == 9 )
-				{   
-					staminaModifier = 0
+				if (job == 9 && WP_BODY_ROLL_CONTROL) {   
 					for (var item of inventory) {
-						if(item.slot == 3 && WP_BODY_ROLL_CONTROL)
-						{
-							for(var set of item.passivitySets)
-							{
+						if(item.slot == 3 )	{
+							for(var set of item.passivitySets) {
 								if(set.index != item.passivitySet)
 								continue
-							
-								for(var id of set.passivities)
-								{
+								for(var id of set.passivities) {
 								   //console.log('[inv] ID', id)
-								   if (id.dbid == 350905 )
-								   {
-									 if(DEBUG) console.log('[Skill Prediction (INVEN)] ID 350905 rolled')
-									 staminaModifier = -5
+								   if (id.dbid == 350905 ) {
+									 	if(DEBUG) console.log('[Skill Prediction (INVEN)] ID 350905 rolled')
+									 	staminaModifier = -5
 								   }
 								}
 	
@@ -455,7 +465,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		if (mounted) {
+		if (mounted && MOUNTCHECK) {
 			sendCannotStartSkill(event.skill)
 			//sendSystemMessage('SMT_CANT_SKILL_USER_CONDITION')
 	        return false
@@ -472,6 +482,11 @@ module.exports = function SkillPrediction(dispatch) {
 			return false
 		}
 
+		if(info.evasiveSkill && abnormality.inMap(movblock)) {	
+			sendCannotStartSkill(event.skill)
+			return false
+		}
+
 		if(currentAction) {
 			let currentSkill = currentAction.skill - 0x4000000,
 				currentSkillBase = Math.floor(currentSkill / 10000),
@@ -479,7 +494,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
 			if(currentSkillBase == 6190 || (currentSkillBase == 6811 + race && info.type != 'retaliate')) {
-				if(currentAction.skill != 67129664 && (!abnormality.exists(9691000) || !abnormality.exists(9691016))) {
+				if(currentAction.skill != 20800 && (!abnormality.exists(9691000) || !abnormality.exists(9691016))) {
 				    sendCannotStartSkill(event.skill)
 					return false
 				}

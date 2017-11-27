@@ -78,16 +78,7 @@ module.exports = {
 					21067: { stamina: -100 },
 					21101: { stamina: -120 }
 				},
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
+				evasiveSkill:true,
 				race: {
 					8: { length: 1060 } // Popori
 				}
@@ -163,16 +154,7 @@ module.exports = {
 			0: {
 				length: 2025, 
 				noInterrupt: [2, 32],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
+				evasiveSkill:true,
 				race: {
 					2: { length: 2055 }, // M.Helf
 					7: { length: 2055 }, // F.Castanic
@@ -3587,6 +3569,7 @@ module.exports = {
 			'*': {
 				length: 1525,
 				distance: 137.88,
+				evasiveSkill:true, //??? maybe
 				noInterrupt: ['4-3', '4-4'],
 				chains: {
 					'2-1': 30,
@@ -3672,7 +3655,7 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				length: 1320, // 1325
+				length: 1325,
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3696,8 +3679,9 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				length: 1400,
-				noInterrupt: [15],
+				noInterrupt: [11,15,3],
 				distance: 415.45,
+				evasiveSkill:true, //??? maybe
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3710,17 +3694,7 @@ module.exports = {
 					13: 30,
 					19: 30,
 					40: 31
-				},
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
+				}				
 			},
 			1: true,
 			2: true,
@@ -3787,14 +3761,14 @@ module.exports = {
 		18: { // HB
 			'*': {
 				fixedSpeed: 1,
-				length: 1425
+				length: 1430
 			},
 			1: true,
 			2: true
 		},
 		19: { // ST
 			'*': {
-				length: 1315, // 1325
+				length: 1325, 
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3825,13 +3799,10 @@ module.exports = {
 		40: { // Rolling Reload
 			0: {
 				fixedSpeed: 1,
-				length: 930,
+				length: 935,
 				noInterrupt: [11],
 				distance: 172.5,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
+				evasiveSkill:true,
 				forceClip: true
 			}
 		}
