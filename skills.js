@@ -1,6 +1,6 @@
 const JITTER_COMPENSATION	= true,
 	JITTER_ADJUST			= 0,		//	This number is added to your detected minimum ping to get the compensation amount.
-	SKILL_RETRY_COUNT		= 1,		//	Number of times to retry each skill (0 = disabled). Recommended 1-3.
+	SKILL_RETRY_COUNT		= 2,		//	Number of times to retry each skill (0 = disabled). Recommended 1-3.
 	SKILL_RETRY_MS			= 30,		/*	Time to wait between each retry.
 											SKILL_RETRY_MS * SKILL_RETRY_COUNT should be under 100, otherwise skills may go off twice.
 										*/
@@ -12,6 +12,10 @@ const JITTER_COMPENSATION	= true,
 											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
 										*/
 	DEBUG_GLYPH				= false
+
+
+//Class based fixes
+const WP_BODY_ROLL_CONTROL	= false      //  "Reduces Willpower cost of Burst Fire by 5" fix
 
 let DEBUG					= true,
 	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
