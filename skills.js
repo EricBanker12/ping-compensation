@@ -13,7 +13,7 @@ const JITTER_COMPENSATION	= true,
 										*/
 	DEBUG_GLYPH				= false
 
-let DEBUG					= true,
+let DEBUG					= false,
 	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
 	DEBUG_LOC				= false,
 	MOUNTCHECK				= true,
@@ -28,11 +28,12 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 	silence = require('./config/data/silence').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
 		return map
-	}, {}),
-	movblock = require('./config/data/movementblock').reduce((map, value) => { // Convert array to object for fast lookup
+	}, {})
+/*	movblock = require('./config/data/movementblock').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
 		return map
 	}, {})
+	*/
 
 const INTERRUPT_TYPES = {
 	'retaliate': 5,
@@ -478,10 +479,11 @@ module.exports = function SkillPrediction(dispatch) {
 			return false
 		}
 
-		if(info.evasiveSkill && abnormality.inMap(movblock)) {	
+/*		if(info.evasiveSkill && abnormality.inMap(movblock)) {	
 			sendCannotStartSkill(event.skill)
 			return false
 		}
+		*/
 
 		if(currentAction) {
 			let currentSkill = currentAction.skill - 0x4000000,
