@@ -570,6 +570,12 @@ module.exports = {
 		},
 		27: { // Rallying Cry
 			0: { length: 620 }
+		},
+		28: { // Righteous Leap (translation pending)
+			0: {
+				length: [375, 1025, 3100],
+				distance: [29.48, 445.52, 0]
+			}
 		}
 	},
 	2: { // Slayer
