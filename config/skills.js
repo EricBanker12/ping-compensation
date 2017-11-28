@@ -839,7 +839,12 @@ module.exports = {
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { chargeSpeed: 0.25 }
-				}
+				},
+				level: [
+					{ length: 800 },
+					{ length: [800, 800] },
+					{ length: [800, 800] }
+				]
 			},
 			10: { distance: 85.74 }, // Cast F. - TODO
 			11: { distance: 85.74 },
@@ -920,7 +925,12 @@ module.exports = {
 				},
 				abnormals: {
 					24190: { chargeSpeed: 0.3 }
-				}
+				},
+				level: [
+					{ length: 800 },
+					{ length: [800, 800] },
+					{ length: [800, 800] }
+				]
 			},
 			10: {
 				length: 1325,
