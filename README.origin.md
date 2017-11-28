@@ -2,12 +2,6 @@
 
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
-Experimental Branch: https://github.com/Leyki/skill-prediction/tree/experimental
-
-Wiki: https://github.com/Leyki/skill-prediction/wiki
-
-Disabling a skill in SP: https://github.com/Leyki/skill-prediction/wiki#commenting-in-javascriptaka-if-you-want-a-skill-to-not-be-affected-by-sp
-
 ## Current supported class skills
 * Lancer: All besides Retaliate
 * Brawler: Most besides Rampage, Divine Wrath, Meat Grinder, High Kick, Retaliate
