@@ -3237,7 +3237,7 @@ module.exports = {
 					19: 30,
 					20: 30
 				}
-			}
+			},
 			0: true,
 			1: {
 				type: 'dash',
