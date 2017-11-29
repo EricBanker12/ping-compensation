@@ -3220,13 +3220,33 @@ module.exports = {
 			30: true
 		},
 		6: { // One Thousand Cuts
+			'*': {
+				length: 400,
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					12: 30,
+					13: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					19: 30,
+					20: 30
+				}
+			}
+			0: true,
 			1: {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 300,
 				distance: 246
 			},
-			10: { length: 3500 }
+			10: { length: 3500 },
+			30: true
 		},
 		7: { // Decoy Jutsu
 			0: {
