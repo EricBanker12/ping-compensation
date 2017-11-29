@@ -1982,6 +1982,7 @@ module.exports = {
 				type: 'charging',
 				length: [1000, 1000],
 				noInterrupt: [7, 26],
+				autorelease: 0,
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
@@ -2945,7 +2946,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1475,
-				autoRelease: 0
+				//autoRelease: 0
 			},
 			10: {
 				length: 850,
@@ -2967,7 +2968,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1475,
-				autoRelease: 0
+				//autoRelease: 0
 			},
 			10: {
 				length: 850, // 810 female high elf
