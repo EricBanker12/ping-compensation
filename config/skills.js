@@ -3030,6 +3030,7 @@ module.exports = {
 				},
 				chains: {
 					1: 30,
+					3: 30,
 					4: 30,
 					6: 30,
 					7: 30,
@@ -3101,6 +3102,7 @@ module.exports = {
 				},
 				chains: {
 					1: 70,
+					3: 70,
 					4: 70,
 					6: 70,
 					7: 70,
@@ -3198,6 +3200,7 @@ module.exports = {
 				noInterrupt: [5],
 				chains: {
 					1: null,
+					3: null,
 					4: null,
 					6: null,
 					7: null,
@@ -3242,6 +3245,7 @@ module.exports = {
 				},
 				chains: {
 					1: 30,
+					3: 30,
 					4: 30,
 					6: 30,
 					7: 30,
@@ -3281,6 +3285,7 @@ module.exports = {
 				noInterrupt: [9, 18],
 				chains: {
 					1: 30,
+					3: 30,
 					4: 30,
 					6: 30,
 					7: 30,
@@ -3305,6 +3310,7 @@ module.exports = {
 				noInterrupt: [9, 18],
 				chains: {
 					1: 30,
+					3: 30,
 					4: 30,
 					6: 30,
 					7: 30,
@@ -3329,6 +3335,7 @@ module.exports = {
 				noInterrupt: [9, 18],
 				chains: {
 					1: 30,
+					3: 30,
 					4: 30,
 					6: 30,
 					7: 30,
@@ -3384,6 +3391,7 @@ module.exports = {
 				distance: 127.5,
 				chains: {
 					1: 30,
+					3: 30,
 					4: 30,
 					6: 30,
 					7: 30,
@@ -3689,24 +3697,24 @@ module.exports = {
 					33020: { speed: 1.2 }
 				},
 				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
+					1: null,
+					2: null,
+					3: null,
+					4: null,
+					5: null,
+					6: null,
+					7: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
+					19: null,
+					20: null
 				}
 			},
 			0: true,
