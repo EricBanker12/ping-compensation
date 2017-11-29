@@ -839,12 +839,15 @@ module.exports = {
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2],
+				autoRelease: 2025,
 				glyphs: {
 					24067: { chargeSpeed: 0.25 }
 				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
-					24170: { chargeSpeed: 0.25 }
+					24170: { chargeSpeed: 0.25 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 }
 				},
 				level: [
 					{ length: 800 },
@@ -924,13 +927,16 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
+				autoRelease: 2025,
 				glyphs: {
 					24009: { chargeSpeed: 0.25 },
 					24052: { chargeSpeed: 0.25 },
 					24096: { chargeSpeed: 0.3 }
 				},
 				abnormals: {
-					24190: { chargeSpeed: 0.3 }
+					24190: { chargeSpeed: 0.3 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 }
 				},
 				level: [
 					{ length: 800 },
@@ -973,8 +979,13 @@ module.exports = {
 			'*': { length: 1925 },
 			0: {
 				type: 'charging',
-				length: [800, 800, 800],
+				length: [815, 815, 815],
 				noInterrupt: [2],
+				autoRelease: 0,
+				abnormals: {
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 }
+				},
 				chains: {
 					'3-13': 14,
 					'10-13': 14,
@@ -994,8 +1005,13 @@ module.exports = {
 			'*': { length: 1750 },
 			0: {
 				type: 'charging',
-				length: [700, 700, 700],
-				noInterrupt: [2]
+				length: [815, 815, 815],
+				noInterrupt: [2],
+				autoRelease: 0,
+				abnormals: {
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 }
+				}
 			},
 			10: { distance: 171.48 },
 			11: { distance: 171.48 },
@@ -1114,7 +1130,8 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [1000, 1000],
+				length: [1015, 1015],
+				autoRelease: 0,
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
@@ -1223,7 +1240,8 @@ module.exports = {
 			'*': { length: 900 },
 			0: {
 				type: 'charging',
-				length: [1000, 1000]
+				length: [1005, 1005],
+				autoRelease: 0
 			},
 			10: true,
 			11: true,
@@ -1380,6 +1398,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
+				autoRelease: 2550,
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
 					601450: { chargeSpeed: 0.5 }
@@ -1395,6 +1414,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
+				autoRelease: 2550,
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
@@ -1641,6 +1661,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 1600],
+				autoRelease: 0,
 				abnormals: {
 					28031: { chargeSpeed: 0.25 }
 				}
@@ -1868,7 +1889,8 @@ module.exports = {
 		18: { // Arun's Vitae
 			0: {
 				type: 'charging',
-				length: 1475
+				length: 1475,
+				autoRelease: 0
 			},
 			10: {
 				length: 850,
@@ -1888,7 +1910,8 @@ module.exports = {
 		22: { // Arun's Tears
 			0: {
 				type: 'charging',
-				length: 1475
+				length: 1475,
+				autoRelease: 0
 			},
 			10: {
 				length: 850,
@@ -2543,7 +2566,8 @@ module.exports = {
 			'*': { length: 1250 },
 			0: {
 				type: 'charging',
-				length: 1200
+				length: 1200,
+				autoRelease: 0
 			},
 			10: { distance: -50 },
 			11: { distance: -100 }
