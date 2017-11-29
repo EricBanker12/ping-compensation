@@ -122,7 +122,7 @@ module.exports = function SkillPrediction(dispatch) {
 		job = (model - 10101) % 100
 		if(DEBUG) console.log('[Skill Prediction] Class', job)
 		
-		let timeoutData = get(timeouts, 'timeouts', job) || get(timeouts, 'timeouts', '*')
+/*		let timeoutData = get(timeouts, 'timeouts', job) || get(timeouts, 'timeouts', '*')
 		if(timeoutData)	{
 			classBasedServerTimeout = timeoutData
 			if(DEBUG) console.log('[Skill Prediction] Class based server timeout:', timeoutData)
@@ -131,6 +131,7 @@ module.exports = function SkillPrediction(dispatch) {
 			classBasedServerTimeout = 200 //failover
 			if(DEBUG) console.log('[Skill Prediction] Class based server timeout (failover!):', classBasedServerTimeout)
 		}
+*/
 		hookInventory()
 	})
 
