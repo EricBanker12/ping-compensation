@@ -403,7 +403,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
 
-			if(chain) {
+			if(chain !== undefined) {
 				if(chain === null) {
 					sendActionEnd(4)
 					if(send) toServerLocked(data)
