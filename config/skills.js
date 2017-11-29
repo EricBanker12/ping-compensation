@@ -2190,6 +2190,7 @@ module.exports = {
 		},
 		4: { // Sundering Strike
 			'*': {
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
 				chains: {
 					1: null,
 					3: null,
@@ -2219,8 +2220,7 @@ module.exports = {
 						[]
 					],
 					distance: [0, 0, 0]
-				},
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20]
+				}
 			},
 			30: {
 				length: [1750, 1025],
