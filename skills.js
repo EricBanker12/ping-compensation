@@ -6,7 +6,7 @@ const JITTER_COMPENSATION	= true,
 	SKILL_RETRY_JITTERCOMP	= 15,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting for extremely short skills, but may cause other skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
-	SERVER_TIMEOUT			= 125,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
+	SERVER_TIMEOUT			= 175,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
 											If animations are being cancelled while damage is still applied, increase this number.
 										*/
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
@@ -18,6 +18,7 @@ const JITTER_COMPENSATION	= true,
 	DEBUG_GLYPH				= false
 
 const {protocol, sysmsg} = require('tera-data-parser'),
+	Command = require('command'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
 	skills = require('./config/skills'),
@@ -32,7 +33,8 @@ const INTERRUPT_TYPES = {
 }
 
 module.exports = function SkillPrediction(dispatch) {
-	const ping = Ping(dispatch),
+	const command = Command(dispatch),
+		ping = Ping(dispatch),
 		abnormality = AbnormalityPrediction(dispatch)
 
 	let sending = false,
@@ -63,6 +65,7 @@ module.exports = function SkillPrediction(dispatch) {
 		serverAction = null,
 		serverConfirmedAction = false,
 		queuedNotifyLocation = [],
+		storedCharge = 0,
 		lastEndSkill = 0,
 		lastEndType = 0,
 		lastEndedId = 0,
@@ -71,6 +74,10 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTime = 0,
 		stageEndTimeout = null,
 		debugActionTime = 0
+
+	command.add('ping', () => {
+		command.message(`Ping: Avg=${Math.round(ping.avg)} Min=${ping.min} Max=${ping.max} Jitter=${ping.max - ping.min}`)
+	})
 
 	dispatch.hook('S_LOGIN', 1, event => {
 		skillsCache = {}
@@ -327,7 +334,7 @@ module.exports = function SkillPrediction(dispatch) {
 			interruptType = 0
 
 		if(type == 'C_PRESS_SKILL' && !event.start) {
-			if(currentAction && currentAction.skill == skill)
+			if(currentAction && currentAction.skill == skill) {
 				if(info.type == 'hold' || info.type == 'holdInfinite') {
 					updateLocation(event)
 
@@ -359,6 +366,8 @@ module.exports = function SkillPrediction(dispatch) {
 					else sendActionEnd(10)
 				}
 				else if(info.type == 'charging') sendGrantSkill(modifyChain(skill, 10 + currentAction.stage))
+			}
+			else if(info.type == 'grantCharge') sendGrantSkill(modifyChain(skill, 10 + storedCharge))
 
 			if(send) toServerLocked(data)
 			return
@@ -414,6 +423,8 @@ module.exports = function SkillPrediction(dispatch) {
 				interruptType = INTERRUPT_TYPES[info.type] || 4
 			}
 			else interruptType = INTERRUPT_TYPES[info.type] || 6
+
+			if(info.type == 'storeCharge') storedCharge = currentAction.stage
 		}
 
 		if(info.onlyDefenceSuccess)

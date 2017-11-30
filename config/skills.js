@@ -1001,7 +1001,7 @@ module.exports = {
 				distance: 85.74
 			}
 		},*/
-		18: { // Lethal Strike (TODO: Check)
+		18: { // Lethal Strike
 			'*': { length: 1750 },
 			0: {
 				type: 'charging',
@@ -1031,15 +1031,20 @@ module.exports = {
 				length: 700
 			}
 		},
-		24: { // Evasive Smash (TODO: Check)
+		24: { // Evasive Smash
 			'*': {
 				length: 1825,
-				distance: 173.19
+				distance: 167.62,
+				race: {
+					8: { distance: 240.4 } // Popori
+				}
 			},
 			0: {
+				type: 'storeCharge',
 				length: 1000,
 				distance: 150
 			},
+			5: { type: 'grantCharge' },
 			10: true,
 			11: true,
 			12: true,
@@ -1066,7 +1071,7 @@ module.exports = {
 				distance: 80
 			}
 		},
-		29: { // Evasive Roll (TODO: Check)
+		29: { // Evasive Roll
 			0: {
 				length: 900,
 				distance: 150,
@@ -1080,21 +1085,21 @@ module.exports = {
 				onlyDefenceSuccess: true
 			}
 		},
-		31: { // Overwhelm (TODO: Check)
+		31: { // Overwhelm
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1100,
+				length: 1115,
 				distance: 467.88
 			}
 		},
-		32: { // Punishing Strike (TODO: Check)
+		32: { // Punishing Strike
 			0: {
-				length: 725,
+				length: 750,
 				distance: 170.61
 			},
 			1: {
-				length: 1400,
+				length: 800,
 				distance: 122.34
 			}
 		}
