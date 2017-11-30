@@ -1,24 +1,4 @@
-const JITTER_COMPENSATION	= true,
-	SKILL_RETRY_COUNT		= 1,		//	Number of times to retry each skill (0 = disabled). Recommended 1-3.
-	SKILL_RETRY_MS			= 30,		/*	Time to wait between each retry.
-											SKILL_RETRY_MS * SKILL_RETRY_COUNT should be under 100, otherwise skills may go off twice.
-										*/
-	SKILL_RETRY_JITTERCOMP	= 15,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
-	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting for extremely short skills, but may cause other skills to fail.
-	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
-
-	SERVER_TIMEOUT			= 125,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
-										If animations are being cancelled while damage is still applied, increase this number.*/
-	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
-											Warning: Will cause occasional clipping through gates when disabled. Do NOT abuse this.
-										*/
-	DEBUG_GLYPH				= false
-
-let DEBUG					= false,
-	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
-	DEBUG_LOC				= false,
-	MOUNTCHECK				= true,
-	WP_BODY_ROLL_CONTROL	= false     //	Reduces Willpower cost of Burst Fire by 5
+const CONFIG_PATH = __dirname+'\\config.json'
 
 const {protocol, sysmsg} = require('tera-data-parser'),
 	Command = require('command'),
@@ -41,7 +21,8 @@ module.exports = function SkillPrediction(dispatch) {
 		abnormality = AbnormalityPrediction(dispatch),
 		command = Command(dispatch)
 
-	let sending = false,
+	let config = null,
+		sending = false,
 		skillsCache = null,
 		cid = null,
 		model = 0,
@@ -81,50 +62,79 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTimeout = null,
 		debugActionTime = 0
 
-	command.add('sp', (option) => {
-		switch (option) {
-			case 'debug': 
-				if(DEBUG)
-					command.message('[Skill Prediction] Debug deactivated')
-				else
-					command.message('[Skill Prediction] Debug activated')
-
-				DEBUG = !DEBUG
-				break
-			case 'debugloc':
-				if(DEBUG_LOC)
-					command.message('[Skill Prediction] Location debug deactivated')
-				else
-					command.message('[Skill Prediction] Location debug activated')
-
-				DEBUG_LOC = !DEBUG_LOC
-				break
-			case 'strictdef': 
-				if(inCombat) { 
-					command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT can be changed only out of combat' )
-				}
-				else {
-					if(DEFEND_SUCCESS_STRICT)
-						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT deactivated')
+		
+		LoadConfiguration()
+		
+		function LoadConfiguration()
+		{
+			try	{
+				config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'))
+			}
+			catch (err)	{
+				throw Error(`[Skill Prediction] ${err}`)
+			}
+		}	
+		
+		function SaveConfiguration()
+		{
+			fs.writeFile(CONFIG_PATH,JSON.stringify(config, "\t"), (err)=>{
+				if(err)
+					console.log('[Skill Prediction] Error!')
+			})
+		}	
+		
+		command.add('sp', (option) => {
+			switch (option) {
+				case 'info': 
+					command.message('Unofficial SP. Date:30/11/17')
+					command.message(`Config: Timeout: ${config.SERVER_TIMEOUT}, retries: ${config.SKILL_RETRY_COUNT},
+					jitter comp: ${config.JITTER_COMPENSATION}, debug: ${config.DEBUG}`)
+					break
+				case 'debug': 
+					if(config.DEBUG)
+						command.message('[Skill Prediction] Debug deactivated')
 					else
-						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
-
-				DEFEND_SUCCESS_STRICT = !DEFEND_SUCCESS_STRICT
-				}
-				break
-			case 'mount':
-				if(MOUNTCHECK)
-					command.message('[Skill Prediction] Mount detection deactivated')
-				else
-					command.message('[Skill Prediction] Mount detection activated')
-
-				MOUNTCHECK = !MOUNTCHECK
-				break
-			case 'ping':
+						command.message('[Skill Prediction] Debug activated')
+	
+					config.DEBUG = !config.DEBUG
+					break
+				case 'debugloc':
+					if(config.DEBUG_LOC)
+						command.message('[Skill Prediction] Location debug deactivated')
+					else
+						command.message('[Skill Prediction] Location debug activated')
+	
+					config.DEBUG_LOC = !config.DEBUG_LOC
+					break
+				case 'strictdef': 
+					if(inCombat) { 
+						command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT can be changed only out of combat' )
+					}
+					else {
+						if(config.DEFEND_SUCCESS_STRICT)
+							command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT deactivated')
+						else
+							command.message('[Skill Prediction] DEFEND_SUCCESS_STRICT activated')
+	
+					config.DEFEND_SUCCESS_STRICT = !config.DEFEND_SUCCESS_STRICT
+					}
+					break
+				case 'mount':
+					if(config.MOUNTCHECK)
+						command.message('[Skill Prediction] Mount detection deactivated')
+					else
+						command.message('[Skill Prediction] Mount detection activated')
+	
+						config.MOUNTCHECK = !config.MOUNTCHECK
+					break
+				case 'save':
+					SaveConfiguration()
+					break	
+				case 'ping':
 					command.message(`Ping: ${ping.history.length ? `Avg=${Math.round(ping.avg)} Min=${ping.min} Max=${ping.max} Jitter=${ping.max - ping.min} Samples=${ping.history.length}` : '???'}`)
 				break
 			}
-	});
+		});
 
 
 	dispatch.hook('S_LOGIN', 1, event => {
@@ -132,18 +142,7 @@ module.exports = function SkillPrediction(dispatch) {
 		;({cid, model} = event)
 		race = Math.floor((model - 10101) / 100)
 		job = (model - 10101) % 100
-		if(DEBUG) console.log('[Skill Prediction] Class', job)
-		
-/*		let timeoutData = get(timeouts, 'timeouts', job) || get(timeouts, 'timeouts', '*')
-		if(timeoutData)	{
-			classBasedServerTimeout = timeoutData
-			if(DEBUG) console.log('[Skill Prediction] Class based server timeout:', timeoutData)
-		}
-		else{
-			classBasedServerTimeout = 200 //failover
-			if(DEBUG) console.log('[Skill Prediction] Class based server timeout (failover!):', classBasedServerTimeout)
-		}
-*/
+		if(config.DEBUG) console.log('[Skill Prediction] Class', job)
 		hookInventory()
 	})
 
@@ -175,7 +174,7 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_CREST_APPLY', 1, event => {
-		if(DEBUG_GLYPH) console.log('Glyph', event.id, event.enabled)
+		if(config.DEBUG_GLYPH) console.log('Glyph', event.id, event.enabled)
 
 		currentGlyphs[event.id] = event.enabled
 	})
@@ -222,7 +221,7 @@ module.exports = function SkillPrediction(dispatch) {
 					
 				staminaModifier = 0
 				//Body WP roll check for gunner, only inventory parse :( So weird
-				if (job == 9 && WP_BODY_ROLL_CONTROL) {   
+				if (job == 9 && config.WP_BODY_ROLL_CONTROL) {   
 					for (var item of inventory) {
 						if(item.slot == 3 )	{
 							for(var set of item.passivitySets) {
@@ -231,7 +230,7 @@ module.exports = function SkillPrediction(dispatch) {
 								for(var id of set.passivities) {
 								   //console.log('[inv] ID', id)
 								   if (id.dbid == 350905 ) {
-									 	if(DEBUG) console.log('[Skill Prediction (INVEN)] ID 350905 rolled')
+									 	if(config.DEBUG) console.log('[Skill Prediction (INVEN)] ID 350905 rolled')
 									 	staminaModifier = -5
 								   }
 								}
@@ -273,19 +272,19 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_MOUNT_VEHICLE',1, event => {
         if (cid.equals(event.target)) {
             mounted = true
-            if (DEBUG) console.log('[Skill Prediction] Your character mounted')
+            if (config.DEBUG) console.log('[Skill Prediction] Your character mounted')
         }
     })
 
 	dispatch.hook('S_UNMOUNT_VEHICLE', 1, event => {
         if (cid.equals(event.target)) {
             mounted = false
-            if (DEBUG) console.log('[Skill Prediction] Your character unmounted')
+            if (config.DEBUG) console.log('[Skill Prediction] Your character unmounted')
         }
 	})
 
 	dispatch.hook('C_PLAYER_LOCATION', 1, event => {
-		if(DEBUG_LOC) console.log('Location %d %d (%d %d %d %d) > (%d %d %d)', event.type, event.speed, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), event.w, Math.round(event.x2), Math.round(event.y2), Math.round(event.z2))
+		if(config.DEBUG_LOC) console.log('Location %d %d (%d %d %d %d) > (%d %d %d)', event.type, event.speed, Math.round(event.x1), Math.round(event.y1), Math.round(event.z1), event.w, Math.round(event.x2), Math.round(event.y2), Math.round(event.z2))
 
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill)
@@ -306,7 +305,7 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('C_NOTIFY_LOCATION_IN_DASH', 1, notifyLocation.bind(null, 'C_NOTIFY_LOCATION_IN_DASH', 1))
 
 	function notifyLocation(type, version, event) {
-		if(DEBUG_LOC) console.log('-> %s %s %d (%d %d %d %d)', type, skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
+		if(config.DEBUG_LOC) console.log('-> %s %s %d (%d %d %d %d)', type, skillId(event.skill), event.stage, Math.round(event.x), Math.round(event.y), Math.round(event.z), event.w)
 
 		currentLocation = {
 			x: event.x,
@@ -365,14 +364,14 @@ module.exports = function SkillPrediction(dispatch) {
 		if(delayNext && Date.now() <= stageEndTime) {
 			delay = delayNext
 
-			if(info && !info.noRetry && SKILL_RETRY_COUNT) {
-				delay -= SKILL_RETRY_JITTERCOMP
+			if(info && !info.noRetry && config.SKILL_RETRY_COUNT) {
+				delay -= config.SKILL_RETRY_JITTERCOMP
 
 				if(delay < 0) delay = 0
 			}
 		}
 
-		if(DEBUG) {
+		if(config.DEBUG) {
 			let strs = ['->', type, skillId(event.skill)]
 
 			if(type == 'C_START_SKILL') strs.push(...[event.unk ? 1 : 0, event.moving ? 1 : 0, event.continue ? 1 : 0])
@@ -385,7 +384,7 @@ module.exports = function SkillPrediction(dispatch) {
 				strs.push('[' + tmp.join(', ') + ']')
 			}
 
-			if(DEBUG_LOC) {
+			if(config.DEBUG_LOC) {
 				strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
 				if(type == 'C_START_SKILL' || type == 'C_START_TARGETED_SKILL' || type == 'C_START_INSTANCE_SKILL_EX')
@@ -467,7 +466,7 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		if (mounted && MOUNTCHECK) {
+		if (mounted && config.MOUNTCHECK) {
 			sendCannotStartSkill(event.skill)
 			//sendSystemMessage('SMT_CANT_SKILL_USER_CONDITION')
 	        return false
@@ -653,7 +652,7 @@ module.exports = function SkillPrediction(dispatch) {
 		// However, once the animation starts this is no longer possible, so instead we simulate retrying each skill
 		if(!info.noRetry)
 			retry(() => {
-				if((SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill) return toServerLocked(data)
+				if((config.SKILL_RETRY_ALWAYS && type != 'C_PRESS_SKILL') || currentAction && currentAction.skill == skill) return toServerLocked(data)
 				return false
 			})
 	}
@@ -667,13 +666,13 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	dispatch.hook('C_CANCEL_SKILL', 1, event => {
-		if(DEBUG) debug(['-> C_CANCEL_SKILL', skillId(event.skill), event.type].join(' '))
+		if(config.DEBUG) debug(['-> C_CANCEL_SKILL', skillId(event.skill), event.type].join(' '))
 
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill) // event.skill can be wrong, so use the known current skill instead
 			if(info && info.type == 'lockon') sendActionEnd(event.type)
 			if(info && info.blockCancelPacket) {
-				if(DEBUG) console.log('[Skill Prediction] C_CANCEL_SKILL was dropped') 
+				if(config.DEBUG) console.log('[Skill Prediction] C_CANCEL_SKILL was dropped') 
 				return false
 			}
 		}
@@ -681,11 +680,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_ACTION_STAGE', 1, event => {
 		if(isMe(event.source)) {
-			if(DEBUG) {
+			if(config.DEBUG) {
 				let duration = Date.now() - debugActionTime,
 					strs = [skillInfo(event.skill) ? '<X' : '<-', 'S_ACTION_STAGE', skillId(event.skill), event.stage, (Math.round(event.speed * 1000) / 1000) + 'x']
 
-				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+				if(config.DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
 				strs.push(...[event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3])
 
@@ -716,7 +715,7 @@ module.exports = function SkillPrediction(dispatch) {
 					serverConfirmedAction = true
 					dequeueNotifyLocation(event.skill)
 
-					if(JITTER_COMPENSATION && event.stage == 0) {
+					if(config.JITTER_COMPENSATION && event.stage == 0) {
 						let delay = Date.now() - lastStartTime - ping.min
 
 						if(delay > 0 && delay < 1000) {
@@ -761,18 +760,18 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_GRANT_SKILL', 1, event => {
-		if(DEBUG) debug(['<- S_GRANT_SKILL', skillId(event.skill)].join(' '))
+		if(config.DEBUG) debug(['<- S_GRANT_SKILL', skillId(event.skill)].join(' '))
 
 		if(skillInfo(modifyChain(event.skill, 0))) return false
 	})
 
 	dispatch.hook('S_INSTANT_DASH', 1, event => {
 		if(isMe(event.source)) {
-			if(DEBUG) {
+			if(config.DEBUG) {
 				let duration = Date.now() - debugActionTime,
 					strs = [(serverAction && skillInfo(serverAction.skill)) ? '<X' : '<-', 'S_INSTANT_DASH', event.unk1, event.unk2, event.unk3]
 
-				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+				if(config.DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
 				strs.push(...[
 					(Math.round(calcDistance(serverAction, event) * 1000) / 1000) + 'u',
@@ -789,12 +788,12 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_INSTANT_MOVE', 1, event => {
 		if(isMe(event.id)) {
-			if(DEBUG) {
+			if(config.DEBUG) {
 				let info = serverAction && skillInfo(serverAction.skill),
 					duration = Date.now() - debugActionTime,
 					strs = ['<- S_INSTANT_MOVE']
 
-				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+				if(config.DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
 				strs.push(...[
 					(Math.round(Math.sqrt(Math.pow(event.x - serverAction.x, 2) + Math.pow(event.y - serverAction.y, 2)) * 1000) / 1000) + 'u',
@@ -822,11 +821,11 @@ module.exports = function SkillPrediction(dispatch) {
 
 	dispatch.hook('S_ACTION_END', 1, event => {
 		if(isMe(event.source)) {
-			if(DEBUG) {
+			if(config.DEBUG) {
 				let duration = Date.now() - debugActionTime,
 					strs = [(event.id == lastEndedId || skillInfo(event.skill)) ? '<X' : '<-', 'S_ACTION_END', skillId(event.skill), event.type]
 
-				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
+				if(config.DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
 				if(serverAction)
 					strs.push(...[
@@ -890,11 +889,11 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('C_CHECK_VERSION', 'raw', () => {
 		dispatch.hook('S_EACH_SKILL_RESULT', [321553, 321554].includes(dispatch.base.protocolVersion) ? 3 : 4, event => {
 			if(isMe(event.target) && event.setTargetAction) {
-				if(DEBUG) {
+				if(config.DEBUG) {
 					let duration = Date.now() - debugActionTime,
 						strs = ['<- S_EACH_SKILL_RESULT.setTargetAction', skillId(event.targetAction), event.targetStage]
 
-					if(DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
+					if(config.DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
 
 					debug(strs.join(' '))
 				}
@@ -919,15 +918,15 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
 		if(isMe(event.cid))
 			if(currentAction && currentAction.skill == serverAction.skill) currentAction.defendSuccess = true
-			else if(DEFEND_SUCCESS_STRICT || job != 10) return false
+			else if(config.DEFEND_SUCCESS_STRICT || job != 10) return false
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
-		if(DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, true))
+		if(config.DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, true))
 
 		if(skillInfo(event.skill, true)) {
-			if(SKILL_DELAY_ON_FAIL && SKILL_RETRY_COUNT && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
-				delayNext += SKILL_RETRY_MS
+			if(config.SKILL_DELAY_ON_FAIL && config.SKILL_RETRY_COUNT && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
+				delayNext += config.SKILL_RETRY_MS
 
 			return false
 		}
@@ -1020,7 +1019,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
 
-		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + SERVER_TIMEOUT,
+		let serverTimeoutTime = ping.max + (config.SKILL_RETRY_COUNT * config.SKILL_RETRY_MS) + config.SERVER_TIMEOUT,
 			speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0)
 
 		if(info.type == 'teleport' && opts.stage == info.teleportStage) {
@@ -1142,9 +1141,9 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(!currentAction) return
 
-		if(DEBUG) debug(['<* S_ACTION_END', skillId(currentAction.skill), type || 0, currentLocation.w + '\xb0', (distance || 0) + 'u'].join(' '))
+		if(config.DEBUG) debug(['<* S_ACTION_END', skillId(currentAction.skill), type || 0, currentLocation.w + '\xb0', (distance || 0) + 'u'].join(' '))
 
-		if(oopsLocation && (FORCE_CLIP_STRICT || !currentLocation.inAction)) sendInstantMove(oopsLocation)
+		if(oopsLocation && (config.FORCE_CLIP_STRICT || !currentLocation.inAction)) sendInstantMove(oopsLocation)
 		else movePlayer(distance)
 
 		dispatch.toClient('S_ACTION_END', 1, {
@@ -1212,11 +1211,11 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function retry(cb, count = 1) {
-		if(count > SKILL_RETRY_COUNT) return
+		if(count > config.SKILL_RETRY_COUNT) return
 
 		setTimeout(() => {
 			if(cb()) retry(cb, count + 1)
-		}, SKILL_RETRY_MS)
+		}, config.SKILL_RETRY_MS)
 	}
 
 	// The real server uses loaded maps and a physics engine for skill movement, which would be costly to simulate
