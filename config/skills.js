@@ -1372,7 +1372,9 @@ module.exports = {
 		3: { // Thunderstrike
 			'*': {
 				length: 1750,
-				abnormals: { 24170: { speed: 1.25 } }
+				abnormals: {
+					24170: { speed: 1.25 }
+				}
 			},
 			0: {
 				type: 'charging',
@@ -5047,7 +5049,7 @@ module.exports = {
 			0: true,
 			30: true
 		},
-		10: { // Dream Slash
+		10: { // Dream Slash // need to check chains
 			'*': {
 				length: 1775,
 				distance: 11.78,

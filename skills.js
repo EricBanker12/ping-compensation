@@ -116,7 +116,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	});
 	command.add('ping', () => {
-		command.message(`Ping: Avg=${Math.round(ping.avg)} Min=${ping.min} Max=${ping.max} Jitter=${ping.max - ping.min}`)
+		command.message(`Ping: ${ping.history.length ? `Avg=${Math.round(ping.avg)} Min=${ping.min} Max=${ping.max} Jitter=${ping.max - ping.min} Samples=${ping.history.length}` : '???'}`)
 	})
 
 	dispatch.hook('S_LOGIN', 1, event => {
