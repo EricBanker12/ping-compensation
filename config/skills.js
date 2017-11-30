@@ -4346,11 +4346,12 @@ module.exports = {
 		3: { // Leaves on the Wind
 			'*': {
 				length: 1275,
+				noInterrupt: [3],
 				chains: {
 					1: null,
 					2: null,
 					4: null,
-					5: null,
+					//5: 30,
 					6: null,
 					7: null,
 					8: null,
@@ -4725,11 +4726,12 @@ module.exports = {
 			'*': {
 				length: 1000,
 				distance: 68.535,
+				noInterrupt: [18],
 				chains: {
 					1: null,
 					2: null,
 					4: null,
-					5: null,
+					5: 30,
 					6: null,
 					7: null,
 					8: null,
