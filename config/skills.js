@@ -1352,9 +1352,12 @@ module.exports = {
 			31: { fixedSpeed: 1 }
 		},
 		3: { // Thunderstrike
-			'*': { 
+			'*': {
 				length: 1750,
-				abnormals: { 24170: { speed: 1.25 } }
+				abnormals: {
+					24170: { speed: 1.25 }
+				}
+
 			},
 			0: {
 				type: 'charging',
@@ -1690,8 +1693,8 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		18: { // Lethal Strike (TODO: Check)
-			'*': { length: 1500 },
+		18: { // Lethal Strike
+			'*': { length: 1750 },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1771,33 +1774,25 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		24: { // Evasive Smash (TODO: Check)
-			'*': {	// Same animation as lethal strike cast, just slower
-				length: 1635, // 1630
-				distance: 167.63, // 167.624
+		24: { // Evasive Smash
+			'*': {
+				length: 1825,
+				distance: 167.62,
 				race: {
-					6: { distance: 168.11 }, // M.Casta: 168.112
-					8: { distance: 240.4 }, // Popori: 240.4
-					9: { distance: 167.62 }, // Elin: 167.624
-					10: { distance: 158.11 } // Baraka: 158.112
+					8: { distance: 240.4 } // Popori
 				}
 			},
 			0: {
-				length: 1015, // 1000, 1025
-				distance: 150,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 }
-				}
+				type: 'storeCharge',
+				length: 1000,
+				distance: 150
 			},
-			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
-			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
-			12: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
-			13: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] }
+			5: { type: 'grantCharge' },
+			10: true,
+			11: true,
+			12: true,
+			13: true
+
 		},
 		25: { // Raze
 			'*': { 
@@ -1849,7 +1844,7 @@ module.exports = {
                 noInterrupt: [2]
 			}
 		},
-		29: { // Evasive Roll (TODO: Check)
+		29: { // Evasive Roll
 			0: {
 				length: 905,
 				distance: 150,
@@ -1885,49 +1880,22 @@ module.exports = {
 			0: true,
 			30: true
 		},
-		31: { // Overwhelm (TODO: Check)
+		31: { // Overwhelm
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1115,
-				distance: 470,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
-				noInterrupt: [2],
-				noRetry: true
-			},
-			1: { 
-				length: 1335,
-			    noInterrupt: [2]
-            }
+				distance: 467.88
+			}
 		},
-		32: { // Punishing Strike (TODO: Check) /Need M.Casta
-			'*': {
-				noInterrupt: [2],
-				requiredBuff: 401400
-			},
+		32: { // Punishing Strike
 			0: {
-				length: 790,
-				distance: 31.58,
-				race: {
-					8: { // Popori: 930, 61.387
-						length: 930, 
-						distance: 61.39
-					},
-					9: { distance: 31.58 }, // Elin: 31.575
-					10: { distance: 31.63 } // Baraka: 31.628
-				}
+				length: 750,
+				distance: 170.61
 			},
 			1: {
-				length: 810,
-				distance: 134.1,
-				race: {
-					8: { distance: 192.32 }, // Popori: 192.319
-					9: { distance: 134.1 }, // Elin: 134.1
-					10: { distance: 126.49 } // Baraka: 126.49
-				}
+				length: 800,
+				distance: 122.34
 			}
 		}
 	},
@@ -3228,7 +3196,7 @@ module.exports = {
 		},
 		4: { // Sundering Strike
 			'*': {
-				blockCancelPacket:true,
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
 				chains: {
 					1: null,
 					3: null,
@@ -3258,8 +3226,9 @@ module.exports = {
 						[]
 					],
 					distance: [0, 0, 0]
-				},
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20]
+
+				}
+
 			},
 			30: {
 				length: [1750, 1025],
@@ -5051,9 +5020,10 @@ module.exports = {
 					17: 30, // Not correct since still triggers substage 4 on them.
 					18: null,
 					19: null,
-					20: null,
-					21: 30 //  But for now it works /shrug
-				}
+
+					20: null
+				},
+				noRetry: true
 			},
 			0: true,
 			30: true // if we add a chain to a skill that we want to trigger substage 4 on, it will break, ghosting if there's no fast enough server response.
