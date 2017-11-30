@@ -4,7 +4,6 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 	Command = require('command'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
-	Command = require('command'),
 	skills = require('./config/skills'),
 	silence = require('./config/data/silence').reduce((map, value) => { // Convert array to object for fast lookup
 		map[value] = true
