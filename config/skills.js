@@ -834,7 +834,12 @@ module.exports = {
 			31: true
 		},
 		3: { // Thunderstrike
-			'*': { length: 1750 },
+			'*': {
+				length: 1750,
+				abnormals: {
+					24170: { speed: 1.25 }
+				}
+			},
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
@@ -845,7 +850,6 @@ module.exports = {
 				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
-					24170: { chargeSpeed: 0.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 }
 				},
@@ -3739,7 +3743,8 @@ module.exports = {
 					16: null,
 					19: null,
 					20: null
-				}
+				},
+				noRetry: true
 			},
 			0: true,
 			30: true
