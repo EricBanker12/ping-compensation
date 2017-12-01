@@ -16,7 +16,7 @@
 	9 = Elin
 	10 = Baraka
 
-	Refer to here for what races have its numbers already added: https://github.com/Leyki/skill-prediction/wiki#race-specific-durations-and-distances-on-skills-status 
+	Refer to here for what races have its numbers already added: https://github.com/SaltyMonkey/skill-prediction/wiki 
 	If a race doesn't have its own property therefore assumed to use the same default value.
 */
 
@@ -1292,7 +1292,7 @@ module.exports = {
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2, 4] },
 			0: {
-				length: 1105, // 1100 new length, at least on Elin and M.Casta, maybe some ninja equalization?
+				length: 1105, // 1100 new length, at least on Elin and M.Casta, maybe some sneaky equalization?
 				distance: 78,
 				race: {
 					3: { distance: 63.24 }, // F.Helf: 63.236
@@ -4323,27 +4323,7 @@ module.exports = {
 		3: { // Leaves on the Wind
 			'*': {
 				length: 1275,
-				noInterrupt: [3],
-				chains: {
-					1: null,
-					2: null,
-					4: null,
-					//5: 30,
-					6: null,
-					7: null,
-					8: null,
-					9: null,
-					10: null,
-					11: null,
-					12: null,
-					13: null,
-					14: null,
-					15: null,
-					16: null,
-					17: null,
-					19: null,
-					20: null
-				},
+				noInterrupt: [3]
 			},
 			0: true,
 			30: true
@@ -4383,7 +4363,7 @@ module.exports = {
 					3: null,
 					4: null,
 					6: null,
-					//7
+					7: null,
 					8: null,
 					9: null,
 					10: null,
@@ -4457,6 +4437,7 @@ module.exports = {
 			0: {
 				length: 1550,
 				onlyTarget: true,
+				noInterrupt: [7],
 				abnormals: {
 					400800: { chain: 6 },
 					400801: { chain: 6 },
@@ -4656,7 +4637,7 @@ module.exports = {
 					1: null,
 					2: null,
 					4: null,
-					5: 30,
+					5: null,
 					6: null,
 					7: null,
 					8: null,
@@ -4704,27 +4685,7 @@ module.exports = {
 			'*': {
 				length: 1000,
 				distance: 68.535,
-				noInterrupt: [18],
-				chains: {
-					1: null,
-					2: null,
-					4: null,
-					5: 30,
-					6: null,
-					7: null,
-					8: null,
-					9: null,
-					10: null,
-					11: null,
-					12: null,
-					13: null,
-					14: null,
-					15: null,
-					16: null,
-					17: null,
-					19: null,
-					20: null
-				},
+				noInterrupt: [18]
 			},
 			0: true,
 			30: true
@@ -4869,7 +4830,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 550,
 				distance: 436,
-				noInterrupt: ['4-0', '4-10'],
+				//noInterrupt: ['4-0', '4-10', '4-11'],
 				noRetry: true
 			},
 			10: { length: 900 },
@@ -5053,11 +5014,11 @@ module.exports = {
 					14: null,
 					15: null,
 					16: null,
-					17: 30, // Not correct since still triggers substage 4 on them.
+					//17: 30, // Not correct since still triggers substage 4 on them.
 					18: null,
 					19: null,
 					20: null,
-					21: 30 //  But for now it works /shrug
+					//21: 30 //  But for now it works /shrug
 				}
 			},
 			0: true,
