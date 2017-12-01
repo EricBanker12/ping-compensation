@@ -5021,11 +5021,11 @@ module.exports = {
 			'*': {
 				length: 1775,
 				distance: 11.78,
-				//noInterrupt: [10],
+				noInterrupt: [10],
 				glyphs: {
 					33020: { speed: 1.2 }
 				},
-				/*chains: {
+				chains: {
 					1: null,
 					2: null,
 					3: null,
@@ -5046,7 +5046,7 @@ module.exports = {
 					19: null,
 					20: null,
 					//21: 30 //  But for now it works /shrug
-				}*/
+				}
 			},
 			0: true,
 			30: true // if we add a chain to a skill that we want to trigger substage 4 on, it will break, ghosting if there's no fast enough server response.
