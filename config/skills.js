@@ -78,7 +78,6 @@ module.exports = {
 					21067: { stamina: -100 },
 					21101: { stamina: -120 }
 				},
-				evasiveSkill:true,
 				race: {
 					8: { length: 1060 } // Popori
 				}
@@ -154,7 +153,6 @@ module.exports = {
 			0: {
 				length: 2025,
 				noInterrupt: [2, 32],
-				evasiveSkill:true,
 				race: {
 					2: { length: 2055 }, // M.Helf
 					7: { length: 2055 }, // F.Castanic
@@ -3673,8 +3671,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: 1250 // <- is this needed?
-				//autoRelease: 0
+				autoRelease: 0
 			},
 			10: { distance: -50 },
 			11: { distance: -100 }
@@ -3708,7 +3705,6 @@ module.exports = {
 				length: 1400,
 				noInterrupt: [11,15,3],
 				distance: 415.45,
-				evasiveSkill:true, //??? maybe
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3829,7 +3825,6 @@ module.exports = {
 				length: 935,
 				noInterrupt: [11],
 				distance: 172.5,
-				evasiveSkill:true,
 				forceClip: true
 			}
 		}
