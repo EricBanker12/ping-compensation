@@ -82,7 +82,7 @@ module.exports = function SkillPrediction(dispatch) {
 			})
 		}	
 		
-		command.add('sp', (option) => {
+		command.add('sp', (option, value) => {
 			switch (option) {
 				case 'info': 
 					command.message('Unofficial SP. Date:30/11/17')
@@ -125,6 +125,20 @@ module.exports = function SkillPrediction(dispatch) {
 						command.message('[Skill Prediction] Mount detection activated')
 	
 						config.MOUNTCHECK = !config.MOUNTCHECK
+					break
+				case 'timeout':
+                	if (value === null || value === undefined || value === "") {
+                   		command.message(`[Skill Prediction] missing argument for command "timeout" [timeout]`);
+                    	break;
+               		}
+					if(inCombat || sending) { 
+						command.message('[Skill Prediction] try a bit later. server_timeout changes can crash client atm.' )
+					}
+					else {
+						if (isNaN(parseInt(value)))
+							break
+						config.SERVER_TIMEOUT = parseInt(value)
+					}				
 					break
 				case 'save':
 					SaveConfiguration()
