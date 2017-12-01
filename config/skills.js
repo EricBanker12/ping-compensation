@@ -3544,7 +3544,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 995
+				length: 59900
 			},
 			1: {
 				type: 'lockonCast',
