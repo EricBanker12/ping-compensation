@@ -18,7 +18,8 @@ const INTERRUPT_TYPES = {
 module.exports = function SkillPrediction(dispatch) {
 	const ping = Ping(dispatch),
 		abnormality = AbnormalityPrediction(dispatch),
-		command = Command(dispatch)
+		command = Command(dispatch),
+		fs = require('fs')
 
 	let config = null,
 		sending = false,
