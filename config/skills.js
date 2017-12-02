@@ -135,10 +135,19 @@ module.exports = {
 			}
 		},
 		18: { // Combative Strike
-			0: {
+			'*': {
 				length: 1100,
-				distance: 138.28
-			}
+				distance: 120.28,
+				noInterrupt: [32],
+				race: {
+					7: { length: 1080 }, // Female Castanic
+					8: { distance: 128.89 }, // Popori
+					9: { distance: 138.28 } // Elin
+				}
+			},
+			0: true,
+			1: true,
+			2: true
 		},
 		19: { // Rising Fury
 			0: {
@@ -2532,6 +2541,9 @@ module.exports = {
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire
+			'*':{
+				noInterrupt: ['9-0']
+			},
 			0: { length: 850 },
 			1: {
 				fixedSpeed: 1,
