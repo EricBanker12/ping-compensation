@@ -1,5 +1,5 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-ff69b4.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5MTKARBK2CNG8&lc=US&item_name=Pinkie%27s%20TERA%20Mods&currency_code=USD) If you want donate cash for original developer 
-# **Salty Memes Skill prediction Fork**
+# **Unofficial Skill prediction**
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 
