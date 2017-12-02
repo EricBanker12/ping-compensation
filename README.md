@@ -5,7 +5,7 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 ## Repositories
 
-## **Main repository:** https://github.com/pinkipi/skill-prediction
+### **Main repository:** https://github.com/pinkipi/skill-prediction
 
 If you want anything fixed pls consider donating to :b:inkie^
 
