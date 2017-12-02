@@ -17,7 +17,7 @@ The one you're probably looking right now.
 
 ### **Experimental Branch:** https://github.com/SaltyMonkey/skill-prediction/tree/experimental
 
-the "Playground" Branch, might occasionally encounter itself unusable because someone forgot a `,`. or someone duplicated a function.
+The "Playground" Branch, might occasionally encounter itself unusable because someone forgot a `,` or someone duplicated a function.
 It also includes some QoLs for logging skills.
 
 
