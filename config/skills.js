@@ -1092,11 +1092,23 @@ module.exports = {
 				noInterrupt: [29]
 			}
 		},
-		30: { // Axe Counter (TODO: Check)
-			0: {
-				length: 1450,
-				onlyDefenceSuccess: true
-			}
+		30: { // Axe Counter
+			'*': {
+				length: 650,
+				distance: 21.05,
+				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
+				requiredBuff: 401402,
+				chains: { 2: 30 },
+				race: {
+					8: { // Popori
+						length: 1195,
+						distance: 240.4
+					},
+					10: { distance: 21.08 } // Baraka
+				}
+			},
+			0: true,
+			30: true
 		},
 		31: { // Overwhelm
 			0: {
