@@ -6,7 +6,7 @@ const JITTER_COMPENSATION	= true,
 	SKILL_RETRY_JITTERCOMP	= 15,		//	Skills that support retry will be sent this much earlier than estimated by jitter compensation.
 	SKILL_RETRY_ALWAYS		= false,	//	Setting this to true will reduce ghosting for extremely short skills, but may cause other skills to fail.
 	SKILL_DELAY_ON_FAIL		= true,		//	Basic initial desync compensation. Useless at low ping (<50ms).
-	SERVER_TIMEOUT			= 175,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
+	SERVER_TIMEOUT			= 200,		/*	This number is added to your maximum ping + skill retry period to set the failure threshold for skills.
 											If animations are being cancelled while damage is still applied, increase this number.
 										*/
 	FORCE_CLIP_STRICT		= true,		/*	Set this to false for smoother, less accurate iframing near walls.
@@ -39,8 +39,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 	let sending = false,
 		skillsCache = null,
-		cid = null,
-		model = 0,
+		gameId = null,
+		templateId = 0,
 		race = -1,
 		job = -1,
 		vehicleEx = null,
@@ -79,34 +79,31 @@ module.exports = function SkillPrediction(dispatch) {
 		command.message(`Ping: ${ping.history.length ? `Avg=${Math.round(ping.avg)} Min=${ping.min} Max=${ping.max} Jitter=${ping.max - ping.min} Samples=${ping.history.length}` : '???'}`)
 	})
 
-	dispatch.hook('S_LOGIN', 1, event => {
+	dispatch.hook('S_LOGIN', 9, event => {
 		skillsCache = {}
-		;({cid, model} = event)
-		race = Math.floor((model - 10101) / 100)
-		job = (model - 10101) % 100
+		;({gameId, templateId} = event)
+		race = Math.floor((templateId - 10101) / 100)
+		job = (templateId - 10101) % 100
 
-		if(DEBUG) console.log('Class', job)
+		if(DEBUG) console.log(`Race=${race} Class=${job}`)
 
 		hookInventory()
 	})
 
-	dispatch.hook('S_LOAD_TOPO', 1, event => {
+	dispatch.hook('S_LOAD_TOPO', 'raw', () => {
 		vehicleEx = null
-
 		currentAction = null
 		serverAction = null
 		lastEndSkill = 0
 		lastEndType = 0
 		lastEndedId = 0
-		clearStage()
+		sendActionEnd(37)
 	})
 
-	dispatch.hook('C_CHECK_VERSION', 'raw', () => {
-		dispatch.hook('S_PLAYER_STAT_UPDATE', [321553, 321554].includes(dispatch.base.protocolVersion) ? 6 : 7, event => {
-			// Newer classes use a different speed algorithm
-			aspd = (event.attackSpeed + event.attackSpeedBonus) / (job >= 8 ? 100 : event.attackSpeed)
-			currentStamina = event.stamina
-		})
+	dispatch.hook('S_PLAYER_STAT_UPDATE', 8, event => {
+		// Newer classes use a different speed algorithm
+		aspd = (event.attackSpeed + event.attackSpeedBonus) / (job >= 8 ? 100 : event.attackSpeed)
+		currentStamina = event.stamina
 	})
 
 	dispatch.hook('S_CREST_INFO', 1, event => {
@@ -138,7 +135,7 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_USER_STATUS', 1, event => {
-		if(event.target.equals(cid)) {
+		if(event.target.equals(gameId)) {
 			inCombat = event.status == 1
 
 			if(!inCombat) hookInventory()
@@ -176,18 +173,18 @@ module.exports = function SkillPrediction(dispatch) {
 		partyMembers = []
 
 		for(let member of event.members)
-			if(!member.cID.equals(cid))
+			if(!member.cID.equals(gameId))
 				partyMembers.push(member.cID)
 	})
 
 	dispatch.hook('S_LEAVE_PARTY', () => { partyMembers = null })
 
 	dispatch.hook('S_MOUNT_VEHICLE_EX', 1, event => {
-		if(cid.equals(event.target)) vehicleEx = event.vehicle
+		if(event.target.equals(gameId)) vehicleEx = event.vehicle
 	})
 
 	dispatch.hook('S_UNMOUNT_VEHICLE_EX', 1, event => {
-		if(cid.equals(event.target)) vehicleEx = null
+		if(event.target.equals(gameId)) vehicleEx = null
 	})
 
 	dispatch.hook('C_PLAYER_LOCATION', 1, event => {
@@ -573,8 +570,8 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('S_ACTION_STAGE', 1, event => {
-		if(isMe(event.source)) {
+	dispatch.hook('S_ACTION_STAGE', 2, event => {
+		if(isMe(event.gameId)) {
 			if(DEBUG) {
 				let duration = Date.now() - debugActionTime,
 					strs = [skillInfo(event.skill) ? '<X' : '<-', 'S_ACTION_STAGE', skillId(event.skill), event.stage, (Math.round(event.speed * 1000) / 1000) + 'x']
@@ -714,8 +711,8 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('S_ACTION_END', 1, event => {
-		if(isMe(event.source)) {
+	dispatch.hook('S_ACTION_END', 2, event => {
+		if(isMe(event.gameId)) {
 			if(DEBUG) {
 				let duration = Date.now() - debugActionTime,
 					strs = [(event.id == lastEndedId || skillInfo(event.skill)) ? '<X' : '<-', 'S_ACTION_END', skillId(event.skill), event.type]
@@ -766,7 +763,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 				// Skills that may only be cancelled during part of the animation are hard to emulate, so we use server response instead
 				// This may cause bugs with very high ping and casting the same skill multiple times
-				if(currentAction && event.skill == currentAction.skill && [2, 25, 29, 37, 43].includes(event.type))
+				if(currentAction && event.skill == currentAction.skill && [2, 25, 29, 43].includes(event.type))
 					sendActionEnd(event.type)
 
 				return false
@@ -781,33 +778,31 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('C_CHECK_VERSION', 'raw', () => {
-		dispatch.hook('S_EACH_SKILL_RESULT', [321553, 321554].includes(dispatch.base.protocolVersion) ? 3 : 4, event => {
-			if(isMe(event.target) && event.setTargetAction) {
-				if(DEBUG) {
-					let duration = Date.now() - debugActionTime,
-						strs = ['<- S_EACH_SKILL_RESULT.setTargetAction', skillId(event.targetAction), event.targetStage]
+	dispatch.hook('S_EACH_SKILL_RESULT', 4, event => {
+		if(isMe(event.target) && event.setTargetAction) {
+			if(DEBUG) {
+				let duration = Date.now() - debugActionTime,
+					strs = ['<- S_EACH_SKILL_RESULT.setTargetAction', skillId(event.targetAction), event.targetStage]
 
-					if(DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
+				if(DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
 
-					debug(strs.join(' '))
-				}
-
-				if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
-
-				currentAction = serverAction = {
-					x: event.targetX,
-					y: event.targetY,
-					z: event.targetZ,
-					w: event.targetW,
-					skill: event.targetAction,
-					stage: event.targetStage,
-					id: event.targetId
-				}
-
-				updateLocation()
+				debug(strs.join(' '))
 			}
-		})
+
+			if(currentAction && skillInfo(currentAction.skill)) sendActionEnd(9)
+
+			currentAction = serverAction = {
+				x: event.targetX,
+				y: event.targetY,
+				z: event.targetZ,
+				w: event.targetW,
+				skill: event.targetAction,
+				stage: event.targetStage,
+				id: event.targetId
+			}
+
+			updateLocation()
+		}
 	})
 
 	dispatch.hook('S_DEFEND_SUCCESS', 1, event => {
@@ -891,13 +886,13 @@ module.exports = function SkillPrediction(dispatch) {
 		else
 			movement = movement || !opts.moving && get(info, 'inPlace', 'movement') || info.movement || []
 
-		dispatch.toClient('S_ACTION_STAGE', 1, currentAction = {
-			source: myChar(),
+		dispatch.toClient('S_ACTION_STAGE', 2, currentAction = {
+			gameId: myChar(),
 			x: currentLocation.x,
 			y: currentLocation.y,
 			z: currentLocation.z,
 			w: currentLocation.w,
-			model,
+			templateId,
 			skill: opts.skill,
 			stage: opts.stage,
 			speed: info.type == 'charging' ? 1 : opts.speed,
@@ -913,35 +908,42 @@ module.exports = function SkillPrediction(dispatch) {
 		})
 
 		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
+		stageEnd = null
 
 		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + SERVER_TIMEOUT,
 			speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0)
 
-		if(info.type == 'teleport' && opts.stage == info.teleportStage) {
-			opts.distance = Math.min(opts.distance, Math.max(0, calcDistance(currentLocation, opts.targetLoc) - 15)) // Client is approx. 15 units off
-			sendInstantMove(Object.assign(applyDistance(currentLocation, opts.distance), {z: opts.targetLoc.z, w: currentLocation.w}))
-			opts.distance = 0
-		}
-		else if(info.type == 'holdInfinite' || info.type == 'charging' && opts.stage > 0 && !(opts.stage < info.length.length)) {
-			serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
+		switch(info.type) {
+			case 'dynamicDistance':
+				opts.distance = calcDistance(currentLocation, opts.targetLoc)
+				break
+			case 'teleport':
+				if(opts.stage != info.teleportStage) break
 
-			if(info.type == 'charging' && info.autoRelease !== undefined) {
-				stageEnd = () => {
-					toServerLocked('C_PRESS_SKILL', 1, {
-						skill: opts.skill,
-						start: false,
-						x: currentLocation.x,
-						y: currentLocation.y,
-						z: currentLocation.z,
-						w: currentLocation.w
-					})
-					sendGrantSkill(modifyChain(opts.skill, 10 + opts.stage))
+				opts.distance = Math.min(opts.distance, Math.max(0, calcDistance(currentLocation, opts.targetLoc) - 15)) // Client is approx. 15 units off
+				sendInstantMove(Object.assign(applyDistance(currentLocation, opts.distance), {z: opts.targetLoc.z, w: currentLocation.w}))
+				opts.distance = 0
+				break
+			case 'charging':
+				if(opts.stage == 0 || opts.stage < info.length.length) break
+
+				if(info.autoRelease !== undefined) {
+					stageEnd = () => {
+						toServerLocked('C_PRESS_SKILL', 1, {
+							skill: opts.skill,
+							start: false,
+							x: currentLocation.x,
+							y: currentLocation.y,
+							z: currentLocation.z,
+							w: currentLocation.w
+						})
+						sendGrantSkill(modifyChain(opts.skill, 10 + opts.stage))
+					}
+					stageEndTimeout = setTimeout(stageEnd, info.autoRelease / speed)
 				}
-				stageEndTimeout = setTimeout(stageEnd, info.autoRelease / speed)
-			}
-			else stageEnd = null
-
-			return
+			case 'holdInfinite':
+				serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
+				return
 		}
 
 		let length = Math.round((multiStage ? info.length[opts.stage] : info.length) / speed)
@@ -1041,13 +1043,13 @@ module.exports = function SkillPrediction(dispatch) {
 		if(oopsLocation && (FORCE_CLIP_STRICT || !currentLocation.inAction)) sendInstantMove(oopsLocation)
 		else movePlayer(distance)
 
-		dispatch.toClient('S_ACTION_END', 1, {
-			source: myChar(),
+		dispatch.toClient('S_ACTION_END', 2, {
+			gameId: myChar(),
 			x: currentLocation.x,
 			y: currentLocation.y,
 			z: currentLocation.z,
 			w: currentLocation.w,
-			model,
+			templateId,
 			skill: currentAction.skill,
 			type: type || 0,
 			id: currentAction.id
@@ -1081,8 +1083,7 @@ module.exports = function SkillPrediction(dispatch) {
 	function sendSystemMessage(type, vars) {
 		let message = '@' + sysmsg.maps.get(dispatch.base.protocolVersion).name.get(type)
 
-		for(let key in vars)
-			message += '\x0b' + key + '\x0b' + vars[key]
+		for(let key in vars) message += '\v' + key + '\v' + vars[key]
 
 		dispatch.toClient('S_SYSTEM_MESSAGE', 1, { message })
 	}
@@ -1113,8 +1114,6 @@ module.exports = function SkillPrediction(dispatch) {
 		}, SKILL_RETRY_MS)
 	}
 
-	// The real server uses loaded maps and a physics engine for skill movement, which would be costly to simulate
-	// However the client avoids teleporting the player if the sent position is close enough, so we can simply approximate it instead
 	function movePlayer(distance) {
 		if(distance && !currentLocation.inAction) applyDistance(currentLocation, distance)
 	}
@@ -1180,11 +1179,11 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function isMe(id) {
-		return cid.equals(id) || vehicleEx && vehicleEx.equals(id)
+		return gameId.equals(id) || vehicleEx && vehicleEx.equals(id)
 	}
 
 	function myChar() {
-		return vehicleEx ? vehicleEx : cid
+		return vehicleEx ? vehicleEx : gameId
 	}
 
 	function get(obj, ...keys) {
