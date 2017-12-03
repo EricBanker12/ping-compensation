@@ -3540,7 +3540,7 @@ module.exports = {
 			'*': {
 				length: 1725,
 				distance: -108,
-				noInterrupt: [3],
+				noInterrupt: [3, 20],
 				glyphs: {
 					30007: {
 						movement: [
@@ -3587,7 +3587,7 @@ module.exports = {
 			'*': {
 				length: 1525,
 				distance: 137.88,
-				noInterrupt: ['4-3', '4-4'],
+				noInterrupt: ['4-3', '4-4', 20],
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3649,7 +3649,9 @@ module.exports = {
 			2: true
 		},
 		7: { // Arcane Barrage
-			'*': { length: 1525 },
+			'*': { 
+				length: 1525
+			 },
 			1: {
 				fixedSpeed: 1,
 				noInterrupt: [7],
@@ -3668,7 +3670,8 @@ module.exports = {
 		9: { // Mana Missiles
 			'*': { 
 				blockCancelPacket: true,
-				length: 1250 
+				length: 1250,
+				noInterrupt: [20] 
 			},
 			0: {
 				type: 'charging',
@@ -3681,6 +3684,7 @@ module.exports = {
 			'*': {
 				blockCancelPacket: true,
 				length: 1325,
+				noInterrupt: [20],
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3704,7 +3708,7 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				length: 1400,
-				noInterrupt: [11,15,3],
+				noInterrupt: [3, 11, 15, 20],
 				distance: 415.45,
 				chains: {
 					'2-1': 30,
@@ -3762,7 +3766,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1325,
-				noInterrupt: [15],
+				noInterrupt: [15, 20],
 				chains: {
 					'2-1': 30,
 					3: 30,
