@@ -232,8 +232,8 @@ module.exports = {
 				distance: 120.28,
 				noInterrupt: [32],
 				race: {
-					2: { distance: 120.28 }, // M.Helf: 120.277
-					5: { distance: 120.28 }, // F.Aman: 120.277
+					/*2: { distance: 120.28 }, // M.Helf: 120.277
+					5: { distance: 120.28 }, // F.Aman: 120.277*/
 					7: { length: 1080 },
 					8: { distance: 128.89 }, // Popori: 128.889
 					9: { distance: 138.28 } // Elin: 138.284
@@ -1352,7 +1352,8 @@ module.exports = {
 				length: 1750,
 				abnormals: {
 					24170: { speed: 1.25 }
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -1523,6 +1524,7 @@ module.exports = {
 			}
 		},
 		10: { // Cyclone
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
@@ -1610,8 +1612,8 @@ module.exports = {
 				noRetry: true
 			}
 		},
-		/*15: { // Vampiric Blow  // Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work
-            '*': { length: 1930 },            // Chained VB Usage: 1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
+		/*15: { // Vampiric Blow  //         Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work
+            '*': { length: 1930 },            // Usage:            1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
             0: {                             //                    2. Must be in combat when used.  
                 type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
@@ -1696,7 +1698,10 @@ module.exports = {
 			}
 		},
 		18: { // Lethal Strike
-			'*': { length: 1500 },
+			'*': { 
+				length: 1500,
+				noRetry: true
+			 },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1874,12 +1879,13 @@ module.exports = {
 				}
 			}
 		},
-		30: { // Axe Counter /need M.Casta
+		30: { // Axe Counter
 			'*': {
 				length: 650,
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
+				chains: {2: 30},
 				race: {
 					8: { // Popori, just WTF
 						length: 1195,
@@ -1890,7 +1896,7 @@ module.exports = {
 				}
 			},
 			0: true,
-			30: true // maybe unused
+			30: true
 		},
 		31: { // Overwhelm
 			0: {
@@ -1962,7 +1968,8 @@ module.exports = {
 				length: 1285,
 				race: {
 					9: { length: 1015 } // Elin
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -2092,7 +2099,10 @@ module.exports = {
 			}
 		},
 		19: { // Mana Siphon
-			'*': { length: 900 },
+			'*': {
+				length: 900,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [1000, 1000],
@@ -2272,7 +2282,8 @@ module.exports = {
 				length: 1760,
 				races: {
 					1: { length: 1600 }	// F.Human
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -2323,7 +2334,8 @@ module.exports = {
 				length: 1315,
 				races: {
 					1: { length: 1275 }	// F.Human, inb4 racechange
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -2671,7 +2683,10 @@ module.exports = {
 			30: { length: 1040 }
 		},
 		28: { // Mana Charge
-			'*': { length: 825 },
+			'*': {
+				length: 825,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [800, 1600],
@@ -2930,11 +2945,15 @@ module.exports = {
 			}
 		},
 		18: { // Arun's Vitae
-			'*': { noInterrupt: [8, 17, 23] },
+			'*': { 
+				noInterrupt: [8, 17, 23],
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: 1475,
-				//autoRelease: 0
+				chargeLevels: [10, 10],
+				autoRelease: 0
 			},
 			10: {
 				length: 850,
@@ -2952,11 +2971,15 @@ module.exports = {
 			}
 		},
 		22: { // Arun's Tears
-			'*': { noInterrupt: [8, 17, 23] },
+			'*': { 
+				noInterrupt: [8, 17, 23],
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: 1475,
-				//autoRelease: 0
+				chargeLevels: [10, 10],
+				autoRelease: 0
 			},
 			10: {
 				length: 850, // 810 female high elf
@@ -3489,6 +3512,12 @@ module.exports = {
 				}
 			}
 		},
+		/*20: { // Cable Step
+			0: {
+				type: 'dynamicDistance',
+				length: 1250
+			}
+		},*/
 		40: { // Shadow Step
 			'*': {
 				length: 700,
@@ -3671,7 +3700,8 @@ module.exports = {
 			'*': { 
 				blockCancelPacket: true,
 				length: 1250,
-				noInterrupt: [20] 
+				noInterrupt: [20],
+				noRetry: true 
 			},
 			0: {
 				type: 'charging',
