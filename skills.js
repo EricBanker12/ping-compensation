@@ -929,16 +929,14 @@ module.exports = function SkillPrediction(dispatch) {
 
 				if(info.autoRelease !== undefined) {
 					stageEnd = () => {
-						if(!info.autoReleaseWhileHeld)
-							toServerLocked('C_PRESS_SKILL', 1, {
-								skill: opts.skill,
-								start: false,
-								x: currentLocation.x,
-								y: currentLocation.y,
-								z: currentLocation.z,
-								w: currentLocation.w
-							})
-
+						toServerLocked('C_PRESS_SKILL', 1, {
+							skill: opts.skill,
+							start: false,
+							x: currentLocation.x,
+							y: currentLocation.y,
+							z: currentLocation.z,
+							w: currentLocation.w
+						})
 						grantCharge(opts.skill, info, opts.stage)
 					}
 

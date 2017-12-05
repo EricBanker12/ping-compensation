@@ -2602,8 +2602,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1200,
-				autoRelease: 0,
-				autoReleaseWhileHeld: true
+				autoRelease: 0
 			},
 			10: { distance: -50 },
 			11: { distance: -100 }
