@@ -3789,7 +3789,8 @@ module.exports = {
 		18: { // HB
 			'*': {
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430,
+				noInterrupt: [18]
 			},
 			1: true,
 			2: true
@@ -4328,7 +4329,27 @@ module.exports = {
 		3: { // Leaves on the Wind
 			'*': {
 				length: 1275,
-				noInterrupt: [3]
+				noInterrupt: [3, '4-10'],
+				chains: {
+					1: null,
+					2: 30,
+					'4-10': 'borked',
+					5: 30,
+					6: null,
+					7: null,
+					8: 30, // reeeeeeeeee
+					9: null,
+					10: null,
+					12: null,
+					13: null, // eeeeeeeeeeee
+					14: null,
+					15: null,
+					16: null,
+					17: 30,
+					18: null,
+					19: null,
+					20: null
+				}
 			},
 			0: true,
 			30: true
@@ -4638,27 +4659,27 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1525,
-				noInterrupt: [16],
+				noInterrupt: ['4-10', 16],
 				chains: {
-					1: 30,
+					1: null,
 					2: 30,
-					3: 30,
-					'4-10': 30,
+					3: null,
+					'4-10': 'borked',
 					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
+					6: null,
+					7: null,
+					8: 30, // reeeeeeeeee
+					9: null,
+					10: null,
+					12: null,
+					13: null, // eeeeeeeeeeee
+					14: null,
+					15: null,
 					17: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				},
+					18: null,
+					19: null,
+					20: null
+				}
 			},
 			0: true,
 			30: true
@@ -4692,7 +4713,27 @@ module.exports = {
 			'*': {
 				length: 1000,
 				distance: 68.535,
-				noInterrupt: [18]
+				noInterrupt: ['4-10', 18],
+				chains: {
+					1: null,
+					2: 30,
+					3: null,
+					'4-10': 'borked',
+					5: 30,
+					6: null,
+					7: null,
+					8: 30, // reeeeeeeeee
+					9: null,
+					10: null,
+					12: null,
+					13: null, // eeeeeeeeeeee
+					14: null,
+					15: null,
+					16: null,
+					17: 30,
+					19: null,
+					20: null
+				}
 			},
 			0: true,
 			30: true
