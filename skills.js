@@ -157,7 +157,7 @@ module.exports = function SkillPrediction(dispatch) {
 		race = Math.floor((templateId - 10101) / 100)
 		job = (templateId - 10101) % 100
 
-		if(DEBUG) console.log(`Race=${race} Class=${job}`)
+		if(config.DEBUG) console.log(`Race=${race} Class=${job}`)
 
 		hookInventory()
 	})
@@ -906,7 +906,7 @@ module.exports = function SkillPrediction(dispatch) {
 				let duration = Date.now() - debugActionTime,
 					strs = ['<- S_EACH_SKILL_RESULT.setTargetAction', skillId(event.targetAction), event.targetStage]
 
-				if(DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
+				if(config.DEBUG_LOC) strs.push(...[event.targetW + '\xb0', '(' + Math.round(event.targetX), Math.round(event.targetY), Math.round(event.targetZ) + ')'])
 
 				debug(strs.join(' '))
 			}
