@@ -1920,6 +1920,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1475,
+				chargeLevels: [10, 10],
 				autoRelease: 0
 			},
 			10: {
@@ -1941,6 +1942,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1475,
+				chargeLevels: [10, 10],
 				autoRelease: 0
 			},
 			10: {

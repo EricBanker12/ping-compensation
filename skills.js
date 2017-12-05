@@ -362,9 +362,9 @@ module.exports = function SkillPrediction(dispatch) {
 					}
 					else sendActionEnd(10)
 				}
-				else if(info.type == 'charging') sendGrantSkill(modifyChain(skill, 10 + currentAction.stage))
+				else if(info.type == 'charging') grantCharge(info, currentAction.stage)
 			}
-			else if(info.type == 'grantCharge') sendGrantSkill(modifyChain(skill, 10 + storedCharge))
+			else if(info.type == 'grantCharge') grantCharge(info, storedCharge)
 
 			if(send) toServerLocked(data)
 			return
@@ -937,7 +937,7 @@ module.exports = function SkillPrediction(dispatch) {
 							z: currentLocation.z,
 							w: currentLocation.w
 						})
-						sendGrantSkill(modifyChain(opts.skill, 10 + opts.stage))
+						grantCharge(info, opts.stage)
 					}
 					stageEndTimeout = setTimeout(stageEnd, info.autoRelease / speed)
 				}
@@ -1004,8 +1004,9 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTimeout = setTimeout(stageEnd, stageEndTime - Date.now())
 	}
 
-	function sendGrantSkill(skill) {
-		dispatch.toClient('S_GRANT_SKILL', 1, {skill})
+	function grantCharge(info, stage) {
+		let levels = info.chargeLevels
+		dispatch.toClient('S_GRANT_SKILL', 1, {skill: modifyChain(info.skill, levels ? levels[stage] : 10 + stage)})
 	}
 
 	function sendInstantDash(location) {
