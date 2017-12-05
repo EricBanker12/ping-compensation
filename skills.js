@@ -362,9 +362,9 @@ module.exports = function SkillPrediction(dispatch) {
 					}
 					else sendActionEnd(10)
 				}
-				else if(info.type == 'charging') grantCharge(info, currentAction.stage)
+				else if(info.type == 'charging') grantCharge(skill, info, currentAction.stage)
 			}
-			else if(info.type == 'grantCharge') grantCharge(info, storedCharge)
+			else if(info.type == 'grantCharge') grantCharge(skill, info, storedCharge)
 
 			if(send) toServerLocked(data)
 			return
@@ -929,17 +929,24 @@ module.exports = function SkillPrediction(dispatch) {
 
 				if(info.autoRelease !== undefined) {
 					stageEnd = () => {
-						toServerLocked('C_PRESS_SKILL', 1, {
-							skill: opts.skill,
-							start: false,
-							x: currentLocation.x,
-							y: currentLocation.y,
-							z: currentLocation.z,
-							w: currentLocation.w
-						})
-						grantCharge(info, opts.stage)
+						if(!info.autoReleaseWhileHeld)
+							toServerLocked('C_PRESS_SKILL', 1, {
+								skill: opts.skill,
+								start: false,
+								x: currentLocation.x,
+								y: currentLocation.y,
+								z: currentLocation.z,
+								w: currentLocation.w
+							})
+
+						grantCharge(opts.skill, info, opts.stage)
 					}
-					stageEndTimeout = setTimeout(stageEnd, info.autoRelease / speed)
+
+					if(info.autoRelease === 0) {
+						stageEnd()
+						stageEnd = null
+					}
+					else stageEndTimeout = setTimeout(stageEnd, info.autoRelease / speed)
 				}
 			case 'holdInfinite':
 				serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
@@ -1004,9 +1011,9 @@ module.exports = function SkillPrediction(dispatch) {
 		stageEndTimeout = setTimeout(stageEnd, stageEndTime - Date.now())
 	}
 
-	function grantCharge(info, stage) {
+	function grantCharge(skill, info, stage) {
 		let levels = info.chargeLevels
-		dispatch.toClient('S_GRANT_SKILL', 1, {skill: modifyChain(info.skill, levels ? levels[stage] : 10 + stage)})
+		dispatch.toClient('S_GRANT_SKILL', 1, {skill: modifyChain(skill, levels ? levels[stage] : 10 + stage)})
 	}
 
 	function sendInstantDash(location) {
