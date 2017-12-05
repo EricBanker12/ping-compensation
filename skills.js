@@ -193,7 +193,7 @@ module.exports = function SkillPrediction(dispatch) {
 		if(currentAction) {
 			let info = skillInfo(currentAction.skill)
 
-			if(info && info.distance) return false
+			if(info && (info.distance || info.type == 'dynamicDistance')) return false
 		}
 
 		currentLocation = {
