@@ -847,7 +847,8 @@ module.exports = {
 				length: 1750,
 				abnormals: {
 					24170: { speed: 1.25 }
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -937,6 +938,7 @@ module.exports = {
 			30: { length: 1750 }
 		},
 		10: { // Cyclone
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
@@ -989,7 +991,10 @@ module.exports = {
 		},
 		// Note: Chained version cannot be emulated properly with the current codebase
 		/*15: { // Vampiric Blow
-			'*': { length: 1925 },
+			'*': {
+				length: 1925,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [815, 815, 815],
@@ -1015,7 +1020,10 @@ module.exports = {
 			}
 		},*/
 		18: { // Lethal Strike
-			'*': { length: 1750 },
+			'*': {
+				length: 1750,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [815, 815, 815],
@@ -1156,7 +1164,8 @@ module.exports = {
 				length: 1285,
 				race: {
 					9: { length: 1015 } // Elin
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -1267,7 +1276,10 @@ module.exports = {
 			}
 		},
 		19: { // Mana Siphon
-			'*': { length: 900 },
+			'*': {
+				length: 900,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [1005, 1005],
@@ -1424,7 +1436,10 @@ module.exports = {
 			}
 		},
 		3: { // Radiant Arrow
-			'*': { length: 1750 },
+			'*': {
+				length: 1750,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
@@ -1440,7 +1455,10 @@ module.exports = {
 			13: { distance: -100 }
 		},
 		4: { // Penetrating Arrow
-			'*': { length: 1300 },
+			'*': {
+				length: 1300,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1687,7 +1705,10 @@ module.exports = {
 			30: { length: 1040 }
 		},
 		28: { // Mana Charge
-			'*': { length: 825 },
+			'*': {
+				length: 825,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: [800, 1600],
@@ -1917,6 +1938,7 @@ module.exports = {
 			}
 		},
 		18: { // Arun's Vitae
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: 1475,
@@ -1939,6 +1961,7 @@ module.exports = {
 			}
 		},
 		22: { // Arun's Tears
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: 1475,
@@ -2598,7 +2621,10 @@ module.exports = {
 			3: { length: 1200 }
 		},
 		9: { // Mana Missiles
-			'*': { length: 1250 },
+			'*': {
+				length: 1250,
+				noRetry: true
+			},
 			0: {
 				type: 'charging',
 				length: 1200,
