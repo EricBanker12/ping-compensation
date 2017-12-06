@@ -15,6 +15,7 @@ const JITTER_COMPENSATION	= true,
 	DEFEND_SUCCESS_STRICT	= true,		//	Set this to false to see Brawler's Perfect Block icon at very high ping (warning: may crash client).
 	DEBUG					= false,
 	DEBUG_LOC				= false,
+	DEBUG_PROJECTILE		= false,
 	DEBUG_GLYPH				= false
 
 const {protocol, sysmsg} = require('tera-data-parser'),
@@ -30,6 +31,11 @@ const {protocol, sysmsg} = require('tera-data-parser'),
 const INTERRUPT_TYPES = {
 	'retaliate': 5,
 	'lockonCast': 36
+}
+
+const Flags = {
+	Player: 0x04000000,
+	CC: 0x08000000
 }
 
 module.exports = function SkillPrediction(dispatch) {
@@ -382,12 +388,17 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 
 		if(currentAction) {
+			if(currentAction.skill & Flags.CC && (currentAction.skill & 0xffffff !== templateId * 100 + 2 || info.type !== 'retaliate')) {
+				sendCannotStartSkill(event.skill)
+				return false
+			}
+
 			let currentSkill = currentAction.skill - 0x4000000,
 				currentSkillBase = Math.floor(currentSkill / 10000),
 				currentSkillSub = currentSkill % 100
 
-			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
-			if(currentSkillBase == 6190 || (currentSkillBase == 6811 + race && info.type != 'retaliate')) {
+			// 6190XXXX = Pushback(?) - TODO: reproduce and log flags
+			if(currentSkillBase == 6190) {
 				sendCannotStartSkill(event.skill)
 				return false
 			}
@@ -812,7 +823,7 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
-		if(DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, true))
+		if(DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, Flags.Player))
 
 		if(skillInfo(event.skill, true)) {
 			if(SKILL_DELAY_ON_FAIL && SKILL_RETRY_COUNT && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
@@ -843,6 +854,22 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_CAN_LOCKON_TARGET', 1, event => skillInfo(event.skill) ? false : undefined)
+
+	if(DEBUG_PROJECTILE) {
+		dispatch.hook('S_START_USER_PROJECTILE', 4, event => {
+			if(!isMe(event.gameId)) return
+
+			debug(`<- S_START_USER_PROJECTILE ${skillId(event.skill, Flags.Player)} ${event.x} ${event.y} ${event.z} ${event.toX} ${event.toY} ${event.toZ} ${event.speed} ${event.curve} ${event.useCurve}`)
+		})
+
+		dispatch.hook('S_END_USER_PROJECTILE', 3, event => {
+			debug(`<- S_END_USER_PROJECTILE ${event.unk1} ${event.unk2} ${event.target ? 1 : 0}`)
+		})
+
+		dispatch.hook('C_HIT_USER_PROJECTILE', 2, event => {
+			debug(`-> C_HIT_USER_PROJECTILE ${event.targets.length} ${event.end}`)
+		})
+	}
 
 	function startAction(opts) {
 		let info = opts.info
@@ -1141,10 +1168,27 @@ module.exports = function SkillPrediction(dispatch) {
 		return id - ((id & 0xffffff) % 100) + chain
 	}
 
-	function skillId(id, local) {
-		if(!local) id -= 0x4000000
+	function skillId(id, flagAs) {
+		id |= flagAs
 
-		return [Math.floor(id / 10000), Math.floor(id / 100) % 100, id % 100].join('-')
+		let skillFlags = ['[?1]', '[?2]', 'P', 'C', '[?5]', '[?6]', '[?7]', '[?8]'],
+			flags = ''
+
+		for(let i = 0, x = id >>> 24; x; i++, x >>>= 1)
+			if(x & 1) flags += skillFlags[i]
+
+		id = (id & 0xffffff).toString()
+
+		switch(flags) {
+			case 'P':
+				id = [id.slice(0, -4), id.slice(-4, -2), id.slice(-2)].join('-')
+				break
+			case 'C':
+				id = [id.slice(0, -2), id.slice(-2)].join('-')
+				break
+		}
+
+		return flags + id
 	}
 
 	function skillInfo(id, local) {
