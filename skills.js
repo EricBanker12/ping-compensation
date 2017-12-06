@@ -422,6 +422,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 			if(chain !== undefined) {
 				if(chain === null) {
+					updateLocation(event, false, specialLoc)
 					sendActionEnd(4)
 					if(send) toServerLocked(data)
 					return
