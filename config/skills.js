@@ -1698,10 +1698,10 @@ module.exports = {
 			}
 		},
 		18: { // Lethal Strike
-			'*': { 
+			'*': {
 				length: 1500,
 				noRetry: true
-			 },
+			},
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1885,7 +1885,7 @@ module.exports = {
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
-				chains: {2: 30},
+				chains: { 2: 30 },
 				race: {
 					8: { // Popori, just WTF
 						length: 1195,
@@ -2945,7 +2945,7 @@ module.exports = {
 			}
 		},
 		18: { // Arun's Vitae
-			'*': { 
+			'*': {
 				noInterrupt: [8, 17, 23],
 				noRetry: true
 			},
@@ -2971,7 +2971,7 @@ module.exports = {
 			}
 		},
 		22: { // Arun's Tears
-			'*': { 
+			'*': {
 				noInterrupt: [8, 17, 23],
 				noRetry: true
 			},
@@ -3261,7 +3261,7 @@ module.exports = {
 				chains: {
 					1: null,
 					3: null,
-					4: null,
+					//4: null,
 					5: null,
 					6: null,
 					8: null,
@@ -3308,7 +3308,7 @@ module.exports = {
 		},
 		5: { // Grim Strike
 			'*': {
-				blockCancelPacket:true,
+				blockCancelPacket: true,
 				distance: [120, 0],
 				inPlace: {
 					movement: [
@@ -3334,7 +3334,7 @@ module.exports = {
 				chains: {
 					1: 30,
 					3: 30,
-					5: 30,
+					//5: 30,
 					6: 30,
 					8: 30,
 					9: 30,
@@ -3620,7 +3620,7 @@ module.exports = {
 				chains: {
 					'2-1': 30,
 					3: 30,
-					4: 4,
+					4: 4, //
 					'7-3': 30,
 					'9-10': 30,
 					'9-11': 30,
@@ -3648,7 +3648,7 @@ module.exports = {
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire
-			'*':{
+			'*': {
 				blockCancelPacket: true,
 				noInterrupt: ['9-0']
 			},
@@ -3678,9 +3678,9 @@ module.exports = {
 			2: true
 		},
 		7: { // Arcane Barrage
-			'*': { 
+			'*': {
 				length: 1525
-			 },
+			},
 			1: {
 				fixedSpeed: 1,
 				noInterrupt: [7],
@@ -3697,11 +3697,11 @@ module.exports = {
 			}
 		},
 		9: { // Mana Missiles
-			'*': { 
+			'*': {
 				blockCancelPacket: true,
 				length: 1250,
 				noInterrupt: [20],
-				noRetry: true 
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -3714,7 +3714,7 @@ module.exports = {
 			'*': {
 				blockCancelPacket: true,
 				length: 1325,
-				noInterrupt: [20],
+				noInterrupt: [10, 20],
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3722,7 +3722,7 @@ module.exports = {
 					'7-3': null,
 					'9-10': null,
 					'9-11': null,
-					10: null,
+					//10: null,
 					11: null,
 					13: null,
 					15: null,
@@ -3748,11 +3748,11 @@ module.exports = {
 					'9-10': 30,
 					'9-11': 30,
 					10: 30,
-					11: 30,
+					//11: 30,
 					13: 30,
 					19: 30,
 					40: 31
-				}				
+				}
 			},
 			1: true,
 			2: true,
@@ -3772,6 +3772,7 @@ module.exports = {
 			'*': {
 				length: 5800,
 				distance: -269.09,
+				noInterrupt: [13],
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3781,7 +3782,7 @@ module.exports = {
 					'9-11': 30,
 					10: 30,
 					11: 30,
-					13: 30,
+					//13: 30,
 					15: 30,
 					19: 30,
 					40: 30
@@ -3807,7 +3808,7 @@ module.exports = {
 					10: 30,
 					11: 30,
 					13: 30,
-					15: 30,
+					//15: 30,
 					19: 30,
 					40: 30
 				}
@@ -3827,7 +3828,7 @@ module.exports = {
 		},
 		19: { // ST
 			'*': {
-				length: 1325, 
+				length: 1325,
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3839,7 +3840,7 @@ module.exports = {
 					11: null,
 					13: null,
 					15: null,
-					19: null,
+					//19: null,
 					40: null
 				},
 				noRetry: true
@@ -5251,7 +5252,7 @@ module.exports = {
 					11: 30,
 					12: 30,
 					13: 30,
-					15: 30,
+					14: 30,
 					16: 30,
 					19: 30,
 					20: 30
@@ -5321,7 +5322,8 @@ module.exports = {
 					14: 30,
 					15: 30,
 					16: 30,
-					19: 30, // :thinking:
+					18: 30,
+					//19: 30,
 					20: 30
 				}
 			},

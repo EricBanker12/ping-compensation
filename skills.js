@@ -504,10 +504,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 			// 6190 = Pushback, Stun - 6811-6822 = Stagger + Knockdown for each race
 			if(currentSkillBase == 6190 || (currentSkillBase == 6811 + race && info.type != 'retaliate')) {
-				if(currentAction.skill != 20800 && (!abnormality.exists(9691000) || !abnormality.exists(9691016))) {
-				    sendCannotStartSkill(event.skill)
-					return false
-				}
+				sendCannotStartSkill(event.skill)
+				return false
 			}
 
 			// Some skills are bugged clientside and can interrupt the wrong skills, so they need to be flagged manually
