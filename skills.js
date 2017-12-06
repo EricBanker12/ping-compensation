@@ -900,6 +900,8 @@ module.exports = function SkillPrediction(dispatch) {
 	}
 
 	function sendActionStage(opts) {
+		clearTimeout(serverTimeout)
+
 		opts.stage = opts.stage || 0
 		opts.distanceMult = opts.distanceMult || 1
 
