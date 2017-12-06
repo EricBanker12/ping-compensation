@@ -232,8 +232,8 @@ module.exports = {
 				distance: 120.28,
 				noInterrupt: [32],
 				race: {
-					/*2: { distance: 120.28 }, // M.Helf: 120.277
-					5: { distance: 120.28 }, // F.Aman: 120.277*/
+					//2: { distance: 120.28 }, // M.Helf: 120.277
+					//5: { distance: 120.28 }, // F.Aman: 120.277
 					7: { length: 1080 },
 					8: { distance: 128.89 }, // Popori: 128.889
 					9: { distance: 138.28 } // Elin: 138.284
