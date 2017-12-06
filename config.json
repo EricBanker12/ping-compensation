@@ -11,6 +11,7 @@
 	"DEBUG": false,
 	"DEFEND_SUCCESS_STRICT": true,
 	"DEBUG_LOC": false,
+	"DEBUG_PROJECTILE": false,
 	"MOUNTCHECK": true,
 	"WP_BODY_ROLL_CONTROL": false
 }
