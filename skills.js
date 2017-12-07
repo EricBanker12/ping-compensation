@@ -150,7 +150,7 @@ module.exports = function SkillPrediction(dispatch) {
 					SaveConfiguration()
 					break	
 				case 'ping':
-					command.message(`Ping: Min=${ping.min} Max=${ping.max} Jitter=${ping.max - ping.min}`)
+					command.message(`Ping: ${ping.history.length ? `Avg=${Math.round(ping.avg)} Min=${ping.min} Max=${ping.max} Jitter=${ping.max - ping.min} Samples=${ping.history.length}` : '???'}`)
 				break
 			}
 		});
