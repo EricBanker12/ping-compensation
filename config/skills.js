@@ -2457,12 +2457,12 @@ module.exports = {
 				distance: 150
 			}
 		},
-		20: { // Cable Step
+		/*20: { // Cable Step
 			0: {
 				type: 'dynamicDistance',
 				length: 1250
 			}
-		},
+		},*/
 		40: { // Shadow Step
 			'*': {
 				length: 700,
