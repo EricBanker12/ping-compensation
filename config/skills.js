@@ -2457,12 +2457,12 @@ module.exports = {
 				distance: 150
 			}
 		},
-		/*20: { // Cable Step
+		20: { // Cable Step
 			0: {
 				type: 'dynamicDistance',
 				length: 1250
 			}
-		},*/
+		},
 		40: { // Shadow Step
 			'*': {
 				length: 700,
@@ -2481,10 +2481,16 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1195,
-				noInterrupt: [1]
+				noInterrupt: [1],
+				projectiles: [20]
 			},
 			1: true,
-			2: true
+			2: true,
+			20: {
+				type: 'userProjectile',
+				flyingSpeed: 800,
+				flyingDistance: 500
+			}
 		},
 		2: { // Bombardment
 			'*': { noRetry: true },
@@ -2607,10 +2613,15 @@ module.exports = {
 		6: { // Time Bomb
 			'*': {
 				fixedSpeed: 1,
-				length: 1000
+				length: 1000,
+				projectiles: [20]
 			},
 			1: true,
-			2: true
+			2: true,
+			20: {
+				type: 'userProjectile',
+				flyingSpeed: 800
+			}
 		},
 		7: { // Arcane Barrage
 			'*': { length: 1525 },
@@ -2636,12 +2647,44 @@ module.exports = {
 				length: 1200,
 				autoRelease: 0
 			},
-			10: { distance: -50 },
-			11: { distance: -100 }
+			10: {
+				distance: -50,
+				projectiles: [21, 22]
+			},
+			11: {
+				distance: -100,
+				projectiles: [21, 22, 23, 24, 25]
+			},
+			21: {
+				type: 'userProjectile',
+				flyingSpeed: 600,
+				flyingDistance: 750
+			},
+			22: {
+				type: 'userProjectile',
+				flyingSpeed: 500,
+				flyingDistance: 750
+			},
+			23: {
+				type: 'userProjectile',
+				flyingSpeed: 400,
+				flyingDistance: 750
+			},
+			24: {
+				type: 'userProjectile',
+				flyingSpeed: 350,
+				flyingDistance: 750
+			},
+			25: {
+				type: 'userProjectile',
+				flyingSpeed: 300,
+				flyingDistance: 750
+			}
 		},
 		10: { // Arc Bomb
 			'*': {
 				length: 1325,
+				projectiles: [20],
 				chains: {
 					'2-1': null,
 					3: null,
@@ -2660,6 +2703,31 @@ module.exports = {
 			},
 			1: true,
 			2: true,
+			20: {
+				type: 'userProjectile',
+				flyingSpeed: 700,
+				flyingDistance: 350
+			},
+			// TODO: Chain projectiles
+			/*21: {
+				type: 'userProjectile',
+				flyingSpeed: 300,
+				flyingDistance: 100
+			},
+			22: {
+				type: 'userProjectile',
+				flyingSpeed: 300,
+				flyingDistance: 75
+			},
+			23: {
+				type: 'userProjectile',
+				flyingSpeed: 300,
+				flyingDistance: 50
+			},
+			24: {
+				type: 'projectile',
+				length: 1000
+			},*/
 			30: true
 		},
 		11: { // Rocket Jump
@@ -2700,6 +2768,7 @@ module.exports = {
 			'*': {
 				length: 5800,
 				distance: -269.09,
+				noInterrupt: [13],
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -2755,6 +2824,7 @@ module.exports = {
 		19: { // ST
 			'*': {
 				length: 1325,
+				projectiles: [20],
 				chains: {
 					'2-1': null,
 					3: null,
@@ -2773,6 +2843,16 @@ module.exports = {
 			},
 			1: true,
 			2: true,
+			20: {
+				type: 'userProjectile',
+				flyingSpeed: 700,
+				flyingDistance: 450
+			},
+			// TODO: Chain projectiles
+			/*21: {
+				type: 'projectile',
+				length: 5000
+			},*/
 			30: true
 		},
 		20: { // Retaliate
