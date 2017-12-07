@@ -19,6 +19,7 @@ const JITTER_COMPENSATION	= true,
 	DEBUG_GLYPH				= false
 
 const {protocol, sysmsg} = require('tera-data-parser'),
+	Long = require('long'),
 	Command = require('command'),
 	Ping = require('./ping'),
 	AbnormalityPrediction = require('./abnormalities'),
@@ -71,6 +72,10 @@ module.exports = function SkillPrediction(dispatch) {
 		serverAction = null,
 		serverConfirmedAction = false,
 		queuedNotifyLocation = [],
+		clientProjectileId = 0,
+		clientProjectiles = {},
+		clientProjectileHits = [],
+		serverProjectiles = {}
 		storedCharge = 0,
 		lastEndSkill = 0,
 		lastEndType = 0,
@@ -582,7 +587,7 @@ module.exports = function SkillPrediction(dispatch) {
 		}
 	})
 
-	dispatch.hook('S_ACTION_STAGE', 2, event => {
+	dispatch.hook('S_ACTION_STAGE', 3, event => {
 		if(isMe(event.gameId)) {
 			if(DEBUG) {
 				let duration = Date.now() - debugActionTime,
@@ -590,7 +595,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 				if(DEBUG_LOC) strs.push(...[event.w + '\xb0', '(' + Math.round(event.x), Math.round(event.y), Math.round(event.z) + ')'])
 
-				strs.push(...[event.unk, event.unk1, event.toX, event.toY, event.toZ, event.unk2, event.unk3])
+				strs.push(...[event.unk, event.unk1, event.toX, event.toY, event.toZ, event.target.toNumber() ? 1 : 0])
 
 				if(serverAction)
 					strs.push(...[
@@ -857,19 +862,94 @@ module.exports = function SkillPrediction(dispatch) {
 	dispatch.hook('S_CAN_LOCKON_TARGET', 1, event => skillInfo(event.skill) ? false : undefined)
 
 	if(DEBUG_PROJECTILE) {
+		dispatch.hook('S_SPAWN_PROJECTILE', 2, event => {
+			if(!isMe(event.gameId)) return
+
+			debug(`<- S_SPAWN_PROJECTILE ${skillId(event.skill)} ${event.unk1} ${event.x} ${event.y} ${event.z} ${event.toX} ${event.toY} ${event.toZ} ${event.moving} ${event.speed} ${event.unk2} ${event.unk3} ${event.w}`)
+
+			if(skillInfo(event.skill)) {
+				serverProjectiles[event.id.toString()] = event.skill
+				return false
+			}
+		})
+
+		dispatch.hook('S_DESPAWN_PROJECTILE', 2, event => {
+			debug(`<- S_DESPAWN_PROJECTILE ${event.unk1} ${event.unk2}`)
+
+			let idStr = event.id.toString()
+			if(serverProjectiles[idStr]) {
+				delete serverProjectiles[idStr]
+				return false
+			}
+		})
+
 		dispatch.hook('S_START_USER_PROJECTILE', 4, event => {
 			if(!isMe(event.gameId)) return
 
-			debug(`<- S_START_USER_PROJECTILE ${skillId(event.skill, Flags.Player)} ${event.x} ${event.y} ${event.z} ${event.toX} ${event.toY} ${event.toZ} ${event.speed} ${event.curve} ${event.useCurve}`)
+			debug(`<- S_START_USER_PROJECTILE ${skillId(event.skill, Flags.Player)} ${event.x} ${event.y} ${event.z} ${event.toX} ${event.toY} ${event.toZ} ${event.speed} ${event.distance} ${event.curve}`)
+
+			let info = skillInfo(event.skill, true)
+			if(info) {
+				serverProjectiles[event.id.toString()] = Flags.Player + event.skill
+				applyProjectileHits(event.id, Flags.Player + event.skill)
+				return false
+			}
 		})
 
 		dispatch.hook('S_END_USER_PROJECTILE', 3, event => {
-			debug(`<- S_END_USER_PROJECTILE ${event.unk1} ${event.unk2} ${event.target ? 1 : 0}`)
+			debug(`<- S_END_USER_PROJECTILE ${event.unk1} ${event.unk2} ${event.target.toNumber() ? 1 : 0}`)
+
+			let idStr = event.id.toString()
+			if(serverProjectiles[idStr]) {
+				delete serverProjectiles[idStr]
+				return false
+			}
 		})
 
 		dispatch.hook('C_HIT_USER_PROJECTILE', 2, event => {
 			debug(`-> C_HIT_USER_PROJECTILE ${event.targets.length} ${event.end}`)
+
+			let idStr = event.id.toString(),
+				skill = clientProjectiles[idStr]
+			if(skill) {
+				removeProjectile(event.id, true, true)
+
+				for(let id in serverProjectiles)
+					if(serverProjectiles[id] === skill) {
+						event.id = Long.fromString(id, true)
+						return true
+					}
+
+				clientProjectileHits.push(Object.assign(event, {
+					skill,
+					time: Date.now()
+				}))
+				return false
+			}
 		})
+
+		function applyProjectileHits(id, skill) {
+			// Garbage collect expired hits
+			for(let i = 0, expiry = Date.now() - getServerTimeout(); i < clientProjectileHits.length; i++)
+				if(clientProjectileHits[i].time <= expiry)
+					clientProjectileHits.splice(i--, 1)
+
+			for(let i = 0; i < clientProjectileHits.length; i++) {
+				let event = clientProjectileHits[i]
+
+				if(event.skill === skill) {
+					clientProjectileHits.splice(i--, 1)
+
+					event.id = id
+					dispatch.toServer('C_HIT_USER_PROJECTILE', 2, event)
+
+					if(event.end) {
+						delete serverProjectiles[id.toString()]
+						return
+					}
+				}
+			}
+		}
 	}
 
 	function startAction(opts) {
@@ -916,7 +996,7 @@ module.exports = function SkillPrediction(dispatch) {
 		else
 			movement = movement || !opts.moving && get(info, 'inPlace', 'movement') || info.movement || []
 
-		dispatch.toClient('S_ACTION_STAGE', 2, currentAction = {
+		dispatch.toClient('S_ACTION_STAGE', 3, currentAction = {
 			gameId: myChar(),
 			x: currentLocation.x,
 			y: currentLocation.y,
@@ -932,16 +1012,18 @@ module.exports = function SkillPrediction(dispatch) {
 			toX: 0,
 			toY: 0,
 			toZ: 0,
-			unk2: 0,
-			unk3: 0,
+			target: 0,
 			movement
 		})
 
 		opts.distance = (multiStage ? get(info, 'distance', opts.stage) : info.distance) || 0
 		stageEnd = null
 
-		let serverTimeoutTime = ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + SERVER_TIMEOUT,
-			speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0)
+		let speed = opts.speed + (info.type == 'charging' ? opts.chargeSpeed : 0),
+			noTimeout = false
+
+		if(serverAction && (serverAction.skill == currentAction.skill || Math.floor((serverAction.skill - 0x4000000) / 10000) == Math.floor((currentAction.skill - 0x4000000) / 10000)) && serverAction.stage == currentAction.stage)
+			noTimeout = true
 
 		switch(info.type) {
 			case 'dynamicDistance':
@@ -974,16 +1056,19 @@ module.exports = function SkillPrediction(dispatch) {
 						stageEnd()
 						stageEnd = null
 					}
-					else stageEndTimeout = setTimeout(stageEnd, info.autoRelease / speed)
+					else stageEndTimeout = setTimeout(stageEnd, Math.round(info.autoRelease / speed))
 				}
 			case 'holdInfinite':
-				serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
+				if(!noTimeout) serverTimeout = setTimeout(sendActionEnd, getServerTimeout(), 6)
 				return
 		}
 
 		let length = Math.round((multiStage ? info.length[opts.stage] : info.length) / speed)
 
-		if(length > serverTimeoutTime) serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
+		if(!noTimeout) {
+			let serverTimeoutTime = getServerTimeout()
+			if(length > serverTimeoutTime) serverTimeout = setTimeout(sendActionEnd, serverTimeoutTime, 6)
+		}
 
 		if(multiStage) {
 			if(!opts.moving) {
@@ -1024,6 +1109,13 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
+		if(DEBUG_PROJECTILE && info.projectiles)
+			for(let chain of info.projectiles)
+				addProjectile({
+					skill: modifyChain(opts.skill, chain),
+					targetLoc: opts.targetLoc
+				})
+
 		stageEnd = sendActionEnd.bind(null, info.type == 'dash' ? 39 : 0, opts.distance * opts.distanceMult)
 		stageEndTime = Date.now() + length
 		stageEndTimeout = setTimeout(stageEnd, length)
@@ -1042,6 +1134,54 @@ module.exports = function SkillPrediction(dispatch) {
 	function grantCharge(skill, info, stage) {
 		let levels = info.chargeLevels
 		dispatch.toClient('S_GRANT_SKILL', 1, {skill: modifyChain(skill, levels ? levels[stage] : 10 + stage)})
+	}
+
+	function addProjectile(opts) {
+		let skill = opts.skill,
+			info = skillInfo(skill)
+
+		if(!info) return
+
+		let id = new Long(0xffffffff, clientProjectileId = clientProjectileId + 1 >>> 0, true)
+
+		clientProjectiles[id.toString()] = skill
+
+		setTimeout(removeProjectile, 5000, id, info.type === 'userProjectile', true)
+
+		if(info.type === 'userProjectile') {
+			let loc = applyDistance(Object.assign({}, currentLocation), 15)
+
+			dispatch.toClient('S_START_USER_PROJECTILE', 4, {
+				gameId,
+				templateId,
+				id,
+				skill,
+				x: loc.x,
+				y: loc.y,
+				z: loc.z + 30,
+				toX: opts.targetLoc.x,
+				toY: opts.targetLoc.y,
+				toZ: opts.targetLoc.z,
+				speed: info.flyingSpeed,
+				distance: info.flyingDistance,
+				curve: !!info.flyingDistance
+			})
+		}
+	}
+
+	function removeProjectile(id, user, explode) {
+		delete clientProjectiles[id.toString()]
+
+		if(user) {
+			let target = typeof explode === 'object' ? explode : 0
+
+			dispatch.toClient('S_END_USER_PROJECTILE', 3, {
+				id: id,
+				unk1: explode && !target,
+				unk2: explode,
+				target
+			})
+		}
 	}
 
 	function sendInstantDash(location) {
@@ -1237,6 +1377,10 @@ module.exports = function SkillPrediction(dispatch) {
 
 	function myChar() {
 		return vehicleEx ? vehicleEx : gameId
+	}
+
+	function getServerTimeout() {
+		return ping.max + (SKILL_RETRY_COUNT * SKILL_RETRY_MS) + SERVER_TIMEOUT
 	}
 
 	function get(obj, ...keys) {
