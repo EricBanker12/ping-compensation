@@ -81,6 +81,7 @@ module.exports = function SkillPrediction(dispatch) {
 		lastEndType = 0,
 		lastEndedId = 0,
 		serverTimeout = null,
+		effectsTimeouts = [],
 		stageEnd = null,
 		stageEndTime = 0,
 		stageEndTimeout = null,
@@ -911,8 +912,9 @@ module.exports = function SkillPrediction(dispatch) {
 
 			let idStr = event.id.toString(),
 				skill = clientProjectiles[idStr]
+
 			if(skill) {
-				removeProjectile(event.id, true, true)
+				if(event.end) removeProjectile(event.id, true, event.targets[0] || true)
 
 				for(let id in serverProjectiles)
 					if(serverProjectiles[id] === skill) {
@@ -964,7 +966,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 		sendActionStage(opts)
 
-		if(info.type == 'dash') sendInstantDash(opts.targetLoc)
+		if(info.type === 'dash' || info.projectiles)
+			effectsTimeouts.push(setTimeout(sendActionEffects, 25, opts)) // Emulate server tick delay
 
 		if(info.triggerAbnormal)
 			for(let id in info.triggerAbnormal) {
@@ -1109,20 +1112,34 @@ module.exports = function SkillPrediction(dispatch) {
 			return
 		}
 
-		if(DEBUG_PROJECTILE && info.projectiles)
-			for(let chain of info.projectiles)
-				addProjectile({
-					skill: modifyChain(opts.skill, chain),
-					targetLoc: opts.targetLoc
-				})
-
 		stageEnd = sendActionEnd.bind(null, info.type == 'dash' ? 39 : 0, opts.distance * opts.distanceMult)
 		stageEndTime = Date.now() + length
 		stageEndTimeout = setTimeout(stageEnd, length)
 	}
 
+	function sendActionEffects(opts) {
+		let info = opts.info
+
+		if(info.type === 'dash') sendInstantDash(opts.targetLoc)
+
+		if(DEBUG_PROJECTILE && info.projectiles)
+			for(let chain of info.projectiles) {
+				castProjectile({
+					skill: modifyChain(opts.skill, chain),
+					targetLoc: opts.targetLoc
+				})
+			}
+	}
+
+	function clearEffects() {
+		if(!effectsTimeouts.length) return
+		for(let t of effectsTimeouts) clearTimeout(t)
+		effectsTimeouts = []
+	}
+
 	function clearStage() {
 		clearTimeout(serverTimeout)
+		clearEffects()
 		clearTimeout(stageEndTimeout)
 	}
 
@@ -1134,6 +1151,13 @@ module.exports = function SkillPrediction(dispatch) {
 	function grantCharge(skill, info, stage) {
 		let levels = info.chargeLevels
 		dispatch.toClient('S_GRANT_SKILL', 1, {skill: modifyChain(skill, levels ? levels[stage] : 10 + stage)})
+	}
+
+	function castProjectile(opts) {
+		let info = skillInfo(opts.skill)
+
+		if(info.delay) effectsTimeouts.push(setTimeout(addProjectile, info.delay, opts))
+		else addProjectile(opts)
 	}
 
 	function addProjectile(opts) {
@@ -1174,6 +1198,8 @@ module.exports = function SkillPrediction(dispatch) {
 
 		if(user) {
 			let target = typeof explode === 'object' ? explode : 0
+
+			explode = !!explode
 
 			dispatch.toClient('S_END_USER_PROJECTILE', 3, {
 				id: id,
@@ -1308,19 +1334,19 @@ module.exports = function SkillPrediction(dispatch) {
 
 	// Modifies the chain part (last 2 digits) of a skill ID, preserving flags
 	function modifyChain(id, chain) {
-		return id - ((id & 0xffffff) % 100) + chain
+		return id - ((id & 0x3ffffff) % 100) + chain
 	}
 
 	function skillId(id, flagAs) {
 		id |= flagAs
 
-		let skillFlags = ['[?1]', '[?2]', 'P', 'C', '[?5]', '[?6]', '[?7]', '[?8]'],
+		let skillFlags = ['P', 'C', '[?3]', '[?4]', '[?5]', '[?6]'],
 			flags = ''
 
-		for(let i = 0, x = id >>> 24; x; i++, x >>>= 1)
+		for(let i = 0, x = id >>> 26; x; i++, x >>>= 1)
 			if(x & 1) flags += skillFlags[i]
 
-		id = (id & 0xffffff).toString()
+		id = (id & 0x3ffffff).toString()
 
 		switch(flags) {
 			case 'P':
