@@ -33,4 +33,4 @@ For *FULL* Support: the following opcodes should be mapped in your `tera-proxy/n
 * S_LOGIN
 * S_RESPONSE_GAMESTAT_PONG
 ### Contributions
-Thanks to [Leiki](https://github.com/Leyki), [Pinkie Pie](https://github.com/pinkipi), [SaltyMonkey](https://github.com/SaltyMonkey), and [Yunfei](https://github.com/YunfeiG) for Skill Prediction and `/config/skill.js` contributions and formatting.
+Thanks to [Leiki](https://github.com/Leyki), [Pinkie Pie](https://github.com/pinkipi), [SaltyMonkey](https://github.com/SaltyMonkey), [undefined3394](https://github.com/undefined3394), and [Yunfei](https://github.com/YunfeiG) for Skill Prediction and configuration contributions.
