@@ -3679,16 +3679,16 @@ module.exports = {
 		},
 		5: { // Burst Fire
 			'*': {
-				blockCancelPacket: true,
-				noInterrupt: ['9-0']
-			},
-			0: { length: 855 },
-			1: {
 				triggerAbnormal: { 
 					10152050: 1200,
 					10152054: 1200
 				},
 				consumeAbnormalEnd: [10152050, 10152054],
+				blockCancelPacket: true,
+				noInterrupt: ['9-0']
+			},
+			0: { length: 855 },
+			1: {
 				fixedSpeed: 1,
 				length: 122,
 				stamina: 70,
