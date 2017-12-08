@@ -23,14 +23,25 @@ module.exports = {
 
 	/* Gunner */
 	10152011: true, // Blast
-	
+
 	// PB first cast
 	10152000: true,
 	10152001: true,
+	10152010: true, // Time Bomb, Arcane Barrage first cast & Rolling Reload
+	10152012: true, // Rolling Reload / Maybe wrong
+	//10152040: true, // Arcane Barrage Buff
+	//10152081: true, // Arcane Barrage projectile end? remains for about 3 seconds active
+	
 	// Burst Fire
-	10152050: true,
-	10152054: true,
+	10152050: true, // 1
+	10152053: true, // 0?
+	10152054: true, // 1
 
-	10152085: true, // Mana Missiles
-	10152010: true // Arcane Barrage first cast 
+	10152072: true, // Replenishment
+	10152082: true, // Bombardment cast
+	10152083: true, // Scatter Shot
+	//10152084: true, // Time bomb Projectile end and fire up?
+	10152085: true, // Mana Missiles Charging & Firing
+	10152086: true, // Arcane Bomb
+	10153093: true // Rocket Jump & Rolling Reload
 }
