@@ -3542,6 +3542,8 @@ module.exports = {
 	9: { // Gunner
 		1: { // Blast
 			'*': {
+				triggerAbnormal: { 10152011: 3100 },
+				consumeAbnormalEnd: 10152011,
 				fixedSpeed: 1,
 				noRetry: true,
 				length: 1195,
@@ -3622,12 +3624,13 @@ module.exports = {
 			'*': {
 				length: 1525,
 				distance: 137.88,
-				noInterrupt: ['4-3', '4-4', 20],
+				noInterrupt: [20],
 				chains: {
 					'2-1': 30,
 					3: 30,
-					4: 4, //
-					'7-3': 30,
+					'4-1': 4,
+					'4-2': 4,
+					'4-30': 4,
 					'9-10': 30,
 					'9-11': 30,
 					10: 30,
@@ -3639,19 +3642,40 @@ module.exports = {
 				}
 			},
 			1: {
+				triggerAbnormal: {
+					10152000: 2100,
+					10152001: 2100
+				},
+				consumeAbnormalEnd: [10152000, 10152001],
 				noInterrupt: [4],
-				noRetry: true
+				//noRetry: true
 			},
-			2: { noRetry: true },
+			2: { 
+				triggerAbnormal: {
+					10152000: 2100,
+					10152001: 2100
+				},
+				consumeAbnormalEnd: [10152000, 10152001],
+				noInterrupt: [4],
+				//noRetry: true
+			 },
 			3: {
 				length: 1195,
-				distance: -198.53
+				distance: -198.53,
 			},
 			4: {
 				length: 1195,
 				distance: -198.53
 			},
-			30: { noRetry: true }
+			30: {
+				noInterrupt: ['4-30'],
+				triggerAbnormal: {
+					10152000: 2100,
+					10152001: 2100
+				},
+				consumeAbnormalEnd: [10152000, 10152001],
+				//noRetry: true
+			}
 		},
 		5: { // Burst Fire
 			'*': {
@@ -3660,6 +3684,11 @@ module.exports = {
 			},
 			0: { length: 855 },
 			1: {
+				triggerAbnormal: { 
+					10152050: 1200,
+					10152054: 1200
+				},
+				consumeAbnormalEnd: [10152050, 10152054],
 				fixedSpeed: 1,
 				length: 122,
 				stamina: 70,
@@ -3677,6 +3706,8 @@ module.exports = {
 		},
 		6: { // Time Bomb
 			'*': {
+				triggerAbnormal: { 10152010: 3100 },
+				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
 				length: 1000,
 				projectiles: [20]
@@ -3693,16 +3724,21 @@ module.exports = {
 				length: 1525
 			},
 			1: {
+				triggerAbnormal: { 10152010: 3100 },
+				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
 			},
 			2: {
+				triggerAbnormal: { 10152010: 3100 },
+				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
 			},
 			3: {
+				consumeAbnormal: 1015204,
 				requiredBuff: 10152040,
 				length: 1200
 			}
@@ -3840,7 +3876,7 @@ module.exports = {
 			'*': {
 				length: 5800,
 				distance: -269.09,
-				noInterrupt: [13],
+				//noInterrupt: [13],
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3937,6 +3973,8 @@ module.exports = {
 		},
 		40: { // Rolling Reload
 			0: {
+				triggerAbnormal: { 10152010: 3100 },
+				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
 				length: 935,
 				noInterrupt: [11],

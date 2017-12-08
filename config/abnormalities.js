@@ -19,5 +19,18 @@ module.exports = {
 	10154003: true,
 	10154004: true,
 	10154005: true,
-	10154006: true
+	10154006: true,
+
+	/* Gunner */
+	10152011: true, // Blast
+
+	// PB first cast
+	10152000: true,
+	10152001: true,
+
+	// Burst Fire
+	10152050: true,
+	10152054: true,
+
+	10152010: true // Arcane Barrage first cast 
 }
