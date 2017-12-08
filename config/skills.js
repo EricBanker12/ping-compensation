@@ -3755,10 +3755,14 @@ module.exports = {
 				autoRelease: 0
 			},
 			10: {
+				triggerAbnormal: { 10152085: 4100 },
+				consumeAbnormalEnd: 10152085,
 				distance: -50,
 				projectiles: [21, 22]
 			},
 			11: {
+				triggerAbnormal: { 10152085: 4100 },
+				consumeAbnormalEnd: 10152085,
 				distance: -100,
 				projectiles: [21, 22, 23, 24, 25]
 			},

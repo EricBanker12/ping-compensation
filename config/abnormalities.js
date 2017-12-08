@@ -23,14 +23,14 @@ module.exports = {
 
 	/* Gunner */
 	10152011: true, // Blast
-
+	
 	// PB first cast
 	10152000: true,
 	10152001: true,
-
 	// Burst Fire
 	10152050: true,
 	10152054: true,
 
+	10152085: true, // Mana Missiles
 	10152010: true // Arcane Barrage first cast 
 }
