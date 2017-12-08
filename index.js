@@ -6,16 +6,20 @@ module.exports = function PingCompensation(dispatch) {
 	//----------
 	// Constants
 	//----------
+	const settings = require('./config/settings.js')
 	const skills = require('./config/skills.js')
 	
 	// for bug-fixing
-	const debug = false
+	const debug = true
 	
 	// 1000/FPS (default: 20 ms or 1000/(50 FPS))
-	const frameTime = 20
+	const frameTime = settings.frameTime
 	
-	// comment this line out if using Skill Prediction:
-	const pingInterval = setInterval(function(){dispatch.toServer('C_REQUEST_GAMESTAT_PING', 1)}, 6000)
+	// Skill Prediction compatability
+	if (!settings.skillPredictionCompatible) {
+		// TODO replace for not sending fake packets
+		const pingInterval = setInterval(function(){dispatch.toServer('C_REQUEST_GAMESTAT_PING', 1)}, 6000)
+	}
 	
 	//----------
 	// Variables
@@ -73,18 +77,18 @@ module.exports = function PingCompensation(dispatch) {
 	//----------
 	
 	// C_REQUEST_GAMESTAT_PING
-	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {filter: {fake: false}},() => {
+	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: {fake: false}},() => {
 		dispatch.toClient('S_RESPONSE_GAMESTAT_PONG', 1)
 		return false
 	})
 	
 	// C_REQUEST_GAMESTAT_PING FAKE
-	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {filter: {fake: true}},() => {
+	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: {fake: true}},() => {
 		if (!pingRequest) {pingRequest = Date.now()}
 	})
 	
 	// S_RESPONSE_GAMESTAT_PONG
-	dispatch.hook('S_RESPONSE_GAMESTAT_PONG', 1, {filter: {fake: false}},() => {
+	dispatch.hook('S_RESPONSE_GAMESTAT_PONG', 1, {order: 10, filter: {fake: false}},() => {
 		if (pingRequest) {
 			ping.push(Date.now() - pingRequest)
 			pingRequest = false
@@ -108,7 +112,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// C_PRESS_SKILL
-	dispatch.hook('C_PRESS_SKILL', 1, event => {
+	dispatch.hook('C_PRESS_SKILL', 1, {order: 10, filter: {fake: null}}, event => {
 		// update S_ACTION_END
 		for (let coord of ["x", "y", "z", "w"]) {
 			if (currentAction && timeouts[currentAction.id]) {
@@ -118,7 +122,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// C_PLAYER_LOCATION
-	dispatch.hook('C_PLAYER_LOCATION', 2, event => {
+	dispatch.hook('C_PLAYER_LOCATION', 2, {order: -10, filter: {fake: null}}, event => {
 		// update S_ACTION_END
 		for (let coord of ["x", "y", "z", "w"]) {
 			if (currentAction && timeouts[currentAction.id]) {
@@ -133,7 +137,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// C_NOTIFY_LOCATION_IN_ACTION
-	dispatch.hook('C_NOTIFY_LOCATION_IN_ACTION', 1, event => {
+	dispatch.hook('C_NOTIFY_LOCATION_IN_ACTION', 1, {order: -10, filter: {fake: null}}, event => {
 		// update S_ACTION_END
 		for (let coord of ["x", "y", "z", "w"]) {
 			if (currentAction && timeouts[currentAction.id]) {
@@ -143,7 +147,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// C_NOTIFY_LOCATION_IN_DASH
-	dispatch.hook('C_NOTIFY_LOCATION_IN_DASH', 1, event => {
+	dispatch.hook('C_NOTIFY_LOCATION_IN_DASH', 1, {order: -10, filter: {fake: null}}, event => {
 		// update S_ACTION_END
 		for (let coord of ["x", "y", "z", "w"]) {
 			if (currentAction && timeouts[currentAction.id]) {
@@ -153,7 +157,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// S_INSTANT_DASH
-	dispatch.hook('S_INSTANT_DASH', 2, event => {
+	dispatch.hook('S_INSTANT_DASH', 2, {order: 10, filter: {fake: null}}, event => {
 		if (event.source.equals(gameId)){
 			// update S_ACTION_END
 			for (let coord of ["x", "y", "z", "w"]) {
@@ -165,7 +169,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// S_INSTANT_MOVE
-	dispatch.hook('S_INSTANT_MOVE', 1, event => {
+	dispatch.hook('S_INSTANT_MOVE', 1, {order: 10, filter: {fake: null}}, event => {
 		if (event.id.equals(gameId)){
 			// update S_ACTION_END
 			for (let coord of ["x", "y", "z", "w"]) {
@@ -177,7 +181,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// S_ACTION_STAGE
-	dispatch.hook('S_ACTION_STAGE', 2, event => {
+	dispatch.hook('S_ACTION_STAGE', 2, {order: 10, filter: {fake: false}}, event => {
 		// if character is your character
 		if (event.gameId.equals(gameId)) {
 			if (debug) {console.log(`S_ACTION_STAGE ${Date.now() - startTime} ${JSON.stringify(Object.values(event))}`)}
@@ -186,7 +190,7 @@ module.exports = function PingCompensation(dispatch) {
 				skillBase = Math.floor(skill / 10000),
 				skillSub = skill % 100
 			// if skill is in config
-			if (skills[job] && skills[job][skillBase] && skills[job][skillBase][skillSub]) {
+			if (skills[job] && settings[job] && skills[job][skillBase] && settings[job][skillBase] && skills[job][skillBase][skillSub]) {
 				// get length
 				let length = getValue("length", skillBase, skillSub)
 				// if skill is multi-stage
@@ -208,7 +212,7 @@ module.exports = function PingCompensation(dispatch) {
 				//if (debug) console.log('length', length)
 				if (length && length > 0) {
 					// change animation speed
-					// cap ping compensation at 1 frame (20ms at 50 fps)
+					// cap ping compensation at 1 frame
 					if (minPing > length - frameTime * event.speed) {
 						event.speed = event.speed * length / (length - frameTime * event.speed)
 					}
@@ -235,7 +239,7 @@ module.exports = function PingCompensation(dispatch) {
 					//if (debug) console.log('distance', distance)
 					// get coordinates
 					let x,y
-					if (distance && distance > 0) {
+					if (distance && Math.abs(distance) > 0) {
 						let r = (event.w / 0x8000) * Math.PI
 						x = event.x + Math.cos(r) * distance
 						y = event.y + Math.sin(r) * distance
@@ -247,10 +251,6 @@ module.exports = function PingCompensation(dispatch) {
 					}
 					// if multi-stage and not last stage
 					if (lengthArray && event.stage < lengthArray.length - 1) {
-						return true
-					}
-					// if combo attack
-					if (skillBase == 1) {
 						return true
 					}
 					// get end type ???
@@ -275,7 +275,7 @@ module.exports = function PingCompensation(dispatch) {
 	})
 	
 	// S_ACTION_END
-	dispatch.hook('S_ACTION_END', 2, event => {
+	dispatch.hook('S_ACTION_END', 2, {order: 10, filter: {fake: false}}, event => {
 		// if character is your character
 		if (event.gameId.equals(gameId)) {
 			if (debug) {console.log(`S_ACTION_END ${Date.now() - startTime} ${JSON.stringify(Object.values(event))}`)}
