@@ -10,7 +10,7 @@ module.exports = function PingCompensation(dispatch) {
 	const skills = require('./config/skills.js')
 	
 	// for bug-fixing
-	const debug = true
+	const debug = false
 	
 	// 1000/FPS (default: 20 ms or 1000/(50 FPS))
 	const frameTime = settings.frameTime
