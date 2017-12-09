@@ -87,7 +87,7 @@ module.exports = function PingCompensation(dispatch) {
 	// S_RESPONSE_GAMESTAT_PONG
  	dispatch.hook('S_RESPONSE_GAMESTAT_PONG', 1, {order: 10, filter: {fake: false, silenced: null}},() => {
  		if (settings.skillPredictionCompatible && ping.request) {
- 			ping.list.push(Date.now() - pingRequest)
+ 			ping.list.push(Date.now() - ping.request)
  			ping.request = false
  			if (ping.list.length > 20) {
  				ping.splice(0,1)
