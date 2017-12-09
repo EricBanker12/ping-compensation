@@ -9,17 +9,17 @@ module.exports = function PingCompensation(dispatch) {
 	const settings = require('./config/settings.js')
 	const skills = require('./config/skills.js')
 	
-	// for bug-fixing
-	const debug = false
+	// Skill Prediction compatability
+	if (!settings.skillPredictionCompatible) {
+		const Ping = require('./config/ping.js')
+		const ping = Ping(dispatch)
+	}
 	
 	// 1000/FPS (default: 20 ms or 1000/(50 FPS))
 	const frameTime = settings.frameTime
 	
-	// Skill Prediction compatability
-	if (!settings.skillPredictionCompatible) {
-		// TODO replace for not sending fake packets
-		const pingInterval = setInterval(function(){dispatch.toServer('C_REQUEST_GAMESTAT_PING', 1)}, 6000)
-	}
+	// for bug-fixing
+	const debug = false
 	
 	//----------
 	// Variables
@@ -28,9 +28,6 @@ module.exports = function PingCompensation(dispatch) {
 		templateId= null,
 		job = -1,
 		race = -1,
-		minPing = 0,
-		ping = [],
-		pingRequest = false,
 		timeouts = {},
 		startTime = Date.now(),
 		currentAction = false
@@ -75,33 +72,6 @@ module.exports = function PingCompensation(dispatch) {
 	//----------
 	// Hooks
 	//----------
-	
-	// C_REQUEST_GAMESTAT_PING
-	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: {fake: false}},() => {
-		dispatch.toClient('S_RESPONSE_GAMESTAT_PONG', 1)
-		return false
-	})
-	
-	// C_REQUEST_GAMESTAT_PING FAKE
-	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: {fake: true}},() => {
-		if (!pingRequest) {pingRequest = Date.now()}
-	})
-	
-	// S_RESPONSE_GAMESTAT_PONG
-	dispatch.hook('S_RESPONSE_GAMESTAT_PONG', 1, {order: 10, filter: {fake: false}},() => {
-		if (pingRequest) {
-			ping.push(Date.now() - pingRequest)
-			pingRequest = false
-			if (ping.length > 30) {
-				ping.splice(0,1)
-			}
-			let newPing = Math.min(...ping)
-			if (minPing != newPing) {
-				minPing = newPing
-				if (debug) {console.log('minPing', minPing)}
-			}
-		}
-	})
 	
 	// S_LOGIN
 	dispatch.hook('S_LOGIN', 9, event => {
@@ -213,11 +183,11 @@ module.exports = function PingCompensation(dispatch) {
 				if (length && length > 0) {
 					// change animation speed
 					// cap ping compensation at 1 frame
-					if (minPing > length - frameTime * event.speed) {
+					if (ping.min > length - frameTime * event.speed) {
 						event.speed = event.speed * length / (length - frameTime * event.speed)
 					}
 					else {
-						event.speed = event.speed * length / (length - minPing)
+						event.speed = event.speed * length / (length - ping.min)
 					}
 					// get distance
 					let distance = 0
