@@ -31,6 +31,12 @@ module.exports = function PingCompensation(dispatch) {
 		timeouts = {},
 		startTime = Date.now(),
 		currentAction = false
+		
+	// Skill Prediction compatability
+	if (settings.skillPredictionCompatible) {
+		let ping = {}
+		ping.list = []
+	}
 	
 	//----------
 	// Functions
@@ -72,6 +78,23 @@ module.exports = function PingCompensation(dispatch) {
 	//----------
 	// Hooks
 	//----------
+	
+	// C_REQUEST_GAMESTAT_PING FAKE
+	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: fake: true}},() => {
+		if (settings.skillPredictionCompatible && !ping.request) {ping.request = Date.now()}
+ 	})
+	
+	// S_RESPONSE_GAMESTAT_PONG
+ 	dispatch.hook('S_RESPONSE_GAMESTAT_PONG', 1, {order: 10, filter: {fake: false, silenced: null}},() => {
+ 		if (settings.skillPredictionCompatible && ping.request) {
+ 			ping.list.push(Date.now() - pingRequest)
+ 			ping.request = false
+ 			if (ping.list.length > 20) {
+ 				ping.splice(0,1)
+ 			}
+ 			ping.min = Math.min(...ping.list)
+ 		}
+ 	})
 	
 	// S_LOGIN
 	dispatch.hook('S_LOGIN', 9, event => {
