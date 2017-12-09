@@ -80,7 +80,7 @@ module.exports = function PingCompensation(dispatch) {
 	//----------
 	
 	// C_REQUEST_GAMESTAT_PING FAKE
-	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: fake: true}},() => {
+	dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: {fake: true}},() => {
 		if (settings.skillPredictionCompatible && !ping.request) {ping.request = Date.now()}
  	})
 	
