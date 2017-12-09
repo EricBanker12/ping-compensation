@@ -10,16 +10,13 @@ module.exports = function PingCompensation(dispatch) {
 	const skills = require('./config/skills.js')
 	
 	// Skill Prediction compatability
-	if (!settings.skillPredictionCompatible) {
-		const Ping = require('./config/ping.js')
-		const ping = Ping(dispatch)
-	}
+	const Ping = (!settings.skillPredictionCompatible) ? require('./config/ping.js') : false
 	
 	// 1000/FPS (default: 20 ms or 1000/(50 FPS))
 	const frameTime = settings.frameTime
 	
 	// for bug-fixing
-	const debug = false
+	const debug = true
 	
 	//----------
 	// Variables
@@ -29,13 +26,16 @@ module.exports = function PingCompensation(dispatch) {
 		job = -1,
 		race = -1,
 		timeouts = {},
+		ping = {},
 		startTime = Date.now(),
 		currentAction = false
 		
 	// Skill Prediction compatability
 	if (settings.skillPredictionCompatible) {
-		let ping = {}
 		ping.list = []
+	}
+	else {
+		ping = Ping(dispatch)
 	}
 	
 	//----------
@@ -93,6 +93,7 @@ module.exports = function PingCompensation(dispatch) {
  				ping.splice(0,1)
  			}
  			ping.min = Math.min(...ping.list)
+			return false
  		}
  	})
 	
