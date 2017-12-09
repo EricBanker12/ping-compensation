@@ -16,7 +16,7 @@ module.exports = function PingCompensation(dispatch) {
 	const frameTime = settings.frameTime
 	
 	// for bug-fixing
-	const debug = true
+	const debug = false
 	
 	//----------
 	// Variables
