@@ -90,7 +90,7 @@ module.exports = function PingCompensation(dispatch) {
  			ping.list.push(Date.now() - ping.request)
  			ping.request = false
  			if (ping.list.length > 20) {
- 				ping.splice(0,1)
+ 				ping.list.splice(0,1)
  			}
  			ping.min = Math.min(...ping.list)
 			return false
