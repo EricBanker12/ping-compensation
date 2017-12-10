@@ -2477,15 +2477,17 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
+		'*': { consumeAbnormal: [10152010, 10152011] },
 		1: { // Blast
 			'*': {
 				fixedSpeed: 1,
 				length: 1195,
 				noInterrupt: [1],
-				projectiles: [20]
+				projectiles: [20],
+				triggerAbnormal: { 10152011: 3100 }
 			},
 			1: true,
-			2: true,
+			2: { noRetry: true },
 			20: {
 				type: 'userProjectile',
 				flyingSpeed: 800,
@@ -2590,10 +2592,11 @@ module.exports = {
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire
-			'*':{
-				noInterrupt: ['9-0']
+			'*':{ noInterrupt: ['9-0'] },
+			0: {
+				length: 850,
+				noRetry: true
 			},
-			0: { length: 850 },
 			1: {
 				fixedSpeed: 1,
 				length: 122,
@@ -2614,7 +2617,11 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1000,
-				projectiles: [20]
+				projectiles: [20],
+				triggerAbnormal: {
+					10152010: 3100,
+					10152084: 4100
+				}
 			},
 			1: true,
 			2: true,
@@ -2628,11 +2635,13 @@ module.exports = {
 			1: {
 				fixedSpeed: 1,
 				noInterrupt: [7],
+				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			2: {
 				fixedSpeed: 1,
 				noInterrupt: [7],
+				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			3: { length: 1200 }
@@ -2705,8 +2714,19 @@ module.exports = {
 			2: true,
 			20: {
 				type: 'userProjectile',
+				delay: 450,
 				flyingSpeed: 700,
-				flyingDistance: 350
+				flyingDistance: 350,
+				level: [
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 }
+				]
 			},
 			// TODO: Chain projectiles
 			/*21: {
@@ -2845,6 +2865,7 @@ module.exports = {
 			2: true,
 			20: {
 				type: 'userProjectile',
+				delay: 350,
 				flyingSpeed: 700,
 				flyingDistance: 450
 			},
@@ -2867,6 +2888,10 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 935,
 				distance: 172.5,
+				triggerAbnormal: {
+					10152010: 3100,
+					10152012: 3100
+				},
 				forceClip: true
 			}
 		}
