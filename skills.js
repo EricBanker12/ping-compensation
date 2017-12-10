@@ -35,8 +35,9 @@ const INTERRUPT_TYPES = {
 }
 
 const Flags = {
-	Player: 0x04000000,
-	CC: 0x08000000
+	Skill: 0x04000000,
+	CC: 0x08000000,
+	NPC: 0x40000000
 }
 
 module.exports = function SkillPrediction(dispatch) {
@@ -830,7 +831,7 @@ module.exports = function SkillPrediction(dispatch) {
 	})
 
 	dispatch.hook('S_CANNOT_START_SKILL', 1, event => {
-		if(DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, Flags.Player))
+		if(DEBUG) debug('<- S_CANNOT_START_SKILL ' + skillId(event.skill, Flags.Skill))
 
 		if(skillInfo(event.skill, true)) {
 			if(SKILL_DELAY_ON_FAIL && SKILL_RETRY_COUNT && currentAction && (!serverAction || currentAction.skill != serverAction.skill) && event.skill == currentAction.skill - 0x4000000)
@@ -887,12 +888,12 @@ module.exports = function SkillPrediction(dispatch) {
 		dispatch.hook('S_START_USER_PROJECTILE', 4, event => {
 			if(!isMe(event.gameId)) return
 
-			debug(`<- S_START_USER_PROJECTILE ${skillId(event.skill, Flags.Player)} ${event.x} ${event.y} ${event.z} ${event.toX} ${event.toY} ${event.toZ} ${event.speed} ${event.distance} ${event.curve}`)
+			debug(`<- S_START_USER_PROJECTILE ${skillId(event.skill, Flags.Skill)} ${event.x} ${event.y} ${event.z} ${event.toX} ${event.toY} ${event.toZ} ${event.speed} ${event.distance} ${event.curve}`)
 
 			let info = skillInfo(event.skill, true)
 			if(info) {
-				serverProjectiles[event.id.toString()] = Flags.Player + event.skill
-				applyProjectileHits(event.id, Flags.Player + event.skill)
+				serverProjectiles[event.id.toString()] = Flags.Skill + event.skill
+				applyProjectileHits(event.id, Flags.Skill + event.skill)
 				return false
 			}
 		})
@@ -966,8 +967,10 @@ module.exports = function SkillPrediction(dispatch) {
 
 		sendActionStage(opts)
 
-		if(info.type === 'dash' || info.projectiles)
+		if(info.type === 'dash' || info.projectiles) {
+			opts.loc = Object.assign({}, currentLocation)
 			effectsTimeouts.push(setTimeout(sendActionEffects, 25, opts)) // Emulate server tick delay
+		}
 
 		if(info.triggerAbnormal)
 			for(let id in info.triggerAbnormal) {
@@ -1126,6 +1129,7 @@ module.exports = function SkillPrediction(dispatch) {
 			for(let chain of info.projectiles) {
 				castProjectile({
 					skill: modifyChain(opts.skill, chain),
+					loc: opts.loc,
 					targetLoc: opts.targetLoc
 				})
 			}
@@ -1173,7 +1177,7 @@ module.exports = function SkillPrediction(dispatch) {
 		setTimeout(removeProjectile, 5000, id, info.type === 'userProjectile', true)
 
 		if(info.type === 'userProjectile') {
-			let loc = applyDistance(Object.assign({}, currentLocation), 15)
+			let loc = applyDistance(Object.assign({}, opts.loc), 15)
 
 			dispatch.toClient('S_START_USER_PROJECTILE', 4, {
 				gameId,
@@ -1340,16 +1344,16 @@ module.exports = function SkillPrediction(dispatch) {
 	function skillId(id, flagAs) {
 		id |= flagAs
 
-		let skillFlags = ['P', 'C', '[?3]', '[?4]', '[?5]', '[?6]'],
+		let skillFlags = ['[?1]', 'N', '[?2]', '[?3]', 'C', 'S'],
 			flags = ''
 
-		for(let i = 0, x = id >>> 26; x; i++, x >>>= 1)
-			if(x & 1) flags += skillFlags[i]
+		for(let i = 0; i < 6; i++)
+			if(id & (1 << 31 - i)) flags += skillFlags[i]
 
 		id = (id & 0x3ffffff).toString()
 
 		switch(flags) {
-			case 'P':
+			case 'S':
 				id = [id.slice(0, -4), id.slice(-4, -2), id.slice(-2)].join('-')
 				break
 			case 'C':
