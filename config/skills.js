@@ -2647,10 +2647,7 @@ module.exports = {
 			3: { length: 1200 }
 		},
 		9: { // Mana Missiles
-			'*': {
-				length: 1250,
-				noRetry: true
-			},
+			'*': { length: 1250 },
 			0: {
 				type: 'charging',
 				length: 1200,
@@ -2658,11 +2655,13 @@ module.exports = {
 			},
 			10: {
 				distance: -50,
-				projectiles: [21, 22]
+				projectiles: [21, 22],
+				noRetry: true
 			},
 			11: {
 				distance: -100,
-				projectiles: [21, 22, 23, 24, 25]
+				projectiles: [21, 22, 23, 24, 25],
+				noRetry: true
 			},
 			21: {
 				type: 'userProjectile',
