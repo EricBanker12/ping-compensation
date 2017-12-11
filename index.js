@@ -28,6 +28,8 @@ module.exports = function PingCompensation(dispatch) {
 		timeouts = {},
 		ping = {},
 		startTime = Date.now(),
+		alive = false,
+		mounted = false,
 		currentAction = false
 		
 	// Skill Prediction compatability
@@ -184,7 +186,7 @@ module.exports = function PingCompensation(dispatch) {
 				skillBase = Math.floor(skill / 10000),
 				skillSub = skill % 100
 			// if skill is in config
-			if (skills[job] && settings[job] && skills[job][skillBase] && settings[job][skillBase] && skills[job][skillBase][skillSub]) {
+			if (alive && !mounted && skills[job] && settings[job] && skills[job][skillBase] && settings[job][skillBase] && skills[job][skillBase][skillSub]) {
 				// get length
 				let length = getValue("length", skillBase, skillSub)
 				// if skill is multi-stage
@@ -192,16 +194,6 @@ module.exports = function PingCompensation(dispatch) {
 				if (Array.isArray(length)) {
 					lengthArray = length
 					if (event.stage < lengthArray.length) {length = lengthArray[event.stage]}
-					else {
-						let autoRelease = getValue("autoRelease", skillBase, skillSub)
-						if ( autoRelease > 0) {
-							length = 0
-							for (let stage of lengthArray) {
-								length += stage
-							}
-							length = autoRelease - length
-						}
-					}
 				}
 				//if (debug) console.log('length', length)
 				if (length && length > 0) {
@@ -213,6 +205,7 @@ module.exports = function PingCompensation(dispatch) {
 					else {
 						event.speed = event.speed * length / (length - ping.min)
 					}
+					if (debug) {console.log(`Increased Speed ${event.speed}`)}
 					// get distance
 					let distance = 0
 					// if server sends distance
@@ -274,7 +267,7 @@ module.exports = function PingCompensation(dispatch) {
 		if (event.gameId.equals(gameId)) {
 			if (debug) {console.log(`S_ACTION_END ${Date.now() - startTime} ${JSON.stringify(Object.values(event))}`)}
 			// if modded skill
-			if (currentAction && currentAction.id == event.id) {
+			if (alive && !mounted && currentAction && currentAction.id == event.id) {
 				// if not fake ended
 				if (timeouts[event.id]) {
 					// disable fake endSkill
@@ -303,4 +296,57 @@ module.exports = function PingCompensation(dispatch) {
 			}
 		}
 	})
+	
+	// S_SPAWN_ME
+	dispatch.hook('S_SPAWN_ME', 1, event => {
+        alive = event.alive
+    })
+
+	// S_CREATURE_LIFE
+    dispatch.hook('S_CREATURE_LIFE', 1, event => {
+        if (gameId.equals(event.target)) {
+            alive = event.alive
+            if (!alive) {
+				clearTimeout(timeouts[currentAction.id])
+				timeouts[currentAction.id] = false
+				currentAction = false
+            }
+        }
+    })
+	
+	// S_LOAD_TOPO
+	dispatch.hook('S_LOAD_TOPO', 1, event => {
+		clearTimeout(timeouts[currentAction.id])
+		timeouts[currentAction.id] = false
+		currentAction = false
+		mounted = false
+	})
+	
+	// S_MOUNT_VEHICLE
+	dispatch.hook('S_MOUNT_VEHICLE', 1, event => {
+        if (gameId.equals(event.target)) {
+            mounted = true
+        }
+    })
+
+	// S_UNMOUNT_VEHICLE
+    dispatch.hook('S_UNMOUNT_VEHICLE', 1, event => {
+        if (gameId.equals(event.target)) {
+            mounted = false
+        }
+    })
+	
+	// S_MOUNT_VEHICLE_EX
+	dispatch.hook('S_MOUNT_VEHICLE_EX', 1, event => {
+        if (gameId.equals(event.target)) {
+			mounted = true
+		}
+    })
+
+	// S_UNMOUNT_VEHICLE_EX
+    dispatch.hook('S_UNMOUNT_VEHICLE_EX', 1, event => {
+        if (gameId.equals(event.target)) {
+            mounted = false
+        }
+    })
 }
