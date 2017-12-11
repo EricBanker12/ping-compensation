@@ -425,7 +425,9 @@ module.exports = function SkillPrediction(dispatch) {
 				}
 			}
 
-			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub) || get(info, 'chains', currentSkillBase)
+			let chain = get(info, 'chains', currentSkillBase + '-' + currentSkillSub)
+
+			if(chain === undefined) chain = get(info, 'chains', currentSkillBase)
 
 			if(chain !== undefined) {
 				if(chain === null) {
