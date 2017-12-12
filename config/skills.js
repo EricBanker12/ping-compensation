@@ -3334,7 +3334,7 @@ module.exports = {
 				chains: {
 					1: 30,
 					3: 30,
-					//5: 30,
+					5: 30,
 					6: 30,
 					8: 30,
 					9: 30,
@@ -3462,14 +3462,14 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3265, //
+				length: 3225, //
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
 				chains: {
 					12: 1
 				}
 			},
 			1: {
-				length: 2060, //
+				length: 2025, //
 				noInterrupt: ['12-1']
 			}
 		},
