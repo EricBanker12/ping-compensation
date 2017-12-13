@@ -30,6 +30,7 @@ module.exports = function PingCompensation(dispatch) {
         startTime = Date.now(),
         alive = false,
         mounted = false,
+        queuedPacket = false,
         currentAction = false
         
     // Skill Prediction compatability
@@ -118,17 +119,22 @@ module.exports = function PingCompensation(dispatch) {
     })
     
     // C_PLAYER_LOCATION
-    dispatch.hook('C_PLAYER_LOCATION', 2, {order: -10, filter: {fake: null}}, event => {
+    dispatch.hook('C_PLAYER_LOCATION', 2, {order: -10, filter: {fake: false}}, event => {
         // update S_ACTION_END
         for (let coord of ["x", "y", "z", "w"]) {
             if (currentAction && timeouts[currentAction.id]) {
                 currentAction[coord] = event[coord]
             }
-            // if between fake and real S_ACTION_END
-            if (currentAction && !timeouts[currentAction.id]) {
-                // block location packets
-                return false
-            }
+        }
+    })
+    
+    // C_PLAYER_LOCATION
+    dispatch.hook('C_PLAYER_LOCATION', 'raw', {order: -5, filter: {fake: false}}, (data) => {
+        // if between fake and real S_ACTION_END
+        if (currentAction && !timeouts[currentAction.id]) {
+            queuedPacket = data
+            // block location packets
+            return false
         }
     })
     
@@ -273,7 +279,6 @@ module.exports = function PingCompensation(dispatch) {
                     // disable fake endSkill
                     clearTimeout(timeouts[event.id])
                     timeouts[event.id] = false
-                    currentAction = false
                 }
                 // if fake ended
                 else {
@@ -289,11 +294,17 @@ module.exports = function PingCompensation(dispatch) {
                             w: event.w
                         })
                     }
+                    else if (queuedPacket) {
+                        dispatch.toServer(queuedPacket)
+                    }
+                    queuedPacket = false
                     currentAction = false
                     // hide this sActionEnd
                     return false
                 }
             }
+            queuedPacket = false
+            currentAction = false
         }
     })
     
@@ -316,9 +327,11 @@ module.exports = function PingCompensation(dispatch) {
     
     // S_LOAD_TOPO
     dispatch.hook('S_LOAD_TOPO', 1, event => {
-        clearTimeout(timeouts[currentAction.id])
-        timeouts[currentAction.id] = false
-        currentAction = false
+        if (currentAction) {
+            clearTimeout(timeouts[currentAction.id])
+            timeouts[currentAction.id] = false
+            currentAction = false
+        }
         mounted = false
     })
     
