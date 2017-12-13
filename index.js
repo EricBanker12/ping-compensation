@@ -129,7 +129,7 @@ module.exports = function PingCompensation(dispatch) {
     })
     
     // C_PLAYER_LOCATION
-    dispatch.hook('C_PLAYER_LOCATION', 'raw', {order: -5, filter: {fake: false}}, (data) => {
+    dispatch.hook('C_PLAYER_LOCATION', 'raw', {order: -5, filter: {fake: false}}, (code, data) => {
         // if between fake and real S_ACTION_END
         if (currentAction && !timeouts[currentAction.id]) {
             queuedPacket = data
