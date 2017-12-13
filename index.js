@@ -320,6 +320,7 @@ module.exports = function PingCompensation(dispatch) {
             if (!alive) {
                 clearTimeout(timeouts[currentAction.id])
                 timeouts[currentAction.id] = false
+                queuedPacket = false
                 currentAction = false
             }
         }
@@ -330,6 +331,7 @@ module.exports = function PingCompensation(dispatch) {
         if (currentAction) {
             clearTimeout(timeouts[currentAction.id])
             timeouts[currentAction.id] = false
+            queuedPacket = false
             currentAction = false
         }
         mounted = false
