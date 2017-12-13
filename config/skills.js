@@ -3548,10 +3548,11 @@ module.exports = {
 				noRetry: true,
 				length: 1195,
 				noInterrupt: [1],
-				projectiles: [20]
+				projectiles: [20],
+				triggerAbnormal: { 10152011: 3100 }
 			},
 			1: true,
-			2: true,
+			2: { noRetry: true },
 			20: {
 				type: 'userProjectile',
 				flyingSpeed: 800,
@@ -3711,7 +3712,11 @@ module.exports = {
 				triggerAbnormal: { 10152010: 3100 },
 				fixedSpeed: 1,
 				length: 1000,
-				projectiles: [20]
+				projectiles: [20],
+				triggerAbnormal: {
+					10152010: 3100,
+					10152084: 4100
+				}
 			},
 			1: true,
 			2: true,
@@ -3735,6 +3740,7 @@ module.exports = {
 				},
 				fixedSpeed: 1,
 				noInterrupt: [7],
+				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			2: {
@@ -3744,6 +3750,7 @@ module.exports = {
 				},
 				fixedSpeed: 1,
 				noInterrupt: [7],
+				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			3: {
@@ -3755,10 +3762,7 @@ module.exports = {
 			}
 		},
 		9: { // Mana Missiles
-			'*': {
-				length: 1250,
-				noInterrupt: [20]
-			},
+			'*': { length: 1250 },
 			0: {
 				triggerAbnormal: { 10152085: 4100 },
 				type: 'charging',
@@ -3767,12 +3771,14 @@ module.exports = {
 			10: {
 				triggerAbnormal: { 10152085: 4100 },
 				distance: -50,
-				projectiles: [21, 22]
+				projectiles: [21, 22],
+				noRetry: true
 			},
 			11: {
 				triggerAbnormal: { 10152085: 4100 },
 				distance: -100,
-				projectiles: [21, 22, 23, 24, 25]
+				projectiles: [21, 22, 23, 24, 25],
+				noRetry: true
 			},
 			21: {
 				type: 'userProjectile',
@@ -3825,8 +3831,19 @@ module.exports = {
 			2: true,
 			20: {
 				type: 'userProjectile',
+				delay: 450,
 				flyingSpeed: 700,
-				flyingDistance: 350
+				flyingDistance: 350,
+				level: [
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 },
+					{ flyingSpeed: 800 }
+				]
 			},
 			// TODO: Chain projectiles
 			/*21: {
@@ -3899,7 +3916,7 @@ module.exports = {
 					'9-11': null,
 					10: null,
 					11: null,
-					//13: null,
+					13: null,
 					15: null,
 					19: null,
 					40: null
@@ -3968,6 +3985,7 @@ module.exports = {
 			2: true,
 			20: {
 				type: 'userProjectile',
+				delay: 350,
 				flyingSpeed: 700,
 				flyingDistance: 450
 			},
@@ -3997,6 +4015,10 @@ module.exports = {
 				length: 935,
 				noInterrupt: [11],
 				distance: 172.5,
+				triggerAbnormal: {
+					10152010: 3100,
+					10152012: 3100
+				},
 				forceClip: true
 			}
 		}

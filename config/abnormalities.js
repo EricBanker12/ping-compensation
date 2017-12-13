@@ -2,17 +2,47 @@ module.exports = {
 	/* Slayer */
 	23220: true, // Distant Blade & ICB (Duration)
 
+
+	/* Gunner */
+
+	// Point Blank(Duration)
+	10152000: true, // First cast
+	10152001: true, // First cast
+	10152002: true, // Second cast
+
+	10152010: true, // Time Bomb, Arcane Barrage first cast & Rolling Reload(Duration)
+	10152011: true, // Blast(Duration)
+	10152012: true, // Rolling Reload(Duration)
+
+	// Burst Fire(Duration)
+	10152050: true, // Second cast
+	10152053: true, // First cast
+	10152054: true, // Second cast
+
+	10152071: true, // Rolling Reload(Duration)
+	10152072: true, // Replenishment(Duration)
+	10152080: true, // Rolling Reload(Duration)
+	10152082: true, // Bombardment(Second Cast duration)
+	10152083: true, // Scatter Shot(Duration)
+	10152084: true, // Time bomb(Cast and projectile duration)
+	10152085: true, // Mana Missiles Charging & Firing(Charging, cast and projectile duration)
+	10152086: true, // Arcane Bomb(Cast and projectile duration)
+	// 10152087: Rocket Jump(startOnEnd)
+	10153093: true, // Rocket Jump & Rolling Reload(Memory leak >//>) 
+	//10152097: true // Balder's Vengeance(Duration)
+
+
 	/* Brawler */
-	10153060: true, // Punch (linked)
-	10153001: true, // Punch > Counter 1 (linked)
-	10153002: true, // Punch > Counter 2 (linked)
-	10153003: true, // Punch > Counter 3 (linked)
-	10153004: true, // Punch > Counter 4 (linked)
-	10153005: true, // Counter (linked)
-	10153006: true, // Counter (linked)
+	10153060: true, // Punch (duration)
+	10153001: true, // Punch > Counter 1 (duration)
+	10153002: true, // Punch > Counter 2 (duration)
+	10153003: true, // Punch > Counter 3 (duration)
+	10153004: true, // Punch > Counter 4 (duration)
+	10153005: true, // Counter (duration)
+	10153006: true, // Counter (duration)
+
 
 	/* Ninja */
-
 
 	// Combo Attack
 	10154000: true,
@@ -40,34 +70,5 @@ module.exports = {
 	// Fire Avalanche(Duration)
 	10154080: true, // First cast
 	10154081: true, // Second cast
-	10154082: true, // Third cast
-
-	/* Gunner */
-
-
-	// Point Blank(Duration)
-	10152000: true, // First cast
-	10152001: true, // First cast
-	10152002: true, // Second cast
-
-	10152010: true, // Time Bomb, Arcane Barrage first cast & Rolling Reload(Duration)
-	10152011: true, // Blast(Duration)
-	10152012: true, // Rolling Reload(Duration)
-
-	// Burst Fire(Duration)
-	10152050: true, // Second cast
-	10152053: true, // First cast
-	10152054: true, // Second cast
-
-	10152071: true, // Rolling Reload(Duration)
-	10152072: true, // Replenishment(Duration)
-	10152080: true, // Rolling Reload(Duration)
-	10152082: true, // Bombardment(Second Cast duration)
-	10152083: true, // Scatter Shot(Duration)
-	10152084: true, // Time bomb(Cast and projectile duration)
-	10152085: true, // Mana Missiles Charging & Firing(Charging, cast and projectile duration)
-	10152086: true, // Arcane Bomb(Cast and projectile duration)
-	// 10152087: Rocket Jump(startOnEnd)
-	10153093: true // Rocket Jump & Rolling Reload(Memory leak >//>) 
-	//10152097: true // Balder's Vengeance(Duration)
+	10154082: true // Third cast
 }
