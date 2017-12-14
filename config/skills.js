@@ -1857,10 +1857,11 @@ module.exports = {
 		6: { // Shara's Lash
 			0: { length: 1275 }
 		},
-		8: { // Metmorphic Blast
+		8: { // Metamorphic Blast
 			0: {
 				length: 820,
-				noInterrupt: [1, 2, 17],
+				noInterrupt: [1, 2, 6, 17],
+				checkReset: true,
 				chains: {
 					8: 30,
 					23: 30
@@ -1978,10 +1979,8 @@ module.exports = {
 		23: { // Metmorphic Smite
 			0: {
 				length: 1430,
-				noInterrupt: [1, 2, 17],
-				chains: {
-					8: 30
-				}
+				noInterrupt: [1, 2, 6, 17, 23],
+				chains: { 8: 30 }
 			},
 			30: { length: 1100 }
 		},
