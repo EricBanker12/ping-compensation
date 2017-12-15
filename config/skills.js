@@ -2063,7 +2063,7 @@ module.exports = {
 			}
 		},
 		12: { // Void Pulse
-			0: { length: 935 } //
+			0: { length: 935 } // 
 		},
 		13: { // Mindblast
 			0: {
@@ -2204,7 +2204,7 @@ module.exports = {
 			}
 		},
 		27: { // Hailstorm
-			0: { length: 980 }
+			0: { length: 960 } //
 		},
 		30: { // Nova
 			0: {
@@ -2854,6 +2854,7 @@ module.exports = {
 			0: {
 				length: 820,
 				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, 21, '18-10', '22-10', 37, '41-10', 43], // The skill behaves the same way Metamorphic Smite does from lvls 1 to 10 then at lvl 11 it loses its cancelling properties
+				checkReset: true,
 				chains: {
 					8: 30,
 					23: 30
@@ -2992,9 +2993,7 @@ module.exports = {
 			0: {
 				length: 1430,
 				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43],
-				chains: {
-					8: 30
-				}
+				chains: { 8: 30 }
 			},
 			30: { length: 1100 }
 		},
@@ -3238,7 +3237,7 @@ module.exports = {
 		3: { // Double Shear
 			'*': {
 				length: 2025,
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 13, 14, 20],
 				abnormals: {
 					29030: { speed: 1.25 }
 				},
@@ -3257,7 +3256,7 @@ module.exports = {
 		},
 		4: { // Sundering Strike
 			'*': {
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 13, 20],
 				chains: {
 					1: null,
 					3: null,
@@ -3348,25 +3347,34 @@ module.exports = {
 			'*': {
 				length: 1250,
 				abnormals: {
-					10151131: { chain: 31 }
+					10151131: { chain: 31 } // Chains with 0 -> 6 by default ¿?
 				},
 				chains: {
 					1: 30,
 					3: 30,
 					4: 30,
 					5: 30,
-					6: 30,
+					'6-0': 31,
+					'6-30': 31,
 					8: 30,
 					9: 30,
 					10: 30,
 					11: 30,
-					12: 30
-				},
+					12: 30,
+					20: 30
+				}
+			},
+			0: {
+				triggerAbnormal: { 10151131: 6000 }, // We emulated for two reasons, 1. Other skills precise it to chain and 2. It's possible to send second casts without the abnormal in the server, resulting in ghosting.
 				noRetry: true
 			},
-			0: { noInterrupt: ['6-31'] },
-			30: true,
-			31: true
+			30: {
+				triggerAbnormal: { 10151131: 6000 },
+				noRetry: true
+			},
+			31: {
+				consumeAbnormal: 10151131
+			}
 		},
 		8: { // Whipsaw
 			'*': {
@@ -3432,18 +3440,18 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 1250, // Length for any stage unless the stage itself has one stated already
-				noRetry: true,
+				length: 1250,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 2150, // Specific length for stage 0
-				triggerAbnormal: { 10151040: 2000 },
+				length: 2150,
+				triggerAbnormal: { 10151040: 2000 }, // Stacks ¿?
 				abnormals: {
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
-				}
+				},
+				noRetry: true
 			},
 			1: {
 				triggerAbnormal: { 10151041: 2000 },
@@ -3459,18 +3467,17 @@ module.exports = {
 			'*': {
 				glyphs: {
 					29026: { speed: 1.25 }
-				}
+				},
+				chains: { '12-0': 1 }
 			},
 			0: {
+				triggerAbnormal: { 10151150: 3000 },
+				consumeAbnormalEnd: 10151150,
 				length: 3225,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
-				chains: {
-					12: 1
-				}
 			},
 			1: {
 				length: 2025,
-				noInterrupt: ['12-1']
 			}
 		},
 		14: { // Retaliate
