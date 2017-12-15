@@ -717,7 +717,7 @@ module.exports = function SkillPrediction(dispatch) {
 
 	// This packet is sent *before* S_ACTION_STAGE, so we should have plenty of time to check if the skill reset or not before the user uses it again
 	dispatch.hook('S_CREST_MESSAGE', 2, event => {
-		if(DEBUG) debug(`<- S_CREST_MESSAGE ${event.unk} ${event.type} ${skillId(event.skill, Flags.Skill)}`)
+		if(config.DEBUG) debug(`<- S_CREST_MESSAGE ${event.unk} ${event.type} ${skillId(event.skill, Flags.Skill)}`)
 
 		if(event.type === 6 && currentAction && event.skill === currentAction.skill - Flags.Skill)
 			currentAction.reset = true
