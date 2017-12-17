@@ -14,7 +14,7 @@ class Ping {
     this.history = [];
   
     const updatePing = ping => {
-      this.history.pop();
+      this.history.shift();
       this.history.push(ping);
 
       if(this.history.length > PING_HISTORY_MAX) this.history.shift();
