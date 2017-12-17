@@ -52,8 +52,8 @@ class Ping {
       return ((id > 0x4000000) ? id - 0x4000000 : id);
     };
     
-    //dispatch.hook('C_CHECK_VERSION', 1, pingStart.bind(null, 1));
-    //dispatch.hook('S_CHECK_VERSION', 1, pingEnd.bind(null, 1));
+    dispatch.hook('C_CHECK_VERSION', 1, pingStart.bind(null, 1));
+    dispatch.hook('S_CHECK_VERSION', 1, pingEnd.bind(null, 1));
     dispatch.hook('S_LOGIN', 1, e => { ({cid} = e); });
 
     const skillHook = e => {
