@@ -31,6 +31,7 @@ module.exports = function PingCompensation(dispatch) {
         alive = false,
         mounted = false,
         queuedPacket = false,
+        queuedTimeout = false,
         currentAction = false
         
     // Skill Prediction compatability
@@ -129,12 +130,18 @@ module.exports = function PingCompensation(dispatch) {
     })
     
     // C_PLAYER_LOCATION
-    dispatch.hook('C_PLAYER_LOCATION', 'raw', {order: -5, filter: {fake: false}}, (code, data) => {
-        // if between fake and real S_ACTION_END
-        if (currentAction && !timeouts[currentAction.id]) {
-            queuedPacket = data
-            // block location packets
-            return false
+    dispatch.hook('C_PLAYER_LOCATION', 'raw', {order: -5, (code, data, fromServer, fake) => {
+        if (!fake) {
+            // if between fake and real S_ACTION_END
+            if (currentAction && !timeouts[currentAction.id]) {
+                queuedPacket = data
+                queuedTimeout = setTimeout(()=>{
+                    queuedPacket = false
+                    currentAction = false
+                },1000)
+                // block location packets
+                return false
+            }
         }
     })
     
@@ -274,6 +281,8 @@ module.exports = function PingCompensation(dispatch) {
             if (debug) {console.log(`S_ACTION_END ${Date.now() - startTime} ${JSON.stringify(Object.values(event))}`)}
             // if modded skill
             if (alive && !mounted && currentAction && currentAction.id == event.id) {
+                clearTimeout(queuedTimeout)
+                queuedTimeout = false
                 // if not fake ended
                 if (timeouts[event.id]) {
                     // disable fake endSkill
