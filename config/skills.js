@@ -212,7 +212,6 @@ module.exports = {
 				level: {
 					9: {
 						abnormals: {
-							100200: { skill: 390100 },
 							100201: { skill: 390100 }
 						}
 					}
@@ -224,7 +223,6 @@ module.exports = {
 				level: {
 					9: {
 						abnormals: {
-							100200: { skill: 390100 },
 							100201: { skill: 390100 }
 						}
 					}
