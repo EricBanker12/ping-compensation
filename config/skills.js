@@ -340,22 +340,28 @@ module.exports = {
 				length: 2000,
 				distance: 160,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
-				abnormals: {
-					100200: { skill: 390100 },
-					100201: { skill: 390100 }
-				},
 				chains: {
 					11: 30,
 					18: 30,
 					27: 30
+				},
+				level: {
+					9: {
+						abnormals: {
+							100201: { skill: 390100 }
+						}
+					}
 				}
 			},
 			30: {
 				length: 2650,
 				distance: 210,
-				abnormals: {
-					100200: { skill: 390130 },
-					100201: { skill: 390130 }
+				level: {
+					9: {
+						abnormals: {
+							100201: { skill: 390100 }
+						}
+					}
 				}
 			}
 		},
@@ -364,9 +370,7 @@ module.exports = {
 				length: 3000,
 				distance: 94.5,
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
-				interruptibleWithAbnormal: {
-					102010: 3
-				},
+				interruptibleWithAbnormal: { 102010: 3 },
 				abnormals: {
 					102010: { chain: 30 },
 					100801: { skill: 370100 }
