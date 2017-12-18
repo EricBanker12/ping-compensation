@@ -359,7 +359,7 @@ module.exports = {
 				level: {
 					9: {
 						abnormals: {
-							100201: { skill: 390100 }
+							100201: { skill: 390130 }
 						}
 					}
 				}
