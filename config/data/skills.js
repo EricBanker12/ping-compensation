@@ -3131,7 +3131,7 @@ module.exports = {
 		3: { // Double Shear
 			'*': {
 				length: 2025,
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 13, 14, 20],
 				abnormals: {
 					29030: { speed: 1.25 }
 				},
@@ -3150,7 +3150,7 @@ module.exports = {
 		},
 		4: { // Sundering Strike
 			'*': {
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 13, 20],
 				chains: {
 					1: null,
 					3: null,
@@ -3248,18 +3248,28 @@ module.exports = {
 					3: 30,
 					4: 30,
 					5: 30,
-					6: 30,
+					'6-0': 31,
+					'6-30': 31,
 					8: 30,
 					9: 30,
 					10: 30,
 					11: 30,
-					12: 30
+					12: 30,
+					20: 30
 				},
 				noRetry: true
 			},
-			0: { noInterrupt: ['6-31'] },
-			30: true,
-			31: true
+			0: {
+				triggerAbnormal: { 10151131: 6000 }, // We emulated for two reasons, 1. Other skills precise it to chain and 2. It's possible to send second casts without the abnormal in the server, resulting in ghosting.
+				noRetry: true
+			},
+			30: {
+				triggerAbnormal: { 10151131: 6000 },
+				noRetry: true
+			},
+			31: {
+				consumeAbnormal: 10151131
+			}
 		},
 		8: { // Whipsaw
 			'*': {
@@ -3276,7 +3286,7 @@ module.exports = {
 		},
 		9: { // Smite
 			0: {
-				evasive: true,
+				CC: ["evasive", "extended"],
 				length: 1725,
 				distance: 168,
 				inPlace: {
@@ -3326,7 +3336,8 @@ module.exports = {
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
-				}
+				},
+				noRetry: true
 			},
 			1: {
 				triggerAbnormal: { 10151041: 2000 },
@@ -3345,29 +3356,27 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3225, //
+				length: 3225,
+				triggerAbnormal: { 10151150: 3000 },
+				consumeAbnormalEnd: 10151150,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
-				chains: {
-					12: 1
-				}
 			},
 			1: {
-				length: 2025, //
-				noInterrupt: ['12-1']
+				length: 2025
 			}
 		},
-		/*14: { // Retaliate
+		14: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1610,
+				length: 1600,
 				noRetry: true
 			}
-		},*/
+		},
 		15: { // Retribution
 			0: {
 				CC: "extended",
 				fixedSpeed: 1,
-				length: 1575, //
+				length: 1575,
 			}
 		},
 		16: { // Shadow Reaping
