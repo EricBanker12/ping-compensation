@@ -2,6 +2,16 @@ module.exports = {
 	/* Slayer */
 	23220: true, // Distant Blade & ICB (linked)
 
+	/* Reaper */
+
+	// Shadow Lash (SelfChains)
+	10151040: true, // First cast
+	10151041: true, // Second cast
+	10151042: true, // Third cast
+
+	10151131: true, // Spiral Death (enableChain, selfChain)
+	10151150: true, // Shadow Burst (selfChain)
+
 	/* Brawler */
 	10153060: true, // Punch (linked)
 	10153001: true, // Punch > Counter 1 (linked)
