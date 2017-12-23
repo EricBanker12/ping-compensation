@@ -1,0 +1,18 @@
+{
+	"enabled": true,
+	"jitterCompensation": true,
+	"skillRetryCount": 12,
+	"skillRetryMs": 30,
+	"skillRetryJittercomp": 25,
+	"skillRetryAlways": false,
+	"skillDelayOnFail": true,
+	"serverTimeout": 250,
+	"forceClipStrict": true,
+	"debugGlyphs": false,
+	"debug": false,
+    "debugAbnormals": false,
+	"defendSuccessStrict": true,
+	"debugLoc": false,
+	"mountCheck": true,
+	"bodyRollsCheck": false
+}

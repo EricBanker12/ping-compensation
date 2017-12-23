@@ -67,6 +67,7 @@ module.exports = {
 		},
 		2: { // Evasive Roll
 			0: {
+				CC: ["evasive", "extended"],
 				length: 830,
 				distance: 150,
 				forceClip: true,
@@ -180,13 +181,10 @@ module.exports = {
 		},
 		12: { // Leaping Strike
 			0: {
+				CC: "extended",
 				length: 1525,
 				distance: 250,
 				noInterrupt: [32],
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				race: {
 					2: { length: 1525 }, // M.Helf
 					5: { length: 1525 }, // F.Aman
@@ -196,24 +194,21 @@ module.exports = {
 				}
 			}
 		},
-		13: { // Retaliate
+		/*13: { // Retaliate
 			0: {
 				type: 'retaliate',
 				length: 1630,
 				noInterrupt: [32],
 				noRetry: true
 			}
-		},
+		},*/
 		16: { // Charging Slash
 			0: {
+				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1115,
 				distance: 467.88,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				noRetry: true,
 				noInterrupt: [16, 32]
 			},
@@ -370,7 +365,9 @@ module.exports = {
 				length: 3000,
 				distance: 94.5,
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
-				interruptibleWithAbnormal: { 102010: 3 },
+				interruptibleWithAbnormal: {
+					102010: 3
+				},
 				abnormals: {
 					102010: { chain: 30 },
 					100801: { skill: 370100 }
@@ -396,7 +393,7 @@ module.exports = {
 		30: { // Scythe
 			'*': { distance: 150 }, // Old fast cast value was wrong on Elin, unless that had a pve intention on it, idk.
 			0: {
-				length: 1850,
+				length: 1825,
 				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
 				abnormals: {
 					100801: { skill: 380100 }
@@ -433,14 +430,11 @@ module.exports = {
 		},
 		32: { // Cross Parry
 			0: {
+				CC: "extended",
 				type: 'holdInfinite',
 				fixedSpeed: 1,
 				requiredBuff: [100200, 100201],
 				stamina: 50,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		34: { // Binding Sword
@@ -552,13 +546,10 @@ module.exports = {
 		},
 		2: { // Stand Fast
 			0: {
+				CC: "extended",
 				type: 'holdInfinite',
 				fixedSpeed: 1,
 				stamina: 50,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		3: { // Onslaught
@@ -695,14 +686,11 @@ module.exports = {
 		},
 		15: { // Charging Lunge
 			0: {
+				CC: "extended",
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1115,
 				distance: 474.5,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				noInterrupt: [2, 15]
 			},
 			1: {
@@ -811,10 +799,7 @@ module.exports = {
 		},
 		25: { // Wallop
 			'*': {
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
+				CC: "extended",
 			},
 			0: {
 				length: 2375,
@@ -835,6 +820,7 @@ module.exports = {
 		},
 		26: { // Backstep
 			0: {
+				CC: ["evasive", "extended"],
 				length: 725,
 				distance: -150,
 				forceClip: true,
@@ -845,16 +831,6 @@ module.exports = {
 					22067: { stamina: -100 },
 					22089: { stamina: -100 }
 				},
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		27: { // Rallying Cry
@@ -987,20 +963,11 @@ module.exports = {
 		},
 		4: { // Evasive Roll
 			'*': {
+				CC: ["evasive", "extended"],
 				length: 905,
 				distance: 150,
 				forceclip: true,
 				noInterrupt: [4],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				race: {
 					8: {	// Popori: 150.316, 1185
 						distance: 150.32,
@@ -1013,16 +980,9 @@ module.exports = {
 		},
 		5: { // Dash
 			0: {
+				evasive: true,
 				fixedSpeed: 1,
 				length: 700,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 }
-				}
 			}
 		},
 		8: { // Overhand Strike
@@ -1068,12 +1028,9 @@ module.exports = {
 		},
 		9: { // Leaping Strike
 			0: {
-				length: 2175, //
+				CC: "extended",
+				length: 2175,
 				distance: 250,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		10: { // Retaliate
@@ -1153,22 +1110,13 @@ module.exports = {
 		},
 		15: { // Startling Kick
 			0: {
+				CC: ["evasive", "extended"],
 				length: 1500,
 				distance: -175,
 				forceClip: true,
 				glyphs: {
 					23060: { speed: 1.25 }
 				},
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		16: { // Fury Strike
@@ -1190,21 +1138,12 @@ module.exports = {
 		},
 		17: { // Headlong Rush
 			0: {
+				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1000,
 				distance: 413, // Baraka, 420.018 | M.Aman, 420.007 | M.Human 420
 				noInterrupt: [17],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		18: { // Overpower
@@ -1296,7 +1235,7 @@ module.exports = {
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2, 4] },
 			0: {
-				length: 1105, // 1100 new length, at least on Elin and M.Casta, maybe some sneaky equalization?
+				length: 1107,
 				distance: 78,
 				race: {
 					3: { distance: 63.24 }, // F.Helf: 63.236
@@ -1341,11 +1280,8 @@ module.exports = {
 		},
 		2: { // Axe Block
 			'*': {
+				CC: "extended",
 				type: 'holdInfinite',
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			},
 			0: { fixedSpeed: 1 },
 			30: true,
@@ -1426,7 +1362,8 @@ module.exports = {
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
 					10: { distance: 64.88 } // Baraka: 64.884
-				}
+				},
+				canVB: true
 			}
 		},
 		4: { // Flatten
@@ -1471,17 +1408,10 @@ module.exports = {
 		},
 		5: { // Dash
 			0: {
+				evasive: true,
 				fixedSpeed: 1,
 				length: 700,
 				noInterrupt: [2],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 }
-				}
 			}
 		},
 		6: { // Sweeping Strike
@@ -1586,18 +1516,16 @@ module.exports = {
 				noInterrupt: [2, 4, 15, 24, 25, 30],
 				races: {
 					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf
-				}
+				},
+				canVB: true
 			}
 		},
 		11: { // Leaping Strike 
 			0: {
+				CC: "extended",
 				length: 2190, // 2185
 				distance: 250,
 				noInterrupt: [2],
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		12: { // Unchained Anger
@@ -1608,20 +1536,20 @@ module.exports = {
 			30: true,
 			31: true
 		},
-		13: { // Retaliate
+		13: { // Retaliate (TODO: Check)
 			0: {
 				type: 'retaliate',
-				length: 1630,
+				length: 1625,
 				noInterrupt: [2],
 				noRetry: true
 			}
 		},
-		/*15: { // Vampiric Blow  //         Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work
-            '*': { length: 1930 },            // Usage:            1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
-            0: {                             //                    2. Must be in combat when used.  
-                type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
+		15: { // Vampiric Blow  //         Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work
+			'*': { length: 1930 },            // Usage:            1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
+			0: {                             //                    2. Must be in combat when used.  
+				type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
-				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
+				noInterrupt: [2, '3-0', 4, '10-0', '15-14', '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
 				//autorelease: 2515 // ish
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
@@ -1629,17 +1557,17 @@ module.exports = {
 					4010150: { chargeSpeed: 0.2 }
 				},
 				chains: {
-                    '3-13': 14, // this is fine though maybe uneeded, 13: 14 does the same
-                    '10-13': 14,
-                    '18-13': 14
-                },
+					'3-13': 14, // this is fine though maybe uneeded, 13: 14 does the same
+					'10-13': 14,
+					'18-13': 14
+				},
 				level: [
 					{ length: 800 },	// 1600
 					{ length: [800, 800] },	// 1600
 					{ length: [800, 800] }	// 1600
 				]
-            },
-            10: {
+			},
+			10: {
 				distance: 87.28, // 87.272
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
@@ -1650,7 +1578,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}
 			},
-            11: {
+			11: {
 				distance: 87.28, // 87.272
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
@@ -1661,7 +1589,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}
 			},
-            12: {
+			12: {
 				distance: 87.28, // 87.272
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
@@ -1672,7 +1600,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}
 			},
-            13: {
+			13: {
 				distance: 87.28, // 87.272
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
@@ -1683,7 +1611,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}
 			},
-            14: { 
+			14: {
 				distance: 87.28, // 87.272
 				race: {
 					3: { distance: 72.79 }, // F.Helf: 72.785
@@ -1693,7 +1621,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}
 			}
-		},*/
+		},
 		16: { // Fearsome Shout
 			0: {
 				fixedSpeed: 1,
@@ -1761,7 +1689,8 @@ module.exports = {
 					8: { distance: 240.4 }, // Popori: 240.4
 					9: { distance: 167.62 }, // Elin: 167.624
 					10: { distance: 158.11 } // Baraka: 158.112
-				}
+				},
+				canVB: true
 			}
 		},
 		19: { // Tenacity
@@ -1797,17 +1726,10 @@ module.exports = {
 				}
 			},
 			0: {
+				evasive: true,
 				type: 'storeCharge',
 				length: 1015, // 1000, 1025
 				distance: 150,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 }
-				}
 			},
 			5: { type: 'grantCharge' },
 			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] }, // check noInterrupts
@@ -1867,20 +1789,11 @@ module.exports = {
 		},
 		29: { // Evasive Roll
 			0: {
+				CC: ["evasive", "extended"],
 				length: 905,
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		30: { // Axe Counter
@@ -1904,14 +1817,11 @@ module.exports = {
 		},
 		31: { // Overwhelm
 			0: {
+				CC: "extended",
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1115,
 				distance: 470,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				noInterrupt: [2, 31],
 				noRetry: true
 			},
@@ -1985,27 +1895,36 @@ module.exports = {
 				}
 			},
 			10: {
-				noInterrupt: [7, 26], //
-				abnormals: {
-					500150: { skill: 330110 },
-					//501600: { skill: 330150 },
-					501650: { skill: 330150 }
+				noInterrupt: [7, 26],
+				level: {
+					11: {
+						abnormals: {
+							500150: { skill: 330110 },
+							501650: { skill: 330150 }
+						}
+					}
 				}
 			},
 			11: {
-				noInterrupt: [7, 26], //
-				abnormals: {
-					500150: { skill: 330111 },
-					//501600: { skill: 330150 },
-					501650: { skill: 330150 }
+				noInterrupt: [7, 26],
+				level: {
+					11: {
+						abnormals: {
+							500150: { skill: 330111 },
+							501650: { skill: 330151 }
+						}
+					}
 				}
 			},
 			12: {
-				noInterrupt: [7, 26], //
-				abnormals: {
-					500150: { skill: 330112 },
-					//501600: { skill: 330150 },
-					501650: { skill: 330150 }
+				noInterrupt: [7, 26],
+				level: {
+					11: {
+						abnormals: {
+							500150: { skill: 330112 },
+							501650: { skill: 330152 }
+						}
+					}
 				}
 			}
 		},
@@ -2021,30 +1940,26 @@ module.exports = {
 				},
 				abnormals: {
 					25100: { speed: 1.25 },
-					500150: { skill: 320100 },
-					//501600: { skill: 320150 },
-					501650: { skill: 320150 }
 				},
 				race: {
 					9: { length: 3700 } // Elin
+				},
+				level: {
+					9: {
+						abnormals: {
+							500150: { skill: 320100 },
+							501650: { skill: 320150 }
+						}
+					}
 				}
 			}
 		},
 		7: { // Backstep
 			0: {
+				CC: ["evasive", "extended"],
 				length: 660,
 				distance: -200,
 				forceClip: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		8: { // Flame Pillar
@@ -2067,7 +1982,7 @@ module.exports = {
 			}
 		},
 		12: { // Void Pulse
-			0: { length: 935 } // 
+			0: { length: 935 } //
 		},
 		13: { // Mindblast
 			0: {
@@ -2093,12 +2008,9 @@ module.exports = {
 		},
 		18: { // Glacial Retreat
 			0: {
+				CC: "extended",
 				length: 1100,
 				distance: -187.5,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				forceClip: true
 			}
 		},
@@ -2189,26 +2101,27 @@ module.exports = {
 		},
 		26: { // Teleport Jaunt
 			0: {
+				CC: ["evasive", "extended"],
 				type: 'teleport',
 				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [26],
 				teleportStage: 1,
 				noRetry: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		27: { // Hailstorm
-			0: { length: 960 } //
+			0: {
+				length: 980,
+				abnormals: {
+					902: { speed: 1.15 },
+					911: { speed: 1.15 },
+					916: { speed: 1.15 },
+					920: { speed: 1.225 },
+					921: { speed: 1.225 },
+					922: { speed: 1.225 }
+				}
+			}
 		},
 		30: { // Nova
 			0: {
@@ -2255,7 +2168,9 @@ module.exports = {
 			10: true,
 			11: true,
 			12: true,
-			50: true
+			50: true,
+			51: true,
+			52: true
 		},
 		34: { // Mana Boost
 			0: { length: 750 }
@@ -2283,17 +2198,17 @@ module.exports = {
 		},
 		3: { // Radiant Arrow
 			'*': {
-				length: 1760,
+				length: 1770,
 				races: {
 					1: { length: 1600 }	// F.Human
-				},
-				noRetry: true
+				}
 			},
 			0: {
 				type: 'charging',
-				length: [600, 600, 600],
+				length: [590, 590, 590],
 				noInterrupt: [4, 22],
-				//autoRelease: 2550,
+				autoRelease: 2550,
+				noRetry: true,
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
 					601450: { chargeSpeed: 0.5 }
@@ -2335,17 +2250,17 @@ module.exports = {
 		},
 		4: { // Penetrating Arrow
 			'*': {
-				length: 1315,
+				length: 1320,
 				races: {
 					1: { length: 1275 }	// F.Human, inb4 racechange
-				},
-				noRetry: true
+				}
 			},
 			0: {
 				type: 'charging',
-				length: [800, 800, 800],
+				length: [780, 780, 780],
 				noInterrupt: [3, 22],
-				//autoRelease: 2550,
+				noRetry: true,
+				autoRelease: 2550,
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
@@ -2394,7 +2309,7 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
-				length: 3170,
+				length: 3160,
 				glyphs: {
 					26077: { speed: 1.4 }
 				},
@@ -2402,25 +2317,18 @@ module.exports = {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
 					916: { speed: 1.15 },
-					920: { speed: 1.225 }
+					920: { speed: 1.225 },
+					921: { speed: 1.225 },
+					922: { speed: 1.225 }
 				}
 			}
 		},
 		6: { // Backstep
 			0: {
-				length: 670,
+				CC: ["evasive", "extended"],
+				length: 650,
 				distance: -200,
 				forceClip: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		7: { // Feign Death
@@ -2433,24 +2341,25 @@ module.exports = {
 		8: { // Rapid Fire
 			'*': {
 				noRetry: true,
+				blockCancelPacket: true,
 				noInterrupt: [22] // this actually doesn't do anything
 			},
 			0: {
 				length: 433, // 445
-				noInterrupt: [6]
+				noInterrupt: [6, '8-6']
 			},
 			1: { length: 600 },
 			2: { length: 700 },
 			3: { length: 800 },
 			4: { length: 700 },
 			5: { length: 800 },
-			6: { length: 1233 } // 1240
+			6: { length: 1220 } // 1240
 		},
 		9: { // Slow Trap
-			0: { length: 1150 }
+			0: { length: 1170 }
 		},
 		10: { // Stunning Trap
-			0: { length: 1150 }
+			0: { length: 1170 }
 		},
 		12: { // Velik's Mark
 			0: { length: 200 }
@@ -2467,12 +2376,9 @@ module.exports = {
 		},
 		16: { // Breakaway Bolt
 			0: {
+				CC: "extended",
 				length: 1340,
 				distance: -250,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				forceClip: true
 			}
 		},
@@ -2494,7 +2400,7 @@ module.exports = {
 		},
 		19: { // Poison Arrow
 			0: {
-				length: 1125,
+				length: 1115,
 				distance: -12.5,
 				noInterrupt: [22],
 				race: {
@@ -2556,19 +2462,12 @@ module.exports = {
 		},
 		33: { // Chase
 			0: {
+				evasive: true,
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1075, // 1000
+				length: 1050, // 950-1025
 				distance: 413, // 412.078
 				noInterrupt: [33],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 }
-				}
 			}
 		}
 	},
@@ -2586,7 +2485,9 @@ module.exports = {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
 					916: { speed: 1.15 },
-					920: { speed: 1.225 }
+					920: { speed: 1.225 },
+					921: { speed: 1.225 },
+					922: { speed: 1.225 }
 				}
 			}
 		},
@@ -2611,7 +2512,10 @@ module.exports = {
 			0: { length: 1275 }
 		},
 		11: { // Metamorphic Blast
-			0: { length: 830 }
+			0: {
+				length: 820,
+				checkReset: true
+			}
 		},
 		12: { // Resurrect
 			0: {
@@ -2623,7 +2527,9 @@ module.exports = {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
 					916: { speed: 1.15 },
-					920: { speed: 1.225 }
+					920: { speed: 1.225 },
+					921: { speed: 1.225 },
+					922: { speed: 1.225 }
 				}
 			}
 		},
@@ -2664,12 +2570,9 @@ module.exports = {
 		},
 		26: { // Fiery Escape
 			0: {
+				CC: ["evasive", "extended"],
 				length: 1125,
 				distance: -250.5,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				forceClip: true
 			}
 		},
@@ -2782,19 +2685,10 @@ module.exports = {
 		},
 		38: { // Backstep
 			0: {
+				CC: ["evasive", "extended"],
 				length: 665,
 				distance: -200,
 				forceClip: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		39: { // Grace of Resurrection
@@ -2889,7 +2783,9 @@ module.exports = {
 					902: { speed: 1.25 },
 					911: { speed: 1.25 },
 					916: { speed: 1.25 },
-					920: { speed: 1.375 }
+					920: { speed: 1.375 },
+					921: { speed: 1.375 },
+					922: { speed: 1.375 }
 				}
 			}
 		},
@@ -2931,22 +2827,14 @@ module.exports = {
 		},
 		17: { // Teleport Jaunt
 			0: {
+				CC: ["evasive", "extended"],
 				type: 'teleport',
 				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
 				noRetry: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
+
 			}
 		},
 		18: { // Arun's Vitae
@@ -2997,7 +2885,9 @@ module.exports = {
 			0: {
 				length: 1430,
 				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43],
-				chains: { 8: 30 }
+				chains: {
+					8: 30
+				}
 			},
 			30: { length: 1100 }
 		},
@@ -3241,7 +3131,7 @@ module.exports = {
 		3: { // Double Shear
 			'*': {
 				length: 2025,
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 13, 14, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
 				abnormals: {
 					29030: { speed: 1.25 }
 				},
@@ -3260,7 +3150,7 @@ module.exports = {
 		},
 		4: { // Sundering Strike
 			'*': {
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 13, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
 				chains: {
 					1: null,
 					3: null,
@@ -3351,34 +3241,25 @@ module.exports = {
 			'*': {
 				length: 1250,
 				abnormals: {
-					10151131: { chain: 31 } // Chains with 0 -> 6 by default ¿?
+					10151131: { chain: 31 }
 				},
 				chains: {
 					1: 30,
 					3: 30,
 					4: 30,
 					5: 30,
-					'6-0': 31,
-					'6-30': 31,
+					6: 30,
 					8: 30,
 					9: 30,
 					10: 30,
 					11: 30,
-					12: 30,
-					20: 30
-				}
-			},
-			0: {
-				triggerAbnormal: { 10151131: 6000 }, // We emulated for two reasons, 1. Other skills precise it to chain and 2. It's possible to send second casts without the abnormal in the server, resulting in ghosting.
+					12: 30
+				},
 				noRetry: true
 			},
-			30: {
-				triggerAbnormal: { 10151131: 6000 },
-				noRetry: true
-			},
-			31: {
-				consumeAbnormal: 10151131
-			}
+			0: { noInterrupt: ['6-31'] },
+			30: true,
+			31: true
 		},
 		8: { // Whipsaw
 			'*': {
@@ -3395,6 +3276,7 @@ module.exports = {
 		},
 		9: { // Smite
 			0: {
+				evasive: true,
 				length: 1725,
 				distance: 168,
 				inPlace: {
@@ -3406,25 +3288,14 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 }
-				},
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 14, 20]
 			}
 		},
 		10: { // Pendulum Strike
 			'*': {
+				CC: "extended",
 				length: 1000,
 				distance: -200,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				noInterrupt: [10],
 				chains: {
 					1: 30,
@@ -3444,18 +3315,18 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 1250,
+				length: 1250, // Length for any stage unless the stage itself has one stated already
+				noRetry: true,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 2150,
-				triggerAbnormal: { 10151040: 2000 }, // Stacks ¿?
+				length: 2150, // Specific length for stage 0
+				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
 					10151040: { chain: 1 },
 					10151041: { chain: 2 },
 					10151042: { chain: 3 }
-				},
-				noRetry: true
+				}
 			},
 			1: {
 				triggerAbnormal: { 10151041: 2000 },
@@ -3471,34 +3342,32 @@ module.exports = {
 			'*': {
 				glyphs: {
 					29026: { speed: 1.25 }
-				},
-				chains: { '12-0': 1 }
+				}
 			},
 			0: {
-				triggerAbnormal: { 10151150: 3000 },
-				consumeAbnormalEnd: 10151150,
-				length: 3225,
+				length: 3225, //
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
+				chains: {
+					12: 1
+				}
 			},
 			1: {
-				length: 2025,
+				length: 2025, //
+				noInterrupt: ['12-1']
 			}
 		},
-		14: { // Retaliate
+		/*14: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1600,
+				length: 1610,
 				noRetry: true
 			}
-		},
+		},*/
 		15: { // Retribution
 			0: {
+				CC: "extended",
 				fixedSpeed: 1,
 				length: 1575, //
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		16: { // Shadow Reaping
@@ -3509,18 +3378,9 @@ module.exports = {
 		},
 		18: { // Shrouded Escape
 			0: {
+				CC: ["evasive", "extended"],
 				length: 850,
 				distance: 150,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		/*20: { // Cable Step
@@ -3531,18 +3391,11 @@ module.exports = {
 		},*/
 		40: { // Shadow Step
 			'*': {
+				CC: ["evasive", "extended"],
 				length: 700,
 				distance: 180,
 				forceClip: true,
 				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 },
 					10151000: { chain: 30 }
 				}
 			},
@@ -3551,19 +3404,18 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152071, 10152072, 10152080, 10152082, 10152083, 10152085, 10152086, 10152087] },
+		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152050, 10152053, 10152054, 10152072, 10152082, 10152083, 10152085, 10152086, 10153093] },
 		1: { // Blast
 			'*': {
-				triggerAbnormal: { 10152011: 3100 }, // 10152086
-				fixedSpeed: 1, // todo: figure out if this skill consuming all abnormals has any side effect
+				triggerAbnormal: { 10152011: 3100 },
+				fixedSpeed: 1,
 				noRetry: true,
 				length: 1195,
 				noInterrupt: [1],
-				projectiles: [20],
-				triggerAbnormal: { 10152011: 3100 }
+				projectiles: [20]
 			},
 			1: true,
-			2: { noRetry: true },
+			2: true,
 			20: {
 				type: 'userProjectile',
 				flyingSpeed: 800,
@@ -3688,20 +3540,21 @@ module.exports = {
 		},
 		5: { // Burst Fire
 			'*': {
-				noInterrupt: ['9-0'],
+				blockCancelPacket: true,
+				noRetry: true,
 				chains: {
-					'5-0': 1 // does this even do anything? :thinking:
+					'5-0': 1
 				}
 			},
 			0: {
-				triggerAbnormal: { 10152053: 2100 },
+				triggerAbnormal: { 10152053: 2100 }, //
 				length: 855,
-				noRetry: true
+				noInterrupt: ['9-0']
 			},
 			1: {
 				triggerAbnormal: {
-					10152050: 1200,
-					10152054: 1200
+					10152050: 1200, //
+					10152054: 1200 //
 				},
 				fixedSpeed: 1,
 				length: 122,
@@ -3723,11 +3576,7 @@ module.exports = {
 				triggerAbnormal: { 10152010: 3100 },
 				fixedSpeed: 1,
 				length: 1000,
-				projectiles: [20],
-				triggerAbnormal: {
-					10152010: 3100,
-					10152084: 4100
-				}
+				projectiles: [20]
 			},
 			1: true,
 			2: true,
@@ -3739,19 +3588,14 @@ module.exports = {
 		7: { // Arcane Barrage
 			'*': {
 				length: 1525,
-				chains: {
-					5: 1
-				}
 			},
 			1: {
 				triggerAbnormal: {
-					//30050: 3100, // AS Buff
-					10152010: 3100 // can start thingy
-					//10152040: 3100 // Arcane Barrage Buff
+					10152010: 3100,
+					//10152040: 3100
 				},
 				fixedSpeed: 1,
 				noInterrupt: [7],
-				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			2: {
@@ -3761,19 +3605,21 @@ module.exports = {
 				},
 				fixedSpeed: 1,
 				noInterrupt: [7],
-				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			3: {
-				consumeAbnormal: [10152040],
-				length: 1200,
-				abnormals: {
-					10152081: { chain: 6 } // Yea i know, this one gets sent when you can't cast it anymore since the projectile has ripped
-				}
+				//triggerAbnormal: { 10152081: 4100 }, // Not sure what this does
+				consumeAbnormal: [10152040, 10152081], // Switched since the client might know how to act actually
+				length: 1200
 			}
 		},
 		9: { // Mana Missiles
-			'*': { length: 1250 },
+			'*': {
+				blockCancelPacket: true,
+				length: 1240,
+				noInterrupt: [20]
+
+			},
 			0: {
 				triggerAbnormal: { 10152085: 4100 },
 				type: 'charging',
@@ -3782,14 +3628,14 @@ module.exports = {
 			10: {
 				triggerAbnormal: { 10152085: 4100 },
 				distance: -50,
-				projectiles: [21, 22],
-				noRetry: true
+				noRetry: true,
+				projectiles: [21, 22]
 			},
 			11: {
 				triggerAbnormal: { 10152085: 4100 },
 				distance: -100,
-				projectiles: [21, 22, 23, 24, 25],
-				noRetry: true
+				noRetry: true,
+				projectiles: [21, 22, 23, 24, 25]
 			},
 			21: {
 				type: 'userProjectile',
@@ -3820,6 +3666,7 @@ module.exports = {
 		10: { // Arc Bomb
 			'*': {
 				triggerAbnormal: { 10152086: 4100 },
+				blockCancelPacket: true,
 				length: 1325,
 				noInterrupt: [10, 20],
 				projectiles: [20],
@@ -3827,34 +3674,24 @@ module.exports = {
 					'2-1': null,
 					3: null,
 					4: null,
-					5: null,
 					'7-3': null,
 					'9-10': null,
 					'9-11': null,
+					//10: null,
 					11: null,
 					13: null,
 					15: null,
 					19: null,
 					40: null
-				}
+				},
+				noRetry: true
 			},
 			1: true,
 			2: true,
 			20: {
 				type: 'userProjectile',
-				delay: 450,
 				flyingSpeed: 700,
-				flyingDistance: 350,
-				level: [
-					{ flyingSpeed: 800 },
-					{ flyingSpeed: 800 },
-					{ flyingSpeed: 800 },
-					{ flyingSpeed: 800 },
-					{ flyingSpeed: 800 },
-					{ flyingSpeed: 800 },
-					{ flyingSpeed: 800 },
-					{ flyingSpeed: 800 }
-				]
+				flyingDistance: 350
 			},
 			// TODO: Chain projectiles
 			/*21: {
@@ -3880,7 +3717,8 @@ module.exports = {
 		},
 		11: { // Rocket Jump
 			'*': {
-				triggerAbnormal: { 10152087: 4100 },
+				CC: ["evasive", "extended"],
+				triggerAbnormal: { 10153093: 2147483647 },
 				length: 1400,
 				noInterrupt: [3, 11, 15, 20],
 				distance: 415.45,
@@ -3891,7 +3729,8 @@ module.exports = {
 					'7-3': 30,
 					'9-10': 30,
 					'9-11': 30,
-					'10-11': 30,
+					10: 30,
+					//11: 30,
 					13: 30,
 					19: 30,
 					40: 31
@@ -3913,8 +3752,6 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
-				consumeAbnormalEnd: 10152097,
 				length: 5800,
 				distance: -269.09,
 				//noInterrupt: [13],
@@ -3922,13 +3759,12 @@ module.exports = {
 					'2-1': null,
 					3: null,
 					4: null,
-					5: null,
 					'7-3': null,
 					'9-10': null,
 					'9-11': null,
 					10: null,
 					11: null,
-					13: null,
+					//13: null,
 					15: null,
 					19: null,
 					40: null
@@ -3997,7 +3833,6 @@ module.exports = {
 			2: true,
 			20: {
 				type: 'userProjectile',
-				delay: 350,
 				flyingSpeed: 700,
 				flyingDistance: 450
 			},
@@ -4017,20 +3852,15 @@ module.exports = {
 		},
 		40: { // Rolling Reload
 			0: {
+				CC: ["evasive", "extended"],
 				triggerAbnormal: {
-					10152010: 3100, // They  enable    so    them
-					10152012: 3100, // kinda different like, all
-					10152071: 3100, // seem  skills    gotta /shrug
-					10152080: 4100 //  to    chains,   have
+					10152010: 3100,
+					10152012: 3100 // More? Less?, 1 abnormal is enough? Do all need to be blocked??
 				},
 				fixedSpeed: 1,
 				length: 935,
 				noInterrupt: [11],
 				distance: 172.5,
-				triggerAbnormal: {
-					10152010: 3100,
-					10152012: 3100
-				},
 				forceClip: true
 			}
 		}
@@ -4078,10 +3908,7 @@ module.exports = {
 		},
 		2: { // Counter
 			'*': {
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
+				CC: "extended",
 				noRetry: true
 			},
 			1: {
@@ -4155,24 +3982,18 @@ module.exports = {
 		},*/
 		4: { // Ground Pound
 			'*': {
+				CC: "extended",
 				length: 3225,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			},
 			0: true,
 			30: true
 		},
 		5: { // Bullrush
 			0: {
+				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: [2950, 650],
 				distance: [0, 135],
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		6: { // Haymaker
@@ -4264,13 +4085,10 @@ module.exports = {
 		},
 		10: { // Counterpunch
 			'*': {
+				CC: "extended",
 				length: 1850,
 				distance: 155,
 				requiredBuff: 10153000,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -4327,22 +4145,13 @@ module.exports = {
 		},
 		40: { // Quick Dash
 			'*': {
+				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 580,
 				distance: 144,
 				forceClip: true,
 				hasChains: true,
 				noRetry: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			},
 			0: true, // TODO: Figure out which animations are correct
 			1: true,
@@ -4351,7 +4160,7 @@ module.exports = {
 		}
 	},
 	11: { // Ninja
-		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006, 10154081, 10154082, 10154085] },
+		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006] },
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
@@ -4507,19 +4316,12 @@ module.exports = {
 		},
 		2: { // Shadow Jump
 			'*': {
+				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 650,
 				distance: 175,
 				forceClip: true,
 				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 },
 					10154010: { chain: 30 }
 				}
 			},
@@ -4529,15 +4331,15 @@ module.exports = {
 		3: { // Leaves on the Wind
 			'*': {
 				length: 1275,
-				noInterrupt: [3],
+				noInterrupt: [3, '4-10'],
 				chains: {
 					1: null,
 					2: 30,
-					4: null,
-					5: null,
+					'4-10': 'borked',
+					5: 30,
 					6: null,
 					7: null,
-					8: null, // reeeeeeeeee
+					8: 30, // reeeeeeeeee
 					9: null,
 					10: null,
 					12: null,
@@ -4545,7 +4347,7 @@ module.exports = {
 					14: null,
 					15: null,
 					16: null,
-					//17: 30,
+					17: 30,
 					18: null,
 					19: null,
 					20: null
@@ -4556,21 +4358,12 @@ module.exports = {
 		},
 		4: { // Jagged Path
 			1: {
+				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 665,
 				distance: 469,
 				noInterrupt: [4],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			},
 			10: { length: 1500 },
 			11: {
@@ -4580,6 +4373,7 @@ module.exports = {
 		},
 		5: { // Impact Bomb
 			'*': {
+				CC: ["evasive", "extended"],
 				length: 1008,
 				distance: -291.6,
 				noInterrupt: [5],
@@ -4605,29 +4399,20 @@ module.exports = {
 				},
 				forceClip: true,
 				noRetry: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			},
 			0: true,
 			30: true
 		},
 		6: { // One Thousand Cuts
 			'*': {
+				CC: ["evasive", "extended"],
 				length: 430,
 				chains: { // Needed to state we want to trigger substage 4, else it will trigger 6
 					1: 30,
 					5: 30,
 					4: 30,
 					7: 30,
-					8: 30,
+					//8: 30, sometimes uses it, sometimes it doesn't
 					9: 30,
 					12: 30,
 					13: 30,
@@ -4638,16 +4423,6 @@ module.exports = {
 					19: 30,
 					20: 30
 				},
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			},
 			0: true,
 			1: { // 0/30(iframe) -> 1(dash, also iframes) -> 10(deeps, doesn't iframe in the very beginning) 
@@ -4661,24 +4436,14 @@ module.exports = {
 		},
 		7: { // Decoy Jutsu
 			0: {
+				CC: ["evasive", "extended"],
 				length: 1550,
 				onlyTarget: true,
 				noInterrupt: [7],
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			}
 		},
 		8: { // Fire Avalanche
 			'*': {
-				triggerAbnormal: { 10154080: 10000 },
 				length: [700, 1375, 325],
 				distance: [0, 367.31, 0],
 				abnormals: {
@@ -4706,12 +4471,10 @@ module.exports = {
 			},
 			0: true,
 			1: {
-				triggerAbnormal: { 10154081: 5000 },
 				length: [1375, 325],
 				distance: [411.39, 0]
 			},
 			2: {
-				triggerAbnormal: { 10154082: 1 },
 				length: [1375, 325],
 				distance: [455.47, 0]
 			},
@@ -4719,6 +4482,7 @@ module.exports = {
 		},
 		9: { // Smoke Bomb
 			'*': {
+
 				length: 725,
 				chains: {
 					1: null,
@@ -4741,23 +4505,9 @@ module.exports = {
 				},
 			},
 			0: {
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 }
-				}
+				evasive: true
 			},
 			30: true
-		},
-		10: { // Retaliate
-			0: {
-				type: 'retaliate',
-				length: 1630,
-				noRetry: true
-			}
 		},
 		11: { // Focus
 			'*': {
@@ -4847,7 +4597,6 @@ module.exports = {
 		},
 		15: { // Burning Heart
 			'*': {
-				length: 390,
 				stamina: 100,
 				instantStamina: true,
 				abnormals: {
@@ -4855,50 +4604,16 @@ module.exports = {
 					32058: { speed: 1.3 }
 				}
 			},
-			0: {
-				triggerAbnormal: {
-					10154060: 1300,
-					10154100: 2000,
-					10154101: 2000
-				},
-				length: 880
-			},
-			1: {
-				triggerAbnormal: { 10154061: 850 },
-				consumeAbnormal: 10154060
-			},
-			2: {
-				triggerAbnormal: { 10154062: 850 },
-				consumeAbnormal: 10154061
-			},
-			3: {
-				triggerAbnormal: { 10154063: 850 },
-				consumeAbnormal: 10154062
-			},
-			4: {
-				triggerAbnormal: { 10154064: 850 },
-				consumeAbnormal: 10154063
-			},
-			5: {
-				triggerAbnormal: { 10154065: 850 },
-				consumeAbnormal: 10154064
-			},
-			6: {
-				triggerAbnormal: { 10154066: 850 },
-				consumeAbnormal: 10154065
-			},
-			7: {
-				triggerAbnormal: { 10154067: 850 },
-				consumeAbnormal: 10154066
-			},
-			8: {
-				triggerAbnormal: { 10154068: 850 },
-				consumeAbnormal: 10154067
-			},
-			9: {
-				triggerAbnormal: { 10154069: 850 },
-				consumeAbnormal: 10154068
-			},
+			0: { length: 880 },
+			1: { length: 390 },
+			2: { length: 390 },
+			3: { length: 390 },
+			4: { length: 390 },
+			5: { length: 390 },
+			6: { length: 390 },
+			7: { length: 390 },
+			8: { length: 390 },
+			9: { length: 390 }
 		},
 		16: { // Death Blossom
 			'*': {
@@ -5425,22 +5140,13 @@ module.exports = {
 		},
 		14: { // Evasion
 			'*': {
+				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 825,
 				distance: 188.18,
 				forceClip: true,
-				abnormals: {
-					400800: { chain: 6 },
-					400801: { chain: 6 },
-					501320: { chain: 6 },
-					501321: { chain: 6 },
-					501322: { chain: 6 },
-					501323: { chain: 6 },
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				}
 			},
-			0: true,
+			0: { triggerAbnormal: { 10155020: 4000 } },
 			1: {
 				consumeAbnormal: 10155020,
 				requiredBuff: 10155020
@@ -5544,11 +5250,8 @@ module.exports = {
 		},
 		20: { // Backstab
 			0: {
+				CC: ["evasive", "extended"],
 				length: 1500,
-				abnormals: {
-					7692002: { chain: 6 },
-					9692002: { chain: 6 }
-				},
 				onlyTarget: true
 			}
 		},
