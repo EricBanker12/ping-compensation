@@ -2326,7 +2326,7 @@ module.exports = {
 		6: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 650,
+				length: 700,
 				distance: -200,
 				forceClip: true,
 			}
