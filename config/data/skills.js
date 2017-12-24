@@ -3583,9 +3583,9 @@ module.exports = {
 		6: { // Time Bomb
 			'*': {
 				triggerAbnormal: {
-                    10152010: 3100,
-                    10152084: 4100
-                },
+					10152010: 3100,
+					10152084: 4100
+				},
 				fixedSpeed: 1,
 				length: 1000,
 				projectiles: [20]
@@ -3772,7 +3772,7 @@ module.exports = {
 		13: { // Balder's Vengeance
 			'*': {
 				triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
-                consumeAbnormalEnd: 10152097,
+				consumeAbnormalEnd: 10152097,
 				length: 5800,
 				distance: -269.09,
 				//noInterrupt: [13],
@@ -3874,6 +3874,7 @@ module.exports = {
 		},
 		40: { // Rolling Reload
 			0: {
+				CC: ["evasive", "extended"],
 				triggerAbnormal: {
 					10152010: 3100, // They  enable    so    them
 					10152012: 3100, // kinda different like, all
