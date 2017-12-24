@@ -3330,7 +3330,6 @@ module.exports = {
 		11: { // Shadow Lash
 			'*': {
 				length: 1250, // Length for any stage unless the stage itself has one stated already
-				noRetry: true,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
@@ -3555,7 +3554,6 @@ module.exports = {
 		5: { // Burst Fire
 			'*': {
 				blockCancelPacket: true,
-				noRetry: true,
 				noInterrupt: ['9-0'],
 				chains: {
 					'5-0': 1
@@ -3563,7 +3561,8 @@ module.exports = {
 			},
 			0: {
 				triggerAbnormal: { 10152053: 2100 }, //
-				length: 855
+				length: 855,
+				noRetry: true
 			},
 			1: {
 				triggerAbnormal: {
@@ -3611,8 +3610,9 @@ module.exports = {
 			},
 			1: {
 				triggerAbnormal: {
-					10152010: 3100,
-					//10152040: 3100
+					//30050: 3100, // AS Buff
+					10152010: 3100 // can start thingy
+					//10152040: 3100 // Arcane Barrage Buff
 				},
 				fixedSpeed: 1,
 				noInterrupt: [7],
@@ -3628,8 +3628,7 @@ module.exports = {
 				noRetry: true
 			},
 			3: {
-				//triggerAbnormal: { 10152081: 4100 }, // Not sure what this does
-				consumeAbnormal: [10152040, 10152081],
+				consumeAbnormal: [10152040],
 				abnormals: {
 					10152081: { chain: 6 } // Yea i know, this one gets sent when you can't cast it anymore since the projectile has ripped
 				}, // Switched since the client might know how to act actually
@@ -3639,7 +3638,7 @@ module.exports = {
 		9: { // Mana Missiles
 			'*': {
 				blockCancelPacket: true,
-				length: 1240,
+				length: 1220,
 				noInterrupt: [20]
 
 			},
@@ -3791,7 +3790,7 @@ module.exports = {
 					'9-11': null,
 					10: null,
 					11: null,
-					//13: null,
+					13: null,
 					15: null,
 					19: null,
 					40: null
