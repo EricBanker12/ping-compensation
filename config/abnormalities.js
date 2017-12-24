@@ -12,7 +12,7 @@ module.exports = {
 	10151131: true, // Spiral Death (enableChain, selfChain)
 	10151150: true, // Shadow Burst (selfChain)
 
-	/* Gunner */
+		/* Gunner */
 
 	// Point Blank (enableChain)
 	10152000: true, // First cast
