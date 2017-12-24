@@ -3413,7 +3413,7 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152050, 10152053, 10152054, 10152072, 10152082, 10152083, 10152085, 10152086, 10153093] },
+		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152071, 10152072, 10152080, 10152082, 10152083, 10152085, 10152086, 10152087] },
 		1: { // Blast
 			'*': {
 				triggerAbnormal: { 10152011: 3100 },
@@ -3582,7 +3582,10 @@ module.exports = {
 		},
 		6: { // Time Bomb
 			'*': {
-				triggerAbnormal: { 10152010: 3100 },
+				triggerAbnormal: {
+                    10152010: 3100,
+                    10152084: 4100
+                },
 				fixedSpeed: 1,
 				length: 1000,
 				projectiles: [20]
@@ -3768,6 +3771,8 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
+				triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
+                consumeAbnormalEnd: 10152097,
 				length: 5800,
 				distance: -269.09,
 				//noInterrupt: [13],
