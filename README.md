@@ -17,13 +17,12 @@ The one you're probably looking right now.
 
 ### **Experimental Branch:** https://github.com/SaltyMonkey/skill-prediction/tree/experimental
 
-The "Playground" Branch, might occasionally encounter itself unusable because someone forgot a `,` or someone duplicated a function.
-It also includes some QoLs for logging skills.
+DEPRECATED ATM!
 
 
 ### **KTera-PTS branch** https://github.com/SaltyMonkey/skill-prediction/tree/KTera-PTS
 
-Currently being work on, we still heavily require someone logging on it to advance further though(config templates will get done sooner or later to ease adding data). I'll leave a simple guide on how to log with the debugger and on what we need exactly hopefully soon, if you wanna help still, feel free to do so already.
+DEPRECATED ATM!
 
 
 **More on branches:** https://github.com/SaltyMonkey/skill-prediction/wiki/Branches
