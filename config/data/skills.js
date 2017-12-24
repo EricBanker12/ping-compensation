@@ -3357,16 +3357,17 @@ module.exports = {
 			'*': {
 				glyphs: {
 					29026: { speed: 1.25 }
-				}
+				},
+				chains: { '12-0': 1 }
 			},
 			0: {
-				length: 3225,
 				triggerAbnormal: { 10151150: 3000 },
 				consumeAbnormalEnd: 10151150,
+				length: 3225,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
 			},
 			1: {
-				length: 2025
+				length: 2025,
 			}
 		},
 		14: { // Retaliate
