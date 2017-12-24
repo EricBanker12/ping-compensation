@@ -3869,15 +3869,20 @@ module.exports = {
 		},
 		40: { // Rolling Reload
 			0: {
-				CC: ["evasive", "extended"],
 				triggerAbnormal: {
-					10152010: 3100,
-					10152012: 3100 // More? Less?, 1 abnormal is enough? Do all need to be blocked??
+					10152010: 3100, // They  enable    so    them
+					10152012: 3100, // kinda different like, all
+					10152071: 3100, // seem  skills    gotta /shrug
+					10152080: 4100 //  to    chains,   have
 				},
 				fixedSpeed: 1,
 				length: 935,
 				noInterrupt: [11],
 				distance: 172.5,
+				triggerAbnormal: {
+					10152010: 3100,
+					10152012: 3100
+				},
 				forceClip: true
 			}
 		}
