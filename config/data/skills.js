@@ -3773,13 +3773,39 @@ module.exports = {
 				}
 			}
 		},
+		/*-		13: { // Balder's Vengeance
+					'*': {
+						triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
+						consumeAbnormalEnd: 10152097,
+						length: 5800,
+						distance: -269.09,
+						//noInterrupt: [13],
+						chains: {
+							'2-1': null,
+							3: null,
+							4: null,
+							5: null,
+							'7-3': null,
+							'9-10': null,
+							'9-11': null,
+							10: null,
+							11: null,
+							13: null,
+							15: null,
+							19: null,
+							40: null
+						},
+						noRetry: true
+					},
+					1: true,
+					2: true,
+					30: true
+				},*/
 		13: { // Balder's Vengeance
 			'*': {
-				triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
-				consumeAbnormalEnd: 10152097,
 				length: 5800,
 				distance: -269.09,
-				//noInterrupt: [13],
+				noInterrupt: [13],
 				chains: {
 					'2-1': null,
 					3: null,
