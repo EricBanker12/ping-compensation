@@ -23,7 +23,10 @@
 module.exports = {
 	0: { // Warrior
 		1: { // Combo Attack
-			'*': { noInterrupt: [1, 32] },
+			'*': {
+				noInterrupt: [1, 32],
+				noRetry: true
+			},
 			0: {
 				length: 565,
 				distance: 64.29,
@@ -1144,6 +1147,7 @@ module.exports = {
 				length: 1000,
 				distance: 413, // Baraka, 420.018 | M.Aman, 420.007 | M.Human 420
 				noInterrupt: [17],
+				noRetry: true
 			}
 		},
 		18: { // Overpower
@@ -1233,7 +1237,10 @@ module.exports = {
 	},
 	3: { // Berserker / There's a lot of unneeded no interrupts currently since sGrantSkill is emulated now, this applies for all charging skills
 		1: { // Combo Attack
-			'*': { noInterrupt: [1, 2, 4] },
+			'*': {
+				noInterrupt: [1, 2, 4],
+				noRetry: true
+			},
 			0: {
 				length: 1107,
 				distance: 78,
