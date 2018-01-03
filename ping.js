@@ -5,8 +5,10 @@
   => Remember to set SKILL_RETRY_COUNT = 0 in skills.js if you want to use safe-proxy together with skill-prediction.
 */
 
+const pingLimit = false;
+const PING_LIMIT_MIN = 50;
+const PING_LIMIT_MAX = 90;
 const PING_HISTORY_MAX = 20;
-const debug = false;
 
 class Ping {
   constructor(dispatch) {
@@ -14,6 +16,7 @@ class Ping {
     this.history = [];
   
     const updatePing = ping => {
+      if(pingLimit && ((ping <= PING_LIMIT_MIN) || (ping >= PING_LIMIT_MAX))) return;
       this.history.push(ping);
       if(this.history.length > PING_HISTORY_MAX) this.history.shift();
       
@@ -45,15 +48,12 @@ class Ping {
       this.last = Date.now() - pingStack[id];
       updatePing(this.last);
       delete pingStack[id];
-      if(debug) console.log('=> PING:', this.last, pingStack);
     };
 
     const skillId = id => {
       return ((id > 0x4000000) ? id - 0x4000000 : id);
     };
     
-    dispatch.hook('C_CHECK_VERSION', 1, pingStart.bind(null, 1));
-    dispatch.hook('S_CHECK_VERSION', 1, pingEnd.bind(null, 1));
     dispatch.hook('S_LOGIN', 1, e => { ({cid} = e); });
 
     const skillHook = e => {
@@ -69,7 +69,7 @@ class Ping {
       //['C_PRESS_SKILL', 1],
       ['C_NOTIMELINE_SKILL', 1], //not sure about this one
       ['C_CAN_LOCKON_TARGET', 1],
-    ]) dispatch.hook(packet[0], packet[1], { filter: { fake: false, modified: false }, order: 1000 }, skillHook);
+    ]) dispatch.hook(packet[0], packet[1], { /*filter: { fake: false, modified: false },*/ order: 1000 }, skillHook);
 
     dispatch.hook('C_CANCEL_SKILL', 1, e => {
       delete pingStack[skillId(e.skill)];
