@@ -21,12 +21,12 @@
     "config/data/basicCC.json": "d2d5672af3fdfb7fa2e24fee440d5e498aa0560f14135f4fcef3f1aba5cd81b9",
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
-    "config/data/skills.js": "4a4df0c324476eedff334b044ca9db7ad0a465611f7ef21261b3b7d30dc5b962",
+    "config/data/skills.js": "0300660dda86ef284acd2131ab45a133726ff278cf7f5005425ca6e6f47db1ae",
     "docs/commands.md": "ce6d4a293c25900c3a576378a8a392123a1ffab2347b17eee684cabba38c2040",
     "docs/config.md": "b6baaf9ef0d77dc8ddc4f364891bf2d63332e083b3b952f1ca82e12966753935",
     "lib/abnormalities.js": "3f322174d3b1176f09161f433fc879cf55b65554bb1f50e8d04c1b17ee39ee4e",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "a647b0fefd6691f0b3f80efeaea0c4a2a3fda406b907f25e481a54d0cdcea839",
+    "lib/core.js": "cf85000c22e66899e4b191f626876f9bb02e156237ec5c8c60668ef515594c6e",
     "lib/ping.js": {
       "overwrite": false,
       "hash": "1909de04fc9c01db4bfc53c36c866613582ad4942c9afe87709c57f1b650fbcd"

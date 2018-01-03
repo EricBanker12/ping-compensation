@@ -703,6 +703,7 @@ module.exports = {
 		},
 		16: { // Second Wind
 			0: {
+				withoutWeapon: true,
 				fixedSpeed: 1,
 				length: 700,
 				noInterrupt: [2]
@@ -984,6 +985,7 @@ module.exports = {
 		5: { // Dash
 			0: {
 				CC: "evasive",
+				withoutWeapon: true,
 				fixedSpeed: 1,
 				length: 700,
 			}
@@ -1415,6 +1417,7 @@ module.exports = {
 		},
 		5: { // Dash
 			0: {
+				withoutWeapon: true,
 				CC: "evasive",
 				fixedSpeed: 1,
 				length: 700,
@@ -2344,6 +2347,7 @@ module.exports = {
 		},
 		7: { // Feign Death
 			0: {
+				withoutWeapon: true,
 				fixedSpeed: 1,
 				length: [2950, 54525, 1675],
 				distance: [-114.05, 0, 0]
@@ -2559,7 +2563,10 @@ module.exports = {
 			}
 		},
 		18: { // Heal Thyself
-			0: { length: 1250 }
+			0: {
+				withoutWeapon: true,
+				length: 1250
+			}
 		},
 		19: { // Focus Heal
 			'*': { noRetry: true },
@@ -2644,6 +2651,7 @@ module.exports = {
 		},
 		32: { // Divine Respite
 			0: {
+				withoutWeapon: true,
 				fixedSpeed: 1,
 				length: [1300, 900]
 			}
