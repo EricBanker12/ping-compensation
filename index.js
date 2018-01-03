@@ -4,10 +4,10 @@
 //In theory a bit slower with bunch of modules than old loader
 //but can detect copypasted SP instances
 //------------------------------------
-
-const { lstatSync, readdirSync } = require('fs');
+const { lstatSync, readdirSync, existsSync} = require('fs');
 const path = require('path');
 const sysmsg = require('tera-data-parser').sysmsg,
+	migration = require('./lib/migration'),
 	childModules = [
 		require('./lib/core'),
 		require('./lib/cooldowns')
@@ -36,6 +36,9 @@ let blockedModules = ['cooldowns', 'lockons', 'lockons-master', 'fastfire', 'fas
 	'sp', 'cooldowns-master', 'fast-block-master', 'skillprediction', 'pinkie-sp', 'sp-pinkie'];
 let errorState = false;
 let installedModules = null;
+
+let migrationConfigPath = path.resolve(__dirname, './migration/partial-config.json');
+let originalConfigPath = path.resolve(__dirname, './config/config.json');
 //------------------------------------------------------------------------
 
 //all installed modules except current dir
@@ -52,13 +55,21 @@ if (!installedModules.includes('command') && !installedModules.includes('command
 	errorState = true
 }
 
+//config migration
+if (existsSync(migrationConfigPath)) {
+	let migrationHelper = new migration.ConfigMigrationHelper(migrationConfigPath, originalConfigPath)
+	if (!migrationHelper.CompareJsons()) {
+		migrationHelper.ApplyMigration();
+	}
+}
+
 module.exports = function SkillPredictionCore(dispatch) {
-	if (errorState) return;
+	if (errorState) return
 
 	dispatch.hookOnce('C_CHECK_VERSION', 1, () => {
 		if (!sysmsg.maps.get(dispatch.base.protocolVersion) || sysmsg.maps.get(dispatch.base.protocolVersion).name.size === 0) {
 			console.error('ERROR: Your version of tera-proxy is too old to run Skill Prediction');
-			process.exit()
+			return
 		}
 	});
 
