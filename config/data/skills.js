@@ -947,7 +947,7 @@ module.exports = {
 		},
 		3: { // Whirlwind
 			0: {
-				length: 2900, //
+				length: 2880, // 2900 before
 				distance: 128.69,
 				abnormals: {
 					23080: { speed: 1.25 }
@@ -1047,7 +1047,7 @@ module.exports = {
 		},
 		12: { // Heart Thrust
 			0: {
-				length: 2315,
+				length: 2320,
 				distance: 180.96,
 				abnormals: {
 					23060: { speed: 1.25 },
@@ -1068,7 +1068,7 @@ module.exports = {
 		},
 		13: { // Stunning Backhand
 			0: {
-				length: 2150, //
+				length: 2125, //2150 before 
 				distance: 76.71,
 				race: {
 					0: { distance: 62.07 }, // M.Human: 62.073
@@ -1146,8 +1146,14 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1000,
-				distance: 413, // Baraka, 420.018 | M.Aman, 420.007 | M.Human 420
+				length: 980,
+				distance: 413, //not sure - seems borked
+				race: {
+					0: { distance: 420 },// M.Human
+					4: { distance: 420 },// M.Aman
+					7: { distance: 419.33 }, //F.Casta 419.328
+					10: { distance: 420 } // Baraka, 420.018
+				},
 				noInterrupt: [17],
 				noRetry: true
 			}
