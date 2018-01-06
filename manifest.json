@@ -1,6 +1,6 @@
 {
   "files": {
-    "index.js": "159f922b9ccb7e2b61ddb93034b903135fee9f34f0b456b61e97a483302cd986",
+    "index.js": "b447eb830c58a6712c62f9627f1107bf5b2e381f13480a65605bd655e17e94c0",
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
     "module.json": "8e73f7575ee71a68f91647c386adf75df8d4c4a24ccc8f7627bfc76291f28a34",
     "package.json": "36a402d8fd02464deba0c986205aba993fd2b1c958bec0f2068da51b26edabba",
@@ -12,25 +12,25 @@
     },
     "config/config.json": {
       "overwrite": false,
-      "hash": "916f56b268ef819ee0423eb055a20cbe81295a5137a6bca7cdcb4af2157f693e"
+      "hash": "b5a00eb85b5927752661090d1ed7bf5ab6216aa9fe5cfe3dc69b7cd13bc17480"
     },
     "config/preset.js": {
       "overwrite": false,
-      "hash": "3de69eb1cf5faca1f5f545084a5a6526eb86f7485129ed9d72a604c98233eebe"
+      "hash": "a18c1f66d79631948405d2d4128757beb177be06beafb483f4a4a4e3491227b3"
     },
     "config/data/basicCC.json": "d2d5672af3fdfb7fa2e24fee440d5e498aa0560f14135f4fcef3f1aba5cd81b9",
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
-    "config/data/skills.js": "b9736f02d95eed9865dbb21e90b39ec4a106c7b2c9c20795bc9c4f49cf9a0ca1",
+    "config/data/skills.js": "1bba39b7c5f1058420b8468e5921c364f675b7090af941ff7865f2f63ba5996e",
     "docs/commands.md": "ce6d4a293c25900c3a576378a8a392123a1ffab2347b17eee684cabba38c2040",
     "docs/config.md": "b6baaf9ef0d77dc8ddc4f364891bf2d63332e083b3b952f1ca82e12966753935",
     "lib/abnormalities.js": "3f322174d3b1176f09161f433fc879cf55b65554bb1f50e8d04c1b17ee39ee4e",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "cf85000c22e66899e4b191f626876f9bb02e156237ec5c8c60668ef515594c6e",
+    "lib/core.js": "9f9a38f23325aec1d5df23e860614dd2c7e1ebdf58ae3a46be7b700f489a972d",
     "lib/ping.js": {
       "overwrite": false,
       "hash": "1909de04fc9c01db4bfc53c36c866613582ad4942c9afe87709c57f1b650fbcd"
     },
-    "lib/migration.js": "7c425da0c3d8ff1bb650680d55896fc9f93fb3885b31e7ff668221df298af99e"
+    "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b"
   }
 }

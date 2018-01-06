@@ -4,7 +4,7 @@
 //In theory a bit slower with bunch of modules than old loader
 //but can detect copypasted SP instances
 //------------------------------------
-const { lstatSync, readdirSync, existsSync} = require('fs');
+const { lstatSync, readdirSync, existsSync } = require('fs');
 const path = require('path');
 const sysmsg = require('tera-data-parser').sysmsg,
 	migration = require('./lib/migration'),
@@ -33,7 +33,8 @@ const getModules = source =>
 let currentDir = getShortDirName(__dirname);
 let blockedModules = ['cooldowns', 'lockons', 'lockons-master', 'fastfire', 'fast-fire', 'fast-fire-master', 'fast-block',
 	'skill-prediction', 'skill-prediction-master', 'skill-prediction-exp', 'skill-prediction-experimental',
-	'sp', 'cooldowns-master', 'fast-block-master', 'skillprediction', 'pinkie-sp', 'sp-pinkie'];
+	'sp', 'cooldowns-master', 'fast-block-master', 'skillprediction', 'pinkie-sp', 'sp-pinkie',
+	'let-me-target', 'let-me-target-master', 'flymore', 'letmetarget', 'fly-more', 'fly-more-master', 'exploit', 'projectile', 'projectileexploit', 'meme', 'c_hit', 'C_HIT'];
 let errorState = false;
 let installedModules = null;
 
@@ -46,12 +47,12 @@ installedModules = (getModules(path.resolve(__dirname, '../'))).filter(element =
 
 //check for blocked modules
 if (installedModules.some(element => blockedModules.indexOf(element) >= 0)) {
-	console.log('[Skill Prediction] ERROR! Blocked modules installed. Close tera-proxy and delete them.');
+	console.log(`[${currentDir}] ERROR! Blocked modules installed. Close tera-proxy and delete them.`);
 	errorState = true
 }
 //check for "command"
 if (!installedModules.includes('command') && !installedModules.includes('command-master')) {
-	console.log('[Skill Prediction] ERROR! Missing module \'Command\'. Close tera-proxy and install it.');
+	console.log(`[${currentDir}] ERROR! Missing module \'Command\'. Close tera-proxy and install it.`);
 	errorState = true
 }
 
@@ -64,7 +65,10 @@ if (existsSync(migrationConfigPath)) {
 }
 
 module.exports = function SkillPredictionCore(dispatch) {
-	if (errorState) return
+	if (errorState) {
+		console.log(`[${currentDir}] Start canceled!`);
+		process.exit()
+	}
 
 	dispatch.hookOnce('C_CHECK_VERSION', 1, () => {
 		if (!sysmsg.maps.get(dispatch.base.protocolVersion) || sysmsg.maps.get(dispatch.base.protocolVersion).name.size === 0) {

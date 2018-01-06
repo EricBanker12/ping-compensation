@@ -76,6 +76,7 @@ module.exports = {
 				forceClip: true,
 				stamina: 500,
 				instantStamina: true,
+				noRetry: true,
 				noInterrupt: [2, 10, 32],
 				glyphs: {
 					21015: { stamina: -100 },
@@ -226,7 +227,7 @@ module.exports = {
 		},
 		18: { // Combative Strike
 			'*': {
-				length: 1100,
+				length: 1110,
 				distance: 120.28,
 				noInterrupt: [32],
 				race: {
@@ -352,7 +353,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 2650,
+				length: 2668,
 				distance: 210,
 				level: {
 					9: {
@@ -502,7 +503,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 2650,
+				length: 2668,
 				distance: 210
 			}
 		}
@@ -970,7 +971,8 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				length: 905,
 				distance: 150,
-				forceclip: true,
+				forceClip: true,
+				noRetry: true,
 				noInterrupt: [4],
 				race: {
 					8: {	// Popori: 150.316, 1185
@@ -2859,6 +2861,7 @@ module.exports = {
 				noInterrupt: [17],
 				teleportStage: 1,
 				noRetry: true,
+				checkReset: true
 
 			}
 		},
