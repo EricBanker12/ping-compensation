@@ -33,8 +33,8 @@ const getModules = source =>
 let currentDir = getShortDirName(__dirname);
 let blockedModules = ['cooldowns', 'lockons', 'lockons-master', 'fastfire', 'fast-fire', 'fast-fire-master', 'fast-block',
 	'skill-prediction', 'skill-prediction-master', 'skill-prediction-exp', 'skill-prediction-experimental',
-	'sp', 'cooldowns-master', 'fast-block-master', 'skillprediction', 'pinkie-sp', 'sp-pinkie',
-	'let-me-target', 'let-me-target-master', 'flymore', 'letmetarget', 'fly-more', 'fly-more-master', 'exploit', 'projectile', 'projectileexploit', 'meme', 'c_hit', 'C_HIT'];
+	'sp', 'cooldowns-master', 'fast-block-master', 'skillprediction', 'pinkie-sp', 'sp-pinkie']
+//	'let-me-target', 'let-me-target-master', 'flymore', 'letmetarget', 'fly-more', 'fly-more-master', 'exploit', 'projectile', 'projectileexploit', 'meme', 'c_hit', 'C_HIT'];
 let errorState = false;
 let installedModules = null;
 
