@@ -26,7 +26,7 @@
     "docs/config.md": "b6baaf9ef0d77dc8ddc4f364891bf2d63332e083b3b952f1ca82e12966753935",
     "lib/abnormalities.js": "3f322174d3b1176f09161f433fc879cf55b65554bb1f50e8d04c1b17ee39ee4e",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "9f9a38f23325aec1d5df23e860614dd2c7e1ebdf58ae3a46be7b700f489a972d",
+    "lib/core.js": "023662021b1adb3e364f577aa174d7762e6c9e4a4bd75420984c6d39a44940ac",
     "lib/ping.js": {
       "overwrite": false,
       "hash": "1909de04fc9c01db4bfc53c36c866613582ad4942c9afe87709c57f1b650fbcd"
