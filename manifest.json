@@ -29,8 +29,9 @@
     "lib/core.js": "023662021b1adb3e364f577aa174d7762e6c9e4a4bd75420984c6d39a44940ac",
     "lib/ping.js": {
       "overwrite": false,
-      "hash": "1909de04fc9c01db4bfc53c36c866613582ad4942c9afe87709c57f1b650fbcd"
+      "hash": "afe8bcdf5183e9c7a437ee27955550f1b972b32224eaa6144a8169b5dc41f4bb"
     },
-    "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b"
+    "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
+    "migration/partial-config.json": "2dd1e45dcd4defcab6adb90756ca2623a0445293e7e0c9ba88c4546603b18780"
   }
 }
