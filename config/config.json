@@ -14,5 +14,11 @@
 	"defendSuccessStrict": true,
 	"debugLoc": false,
 	"mountCheck": true,
-	"bodyRollsCheck": false
+	"bodyRollsCheck": false,
+	"version": "3.8",
+    "pingMethod": "active",
+    "pingHistoryMax": 20,
+    "pingSpikesLimit": false,
+    "pingSpikesMin": 100,
+    "pingSpikesMax": 300
 }

@@ -1907,7 +1907,7 @@ module.exports = {
 				type: 'charging',
 				length: [1000, 1000],
 				noInterrupt: [7, 26],
-				autorelease: 0,
+				//autorelease: 0,
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
@@ -2228,7 +2228,7 @@ module.exports = {
 				type: 'charging',
 				length: [590, 590, 590],
 				noInterrupt: [4, 22],
-				autoRelease: 2550,
+				//autoRelease: 2550,
 				noRetry: true,
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
@@ -2281,7 +2281,7 @@ module.exports = {
 				length: [780, 780, 780],
 				noInterrupt: [3, 22],
 				noRetry: true,
-				autoRelease: 2550,
+				//autoRelease: 2550,
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
@@ -2624,7 +2624,7 @@ module.exports = {
 				type: 'charging',
 				length: [800, 1600],
 				noInterrupt: [26, 27, 38],
-				autoRelease: 3200,
+				//autoRelease: 3200,
 				glyphs: {
 					28031: { chargeSpeed: 0.25 }
 				}
@@ -2874,7 +2874,7 @@ module.exports = {
 				type: 'charging',
 				length: 1475,
 				chargeLevels: [10, 10],
-				autoRelease: 0
+				//autoRelease: 0
 			},
 			10: {
 				length: 850,
@@ -2900,7 +2900,7 @@ module.exports = {
 				type: 'charging',
 				length: 1475,
 				chargeLevels: [10, 10],
-				autoRelease: 0
+				//autoRelease: 0
 			},
 			10: {
 				length: 850, // 810 female high elf
@@ -3669,7 +3669,7 @@ module.exports = {
 			0: {
 				triggerAbnormal: { 10152085: 4100 },
 				type: 'charging',
-				autoRelease: 0
+				//autoRelease: 0
 			},
 			10: {
 				triggerAbnormal: { 10152085: 4100 },
