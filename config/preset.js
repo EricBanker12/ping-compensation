@@ -107,7 +107,7 @@ module.exports = {
 		11: true, // Leaping Strike
 		12: true, // Unchained Anger
 		13: true, // Retaliate
-		15: true, // Vampiric Blow 
+		15: false, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
 		18: true, // Lethal Strike
 		19: true, // Tenacity
