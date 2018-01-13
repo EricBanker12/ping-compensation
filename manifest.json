@@ -4,7 +4,7 @@
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
     "module.json": "8e73f7575ee71a68f91647c386adf75df8d4c4a24ccc8f7627bfc76291f28a34",
     "package.json": "36a402d8fd02464deba0c986205aba993fd2b1c958bec0f2068da51b26edabba",
-    "README.md": "f82dc8d2192aabcc0bcfd744e3b24d025ad85b36ec6a936fb7ceaefa483d29e9",
+    "README.md": "4773d8e6d7dc85776eeaad1fd8223412b65a097c55d0e04bea6d8dd8b7e400b1",
     "README.origin.md": "dd53e074802dc82ae9fdb8f583ceb673994043997b91716cd5e904e0d5be3ee3",
     "config/abnormalities.js": {
       "overwrite": false,
@@ -16,13 +16,13 @@
     },
     "config/preset.js": {
       "overwrite": false,
-      "hash": "38349ae381fa9b9b9e26a1bb6c93e57ff16dd09c22970a11067747f6e071ff22"
+      "hash": "e82f75422b70fb723dc8b1e18f4a9868eb5bd088eb345360ac6dc3e4d715b92d"
     },
     "config/data/basicCC.json": "d2d5672af3fdfb7fa2e24fee440d5e498aa0560f14135f4fcef3f1aba5cd81b9",
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
     "config/data/skills.js": "78ab1ef45ad13dbe0b3447f6be54acced0ac0ff6c9dc0ae7fbd643bf0ae4257e",
-    "config/data/awakening.js": "e2537ac15fec1bc36f0089aa6b50b093a8c8f55c2634dda5bd21252391f88753",
+    "config/data/awakening.js": "d730741a550283bdc7c96c0cdc35bca7f26f63cc50edb3b5f357a2de4dba46ae",
     "docs/commands.md": "ce6d4a293c25900c3a576378a8a392123a1ffab2347b17eee684cabba38c2040",
     "docs/config.md": "b6baaf9ef0d77dc8ddc4f364891bf2d63332e083b3b952f1ca82e12966753935",
     "docs/ping.md": "d7ae068d45890cc1017b7d37b3cc104044250085fe2c5d8b8b299fc0e0d80667",

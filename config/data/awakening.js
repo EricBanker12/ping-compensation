@@ -554,12 +554,13 @@ module.exports = {
 				type: 'holdInfinite',
 				fixedSpeed: 1,
 				stamina: 50,
+				// stamina: 40
 			}
 		},
 		3: { // Onslaught / Changed
 			'*': {
 				distance: [0, 100, 100, 100, 100, 35],
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27],
+				noInterrupt: [2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27],
 				abnormals: {
 					22060: { speed: 1.25 }
 				},
@@ -596,6 +597,9 @@ module.exports = {
 				length: 830,
 				distance: 30,
 				noInterrupt: [2],
+				chains: {
+					10: 30
+				},
 				race: {
 					/*0: { distance: 30.000 }, // M.Human
 					2: { distance: 30.000 }, // M.Helf
@@ -605,7 +609,7 @@ module.exports = {
 					9: { distance: 43.69 } // Elin: 43.693
 				}
 			},
-			30: false // wtb chains
+			30: false // todo abnormie check
 		},
 		7: { // Guardian Shout
 			0: {
@@ -642,11 +646,15 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		10: { // Debilitate
+		10: { // Debilitate / Changed
 			0: { // Same animation as shield bash, just slower
 				length: 925,
 				distance: 30, // Seems pretty equalized
 				noInterrupt: [2],
+				chains: {
+					1: 30,
+					18: 30
+				},
 				race: {
 					/*0: { distance: 30 }, // M.Human
 					2: { distance: 30 }, // M.Helf
@@ -655,7 +663,8 @@ module.exports = {
 					8: { distance: 30 }, // Popori*/
 					9: { distance: 43.69 } // Elin: 43.693
 				}
-			}
+			},
+			30: false // todo abnormie check
 		},
 		11: { // Retaliate
 			0: {
@@ -678,13 +687,14 @@ module.exports = {
 			0: {
 				length: 2800,
 				distance: 85,
-				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, '18-0', 21, 23, 24, 25, 26, 27],
+				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27],
 				chains: {
 					1: 30,
 					5: 30,
 					8: 30,
 					10: 30,
 					18: 30,
+					21: 30,
 					24: 30
 				}
 			},
@@ -790,7 +800,7 @@ module.exports = {
 					9: { distance: 122.66 } // Elin: 122.66
 				}
 			},
-			30: false
+			30: false // todo abnormie check
 		},
 		22: { // Iron Will
 			0: {
@@ -811,13 +821,12 @@ module.exports = {
 				length: [725, 850],
 				noInterrupt: [2],
 				/*chains: {
-					4: 1,
-					4: 2
-				}*/
-			}, // Looks like a ninja skill chain
+					4: 2 // i'm just guessing tbh
+				}
+			},*/
 			0: true,
-			1: false,
-			2: false
+			1: true,
+			2: false // todo abnormie check
 		},
 		25: { // Wallop / Changed
 			'*': {
@@ -826,13 +835,14 @@ module.exports = {
 			0: {
 				length: 2375,
 				distance: 100,
-				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, '18-0', 21, 23, 24, 25, 26, 27],
+				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27],
 				chains: {
 					8: 30,
 					10: 30,
 					13: 30,
 					15: 30,
 					18: 30,
+					21: 30,
 					24: 30
 				}
 			},
@@ -870,7 +880,7 @@ module.exports = {
 				}
 			}
 		},
-		28: { // Righteous Leap
+		28: { // Righteous Leap / Justice Leap fuc bhs
 			0: {
 				length: [375, 1025, 3100],
 				distance: [29.48, 445.52, 0],
@@ -879,11 +889,11 @@ module.exports = {
 					24: 1
 				}
 			},
-			1: false
+			1: false // todo abnormie check
 		},
-		29: { // Deploy Barrier
+		29: { // Bulwark
 			0: false
-			// length: 10700
+			// length: [700, 10000]
 		},
 		30: { // Heavenly Shield 
 			0: false

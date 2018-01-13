@@ -39,8 +39,11 @@ module.exports = {
 		36: true, // Rain of Blows (Deadly Gamble)
 		37: true, // Blade Draw (Deadly Gamble)
 		38: true, // Scythe (Deadly Gamble)
-		39: true // Traverse Cut (Defensive Stance)
-	},
+		39: true, // Traverse Cut (Defensive Stance)
+		// Awakening
+
+		91: true // Awaken Aura
+ 	},
 	1: { // Lancer
 		"enabled": true,
 		1: true, // Combo Attack
@@ -67,7 +70,12 @@ module.exports = {
 		24: true, // Chained Leash
 		25: true, // Wallop
 		26: true, // Backstep
-		27: true // Rallying Cry
+		27: true, // Rallying Cry
+		// Awakening
+		28: true, // Righteous Leap / Justice Leap
+		29: true, // Bulwark
+		30: true, // Divine Aegis
+		91: true // Awaken Aura 
 	},
 	2: { // Slayer
 		"enabled": true,
@@ -91,7 +99,10 @@ module.exports = {
 		21: true, // Exhausting Blow
 		23: true, // Measured Slice
 		24: true, // Eviscerate
-		25: true // Ultimate Overhand Strike
+		25: true, // Ultimate Overhand Strike
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	3: { // Berserker
 		"enabled": true,
@@ -110,7 +121,7 @@ module.exports = {
 		15: false, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
 		18: true, // Lethal Strike
-		19: true, // Tenacity
+		19: true, // Tenacity / Fortitude
 		20: true, // Inescapable Doom
 		21: true, // Bloodlust
 		24: true, // Evasive Smash
@@ -121,7 +132,15 @@ module.exports = {
 		29: true, // Evasive Roll
 		30: true, // Axe Counter
 		31: true, // Overwhelm
-		32: true // Punishing Strike
+		32: true, // Punishing Strike
+		// Awakening
+		33: true, // Rage
+		34: true, // Right Hand
+		35: true, // Left Hand
+		36: true, // Dual Wield
+		37: true, // Crimson Assault
+		38: true, // Rage II?
+		91: true // Awaken Aura
 	},
 	4: { // Sorcerer
 		"enabled": true,
@@ -152,7 +171,10 @@ module.exports = {
 		31: true, // Warp Barrier
 		32: true, // Meteor Shower
 		33: true, // Arcane Pulse (Mana Boost)
-		34: true // Mana Boost
+		34: true, // Mana Boost
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	5: { // Archer
 		"enabled": true,
@@ -181,7 +203,10 @@ module.exports = {
 		29: true, // Thunderbolt
 		31: true, // Tenacity
 		32: true, // Find Weakness
-		33: true // Chase
+		33: true, // Chase
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	6: { // Priest
 		"enabled": true,
@@ -215,7 +240,10 @@ module.exports = {
 		38: true, // Backstep
 		39: true, // Grace of Resurrection
 		40: true, // Zenobia's Vortex
-		41: true // Divine Intervention
+		41: true, // Divine Intervention
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	7: { // Mystic
 		"enabled": true,
@@ -253,7 +281,10 @@ module.exports = {
 		37: true, // Warding Totem
 		41: true, // Contagion
 		42: true, // Boomerang Pulse
-		43: true // Release
+		43: true, // Release
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	8: { // Reaper
 		"enabled": true,
@@ -271,7 +302,10 @@ module.exports = {
 		15: true, // Retribution
 		16: true, // Shadow Reaping
 		18: true, // Shrouded Escape
-		40: true // Shadow Step
+		40: true, // Shadow Step
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	9: { // Gunner
 		"enabled": true,
@@ -290,7 +324,10 @@ module.exports = {
 		18: true, // HB
 		19: true, // ST
 		20: true, // Retaliate
-		40: true // Rolling Reload
+		40: true, // Rolling Reload
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	10: { // Brawler
 		"enabled": true,
@@ -307,7 +344,10 @@ module.exports = {
 		14: true, // Infuriate
 		16: true, // Flip Kick
 		21: true, // Mounting Rage
-		40: true // Quick Dash
+		40: true, // Quick Dash
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	11: { // Ninja
 		"enabled": true,
@@ -330,7 +370,10 @@ module.exports = {
 		17: true, // Attunement
 		18: true, // Bladestorm
 		19: true, // Chakra Thrust
-		20: true // Clone Jutsu
+		20: true, // Clone Jutsu
+		// Awakening
+
+		91: true // Awaken Aura
 	},
 	12: { // Valkyrie
 		"enabled": true,
@@ -353,6 +396,9 @@ module.exports = {
 		17: true, // Balder's Tears
 		19: true, // Reclamation
 		20: true, // Backstab
-		21: true // Dark Herald
+		21: true, // Dark Herald
+		// Awakening
+
+		91: true // Awaken Aura
 	}
 }
