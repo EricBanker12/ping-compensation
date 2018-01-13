@@ -20,7 +20,7 @@ const isDirectory = source => lstatSync(source).isDirectory();
 const isActiveModule = source => !source.includes('_');
 
 //function return "c" from "a/b/c" 
-const getShortDirName = source => source.slice(source.lastIndexOf(path.sep) + 1, source.length);
+const getShortDirName = source => (source.slice(source.lastIndexOf(path.sep) + 1, source.length)).toLowerCase();
 
 //function return short names for all active modules from folder with modules
 const getModules = source =>
