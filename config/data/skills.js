@@ -2162,7 +2162,9 @@ module.exports = {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
 				},
-				noRetry: true,
+				abnormals: {
+					25100: { speed: 1.25 },
+				},
 				race: {
 					9: { length: 6475 } // Elin
 				}

@@ -966,7 +966,7 @@ module.exports = {
 				},
 				chains: {
 					14: 30,
-					20: 0
+					20: 2
 				},
 				race: {
 					0: { distance: 220.47 }, // M.Human: 220.47
@@ -980,10 +980,10 @@ module.exports = {
 					10: { distance: 205.95 } // Baraka: 205.953
 				}
 			},
-			0: true,
-			1: true, // unused
-			2: true, // unused
-			30: { length: 2435 }
+			0: true, // obligatory id
+			1: true, // unchained
+			2: true, // icb cancel
+			30: { length: 2435 } // db chain
 		},
 		3: { // Whirlwind
 			0: {
@@ -1127,7 +1127,6 @@ module.exports = {
 		14: { // Distant Blade
 			'*': {
 				triggerAbnormal: { 23220: 2000 },
-				consumeAbnormalEnd: 23220,
 				length: 600,
 				distance: 75
 			},
@@ -2245,6 +2244,12 @@ module.exports = {
 				}
 			}
 		},
+		//28: { // Stone Skin
+			//0: { length: 305 }, // gets cancelled with endtype 9
+			//  <- S_ACTION_STAGE C11005-05 0 1x 1 0 0 0 0 0 (88888888 1 1 -1) xdd
+			// <- S_ACTION_END C11005-05 25 0u 5004ms (5004ms)
+			//50: { length: 365 },
+		//},
 		30: { // Nova
 			0: {
 				length: 2850,
@@ -2266,7 +2271,9 @@ module.exports = {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
 				},
-				noRetry: true,
+				abnormals: {
+					25100: { speed: 1.25 },
+				},
 				race: {
 					9: { length: 6475 } // Elin
 				}
@@ -2548,9 +2555,9 @@ module.exports = {
 		},
 		22: { // Sequential Fire
 			0: {
+				consumeAbnormal: 600200,
 				length: 440, //
 				requiredBuff: 600200,
-				noInterrupt: [22],
 				noRetry: true
 			}
 		},
