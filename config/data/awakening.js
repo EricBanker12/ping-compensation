@@ -506,6 +506,38 @@ module.exports = {
 				length: 2668,
 				distance: 210
 			}
+		},
+		40: { // Spiral Slash 
+			0: false, // obligatory
+			10: false, // obligatory
+			11: false, // normal
+			12: false, // cancel
+			19: false, // ?
+			20: false, // obligatory
+			21: false, // normal
+			22: false, // cancel
+			29: false // ?
+		},
+		41: { // Storm Crash
+			0: false,
+			30: false,
+			31: false // abnormal based maybe
+		},
+		42: { // Tempest Rush
+			'*': {
+				/*chains: {
+					2: 30,
+					30: 30,
+					38: 30,
+					41: 30
+				}*/
+			},
+			0: false,
+			30: false,
+			31: false // abnormal based maybe
+		},
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	1: { // Lancer
@@ -822,8 +854,8 @@ module.exports = {
 				noInterrupt: [2],
 				/*chains: {
 					4: 2 // i'm just guessing tbh
-				}
-			},*/
+				}*/
+			},
 			0: true,
 			1: true,
 			2: false // todo abnormie check
@@ -1291,6 +1323,10 @@ module.exports = {
 			},
 			0: { length: 3365 },
 			30: { length: 1325 } //
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	3: { // Berserker / There's a lot of unneeded no interrupts currently since sGrantSkill is emulated now, this applies for all charging skills interactions
@@ -2255,10 +2291,10 @@ module.exports = {
 			}
 		},
 		//28: { // Stone Skin
-			//0: { length: 305 }, // gets cancelled with endtype 9
-			//  <- S_ACTION_STAGE C11005-05 0 1x 1 0 0 0 0 0 (88888888 1 1 -1) xdd
-			// <- S_ACTION_END C11005-05 25 0u 5004ms (5004ms)
-			//50: { length: 365 },
+		//0: { length: 305 }, // gets cancelled with endtype 9
+		//  <- S_ACTION_STAGE C11005-05 0 1x 1 0 0 0 0 0 (88888888 1 1 -1) xdd
+		// <- S_ACTION_END C11005-05 25 0u 5004ms (5004ms)
+		//50: { length: 365 },
 		//},
 		30: { // Nova
 			0: {
@@ -2313,6 +2349,10 @@ module.exports = {
 		},
 		34: { // Mana Boost
 			0: { length: 750 }
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	5: { // Archer
@@ -2613,6 +2653,10 @@ module.exports = {
 				distance: 413, // 412.078
 				noInterrupt: [33],
 			}
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	6: { // Priest
@@ -2860,6 +2904,10 @@ module.exports = {
 				type: 'lockonCast',
 				length: 925
 			}
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	7: { // Mystic
@@ -3168,6 +3216,10 @@ module.exports = {
 		},
 		43: { // Release																																																																							
 			0: { length: [400, 575] }
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	8: { // Reaper
@@ -3559,6 +3611,10 @@ module.exports = {
 			},
 			0: true,
 			30: true
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	9: { // Gunner
@@ -4064,6 +4120,10 @@ module.exports = {
 				},
 				forceClip: true
 			}
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	10: { // Brawler
@@ -4358,6 +4418,10 @@ module.exports = {
 			1: true,
 			30: true,
 			31: true
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	11: { // Ninja
@@ -4972,6 +5036,10 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1275
 			}
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	},
 	12: { // Valkyrie
@@ -5506,6 +5574,10 @@ module.exports = {
 				length: 925,
 				requiredBuff: 10155201
 			}
+		},
+
+		91: { // Awaken Aura
+			0: false
 		}
 	}
 }
