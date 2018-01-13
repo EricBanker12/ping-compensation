@@ -12,7 +12,7 @@
     },
     "config/config.json": {
       "overwrite": false,
-      "hash": "39873070c1b6bab0fbef6d68e89afb1232acec06f780f89303954125975860a9"
+      "hash": "3c744cf42857b665d0c719cc692cd234e55367132acf8eb4475b27ae33961a32"
     },
     "config/preset.js": {
       "overwrite": false,
@@ -22,12 +22,13 @@
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
     "config/data/skills.js": "78ab1ef45ad13dbe0b3447f6be54acced0ac0ff6c9dc0ae7fbd643bf0ae4257e",
+    "config/data/awakening.js": "e2537ac15fec1bc36f0089aa6b50b093a8c8f55c2634dda5bd21252391f88753",
     "docs/commands.md": "ce6d4a293c25900c3a576378a8a392123a1ffab2347b17eee684cabba38c2040",
     "docs/config.md": "b6baaf9ef0d77dc8ddc4f364891bf2d63332e083b3b952f1ca82e12966753935",
     "docs/ping.md": "d7ae068d45890cc1017b7d37b3cc104044250085fe2c5d8b8b299fc0e0d80667",
     "lib/abnormalities.js": "3f322174d3b1176f09161f433fc879cf55b65554bb1f50e8d04c1b17ee39ee4e",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "aa1276e3a2efd9ac29f1c7dae2c10ad3f54a890454fa8f500190007672fdc0a3",
+    "lib/core.js": "beec2f17962c2f1014f8e124f2d444f2387420ca5d5ec36c53badf2f7a3f8ebe",
     "lib/ping.js": "d609b4bb472ef1383037e024a60590d91461e0c3232db64f0fe59bf37943d112",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
     "migration/partial-config.json": "2dd1e45dcd4defcab6adb90756ca2623a0445293e7e0c9ba88c4546603b18780"

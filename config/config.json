@@ -10,15 +10,15 @@
 	"forceClipStrict": true,
 	"debugGlyphs": false,
 	"debug": false,
-    "debugAbnormals": false,
+	"debugAbnormals": false,
 	"defendSuccessStrict": true,
 	"debugLoc": false,
 	"mountCheck": true,
 	"bodyRollsCheck": false,
 	"version": "3.8",
-    "pingMethod": "active",
-    "pingHistoryMax": 20,
-    "pingSpikesLimit": false,
-    "pingSpikesMin": 100,
-    "pingSpikesMax": 300
+	"pingMethod": "active",
+	"pingHistoryMax": 20,
+	"pingSpikesLimit": false,
+	"pingSpikesMin": 100,
+	"pingSpikesMax": 300
 }
