@@ -47,7 +47,7 @@ module.exports = {
 		40: true, // Spiral Slash
 		41: true, // Storm Crash
 		42: true, // Tempest Rush
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
  	},
 	1: { // Lancer
 		"enabled": true,
@@ -80,7 +80,7 @@ module.exports = {
 		28: true, // Righteous Leap / Justice Leap
 		29: true, // Bulwark
 		30: true, // Divine Aegis
-		91: true // Awaken Aura 
+		91: true, // Awakening Eyes Aura 
 	},
 	2: { // Slayer
 		"enabled": true,
@@ -109,7 +109,7 @@ module.exports = {
 		26: true, // Rending Crash
 		27: true, // Piercing Lunge
 		28: true, // Colossus Blade
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	3: { // Berserker
 		"enabled": true,
@@ -147,7 +147,7 @@ module.exports = {
 		36: true, // Decimate
 		37: true, // Crimson Assault
 		38: true, // Berserk?
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	4: { // Sorcerer
 		"enabled": true,
@@ -181,7 +181,7 @@ module.exports = {
 		34: true, // Mana Boost
 		// Awakening
 
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	5: { // Archer
 		"enabled": true,
@@ -213,7 +213,7 @@ module.exports = {
 		33: true, // Chase
 		// Awakening
 
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	6: { // Priest
 		"enabled": true,
@@ -251,7 +251,7 @@ module.exports = {
 		// Awakening
 		42: true, // Holy Brilliance
 		43: true, // Invocation of Judgement
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	7: { // Mystic
 		"enabled": true,
@@ -296,7 +296,7 @@ module.exports = {
 		46: true, // Thrall of Sovereignty?
 		47: true, // Mote Blast
 		48: true, // Thrall of Sovereignty?
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	8: { // Reaper
 		"enabled": true,
@@ -317,7 +317,7 @@ module.exports = {
 		40: true, // Shadow Step
 		// Awakening
 
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	9: { // Gunner
 		"enabled": true,
@@ -339,7 +339,7 @@ module.exports = {
 		40: true, // Rolling Reload
 		// Awakening
 
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	10: { // Brawler
 		"enabled": true,
@@ -359,7 +359,7 @@ module.exports = {
 		40: true, // Quick Dash
 		// Awakening
 
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	11: { // Ninja
 		"enabled": true,
@@ -385,7 +385,7 @@ module.exports = {
 		20: true, // Clone Jutsu
 		// Awakening
 
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	},
 	12: { // Valkyrie
 		"enabled": true,
@@ -411,6 +411,6 @@ module.exports = {
 		21: true, // Dark Herald
 		// Awakening
 
-		91: true // Awaken Aura
+		91: true, // Awakening Eyes Aura
 	}
 }

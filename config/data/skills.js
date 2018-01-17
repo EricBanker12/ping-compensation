@@ -925,26 +925,23 @@ module.exports = {
 				abnormals: {
 					23070: { speed: 1.25 }
 				},
-				chains: {
-					14: 30,
-					20: 0
-				},
+				chains: { 14: 30 },
 				race: {
-					0: { distance: 220.47 }, // M.Human: 220.47
+					//0: { distance: 220.47 }, // M.Human: 220.47
 					2: { distance: 220.15 }, // M.Helf: 220.153
 					4: { distance: 155 }, // M.Aman: 155
 					5: { distance: 174.84 }, // F.Aman: 174.837
 					6: { distance: 201.64 }, // M.Casta: 201.639
 					7: { distance: 200 }, // F.Casta: 200
 					8: { distance: 175.81 }, // Popori: 175.811
-					9: { distance: 220.47 }, // Elin: 220.47
+					//9: { distance: 220.47 }, // Elin: 220.47
 					10: { distance: 205.95 } // Baraka: 205.953
 				}
 			},
-			0: true,
-			1: true, // unused
-			2: true, // unused
-			30: { length: 2435 }
+			0: true, // type: change, pendingType: normal
+			1: true, // type: normal, pendingType: normal
+			2: { noInterrupt: [1, 2, 3, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25] }, // type: connect(30), pendingType: immediateCancel (chain Parent, Super cancel)
+			30: { length: 2435 } // type: normal, pendingType: immediateCancel (Chain Child, Super cancel)
 		},
 		3: { // Whirlwind
 			0: {
@@ -1088,7 +1085,6 @@ module.exports = {
 		14: { // Distant Blade
 			'*': {
 				triggerAbnormal: { 23220: 2000 },
-				consumeAbnormalEnd: 23220,
 				length: 600,
 				distance: 75
 			},

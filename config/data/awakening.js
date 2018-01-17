@@ -536,8 +536,8 @@ module.exports = {
 			30: false,
 			31: false // abnormal based maybe
 		},
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	1: { // Lancer
@@ -932,8 +932,8 @@ module.exports = {
 		30: { // Heavenly Shield 
 			0: false
 		},
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	2: { // Slayer
@@ -1008,26 +1008,23 @@ module.exports = {
 				abnormals: {
 					23070: { speed: 1.25 }
 				},
-				chains: {
-					14: 30,
-					20: 2
-				},
+				chains: { 14: 30 },
 				race: {
-					0: { distance: 220.47 }, // M.Human: 220.47
+					//0: { distance: 220.47 }, // M.Human: 220.47
 					2: { distance: 220.15 }, // M.Helf: 220.153
 					4: { distance: 155 }, // M.Aman: 155
 					5: { distance: 174.84 }, // F.Aman: 174.837
 					6: { distance: 201.64 }, // M.Casta: 201.639
 					7: { distance: 200 }, // F.Casta: 200
 					8: { distance: 175.81 }, // Popori: 175.811
-					9: { distance: 220.47 }, // Elin: 220.47
+					//9: { distance: 220.47 }, // Elin: 220.47
 					10: { distance: 205.95 } // Baraka: 205.953
 				}
 			},
-			0: true, // obligatory id
-			1: true, // unchained
-			2: true, // icb cancel
-			30: { length: 2435 } // db chain
+			0: true, // type: change, pendingType: normal
+			1: true, // type: normal, pendingType: normal
+			2: { noInterrupt: [1, 2, 3, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25] }, // type: connect(30), pendingType: immediateCancel (chain Parent, Super cancel)
+			30: { length: 2435 } // type: normal, pendingType: immediateCancel (Chain Child, Super cancel)
 		},
 		3: { // Whirlwind
 			0: {
@@ -1270,6 +1267,9 @@ module.exports = {
 		23: { // Measured Slice
 			'*': {
 				distance: 189, // Sometimes 190 but most of the time 189
+				abnormals: {
+					301604: { chain: 30 }
+				},
 				races: {
 					5: { distance: 190 }, // F.Aman
 					10: { distance: 190 } // Baraka
@@ -1291,6 +1291,9 @@ module.exports = {
 				length: 1925,
 				distance: 50,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 24],
+				abnormals: {
+					301604: { chain: 30 }
+				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -1311,6 +1314,9 @@ module.exports = {
 		25: { // Ultimate Overhand Strike
 			'*': {
 				distance: 169.5,
+				abnormals: {
+					301604: { chain: 30 }
+				},
 				race: {
 					0: { distance: 171.14 }, // M.Human: 171.138
 					2: { distance: 171.14 }, // M.Helf: 171.138
@@ -1327,23 +1333,36 @@ module.exports = {
 			30: { length: 1325 } //
 		},
 		26: { // Gaia Crusch / Rending Crash
-			0: false,
+			'*': {
+				abnormals: {
+					301604: { chain: 30 }
+				}
+			},
+			0: false, // super cancel 
 			30: false
 		},
-		27: { // Piercing Lunge / Spiral Death copy paste?
-			0: false,
-			30: false,
+		27: { // Piercing Lunge
+			'*': {
+				abnormals: {
+					301603: { chain: 30 }
+				}
+			},
+			0: false, // triggerAbnormal: { 301603: 5000 }
+			30: false, // triggerAbnormal: { 301603: 5000 }
 			31: false,
-			90: false // big thonk
+			// 90   <- cooltime trigger
 		},
 		28: { // Colossus Blade
-			0: false,
+			/*0: {
+				type: 'charging',
+				length: [650, 650, 1000]
+			},*/
 			1: false,
 			2: false,
 			3: false
 		},
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	3: { // Berserker / There's a lot of unneeded no interrupts currently since sGrantSkill is emulated now, this applies for all charging skills interactions
@@ -2042,8 +2061,8 @@ module.exports = {
 		38: { // Rage 
 			0: false, // { length: }
 		},
-		91: { // Awaken Aura
-			0: false, // { length: }
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	4: { // Sorcerer
@@ -2375,8 +2394,8 @@ module.exports = {
 			0: { length: 750 }
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	5: { // Archer
@@ -2679,8 +2698,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	6: { // Priest
@@ -2955,8 +2974,8 @@ module.exports = {
 			0: false,
 			50: false
 		},
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	7: { // Mystic
@@ -3246,8 +3265,8 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: [1000, 1700],
-				abnormals: { 
-					702000: { chain: 30 } 
+				abnormals: {
+					702000: { chain: 30 }
 				}
 			},
 			0: true, // change -> 10
@@ -3291,8 +3310,8 @@ module.exports = {
 			0: { length: [400, 575] }
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	8: { // Reaper
@@ -3686,8 +3705,8 @@ module.exports = {
 			30: true
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	9: { // Gunner
@@ -4195,8 +4214,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	10: { // Brawler
@@ -4494,8 +4513,8 @@ module.exports = {
 			31: true
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	11: { // Ninja
@@ -5112,8 +5131,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	},
 	12: { // Valkyrie
@@ -5650,8 +5669,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awaken Aura
-			0: false
+		91: { // Awakening Eyes Aura
+			0: { length: 3000 }
 		}
 	}
 }
