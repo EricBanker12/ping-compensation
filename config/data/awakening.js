@@ -1552,7 +1552,7 @@ module.exports = {
 					401404: 2 Lori says BHS :b:orked it
 				},*/
 				abnormals: {
-					401404: { chain: 30 }
+					401400: { chain: 30 }
 				}
 			},
 			1: true,
@@ -1932,7 +1932,7 @@ module.exports = {
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
-				//chains: { 2: 30 }, Lori says BHS :b:orked it
+				chains: { 2: 30 },
 				race: {
 					8: { // Popori, just WTF
 						length: 1195,
@@ -1985,7 +1985,7 @@ module.exports = {
 			}
 		},
 		33: { // Berserk
-			0: false 
+			0: false
 			/*0: { length: [x, 1500, x]}*/
 		},
 		34: { // Crush/ remember to test require buff
@@ -3151,16 +3151,28 @@ module.exports = {
 			}
 		},
 		25: { // Thrall of Protection
-			0: {
+			'*': {
 				fixedSpeed: 1,
-				length: [1000, 1720]
-			}
+				length: [1000, 1700],
+				abnormals: {
+					702000: { chain: 30 }
+				}
+			},
+			0: true,
+			10: true,
+			30: true // idk if it's faster
 		},
 		27: { // Thrall of Life
-			0: {
+			'*': {
 				fixedSpeed: 1,
-				length: [230, 470] // 240, 470
-			}
+				length: [230, 470], // 240, 470
+				abnormals: {
+					702000: { chain: 30 }
+				}
+			},
+			0: true,
+			10: true,
+			30: true // idk if it's faster, maybe it scales with
 		},
 		28: { // Sonorous Dreams
 			0: {
@@ -3219,16 +3231,28 @@ module.exports = {
 			}
 		},
 		33: { // Thrall of Vengeance
-			0: {
+			'*': {
 				fixedSpeed: 1,
-				length: [275, 575]
-			}
+				length: [275, 575],
+				abnormals: {
+					702000: { chain: 30 }
+				}
+			},
+			0: true,
+			10: true,
+			30: true // idk if it's faster, maybe it scales with
 		},
 		34: { // Thrall of Wrath
-			0: {
+			'*': {
 				fixedSpeed: 1,
-				length: [1000, 1700]
-			}
+				length: [1000, 1700],
+				abnormals: { 
+					702000: { chain: 30 } 
+				}
+			},
+			0: true, // change -> 10
+			10: true, // moving
+			30: true // moving chain
 		},
 		35: { // Command: Attack
 			0: {
