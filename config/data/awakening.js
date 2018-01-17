@@ -323,7 +323,7 @@ module.exports = {
 				noInterrupt: [32]
 			}
 		},
-		27: { // Pounce
+		/*27: { // Pounce / Legacy skill
 			0: {
 				length: 2000,
 				distance: 180,
@@ -333,7 +333,7 @@ module.exports = {
 					21082: { speed: 1.3 }
 				}
 			}
-		},
+		},*/
 		28: { // Traverse Cut
 			0: {
 				length: 2000,
@@ -812,7 +812,7 @@ module.exports = {
 			}
 		},*/
 		21: { // Lockdown Blow / Changed
-			0: {
+			'*': {
 				length: 1400,
 				distance: 100.13, // M.Human, 100.126
 				noInterrupt: [2],
@@ -832,7 +832,9 @@ module.exports = {
 					9: { distance: 122.66 } // Elin: 122.66
 				}
 			},
-			30: false // todo abnormie check
+			0: true,
+			30: false
+			/* { length: 1272} */ // 1.1
 		},
 		22: { // Iron Will
 			0: {
@@ -1324,7 +1326,22 @@ module.exports = {
 			0: { length: 3365 },
 			30: { length: 1325 } //
 		},
-
+		26: { // Gaia Crusch / Rending Crash
+			0: false,
+			30: false
+		},
+		27: { // Piercing Lunge / Spiral Death copy paste?
+			0: false,
+			30: false,
+			31: false,
+			90: false // big thonk
+		},
+		28: { // Colossus Blade
+			0: false,
+			1: false,
+			2: false,
+			3: false
+		},
 		91: { // Awaken Aura
 			0: false
 		}
@@ -1531,9 +1548,9 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [2],
-				interruptibleWithAbnormal: {
-					401404: 2
-				},
+				/*interruptibleWithAbnormal: {
+					401404: 2 Lori says BHS :b:orked it
+				},*/
 				abnormals: {
 					401404: { chain: 30 }
 				}
@@ -1736,8 +1753,10 @@ module.exports = {
 			'*': {
 				length: 1500,
 				//noRetry: true,
+				//noInterrupt: [],
 				chains: {
 					3: 30,
+					11: 30,
 					10: 30
 				}
 			},
@@ -1856,9 +1875,9 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
-				interruptibleWithAbnormal: {
-					401404: 2
-				},
+				/*interruptibleWithAbnormal: {
+					401404: 2 Lori says BHS :b:orked it
+				},*/
 				abnormals: {
 					401404: { chain: 31 }
 				},
@@ -1913,7 +1932,7 @@ module.exports = {
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
-				chains: { 2: 30 },
+				//chains: { 2: 30 }, Lori says BHS :b:orked it
 				race: {
 					8: { // Popori, just WTF
 						length: 1195,
@@ -1965,10 +1984,11 @@ module.exports = {
 				}
 			}
 		},
-		33: { // Rage / WUT IS THIS, maybe Berserk
-			0: false // length: 
+		33: { // Berserk
+			0: false 
+			/*0: { length: [x, 1500, x]}*/
 		},
-		34: { // Right Hand / remember to test require buff
+		34: { // Crush/ remember to test require buff
 			0: false, /*{
 					length:
 					distance:
@@ -1979,7 +1999,7 @@ module.exports = {
 			30: false,
 			31: false
 		},
-		35: { // Left Hand
+		35: { // Smash
 			0: false, /*{
 					length:
 					distance:
@@ -1990,32 +2010,36 @@ module.exports = {
 			30: false,
 			31: false // Intimidation usage?, specific chaining? Self chains?
 		},
-		36: { // Dual Wield
+		36: { // Decimate
 			0: false, /*{
 					length:
 					distance:
 					chains: {
-						34: 30,
-						35: 30,
+						36: 30
 					}
 				}*/
 			30: false,
 			31: false
 		},
 		37: { // Crimson Assault
+			'*': {
+				chains: { // It may just used 0 with most stuff and just chain from something particular though
+					33: 30,
+					34: 30,
+					35: 30,
+					36: 30,
+					37: 30,
+					38: 30
+				}
+			},
 			0: false, /*{
 					length:
 					distance:
-					chains: { // It may just used 0 with most stuff and just chain from something particular though
-						34: 30,
-						35: 30,
-						36: 30,
-						37: 30
-					}
+					
 				}*/
 			30: false
 		},
-		38: { // Rage II 
+		38: { // Rage 
 			0: false, // { length: }
 		},
 		91: { // Awaken Aura
@@ -2196,7 +2220,6 @@ module.exports = {
 			12: { noInterrupt: [7, 26] }
 		},
 		20: { // Flaming Barrage
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2205,6 +2228,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				length: 1500,
+				noRetry: true,
 				glyphs: {
 					25001: { speed: 1.3 },
 					25096: { speed: 1.4 } //
@@ -2215,7 +2239,6 @@ module.exports = {
 			}
 		},
 		21: { // Nerve Exhaustion
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2224,11 +2247,11 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1200]
+				length: [300, 1200],
+				noRetry: true
 			}
 		},
 		22: { // Burning Breath
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2237,11 +2260,11 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1200]
+				length: [300, 1200],
+				noRetry: true
 			}
 		},
 		23: { // Mana Volley
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2250,11 +2273,11 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [325, 875]
+				length: [325, 875],
+				noRetry: true
 			}
 		},
 		25: { // Time Gyre
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2263,7 +2286,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				noRetry: true
 			}
 		},
 		26: { // Teleport Jaunt
@@ -2363,7 +2387,6 @@ module.exports = {
 			}
 		},
 		2: { // Arrow Volley
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2375,7 +2398,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				length: 1225,
-				noInterrupt: [22]
+				noInterrupt: [22],
+				noRetry: true
 			}
 		},
 		3: { // Radiant Arrow
@@ -2679,10 +2703,19 @@ module.exports = {
 				}
 			}
 		},
-		3: { // Healing Circle
-			0: { length: 1750 }
+		3: { // Healing Circle / changed
+			0: {
+				length: 1750,
+				chains: {
+					38: 30,
+					26: 30
+				}
+			},
+			30: {
+				length: 1425 // 1400?
+			}
 		},
-		5: { // Blessing of Shakan
+		5: { // Blessings of Shakan, Seren, Balder, Zenobia and Arachne xd
 			0: { length: 1300 }
 		},
 		6: { // Arise
@@ -2699,11 +2732,14 @@ module.exports = {
 		10: { // Purifying Circle
 			0: { length: 1275 }
 		},
-		11: { // Metamorphic Blast
-			0: {
+		11: { // Metamorphic Blast / Changed
+			'*': {
 				length: 820,
 				checkReset: true
-			}
+			},
+			0: true,
+			1: true,
+			2: true
 		},
 		12: { // Resurrect
 			0: {
@@ -2725,7 +2761,11 @@ module.exports = {
 			0: { length: 4500 }
 		},
 		16: { // Shocking Implosion
-			0: { length: 1700 }
+			'*': { length: 1700 },
+			0: true, // I > XI
+			10: true, // XI
+			11: true, // XI
+			30: true // I > X
 		},
 		17: { // Prayer of Peace
 			0: {
@@ -2742,7 +2782,6 @@ module.exports = {
 			}
 		},
 		19: { // Focus Heal
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2750,15 +2789,16 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940
+				length: 1940,
+				noRetry: true
 			}
 		},
 		22: { // Kaia's Shield
 			0: { length: 650 }
 		},
-		23: { // Blessing of Balder
+		/*23: { // Blessing of Balder / Legacy skill
 			0: { length: 1300 }
-		},
+		},*/
 		26: { // Fiery Escape
 			0: {
 				CC: ["evasive", "extended"],
@@ -2768,9 +2808,9 @@ module.exports = {
 			}
 		},
 		27: { // Final Reprisal
+			'*': { length: 2600 },
 			0: {
-				length: 2600,
-				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, 28 - 10, 34, 38, 41 - 10],
+				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, '28-10', 34, 38, '41-10'],
 				chains: {
 					11: 30,
 					16: 30,
@@ -2778,6 +2818,8 @@ module.exports = {
 					40: 30
 				}
 			},
+			10: true,
+			11: true,
 			30: { length: 1040 }
 		},
 		28: { // Mana Charge
@@ -2804,7 +2846,6 @@ module.exports = {
 			2: { length: 1250 }
 		},
 		30: { // Plague of Exhaustion
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2813,7 +2854,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430,
+				noRetry: true
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -2830,7 +2872,6 @@ module.exports = {
 			}
 		},
 		33: { // Ishara's Lullaby
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2840,14 +2881,14 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1430]
+				length: [300, 1430],
+				noRetry: true
 			}
 		},
 		34: { // Restorative Burst
 			0: { length: 1430 }
 		},
 		35: { // Energy Stars
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2856,11 +2897,11 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430,
+				noRetry: true
 			}
 		},
 		37: { // Healing Immersion
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2872,7 +2913,8 @@ module.exports = {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1430,
-				noInterrupt: ['37-10']
+				noInterrupt: ['37-10'],
+				noRetry: true
 			}
 		},
 		38: { // Backstep
@@ -2892,8 +2934,7 @@ module.exports = {
 				noInterrupt: [40]
 			}
 		},
-		41: { // Divine Intervention
-			'*': { noRetry: true },
+		41: { // Divine Intervention / Salvation(Awakening-form)
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2902,10 +2943,18 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 925
+				length: 925,
+				noRetry: true
 			}
 		},
-
+		42: { // Holy Brilliance
+			0: false,
+			30: false
+		},
+		43: { // Invocation of Judgement
+			0: false,
+			50: false
+		},
 		91: { // Awaken Aura
 			0: false
 		}
@@ -2930,7 +2979,6 @@ module.exports = {
 			0: { length: 1280 }
 		},
 		5: { // Titanic Favor
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2938,12 +2986,13 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940
+				length: 1940,
+				noRetry: true
 			}
 		},
-		6: { // Shara's Lash
+		/*6: { // Shara's Lash / Legacy skill
 			0: { length: 1300 }
-		},
+		},*/
 		8: { // Metamorphic Blast
 			0: {
 				length: 820,
@@ -2957,7 +3006,6 @@ module.exports = {
 			30: { length: 820 }
 		},
 		9: { // Arun's Cleansing
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2965,7 +3013,8 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 790
+				length: 790,
+				noRetry: true
 			}
 		},
 		10: { // Resurrect
@@ -2989,7 +3038,6 @@ module.exports = {
 			0: { length: 4400 }
 		},
 		12: { // Vow of Rebirth
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -2998,7 +3046,8 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940
+				length: 1940,
+				noRetry: true
 			}
 		},
 		13: { // Aura of the Merciless
@@ -3089,7 +3138,6 @@ module.exports = {
 			30: { length: 1100 }
 		},
 		24: { // Volley of Curses
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3098,7 +3146,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [525, 675]
+				length: [525, 675],
+				noRetry: true
 			}
 		},
 		25: { // Thrall of Protection
@@ -3114,7 +3163,6 @@ module.exports = {
 			}
 		},
 		28: { // Sonorous Dreams
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3123,7 +3171,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430,
+				noRetry: true
 			}
 		},
 		29: { // Regression
@@ -3131,7 +3180,6 @@ module.exports = {
 			length: [500, 700]
 		},
 		30: { // Curse of Exhaustion
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3140,11 +3188,11 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430,
+				noRetry: true
 			}
 		},
 		31: { // Curse of Confusion
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3153,11 +3201,11 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430,
+				noRetry: true
 			}
 		},
 		32: { // Mire
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3166,7 +3214,8 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1430,
+				noRetry: true
 			}
 		},
 		33: { // Thrall of Vengeance
@@ -3197,7 +3246,6 @@ module.exports = {
 			0: { length: 1900 }
 		},
 		41: { // Contagion
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3205,7 +3253,8 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1000
+				length: 1000,
+				noRetry: true
 			}
 		},
 		42: { // Boomerang Pulse
@@ -3637,7 +3686,6 @@ module.exports = {
 			}
 		},
 		2: { // Bombardment
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3647,6 +3695,7 @@ module.exports = {
 				type: 'lockonCast',
 				triggerAbnormal: { 10152082: 4100 },
 				length: 3000,
+				noRetry: true,
 				glyphs: {
 					30004: { speed: 1.25 }
 				}
@@ -4233,7 +4282,8 @@ module.exports = {
 		/*3: { // Divine Wrath
 			0: {
 				fixedSpeed: 1,
-				length: 29900
+				length: 29900,
+				noRetry: true
 			},
 			1: {
 				type: 'lockonCast',

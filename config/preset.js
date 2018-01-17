@@ -4,6 +4,9 @@ Some classes using emulated abnormals for skills.
 You can't disable these skills only with this preset.js
 You MUST change values in abnormalities.js too for disabled skills
 WARNING! WARNING! WARNING!
+
+Awakening skills naming is being done based on the following document: https://docs.google.com/document/d/1q0qxSf-Ll1nfViF9SGf1kcA2I0CjO_N8dokgpx__o2c/edit#
+(for now)
 */
 module.exports = {
 	0: { // Warrior
@@ -28,7 +31,7 @@ module.exports = {
 		24: true, // Smoke Aggressor
 		25: true, // Command: Attack
 		26: true, // Command: Follow
-		27: true, // Pounce
+		27: true, // Pounce / x
 		28: true, // Traverse Cut
 		29: true, // Blade Draw
 		30: true, // Scythe
@@ -41,7 +44,9 @@ module.exports = {
 		38: true, // Scythe (Deadly Gamble)
 		39: true, // Traverse Cut (Defensive Stance)
 		// Awakening
-
+		40: true, // Spiral Slash
+		41: true, // Storm Crash
+		42: true, // Tempest Rush
 		91: true // Awaken Aura
  	},
 	1: { // Lancer
@@ -63,7 +68,7 @@ module.exports = {
 		17: true, // Adrenaline Rush
 		18: true, // Shield Barrage
 		19: true, // Pledge of Protection
-		20: true, // Menacing Wave
+		20: true, // Menacing Wave / x
 		21: true, // Lockdown Blow
 		22: true, // Iron Will
 		23: true, // Master's Leash
@@ -101,7 +106,9 @@ module.exports = {
 		24: true, // Eviscerate
 		25: true, // Ultimate Overhand Strike
 		// Awakening
-
+		26: true, // Rending Crash
+		27: true, // Piercing Lunge
+		28: true, // Colossus Blade
 		91: true // Awaken Aura
 	},
 	3: { // Berserker
@@ -112,13 +119,13 @@ module.exports = {
 		4: true, // Flatten
 		5: true, // Dash
 		6: true, // Sweeping Strike
-		7: true, // Mocking Shout
+		7: true, // Mocking Shout / x
 		8: true, // Fiery Rage
 		10: true, // Cyclone
 		11: true, // Leaping Strike
-		12: true, // Unchained Anger
+		12: true, // Unchained Anger / x
 		13: true, // Retaliate
-		15: false, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
+		15: true, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
 		18: true, // Lethal Strike
 		19: true, // Tenacity / Fortitude
@@ -134,12 +141,12 @@ module.exports = {
 		31: true, // Overwhelm
 		32: true, // Punishing Strike
 		// Awakening
-		33: true, // Rage
-		34: true, // Right Hand
-		35: true, // Left Hand
-		36: true, // Dual Wield
+		33: true, // Berserk?
+		34: true, // Crush
+		35: true, // Smash
+		36: true, // Decimate
 		37: true, // Crimson Assault
-		38: true, // Rage II?
+		38: true, // Berserk?
 		91: true // Awaken Aura
 	},
 	4: { // Sorcerer
@@ -240,9 +247,10 @@ module.exports = {
 		38: true, // Backstep
 		39: true, // Grace of Resurrection
 		40: true, // Zenobia's Vortex
-		41: true, // Divine Intervention
+		41: true, // Divine Intervention / Salvation(Awakening-form)
 		// Awakening
-
+		42: true, // Holy Brilliance
+		43: true, // Invocation of Judgement
 		91: true // Awaken Aura
 	},
 	7: { // Mystic
@@ -283,7 +291,11 @@ module.exports = {
 		42: true, // Boomerang Pulse
 		43: true, // Release
 		// Awakening
-
+		44: true, // Transmission
+		45: true, // Soul augmentation
+		46: true, // Thrall of Sovereignty?
+		47: true, // Mote Blast
+		48: true, // Thrall of Sovereignty?
 		91: true // Awaken Aura
 	},
 	8: { // Reaper
