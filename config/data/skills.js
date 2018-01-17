@@ -2046,12 +2046,12 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				length: 1500,
-				noRetry: true,
 				glyphs: {
 					25001: { speed: 1.3 },
 					25096: { speed: 1.4 } //
@@ -2065,52 +2065,52 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: [300, 1200],
-				noRetry: true
 			}
 		},
 		22: { // Burning Breath
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: [300, 1200],
-				noRetry: true
 			}
 		},
 		23: { // Mana Volley
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: [325, 875],
-				noRetry: true
 			}
 		},
 		25: { // Time Gyre
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 700,
-				noRetry: true
 			}
 		},
 		26: { // Teleport Jaunt
@@ -2205,14 +2205,12 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [22],
-				noRetry: true,
-				length: 4900
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				length: 1225,
-				noInterrupt: [22],
-				noRetry: true
+				noInterrupt: [22]
 			}
 		},
 		3: { // Radiant Arrow
@@ -2224,7 +2222,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [590, 590, 590],
+				length: [600, 600, 600],
 				noInterrupt: [4, 22],
 				//autoRelease: 2550,
 				noRetry: true,
@@ -2276,7 +2274,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [780, 780, 780],
+				length: [800, 800, 800],
 				noInterrupt: [3, 22],
 				noRetry: true,
 				//autoRelease: 2550,
@@ -2578,12 +2576,12 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440
+				length: 54440,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940,
-				noRetry: true
+				length: 1940
 			}
 		},
 		22: { // Kaia's Shield
@@ -2640,13 +2638,13 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1430,
-				noRetry: true
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -2672,8 +2670,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1430],
-				noRetry: true
+				length: [300, 1430]
 			}
 		},
 		34: { // Restorative Burst
@@ -2683,13 +2680,13 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				noRetry: true
+				length: 1430
 			}
 		},
 		37: { // Healing Immersion
@@ -2698,14 +2695,14 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 4900,
 				noInterrupt: [37],
+				noRetry: true,
 				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1430,
-				noInterrupt: ['37-10'],
-				noRetry: true
+				noInterrupt: ['37-10']
 			}
 		},
 		38: { // Backstep
@@ -2730,12 +2727,12 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54440,
-				partyOnly: true
+				partyOnly: true,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				length: 925,
-				noRetry: true
 			}
 		}
 	},
@@ -2762,12 +2759,12 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				length: 1940,
-				noRetry: true
 			}
 		},
 		6: { // Shara's Lash
@@ -2789,12 +2786,12 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				length: 790,
-				noRetry: true
 			}
 		},
 		10: { // Resurrect
@@ -2822,12 +2819,13 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 59900,
+				noRetry: true,
 				partyOnly: true
+				
 			},
 			10: {
 				type: 'lockonCast',
 				length: 1940,
-				noRetry: true
 			}
 		},
 		13: { // Aura of the Merciless
@@ -2921,13 +2919,13 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: [525, 675],
-				noRetry: true
 			}
 		},
 		25: { // Thrall of Protection
@@ -2946,13 +2944,13 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1430,
-				noRetry: true
 			}
 		},
 		29: { // Regression
@@ -2963,39 +2961,39 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1430,
-				noRetry: true
 			}
 		},
 		31: { // Curse of Confusion
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1430,
-				noRetry: true
 			}
 		},
 		32: { // Mire
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
-				noRetry: true
+				length: 1430
 			}
 		},
 		33: { // Thrall of Vengeance
@@ -3029,12 +3027,12 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900
+				length: 4900,
+				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1000,
-				noRetry: true
+				length: 1000
 			}
 		},
 		42: { // Boomerang Pulse
@@ -3458,11 +3456,11 @@ module.exports = {
 			}
 		},
 		2: { // Bombardment
-			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900
+				length: 59900,
+				noRetry: true
 			},
 			1: {
 				type: 'lockonCast',
