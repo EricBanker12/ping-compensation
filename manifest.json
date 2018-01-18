@@ -28,7 +28,7 @@
     "docs/ping.md": "d7ae068d45890cc1017b7d37b3cc104044250085fe2c5d8b8b299fc0e0d80667",
     "lib/abnormalities.js": "3f322174d3b1176f09161f433fc879cf55b65554bb1f50e8d04c1b17ee39ee4e",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "beec2f17962c2f1014f8e124f2d444f2387420ca5d5ec36c53badf2f7a3f8ebe",
+    "lib/core.js": "2615f4e69b240a7c624ec4b25135749cabf2601c0103533e4fc6ce9b2e8f978b",
     "lib/ping.js": "d609b4bb472ef1383037e024a60590d91461e0c3232db64f0fe59bf37943d112",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
     "migration/partial-config.json": "2dd1e45dcd4defcab6adb90756ca2623a0445293e7e0c9ba88c4546603b18780"
