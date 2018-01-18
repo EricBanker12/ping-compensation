@@ -111,7 +111,7 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 2550, // 2527/2540  
+				length: 2545.45,
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
 				abnormals: {
 					100801: { skill: 360100 }
@@ -387,7 +387,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1335,
+				length: 1333.33,
 				distance: 135,
 				abnormals: {
 					100801: { skill: 370130 }
@@ -940,7 +940,7 @@ module.exports = {
 			},
 			0: true, // type: change, pendingType: normal
 			1: true, // type: normal, pendingType: normal
-			2: { noInterrupt: [1, 2, 3, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25] }, // type: connect(30), pendingType: immediateCancel (chain Parent, Super cancel)
+			2: { noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25] }, // type: connect(30), pendingType: immediateCancel (chain Parent, Super cancel)
 			30: { length: 2435 } // type: normal, pendingType: immediateCancel (Chain Child, Super cancel)
 		},
 		3: { // Whirlwind
@@ -2051,7 +2051,7 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1500,
+				length: 1501,
 				glyphs: {
 					25001: { speed: 1.3 },
 					25096: { speed: 1.4 } //
@@ -2146,10 +2146,10 @@ module.exports = {
 			}
 		},
 		31: { // Warp Barrier
-			'*': { length: 475 },
+			'*': { length: 500 },
 			0: true,
 			10: true,
-			20: true
+			20: true 
 		},
 		32: { // Meteor Shower
 			'*': {
