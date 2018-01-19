@@ -216,7 +216,7 @@ module.exports = {
 				noRetry: true,
 				noInterrupt: [16, 32]
 			},
-			1: { length: 825 }
+			1: { length: 800 }
 		},
 		17: { // Vortex Slash
 			'*': {
@@ -570,7 +570,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 1815,
+				length: 1818.12,
 				distance: 66.07,
 				race: {
 					0: { distance: 70 }, // M.Human: 70
@@ -616,15 +616,17 @@ module.exports = {
 			30: { length: [713, 375, 375, 375, 300, 582] }
 		},
 		4: { // Challenging Shout / Changed
-			0: {
+			'*': {
+				triggerAbnormal: { 201803: 3000 }, // 201800 3000
 				length: 2215,
-				noInterrupt: [2],
+				//noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27], // check
 				glyphs: {
 					22056: { speed: 1.25 },
 					22085: { speed: 1.25 }
 				}
 			},
-			30: false // wtb chains
+			0: true,
+			30: true // wtb chain
 		},
 		5: { // Shield Bash / Changed
 			0: {
@@ -712,7 +714,7 @@ module.exports = {
 			}
 		},
 		12: { // Infuriate
-			0: {
+			0: { // 201803 ?
 				length: 2425,
 				noInterrupt: [2]
 			}
@@ -835,7 +837,7 @@ module.exports = {
 				}
 			},
 			0: true,
-			30: false
+			30: { length: 1272.72 } // ?
 			/* { length: 1272} */ // 1.1
 		},
 		22: { // Iron Will
@@ -854,22 +856,20 @@ module.exports = {
 		},
 		24: { // Chained Leash / Changed
 			'*': {
-				length: [725, 850],
-				noInterrupt: [2],
-				/*chains: {
-					4: 2 // i'm just guessing tbh
-				}*/
+				consumeAbnormal: 201803,
+				length: 1000,
+				noInterrupt: [2]
 			},
 			0: true,
 			1: true,
-			2: false // todo abnormie check
+			2: true
 		},
 		25: { // Wallop / Changed
 			'*': {
 				CC: "extended",
 			},
 			0: {
-				length: 2375,
+				length: 2391.3,
 				distance: 100,
 				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27],
 				chains: {
@@ -883,7 +883,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1900, // 1910
+				length: 1913.04,
 				distance: 100
 			}
 		},
@@ -917,22 +917,24 @@ module.exports = {
 			}
 		},
 		28: { // Righteous Leap / Justice Leap fuc bhs
+			'*': { distance: [29.48, 445.52, 0] },
 			0: {
 				length: [375, 1025, 3100],
-				distance: [29.48, 445.52, 0],
 				chains: {
 					15: 1,
 					24: 1
 				}
 			},
-			1: false // todo abnormie check
+			1: {
+				length: [281.25, 768.75, 2325]
+			}
 		},
 		29: { // Bulwark
 			0: false
 			// length: [700, 10000]
 		},
 		30: { // Heavenly Shield 
-			0: false
+			0: false // pops abnormal
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
@@ -1093,7 +1095,10 @@ module.exports = {
 				length: 3365,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
-					300801: { skill: 250100 }
+					300800: { skill: 250100 },
+					300801: { skill: 250100 },
+					300805: { skill: 250100 },
+					301604: { skill: 301604 }
 				},
 				chains: {
 					1: 30,
@@ -1111,7 +1116,9 @@ module.exports = {
 			30: {
 				length: 1325, //
 				abnormals: {
-					300801: { skill: 250130 }
+					300800: { skill: 250130 }, // I
+					300801: { skill: 250130 }, // II
+					300805: { skill: 250130 } // II Aw? Changed?
 				}
 			}
 		},
@@ -1340,25 +1347,27 @@ module.exports = {
 					301604: { chain: 30 }
 				}
 			},
-			0: false, // super cancel 
-			30: false
+			0: { length: 3375 }, // super cancel 
+			30: { length: 900 }
 		},
 		27: { // Piercing Lunge
 			'*': {
+				length: 751.25,
 				abnormals: {
 					301603: { chain: 30 }
 				}
 			},
-			0: false, // triggerAbnormal: { 301603: 5000 }
-			30: false, // triggerAbnormal: { 301603: 5000 }
-			31: false,
-			// 90   <- cooltime trigger
-		},
+			0: true, // triggerAbnormal: { 301603: 5000 } // immediate cancel
+			30: true, // triggerAbnormal: { 301603: 5000 } rear cancel	
+			31: true, // 751.25 rear cancel
+			// 90   <- cooltime handler / 10151130 5000
+		}, // 301803 supposly cool abnormal
 		28: { // Colossus Blade
 			/*0: {
-				type: 'charging',
+				type: 'charging', // superCancel
 				length: [650, 650, 1000]
 			},*/
+			0: false,
 			1: false,
 			2: false,
 			3: false

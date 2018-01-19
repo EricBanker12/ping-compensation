@@ -1008,6 +1008,7 @@ module.exports = {
 				length: 3365,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
+					300800: { skill: 250100 },
 					300801: { skill: 250100 }
 				},
 				chains: {
@@ -1026,6 +1027,7 @@ module.exports = {
 			30: {
 				length: 1325, //
 				abnormals: {
+					300800: { skill: 250130 },
 					300801: { skill: 250130 }
 				}
 			}
@@ -1159,7 +1161,8 @@ module.exports = {
 		18: { // Overpower
 			0: {
 				fixedSpeed: 1,
-				length: 200
+				length: 200,
+				noInterrupt: [18]
 			}
 		},
 		19: { // Tenacity
