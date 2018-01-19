@@ -1095,7 +1095,6 @@ module.exports = {
 				length: 3365,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
-					300800: { skill: 250100 },
 					300801: { skill: 250100 },
 					300805: { skill: 250100 },
 					301604: { skill: 301604 }
@@ -1116,7 +1115,6 @@ module.exports = {
 			30: {
 				length: 1325, //
 				abnormals: {
-					300800: { skill: 250130 }, // I
 					300801: { skill: 250130 }, // II
 					300805: { skill: 250130 } // II Aw? Changed?
 				}
@@ -1443,7 +1441,7 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: {
+			0: { // startTime: 0
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
@@ -1467,7 +1465,7 @@ module.exports = {
 					{ length: [800, 800] }	// 1150
 				]
 			},
-			10: {
+			10: { // startTime: 500
 				distance: 87.28, // 87.272 Cast F. - TODO
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
@@ -1478,7 +1476,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}
 			},
-			11: {
+			11: { // startTime: 500
 				distance: 87.28, // 87.272
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
@@ -1489,7 +1487,7 @@ module.exports = {
 					10: { distance: 64.88 } // Baraka: 64.884
 				}
 			},
-			12: {
+			12: { // startTime: 500
 				distance: 87.28, // 87.272
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
@@ -1511,7 +1509,8 @@ module.exports = {
 					9: { distance: 87.27 }, // Elin: 87.272
 					10: { distance: 64.88 } // Baraka: 64.884
 				},
-				canVB: true
+				canVB: true,
+				pendingStartTime: 454.54 // 500 / timeRate = 1.1
 			}
 		},
 		4: { // Flatten
@@ -1667,7 +1666,8 @@ module.exports = {
 				races: {
 					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf
 				},
-				canVB: true
+				canVB: true,
+				pendingStartTime: 300 // 300 / timeRate = 1
 			}
 		},
 		11: { // Leaping Strike 
@@ -1789,6 +1789,8 @@ module.exports = {
 					11: 30,
 					10: 30
 				}
+				//canVB: true,
+				//pendingStartTime: 500 // 500 / timeRate = 1
 			},
 			0: true,
 			30: true

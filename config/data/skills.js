@@ -1008,7 +1008,6 @@ module.exports = {
 				length: 3365,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
-					300800: { skill: 250100 },
 					300801: { skill: 250100 }
 				},
 				chains: {
@@ -1027,7 +1026,6 @@ module.exports = {
 			30: {
 				length: 1325, //
 				abnormals: {
-					300800: { skill: 250130 },
 					300801: { skill: 250130 }
 				}
 			}
@@ -1379,7 +1377,8 @@ module.exports = {
 					9: { distance: 87.27 }, // Elin: 87.272
 					10: { distance: 64.88 } // Baraka: 64.884
 				},
-				canVB: true
+				canVB: true,
+				pendingStartTime: 454.54 // 500 / timeRate = 1.1
 			}
 		},
 		4: { // Flatten
@@ -1534,7 +1533,8 @@ module.exports = {
 				races: {
 					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf
 				},
-				canVB: true
+				canVB: true,
+				pendingStartTime: 300 // 300 / timeRate = 1
 			}
 		},
 		11: { // Leaping Strike 
@@ -1566,7 +1566,7 @@ module.exports = {
 			0: {                             //                    2. Must be in combat when used.  
 				type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
-				noInterrupt: [2, '3-0', 4, '10-0', '15-14', '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
+				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
 				//autorelease: 2515 // ish
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
@@ -1630,6 +1630,7 @@ module.exports = {
 			},
 			14: {
 				distance: 87.28, // 87.272
+				noInterrupt: [15],
 				race: {
 					3: { distance: 72.79 }, // F.Helf: 72.785
 					6: { distance: 69.7 }, // M.Casta: 69.704
@@ -1707,7 +1708,8 @@ module.exports = {
 					9: { distance: 167.62 }, // Elin: 167.624
 					10: { distance: 158.11 } // Baraka: 158.112
 				},
-				canVB: true
+				canVB: true,
+				pendingStartTime: 500 // 500 / timeRate = 1
 			}
 		},
 		19: { // Tenacity
