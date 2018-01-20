@@ -268,7 +268,7 @@ module.exports = {
 		20: { // Deadly Gamble
 			0: {
 				fixedSpeed: 1,
-				length: 310,
+				length: 320,
 				noInterrupt: [32]
 			}
 		},
@@ -4412,7 +4412,7 @@ module.exports = {
 		},
 		3: { // Leaves on the Wind
 			'*': {
-				length: 1275,
+				length: 1272.72,
 				noInterrupt: [3],
 				chains: {
 					1: null,
