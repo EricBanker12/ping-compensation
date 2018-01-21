@@ -4120,7 +4120,7 @@ module.exports = {
 				chains: {
 					6: 30,
 					8: 30,
-					9: 30,
+					9: 30
 				},
 				hasChains: true
 			},
@@ -4170,8 +4170,7 @@ module.exports = {
 				chains: {
 					4: 30,
 					7: 30,
-					8: 30,
-
+					8: 30
 				},
 				hasChains: true
 			},
