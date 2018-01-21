@@ -2154,7 +2154,7 @@ module.exports = {
 			'*': { length: 500 },
 			0: true,
 			10: true,
-			20: true 
+			20: true
 		},
 		32: { // Meteor Shower
 			'*': {
@@ -2826,7 +2826,7 @@ module.exports = {
 				length: 59900,
 				noRetry: true,
 				partyOnly: true
-				
+
 			},
 			10: {
 				type: 'lockonCast',
@@ -4146,7 +4146,7 @@ module.exports = {
 			},
 			1: true,
 			2: true,
-			30: { fixedSpeed: 1 },
+			30: true,
 			31: true
 		},
 		9: { // Jackhammer
