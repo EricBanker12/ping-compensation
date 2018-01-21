@@ -4066,6 +4066,9 @@ module.exports = {
 			'*': {
 				CC: "extended",
 				length: 3225,
+				chains: {
+					6: 30
+				}
 			},
 			0: true,
 			30: true
@@ -4114,6 +4117,11 @@ module.exports = {
 				length: 860,
 				distance: 105,
 				noInterrupt: [7],
+				chains: {
+					6: 30,
+					8: 30,
+					9: 30,
+				},
 				hasChains: true
 			},
 			0: true,
@@ -4157,6 +4165,13 @@ module.exports = {
 				noInterrupt: [9],
 				abnormals: {
 					31120: { chain: 31 }
+
+				},
+				chains: {
+					4: 30,
+					7: 30,
+					8: 30,
+
 				},
 				hasChains: true
 			},
@@ -4211,6 +4226,9 @@ module.exports = {
 			'*': {
 				length: 2050,
 				distance: 134,
+				chains: {
+					4: 30
+				},
 				hasChains: true
 			},
 			1: true,
