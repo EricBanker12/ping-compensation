@@ -1441,23 +1441,22 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: { // startTime: 0
+			0: {
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
-				//autorelease: 2525
+				//laststage: 2000
 				glyphs: {
 					24067: {
-						chargeSpeed: 0.25
-						//autorelease: 2025
-					} // Only these affect charge hold time
+						chargeSpeed: 0.25 // only value that affects last charge state duration
+					}
 				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { speed: 1.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
-					4010150: { chargeSpeed: 0.2 } // All of these do not
+					4010150: { chargeSpeed: 0.2 }
 				},
 				level: [
 					{ length: 800 },	// 1300
@@ -1590,7 +1589,7 @@ module.exports = {
 		/*7: { // Mocking Shout / Legacy skill
 			0: {
 				fixedSpeed: 1,
-				length: [315, 1100],
+				length: [308, 1100],
 				noInterrupt: [2]
 			}
 		},*/
@@ -1694,13 +1693,12 @@ module.exports = {
 				noRetry: true
 			}
 		},
-		15: { // Vampiric Blow  //         Uncomment this for being able to VB if, a VB chain is avaiable, else, it won't work
-			'*': { length: 1930 },            // Usage:            1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
-			0: {                             //                    2. Must be in combat when used.  
-				type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
+		15: { // Vampiric Blow  
+			'*': { length: 1930 },
+			0: {
+				type: 'charging',
 				length: [800, 800, 800],
-				noInterrupt: [2, '3-0', 4, '10-0', '15-14', '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
-				//autorelease: 2515 // ish
+				noInterrupt: [2, '3-0', 4, '10-0', '15-14', '18-0', 24, 25, 30],
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
@@ -1781,7 +1779,6 @@ module.exports = {
 		},
 		18: { // Lethal Strike // Changed
 			'*': {
-				length: 1500,
 				//noRetry: true,
 				//noInterrupt: [],
 				chains: {
@@ -1792,8 +1789,8 @@ module.exports = {
 				//canVB: true,
 				//pendingStartTime: 500 // 500 / timeRate = 1
 			},
-			0: true,
-			30: true
+			0: { length: 687.5 },
+			30: { length: 550  }
 			/*0: {
 				type: 'charging',
 				length: [800, 800, 800],

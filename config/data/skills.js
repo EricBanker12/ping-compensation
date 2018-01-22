@@ -1313,19 +1313,18 @@ module.exports = {
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
-				//autorelease: 2525
+				//laststage: 2000
 				glyphs: {
 					24067: {
-						chargeSpeed: 0.25
-						//autorelease: 2025
-					} // Only these affect charge hold time
+						chargeSpeed: 0.25 // only value that affects last charge state duration
+					}
 				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { speed: 1.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
-					4010150: { chargeSpeed: 0.2 } // All of these do not
+					4010150: { chargeSpeed: 0.2 }
 				},
 				level: [
 					{ length: 800 },	// 1300
@@ -1458,8 +1457,9 @@ module.exports = {
 		7: { // Mocking Shout
 			0: {
 				fixedSpeed: 1,
-				length: [315, 1100],
-				noInterrupt: [2]
+				length: [308, 1100],
+				noInterrupt: [2],
+				noRetry: true
 			}
 		},
 		8: { // Fiery Rage
