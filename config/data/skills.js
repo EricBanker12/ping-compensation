@@ -1303,7 +1303,7 @@ module.exports = {
 		},
 		3: { // Thunderstrike
 			'*': {
-				length: 1750,
+				length: 1748,
 				abnormals: {
 					24170: { speed: 1.25 }
 				},
@@ -1457,7 +1457,7 @@ module.exports = {
 		7: { // Mocking Shout
 			0: {
 				fixedSpeed: 1,
-				length: [308, 1100],
+				length: [308, 1079],
 				noInterrupt: [2],
 				noRetry: true
 			}
