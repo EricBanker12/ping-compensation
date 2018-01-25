@@ -1,27 +1,56 @@
-From version 3.8 SP can use new optional passive method for ping check by "Undefined".
+## Basic info
 
-Good features: 
+Supported `ping` methods:
+* `active` - ask server every N time, recalculating current ping based on response
+* `passive`- calculate ping after skill cast
+
+By default: `active`
+
+## Information
+
+### Passive method
+
+Author: Undefined
+
+Pros: 
 * Not detectable
 * Actual ping value in battle without delays 
 
-Bad features:
+Cons:
 * 1-3 first skills can be a bit delayed in battle
 * Effect can be different for users
 * Your skills will be broken with bad settings
 
-How to:
+### Active method
+
+Author: PinkiePie (edited by SaltyMonkey)
+
+Pros: 
+* Simple
+* Stable
+
+Cons:
+* Detectable (in theory)
+* For players with unstable connection can't get real values
+
+## Configuration
+
+### Mode
 
 1) Open config.json (path `./config/config.json`)
 
-2) Find "pingMethod" field and change it to "passive" (be care)
+2) Find "pingMethod" field and change it to `"passive"` or `"active"`
 
-3) Edit "pingHistoryMax" field (should be 40+, 20 for active ping method)
+3) Edit "pingHistoryMax" field (`35+` for `"passive"`, 15-20 for `"active"` ping method)
 
-Optional (IF YOU STARTED TO DO SMTH AFTER THAT LINE THEN YOU MUST END ALL STEPS):
+### For users with unstable connection
 
-4) Find "pingSpikesLimit" and set it to "true" (especially if your connection unstable)
+4) Find "pingSpikesLimit" and set it to "true"
 
-5) Find "pingSpikesMin": field and set it to:  `your average minimal ping - 35`
-6) Find "pingSpikesMax" field and set it to: `your average max ping + 50`
+5) Find "pingSpikesMin": field and set it to:  `your average minimal ping - 25`
 
-P.S. Steps 5 and 6 should be corrected by user (if you will have problems)
+6) Find "pingSpikesMax" field and set it to: `your average max ping + 30`
+
+### WARNING №1! Wrong settings for spikes can ruin your gameplay.
+
+### WARNING №2! Ping spikes control CAN'T work with constant spikes.
