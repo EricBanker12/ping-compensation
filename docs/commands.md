@@ -1,33 +1,36 @@
+## Introduction
+
+Current skill prediction support commands. User can use them from game chat.
+
+## Basic info
+
 Main format: `/8 sp <command>`
 
 Example: `/8 sp info`
 
-Extended command example: `/8 sp timeout 200`
+## Commands
 
-Basic commands:
-    `info` - basic information /sp version
+### Basic commands
+
+*   `info` - basic info about current SP and configuration
+ 
+*    `strictdef` - switch for autoblock messages (affects only brawlers)
     
-    `strictdef` - switch for autoblock messages (affects only brawlers)]
+*   `mount` - switch for "your character mounted" check
     
-    `mount` - switch for "your character mounted" check
+*    `ping` - ping information
     
-    `clearskills` - switch for skill config hotswap
+*    `off` - disable SP. You should be unmounted, not in battle and etc 
     
-    `ping` - ping information
+*    `on` - enable SP. You should be unmounted, not in battle and etc 
     
-    `off` - disable SP. You should be unmounted, not in battle and etc (WARNING! TEST FEATURE!)
-    
-    `on` - enable SP. You should be unmounted, not in battle and etc (WARNING! TEST FEATURE!)
-    
-    `save` - save current changes into config file
+*    `save` - save current changes into config file
    
-Extended commands:
-    `timeout <value>` - change server_timeout value
+### Debug commands
 
-Debug commands:  
-    `debug` - switch for debug mode (output will be in console)
+*    `debug` - switch for debug mode (output will be in console)
     
-    `debugloc` - switch for location debug mode (output will be in console)
+*    `debugloc` - switch for location debug mode (output will be in console)
     
-    `debugabnorm` - switch for abnormals debug mode (output will be in console)
+*    `debugabnorm` - switch for abnormals debug mode (output will be in console)
     
