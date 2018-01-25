@@ -216,7 +216,7 @@ module.exports = {
 				noRetry: true,
 				noInterrupt: [16, 32]
 			},
-			1: { length: 825 }
+			1: { length: 800 }
 		},
 		17: { // Vortex Slash
 			0: {
@@ -353,7 +353,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 2668,
+				length: 2666.66,
 				distance: 210,
 				level: {
 					9: {
@@ -536,7 +536,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 1815,
+				length: 1818.12,
 				distance: 66.07,
 				race: {
 					0: { distance: 70 }, // M.Human: 70
@@ -1313,7 +1313,7 @@ module.exports = {
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
-				//laststage: 2000
+				//lastChargeStage: 2000,
 				glyphs: {
 					24067: {
 						chargeSpeed: 0.25 // only value that affects last charge state duration
@@ -1448,7 +1448,7 @@ module.exports = {
 					401404: 2
 				},
 				abnormals: {
-					401404: { chain: 30 }
+					401400: { chain: 30 }
 				}
 			},
 			1: true,
@@ -1479,13 +1479,12 @@ module.exports = {
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
-				//autorelease: 2525
+				//lastChargeStage: 2000,
 				glyphs: {
 					24009: { chargeSpeed: 0.25 },
 					24052: { chargeSpeed: 0.25 },
 					24096: {
 						chargeSpeed: 0.3
-						//autorelease: 2025
 					}
 				},
 				abnormals: {
@@ -1567,7 +1566,7 @@ module.exports = {
 				type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
 				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
-				//autorelease: 2515 // ish
+				lastChargeStage: 2000,
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
@@ -1908,7 +1907,7 @@ module.exports = {
 				type: 'charging',
 				length: [1000, 1000],
 				noInterrupt: [7, 26],
-				//autorelease: 0,
+				lastChargeStage: 50,
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
@@ -2041,7 +2040,8 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [1000, 1000],
-				noInterrupt: [7, 26]
+				noInterrupt: [7, 26],
+				lastChargeStage: 2000
 			},
 			10: { noInterrupt: [7, 26] },
 			11: { noInterrupt: [7, 26] },
@@ -2229,7 +2229,7 @@ module.exports = {
 				type: 'charging',
 				length: [600, 600, 600],
 				noInterrupt: [4, 22],
-				//autoRelease: 2550,
+				lastChargeStage: 2500,
 				noRetry: true,
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
@@ -2282,7 +2282,7 @@ module.exports = {
 				length: [800, 800, 800],
 				noInterrupt: [3, 22],
 				noRetry: true,
-				//autoRelease: 2550,
+				lastChargeStage: 2500,
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
@@ -2625,7 +2625,7 @@ module.exports = {
 				type: 'charging',
 				length: [800, 1600],
 				noInterrupt: [26, 27, 38],
-				//autoRelease: 3200,
+				lastChargeStage: 3200,
 				glyphs: {
 					28031: { chargeSpeed: 0.25 }
 				}
@@ -2873,9 +2873,9 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: 1475,
+				length: 1240,
 				chargeLevels: [10, 10],
-				//autoRelease: 0
+				lastChargeStage: 10
 			},
 			10: {
 				length: 850,
@@ -2899,9 +2899,9 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: 1475,
+				length: 1240,
 				chargeLevels: [10, 10],
-				//autoRelease: 0
+				lastChargeStage: 10
 			},
 			10: {
 				length: 850, // 810 female high elf
@@ -3663,14 +3663,16 @@ module.exports = {
 		9: { // Mana Missiles
 			'*': {
 				blockCancelPacket: true,
-				length: 1220,
+				length: 1250,
 				noInterrupt: [20]
 
 			},
 			0: {
 				triggerAbnormal: { 10152085: 4100 },
 				type: 'charging',
-				//autoRelease: 0
+
+				length: 1200,
+				lastChargeStage: 0
 			},
 			10: {
 				triggerAbnormal: { 10152085: 4100 },

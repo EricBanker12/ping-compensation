@@ -1,6 +1,7 @@
 module.exports = {
 	/* Slayer */
 	23220: true, // Distant Blade & ICB (enableChain)
+	//301603: true, // Piercing Lunge(abnConnect) 
 
 	/* Reaper */
 
@@ -62,7 +63,7 @@ module.exports = {
 	10154005: true,
 	10154006: true,
 
-	// Burning Heart(enableChain)
+	// Burning Heart(enableChain) Todo: find skills affected
 	10154100: true, // 0
 	10154101: true, // 0
 	10154060: true, // 0
