@@ -233,7 +233,7 @@ module.exports = {
 				race: {
 					//2: { distance: 120.28 }, // M.Helf: 120.277
 					//5: { distance: 120.28 }, // F.Aman: 120.277
-					7: { length: 1080 },
+					7: { length: 1080 }, // F.Casta
 					8: { distance: 128.89 }, // Popori: 128.889
 					9: { distance: 138.28 } // Elin: 138.284
 				}
@@ -395,7 +395,7 @@ module.exports = {
 			}
 		},
 		30: { // Scythe
-			'*': { distance: 150 }, // Old fast cast value was wrong on Elin, unless that had a pve intention on it, idk.
+			'*': { distance: 150 },
 			0: {
 				length: 1825,
 				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
@@ -1376,7 +1376,7 @@ module.exports = {
 					9: { distance: 87.27 }, // Elin: 87.272
 					10: { distance: 64.88 } // Baraka: 64.884
 				},
-				canVB: true,
+				enableVB: true,
 				pendingStartTime: 454.54 // 500 / timeRate = 1.1
 			}
 		},
@@ -1532,7 +1532,7 @@ module.exports = {
 				races: {
 					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf
 				},
-				canVB: true,
+				enableVB: true,
 				pendingStartTime: 300 // 300 / timeRate = 1
 			}
 		},
@@ -1565,7 +1565,7 @@ module.exports = {
 			0: {                             //                    2. Must be in combat when used.  
 				type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
 				length: [800, 800, 800],
-				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
+				noInterrupt: [2, '3-0', 4, '10-0', 15, '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
 				lastChargeStage: 2000,
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
@@ -1707,7 +1707,7 @@ module.exports = {
 					9: { distance: 167.62 }, // Elin: 167.624
 					10: { distance: 158.11 } // Baraka: 158.112
 				},
-				canVB: true,
+				enableVB: true,
 				pendingStartTime: 500 // 500 / timeRate = 1
 			}
 		},
@@ -3663,14 +3663,12 @@ module.exports = {
 		9: { // Mana Missiles
 			'*': {
 				blockCancelPacket: true,
-				length: 1250,
+				length: 1260,
 				noInterrupt: [20]
-
 			},
 			0: {
 				triggerAbnormal: { 10152085: 4100 },
 				type: 'charging',
-
 				length: 1200,
 				lastChargeStage: 0
 			},
