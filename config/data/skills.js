@@ -2222,7 +2222,7 @@ module.exports = {
 			'*': {
 				length: 1770,
 				races: {
-					1: { length: 1600 }	// F.Human
+					1: { length: 1560 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
 				}
 			},
 			0: {
@@ -2274,7 +2274,7 @@ module.exports = {
 			'*': {
 				length: 1320,
 				races: {
-					1: { length: 1275 }	// F.Human, inb4 racechange
+					1: { length: 1260 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
 				}
 			},
 			0: {
@@ -2445,7 +2445,7 @@ module.exports = {
 		},
 		22: { // Sequential Fire
 			0: {
-				length: 440, //
+				length: 430, //
 				requiredBuff: 600200,
 				noInterrupt: [22],
 				noRetry: true
@@ -2467,7 +2467,7 @@ module.exports = {
 					26102: { speed: 1.3 }
 				},
 				race: {
-					1: { length: 3575 }, // F.Human
+					1: { length: 3560 }, // F.Human(Actually faster even if cancelled with SF, -100ms~ in comparisson at base AS)
 					8: { distance: -96.6 } // Popori, -96.604
 				}
 			}

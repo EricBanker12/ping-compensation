@@ -2340,9 +2340,9 @@ module.exports = {
 		},
 		3: { // Radiant Arrow
 			'*': {
-				length: 1770,
+				length: 1740,
 				races: {
-					1: { length: 1600 }	// F.Human
+					1: { length: 1560 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
 				}
 			},
 			0: {
@@ -2394,7 +2394,7 @@ module.exports = {
 			'*': {
 				length: 1320,
 				races: {
-					1: { length: 1275 }	// F.Human, inb4 racechange
+					1: { length: 1260 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
 				}
 			},
 			0: {
@@ -2587,7 +2587,7 @@ module.exports = {
 					26102: { speed: 1.3 }
 				},
 				race: {
-					1: { length: 3575 }, // F.Human
+					1: { length: 3560 }, // F.Human(Actually faster even if cancelled with SF, -100ms~ in comparisson at base AS)
 					8: { distance: -96.6 } // Popori, -96.604
 				}
 			}
@@ -3588,7 +3588,14 @@ module.exports = {
 				length: 775
 			}
 		},
-		// 17 Reverse Gravity 0, charging: [6000, 1000] 10, shot: 1050
+		17: { // Reverse Gravity
+			0: {
+				type: 'charging',
+				length: [6000],
+				lastChargeStage: 1000
+			},
+			10: { length: 1050 }
+		},
 		18: { // Shrouded Escape
 			0: {
 				CC: ["evasive", "extended"],
