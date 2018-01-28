@@ -3473,7 +3473,7 @@ module.exports = {
 			1: {
 				type: 'lockonCast',
 				triggerAbnormal: { 10152082: 4100 },
-				length: 3000,
+				length: 2999,
 				glyphs: {
 					30004: { speed: 1.25 }
 				}
@@ -3529,7 +3529,7 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
-				length: 1525,
+				length: 1532,
 				distance: 137.88,
 				noInterrupt: [20],
 				chains: {
@@ -3598,7 +3598,7 @@ module.exports = {
 					10152054: 1200 //
 				},
 				fixedSpeed: 1,
-				length: 122,
+				length: 125,
 				stamina: 70,
 				instantStamina: true,
 				glyphs: {
@@ -3631,7 +3631,7 @@ module.exports = {
 		},
 		7: { // Arcane Barrage
 			'*': {
-				length: 1525,
+				length: 1533,
 				chains: {
 					5: 1
 				}
@@ -3666,7 +3666,7 @@ module.exports = {
 		9: { // Mana Missiles
 			'*': {
 				blockCancelPacket: true,
-				length: 1260,
+				length: 1266,
 				noInterrupt: [20]
 			},
 			0: {
@@ -3717,7 +3717,7 @@ module.exports = {
 			'*': {
 				triggerAbnormal: { 10152086: 4100 },
 				blockCancelPacket: true,
-				length: 1325,
+				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
 				chains: {
@@ -3859,7 +3859,7 @@ module.exports = {
 			'*': {
 				triggerAbnormal: { 10152072: 4100 },
 				fixedSpeed: 1, // The server sends 30090 500 when using the +50 will glyph
-				length: 1325,
+				length: 1320,
 				noInterrupt: [15, 20],
 				chains: {
 					'2-1': 30,
@@ -3883,7 +3883,7 @@ module.exports = {
 		18: { // HB
 			'*': {// 10152251 2147483647
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1433,
 				noInterrupt: [18]
 			},
 			1: true,
