@@ -4878,7 +4878,7 @@ module.exports = {
 	12: { // Valkyrie
 		1: { // Slash
 			'*': {
-				length: 1100,
+				length: 1107,
 				distance: 47.13,
 				noInterrupt: ['1-3'],
 				chains: {
@@ -4912,18 +4912,18 @@ module.exports = {
 				distance: 43.37
 			},
 			2: {
-				length: 1450,
+				length: 1454,
 				distance: 58.54
 			},
 			3: {
-				length: 1925,
+				length: 1928,
 				distance: 90.1
 			},
 			30: true
 		},
 		2: { // Overhead Slash
 			'*': {
-				length: 1900,
+				length: 1917,
 				distance: 102.47,
 				chains: {
 					1: 30,
@@ -4950,7 +4950,7 @@ module.exports = {
 		},
 		3: { // Glaive Strike
 			'*': {
-				length: 2450,
+				length: 2457,
 				distance: 105.62,
 				requiredBuff: 10155112,
 				chains: {
@@ -4994,7 +4994,7 @@ module.exports = {
 		},
 		5: { // Maelstrom
 			'*': {
-				length: 3150,
+				length: 3145,
 				distance: 125.11,
 				chains: {
 					1: 30,
@@ -5049,7 +5049,7 @@ module.exports = {
 		},
 		7: { // Spinning Death
 			'*': {
-				length: 1775,
+				length: 1786,
 				distance: 139.72,
 				noInterrupt: ['7-2'],
 				abnormals: {
@@ -5080,7 +5080,7 @@ module.exports = {
 			0: true,
 			1: true,
 			2: {
-				length: 2300,
+				length: 2293,
 				distance: 197.82
 			},
 			30: true
@@ -5088,7 +5088,7 @@ module.exports = {
 		8: { // Titansbane
 			'*': {
 				fixedSpeed: 1,
-				length: 7700,
+				length: 7702,
 				chains: {
 					1: 30,
 					2: 30,
@@ -5116,7 +5116,7 @@ module.exports = {
 		},
 		9: { // Ground Bash
 			'*': {
-				length: 1450,
+				length: 1459,
 				distance: 136,
 				requiredBuff: 10155112,
 				chains: {
@@ -5144,7 +5144,7 @@ module.exports = {
 		},
 		10: { // Dream Slash // need to check chains
 			'*': {
-				length: 1775,
+				length: 1773,
 				distance: 11.78,
 				noInterrupt: [10],
 				glyphs: {
@@ -5233,7 +5233,7 @@ module.exports = {
 		},
 		12: { // Ragnarok
 			'*': {
-				length: 2800,
+				length: 2810,
 				chains: {
 					1: 30,
 					2: 30,
@@ -5328,7 +5328,7 @@ module.exports = {
 		16: { // Runeburst
 			'*': {
 				fixedSpeed: 1,
-				length: 1325,
+				length: 1327,
 				distance: 25,
 				chains: {
 					1: 30,
@@ -5397,14 +5397,14 @@ module.exports = {
 		20: { // Backstab
 			0: {
 				CC: ["evasive", "extended"],
-				length: 1500,
+				length: 1490,
 				onlyTarget: true
 			}
 		},
 		21: { // Dark Herald
 			0: {
 				fixedSpeed: 1,
-				length: 925,
+				length: 922,
 				requiredBuff: 10155201
 			}
 		}
