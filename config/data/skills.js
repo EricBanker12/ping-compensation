@@ -2214,13 +2214,13 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1225,
+				length: 1233,
 				noInterrupt: [22]
 			}
 		},
 		3: { // Radiant Arrow
 			'*': {
-				length: 1727.3,
+				length: 1748,
 				races: {
 					1: { length: 1560 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
 				}
@@ -2272,9 +2272,11 @@ module.exports = {
 		},
 		4: { // Penetrating Arrow
 			'*': {
-				length: 1320,
+				noInterrupt: [8],
+				length: 1294, //1323 for fking elins ...
 				races: {
-					1: { length: 1260 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
+					1: { length: 1275 }, // F.Human
+					9: { length: 1323 }	// Elin
 				}
 			},
 			0: {
@@ -2348,7 +2350,7 @@ module.exports = {
 		6: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 700,
+				length: 670,
 				distance: -200,
 				noRetry: true,
 				forceClip: true,
@@ -2369,7 +2371,7 @@ module.exports = {
 				noInterrupt: [22] // this actually doesn't do anything
 			},
 			0: {
-				length: 433, // 445
+				length: 433, 
 				noInterrupt: [6, '8-6']
 			},
 			1: { length: 600 },
@@ -2377,13 +2379,13 @@ module.exports = {
 			3: { length: 800 },
 			4: { length: 700 },
 			5: { length: 800 },
-			6: { length: 1220 } // 1240
+			6: { length: 1233 }
 		},
 		9: { // Slow Trap
-			0: { length: 1170 }
+			0: { length: 1150 }
 		},
 		10: { // Stunning Trap
-			0: { length: 1170 }
+			0: { length: 1150 }
 		},
 		12: { // Velik's Mark
 			0: { length: 200 }
@@ -2391,12 +2393,12 @@ module.exports = {
 		14: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1600,
+				length: 1620,
 				noRetry: true
 			}
 		},
 		15: { // Incendiary Trap
-			0: { length: 1150 } //
+			0: { length: 1149 } //
 		},
 		16: { // Breakaway Bolt
 			0: {
@@ -2408,7 +2410,7 @@ module.exports = {
 		},
 		17: { // Web Arrow
 			0: {
-				length: 525,
+				length: 533,
 				noInterrupt: [22]
 			}
 		},
@@ -2418,13 +2420,13 @@ module.exports = {
 				distance: 89.8	// 89.797
 			},
 			1: {
-				length: 1200,
+				length: 1233,
 				distance: 87.29	// 97.292
 			}
 		},
 		19: { // Poison Arrow
 			0: {
-				length: 1117.6,
+				length: 1103,
 				distance: -12.5,
 				noInterrupt: [22],
 				abnormals: {
@@ -2437,7 +2439,7 @@ module.exports = {
 		},
 		20: { // Restraining Arrow
 			0: {
-				length: 525,
+				length: 533,
 				noInterrupt: [22]
 			}
 		},
@@ -2448,7 +2450,7 @@ module.exports = {
 		},
 		22: { // Sequential Fire
 			0: {
-				length: 430, //
+				length: 433,
 				requiredBuff: 600200,
 				noInterrupt: [22],
 				noRetry: true
@@ -2462,7 +2464,7 @@ module.exports = {
 		},
 		29: { // Thunderbolt
 			0: {
-				length: 3750,
+				length: 3766,
 				distance: -100,
 				noInterrupt: [22],
 				glyphs: {
