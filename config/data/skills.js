@@ -4422,7 +4422,7 @@ module.exports = {
 			'*': {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
-				length: 650,
+				length: 650.3,
 				distance: 175,
 				forceClip: true,
 				abnormals: {
@@ -4478,7 +4478,7 @@ module.exports = {
 		5: { // Impact Bomb
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 1008,
+				length: 1022,
 				distance: -291.6,
 				noInterrupt: [5],
 				chains: {
@@ -4535,7 +4535,7 @@ module.exports = {
 				length: 300,
 				distance: 246
 			},
-			10: { length: 3500 },
+			10: { length: 3516 },
 			30: true
 		},
 		7: { // Decoy Jutsu
@@ -4589,7 +4589,7 @@ module.exports = {
 		},
 		9: { // Smoke Bomb
 			'*': {
-				length: 725,
+				length: 722,
 				chains: {
 					1: null,
 					2: null,
@@ -4618,13 +4618,13 @@ module.exports = {
 		10: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1630,
+				length: 1633,
 				noRetry: true
 			}
 		},
 		11: { // Focus
 			'*': {
-				length: 1430,
+				length: 1431,
 				noInterrupt: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 			},
 			0: true,
@@ -4632,7 +4632,7 @@ module.exports = {
 		},
 		12: { // Skyfall
 			'*': {
-				length: 1325,
+				length: 1320,
 				distance: 154.72,
 				chains: {
 					1: 30,
@@ -4658,7 +4658,7 @@ module.exports = {
 		},
 		13: { // Circle of Steel
 			'*': {
-				length: 3225,
+				length: 3210,
 				distance: 245.06,
 				chains: {
 					1: 30,
@@ -4684,7 +4684,7 @@ module.exports = {
 		},
 		14: { // Double Cut
 			'*': {
-				length: 1425,
+				length: 1429,
 				distance: 162,
 				chains: {
 					1: 30,
@@ -4710,7 +4710,7 @@ module.exports = {
 		},
 		15: { // Burning Heart
 			'*': {
-				length: 390,
+				length: 400,
 				stamina: 100,
 				instantStamina: true,
 				abnormals: {
@@ -4724,7 +4724,7 @@ module.exports = {
 					10154100: 2000,
 					10154101: 2000
 				},
-				length: 880
+				length: 900
 			},
 			1: {
 				triggerAbnormal: { 10154061: 850 },
@@ -4766,7 +4766,7 @@ module.exports = {
 		16: { // Death Blossom
 			'*': {
 				fixedSpeed: 1,
-				length: 1525,
+				length: 1532.3,
 				noInterrupt: [16],
 				chains: {
 					1: null,
@@ -4793,7 +4793,7 @@ module.exports = {
 		},
 		17: { // Attunement
 			'*': {
-				length: 1000,
+				length: 995,
 				chains: {
 					1: 30,
 					2: 30,
@@ -4818,7 +4818,7 @@ module.exports = {
 		},
 		18: { // Bladestorm
 			'*': {
-				length: 1000,
+				length: 1016.5,
 				distance: 68.535,
 				noInterrupt: [18],
 				chains: {
@@ -4847,7 +4847,7 @@ module.exports = {
 		19: { // Chakra Thrust
 			'*': {
 				length: [225, 825],
-				distance: 127.5,
+				distance: 132.99,
 				noInterrupt: [19],
 				chains: {
 					1: 30,
@@ -4873,7 +4873,7 @@ module.exports = {
 		20: { // Clone Jutsu
 			0: {
 				fixedSpeed: 1,
-				length: 1275
+				length: 1258
 			}
 		}
 	},
