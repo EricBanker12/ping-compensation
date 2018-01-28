@@ -1438,7 +1438,7 @@ module.exports = {
 					24170: { speed: 1.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
-					4010150: { chargeSpeed: 0.2 }
+					401150: { chargeSpeed: 0.2 }
 				},
 				level: [
 					{ length: 800 },	// 1300
@@ -1599,7 +1599,7 @@ module.exports = {
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
-					4010150: { chargeSpeed: 0.2 },
+					401150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 				},
 				level: [
@@ -1669,7 +1669,7 @@ module.exports = {
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
-					4010150: { chargeSpeed: 0.2 }
+					401150: { chargeSpeed: 0.2 }
 				},
 				chains: {
 					3: 14,
@@ -2340,7 +2340,7 @@ module.exports = {
 		},
 		3: { // Radiant Arrow
 			'*': {
-				length: 1740,
+				length: 1727.3,
 				races: {
 					1: { length: 1560 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
 				}
@@ -2451,7 +2451,7 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
-				length: 3160,
+				length: 3131,
 				glyphs: {
 					26077: { speed: 1.4 }
 				},
@@ -2544,9 +2544,12 @@ module.exports = {
 		},
 		19: { // Poison Arrow
 			0: {
-				length: 1115,
+				length: 1117.6,
 				distance: -12.5,
 				noInterrupt: [22],
+				abnormals: {
+					26100: { speed: 1.25 }
+				},
 				race: {
 					8: { distance: -12.17 } // Popori, 12.167
 				}
