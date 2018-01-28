@@ -1889,7 +1889,7 @@ module.exports = {
 		},
 		3: { // Lightning Trap
 			0: {
-				length: 1300,
+				length: 1307.22,
 				abnormals: {
 					25090: { speed: 1.4 }
 				}
@@ -1897,11 +1897,10 @@ module.exports = {
 		},
 		4: { // Arcane Pulse
 			'*': {
-				length: 1285,
+				length: 1293,
 				race: {
 					9: { length: 1015 } // Elin
-				},
-				noRetry: true
+				}
 			},
 			0: {
 				type: 'charging',
@@ -1947,11 +1946,11 @@ module.exports = {
 			}
 		},
 		5: { // Mana Infusion
-			0: { length: 4600 }
+			0: { length: 4595.5 }
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3925,
+				length: 3932,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
@@ -1975,7 +1974,7 @@ module.exports = {
 		7: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 660,
+				length: 657,
 				distance: -200,
 				forceClip: true,
 			}
@@ -1989,22 +1988,28 @@ module.exports = {
 			}
 		},
 		10: { // Mana Barrier
-			0: { length: 625 }
+			0: { length: 633 }
 		},
 		11: { // Lightning Strike
 			0: {
-				length: 840,
+				length: 981.4,
+				checkReset: true,
 				race: {
-					9: { length: 800 } // Elin
+					7: { length: 979.8 },
+					9: { length: 810 } // Elin
 				}
 			}
 		},
 		12: { // Void Pulse
-			0: { length: 935 } //
+			0: { length: 933 } //
 		},
 		13: { // Mindblast
 			0: {
-				length: 2325,
+				length: 2462,
+				race: {
+					7: { length: 2460 },
+					9: { length: 2315 } // Elin
+				},
 				glyphs: {
 					25048: { speed: 1.3 }
 				},
@@ -2015,14 +2020,15 @@ module.exports = {
 		},
 		16: { // Painblast
 			0: {
-				length: 1590, //
+				length: 1608, //
 				race: {
+					7: { length: 1605 },
 					9: { length: 1330 } // Elin
 				}
 			}
 		},
 		17: { // Painful Trap
-			0: { length: 1100 }
+			0: { length: 1106 }
 		},
 		18: { // Glacial Retreat
 			0: {
@@ -2144,7 +2150,7 @@ module.exports = {
 		},
 		30: { // Nova
 			0: {
-				length: 2850,
+				length: 2858,
 				glyphs: {
 					25092: { speed: 1.3 }
 				}
@@ -2158,7 +2164,7 @@ module.exports = {
 		},
 		32: { // Meteor Shower
 			'*': {
-				length: 6775,
+				length: 6778.2,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
@@ -2167,20 +2173,22 @@ module.exports = {
 					25100: { speed: 1.25 },
 				},
 				race: {
-					9: { length: 6475 } // Elin
+					7: { length: 6774.54 },
+					9: { length: 6475.5 } // Elin
 				}
 			},
 			0: true,
 			50: {
-				length: 3925,
+				length: 3933,
 				race: {
-					9: { length: 3700 } // Elin
+					7: { length: 3929.4 }, //Casta F.
+					9: { length: 3699 } // Elin
 				}
 			}
 		},
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
-				length: 1285,
+				length: 1292,
 				noRetry: true,
 				race: {
 					9: { length: 1015 } // Elin
@@ -2371,7 +2379,7 @@ module.exports = {
 				noInterrupt: [22] // this actually doesn't do anything
 			},
 			0: {
-				length: 433, 
+				length: 433,
 				noInterrupt: [6, '8-6']
 			},
 			1: { length: 600 },
