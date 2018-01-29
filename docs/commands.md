@@ -25,6 +25,8 @@ Example: `/8 sp info`
 *    `on` - enable SP. You should be unmounted, not in battle and etc 
     
 *    `save` - save current changes into config file
+
+*    `load` - load current changes from the configuration file(basically for direct edits of the file)
    
 ### Debug commands
 

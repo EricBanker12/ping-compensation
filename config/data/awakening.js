@@ -156,30 +156,40 @@ module.exports = {
 		},
 		10: { // Death From Above
 			0: {
-				length: 2025,
+				length: 2055,
 				noInterrupt: [2, 32],
 				race: {
-					2: { length: 2055 }, // M.Helf
-					7: { length: 2055 }, // F.Castanic
-					8: { length: 2055 }, // Popori
-					9: { length: 2055 } // Elin
+					//1: { length: 2100 }, // F.Human
+					//2: { length: 2055 }, // M.Helf
+					3: { length: 2025 }, // F.Helf
+					//7: { length: 2055 }, // F.Castanic
+					//8: { length: 2055 }, // Popori
+					9: { length: 2025 } // Elin
 				}
 			}
 		},
 		11: { // Poison Blade
 			0: {
-				length: 830,
+				length: 930,
 				distance: 35,
 				noInterrupt: [32],
 				race: {
-					2: { distance: 0 }, // M.Helf
-					5: { distance: 40 }, // F.Aman
-					8: { distance: 35 }, // Popori
-					7: { length: 925 }, // F.Casta
-					9: { // Elin
-						length: 925,
-						distance: 54.85	// 54.582
-					}
+					0: { length: 830 }, // M.Human
+					1: { length: 830 }, // F.Human
+					2: { // M.Helf
+						length: 830,
+						distance: 0
+					},
+					4: { length: 830 }, // M.Aman
+					5: { // F.Aman
+						length: 830,
+						distance: 40
+					},
+					8: { // Popori
+						length: 830,
+						distance: 35
+					},
+					9: { distance: 54.85 },// Elin 54.582
 				}
 			}
 		},
