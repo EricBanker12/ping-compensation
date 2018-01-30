@@ -2673,7 +2673,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1500, //??????????????
+				length: 1430
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -2715,7 +2715,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1500 //?????????????????????????????
+				length: 1430
 			}
 		},
 		37: { // Healing Immersion
@@ -2730,7 +2730,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1500, //??? wdf
+				length: 1430,
 				noInterrupt: ['37-10']
 			}
 		},
