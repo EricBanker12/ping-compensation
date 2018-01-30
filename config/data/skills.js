@@ -2518,10 +2518,10 @@ module.exports = {
 	},
 	6: { // Priest
 		1: { // Divine Radiance
-			0: { length: 625 },
+			0: { length: 590 },
 			1: { length: 650 },
-			2: { length: 675 },
-			3: { length: 725 }
+			2: { length: 720 },
+			3: { length: 802 }
 		},
 		2: { // Regeneration Circle
 			0: {
@@ -2540,10 +2540,10 @@ module.exports = {
 			0: { length: 1750 }
 		},
 		5: { // Blessing of Shakan
-			0: { length: 1300 }
+			0: { length: 1294 }
 		},
 		6: { // Arise
-			0: { length: 830 }
+			0: { length: 839 }
 		},
 		8: { // Mana Infusion
 			0: {
@@ -2602,7 +2602,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
+				length: 49487,
 				noRetry: true
 			},
 			10: {
@@ -2614,7 +2614,7 @@ module.exports = {
 			0: { length: 650 }
 		},
 		23: { // Blessing of Balder
-			0: { length: 1300 }
+			0: { length: 1293 }
 		},
 		26: { // Fiery Escape
 			0: {
@@ -2640,7 +2640,10 @@ module.exports = {
 		28: { // Mana Charge
 			'*': {
 				length: 825,
-				noRetry: true
+				noRetry: true,
+				race: {
+					9: { length: 798.3 }
+				}
 			},
 			0: {
 				type: 'charging',
@@ -2656,7 +2659,7 @@ module.exports = {
 			12: { noInterrupt: [26, 27, 38] }
 		},
 		29: { // Triple Nemesis
-			0: { length: 800 },
+			0: { length: 810 },
 			1: { length: 800 },
 			2: { length: 1250 }
 		},
@@ -2670,7 +2673,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1500, //??????????????
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -2700,7 +2703,7 @@ module.exports = {
 			}
 		},
 		34: { // Restorative Burst
-			0: { length: 1430 }
+			0: { length: 1433 }
 		},
 		35: { // Energy Stars
 			0: {
@@ -2712,7 +2715,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1500 //?????????????????????????????
 			}
 		},
 		37: { // Healing Immersion
@@ -2727,7 +2730,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1500, //??? wdf
 				noInterrupt: ['37-10']
 			}
 		},
