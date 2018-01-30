@@ -28,7 +28,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				length: 565,
+				length: 566.4,
 				distance: 64.29,
 				race: {
 					2: { distance: 47.53 }, // M.Helf: 47.534
@@ -38,7 +38,7 @@ module.exports = {
 				}
 			},
 			1: {
-				length: 650,
+				length: 657.3,
 				distance: 51.69,
 				race: {
 					2: { distance: 42.12 }, // M.Helf: 42.117
@@ -48,7 +48,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 650,
+				length: 657.3,
 				distance: 28.08,
 				race: {
 					2: { distance: 28.08 }, // M.Helf: 28.078
@@ -71,21 +71,24 @@ module.exports = {
 		2: { // Evasive Roll
 			0: {
 				CC: ["evasive", "extended"],
-				length: 830,
+				length: 839,
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
 				instantStamina: true,
 				noRetry: true,
+				race: {
+					7: { length: 837 },//casta fem
+					8: { length: 1081 }, // Popori
+					10: { length: 780 }// baraka... LUL WAT
+				},
 				noInterrupt: [2, 10, 32],
 				glyphs: {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
 					21101: { stamina: -120 }
-				},
-				race: {
-					8: { length: 1060 } // Popori
 				}
+
 			}
 		},
 		3: { // Torrent of Blows
@@ -140,7 +143,7 @@ module.exports = {
 		},
 		8: { // Assault Stance
 			'*': {
-				length: 575,
+				length: 566.4,
 				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
@@ -148,7 +151,7 @@ module.exports = {
 		},
 		9: { // Defensive Stance
 			'*': {
-				length: 575,
+				length: 566.4,
 				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
@@ -156,37 +159,33 @@ module.exports = {
 		},
 		10: { // Death From Above
 			0: {
-				length: 2055,
+				length: 2066,
 				noInterrupt: [2, 32],
 				race: {
-					//1: { length: 2100 }, // F.Human
-					//2: { length: 2055 }, // M.Helf
 					3: { length: 2025 }, // F.Helf
-					//7: { length: 2055 }, // F.Castanic
-					//8: { length: 2055 }, // Popori
 					9: { length: 2025 } // Elin
 				}
 			}
 		},
 		11: { // Poison Blade
 			0: {
-				length: 930,
+				length: 933,
 				distance: 35,
 				noInterrupt: [32],
 				race: {
-					0: { length: 830 }, // M.Human
-					1: { length: 830 }, // F.Human
+					0: { length: 833 }, // M.Human
+					1: { length: 833 }, // F.Human
 					2: { // M.Helf
 						length: 830,
 						distance: 0
 					},
-					4: { length: 830 }, // M.Aman
+					4: { length: 833 }, // M.Aman
 					5: { // F.Aman
-						length: 830,
+						length: 833,
 						distance: 40
 					},
 					8: { // Popori
-						length: 830,
+						length: 833,
 						distance: 35
 					},
 					9: { distance: 54.85 },// Elin 54.582
@@ -254,7 +253,7 @@ module.exports = {
 		19: { // Rising Fury
 			'*': { noInterrupt: [32] },
 			0: {
-				length: 725,
+				length: 733,
 				distance: 144.85,
 				race: {
 					2: { distance: 144.85 }, // M.Helf: 144.846
@@ -406,7 +405,7 @@ module.exports = {
 		30: { // Scythe
 			'*': { distance: 150 },
 			0: {
-				length: 1825,
+				length: 1833,
 				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
 				abnormals: {
 					100801: { skill: 380100 }
@@ -422,7 +421,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1385,
+				length: 1386,
 				abnormals: {
 					100801: { skill: 380130 }
 				}
@@ -431,7 +430,7 @@ module.exports = {
 		31: { // Reaping Slash
 			'*': { distance: 110 },
 			0: {
-				length: 2275,
+				length: 2291,
 				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
 				chains: {
 					4: 30,
@@ -439,7 +438,7 @@ module.exports = {
 					36: 30
 				}
 			},
-			30: { length: 1665 }
+			30: { length: 1667 }
 		},
 		32: { // Cross Parry
 			0: {
@@ -452,7 +451,7 @@ module.exports = {
 		},
 		34: { // Binding Sword
 			0: {
-				length: 1900,
+				length: 1902,
 				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
 			}
 		},
@@ -495,10 +494,10 @@ module.exports = {
 		38: { // Scythe (Deadly Gamble)
 			'*': { distance: 150 },
 			0: {
-				length: 1850,
+				length: 1833,
 				noInterrupt: [32]
 			},
-			30: { length: 1385 }
+			30: { length: 1387 }
 		},
 		39: { // Traverse Cut (Defensive Stance)
 			0: {
