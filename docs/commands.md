@@ -26,7 +26,9 @@ Example: `/8 sp info`
     
 *    `save` - save current changes into config file
 
-*    `load` - load current changes from the configuration file(basically for direct edits of the file)
+*    `autoconfig` - create basic config for your connection (IN TEST!)
+
+*    `load` - load current changes from the configuration file(basically for direct edits of the file and test).
    
 ### Debug commands
 
