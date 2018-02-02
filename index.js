@@ -46,10 +46,15 @@ let originalConfigPath = path.resolve(__dirname, './config/config.json');
 installedModules = (getModules(path.resolve(__dirname, '../'))).filter(element => element !== currentDir);
 
 //check for blocked modules
-if (installedModules.some(element => blockedModules.indexOf(element) >= 0)) {
-	console.log(`[${currentDir}] ERROR! Blocked modules installed. Close tera-proxy and delete them.`);
-	errorState = true
+for (item of installedModules) {
+    for (blk of blockedModules) {
+        if (item === blk) {
+            console.log(`[${currentDir}] ERROR! Blocked module ${item} installed.`);
+            errorState = true
+        }
+    }
 }
+
 //check for "command"
 if (!installedModules.includes('command') && !installedModules.includes('command-master')) {
 	console.log(`[${currentDir}] ERROR! Missing module \'Command\'. Close tera-proxy and install it.`);
