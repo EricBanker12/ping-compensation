@@ -1572,7 +1572,7 @@ module.exports = {
 				abnormals: {
 				//	400500: { chargeSpeed: 1.2 },
 				//	400501: { chargeSpeed: 1.4 },
-				//	401150: { chargeSpeed: 1.2 }
+					401150: { chargeSpeed: 1.2 }
 				},
 				chains: {
 					'3-13': 14, // this is fine though maybe uneeded, 13: 14 does the same
@@ -1661,7 +1661,7 @@ module.exports = {
 					24120: { chargeSpeed: 1.3 },
 					//400500: { chargeSpeed: 1.2 },
 					//400501: { chargeSpeed: 1.4 },
-					//401150: { chargeSpeed: 1.2 },
+					401150: { chargeSpeed: 1.2 },
 					401400: { chain: 6 }
 				},
 				level: [
