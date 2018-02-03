@@ -1332,6 +1332,7 @@ module.exports = {
 					24170: { speed: 1.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
+					//400508: { chargeSpeed: 0.4 },
 					401150: { chargeSpeed: 0.2 }
 				},
 				level: [
@@ -1500,6 +1501,7 @@ module.exports = {
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
+					//400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 				},
@@ -1578,6 +1580,7 @@ module.exports = {
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
+					//400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 }
 				},
 				chains: {
@@ -1667,6 +1670,7 @@ module.exports = {
 					24120: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
+					//400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 				},

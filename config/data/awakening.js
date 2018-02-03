@@ -1434,6 +1434,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
+				consumeAbnormal: 400900,				
 				length: [650, 650, 650],
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000,
@@ -1447,6 +1448,7 @@ module.exports = {
 					24170: { speed: 1.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
+					//400508: { chargeSpeed: 0.4 },
 					401150: { chargeSpeed: 0.2 }
 				},
 				level: [
@@ -1593,6 +1595,7 @@ module.exports = {
 			0: false, // Disabled since causes issues when chaining from itself.
 			/*0: { // When Cyclone resets you basically fully charge in 1 tick, so you do for example:
 				type: 'charging', // 0 > charge > 13 > 0(doesn't need to charge, already fully charge) > 13
+				consumeAbnormal: 400900,				
 				length: [650, 650, 650], // This is a bit mundane and just based on a quick observation, though
 				noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000
@@ -1608,6 +1611,7 @@ module.exports = {
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
+					400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 },
 					401400: { chain: 6 }
 				},
@@ -1672,12 +1676,14 @@ module.exports = {
 			'*': { length: 1930 },
 			0: {
 				type: 'charging',
+				consumeAbnormal: 400900,				
 				length: [800, 800, 800],
 				noInterrupt: [2, '3-0', 4, '10-0', 15, '18-0', 24, 25, 30],
 				lastChargeStage: 2000,
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
+					//400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 }
 				},
 				chains: {
@@ -1790,6 +1796,7 @@ module.exports = {
 		},
 		24: { // Evasive Smash
 			'*': {	// Same animation as lethal strike cast, just slower
+				consumeAbnormal: 400900,
 				length: 1635, // 1630
 				distance: 167.63, // 167.624
 				race: {
