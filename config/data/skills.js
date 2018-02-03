@@ -598,7 +598,7 @@ module.exports = {
 		},
 		5: { // Shield Bash
 			0: {
-				length: 830,
+				length: 839.1,
 				distance: 30,
 				noInterrupt: [2],
 				race: {
@@ -613,7 +613,7 @@ module.exports = {
 		},
 		7: { // Guardian Shout
 			0: {
-				length: 550,
+				length: 566.4,
 				noInterrupt: [2],
 				race: {
 					/*0: { length: 550 }, // M.Human
@@ -627,7 +627,7 @@ module.exports = {
 		},
 		8: { // Shield Counter
 			0: {
-				length: 1450,
+				length: 1455.33,
 				distance: 90,
 				onlyDefenceSuccess: true,
 				race: {
@@ -642,7 +642,7 @@ module.exports = {
 		},
 		9: { // Leash
 			0: {
-				length: [725, 850],
+				length: [725, 850], //633,833 in DC
 				noInterrupt: [2]
 			}
 		},
@@ -664,7 +664,7 @@ module.exports = {
 		11: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1645, // Is this correct?
+				length: 1633,
 				noRetry: true,
 				noInterrupt: [2],
 				race: {
@@ -834,7 +834,7 @@ module.exports = {
 		26: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 725,
+				length: 733,
 				distance: -150,
 				forceClip: true,
 				stamina: 800,
@@ -1324,16 +1324,16 @@ module.exports = {
 				//lastChargeStage: 2000,
 				glyphs: {
 					24067: {
-						chargeSpeed: 0.25 // only value that affects last charge state duration
+						chargeSpeed: 1.25 // only value that affects last charge state duration
 					}
 				},
 				abnormals: {
-					24130: { chargeSpeed: 0.3 },
+					24130: { chargeSpeed: 1.3 },
 					24170: { speed: 1.25 },
-					400500: { chargeSpeed: 0.2 },
-					400501: { chargeSpeed: 0.4 },
-					//400508: { chargeSpeed: 0.4 },
-					401150: { chargeSpeed: 0.2 }
+					400500: { chargeSpeed: 1.2 },
+					400501: { chargeSpeed: 1.4 },
+					//400508: { chargeSpeed: 1.4 },					
+					401150: { chargeSpeed: 1.2 }
 				},
 				level: [
 					{ length: 800 },	// 1300
@@ -1490,19 +1490,19 @@ module.exports = {
 				noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000,
 				glyphs: {
-					24009: { chargeSpeed: 0.25 },
-					24052: { chargeSpeed: 0.25 },
+					24009: { chargeSpeed: 1.25 },
+					24052: { chargeSpeed: 1.25 },
 					24096: {
-						chargeSpeed: 0.3
+						chargeSpeed: 1.3
 					}
 				},
 				abnormals: {
-					24010: { chargeSpeed: 0.3 },
-					24190: { chargeSpeed: 0.3 },
-					400500: { chargeSpeed: 0.2 },
-					400501: { chargeSpeed: 0.4 },
-					//400508: { chargeSpeed: 0.4 },					
-					401150: { chargeSpeed: 0.2 },
+					24010: { chargeSpeed: 1.3 },
+					24190: { chargeSpeed: 1.3 },
+					400500: { chargeSpeed: 1.2 },
+					400501: { chargeSpeed: 1.4 },
+					//400508: { chargeSpeed: 1.4 },					
+					401150: { chargeSpeed: 1.2 },
 					401400: { chain: 6 }
 				},
 				level: [
@@ -1578,10 +1578,10 @@ module.exports = {
 				noInterrupt: [2, '3-0', 4, '10-0', 15, '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
 				lastChargeStage: 2000,
 				abnormals: {
-					400500: { chargeSpeed: 0.2 },
-					400501: { chargeSpeed: 0.4 },
-					//400508: { chargeSpeed: 0.4 },					
-					401150: { chargeSpeed: 0.2 }
+					400500: { chargeSpeed: 1.2 },
+					400501: { chargeSpeed: 1.4 },
+					//400508: { chargeSpeed: 1.4 },										
+					401150: { chargeSpeed: 1.2 }
 				},
 				chains: {
 					'3-13': 14, // this is fine though maybe uneeded, 13: 14 does the same
@@ -1667,11 +1667,11 @@ module.exports = {
 				length: [800, 800, 800],
 				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 30],
 				abnormals: {
-					24120: { chargeSpeed: 0.3 },
-					400500: { chargeSpeed: 0.2 },
-					400501: { chargeSpeed: 0.4 },
-					//400508: { chargeSpeed: 0.4 },					
-					401150: { chargeSpeed: 0.2 },
+					24120: { chargeSpeed: 1.3 },
+					400500: { chargeSpeed: 1.2 },
+					400501: { chargeSpeed: 1.4 },
+					//400508: { chargeSpeed: 1.4 },					
+					401150: { chargeSpeed: 1.2 },
 					401400: { chain: 6 }
 				},
 				level: [
@@ -1920,7 +1920,7 @@ module.exports = {
 				noInterrupt: [7, 26],
 				lastChargeStage: 50,
 				abnormals: {
-					25140: { chargeSpeed: 0.3 }
+					25140: { chargeSpeed: 1.3 }
 				}
 			},
 			10: {
@@ -2252,8 +2252,8 @@ module.exports = {
 				lastChargeStage: 2500,
 				noRetry: true,
 				abnormals: {
-					26180: { chargeSpeed: 0.3 },
-					601450: { chargeSpeed: 0.5 }
+					26180: { chargeSpeed: 1.3 },
+					601450: { chargeSpeed: 1.5 }
 				},
 				level: [
 					{ length: 600 },	// 1400
@@ -2306,11 +2306,11 @@ module.exports = {
 				noRetry: true,
 				lastChargeStage: 2500,
 				abnormals: {
-					26160: { chargeSpeed: 0.3 },
-					26170: { chargeSpeed: 0.3 },
-					26171: { chargeSpeed: 0.4 },
-					26190: { chargeSpeed: 0.3 },
-					601450: { chargeSpeed: 0.5 }
+					26160: { chargeSpeed: 1.3 },
+					26170: { chargeSpeed: 1.3 },
+					26171: { chargeSpeed: 1.4 },
+					26190: { chargeSpeed: 1.3 },
+					601450: { chargeSpeed: 1.5 }
 				},
 				level: [
 					{ length: 1000 },	// 1400
@@ -2655,7 +2655,7 @@ module.exports = {
 				noInterrupt: [26, 27, 38],
 				lastChargeStage: 3200,
 				glyphs: {
-					28031: { chargeSpeed: 0.25 }
+					28031: { chargeSpeed: 1.25 }
 				}
 			},
 			10: { noInterrupt: [26, 27, 38] },
