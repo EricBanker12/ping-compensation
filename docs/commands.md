@@ -12,11 +12,11 @@ Example: `/8 sp info`
 
 ### Basic commands
 
-*   `info` - basic info about current SP and configuration
+*    `info` - basic info about current SP and configuration
  
 *    `strictdef` - switch for autoblock messages (affects only brawlers)
     
-*   `mount` - switch for "your character mounted" check
+*    `mount` - switch for "your character mounted" check
     
 *    `ping` - ping information
     

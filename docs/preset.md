@@ -5,10 +5,15 @@ You can disable/enable class/skill for class with `preset.js
 Path: `<skill-prediction-folder>/config/preset.js`
 
 WARNING! WARNING! WARNING!
+
 Some classes using emulated abnormals for skills.
+
 You can't disable these skills only with this preset.js
+
 You MUST change values in abnormalities.js too
+
 Path: `Path: <skill-prediction-folder>/config/abnormalities.js`
+
 WARNING! WARNING! WARNING! 
 
 ## How To

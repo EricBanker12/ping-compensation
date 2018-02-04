@@ -41,15 +41,15 @@ Cons:
 
 2) Find "pingMethod" field and change it to `"passive"` or `"active"`
 
-3) Edit "pingHistoryMax" field (`35+` for `"passive"`, 15-20 for `"active"` ping method)
+3) Edit "pingHistoryMax" field (`35+` for `"passive"`, `15-20` for `"active"` ping method)
 
 ### For users with unstable connection
 
 4) Find "pingSpikesLimit" and set it to "true"
 
-5) Find "pingSpikesMin": field and set it to:  `your average minimal ping - 25`
+5) Find "pingSpikesMin": field and set it to:  `your average minimal ping - 10`
 
-6) Find "pingSpikesMax" field and set it to: `your average max ping + 30`
+6) Find "pingSpikesMax" field and set it to: `your average ping + 30`
 
 ### WARNING №1! Wrong settings for spikes can ruin your gameplay.
 
