@@ -1257,10 +1257,11 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				length: 1107,
+				length: 1111.8,
 				distance: 78,
 				race: {
 					3: { distance: 63.24 }, // F.Helf: 63.236
+					4: { distance: 27.715 }, //M.Aman
 					6: { distance: 55.69 }, // M.Casta: 56.687
 					8: { distance: 48.89 }, // Popori: 48.886
 					10: { distance: 44.22 } // Baraka: 44.217
@@ -1271,6 +1272,7 @@ module.exports = {
 				distance: 21.05,
 				race: {
 					3: { distance: 27.38 }, // F.Helf: 27.382
+					4: { distance: 25 },	// M.Aman: 25
 					6: { distance: 23.27 }, // M.Casta: 23.274
 					8: { distance: 7.06 }, // Popori: 7.06
 					9: { distance: 21.05 }, // Elin: 21.05
@@ -1282,6 +1284,7 @@ module.exports = {
 				distance: 31.84,
 				race: {
 					3: { distance: 32.47 }, // F.Helf: 32.474
+					4: { distance: 25 },	// M.Aman: 25
 					6: { distance: 22.83 }, // M.Casta: 22.833
 					8: { distance: 40.93 }, // Popori: 40.926
 					9: { distance: 31.84 }, // Elin: 31.842
@@ -1293,6 +1296,7 @@ module.exports = {
 				distance: 54.28,
 				race: {
 					3: { distance: 55.25 }, // F.Helf: 55.251
+					4: { distance: 45 }, // M.Aman
 					6: { distance: 59.47 }, // M.Casta: 59.467
 					8: { distance: 43.68 }, // Popori: 43.68
 					9: { distance: 54.29 }, // Elin: 54.285
@@ -1345,6 +1349,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 90.98 }, // F.Helf: 90.983
+					4: { distance: 35 }, // M.Aman: 35
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1356,6 +1361,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 90.98 }, // F.Helf: 90.983
+					4: { distance: 35 }, // M.Aman: 35
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1367,6 +1373,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 90.98 }, // F.Helf: 90.983
+					4: { distance: 35 }, // M.Aman: 35
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1379,6 +1386,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 90.98 }, // F.Helf: 90.983
+					4: { distance: 35 }, // M.Aman: 35
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1402,6 +1410,7 @@ module.exports = {
 				},
 				race: {
 					3: { distance: 90.6 }, // F.Helf: 90.601
+					4: { distance: 80 }, // M.Aman: 80
 					6: { distance: 75 }, // M.Casta: 75
 					8: { distance: 73.34 }, // Popori: 73.344
 					9: { distance: 105.69 }, // Elin: 105.685
@@ -1444,6 +1453,7 @@ module.exports = {
 				noRetry: true,
 				race: {
 					3: { distance: 71.34 }, // F.Helf: 71.336
+					4: { distance: 50.07 }, // M.Aman: 50.071
 					6: { distance: 66.21 }, // M.Casta: 66.21
 					8: { distance: 53.41 }, // Popori: 53.412
 					9: { distance: 80.47 }, // Elin: 80.468
@@ -1597,6 +1607,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 72.79 }, // F.Helf: 72.785
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1608,6 +1619,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 72.79 }, // F.Helf: 72.785
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1619,6 +1631,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 72.79 }, // F.Helf: 72.785
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1641,6 +1654,7 @@ module.exports = {
 				noInterrupt: [15],
 				race: {
 					3: { distance: 72.79 }, // F.Helf: 72.785
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta: 69.704
 					8: { distance: 69.51 }, // Popori: 69.513
 					9: { distance: 87.27 }, // Elin: 87.272
@@ -1681,6 +1695,7 @@ module.exports = {
 				distance: 167.63, // 167.624
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
+					4: { distance: 145 },
 					6: { distance: 168.11 }, // M.Casta: 168.112
 					8: { distance: 240.4 }, // Popori: 240.4
 					9: { distance: 167.62 }, // Elin: 167.624
@@ -1691,6 +1706,7 @@ module.exports = {
 				distance: 167.63, // 167.624
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
+					4: { distance: 145 },
 					6: { distance: 168.11 }, // M.Casta: 168.112
 					8: { distance: 240.4 }, // Popori: 240.4
 					9: { distance: 167.62 }, // Elin: 167.624
@@ -1701,6 +1717,7 @@ module.exports = {
 				distance: 167.63, // 167.624
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
+					4: { distance: 145 },
 					6: { distance: 168.11 }, // M.Casta: 168.112
 					8: { distance: 240.4 }, // Popori: 240.4
 					9: { distance: 167.62 }, // Elin: 167.624
@@ -1711,6 +1728,7 @@ module.exports = {
 				distance: 167.63, // 167.624
 				noInterrupt: [2, 4, 15, 24, 25, 30],
 				race: {
+					4: { distance: 145 },
 					6: { distance: 168.11 }, // M.Casta: 168.112
 					8: { distance: 240.4 }, // Popori: 240.4
 					9: { distance: 167.62 }, // Elin: 167.624
@@ -1746,6 +1764,7 @@ module.exports = {
 				length: 1635, // 1630
 				distance: 167.63, // 167.624
 				race: {
+					4: { distance: 145 },
 					6: { distance: 168.11 }, // M.Casta: 168.112
 					8: { distance: 240.4 }, // Popori: 240.4
 					9: { distance: 167.62 }, // Elin: 167.624
@@ -1825,14 +1844,17 @@ module.exports = {
 		},
 		30: { // Axe Counter
 			'*': {
-				length: 650,
+				length: 655,
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
 				chains: { 2: 30 },
 				race: {
+					4: { 
+						distance: 25
+					},
 					8: { // Popori, just WTF
-						length: 1195,
+						length: 1188,
 						distance: 240.4
 					},
 					9: { distance: 21.05 }, // Elin: 21.05
@@ -1863,8 +1885,9 @@ module.exports = {
 				noInterrupt: [2],
 				requiredBuff: 401400,
 				race: {
-					8: { // Popori: 930, 61.387
-						length: 930,
+					4: { distance: 37.5 },
+					8: { 
+						length: 925,
 						distance: 61.39
 					},
 					9: { distance: 31.58 }, // Elin: 31.575
@@ -1875,6 +1898,7 @@ module.exports = {
 				length: 810,
 				distance: 134.1,
 				race: {
+					4: { distance: 116 },
 					8: { distance: 192.32 }, // Popori: 192.319
 					9: { distance: 134.1 }, // Elin: 134.1
 					10: { distance: 126.49 } // Baraka: 126.49
