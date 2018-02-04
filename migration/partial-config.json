@@ -1,8 +1,4 @@
 {
-    "version": "3.8",
-    "pingMethod": "active",
-    "pingHistoryMax": 20,
-    "pingSpikesLimit": false,
-    "pingSpikesMin": 100,
-    "pingSpikesMax": 300
+    "version": "4.3",
+    "pingMethod": "active"
 }
