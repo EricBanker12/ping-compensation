@@ -3712,8 +3712,7 @@ module.exports = {
 		},
 		9: { // Mana Missiles
 			'*': {
-				blockCancelPacket: true,
-				length: 1266,
+				length: 1240,
 				noInterrupt: [20]
 			},
 			0: {
@@ -3763,7 +3762,6 @@ module.exports = {
 		10: { // Arc Bomb
 			'*': {
 				triggerAbnormal: { 10152086: 4100 },
-				blockCancelPacket: true,
 				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
