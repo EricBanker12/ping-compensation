@@ -137,7 +137,7 @@ module.exports = {
 				length: 1665,
 				noInterrupt: [32],
 				glyphs: {
-					21040: { speed: 1.5 }
+					21040: { speed: 0.5 }
 				}
 			}
 		},
@@ -337,8 +337,8 @@ module.exports = {
 				distance: 180,
 				noInterrupt: [32],
 				glyphs: {
-					21048: { speed: 1.3 },
-					21082: { speed: 1.3 }
+					21048: { speed: 0.3 },
+					21082: { speed: 0.3 }
 				}
 			}
 		},
@@ -569,7 +569,7 @@ module.exports = {
 				distance: [0, 100, 100, 100, 100, 35],
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27],
 				abnormals: {
-					22060: { speed: 1.25 }
+					22060: { speed: 0.25 }
 				},
 				chains: {
 					5: 30
@@ -591,8 +591,8 @@ module.exports = {
 				length: 2215,
 				noInterrupt: [2],
 				glyphs: {
-					22056: { speed: 1.25 },
-					22085: { speed: 1.25 }
+					22056: { speed: 0.25 },
+					22085: { speed: 0.25 }
 				}
 			}
 		},
@@ -731,7 +731,7 @@ module.exports = {
 				length: 625,
 				distance: 95, // M.Aman
 				abnormals: {
-					201550: { speed: 1.2 }
+					201550: { speed: 0.2 }
 				},
 				race: {
 					0: { distance: 100.13 }, // M.Human: 100.125
@@ -931,7 +931,7 @@ module.exports = {
 				length: 2835,
 				distance: 220.47,
 				abnormals: {
-					23070: { speed: 1.25 }
+					23070: { speed: 0.25 }
 				},
 				chains: { 14: 30 },
 				race: {
@@ -956,7 +956,7 @@ module.exports = {
 				length: 2880, // 2900 before
 				distance: 128.69,
 				abnormals: {
-					23080: { speed: 1.25 }
+					23080: { speed: 0.25 }
 				},
 				race: {
 					0: { distance: 123.21 }, // M.Human: 123.208
@@ -1057,8 +1057,8 @@ module.exports = {
 				length: 2320,
 				distance: 180.96,
 				abnormals: {
-					23060: { speed: 1.25 },
-					23061: { speed: 1.35 }
+					23060: { speed: 0.25 },
+					23061: { speed: 0.35 }
 				},
 				race: {
 					0: { distance: 166.56 }, // M.Human: 166.555
@@ -1126,7 +1126,7 @@ module.exports = {
 				distance: -175,
 				forceClip: true,
 				glyphs: {
-					23060: { speed: 1.25 }
+					23060: { speed: 0.25 }
 				},
 			}
 		},
@@ -1313,7 +1313,7 @@ module.exports = {
 			'*': {
 				length: 1748,
 				abnormals: {
-					24170: { speed: 1.25 }
+					24170: { speed: 0.25 }
 				},
 				noRetry: true
 			},
@@ -1324,12 +1324,15 @@ module.exports = {
 				//lastChargeStage: 2000,
 				glyphs: {
 					24067: {
-						chargeSpeed: 1.25 // only value that affects last charge state duration
+						chargeSpeed: 0.25 // only value that affects last charge state duration
 					}
 				},
 				abnormals: {
-					24130: { chargeSpeed: 1.3 },
-					24170: { speed: 1.25 }
+					24130: { chargeSpeed: 0.3 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
+					400508: { chargeSpeed: 0.4 },
+					401150: { chargeSpeed: 0.2 }
 				},
 				level: [
 					{ length: 800 },	// 1300
@@ -1390,12 +1393,12 @@ module.exports = {
 				length: 3125, // 3100 pori?
 				distance: 105.685,
 				glyphs: {
-					24008: { speed: 1.25 },
-					24050: { speed: 1.25 }
+					24008: { speed: 0.25 },
+					24050: { speed: 0.25 }
 				},
 				abnormals: {
-					24100: { speed: 1.25 },
-					24101: { speed: 1.30 }
+					24100: { speed: 0.25 },
+					24101: { speed: 0.30 }
 				},
 				race: {
 					3: { distance: 90.6 }, // F.Helf: 90.601
@@ -1486,15 +1489,18 @@ module.exports = {
 				noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000,
 				glyphs: {
-					24009: { chargeSpeed: 1.25 },
-					24052: { chargeSpeed: 1.25 },
+					24009: { chargeSpeed: 0.25 },
+					24052: { chargeSpeed: 0.25 },
 					24096: {
-						chargeSpeed: 1.3
+						chargeSpeed: 0.3
 					}
 				},
 				abnormals: {
-					//24010: { chargeSpeed: 1.3 },
-					24190: { chargeSpeed: 1.3 },
+					//24010: { chargeSpeed: 0.3 },
+					24190: { chargeSpeed: 0.3 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
+					400508: { chargeSpeed: 0.4 },
 					401400: { chain: 6 }
 				},
 				level: [
@@ -1570,9 +1576,10 @@ module.exports = {
 				noInterrupt: [2, '3-0', 4, '10-0', 15, '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
 				lastChargeStage: 2000,
 				abnormals: {
-				//	400500: { chargeSpeed: 1.2 },
-				//	400501: { chargeSpeed: 1.4 },
-					401150: { chargeSpeed: 1.2 }
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
+					400508: { chargeSpeed: 0.4 },
+					401150: { chargeSpeed: 0.2 }
 				},
 				chains: {
 					'3-13': 14, // this is fine though maybe uneeded, 13: 14 does the same
@@ -1658,10 +1665,10 @@ module.exports = {
 				length: [800, 800, 800],
 				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 30],
 				abnormals: {
-					24120: { chargeSpeed: 1.3 },
-					//400500: { chargeSpeed: 1.2 },
-					//400501: { chargeSpeed: 1.4 },
-					401150: { chargeSpeed: 1.2 },
+					24120: { chargeSpeed: 0.3 },
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
+					400508: { chargeSpeed: 0.4 },
 					401400: { chain: 6 }
 				},
 				level: [
@@ -1762,7 +1769,7 @@ module.exports = {
 				length: 1205,
 				distance: 96,
 				glyphs: {
-					24078: { speed: 1.25 }
+					24078: { speed: 0.25 }
 				}
 			},
 			0: {
@@ -1893,7 +1900,7 @@ module.exports = {
 			0: {
 				length: 1307.22,
 				abnormals: {
-					25090: { speed: 1.4 }
+					25090: { speed: 0.4 }
 				}
 			}
 		},
@@ -1910,7 +1917,7 @@ module.exports = {
 				noInterrupt: [7, 26],
 				lastChargeStage: 50,
 				abnormals: {
-					25140: { chargeSpeed: 1.3 }
+					25140: { chargeSpeed: 0.3 }
 				}
 			},
 			10: {
@@ -1954,11 +1961,11 @@ module.exports = {
 			0: {
 				length: 3932,
 				glyphs: {
-					25003: { speed: 1.17 },
-					25069: { speed: 1.25 }
+					25003: { speed: 0.17 },
+					25069: { speed: 0.25 }
 				},
 				abnormals: {
-					25100: { speed: 1.25 },
+					25100: { speed: 0.25 },
 				},
 				race: {
 					9: { length: 3700 } // Elin
@@ -1985,7 +1992,7 @@ module.exports = {
 			0: {
 				length: 1200,
 				abnormals: {
-					25070: { speed: 1.25 }
+					25070: { speed: 0.25 }
 				}
 			}
 		},
@@ -2013,10 +2020,10 @@ module.exports = {
 					9: { length: 2315 } // Elin
 				},
 				glyphs: {
-					25048: { speed: 1.3 }
+					25048: { speed: 0.3 }
 				},
 				abnormals: {
-					25110: { speed: 1.4 }
+					25110: { speed: 0.4 }
 				}
 			}
 		},
@@ -2066,11 +2073,11 @@ module.exports = {
 				type: 'lockonCast',
 				length: 1501,
 				glyphs: {
-					25001: { speed: 1.3 },
-					25096: { speed: 1.4 } //
+					25001: { speed: 0.3 },
+					25096: { speed: 0.4 } //
 				},
 				abnormals: {
-					25060: { speed: 1.25 } //
+					25060: { speed: 0.25 } //
 				}
 			}
 		},
@@ -2141,12 +2148,17 @@ module.exports = {
 			0: {
 				length: 980,
 				abnormals: {
-					902: { speed: 1.15 },
-					911: { speed: 1.15 },
-					916: { speed: 1.15 },
-					920: { speed: 1.225 },
-					921: { speed: 1.225 },
-					922: { speed: 1.225 }
+					902: { nocTanSpeed: 0.15 },
+					910: { nocTanSpeed: 0.15 },
+					911: { nocTanSpeed: 0.15 },
+					912: { nocTanSpeed: 0.15 },
+					913: { nocTanSpeed: 0.15 },
+					916: { nocTanSpeed: 0.15 },
+					917: { nocTanSpeed: 0.15 },
+					920: { nocTanSpeed: 0.225 },
+					921: { nocTanSpeed: 0.225 },
+					922: { nocTanSpeed: 0.225 },
+					929: { nocTanSpeed: 0.225 }
 				}
 			}
 		},
@@ -2154,7 +2166,7 @@ module.exports = {
 			0: {
 				length: 2858,
 				glyphs: {
-					25092: { speed: 1.3 }
+					25092: { speed: 0.3 }
 				}
 			}
 		},
@@ -2168,11 +2180,11 @@ module.exports = {
 			'*': {
 				length: 6778.2,
 				glyphs: {
-					25003: { speed: 1.17 },
-					25069: { speed: 1.25 }
+					25003: { speed: 0.17 },
+					25069: { speed: 0.25 }
 				},
 				abnormals: {
-					25100: { speed: 1.25 },
+					25100: { speed: 0.25 },
 				},
 				race: {
 					7: { length: 6774.54 },
@@ -2242,8 +2254,8 @@ module.exports = {
 				lastChargeStage: 2500,
 				noRetry: true,
 				abnormals: {
-					26180: { chargeSpeed: 1.3 },
-					601450: { chargeSpeed: 1.5 }
+					26180: { chargeSpeed: 0.3 },
+					601450: { chargeSpeed: 0.5 }
 				},
 				level: [
 					{ length: 600 },	// 1400
@@ -2296,11 +2308,11 @@ module.exports = {
 				noRetry: true,
 				lastChargeStage: 2500,
 				abnormals: {
-					26160: { chargeSpeed: 1.3 },
-					26170: { chargeSpeed: 1.3 },
-					26171: { chargeSpeed: 1.4 },
-					26190: { chargeSpeed: 1.3 },
-					601450: { chargeSpeed: 1.5 }
+					26160: { chargeSpeed: 0.3 },
+					26170: { chargeSpeed: 0.3 },
+					26171: { chargeSpeed: 0.4 },
+					26190: { chargeSpeed: 0.3 },
+					601450: { chargeSpeed: 0.5 }
 				},
 				level: [
 					{ length: 1000 },	// 1400
@@ -2345,15 +2357,20 @@ module.exports = {
 			0: {
 				length: 3131,
 				glyphs: {
-					26077: { speed: 1.4 }
+					26077: { speed: 0.4 }
 				},
 				abnormals: {
-					902: { speed: 1.15 },
-					911: { speed: 1.15 },
-					916: { speed: 1.15 },
-					920: { speed: 1.225 },
-					921: { speed: 1.225 },
-					922: { speed: 1.225 }
+					902: { nocTanSpeed: 0.15 },
+					910: { nocTanSpeed: 0.15 },
+					911: { nocTanSpeed: 0.15 },
+					912: { nocTanSpeed: 0.15 },
+					913: { nocTanSpeed: 0.15 },
+					916: { nocTanSpeed: 0.15 },
+					917: { nocTanSpeed: 0.15 },
+					920: { nocTanSpeed: 0.225 },
+					921: { nocTanSpeed: 0.225 },
+					922: { nocTanSpeed: 0.225 },
+					929: { nocTanSpeed: 0.225 }
 				}
 			}
 		},
@@ -2440,7 +2457,7 @@ module.exports = {
 				distance: -12.5,
 				noInterrupt: [22],
 				abnormals: {
-					26100: { speed: 1.25 }
+					26100: { speed: 0.25 }
 				},
 				race: {
 					8: { distance: -12.17 } // Popori, 12.167
@@ -2478,8 +2495,8 @@ module.exports = {
 				distance: -100,
 				noInterrupt: [22],
 				glyphs: {
-					26089: { speed: 1.3 },
-					26102: { speed: 1.3 }
+					26089: { speed: 0.3 },
+					26102: { speed: 0.3 }
 				},
 				race: {
 					1: { length: 3560 }, // F.Human(Actually faster even if cancelled with SF, -100ms~ in comparisson at base AS)
@@ -2521,12 +2538,17 @@ module.exports = {
 			0: {
 				length: 3150,
 				abnormals: {
-					902: { speed: 1.15 },
-					911: { speed: 1.15 },
-					916: { speed: 1.15 },
-					920: { speed: 1.225 },
-					921: { speed: 1.225 },
-					922: { speed: 1.225 }
+					902: { nocTanSpeed: 0.15 },
+					910: { nocTanSpeed: 0.15 },
+					911: { nocTanSpeed: 0.15 },
+					912: { nocTanSpeed: 0.15 },
+					913: { nocTanSpeed: 0.15 },
+					916: { nocTanSpeed: 0.15 },
+					917: { nocTanSpeed: 0.15 },
+					920: { nocTanSpeed: 0.225 },
+					921: { nocTanSpeed: 0.225 },
+					922: { nocTanSpeed: 0.225 },
+					929: { nocTanSpeed: 0.225 }
 				}
 			}
 		},
@@ -2543,7 +2565,7 @@ module.exports = {
 			0: {
 				length: 4600,
 				glyphs: {
-					28044: { speed: 1.25 }
+					28044: { speed: 0.25 }
 				}
 			}
 		},
@@ -2560,15 +2582,20 @@ module.exports = {
 			0: {
 				length: 5915,
 				glyphs: {
-					28045: { speed: 1.15 }
+					28045: { speed: 0.15 }
 				},
 				abnormals: {
-					902: { speed: 1.15 },
-					911: { speed: 1.15 },
-					916: { speed: 1.15 },
-					920: { speed: 1.225 },
-					921: { speed: 1.225 },
-					922: { speed: 1.225 }
+					902: { nocTanSpeed: 0.15 },
+					910: { nocTanSpeed: 0.15 },
+					911: { nocTanSpeed: 0.15 },
+					912: { nocTanSpeed: 0.15 },
+					913: { nocTanSpeed: 0.15 },
+					916: { nocTanSpeed: 0.15 },
+					917: { nocTanSpeed: 0.15 },
+					920: { nocTanSpeed: 0.225 },
+					921: { nocTanSpeed: 0.225 },
+					922: { nocTanSpeed: 0.225 },
+					929: { nocTanSpeed: 0.225 }
 				}
 			}
 		},
@@ -2645,7 +2672,7 @@ module.exports = {
 				noInterrupt: [26, 27, 38],
 				lastChargeStage: 3200,
 				glyphs: {
-					28031: { chargeSpeed: 1.25 }
+					28031: { chargeSpeed: 0.25 }
 				}
 			},
 			10: { noInterrupt: [26, 27, 38] },
@@ -2821,16 +2848,21 @@ module.exports = {
 			0: {
 				length: 8070, // 8050, 8060 //
 				glyphs: {
-					27049: { speed: 1.2 },
-					27079: { speed: 1.2 }
+					27049: { speed: 0.2 },
+					27079: { speed: 0.2 }
 				},
 				abnormals: {
-					902: { speed: 1.25 },
-					911: { speed: 1.25 },
-					916: { speed: 1.25 },
-					920: { speed: 1.375 },
-					921: { speed: 1.375 },
-					922: { speed: 1.375 }
+					902: { nocTanSpeed: 0.15 },
+					910: { nocTanSpeed: 0.15 },
+					911: { nocTanSpeed: 0.15 },
+					912: { nocTanSpeed: 0.15 },
+					913: { nocTanSpeed: 0.15 },
+					916: { nocTanSpeed: 0.15 },
+					917: { nocTanSpeed: 0.15 },
+					920: { nocTanSpeed: 0.225 },
+					921: { nocTanSpeed: 0.225 },
+					922: { nocTanSpeed: 0.225 },
+					929: { nocTanSpeed: 0.225 }
 				}
 			}
 		},
@@ -2898,8 +2930,8 @@ module.exports = {
 			10: {
 				length: 850,
 				abnormals: {
-					27070: { speed: 1.25 },
-					27080: { speed: 1.25 }
+					27070: { speed: 0.25 },
+					27080: { speed: 0.25 }
 				}
 			}
 		},
@@ -2924,7 +2956,7 @@ module.exports = {
 			10: {
 				length: 850, // 810 female high elf
 				abnormals: {
-					27100: { speed: 1.25 }
+					27100: { speed: 0.25 }
 				}
 			}
 		},
@@ -3180,7 +3212,7 @@ module.exports = {
 				length: 2025,
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 13, 14, 20],
 				abnormals: {
-					29030: { speed: 1.25 }
+					29030: { speed: 0.25 }
 				},
 				chains: {
 					1: 30,
@@ -3398,7 +3430,7 @@ module.exports = {
 		12: { // Shadow Burst
 			'*': {
 				glyphs: {
-					29026: { speed: 1.25 }
+					29026: { speed: 0.25 }
 				},
 				chains: { '12-0': 1 }
 			},
@@ -3490,7 +3522,7 @@ module.exports = {
 				triggerAbnormal: { 10152082: 4100 },
 				length: 2999,
 				glyphs: {
-					30004: { speed: 1.25 }
+					30004: { speed: 0.25 }
 				}
 			}
 		},
@@ -4727,8 +4759,8 @@ module.exports = {
 				stamina: 100,
 				instantStamina: true,
 				abnormals: {
-					32033: { speed: 1.2 },
-					32058: { speed: 1.3 }
+					32033: { speed: 0.2 },
+					32058: { speed: 0.3 }
 				}
 			},
 			0: {
@@ -5163,7 +5195,7 @@ module.exports = {
 				distance: 11.78,
 				noInterrupt: [10],
 				glyphs: {
-					33020: { speed: 1.2 }
+					33020: { speed: 0.2 }
 				},
 				chains: {
 					1: null,
