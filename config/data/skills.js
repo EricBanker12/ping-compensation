@@ -3736,7 +3736,7 @@ module.exports = {
 		},
 		9: { // Mana Missiles
 			'*': {
-				length: 1240,
+				length: 1200,
 				noInterrupt: [20]
 			},
 			0: {
