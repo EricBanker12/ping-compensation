@@ -1607,7 +1607,6 @@ module.exports = {
 					}
 				},
 				abnormals: {
-					24010: { chargeSpeed: 0.3 },
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
@@ -2827,7 +2826,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1433,
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -2853,7 +2852,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1430]
+				length: [300, 1433]
 			}
 		},
 		34: { // Restorative Burst
@@ -2869,7 +2868,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1433
 			}
 		},
 		37: { // Healing Immersion
@@ -2884,7 +2883,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1433,
 				noInterrupt: ['37-10']
 			}
 		},

@@ -1323,6 +1323,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
+				consumeAbnormal: 400900,
 				length: [650, 650, 650],
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000,
@@ -1495,6 +1496,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'charging',
+				consumeAbnormal: 400900,
 				length: [650, 650, 650],
 				noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000,
@@ -1506,7 +1508,6 @@ module.exports = {
 					}
 				},
 				abnormals: {
-					//24010: { chargeSpeed: 0.3 },
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
@@ -1582,6 +1583,7 @@ module.exports = {
 			'*': { length: 1930 },            // Usage:            1. "Show default Chained Skills" in the Chained Skills menu must be on.        		                               
 			0: {                             //                    2. Must be in combat when used.  
 				type: 'charging',           //                    Else the animation of VB won't go off causing slight desync.
+				consumeAbnormal: 400900,
 				length: [800, 800, 800],
 				noInterrupt: [2, '3-0', 4, '10-0', 15, '18-0', 24, 25, 30], // VB can't chain from stages 10, 11 or 12 in the client, it only can on stages 13
 				lastChargeStage: 2000,
@@ -1676,6 +1678,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
+				consumeAbnormal: 400900,
 				length: [800, 800, 800],
 				noInterrupt: [2, 3, 4, 10, 15, 24, 25, 30],
 				abnormals: {
@@ -1850,7 +1853,7 @@ module.exports = {
 				requiredBuff: 401402,
 				chains: { 2: 30 },
 				race: {
-					4: { 
+					4: {
 						distance: 25
 					},
 					8: { // Popori, just WTF
@@ -1886,7 +1889,7 @@ module.exports = {
 				requiredBuff: 401400,
 				race: {
 					4: { distance: 37.5 },
-					8: { 
+					8: {
 						length: 925,
 						distance: 61.39
 					},
@@ -2718,7 +2721,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1433
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -2744,7 +2747,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [300, 1430]
+				length: [300, 1433]
 			}
 		},
 		34: { // Restorative Burst
@@ -2760,7 +2763,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1433
 			}
 		},
 		37: { // Healing Immersion
@@ -2775,7 +2778,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1433,
 				noInterrupt: ['37-10']
 			}
 		},
@@ -3903,6 +3906,10 @@ module.exports = {
 				length: 5800,
 				distance: -269.09,
 				noInterrupt: [13],
+				abnormals: {
+					10152010: { chain: 2 },
+					10152011: { chain: 2 }
+				},
 				chains: {
 					'2-1': null,
 					3: null,
