@@ -2687,6 +2687,9 @@ module.exports = {
 		},
 		28: { // Mana Charge
 			'*': {
+				bodyRolls: {
+					350708: { chargeSpeed: 0.15 }
+				},
 				length: 825,
 				noRetry: true,
 				race: {
@@ -3655,6 +3658,9 @@ module.exports = {
 		},
 		5: { // Burst Fire
 			'*': {
+				bodyRolls: {
+					350905: { stamina: -5 }
+				},
 				blockCancelPacket: true,
 				noInterrupt: ['9-0'],
 				chains: {
