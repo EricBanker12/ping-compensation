@@ -1028,6 +1028,7 @@ module.exports = {
 				length: 2880, // 2900 before
 				distance: 128.69,
 				abnormals: {
+					301150: { speed: 0.20 },
 					23080: { speed: 0.25 }
 				},
 				race: {
@@ -1434,7 +1435,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				consumeAbnormal: 400900,				
+				consumeAbnormal: 400900,
 				length: [650, 650, 650],
 				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000,
@@ -1675,14 +1676,14 @@ module.exports = {
 			'*': { length: 1930 },
 			0: {
 				type: 'charging',
-				consumeAbnormal: 400900,				
+				consumeAbnormal: 400900,
 				length: [800, 800, 800],
 				noInterrupt: [2, '3-0', 4, '10-0', 15, '18-0', 24, 25, 30],
 				lastChargeStage: 2000,
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
-					400508: { chargeSpeed: 0.4 },					
+					400508: { chargeSpeed: 0.4 },
 					401150: { chargeSpeed: 0.2 }
 				},
 				chains: {
@@ -2796,7 +2797,13 @@ module.exports = {
 		28: { // Mana Charge / Spirit something
 			'*': {
 				length: 825,
-				noRetry: true
+				noRetry: true,
+				bodyRolls: {
+					350708: { chargeSpeed: 0.15 }
+				},
+				race: {
+					9: { length: 798.3 }
+				}
 			},
 			0: {
 				type: 'charging',
@@ -3809,6 +3816,9 @@ module.exports = {
 			'*': {
 				blockCancelPacket: true,
 				noInterrupt: ['9-0'],
+				bodyRolls: {
+					350905: { stamina: -5 }
+				},
 				chains: {
 					'5-0': 1
 				}
@@ -4060,6 +4070,10 @@ module.exports = {
 				length: 5800,
 				distance: -269.09,
 				noInterrupt: [13],
+				abnormals: {
+					10152010: { chain: 2 },
+					10152011: { chain: 2 }
+				},
 				chains: {
 					'2-1': null,
 					3: null,
