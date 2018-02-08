@@ -71,7 +71,7 @@ if (existsSync(migrationConfigPath)) {
 
 module.exports = function SkillPredictionCore(dispatch) {
 	if (errorState) {
-		console.log(`[${currentDir}] Start canceled!`);
+		console.log(`[${currentDir}] Start cancelled!`);
 		process.exit()
 	}
 
