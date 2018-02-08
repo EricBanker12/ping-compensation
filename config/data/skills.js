@@ -956,6 +956,7 @@ module.exports = {
 				length: 2880, // 2900 before
 				distance: 128.69,
 				abnormals: {
+					301150: { speed: 0.20 },
 					23080: { speed: 0.25 }
 				},
 				race: {
