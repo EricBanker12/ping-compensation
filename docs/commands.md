@@ -8,6 +8,10 @@ Main format: `/8 sp <command>`
 
 Example: `/8 sp info`
 
+Extended command format: `/8 sp <command> <subcommand>`
+
+Example: `/8 sp config print`
+
 ## Commands
 
 ### Basic commands
@@ -24,11 +28,23 @@ Example: `/8 sp info`
     
 *    `on` - enable SP. You should be unmounted, not in battle and etc 
     
-*    `save` - save current changes into config file
-
-*    `autoconfig` - create basic config for your connection (IN TEST!)
-
 *    `load` - load current changes from the configuration file(basically for direct edits of the file and test).
+
+### Extended commands
+
+Main command: `config`
+
+Sub commands:
+    
+*    `print` - print all current comfig 
+ 
+*    `generate` - try to generate config for your connection (TEST)
+    
+*    `reset` - discard current config in memory and load default settings
+    
+*    `reload` - just reload current config (useful for manual changes)
+    
+*    `save` - save current configuration
    
 ### Debug commands
 
