@@ -17,7 +17,7 @@ const sysmsg = require('tera-data-parser').sysmsg,
 const isDirectory = source => lstatSync(source).isDirectory();
 
 //filter "module without _" => true
-const isActiveModule = source => !source.includes('_');
+const isActiveModule = source => !source[0].includes('_');
 
 //function return "c" from "a/b/c" 
 const getShortDirName = source => (source.slice(source.lastIndexOf(path.sep) + 1, source.length)).toLowerCase();
@@ -33,8 +33,8 @@ const getModules = source =>
 let currentDir = getShortDirName(__dirname);
 let blockedModules = ['cooldowns', 'lockons', 'lockons-master', 'fastfire', 'fast-fire', 'fast-fire-master', 'fast-block',
 	'skill-prediction', 'skill-prediction-master', 'skill-prediction-exp', 'skill-prediction-experimental',
-	'sp', 'cooldowns-master', 'fast-block-master', 'skillprediction', 'pinkie-sp', 'sp-pinkie']
-//	'let-me-target', 'let-me-target-master', 'flymore', 'letmetarget', 'fly-more', 'fly-more-master', 'exploit', 'projectile', 'projectileexploit', 'meme', 'c_hit', 'C_HIT'];
+	'sp', 'cooldowns-master', 'fast-block-master', 'skillprediction', 'pinkie-sp', 'sp-pinkie'];
+
 let errorState = false;
 let installedModules = null;
 
@@ -47,12 +47,12 @@ installedModules = (getModules(path.resolve(__dirname, '../'))).filter(element =
 
 //check for blocked modules
 for (item of installedModules) {
-    for (blk of blockedModules) {
-        if (item === blk) {
-            console.log(`[${currentDir}] ERROR! Blocked module ${item} installed.`);
-            errorState = true
-        }
-    }
+	for (blk of blockedModules) {
+		if (item === blk) {
+			console.log(`[${currentDir}] ERROR! Blocked module ${item} installed.`);
+			errorState = true
+		}
+	}
 }
 
 //check for "command"
