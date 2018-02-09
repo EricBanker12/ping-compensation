@@ -60,7 +60,7 @@ module.exports = {
 		8: true, // Shield Counter
 		9: true, // Leash
 		10: true, // Debilitate
-		11: true, // Retaliate
+		11: false, // Retaliate
 		12: true, // Infuriate
 		13: true, // Spring Attack
 		15: true, // Charging Lunge
@@ -91,7 +91,7 @@ module.exports = {
 		5: true, // Dash
 		8: true, // Overhand Strike
 		9: true, // Leaping Strike
-		10: true, // Retaliate
+		10: false, // Retaliate
 		12: true, // Heart Thrust
 		13: true, // Stunning Backhand
 		14: true, // Distant Blade
@@ -124,7 +124,7 @@ module.exports = {
 		10: true, // Cyclone
 		11: true, // Leaping Strike
 		12: true, // Unchained Anger / x
-		13: true, // Retaliate
+		13: false, // Retaliate
 		15: true, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
 		18: true, // Lethal Strike
@@ -196,7 +196,7 @@ module.exports = {
 		9: true, // Slow Trap
 		10: true, // Stunning Trap
 		12: true, // Velik's Mark
-		14: true, // Retaliate
+		14: false, // Retaliate
 		15: true, // Incendiary Trap
 		16: true, // Breakaway Bolt
 		17: true, // Web Arrow
@@ -271,7 +271,7 @@ module.exports = {
 		16: true, // Aura of the Tenacious
 		17: true, // Teleport Jaunt
 		18: true, // Arun's Vitae
-		21: true, // Retaliate
+		21: false, // Retaliate
 		22: true, // Arun's Tears
 		23: true, // Metamorphic Smite
 		24: true, // Volley of Curses
@@ -310,7 +310,7 @@ module.exports = {
 		10: true, // Pendulum Strike
 		11: true, // Shadow Lash
 		12: true, // Shadow Burst
-		14: true, // Retaliate
+		14: false, // Retaliate
 		15: true, // Retribution
 		16: true, // Shadow Reaping
 		18: true, // Shrouded Escape
@@ -335,7 +335,7 @@ module.exports = {
 		15: true, // Replenishment
 		18: true, // HB
 		19: true, // ST
-		20: true, // Retaliate
+		20: false, // Retaliate
 		40: true, // Rolling Reload
 		// Awakening
 
@@ -372,7 +372,7 @@ module.exports = {
 		7: true, // Decoy Jutsu
 		8: true, // Fire Avalanche
 		9: true, // Smoke Bomb
-		10: true, //Retaliate
+		10: false, //Retaliate
 		11: true, // Focus
 		12: true, // Skyfall
 		13: true, // Circle of Steel

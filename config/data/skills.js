@@ -2286,37 +2286,37 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				},
 				level: [
-					{ length: 600 },	// 1400
-					{ length: [600, 600] },	// 1400
-					{ length: [600, 600] },	// 1400
+					{ length: 600 },
+					{ length: [600, 600] },
+					{ length: [600, 600] },
 				]
 			},
 			10: {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			}, // Cast F. - TODO
 			11: {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			},
 			12: {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			},
 			13: {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			}
 		},
@@ -2344,8 +2344,8 @@ module.exports = {
 				},
 				level: [
 					{ length: 1000 },	// 1400
-					{ length: [1000, 1000] },	// 1400
-					{ length: [1000, 1000] },	// 1400
+					{ length: [1000, 1000] },
+					{ length: [1000, 1000] },
 				]
 			},
 			10: {
@@ -2353,7 +2353,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			}, // Cast F. - TODO
 			11: {
@@ -2361,7 +2361,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			},
 			12: {
@@ -2369,7 +2369,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			},
 			13: {
@@ -2377,7 +2377,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			}
 		},
@@ -2488,7 +2488,7 @@ module.exports = {
 					26100: { speed: 0.25 }
 				},
 				race: {
-					8: { distance: -12.17 } // Popori, 12.167
+					8: { distance: -12.17 } // Popori
 				}
 			}
 		},
@@ -2528,7 +2528,7 @@ module.exports = {
 				},
 				race: {
 					1: { length: 3560 }, // F.Human(Actually faster even if cancelled with SF, -100ms~ in comparisson at base AS)
-					8: { distance: -96.6 } // Popori, -96.604
+					8: { distance: -96.6 } // Popori
 				}
 			}
 		},
@@ -2915,7 +2915,7 @@ module.exports = {
 			}
 		},
 		13: { // Aura of the Merciless
-			'*': { length: 1300 }, //
+			'*': { length: 1300 },
 			0: true,
 			50: true
 		},
@@ -3023,7 +3023,7 @@ module.exports = {
 		27: { // Thrall of Life
 			0: {
 				fixedSpeed: 1,
-				length: [230, 470] // 240, 470
+				length: [230, 470]
 			}
 		},
 		28: { // Sonorous Dreams
@@ -3123,7 +3123,7 @@ module.exports = {
 		},
 		42: { // Boomerang Pulse
 			0: {
-				length: 550, // 530, 550, 575
+				length: 550,
 				noInterrupt: [42]
 			}
 		},
@@ -3502,12 +3502,6 @@ module.exports = {
 				distance: 150,
 			}
 		},
-		/*20: { // Cable Step
-			0: {
-				type: 'dynamicDistance',
-				length: 1250
-			}
-		},*/
 		40: { // Shadow Step
 			'*': {
 				CC: ["evasive", "extended"],
@@ -3823,26 +3817,6 @@ module.exports = {
 				flyingSpeed: 700,
 				flyingDistance: 350
 			},
-			// TODO: Chain projectiles
-			/*21: {
-				type: 'userProjectile',
-				flyingSpeed: 300,
-				flyingDistance: 100
-			},
-			22: {
-				type: 'userProjectile',
-				flyingSpeed: 300,
-				flyingDistance: 75
-			},
-			23: {
-				type: 'userProjectile',
-				flyingSpeed: 300,
-				flyingDistance: 50
-			},
-			24: {
-				type: 'projectile',
-				length: 1000
-			},*/
 			30: true
 		},
 		11: { // Rocket Jump
@@ -3860,7 +3834,6 @@ module.exports = {
 					'9-10': 30,
 					'9-11': 30,
 					'10-11': 30,
-					//11: 30,
 					13: 30,
 					19: 30,
 					40: 31
@@ -3880,7 +3853,7 @@ module.exports = {
 				}
 			}
 		},
-		/*-		13: { // Balder's Vengeance
+		/*-		13: { // Balder's Vengeance (old version)
 					'*': {
 						triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
 						consumeAbnormalEnd: 10152097,
@@ -3999,11 +3972,6 @@ module.exports = {
 				flyingSpeed: 700,
 				flyingDistance: 450
 			},
-			// TODO: Chain projectiles
-			/*21: {
-				type: 'projectile',
-				length: 5000
-			},*/
 			30: true
 		},
 		20: { // Retaliate
@@ -4136,18 +4104,6 @@ module.exports = {
 				}
 			}
 		},
-		/*3: { // Divine Wrath
-			0: {
-				fixedSpeed: 1,
-				length: 29900,
-				noRetry: true
-			},
-			1: {
-				type: 'lockonCast',
-				length: [,,],
-				distance: [,,]
-			}
-		},*/
 		4: { // Ground Pound
 			'*': {
 				CC: "extended",

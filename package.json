@@ -6,11 +6,11 @@
 		"type": "git",
 		"url": "git+https://github.com/SaltyMonkey/skill-prediction.git"
 	},
-	"authors": "SaltyMonkey, Leyki, Yunfei, Nep",
+	"authors": "SaltyMonkey, Leyki, Yunfei",
 	"originalauthor": "Pinkie Pie",
 	"license": "GPL-3.0",
 	"bugs": {
 		"url": "https://github.com/SaltyMonkey/skill-prediction/issues"
 	},
-	"homepage": "https://github.com/SaltyMonkey/skill-prediction#readme"
+	"homepage": "https://github.com/SaltyMonkey/skill-prediction#wiki"
 }
