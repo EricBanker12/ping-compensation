@@ -97,7 +97,7 @@ module.exports = {
 		14: true, // Distant Blade
 		15: true, // Startling Kick
 		16: true, // Fury Strike
-		17: true, // Headlong Rush
+		17: false, // Headlong Rush / Not properly emulated, use at the expense of possible issues.
 		18: true, // Overpower
 		19: true, // Tenacity
 		20: true, // In Cold Blood

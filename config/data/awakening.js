@@ -1230,7 +1230,7 @@ module.exports = {
 			0: {
 				CC: ["evasive", "extended"],
 				type: 'dash',
-				emulateAttackSpeedBonus: 50,
+				emulateAttackSpeedBonus: 60,
 				fixedSpeed: 1,
 				length: 980,
 				distance: 413, //not sure - seems borked
@@ -1241,8 +1241,8 @@ module.exports = {
 					10: { distance: 420 } // Baraka, 420.018
 				},
 				level: [
-					{ emulateAttackSpeedBonus: 30 },
-					{ emulateAttackSpeedBonus: 40 }
+					{ emulateAttackSpeedBonus: 40 },
+					{ emulateAttackSpeedBonus: 50 }
 				],
 				noInterrupt: [17],
 				noRetry: true
