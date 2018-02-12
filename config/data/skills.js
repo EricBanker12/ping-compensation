@@ -25,7 +25,10 @@ module.exports = {
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 32],
-				noRetry: true
+				noRetry: true,
+				abnormals: {
+					101750: { speed: 0.20 }
+				}
 			},
 			0: {
 				length: 566.4,
@@ -1152,6 +1155,7 @@ module.exports = {
 			0: {
 				CC: ["evasive", "extended"],
 				type: 'dash',
+				emulateAttackSpeedBonus: 50,
 				fixedSpeed: 1,
 				length: 980,
 				distance: 413, //not sure - seems borked
@@ -1161,6 +1165,10 @@ module.exports = {
 					7: { distance: 419.33 }, //F.Casta 419.328
 					10: { distance: 420 } // Baraka, 420.018
 				},
+				level: [
+					{ emulateAttackSpeedBonus: 30 },
+					{ emulateAttackSpeedBonus: 40 }
+				],
 				noInterrupt: [17],
 				noRetry: true
 			}
@@ -1182,7 +1190,11 @@ module.exports = {
 			0: {
 				triggerAbnormal: { 23220: 2000 },
 				fixedSpeed: 1,
-				length: 1185
+				emulateAttackSpeedBonus: 8,
+				length: 1185,
+				level: { 
+					1: {  emulateAttackSpeedBonus: 6 }
+				 } 
 			}
 		},
 		21: { // Exhausting Blow

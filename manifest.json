@@ -12,7 +12,7 @@
     },
     "config/config.json": {
       "overwrite": false,
-      "hash": "3c744cf42857b665d0c719cc692cd234e55367132acf8eb4475b27ae33961a32"
+      "hash": "99746bbab5fc8b63293ba6210e6774a2076b239bc65d8766ecb89471cba85cf6"
     },
     "config/preset.js": {
       "overwrite": false,
@@ -22,18 +22,18 @@
     "config/data/basicCC.json": "021c585b6e85acb734762f14de9172402596fcb0ff6c5040d0238720030d839a",
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
-    "config/data/skills.js": "dfe031864de6d3d5b5a4c447e2518794cf3c2755af90bc8c7bbabdb6ec210926",
-    "config/data/awakening.js": "d425866d8f2d2ea4861c86d5991471f71fc5cca103141395bcf57e43ab2c310b",
+    "config/data/skills.js": "86a0acb7a7cfafe0f4db3801379dd3c9dab29fc18fa46a8cc3edc125a4f1af94",
+    "config/data/awakening.js": "3d623e3fa0c7487af1b78479e97d880ec123ac25ced8f79157003744d843fcd1",
     "docs/commands.md": "3d1dab2882a5695d87d1f74550c0fa14fc61e55fcf14156e316ec8b2d9c56ddc",
     "docs/config.md": "a9cb49092571c0db76ea758e8ce00994a856e9758b4fdea481808da603ab93c1",
     "docs/ping.md": "6d27ee0ddf1d45df4515655b56efd8f51fb9aa91c8bcab5f2973656d3fbef0e3",
     "docs/preset.md": "65defb713d68d517f2040ecf55a588dcf036e02c86f0dab6a6d6f8c3d6f98ecc",
     "lib/abnormalities.js": "3f322174d3b1176f09161f433fc879cf55b65554bb1f50e8d04c1b17ee39ee4e",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "4a1ac248ead4b7204bea8ea3d21621353fc79682fa1d07ed2e56ad94faad7f86",
+    "lib/core.js": "26b57e55b062db326c3dfe90866d6897bc7a976280d601b26b2ea244bed45dd8",
     "lib/autoconfig.js": "6dbc6584b331a34d1100fc6cb818f845a57f5d4998f12edeb8cd068e43d7d866",
     "lib/ping.js": "a5101cc68f5f64572b9b9d29f4520ca6037ae38d69acf410bdf22e40347d86d7",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
-    "migration/partial-config.json": "87b204033df93a826923c66eda2820d0082e96802e798e0cb597d68b87de56c6"
+    "migration/partial-config.json": "16380b9904eebc2b30910832dc1f1b8733bf6053ed61a1cba41a60713b76241e"
   }
 }

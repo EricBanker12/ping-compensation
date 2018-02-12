@@ -20,5 +20,6 @@
 	"pingHistoryMax": 20,
 	"pingSpikesLimit": false,
 	"pingSpikesMin": 100,
-	"pingSpikesMax": 300
+	"pingSpikesMax": 300,
+	"emulateAttackSpeedFromSelfBuffs": false
 }
