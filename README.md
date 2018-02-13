@@ -3,6 +3,8 @@ Simulates skills client-side, eliminating ping-based delays and animation lock.
 
 **Wiki:** https://github.com/SaltyMonkey/skill-prediction/wiki
 
+**Patreon donation link:** [Link](https://www.patreon.com/SaltyMonkey)
+
 **If you need any help:** consider joining either https://discord.gg/maqBmJV or https://discord.gg/RR9zf85 for further assistance utilizing the script or because you're having an issue with it.
 
 **(!!!)About SP and GitHub:** https://github.com/SaltyMonkey/skill-prediction/wiki/Forks
