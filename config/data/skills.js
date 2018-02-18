@@ -3529,7 +3529,7 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': { consumeAbnormal: [10152000, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
+		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
 		1: { // Blast
 			'*': {
 				triggerAbnormal: { 10152011: 3100 },
@@ -3736,7 +3736,7 @@ module.exports = {
 					10152040: 3100
 				},
 				triggerAbnormalEnd: { 10152081: 4100 },
-				consumeAbnormal: 10152072,				
+				consumeAbnormal: 10152072,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
