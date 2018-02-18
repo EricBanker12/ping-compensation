@@ -1192,9 +1192,9 @@ module.exports = {
 				fixedSpeed: 1,
 				emulateAttackSpeedBonus: 8,
 				length: 1200,
-				level: { 
-					1: {  emulateAttackSpeedBonus: 6 }
-				 } 
+				level: {
+					1: { emulateAttackSpeedBonus: 6 }
+				}
 			}
 		},
 		21: { // Exhausting Blow
@@ -3529,7 +3529,7 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152071, 10152072, 10152080, 10152082, 10152083, 10152085, 10152086, 10152087] },
+		'*': { consumeAbnormal: [10152000, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
 		1: { // Blast
 			'*': {
 				triggerAbnormal: { 10152011: 3100 },
@@ -3566,6 +3566,7 @@ module.exports = {
 		3: { // Scattershot
 			'*': {
 				triggerAbnormal: { 10152083: 4100 },
+				consumeAbnormal: 10152080, // Chain Display
 				length: 1725,
 				distance: -108,
 				noInterrupt: [3, 20],
@@ -3630,7 +3631,12 @@ module.exports = {
 					15: 30,
 					19: 30,
 					40: 30
-				}
+				},
+				/*abnormals: {
+					//10152000: { chain: 3 }, .......................................................
+					10152010: { chain: 2 },
+					10152011: { chain: 2 }
+				}*/
 			},
 			1: {
 				triggerAbnormal: {
@@ -3726,9 +3732,11 @@ module.exports = {
 			1: {
 				triggerAbnormal: {
 					//30050: 3100, // AS Buff
-					10152010: 3100 // can start thingy
-					//10152040: 3100 // Arcane Barrage Buff
+					10152010: 3100,
+					10152040: 3100
 				},
+				triggerAbnormalEnd: { 10152081: 4100 },
+				consumeAbnormal: 10152072,				
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
@@ -3736,17 +3744,17 @@ module.exports = {
 			2: {
 				triggerAbnormal: {
 					10152010: 3100,
-					//10152040: 3100
+					10152040: 3100
 				},
+				triggerAbnormalEnd: { 10152081: 4100 },
+				consumeAbnormal: 10152072,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
 			},
 			3: {
 				consumeAbnormal: [10152040],
-				abnormals: {
-					10152081: { chain: 6 } // Yea i know, this one gets sent when you can't cast it anymore since the projectile has ripped
-				}, // Switched since the client might know how to act actually
+				noInterrupt: ['7-3'],
 				length: 1200
 			}
 		},
@@ -3899,8 +3907,8 @@ module.exports = {
 				distance: -269.09,
 				noInterrupt: [13],
 				abnormals: {
-					10152010: { chain: 2 },
-					10152011: { chain: 2 }
+					10152010: { chain: 2 }, //
+					10152011: { chain: 2 } // Must only trigger if currenaction won't result in a chain
 				},
 				chains: {
 					'2-1': null,
@@ -4001,12 +4009,10 @@ module.exports = {
 				noInterrupt: [11],
 				distance: 172.5,
 				triggerAbnormal: {
-					10152010: 3100,
+					10152010: 3100, // "chains"
 					10152012: 3100,
-					10152010: 3100, // They  enable    so    them
-					10152012: 3100, // kinda different like, all
-					10152071: 3100, // seem  skills    gotta /shrug
-					10152080: 4100 //  to    chains,   have
+					10152071: 3100,
+					10152080: 4100
 				},
 				forceClip: true
 			}

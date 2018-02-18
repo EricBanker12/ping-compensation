@@ -13,31 +13,33 @@ module.exports = {
 	10151131: true, // Spiral Death (enableChain, selfChain)
 	10151150: true, // Shadow Burst (selfChain)
 
-		/* Gunner */
+	/* Gunner */
 
-	// Point Blank (enableChain)
-	10152000: true, // First cast
-	10152001: true, // First cast
-	10152002: true, // Second cast
+	// Point Blank 
+	10152000: true, // First cast (enableChain)
+	10152001: true, // Second cast (chain display)
+	10152002: true, // Arc bOMB (chain display)
 
-	10152010: true, // Time Bomb, Arcane Barrage first cast & Rolling Reload (enableChain)
-	10152011: true, // Blast (enableChain)
+	10152010: true, // 
+	10152011: true, // 
 	10152012: true, // Rolling Reload (enableChain)
+	10152040: true, // Arcane Barrage (Second cast & chain display)
 
 	// Burst Fire(enableChain)
-	10152050: true, // Second cast (enableChain)
-	10152053: true, // First cast (enableChain)
-	10152054: true, // Second cast (enableChain)
+	10152050: true, // Second cast (self chain display && -> 10152054)
+	10152053: true, // First cast (chain display)
+	10152054: true, // (??????????????????????????????????????????????????)
 
 	10152071: true, // Rolling Reload (enableChain)
-	10152072: true, // Replenishment (enableChain)
-	10152080: true, // Rolling Reload (enableChain)
-	10152082: true, // Bombardment Second Cast (enableChain)
-	10152083: true, // Scatter Shot (enableChain)
-	10152084: true, // Time bomb (enableChain, projectile)
-	10152085: true, // Mana Missiles Charging & Firing(enableChain, projectile)
-	10152086: true, // Arcane Bomb (enableChain, projectile)
-	// 10152087: Rocket Jump (enableChainOnEnd)
+	10152072: true, // Arcane barrage (chain display)
+	10152080: true, // Scatter Shot (chain display)
+	10152081: true, // Replenishment (chain display)
+	10152082: true, // Unused(?)
+	10152083: true, // Multi chain display
+	10152084: true, // -> 10152010
+	10152085: true, // Unused(?)
+	10152086: true, // Unused(?)
+	10152087: true, // Unused(?)
 	10153093: true, // Rocket Jump & Rolling Reload (Memory leak >//>) 
 	//10152097: true // Balder's Vengeance (enableChain)
 
