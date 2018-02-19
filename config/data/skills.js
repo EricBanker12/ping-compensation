@@ -2037,7 +2037,12 @@ module.exports = {
 			}
 		},
 		10: { // Mana Barrier
-			0: { length: 633 }
+			0: {
+				length: 633,
+				/*race: {
+					1: {length: 533}
+				}*/
+			}
 		},
 		11: { // Lightning Strike
 			0: {
@@ -2256,7 +2261,12 @@ module.exports = {
 			52: true
 		},
 		34: { // Mana Boost
-			0: { length: 750 }
+			0: {
+				length: 633,
+				/*race: {
+					1: {length: 533}
+				}*/
+			}
 		}
 	},
 	5: { // Archer
@@ -2613,10 +2623,7 @@ module.exports = {
 			0: { length: 1275 }
 		},
 		11: { // Metamorphic Blast
-			0: {
-				length: 820,
-				checkReset: true
-			}
+			0: { length: 820 }
 		},
 		12: { // Resurrect
 			0: {

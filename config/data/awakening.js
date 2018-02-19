@@ -2127,7 +2127,12 @@ module.exports = {
 			}
 		},
 		10: { // Mana Barrier
-			0: { length: 625 }
+			0: {
+				length: 633,
+				/*race: {
+					1: { length: 533 }
+				}*/
+			}
 		},
 		11: { // Lightning Strike
 			0: {
@@ -2343,7 +2348,12 @@ module.exports = {
 			52: true
 		},
 		34: { // Mana Boost
-			0: { length: 750 }
+			0: {
+				length: 633,
+				/*race: {
+					1: {length: 533}
+				}*/
+			}
 		},
 
 		91: { // Awakening Eyes Aura
@@ -2715,10 +2725,7 @@ module.exports = {
 			0: { length: 1275 }
 		},
 		11: { // Metamorphic Blast / Changed
-			'*': {
-				length: 820,
-				checkReset: true
-			},
+			'*': { length: 820 },
 			0: true,
 			1: true,
 			2: true
@@ -3690,7 +3697,7 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152071, 10152072, 10152080, 10152082, 10152083, 10152085, 10152086, 10152087] },
+		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
 		1: { // Blast
 			'*': {
 				triggerAbnormal: { 10152011: 3100 },
@@ -3718,7 +3725,7 @@ module.exports = {
 			1: {
 				type: 'lockonCast',
 				triggerAbnormal: { 10152082: 4100 },
-				length: 3000,
+				length: 2999,
 				glyphs: {
 					30004: { speed: 0.25 }
 				}
@@ -3727,6 +3734,7 @@ module.exports = {
 		3: { // Scattershot
 			'*': {
 				triggerAbnormal: { 10152083: 4100 },
+				consumeAbnormal: 10152080, // Chain Display
 				length: 1725,
 				distance: -108,
 				noInterrupt: [3, 20],
@@ -3747,7 +3755,7 @@ module.exports = {
 							},
 							{
 								duration: 1333,
-								speed: 0.8,
+								speed: 1.8,
 								unk: 1,
 								distance: 64.8
 							}
@@ -3792,6 +3800,11 @@ module.exports = {
 					19: 30,
 					40: 30
 				}
+				/*abnormals: {
+					//10152000: { chain: 3 }, .......................................................
+					10152010: { chain: 2 },
+					10152011: { chain: 2 }
+				}*/
 			},
 			1: {
 				triggerAbnormal: {
@@ -3846,7 +3859,7 @@ module.exports = {
 					10152054: 1200 //
 				},
 				fixedSpeed: 1,
-				length: 122,
+				length: 125,
 				stamina: 70,
 				instantStamina: true,
 				glyphs: {
@@ -3879,7 +3892,7 @@ module.exports = {
 		},
 		7: { // Arcane Barrage
 			'*': {
-				length: 1525,
+				length: 1533,
 				chains: {
 					5: 1
 				}
@@ -3887,9 +3900,11 @@ module.exports = {
 			1: {
 				triggerAbnormal: {
 					//30050: 3100, // AS Buff
-					10152010: 3100 // can start thingy
-					//10152040: 3100 // Arcane Barrage Buff
+					10152010: 3100,
+					10152040: 3100
 				},
+				triggerAbnormalEnd: { 10152081: 4100 },
+				consumeAbnormal: 10152072,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
@@ -3897,24 +3912,24 @@ module.exports = {
 			2: {
 				triggerAbnormal: {
 					10152010: 3100,
-					//10152040: 3100
+					10152040: 3100
 				},
+				triggerAbnormalEnd: { 10152081: 4100 },
+				consumeAbnormal: 10152072,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
 			},
 			3: {
 				consumeAbnormal: [10152040],
-				abnormals: {
-					10152081: { chain: 6 } // Yea i know, this one gets sent when you can't cast it anymore since the projectile has ripped
-				}, // Switched since the client might know how to act actually
+				noInterrupt: ['7-3'],
 				length: 1200
 			}
 		},
 		9: { // Mana Missiles
 			'*': {
 				blockCancelPacket: true,
-				length: 1260,
+				length: 1200,
 				noInterrupt: [20]
 			},
 			0: {
@@ -3965,7 +3980,7 @@ module.exports = {
 			'*': {
 				triggerAbnormal: { 10152086: 4100 },
 				blockCancelPacket: true,
-				length: 1325,
+				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
 				chains: {
@@ -4029,7 +4044,6 @@ module.exports = {
 					'9-10': 30,
 					'9-11': 30,
 					'10-11': 30,
-					//11: 30,
 					13: 30,
 					19: 30,
 					40: 31
@@ -4083,8 +4097,8 @@ module.exports = {
 				distance: -269.09,
 				noInterrupt: [13],
 				abnormals: {
-					10152010: { chain: 2 },
-					10152011: { chain: 2 }
+					10152010: { chain: 2 }, //
+					10152011: { chain: 2 } // Must only trigger if currenaction won't result in a chain
 				},
 				chains: {
 					'2-1': null,
@@ -4111,7 +4125,7 @@ module.exports = {
 			'*': {
 				triggerAbnormal: { 10152072: 4100 },
 				fixedSpeed: 1, // The server sends 30090 500 when using the +50 will glyph
-				length: 1325,
+				length: 1320,
 				noInterrupt: [15, 20],
 				chains: {
 					'2-1': 30,
@@ -4135,7 +4149,7 @@ module.exports = {
 		18: { // HB
 			'*': {// 10152251 2147483647
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1433,
 				noInterrupt: [18]
 			},
 			1: true,
@@ -4190,12 +4204,10 @@ module.exports = {
 				noInterrupt: [11],
 				distance: 172.5,
 				triggerAbnormal: {
-					10152010: 3100,
+					10152010: 3100, // "chains"
 					10152012: 3100,
-					10152010: 3100, // They  enable    so    them
-					10152012: 3100, // kinda different like, all
-					10152071: 3100, // seem  skills    gotta /shrug
-					10152080: 4100 //  to    chains,   have
+					10152071: 3100,
+					10152080: 4100
 				},
 				forceClip: true
 			}
@@ -4719,7 +4731,7 @@ module.exports = {
 		5: { // Impact Bomb
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 1008,
+				length: 10022,
 				distance: -291.6,
 				noInterrupt: [5],
 				chains: {
