@@ -4127,7 +4127,11 @@ module.exports = {
 				CC: "extended",
 				length: 3225,
 				chains: {
-					6: 30
+					5: 30,
+					6: 30,
+					6: 30,
+					8: 30,
+					9: 30
 				}
 			},
 			0: true,
@@ -4178,9 +4182,13 @@ module.exports = {
 				distance: 105,
 				noInterrupt: [7],
 				chains: {
+					2: 30,
+					4: 30,
 					6: 30,
 					8: 30,
-					9: 30
+					9: 30,
+					10: 30
+
 				},
 				hasChains: true
 			},
@@ -4228,9 +4236,13 @@ module.exports = {
 
 				},
 				chains: {
+					'2-1': 30,
 					4: 30,
+					5: 30,
+					6: 30,
 					7: 30,
-					8: 30
+					8: 30,
+					10: 30
 				},
 				hasChains: true
 			},
@@ -4242,7 +4254,7 @@ module.exports = {
 		10: { // Counterpunch
 			'*': {
 				CC: "extended",
-				length: 1850,
+				length: 1855,
 				distance: 155,
 				requiredBuff: 10153000,
 				chains: {
@@ -4270,7 +4282,7 @@ module.exports = {
 		13: { // Provoke
 			'*': {
 				fixedSpeed: 1,
-				length: 1275
+				length: 1291
 			},
 			1: true,
 			2: true
@@ -4283,7 +4295,7 @@ module.exports = {
 		},
 		16: { // Flip Kick
 			'*': {
-				length: 2050,
+				length: 2066,
 				distance: 134,
 				chains: {
 					4: 30

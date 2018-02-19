@@ -16,8 +16,8 @@ const sysmsg = require('tera-data-parser').sysmsg,
 //filter isDirectory => true
 const isDirectory = source => lstatSync(source).isDirectory();
 
-//filter "module without _" => true
-const isActiveModule = source => !source[0].includes('_');
+//filter "module without _" or "." => true
+const isActiveModule = source => !source[0] === '_' || !source[0] === '.';
 
 //function return "c" from "a/b/c" 
 const getShortDirName = source => (source.slice(source.lastIndexOf(path.sep) + 1, source.length)).toLowerCase();

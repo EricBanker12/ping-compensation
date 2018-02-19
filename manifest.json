@@ -1,11 +1,10 @@
 {
   "files": {
-    "index.js": "5da70561b29e7010f90ac93335e2997411b5533b8d8eff65b6585d16c8b7c302",
+    "index.js": "b63f9d6149895a17cee00cf59c71161588b2781dc435dd93c5e1fd56904855a9",
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
     "module.json": "8e73f7575ee71a68f91647c386adf75df8d4c4a24ccc8f7627bfc76291f28a34",
-    "package.json": "cc98b79ca53711523889fc6274a1232957fc30d9ff8cc051c1aab44ded8fafa7",
+    "package.json": "af152ef8bc1ca8a7dcfad87b3894740fb285cb09f316aeb63ced52b546bf015a",
     "README.md": "ad590ee82dfc7cdc3f55cbdcc9c04fa2dcb45111ab7a43b60aff25a2e2e83a45",
-    "README.origin.md": "dd53e074802dc82ae9fdb8f583ceb673994043997b91716cd5e904e0d5be3ee3",
     "config/abnormalities.js": {
       "overwrite": false,
       "hash": "0be7fb9a04532b1fbc4faa58cc975667941c8d6f4a5fdbf884dd1212cc14f277"
@@ -22,7 +21,7 @@
     "config/data/basicCC.json": "021c585b6e85acb734762f14de9172402596fcb0ff6c5040d0238720030d839a",
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
-    "config/data/skills.js": "d552f9152c72eddb060661a0b6ecd1bec7d91aa7da150e6a1427ed691e9117ae",
+    "config/data/skills.js": "36822e067125d8b7266a7f6aaf78d578909797d4e55b71cd272b6e7cfc541f4b",
     "config/data/awakening.js": "303f6a0d98b4543e924e6f7621f0faf6299772b49d4b5ffdb751d6c9cc40a9f2",
     "docs/commands.md": "3d1dab2882a5695d87d1f74550c0fa14fc61e55fcf14156e316ec8b2d9c56ddc",
     "docs/config.md": "a9cb49092571c0db76ea758e8ce00994a856e9758b4fdea481808da603ab93c1",
