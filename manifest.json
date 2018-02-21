@@ -29,7 +29,7 @@
     "docs/preset.md": "65defb713d68d517f2040ecf55a588dcf036e02c86f0dab6a6d6f8c3d6f98ecc",
     "lib/abnormalities.js": "3f322174d3b1176f09161f433fc879cf55b65554bb1f50e8d04c1b17ee39ee4e",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "181ce3b7aea63bf6e858d7af44294259e4056c9339ccb08cd971bf6483d5adda",
+    "lib/core.js": "57d8b09d9aa0a7c30deab1c1027131ec29d41d18033ffc9e53c143d5ad396d71",
     "lib/autoconfig.js": "6dbc6584b331a34d1100fc6cb818f845a57f5d4998f12edeb8cd068e43d7d866",
     "lib/ping.js": "a5101cc68f5f64572b9b9d29f4520ca6037ae38d69acf410bdf22e40347d86d7",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
