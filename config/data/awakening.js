@@ -1865,12 +1865,19 @@ module.exports = {
 			}
 		},
 		27: { // Unbreakable /Need M.Casta
-			'*': {
-				length: 2100,
-				noInterrupt: [2]
+			'*': { // i wonder how long it would take for people to realize this skill got new properties
+				noInterrupt: [2] // How would this behave..
 			},
-			0: true,
-			30: false // Used for Berserk mode? Chain?
+			0: { // to do, check racial differences
+				length: 2080,
+				abnormals: {
+					401705: { chain: 30 } // Client may handle this alone
+				},
+				chains: { // 4x
+
+				}
+			},
+			30: { length: 1733.33 } // Used for Berserk mode? Chain?
 		},
 		28: { // Intimidation /Need M.Casta
 			0: {
@@ -1950,45 +1957,66 @@ module.exports = {
 			}
 		},
 		33: { // Berserk
-			0: false
-			/*0: { length: [x, 1500, x]}*/
+			0: { length: [700, 1500, 1766] } // You can cancel this sooner with a skill
 		},
-		34: { // Crush/ remember to test require buff
-			0: false, /*{
-					length:
-					distance:
-					chains: {
-						35: 30
-					}
-				}*/
-			30: false,
-			31: false
+		34: { // Crush
+			'*': { distance: 25 },
+			0: {
+				length: [600, 833, 833],
+				abnormals: {
+					401706: { speed: 1.2 },
+					401716: { chain: 31 }
+				},
+				chains: { // x3 to 30
+					35: 30
+				}
+			},
+			30: { length: [833, 833] },
+			31: { length: [833, 833] }
 		},
 		35: { // Smash
-			0: false, /*{
-					length:
-					distance:
-					chains: {
-						34: 30
-					}
-				}*/
-			30: false,
-			31: false // Intimidation usage?, specific chaining? Self chains?
+			'*': {
+				length: [1133, 833],
+				distance: 180
+			},
+			0: {
+				abnormals: {
+					401707: { speed: 1.2 },
+					401717: { chain: 31 }
+				},
+				chains: {
+					//:1
+					34: 30
+				}
+			},
+			1: true,
+			30: { length: [871.5, 833] },
+			31: { length: [871.5, 833] }
 		},
 		36: { // Decimate
-			0: false, /*{
-					length:
-					distance:
-					chains: {
-						36: 30
-					}
-				}*/
-			30: false,
-			31: false
+			'*': {
+				distance: 35
+			},
+			0: {
+				length: 2714.4,
+				abnormals: {
+					401708: { speed: 1.2 },
+					401718: { chain: 31 }
+				},
+				chains: { // x 3 to 30
+					36: 30
+				}
+			},
+			30: { length: 1588.6 },
+			30: { length: 1588.6 }
 		},
 		37: { // Crimson Assault
 			'*': {
-				chains: { // It may just used 0 with most stuff and just chain from something particular though
+				length: [610.8, 694, 721.6, 1194, 471.66], // 853[4]
+				distance: [120, 137, 143, 76.5, 8.5]
+			},
+			0: {
+				chains: {
 					33: 30,
 					34: 30,
 					35: 30,
@@ -1997,15 +2025,10 @@ module.exports = {
 					38: 30
 				}
 			},
-			0: false, /*{
-					length:
-					distance:
-					
-				}*/
-			30: false
+			30: true
 		},
-		38: { // Rage 
-			0: false, // { length: }
+		38: { // Berserk End
+			0: { length: [700, 1000, 966] }
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
@@ -4696,11 +4719,11 @@ module.exports = {
 					5: null,
 					6: null,
 					7: null,
-					8: null, // reeeeeeeeee
+					8: null,
 					9: null,
 					10: null,
 					12: null,
-					13: null, // eeeeeeeeeeee
+					13: null,
 					14: null,
 					15: null,
 					16: null,
@@ -4764,12 +4787,12 @@ module.exports = {
 			'*': {
 				CC: ["evasive", "extended"],
 				length: 430,
-				chains: { // Needed to state we want to trigger substage 4, else it will trigger 6
+				chains: {
 					1: 30,
 					5: 30,
 					4: 30,
 					7: 30,
-					8: 30, //sometimes uses it, sometimes it doesn't
+					8: 30,
 					9: 30,
 					12: 30,
 					13: 30,
@@ -4782,7 +4805,7 @@ module.exports = {
 				},
 			},
 			0: true,
-			1: { // 0/30(iframe) -> 1(dash, also iframes) -> 10(deeps, doesn't iframe in the very beginning) 
+			1: {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 300,
