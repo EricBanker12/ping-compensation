@@ -314,12 +314,12 @@ module.exports = {
 		24: { // Smoke Aggressor
 			0: {
 				fixedSpeed: 1,
-				length: 475,
+				length: 500,
 				noInterrupt: [32]
 			}
 		},
 		25: { // Command: Attack
-			0: {
+			0: { // 1060100 <- shadow-chan templateId
 				fixedSpeed: 1,
 				length: 700,
 				requiredBuff: 102600,
@@ -4004,7 +4004,7 @@ module.exports = {
 		20: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1485,
+				length: 1500,
 				noRetry: true
 			}
 		},

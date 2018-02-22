@@ -117,7 +117,8 @@ module.exports = {
 				length: 2545.45,
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
 				abnormals: {
-					100801: { skill: 360100 }
+					100801: { skill: 360100 },
+					104110: { chain: 30 }
 				},
 				chains: {
 					18: 30,
@@ -134,7 +135,7 @@ module.exports = {
 		},
 		5: { // Battle Cry
 			0: {
-				length: 1665,
+				length: 1666,
 				noInterrupt: [32],
 				glyphs: {
 					21040: { speed: 0.5 }
@@ -233,12 +234,12 @@ module.exports = {
 		},
 		17: { // Vortex Slash
 			'*': {
-				length: 1600,
+				length: 1633,
 				noInterrupt: [32]
 			},
 			0: true,
 			1: true,
-			2: true
+			2: { requiredBuff: 100201 }
 		},
 		18: { // Combative Strike
 			'*': {
@@ -254,12 +255,12 @@ module.exports = {
 			},
 			0: true,
 			1: true,
-			2: true
+			2: { requiredBuff: 100201 }
 		},
 		19: { // Rising Fury
 			'*': { noInterrupt: [32] },
 			0: {
-				length: 725,
+				length: 733,
 				distance: 144.85,
 				race: {
 					2: { distance: 144.85 }, // M.Helf: 144.846
@@ -300,7 +301,7 @@ module.exports = {
 		},
 		23: { // Spinning Counter
 			0: {
-				length: 1075,
+				length: 1091, // 1075
 				distance: 65.35,
 				requiredBuff: 100700,
 				abnormals: {
@@ -317,7 +318,7 @@ module.exports = {
 		24: { // Smoke Aggressor
 			0: {
 				fixedSpeed: 1,
-				length: 475,
+				length: 500,
 				noInterrupt: [32]
 			}
 		},
@@ -350,7 +351,8 @@ module.exports = {
 				level: {
 					9: {
 						abnormals: {
-							100201: { skill: 390100 }
+							100201: { skill: 390100 },
+							104110: { chain: 30 }
 						}
 					}
 				}
@@ -376,8 +378,9 @@ module.exports = {
 					102010: 3
 				},
 				abnormals: {
+					100801: { skill: 370100 },
 					102010: { chain: 30 },
-					100801: { skill: 370100 }
+					104110: { chain: 30 }
 				},
 				chains: {
 					3: 30,
@@ -469,7 +472,10 @@ module.exports = {
 			},
 			0: {
 				length: 2800,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				abnormals: {
+					104110: { chain: 30 }
+				}
 			},
 			30: { length: 2000 }
 		},
@@ -859,7 +865,7 @@ module.exports = {
 			},
 			0: true,
 			1: true,
-			2: true
+			2: { length: 1820 } // summon arcana!!
 		},
 		25: { // Wallop / Changed
 			'*': {
@@ -927,7 +933,11 @@ module.exports = {
 			}
 		},
 		29: { // Bulwark
-			0: { length: [607, 1263.6] }
+			0: {
+				//CC: "extended",
+				type: 'holdInfinite',
+				fixedSpeed: 1
+			}
 		},
 		30: { // Heavenly Shield 
 			0: { length: 1252 }
@@ -3126,7 +3136,7 @@ module.exports = {
 		21: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1625,
+				length: 1633,
 				noRetry: true
 			}
 		},
@@ -3168,7 +3178,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [525, 675],
+				length: [533.33, 633.33],
 			}
 		},
 		25: { // Thrall of Protection
@@ -3180,20 +3190,20 @@ module.exports = {
 				}
 			},
 			0: true,
-			10: true,
-			30: true // idk if it's faster
+			10: true, // 1023016
+			30: true // 1023017 // [1000, 1100]
 		},
 		27: { // Thrall of Life
 			'*': {
 				fixedSpeed: 1,
-				length: [230, 470], // 240, 470
+				length: [228.58, 471.42],
 				abnormals: {
 					702000: { chain: 30 }
 				}
 			},
 			0: true,
-			10: true,
-			30: true // idk if it's faster, maybe it scales with
+			10: true, // 10236013
+			30: { length: [500, 1100] } // 10236014
 		},
 		28: { // Sonorous Dreams
 			0: {
@@ -3254,14 +3264,14 @@ module.exports = {
 		33: { // Thrall of Vengeance
 			'*': {
 				fixedSpeed: 1,
-				length: [275, 575],
+				length: [266.66, 566.66],
 				abnormals: {
 					702000: { chain: 30 }
 				}
 			},
 			0: true,
-			10: true,
-			30: true // idk if it's faster, maybe it scales with
+			10: true, // 10237014
+			30: { length: [500, 1100] } // 10237015
 		},
 		34: { // Thrall of Wrath
 			'*': {
@@ -3271,9 +3281,9 @@ module.exports = {
 					702000: { chain: 30 }
 				}
 			},
-			0: true, // change -> 10
-			10: true, // moving
-			30: true // moving chain
+			0: true,
+			10: true, //10238007
+			30: true // 10238008
 		},
 		35: { // Command: Attack
 			0: {
@@ -3288,7 +3298,7 @@ module.exports = {
 			}
 		},
 		37: { // Warding Totem
-			0: { length: 1900 }
+			0: { length: 1900 } // 1024001
 		},
 		41: { // Contagion
 			0: {
@@ -3299,17 +3309,31 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1000
+				length: 1000 // 1020
 			}
 		},
 		42: { // Boomerang Pulse
 			0: {
-				length: 550, // 530, 550, 575
+				length: 545.45,
 				noInterrupt: [42]
 			}
 		},
 		43: { // Release																																																																							
-			0: { length: [400, 575] }
+			0: { length: [400, 575] } // 384.6 | 923
+		},
+		44: { // Group huggu 
+			0: { length: [355.33, 255.33] }
+		},
+		45: { // Kowai
+			'*': { length: 1626.36 },
+			0: true,
+			50: true
+		},
+		47: { // Mote Detonation
+			0: { length: 2466 }
+		},
+		48: { // Summon Thrall King 
+			0: { length: 4050 } // 4399 | 10239003
 		},
 
 		91: { // Awakening Eyes Aura
@@ -4215,7 +4239,7 @@ module.exports = {
 		20: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1485,
+				length: 1500,
 				noRetry: true
 			}
 		},
