@@ -2078,7 +2078,7 @@ module.exports = {
 				type: 'charging',
 				length: [1000, 1000],
 				noInterrupt: [7, 26],
-				lastChargeStage: 50,
+				lastChargeStage: 2000, // 50 <- revert to 50 once it reaches pleb regions
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
@@ -2731,17 +2731,17 @@ module.exports = {
 		3: { // Healing Circle / changed
 			0: {
 				length: 1750,
-				chains: {
+				chains: { // x3
 					38: 30,
 					26: 30
 				}
 			},
 			30: {
-				length: 1425 // 1400?
+				length: 1480.76
 			}
 		},
-		5: { // Blessings of Shakan, Seren, Balder, Zenobia and Arachne xd
-			0: { length: 1300 }
+		5: { // Blessing of Shakan, Seren, Balder, Zenobia and Arachne
+			0: { length: 1293.63 }
 		},
 		6: { // Arise
 			0: { length: 830 }
@@ -2761,7 +2761,7 @@ module.exports = {
 			'*': { length: 820 },
 			0: true,
 			1: true,
-			2: true
+			2: { requiredBuff: 805800 },
 		},
 		12: { // Resurrect
 			0: {
@@ -2789,12 +2789,28 @@ module.exports = {
 		},
 		16: { // Shocking Implosion
 			'*': { length: 1700 },
-			0: true, // I > XI
+			0: {  // I > XI
+				chains: { // x2
+
+				}
+			},
 			10: true, // XI
-			11: true, // XI
-			30: true // I > X
+			11: { // XI
+				length: 1438.45,
+				chains: { // x2
+
+				}
+			},
+			20: { // XI
+				requiredBuff: 805800,
+				chains: { // x2
+
+				},
+			},
+			21: { length: 1438.45 }, // XI
+			30: { length: 1438.46 } // I > X
 		},
-		17: { // Prayer of Peace
+		17: { // Prayer of Peace / r-removed?
 			0: {
 				length: [925, 925, 850],
 				glyphs: {
@@ -2812,7 +2828,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
+				length: 54445.45,
 				noRetry: true
 			},
 			10: {
@@ -2842,11 +2858,13 @@ module.exports = {
 					40: 30
 				}
 			},
-			10: true,
-			11: true,
+			10: { chains: {} },
+			11: { length: 1040 },
+			20: { chains: {} },
+			21: { length: 1040 },
 			30: { length: 1040 }
 		},
-		28: { // Mana Charge / Spirit something
+		/*28: { // Mana Charge / Spirit something
 			'*': {
 				length: 825,
 				noRetry: true,
@@ -2869,9 +2887,35 @@ module.exports = {
 			10: { noInterrupt: [26, 27, 38] },
 			11: { noInterrupt: [26, 27, 38] },
 			12: { noInterrupt: [26, 27, 38] }
+		},*/
+		28: { // Spiritual Mana Charge
+			'*': {
+				length: 825, // formula isn't reliable enough so using the the most in theory correct values for now
+				noRetry: true,
+				race: {
+					9: { length: 798.3 }
+				}
+			},
+			0: {
+				type: 'charging',
+				length: [900, 900, 900],
+				lastChargeStage: 3200,
+				bodyRolls: {
+					350708: { chargeSpeed: 0.15 }
+				},
+				glyphs: {
+					28031: { chargeSpeed: 0.25 }
+				},
+				level: {
+					1: { length: [800, 1600] },
+				}
+			},
+			10: true,
+			11: true,
+			12: true
 		},
 		29: { // Triple Nemesis
-			0: { length: 800 },
+			0: { length: 810 },
 			1: { length: 800 },
 			2: { length: 1250 }
 		},
@@ -2958,16 +3002,16 @@ module.exports = {
 			0: { length: 5900 }
 		},
 		40: { // Zenobia's Vortex
-			0: {
-				length: 1080,
-				noInterrupt: [40]
-			}
+			'*': { length: 1080 },
+			0: true,
+			10: true,
+			20: true
 		},
-		41: { // Divine Intervention / Salvation(Awakening-form)
+		41: { // Divine Intervention / Salvation(Spirit-form)
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54440,
+				length: 54545.45,
 				noRetry: true,
 				partyOnly: true
 			},
@@ -2977,12 +3021,14 @@ module.exports = {
 			}
 		},
 		42: { // Holy Brilliance
-			0: false,
-			30: false
+			'*': { length: 866 },
+			0: true,
+			20: true,
+			30: true
 		},
 		43: { // Invocation of Judgement
-			0: false,
-			50: false
+			0: { length: 1700 },
+			50: { length: 300 }
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
@@ -3703,14 +3749,6 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 775
 			}
-		},
-		17: { // Reverse Gravity
-			0: {
-				type: 'charging',
-				length: [6000],
-				lastChargeStage: 1000
-			},
-			10: { length: 1050 }
 		},
 		18: { // Shrouded Escape
 			0: {
