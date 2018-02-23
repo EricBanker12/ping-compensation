@@ -74,7 +74,7 @@ module.exports = {
 		2: { // Evasive Roll
 			0: {
 				CC: ["evasive", "extended"],
-				length: 830,
+				length: 839,
 				distance: 150,
 				forceClip: true,
 				stamina: 500,
@@ -87,7 +87,9 @@ module.exports = {
 					21101: { stamina: -120 }
 				},
 				race: {
-					8: { length: 1060 } // Popori
+					7: { length: 837 }, //casta fem
+					8: { length: 1081 }, // Popori
+					10: { length: 778.2 } // Baraka
 				}
 			}
 		},
@@ -600,7 +602,7 @@ module.exports = {
 		},
 		3: { // Onslaught / Changed
 			'*': {
-				distance: [0, 100, 100, 100, 100, 35],
+				distance: [0, 100, 100, 100, 100, 40],
 				noInterrupt: [2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27],
 				abnormals: {
 					22060: { speed: 0.25 }
@@ -611,16 +613,11 @@ module.exports = {
 					18: 30
 				},
 				race: {
-					0: { distance: [0, 100, 100, 100, 100, 15] }, // M.Human
-					2: { distance: [0, 100, 100, 100, 100, 16] }, // M.Helf
-					4: { distance: [0, 100, 100, 100, 100, 13] }, // M.Aman
-					5: { distance: [0, 100, 100, 100, 100, 14] }, // F.Aman
-					8: { distance: [0, 100, 100, 100, 100, 15] }, // Popori
-					9: { distance: [0, 100, 100, 100, 100, 35] } // Elin, 80 FPS
+					9: { distance: [0, 100, 100, 100, 100, 62.7] } // Elin
 				}
 			},
-			0: { length: [950, 500, 500, 500, 400, 775] },
-			30: { length: [713, 375, 375, 375, 300, 582] }
+			0: { length: [939, 514.54, 514.54, 514.54, 393.63, 760.11] },
+			30: { length: [688.66, 377.33, 377.33, 377.33, 288.66, 557.35] }
 		},
 		4: { // Challenging Shout / Changed
 			'*': {
@@ -2712,7 +2709,7 @@ module.exports = {
 		},
 		2: { // Regeneration Circle
 			0: {
-				length: 3150,
+				length: 2165.625,
 				abnormals: {
 					902: { nocTanSpeed: 0.15 },
 					910: { nocTanSpeed: 0.15 },
