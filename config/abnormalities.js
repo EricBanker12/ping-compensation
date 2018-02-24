@@ -35,7 +35,7 @@ module.exports = {
 	10152080: true, // Scatter Shot (chain display)
 	10152081: true, // Replenishment (chain display)
 	10152082: true, // Unused(?)
-	10152083: true, // Multi chain display
+	10152083: true, // Multi chain display (possible only arc bomb or smth weird... (c) Monkey)
 	10152084: true, // -> 10152010
 	10152085: true, // Unused(?)
 	10152086: true, // Unused(?)

@@ -3616,6 +3616,7 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
+				consumeAbnormal: 10152083,
 				length: 1532,
 				distance: 137.88,
 				noInterrupt: [20],
@@ -3811,7 +3812,8 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				triggerAbnormal: { 10152086: 4100 },
+				//triggerAbnormal: { 10152086: 4100 },
+				consumeAbnormal: 10152083,
 				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
@@ -3935,6 +3937,7 @@ module.exports = {
 		},
 		15: { // Replenishment
 			'*': {
+				consumeAbnormal: 10152083,
 				triggerAbnormal: { 10152072: 4100 },
 				fixedSpeed: 1, // The server sends 30090 500 when using the +50 will glyph
 				length: 1320,

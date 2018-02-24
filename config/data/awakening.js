@@ -3864,7 +3864,8 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
-				length: 1525,
+				consumeAbnormal: 10152083,
+				length: 1532,
 				distance: 137.88,
 				noInterrupt: [20],
 				chains: {
@@ -3881,7 +3882,7 @@ module.exports = {
 					15: 30,
 					19: 30,
 					40: 30
-				}
+				},
 				/*abnormals: {
 					//10152000: { chain: 3 }, .......................................................
 					10152010: { chain: 2 },
@@ -3921,11 +3922,11 @@ module.exports = {
 		},
 		5: { // Burst Fire
 			'*': {
-				blockCancelPacket: true,
-				noInterrupt: ['9-0'],
 				bodyRolls: {
 					350905: { stamina: -5 }
 				},
+				blockCancelPacket: true,
+				noInterrupt: ['9-0'],
 				chains: {
 					'5-0': 1
 				}
@@ -4010,7 +4011,6 @@ module.exports = {
 		},
 		9: { // Mana Missiles
 			'*': {
-				blockCancelPacket: true,
 				length: 1200,
 				noInterrupt: [20]
 			},
@@ -4060,8 +4060,8 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				triggerAbnormal: { 10152086: 4100 },
-				blockCancelPacket: true,
+				//triggerAbnormal: { 10152086: 4100 },
+				consumeAbnormal: 10152083,
 				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
@@ -4089,26 +4089,6 @@ module.exports = {
 				flyingSpeed: 700,
 				flyingDistance: 350
 			},
-			// TODO: Chain projectiles
-			/*21: {
-				type: 'userProjectile',
-				flyingSpeed: 300,
-				flyingDistance: 100
-			},
-			22: {
-				type: 'userProjectile',
-				flyingSpeed: 300,
-				flyingDistance: 75
-			},
-			23: {
-				type: 'userProjectile',
-				flyingSpeed: 300,
-				flyingDistance: 50
-			},
-			24: {
-				type: 'projectile',
-				length: 1000
-			},*/
 			30: true
 		},
 		11: { // Rocket Jump
@@ -4145,7 +4125,7 @@ module.exports = {
 				}
 			}
 		},
-		/*-		13: { // Balder's Vengeance
+		/*-		13: { // Balder's Vengeance (old version)
 					'*': {
 						triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
 						consumeAbnormalEnd: 10152097,
@@ -4205,6 +4185,7 @@ module.exports = {
 		},
 		15: { // Replenishment
 			'*': {
+				consumeAbnormal: 10152083,
 				triggerAbnormal: { 10152072: 4100 },
 				fixedSpeed: 1, // The server sends 30090 500 when using the +50 will glyph
 				length: 1320,
@@ -4264,11 +4245,6 @@ module.exports = {
 				flyingSpeed: 700,
 				flyingDistance: 450
 			},
-			// TODO: Chain projectiles
-			/*21: {
-				type: 'projectile',
-				length: 5000
-			},*/
 			30: true
 		},
 		20: { // Retaliate
@@ -4293,10 +4269,6 @@ module.exports = {
 				},
 				forceClip: true
 			}
-		},
-
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
 		}
 	},
 	10: { // Brawler
