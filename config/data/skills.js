@@ -3550,6 +3550,9 @@ module.exports = {
 			}
 		},
 		2: { // Bombardment
+			'*': {
+				consumeAbnormal: [10152081, 10152010, 10152040],
+			},
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3674,6 +3677,7 @@ module.exports = {
 		},
 		5: { // Burst Fire
 			'*': {
+				consumeAbnormal: [10152081, 10152010, 10152040],
 				bodyRolls: {
 					350905: { stamina: -5 }
 				},
