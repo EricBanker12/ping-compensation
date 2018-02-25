@@ -11,7 +11,7 @@ Awakening skills naming is being done based on the following document: https://d
 module.exports = {
 	0: { // Warrior
 		"enabled": true,
-		1: true, // Combo Attack
+		1: false, // Combo Attack
 		2: true, // Evasive Roll
 		3: true, // Torrent of Blows
 		4: true, // Rain of Blows
@@ -51,7 +51,7 @@ module.exports = {
  	},
 	1: { // Lancer
 		"enabled": true,
-		1: true, // Combo Attack
+		1: false, // Combo Attack
 		2: true, // Stand Fast
 		3: true, // Onslaught
 		4: true, // Challenging Shout
@@ -60,7 +60,7 @@ module.exports = {
 		8: true, // Shield Counter
 		9: true, // Leash
 		10: true, // Debilitate
-		11: false, // Retaliate
+		11: true, // Retaliate
 		12: true, // Infuriate
 		13: true, // Spring Attack
 		15: true, // Charging Lunge
@@ -84,14 +84,14 @@ module.exports = {
 	},
 	2: { // Slayer
 		"enabled": true,
-		1: true, // Combo Attack
+		1: false, // Combo Attack
 		2: true, // Knockdown Strike
 		3: true, // Whirlwind
 		4: true, // Evasive Roll
 		5: true, // Dash
 		8: true, // Overhand Strike
 		9: true, // Leaping Strike
-		10: false, // Retaliate
+		10: true, // Retaliate
 		12: true, // Heart Thrust
 		13: true, // Stunning Backhand
 		14: true, // Distant Blade
@@ -113,7 +113,7 @@ module.exports = {
 	},
 	3: { // Berserker
 		"enabled": true,
-		1: true, // Combo Attack
+		1: false, // Combo Attack
 		2: true, // Axe Block
 		3: true, // Thunderstrike
 		4: true, // Flatten
@@ -124,7 +124,7 @@ module.exports = {
 		10: true, // Cyclone
 		11: true, // Leaping Strike
 		12: true, // Unchained Anger / x
-		13: false, // Retaliate
+		13: true, // Retaliate
 		15: true, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
 		18: true, // Lethal Strike
@@ -151,7 +151,7 @@ module.exports = {
 	},
 	4: { // Sorcerer
 		"enabled": true,
-		1: true, // Fireball
+		1: false, // Fireball
 		2: true, // Frost Sphere
 		3: true, // Lightning Trap
 		4: true, // Arcane Pulse
@@ -185,7 +185,7 @@ module.exports = {
 	},
 	5: { // Archer
 		"enabled": true,
-		1: true, // Arrow
+		1: false, // Arrow
 		2: true, // Arrow Volley
 		3: true, // Radiant Arrow
 		4: true, // Penetrating Arrow
@@ -196,7 +196,7 @@ module.exports = {
 		9: true, // Slow Trap
 		10: true, // Stunning Trap
 		12: true, // Velik's Mark
-		14: false, // Retaliate
+		14: true, // Retaliate
 		15: true, // Incendiary Trap
 		16: true, // Breakaway Bolt
 		17: true, // Web Arrow
@@ -217,7 +217,7 @@ module.exports = {
 	},
 	6: { // Priest
 		"enabled": true,
-		1: true, // Divine Radiance
+		1: false, // Divine Radiance
 		2: true, // Regeneration Circle
 		3: true, // Healing Circle
 		5: true, // Blessing of Shakan
@@ -255,7 +255,7 @@ module.exports = {
 	},
 	7: { // Mystic
 		"enabled": true,
-		1: true, // Sharan Bolt
+		1: false, // Sharan Bolt
 		2: true, // Corruption Ring
 		4: true, // Ancient Binding
 		5: true, // Titanic Favor
@@ -271,7 +271,7 @@ module.exports = {
 		16: true, // Aura of the Tenacious
 		17: true, // Teleport Jaunt
 		18: true, // Arun's Vitae
-		21: false, // Retaliate
+		21: true, // Retaliate
 		22: true, // Arun's Tears
 		23: true, // Metamorphic Smite
 		24: true, // Volley of Curses
@@ -300,7 +300,7 @@ module.exports = {
 	},
 	8: { // Reaper
 		"enabled": true,
-		1: true, // Spiral Barrage
+		1: false, // Spiral Barrage
 		3: true, // Double Shear
 		4: true, // Sundering Strike
 		5: true, // Grim Strike
@@ -310,7 +310,7 @@ module.exports = {
 		10: true, // Pendulum Strike
 		11: true, // Shadow Lash
 		12: true, // Shadow Burst
-		14: false, // Retaliate
+		14: true, // Retaliate
 		15: true, // Retribution
 		16: true, // Shadow Reaping
 		18: true, // Shrouded Escape
@@ -321,7 +321,7 @@ module.exports = {
 	},
 	9: { // Gunner
 		"enabled": true,
-		1: true, // Blast
+		1: false, // Blast
 		2: true, // Bombardment
 		3: true, // Scattershot
 		4: true, // Point Blank
@@ -335,7 +335,7 @@ module.exports = {
 		15: true, // Replenishment
 		18: true, // HB
 		19: true, // ST
-		20: false, // Retaliate
+		20: true, // Retaliate
 		40: true, // Rolling Reload
 		// Awakening
 
@@ -343,7 +343,7 @@ module.exports = {
 	},
 	10: { // Brawler
 		"enabled": true,
-		1: true, // Punch
+		1: false, // Punch
 		2: true, // Counter
 		4: true, // Ground Pound
 		5: true, // Bullrush
@@ -363,7 +363,7 @@ module.exports = {
 	},
 	11: { // Ninja
 		"enabled": true,
-		1: true, // Combo Attack
+		1: false, // Combo Attack
 		2: true, // Shadow Jump
 		3: true, // Leaves on the Wind
 		4: true, // Jagged Path
@@ -372,7 +372,7 @@ module.exports = {
 		7: true, // Decoy Jutsu
 		8: true, // Fire Avalanche
 		9: true, // Smoke Bomb
-		10: false, //Retaliate
+		10: true, //Retaliate
 		11: true, // Focus
 		12: true, // Skyfall
 		13: true, // Circle of Steel
@@ -389,7 +389,7 @@ module.exports = {
 	},
 	12: { // Valkyrie
 		"enabled": true,
-		1: true, // Slash
+		1: false, // Slash
 		2: true, // Overhead Slash
 		3: true, // Glaive Strike
 		4: true, // Charge

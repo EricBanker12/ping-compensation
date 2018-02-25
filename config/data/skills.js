@@ -210,14 +210,14 @@ module.exports = {
 				}
 			}
 		},
-		/*13: { // Retaliate
+		13: { // Retaliate
 			0: {
 				type: 'retaliate',
 				length: 1630,
 				noInterrupt: [32],
 				noRetry: true
 			}
-		},*/
+		},
 		16: { // Charging Slash
 			0: {
 				CC: ["evasive", "extended"],
@@ -5433,13 +5433,13 @@ module.exports = {
 				length: 1075
 			}
 		},
-		/*18: { // Retaliate
+		18: { // Retaliate
 			0: { 
 				type: 'retaliate',
 				length: 1630,
 				noRetry: true 
 			}
-		},*/
+		},
 		19: { // Reclamation
 			'*': {
 				length: 1525,
