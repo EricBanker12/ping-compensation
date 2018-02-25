@@ -1,8 +1,8 @@
 /*----------
 TO DO:
-Fix SP Compatability
+Add debug stuff
 Fix combo attack
-Add in-game commands
+Add more in-game commands
 ----------*/
 module.exports = function PingCompensation(dispatch) {
     //----------
@@ -11,8 +11,12 @@ module.exports = function PingCompensation(dispatch) {
 	const config = require('./config/config.json')
 	const preset = require('./config/preset.js')
     const skills = require('./config/data/skills.js')
-	const Ping = (!config.spCompatible) ? require('./lib/ping.js') : false
-	const CDR = (!config.spCompatible) ? require('./lib/cooldowns.js') : false
+    const Command = require('command')
+    const path = require('path')
+	const Ping = (!config.spCompatible) ? require('./lib/ping.js') : require(path.join(config.spDirectory, 'lib', 'ping.js'))
+    const CDR = (!config.spCompatible) ? require('./lib/cooldowns.js') : false
+    const command = Command(dispatch)
+    const ping = Ping(dispatch)
     
     //----------
     // Variables
@@ -23,26 +27,41 @@ module.exports = function PingCompensation(dispatch) {
         job = -1,
 		race = -1,
         timeouts = {},
-		ping = {},
 		startTime = false,
         alive = false,
         //mounted = false,
         queuedPacket = false,
-        //queuedTimeout = false,
-        currentAction = false
-        
-    // Skill Prediction compatability
-    if (config.spCompatible) {
-        ping.list = []
-    }
-    else {
-		ping = Ping(dispatch)
-    }
+        currentAction = false,
+        enabled = config.enabled
     
+    //----------
+    // Commands
+    //----------
+    command.add(['PC', 'pingComp', 'PingCompensation'], (option) => {
+        // ping
+        if (option.toLowerCase() == 'ping') {
+            command.message(`Ping: Min=${ping.min} Avg=${Math.floor(ping.avg)} Max=${ping.max} Jitter=${ping.max - ping.min} Samples=${ping.history.length}`)
+            return
+        }
+        // on
+        if (option.toLowerCase() == 'on') {
+            command.message('Ping Compensation enabled.')
+            enabled = true
+            return
+        }
+        // off
+        if (option.toLowerCase() == 'off') {
+            command.message('Ping Compensation disabled.')
+            enabled = false
+            return
+        }
+        command.message('Ping Compensation command input missing. Input options are "ping", "on", or "off".')
+    })
+
     //----------
     // Functions
     //----------
-	//Load info about skill - credit: Pinkie Pie
+	//Load info about skill - credit: Pinkie Pie + Salty Monkey
     function skillInfo(id, local) {
         if (!local) id -= 0x4000000;
 
@@ -98,8 +117,7 @@ module.exports = function PingCompensation(dispatch) {
     
     // endSkill
     function endSkill(event) {
-        //if (debug) {console.log(`S_ACTION_END FAKE ${Date.now() - startTime} ${JSON.stringify(Object.values(event))}`)}
-        if (event) {
+        if (alive && enabled && event) {
             dispatch.toClient('S_ACTION_END', 2, event)
             timeouts[event.id] = false
         }
@@ -108,36 +126,27 @@ module.exports = function PingCompensation(dispatch) {
 	// updateCoord
 	function updateCoord(event) {
 		for (let coord of ["x", "y", "z", "w"]) {
+            // if in fake skill
             if (currentAction && timeouts[currentAction.id]) {
+                // update end location
                 currentAction[coord] = event[coord]
             }
         }
-	}
+    }
+    
+    // skillHook
+    function skillHook(event) {
+        let info = skillInfo(event.skill)
+        if (!info || Array.isArray(info.length)) {
+            startTime = false
+            return
+        }
+        startTime = Date.now()
+    }
     
     //----------
     // Hooks
     //----------
-	
-	/*
-    // C_REQUEST_GAMESTAT_PING FAKE
-    dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, {order: 10, filter: {fake: true}},() => {
-        if (config.spCompatible && !ping.request) {ping.request = Date.now()}
-     })
-    
-    // S_RESPONSE_GAMESTAT_PONG
-     dispatch.hook('S_RESPONSE_GAMESTAT_PONG', 1, {order: 10, filter: {fake: false, silenced: null}},() => {
-         if (config.spCompatible && ping.request) {
-             ping.list.push(Date.now() - ping.request)
-             ping.request = false
-             if (ping.list.length > 20) {
-                 ping.list.splice(0,1)
-             }
-             ping.min = Math.min(...ping.list)
-            return false
-         }
-     })
-	*/
-
     // S_LOGIN
     dispatch.hook('S_LOGIN', 9, event => {
         gameId = event.gameId
@@ -191,23 +200,43 @@ module.exports = function PingCompensation(dispatch) {
         if (event.id.equals(gameId)){
 			updateCoord(event)
         }
-	})
+    })
+    
+    // skill packets, get current ping
+    for(let packet of [
+        ['C_START_SKILL', 3],
+        ['C_START_TARGETED_SKILL', 3],
+        ['C_START_COMBO_INSTANT_SKILL', 1],
+        ['C_START_INSTANCE_SKILL', 1],
+        ['C_START_INSTANCE_SKILL_EX', 2],
+        //['C_PRESS_SKILL', 1],
+        ['C_NOTIMELINE_SKILL', 1], //not sure about this one
+        //['C_CAN_LOCKON_TARGET', 1],
+        ]) dispatch.hook(packet[0], packet[1], { /*filter: { fake: false, modified: false },*/ order: 1000 }, skillHook);
+
+    // S_CANNOT_START_SKILL
+    dispatch.hook('S_CANNOT_START_SKILL', 'raw', {order: 10}, () => {
+        startTime = false
+    })
+
+    // C_CANCEL_SKILL
+    dispatch.hook('C_CANCEL_SKILL', 'raw', {order: 10}, () => {
+        startTime = false
+    });
     
     // S_ACTION_STAGE
     dispatch.hook('S_ACTION_STAGE', 2, {order: 10, filter: {fake: false}}, event => {
         // if character is your character
         if (event.gameId.equals(gameId)) {
-            //if (debug) {console.log(`S_ACTION_STAGE ${Date.now() - startTime} ${JSON.stringify(Object.values(event))}`)}
             // get skill id
 			let info = skillInfo(event.skill)
 			// if skill is in config
-            //if (alive && !mounted && skills[job] && config[job] && skills[job][skillBase] && config[job][skillBase] && skills[job][skillBase][skillSub]) {
-			if (info) {
+			if (alive && enabled && info) {
                 // get length and distance
 				let multistage = Array.isArray(info.length),
-					length = multistage ? info.length[event.stage]:info.length,
-					distance = multistage ? info.distance[event.stage]:info.distance,
-					currentPing = Math.max(ping.min, startTime ? Date.now() - startTime : 0)
+					length = multistage ? info.length[event.stage] : info.length,
+					distance = multistage ? info.distance[event.stage] : info.distance,
+					currentPing = Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0)
                 //if (debug) console.log('length', length)
                 if (length && length > 0) {
                     // change animation speed
@@ -275,11 +304,8 @@ module.exports = function PingCompensation(dispatch) {
     dispatch.hook('S_ACTION_END', 2, {order: 10, filter: {fake: false}}, event => {
         // if character is your character
         if (event.gameId.equals(gameId)) {
-            //if (debug) {console.log(`S_ACTION_END ${Date.now() - startTime} ${JSON.stringify(Object.values(event))}`)}
             // if modded skill
-            if (alive && currentAction && currentAction.id == event.id) {
-                //clearTimeout(queuedTimeout)
-                //queuedTimeout = false
+            if (alive && enabled && currentAction && currentAction.id == event.id) {
                 // if not fake ended
                 if (timeouts[event.id]) {
                     // disable fake endSkill
@@ -313,6 +339,18 @@ module.exports = function PingCompensation(dispatch) {
             }
             queuedPacket = false
             currentAction = false
+        }
+    })
+
+    // S_EACH_SKILL_RESULT
+    dispatch.hook('S_EACH_SKILL_RESULT', 4, event => {
+        if (gameId.equals(event.target)) {
+            if (event.setTargetAction == 1) {
+                clearTimeout(timeouts[currentAction.id])
+                timeouts[currentAction.id] = false
+                queuedPacket = false
+                currentAction = false
+            }
         }
     })
     
