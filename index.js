@@ -120,6 +120,7 @@ module.exports = function PingCompensation(dispatch) {
         if (alive && enabled && event) {
             dispatch.toClient('S_ACTION_END', 2, event)
             timeouts[event.id] = false
+            if (config.debug) {console.log('sActionEnd Proxy')}
         }
 	}
 	
@@ -139,7 +140,7 @@ module.exports = function PingCompensation(dispatch) {
         let info = skillInfo(event.skill)
         if (!info || Array.isArray(info.length)) {
             startTime = false
-            return
+            return null
         }
         startTime = Date.now()
     }
@@ -230,7 +231,8 @@ module.exports = function PingCompensation(dispatch) {
         if (event.gameId.equals(gameId)) {
             // get skill id
 			let info = skillInfo(event.skill)
-			// if skill is in config
+            // if skill is in config
+            if (config.debug && enabled) {console.log('sActionStage: info?', info ? true : false)}
 			if (alive && enabled && info) {
                 // get length and distance
 				let multistage = Array.isArray(info.length),
@@ -301,7 +303,7 @@ module.exports = function PingCompensation(dispatch) {
     })
     
     // S_ACTION_END
-    dispatch.hook('S_ACTION_END', 2, {order: 10, filter: {fake: false}}, event => {
+    dispatch.hook('S_ACTION_END', 2, {order: 10, filter: {fake: null}}, event => {
         // if character is your character
         if (event.gameId.equals(gameId)) {
             // if modded skill
@@ -311,6 +313,7 @@ module.exports = function PingCompensation(dispatch) {
                     // disable fake endSkill
                     clearTimeout(timeouts[event.id])
                     timeouts[event.id] = false
+                    if (config.debug) {console.log('sActionEnd Server')}
                 }
                 // if fake ended
                 else {
