@@ -1,15 +1,11 @@
 {
 	"version": "2.0",
 	"enabled": true,
-	"spCompatible": true,
+	"spCompatible": false,
 	"spDirectory": "skill-prediction",
-	"serverTimeout": 250,
-	"debugGlyphs": false,
 	"debug": false,
-	"debugAbnormals": false,
-	"debugLoc": false,
 	"pingHistoryMax": 30,
-	"pingSpikesLimit": true,
+	"pingSpikesLimit": false,
 	"pingSpikesMin": 100,
 	"pingSpikesMax": 300
 }

@@ -17,3 +17,5 @@ Example: `/8 pc ping`
 *    `off` - disable PC
     
 *    `on` - enable PC
+
+*    `debug` - toggle debug output in console

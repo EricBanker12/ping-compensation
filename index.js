@@ -3,6 +3,7 @@ TO DO:
 Add debug stuff
 Fix combo attack
 Add more in-game commands
+Add blocking support
 ----------*/
 module.exports = function PingCompensation(dispatch) {
     //----------
@@ -29,6 +30,7 @@ module.exports = function PingCompensation(dispatch) {
         timeouts = {},
 		startTime = false,
         alive = false,
+        //inBlock = false,
         //mounted = false,
         queuedPacket = false,
         currentAction = false,
@@ -38,24 +40,32 @@ module.exports = function PingCompensation(dispatch) {
     // Commands
     //----------
     command.add(['PC', 'pingComp', 'PingCompensation'], (option) => {
-        // ping
-        if (option.toLowerCase() == 'ping') {
-            command.message(`Ping: Min=${ping.min} Avg=${Math.floor(ping.avg)} Max=${ping.max} Jitter=${ping.max - ping.min} Samples=${ping.history.length}`)
-            return
+        if (option) {
+            // ping
+            if (option.toLowerCase() == 'ping') {
+                command.message(`Ping: Min=${ping.min} Avg=${Math.floor(ping.avg)} Max=${ping.max} Jitter=${ping.max - ping.min} Samples=${ping.history.length}`)
+                return
+            }
+            // on
+            if (option.toLowerCase() == 'on') {
+                command.message('Ping Compensation enabled.')
+                enabled = true
+                return
+            }
+            // off
+            if (option.toLowerCase() == 'off') {
+                command.message('Ping Compensation disabled.')
+                enabled = false
+                return
+            }
+            // debug
+            if (option.toLowerCase() == 'debug') {
+                config.debug = !config.debug
+                command.message(`Ping Compensation debug ${config.debug ? 'enabled.' : 'disabled.'}`)
+                return
+            }
         }
-        // on
-        if (option.toLowerCase() == 'on') {
-            command.message('Ping Compensation enabled.')
-            enabled = true
-            return
-        }
-        // off
-        if (option.toLowerCase() == 'off') {
-            command.message('Ping Compensation disabled.')
-            enabled = false
-            return
-        }
-        command.message('Ping Compensation command input missing. Input options are "ping", "on", or "off".')
+        command.message('Ping Compensation command input missing. Input options are "ping", "on", "off", or "debug".')
     })
 
     //----------
@@ -118,9 +128,9 @@ module.exports = function PingCompensation(dispatch) {
     // endSkill
     function endSkill(event) {
         if (alive && enabled && event) {
+			timeouts[event.id] = false
             dispatch.toClient('S_ACTION_END', 2, event)
-            timeouts[event.id] = false
-            if (config.debug) {console.log('sActionEnd Proxy')}
+            if (config.debug) {console.log('sActionEnd Ping-Compensation')}
         }
 	}
 	
@@ -160,6 +170,13 @@ module.exports = function PingCompensation(dispatch) {
     // C_PRESS_SKILL
     dispatch.hook('C_PRESS_SKILL', 1, {order: 10, filter: {fake: null}}, event => {
         updateCoord(event)
+        /*
+        // if blocking, end immediately
+        if (inBlock && event.start == 0) {
+            inBlock = false
+            endSkill(currentAction)
+        }
+        */
     })
     
     // C_PLAYER_LOCATION
@@ -234,19 +251,38 @@ module.exports = function PingCompensation(dispatch) {
             // if skill is in config
             if (config.debug && enabled) {console.log('sActionStage: info?', info ? true : false)}
 			if (alive && enabled && info) {
+                /*
+				// if block, enable fast release
+				if (info.type == 'holdInfinite') {
+                    inBlock = true
+					currentAction = {
+                        gameId: event.gameId,
+                        x: event.x,
+                        y: event.y,
+                        z: event.z,
+                        w: event.w,
+                        templateId: event.templateId,
+                        skill: event.skill,
+                        type: 10,
+                        id: event.id
+                    }
+                    return
+                }
+                */
                 // get length and distance
 				let multistage = Array.isArray(info.length),
 					length = multistage ? info.length[event.stage] : info.length,
 					distance = multistage ? info.distance[event.stage] : info.distance,
 					currentPing = Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0)
-                //if (debug) console.log('length', length)
                 if (length && length > 0) {
                     // change animation speed
                     if (currentPing < length) {
+                        if (config.debug) {console.log(`Ping Compensation: skill=${event.skill - 0x4000000} compensation=${currentPing}`)}
                         event.speed = event.speed * length / (length - currentPing)
 					}
 					else {
-						length = 0
+                        if (config.debug) {console.log(`Ping Compensation skill=${event.skill - 0x4000000} compensation=${length}`)}
+                        length = 0
 					}
                     // if server sends distance
                     if (event.movement[0]) {
@@ -303,13 +339,13 @@ module.exports = function PingCompensation(dispatch) {
     })
     
     // S_ACTION_END
-    dispatch.hook('S_ACTION_END', 2, {order: 10, filter: {fake: null}}, event => {
+    dispatch.hook('S_ACTION_END', 2, {order: 10, filter: {fake: false}}, event => {
         // if character is your character
         if (event.gameId.equals(gameId)) {
             // if modded skill
             if (alive && enabled && currentAction && currentAction.id == event.id) {
                 // if not fake ended
-                if (timeouts[event.id]) {
+                if (timeouts[event.id] /*|| inBlock*/) {
                     // disable fake endSkill
                     clearTimeout(timeouts[event.id])
                     timeouts[event.id] = false
@@ -322,7 +358,7 @@ module.exports = function PingCompensation(dispatch) {
 						+ (currentAction.y - event.y)*(currentAction.y - event.y)) > 100 
 						|| (currentAction.z - event.z)*(currentAction.z - event.z) > 2500) {
                         // teleport to correct location
-                        //if (debug) {console.log('S_INSTANT_MOVE correction')}
+                        if (config.debug) {console.log('S_INSTANT_MOVE correction')}
                         dispatch.toClient('S_INSTANT_MOVE', 1, {
                             id: gameId,
                             x: event.x,
@@ -338,6 +374,25 @@ module.exports = function PingCompensation(dispatch) {
                     currentAction = false
                     // hide this sActionEnd
                     return false
+                }
+            }
+            queuedPacket = false
+            currentAction = false
+        }
+    })
+
+    // S_ACTION_END SP Compatibility
+    dispatch.hook('S_ACTION_END', 2, {order: 10, filter: {fake: true}}, event => {
+        // if character is your character
+        if (event.gameId.equals(gameId)) {
+            // if modded skill
+            if (alive && enabled && currentAction && currentAction.id == event.id) {
+                // if not fake ended
+                if (timeouts[event.id] /*|| inBlock*/) {
+                    // disable fake endSkill
+                    clearTimeout(timeouts[event.id])
+                    timeouts[event.id] = false
+                    if (config.debug) {console.log('sActionEnd Skill-Prediction')}
                 }
             }
             queuedPacket = false

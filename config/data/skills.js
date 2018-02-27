@@ -22,6 +22,7 @@
 
 module.exports = {
 	0: { // Warrior
+		/*
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 32],
@@ -71,6 +72,7 @@ module.exports = {
 				}
 			}
 		},
+		*/
 		2: { // Evasive Roll
 			0: {
 				CC: ["evasive", "extended"],
@@ -293,6 +295,13 @@ module.exports = {
 					8: { distance: 116.63 }, // Popori: 116.629
 					9: { distance: 122.34 } // Elin: 122.342
 				}
+			}
+		},
+		22: { // Backstab
+			0: {
+				CC: ["evasive", "extended"],
+				length: 1255, // S_INSTANT_MOVE sent 194.1667 ms after start
+				onlyTarget: true
 			}
 		},
 		23: { // Spinning Counter
@@ -520,6 +529,7 @@ module.exports = {
 		}
 	},
 	1: { // Lancer
+		/*
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2] },
 			0: {
@@ -559,6 +569,7 @@ module.exports = {
 				}
 			}
 		},
+		*/
 		2: { // Stand Fast
 			0: {
 				CC: "extended",
@@ -860,6 +871,7 @@ module.exports = {
 		}
 	},
 	2: { // Slayer
+		/*
 		1: { // Combo Attack
 			'*': { noInterrupt: [1] },
 			0: {
@@ -923,6 +935,7 @@ module.exports = {
 				}
 			}
 		},
+		*/
 		2: { // Knockdown Strike
 			'*': {
 				consumeAbnormal: 23220,
@@ -1259,6 +1272,7 @@ module.exports = {
 		}
 	},
 	3: { // Berserker / There's a lot of unneeded no interrupts currently since sGrantSkill is emulated now, this applies for all charging skills
+		/*
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 2, 4],
@@ -1312,6 +1326,7 @@ module.exports = {
 				}
 			}
 		},
+		*/
 		2: { // Axe Block
 			'*': {
 				CC: "extended",
@@ -1918,9 +1933,11 @@ module.exports = {
 		}
 	},
 	4: { // Sorcerer
+		/*
 		1: { // Fireball
 			0: { length: 730 }
 		},
+		*/
 		2: { // Frost Sphere
 			0: {
 				length: 800,
@@ -2265,12 +2282,14 @@ module.exports = {
 		}
 	},
 	5: { // Archer
+		/*
 		1: { // Arrow
 			0: {
 				length: 400,
 				noRetry: true
 			}
 		},
+		*/
 		2: { // Arrow Volley
 			0: {
 				type: 'lockon',
@@ -2573,12 +2592,14 @@ module.exports = {
 		}
 	},
 	6: { // Priest
+		/*
 		1: { // Divine Radiance
 			0: { length: 590 },
 			1: { length: 650 },
 			2: { length: 720 },
 			3: { length: 802 }
 		},
+		*/
 		2: { // Regeneration Circle
 			0: {
 				length: 3150,
@@ -2832,12 +2853,14 @@ module.exports = {
 		}
 	},
 	7: { // Mystic
+		/*
 		1: { // Sharan Bolt
 			0: { length: 675 },
 			1: { length: 675 },
 			2: { length: 675 },
 			3: { length: 675 }
 		},
+		*/
 		2: { // Corruption Ring
 			0: {
 				type: 'hold',
@@ -3147,6 +3170,7 @@ module.exports = {
 	},
 	8: { // Reaper
 		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10141023] },
+		/*
 		1: { // Spiral Barrage
 			'*': {
 				length: 1000,
@@ -3252,6 +3276,7 @@ module.exports = {
 				}
 			}
 		},
+		*/
 		3: { // Double Shear
 			'*': {
 				length: 2025,
@@ -3532,6 +3557,7 @@ module.exports = {
 	},
 	9: { // Gunner
 		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
+		/*
 		1: { // Blast
 			'*': {
 				triggerAbnormal: { 10152011: 3100 },
@@ -3549,6 +3575,7 @@ module.exports = {
 				flyingDistance: 500
 			}
 		},
+		*/
 		2: { // Bombardment
 			0: {
 				type: 'lockon',
@@ -4024,6 +4051,7 @@ module.exports = {
 		}
 	},
 	10: { // Brawler
+		/*
 		1: { // Punch
 			'*': {
 				length: 1575,
@@ -4064,6 +4092,7 @@ module.exports = {
 				distance: 68.63
 			}
 		},
+		*/
 		2: { // Counter
 			'*': {
 				CC: "extended",
@@ -4337,6 +4366,7 @@ module.exports = {
 	},
 	11: { // Ninja
 		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006, 10154081, 10154082, 10154085] },
+		/*
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
@@ -4490,6 +4520,7 @@ module.exports = {
 				}
 			}
 		},
+		*/
 		2: { // Shadow Jump
 			'*': {
 				CC: ["evasive", "extended"],
@@ -4950,6 +4981,7 @@ module.exports = {
 		}
 	},
 	12: { // Valkyrie
+		/*
 		1: { // Slash
 			'*': {
 				length: 1107,
@@ -4995,6 +5027,7 @@ module.exports = {
 			},
 			30: true
 		},
+		*/
 		2: { // Overhead Slash
 			'*': {
 				length: 1917,
