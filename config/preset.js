@@ -1,32 +1,16 @@
-let settings = {
-	
-	// 1000/FPS (default: 20 ms or 1000/(50 FPS))
-	frameTime: 20,
-	
-	// set to true if using Skill Prediction too
-	skillPredictionCompatible: false,
-	
-	// Classes: set to false to disable Ping Compensation per class
-	classes: {
-		0: true, // Warrior
-		1: true, // Lancer
-		2: true, // Slayer
-		3: true, // Berserker
-		4: true, // Sorcerer
-		5: true, // Archer
-		6: true, // Priest
-		7: true, // Mystic
-		8: true, // Reaper
-		9: true, // Gunner
-		10: true, // Brawler
-		11: true, // Ninja
-		12: true // Valkyrie
-	}
-}
-	
-	// Skills: set to false to disable Ping Compensation per skill
-	settings["0"] = (!settings.classes["0"]) ? false : {
-		// Warrior
+/*
+WARNING! WARNING! WARNING!
+Some classes using emulated abnormals for skills.
+You can't disable these skills only with this preset.js
+You MUST change values in abnormalities.js too for disabled skills
+WARNING! WARNING! WARNING!
+
+Awakening skills naming is being done based on the following document: https://docs.google.com/document/d/1q0qxSf-Ll1nfViF9SGf1kcA2I0CjO_N8dokgpx__o2c/edit#
+(for now)
+*/
+module.exports = {
+	0: { // Warrior
+		"enabled": true,
 		1: false, // Combo Attack
 		2: true, // Evasive Roll
 		3: true, // Torrent of Blows
@@ -37,18 +21,18 @@ let settings = {
 		10: true, // Death From Above
 		11: true, // Poison Blade
 		12: true, // Leaping Strike
-		13: true, // Retaliate
 		16: true, // Charging Slash
 		17: true, // Vortex Slash
 		18: true, // Combative Strike
 		19: true, // Rising Fury
 		20: true, // Deadly Gamble
 		21: true, // Cascade of Stuns
+		22: true, // Backstab
 		23: true, // Spinning Counter
 		24: true, // Smoke Aggressor
 		25: true, // Command: Attack
 		26: true, // Command: Follow
-		27: true, // Pounce
+		27: true, // Pounce / x
 		28: true, // Traverse Cut
 		29: true, // Blade Draw
 		30: true, // Scythe
@@ -59,10 +43,15 @@ let settings = {
 		36: true, // Rain of Blows (Deadly Gamble)
 		37: true, // Blade Draw (Deadly Gamble)
 		38: true, // Scythe (Deadly Gamble)
-		39: true // Traverse Cut (Defensive Stance)
-	}
-	settings["1"] = (!settings.classes["1"]) ? false : {
-		// Lancer
+		39: true, // Traverse Cut (Defensive Stance)
+		// Awakening
+		40: true, // Spiral Slash
+		41: true, // Storm Crash
+		42: true, // Tempest Rush
+		91: true, // Awakening Eyes Aura
+ 	},
+	1: { // Lancer
+		"enabled": true,
 		1: false, // Combo Attack
 		2: true, // Stand Fast
 		3: true, // Onslaught
@@ -80,17 +69,22 @@ let settings = {
 		17: true, // Adrenaline Rush
 		18: true, // Shield Barrage
 		19: true, // Pledge of Protection
-		20: true, // Menacing Wave
+		20: true, // Menacing Wave / x
 		21: true, // Lockdown Blow
 		22: true, // Iron Will
 		23: true, // Master's Leash
 		24: true, // Chained Leash
 		25: true, // Wallop
 		26: true, // Backstep
-		27: true // Rallying Cry
-	}
-	settings["2"] = (!settings.classes["2"]) ? false : {
-		// Slayer
+		27: true, // Rallying Cry
+		// Awakening
+		28: true, // Righteous Leap / Justice Leap
+		29: true, // Bulwark
+		30: true, // Divine Aegis
+		91: true, // Awakening Eyes Aura 
+	},
+	2: { // Slayer
+		"enabled": true,
 		1: false, // Combo Attack
 		2: true, // Knockdown Strike
 		3: true, // Whirlwind
@@ -104,33 +98,38 @@ let settings = {
 		14: true, // Distant Blade
 		15: true, // Startling Kick
 		16: true, // Fury Strike
-		17: true, // Headlong Rush
+		17: true, // Headlong Rush / Not properly emulated, use at the expense of possible issues.
 		18: true, // Overpower
 		19: true, // Tenacity
 		20: true, // In Cold Blood
 		21: true, // Exhausting Blow
 		23: true, // Measured Slice
 		24: true, // Eviscerate
-		25: true // Ultimate Overhand Strike
-	}
-	settings["3"] = (!settings.classes["3"]) ? false : {
-		// Berserker
+		25: true, // Ultimate Overhand Strike
+		// Awakening
+		26: true, // Rending Crash
+		27: true, // Piercing Lunge
+		28: true, // Colossus Blade
+		91: true, // Awakening Eyes Aura
+	},
+	3: { // Berserker
+		"enabled": true,
 		1: false, // Combo Attack
 		2: true, // Axe Block
 		3: true, // Thunderstrike
 		4: true, // Flatten
 		5: true, // Dash
 		6: true, // Sweeping Strike
-		7: true, // Mocking Shout
+		7: true, // Mocking Shout / x
 		8: true, // Fiery Rage
 		10: true, // Cyclone
 		11: true, // Leaping Strike
-		12: true, // Unchained Anger
+		12: true, // Unchained Anger / x
 		13: true, // Retaliate
-		15: true, // Vampiric Blow 
+		15: true, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
 		18: true, // Lethal Strike
-		19: true, // Tenacity
+		19: true, // Tenacity / Fortitude
 		20: true, // Inescapable Doom
 		21: true, // Bloodlust
 		24: true, // Evasive Smash
@@ -141,10 +140,18 @@ let settings = {
 		29: true, // Evasive Roll
 		30: true, // Axe Counter
 		31: true, // Overwhelm
-		32: true // Punishing Strike
-	}
-	settings["4"] = (!settings.classes["4"]) ? false : {
-		// Sorcerer
+		32: true, // Punishing Strike
+		// Awakening
+		33: true, // Berserk?
+		34: true, // Crush
+		35: true, // Smash
+		36: true, // Decimate
+		37: true, // Crimson Assault
+		38: true, // Berserk?
+		91: true, // Awakening Eyes Aura
+	},
+	4: { // Sorcerer
+		"enabled": true,
 		1: false, // Fireball
 		2: true, // Frost Sphere
 		3: true, // Lightning Trap
@@ -172,10 +179,13 @@ let settings = {
 		31: true, // Warp Barrier
 		32: true, // Meteor Shower
 		33: true, // Arcane Pulse (Mana Boost)
-		34: true // Mana Boost
-	}
-	settings["5"] = (!settings.classes["5"]) ? false : {
-		// Archer
+		34: true, // Mana Boost
+		// Awakening
+
+		91: true, // Awakening Eyes Aura
+	},
+	5: { // Archer
+		"enabled": true,
 		1: false, // Arrow
 		2: true, // Arrow Volley
 		3: true, // Radiant Arrow
@@ -201,10 +211,13 @@ let settings = {
 		29: true, // Thunderbolt
 		31: true, // Tenacity
 		32: true, // Find Weakness
-		33: true // Chase
-	}
-	settings["6"] = (!settings.classes["6"]) ? false : { 
-		// Priest
+		33: true, // Chase
+		// Awakening
+
+		91: true, // Awakening Eyes Aura
+	},
+	6: { // Priest
+		"enabled": true,
 		1: false, // Divine Radiance
 		2: true, // Regeneration Circle
 		3: true, // Healing Circle
@@ -235,10 +248,14 @@ let settings = {
 		38: true, // Backstep
 		39: true, // Grace of Resurrection
 		40: true, // Zenobia's Vortex
-		41: true // Divine Intervention
-	}
-	settings["7"] = (!settings.classes["7"]) ? false : {
-		// Mystic
+		41: true, // Divine Intervention / Salvation(Awakening-form)
+		// Awakening
+		42: true, // Holy Brilliance
+		43: true, // Invocation of Judgement
+		91: true, // Awakening Eyes Aura
+	},
+	7: { // Mystic
+		"enabled": true,
 		1: false, // Sharan Bolt
 		2: true, // Corruption Ring
 		4: true, // Ancient Binding
@@ -273,10 +290,17 @@ let settings = {
 		37: true, // Warding Totem
 		41: true, // Contagion
 		42: true, // Boomerang Pulse
-		43: true // Release
-	}
-	settings["8"] = (!settings.classes["8"]) ? false : {
-		// Reaper
+		43: true, // Release
+		// Awakening
+		44: true, // Transmission
+		45: true, // Soul augmentation
+		46: true, // Thrall of Sovereignty?
+		47: true, // Mote Blast
+		48: true, // Thrall of Sovereignty?
+		91: true, // Awakening Eyes Aura
+	},
+	8: { // Reaper
+		"enabled": true,
 		1: false, // Spiral Barrage
 		3: true, // Double Shear
 		4: true, // Sundering Strike
@@ -291,11 +315,13 @@ let settings = {
 		15: true, // Retribution
 		16: true, // Shadow Reaping
 		18: true, // Shrouded Escape
-		20: true, // Cable Step
-		40: true // Shadow Step
-	}
-	settings["9"] = (!settings.classes["9"]) ? false : {
-		// Gunner
+		40: true, // Shadow Step
+		// Awakening
+
+		91: true, // Awakening Eyes Aura
+	},
+	9: { // Gunner
+		"enabled": true,
 		1: false, // Blast
 		2: true, // Bombardment
 		3: true, // Scattershot
@@ -311,13 +337,15 @@ let settings = {
 		18: true, // HB
 		19: true, // ST
 		20: true, // Retaliate
-		40: true // Rolling Reload
-	}
-	settings["10"] = (!settings.classes["10"]) ? false : {
-		// Brawler
+		40: true, // Rolling Reload
+		// Awakening
+
+		91: true, // Awakening Eyes Aura
+	},
+	10: { // Brawler
+		"enabled": true,
 		1: false, // Punch
 		2: true, // Counter
-		3: true, // Divine Wrath
 		4: true, // Ground Pound
 		5: true, // Bullrush
 		6: true, // Haymaker
@@ -329,10 +357,13 @@ let settings = {
 		14: true, // Infuriate
 		16: true, // Flip Kick
 		21: true, // Mounting Rage
-		40: true // Quick Dash
-	}
-	settings["11"] = (!settings.classes["11"]) ? false : {
-		// Ninja
+		40: true, // Quick Dash
+		// Awakening
+
+		91: true, // Awakening Eyes Aura
+	},
+	11: { // Ninja
+		"enabled": true,
 		1: false, // Combo Attack
 		2: true, // Shadow Jump
 		3: true, // Leaves on the Wind
@@ -342,6 +373,7 @@ let settings = {
 		7: true, // Decoy Jutsu
 		8: true, // Fire Avalanche
 		9: true, // Smoke Bomb
+		10: true, //Retaliate
 		11: true, // Focus
 		12: true, // Skyfall
 		13: true, // Circle of Steel
@@ -351,10 +383,13 @@ let settings = {
 		17: true, // Attunement
 		18: true, // Bladestorm
 		19: true, // Chakra Thrust
-		20: true // Clone Jutsu
-	}
-	settings["12"] = (!settings.classes["12"]) ? false : {
-		// Valkyrie
+		20: true, // Clone Jutsu
+		// Awakening
+
+		91: true, // Awakening Eyes Aura
+	},
+	12: { // Valkyrie
+		"enabled": true,
 		1: false, // Slash
 		2: true, // Overhead Slash
 		3: true, // Glaive Strike
@@ -372,9 +407,11 @@ let settings = {
 		15: true, // Windslash
 		16: true, // Runeburst
 		17: true, // Balder's Tears
-		18: true, // Retaliate
 		19: true, // Reclamation
 		20: true, // Backstab
-		21: true // Dark Herald
+		21: true, // Dark Herald
+		// Awakening
+
+		91: true, // Awakening Eyes Aura
 	}
-module.exports = settings
+}
