@@ -9,6 +9,7 @@ Path: `<ping-compensation-folder>/config/config.json`
 ### Main settings
 * `enabled` - enable/disable PC from start (see `commands.md`)
 * `spCompatible` - disable some default features for skill-prediction compatibility
+* * Disable skills emulated by SP for most compatibility (see `preset.md`)
 * `spDirectory` - the name of the folder that contains skill-prediction
 * * Usually `skill-prediction` or `skill-prediction-master`
 * `debug` - enable/disable debug output in console from start (see `commands.md`)
