@@ -282,7 +282,7 @@ module.exports = function PingCompensation(dispatch) {
                     }
                     else {
                         if (config.debug) {console.log(`Ping Compensation skill=${event.skill - 0x4000000} compensation=${length}`)}
-                        length = 0
+                        length = 1
                     }
                     // if server sends distance
                     if (event.movement[0]) {
