@@ -9,12 +9,12 @@ module.exports = function PingCompensation(dispatch) {
     //----------
     // Constants
     //----------
-	const config = require('./config/config.json')
-	const preset = require('./config/preset.js')
+    const config = require('./config/config.json')
+    const preset = require('./config/preset.js')
     const skills = require('./config/data/skills.js')
     const Command = require('command')
     const path = require('path')
-	const Ping = (!config.spCompatible) ? require('./lib/ping.js') : require(path.join(config.spDirectory, 'lib', 'ping.js'))
+    const Ping = (!config.spCompatible) ? require('./lib/ping.js') : require(path.join(config.spDirectory, 'lib', 'ping.js'))
     const CDR = (!config.spCompatible) ? require('./lib/cooldowns.js') : false
     const command = Command(dispatch)
     const ping = Ping(dispatch)
@@ -23,12 +23,12 @@ module.exports = function PingCompensation(dispatch) {
     // Variables
     //----------
     let gameId = null,
-		templateId = null,
-		skillsCache = null,
+        templateId = null,
+        skillsCache = null,
         job = -1,
-		race = -1,
+        race = -1,
         timeouts = {},
-		startTime = false,
+        startTime = false,
         alive = false,
         //inBlock = false,
         //mounted = false,
@@ -71,7 +71,7 @@ module.exports = function PingCompensation(dispatch) {
     //----------
     // Functions
     //----------
-	//Load info about skill - credit: Pinkie Pie + Salty Monkey
+    //Load info about skill - credit: Pinkie Pie + Salty Monkey
     function skillInfo(id, local) {
         if (!local) id -= 0x4000000;
 
@@ -114,7 +114,7 @@ module.exports = function PingCompensation(dispatch) {
         return skillsCache[id] = null
     }
 
-	// read skill data - credit: Pinkie Pie
+    // read skill data - credit: Pinkie Pie
     function get(obj, ...keys) {
         if (obj === undefined) return;
 
@@ -128,15 +128,15 @@ module.exports = function PingCompensation(dispatch) {
     // endSkill
     function endSkill(event) {
         if (alive && enabled && event) {
-			timeouts[event.id] = false
+            timeouts[event.id] = false
             dispatch.toClient('S_ACTION_END', 2, event)
             if (config.debug) {console.log('sActionEnd Ping-Compensation')}
         }
-	}
-	
-	// updateCoord
-	function updateCoord(event) {
-		for (let coord of ["x", "y", "z", "w"]) {
+    }
+    
+    // updateCoord
+    function updateCoord(event) {
+        for (let coord of ["x", "y", "z", "w"]) {
             // if in fake skill
             if (currentAction && timeouts[currentAction.id]) {
                 // update end location
@@ -163,10 +163,10 @@ module.exports = function PingCompensation(dispatch) {
         gameId = event.gameId
         templateId = event.templateId
         race = Math.floor((templateId - 10101) / 100)
-		job = (templateId - 10101) % 100
-		skillsCache = {}
+        job = (templateId - 10101) % 100
+        skillsCache = {}
     })
-	
+    
     // C_PRESS_SKILL
     dispatch.hook('C_PRESS_SKILL', 1, {order: 10, filter: {fake: null}}, event => {
         updateCoord(event)
@@ -181,7 +181,7 @@ module.exports = function PingCompensation(dispatch) {
     
     // C_PLAYER_LOCATION
     dispatch.hook('C_PLAYER_LOCATION', 2, {order: 10, filter: {fake: false}}, event => {
-		updateCoord(event)
+        updateCoord(event)
     })
 
     // C_PLAYER_LOCATION
@@ -189,13 +189,13 @@ module.exports = function PingCompensation(dispatch) {
         if (!fake) {
             // if between fake and real S_ACTION_END
             if (currentAction && !timeouts[currentAction.id]) {
-				queuedPacket = data
+                queuedPacket = data
                 // block location packets
                 return false
             }
         }
     })
-	
+    
     // C_NOTIFY_LOCATION_IN_ACTION
     dispatch.hook('C_NOTIFY_LOCATION_IN_ACTION', 1, {order: 10, filter: {fake: null}}, event => {
         updateCoord(event)
@@ -203,20 +203,20 @@ module.exports = function PingCompensation(dispatch) {
     
     // C_NOTIFY_LOCATION_IN_DASH
     dispatch.hook('C_NOTIFY_LOCATION_IN_DASH', 1, {order: 10, filter: {fake: null}}, event => {
-		updateCoord(event)
+        updateCoord(event)
     })
     
     // S_INSTANT_DASH
     dispatch.hook('S_INSTANT_DASH', 2, {order: 10, filter: {fake: null}}, event => {
         if (event.source.equals(gameId)){
-			updateCoord(event)
+            updateCoord(event)
         }
     })
     
     // S_INSTANT_MOVE
     dispatch.hook('S_INSTANT_MOVE', 1, {order: 10, filter: {fake: null}}, event => {
         if (event.id.equals(gameId)){
-			updateCoord(event)
+            updateCoord(event)
         }
     })
     
@@ -247,15 +247,15 @@ module.exports = function PingCompensation(dispatch) {
         // if character is your character
         if (event.gameId.equals(gameId)) {
             // get skill id
-			let info = skillInfo(event.skill)
+            let info = skillInfo(event.skill)
             // if skill is in config
             if (config.debug && enabled) {console.log('sActionStage: info?', info ? true : false)}
-			if (alive && enabled && info) {
+            if (alive && enabled && info) {
                 /*
-				// if block, enable fast release
-				if (info.type == 'holdInfinite') {
+                // if block, enable fast release
+                if (info.type == 'holdInfinite') {
                     inBlock = true
-					currentAction = {
+                    currentAction = {
                         gameId: event.gameId,
                         x: event.x,
                         y: event.y,
@@ -270,23 +270,23 @@ module.exports = function PingCompensation(dispatch) {
                 }
                 */
                 // get length and distance
-				let multistage = Array.isArray(info.length),
-					length = multistage ? info.length[event.stage] : info.length,
-					distance = multistage ? info.distance[event.stage] : info.distance,
-					currentPing = Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0)
+                let multistage = Array.isArray(info.length),
+                    length = multistage ? info.length[event.stage] : info.length,
+                    distance = multistage ? info.distance[event.stage] : info.distance,
+                    currentPing = Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0)
                 if (length && length > 0) {
                     // change animation speed
                     if (currentPing < length) {
                         if (config.debug) {console.log(`Ping Compensation: skill=${event.skill - 0x4000000} compensation=${currentPing}`)}
                         event.speed = event.speed * length / (length - currentPing)
-					}
-					else {
+                    }
+                    else {
                         if (config.debug) {console.log(`Ping Compensation skill=${event.skill - 0x4000000} compensation=${length}`)}
                         length = 0
-					}
+                    }
                     // if server sends distance
                     if (event.movement[0]) {
-						distance = 0
+                        distance = 0
                         // get total distance
                         for (let stage of event.movement) {
                             distance += stage.distance
@@ -324,17 +324,17 @@ module.exports = function PingCompensation(dispatch) {
                     timeouts[event.id] = setTimeout(endSkill, length / event.speed, currentAction)
                     return true
                 }
-			}
-			else {
-				if (currentAction && timeouts[currentAction.id]) {
+            }
+            else {
+                if (currentAction && timeouts[currentAction.id]) {
                     // disable fake endSkill
                     clearTimeout(timeouts[currentAction.id])
                     timeouts[currentAction.id] = false
-				}
-				currentAction = false
-				queuedPacket = false
-			}
-			startTime = false
+                }
+                currentAction = false
+                queuedPacket = false
+            }
+            startTime = false
         }
     })
     
@@ -354,9 +354,9 @@ module.exports = function PingCompensation(dispatch) {
                 // if fake ended
                 else {
                     // if location emulated wrong
-					if (Math.sqrt((currentAction.x - event.x)*(currentAction.x - event.x) 
-						+ (currentAction.y - event.y)*(currentAction.y - event.y)) > 100 
-						|| (currentAction.z - event.z)*(currentAction.z - event.z) > 2500) {
+                    if (Math.sqrt((currentAction.x - event.x)*(currentAction.x - event.x) 
+                        + (currentAction.y - event.y)*(currentAction.y - event.y)) > 100 
+                        || (currentAction.z - event.z)*(currentAction.z - event.z) > 2500) {
                         // teleport to correct location
                         if (config.debug) {console.log('S_INSTANT_MOVE correction')}
                         dispatch.toClient('S_INSTANT_MOVE', 1, {
@@ -414,13 +414,13 @@ module.exports = function PingCompensation(dispatch) {
     
     // S_SPAWN_ME
     dispatch.hook('S_SPAWN_ME', 1, event => {
-		alive = event.alive
-		if (!alive) {
-			clearTimeout(timeouts[currentAction.id])
-			timeouts[currentAction.id] = false
-			queuedPacket = false
-			currentAction = false
-		}
+        alive = event.alive
+        if (!alive) {
+            clearTimeout(timeouts[currentAction.id])
+            timeouts[currentAction.id] = false
+            queuedPacket = false
+            currentAction = false
+        }
     })
 
     // S_CREATURE_LIFE
@@ -445,8 +445,8 @@ module.exports = function PingCompensation(dispatch) {
             currentAction = false
         }
     })
-	
-	/*
+    
+    /*
     // S_MOUNT_VEHICLE
     dispatch.hook('S_MOUNT_VEHICLE', 1, event => {
         if (gameId.equals(event.target)) {
@@ -473,6 +473,6 @@ module.exports = function PingCompensation(dispatch) {
         if (gameId.equals(event.target)) {
             mounted = false
         }
-	})
-	*/
+    })
+    */
 }
