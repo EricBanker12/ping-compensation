@@ -128,9 +128,11 @@ module.exports = function PingCompensation(dispatch) {
     // endSkill
     function endSkill(event) {
         if (alive && enabled && event) {
+            if (config.debug) {
+                console.log(`[${Date.now().toString().slice(-4)}] <* sActionEnd ${event.skill-0x4000000} (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)}) id${event.id}`)
+            }
             timeouts[event.id] = false
             dispatch.toClient('S_ACTION_END', 2, event)
-            if (config.debug) {console.log('sActionEnd Ping-Compensation')}
         }
     }
     
@@ -147,8 +149,13 @@ module.exports = function PingCompensation(dispatch) {
     
     // skillHook
     function skillHook(event) {
+        if (config.debug) {
+            console.log(`[${Date.now().toString().slice(-4)}] -> cStart--Skill ${event.skill-0x4000000} (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)})`)
+        }
         let info = skillInfo(event.skill)
+        // if not in config or multistage
         if (!info || Array.isArray(info.length)) {
+            // do not use current ping
             startTime = false
             return null
         }
@@ -180,15 +187,18 @@ module.exports = function PingCompensation(dispatch) {
     })
     
     // C_PLAYER_LOCATION
-    dispatch.hook('C_PLAYER_LOCATION', 2, {order: 10, filter: {fake: false}}, event => {
+    dispatch.hook('C_PLAYER_LOCATION', 2, {order: 20, filter: {fake: null}}, event => {
         updateCoord(event)
     })
 
     // C_PLAYER_LOCATION
-    dispatch.hook('C_PLAYER_LOCATION', 'raw', {order: 10}, (code, data, fromServer, fake) => {
+    dispatch.hook('C_PLAYER_LOCATION', 'raw', {order: 10, filter: {fake: false}}, (code, data, fromServer, fake) => {
         if (!fake) {
             // if between fake and real S_ACTION_END
             if (currentAction && !timeouts[currentAction.id]) {
+                if (config.debug) {
+                    console.log(`[${Date.now().toString().slice(-4)}] x> cPlayerLocation`)
+                }
                 queuedPacket = data
                 // block location packets
                 return false
@@ -228,17 +238,23 @@ module.exports = function PingCompensation(dispatch) {
         ['C_START_INSTANCE_SKILL', 1],
         ['C_START_INSTANCE_SKILL_EX', 2],
         //['C_PRESS_SKILL', 1],
-        ['C_NOTIMELINE_SKILL', 1], //not sure about this one
+        //['C_NOTIMELINE_SKILL', 1], //not sure about this one
         //['C_CAN_LOCKON_TARGET', 1],
-        ]) dispatch.hook(packet[0], packet[1], { /*filter: { fake: false, modified: false },*/ order: 1000 }, skillHook);
+        ]) dispatch.hook(packet[0], packet[1], {filter: {fake: null, modified: null}, order: 1000 }, skillHook);
 
     // S_CANNOT_START_SKILL
-    dispatch.hook('S_CANNOT_START_SKILL', 'raw', {order: 10}, () => {
+    dispatch.hook('S_CANNOT_START_SKILL', 1, {order: 10, filter: {fake: null}}, event => {
+        if (config.debug) {
+            console.log(`[${Date.now().toString().slice(-4)}] <- sCannotStartSkill ${event.skill-0x4000000}`)
+        }
         startTime = false
     })
 
     // C_CANCEL_SKILL
-    dispatch.hook('C_CANCEL_SKILL', 'raw', {order: 10}, () => {
+    dispatch.hook('C_CANCEL_SKILL', 1, {order: 10, filter: {fake: null}}, event => {
+        if (config.debug) {
+            console.log(`[${Date.now().toString().slice(-4)}] -> cCancelSkill ${event.skill-0x4000000}`)
+        }
         startTime = false
     });
     
@@ -249,7 +265,7 @@ module.exports = function PingCompensation(dispatch) {
             // get skill id
             let info = skillInfo(event.skill)
             // if skill is in config
-            if (config.debug && enabled) {console.log('sActionStage: info?', info ? true : false)}
+            //if (config.debug && enabled) {console.log('sActionStage: info?', info ? true : false)}
             if (alive && enabled && info) {
                 /*
                 // if block, enable fast release
@@ -273,16 +289,18 @@ module.exports = function PingCompensation(dispatch) {
                 let multistage = Array.isArray(info.length),
                     length = multistage ? info.length[event.stage] : info.length,
                     distance = multistage ? info.distance[event.stage] : info.distance,
-                    currentPing = Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0)
+                    currentPing = Math.min(Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0),ping.max)
                 if (length && length > 0) {
+                    if (config.debug) {
+                        console.log(`[${Date.now().toString().slice(-4)}] <* sActionStage ${event.skill-0x4000000} s${event.stage} (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)})`
+                            + ` id${event.id} pc${Math.min(currentPing,Math.floor(length/event.speed))}`)
+                    }
                     // change animation speed
-                    if (currentPing < length) {
-                        if (config.debug) {console.log(`Ping Compensation: skill=${event.skill - 0x4000000} compensation=${currentPing}`)}
-                        event.speed = event.speed * length / (length - currentPing)
+                    if (currentPing * event.speed < length) {
+                        event.speed = event.speed * length / (length - currentPing * event.speed)
                     }
                     else {
-                        if (config.debug) {console.log(`Ping Compensation skill=${event.skill - 0x4000000} compensation=${length}`)}
-                        length = 1
+                        length = 1 * event.speed
                     }
                     // if server sends distance
                     if (event.movement[0]) {
@@ -326,6 +344,9 @@ module.exports = function PingCompensation(dispatch) {
                 }
             }
             else {
+                if (config.debug) {
+                    console.log(`[${Date.now().toString().slice(-4)}] <- sActionStage ${event.skill-0x4000000} s${event.stage} (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)}) id${event.id}`)
+                }
                 if (currentAction && timeouts[currentAction.id]) {
                     // disable fake endSkill
                     clearTimeout(timeouts[currentAction.id])
@@ -349,16 +370,21 @@ module.exports = function PingCompensation(dispatch) {
                     // disable fake endSkill
                     clearTimeout(timeouts[event.id])
                     timeouts[event.id] = false
-                    if (config.debug) {console.log('sActionEnd Server')}
+                    //if (config.debug) {console.log('sActionEnd Server')}
                 }
                 // if fake ended
                 else {
+                    if (config.debug) {
+                        console.log(`[${Date.now().toString().slice(-4)}] <x sActionEnd ${event.skill-0x4000000} (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)}) id${event.id}`)
+                    }
                     // if location emulated wrong
                     if (Math.sqrt((currentAction.x - event.x)*(currentAction.x - event.x) 
                         + (currentAction.y - event.y)*(currentAction.y - event.y)) > 100 
                         || (currentAction.z - event.z)*(currentAction.z - event.z) > 2500) {
                         // teleport to correct location
-                        if (config.debug) {console.log('S_INSTANT_MOVE correction')}
+                        if (config.debug) {
+                            console.log(`Location correction (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)})`)
+                        }
                         dispatch.toClient('S_INSTANT_MOVE', 1, {
                             id: gameId,
                             x: event.x,
@@ -368,6 +394,9 @@ module.exports = function PingCompensation(dispatch) {
                         })
                     }
                     else if (queuedPacket) {
+                        if (config.debug) {
+                            console.log(`[${Date.now().toString().slice(-4)}] *> cPlayerLocation`)
+                        }
                         dispatch.toServer(queuedPacket)
                     }
                     queuedPacket = false
@@ -375,6 +404,9 @@ module.exports = function PingCompensation(dispatch) {
                     // hide this sActionEnd
                     return false
                 }
+            }
+            if (config.debug) {
+                console.log(`[${Date.now().toString().slice(-4)}] <- sActionEnd ${event.skill-0x4000000} (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)}) id${event.id}`)
             }
             queuedPacket = false
             currentAction = false
@@ -392,11 +424,10 @@ module.exports = function PingCompensation(dispatch) {
                     // disable fake endSkill
                     clearTimeout(timeouts[event.id])
                     timeouts[event.id] = false
-                    if (config.debug) {console.log('sActionEnd Skill-Prediction')}
+                    queuedPacket = false
+                    currentAction = false
                 }
             }
-            queuedPacket = false
-            currentAction = false
         }
     })
 
