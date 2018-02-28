@@ -289,7 +289,7 @@ module.exports = function PingCompensation(dispatch) {
                 let multistage = Array.isArray(info.length),
                     length = multistage ? info.length[event.stage] : info.length,
                     distance = multistage ? info.distance[event.stage] : info.distance,
-                    currentPing = Math.min(Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0),ping.max)
+                    currentPing = ping.min //Math.min(Math.max(ping.min, multistage ? 0 : startTime ? Date.now() - startTime : 0),ping.max)
                 if (length && length > 0) {
                     if (config.debug) {
                         console.log(`[${Date.now().toString().slice(-4)}] <* sActionStage ${event.skill-0x4000000} s${event.stage} (x${Math.floor(event.x)} y${Math.floor(event.y)} z${Math.floor(event.z)})`
@@ -356,6 +356,19 @@ module.exports = function PingCompensation(dispatch) {
                 queuedPacket = false
             }
             startTime = false
+        }
+    })
+
+    // S_ACTION_STAGE SP Compatibility
+    dispatch.hook('S_ACTION_STAGE', 2, {order: 10, filter: {fake: true}}, event => {
+        // if character is your character
+        if (event.gameId.equals(gameId)) {
+            // if modded skill
+            if (alive && enabled && currentAction /*&& !timeouts[currentAction.id]*/) {
+                // disable cPlayerLocation block
+                queuedPacket = false
+                currentAction = false
+            }
         }
     })
     
