@@ -724,9 +724,9 @@ module.exports = {
 			}
 		},
 		13: { // Spring Attack / Changed
+			'*': { distance: 85 },
 			0: {
 				length: 2800,
-				distance: 85,
 				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27],
 				chains: {
 					1: 30,
@@ -738,10 +738,7 @@ module.exports = {
 					24: 30
 				}
 			},
-			30: {
-				length: 1850,
-				distance: 85
-			}
+			30: { length: 1850 }
 		},
 		15: { // Charging Lunge
 			0: {
@@ -925,9 +922,7 @@ module.exports = {
 					24: 1
 				}
 			},
-			1: {
-				length: [281.25, 768.75, 2325]
-			}
+			1: { length: [281.25, 768.75, 2325] }
 		},
 		29: { // Bulwark
 			0: {
@@ -1010,47 +1005,53 @@ module.exports = {
 		2: { // Knockdown Strike
 			'*': {
 				consumeAbnormal: 23220,
-				length: 2835,
+				length: 2844.16,
 				distance: 220.47,
 				abnormals: {
 					23070: { speed: 0.25 }
 				},
 				chains: { 14: 30 },
 				race: {
-					//0: { distance: 220.47 }, // M.Human: 220.47
-					2: { distance: 220.15 }, // M.Helf: 220.153
+					//0: { distance: 220.47 }, // M.Human
+					2: { distance: 220.15 }, // M.Helf
 					4: { distance: 155 }, // M.Aman: 155
-					5: { distance: 174.84 }, // F.Aman: 174.837
-					6: { distance: 201.64 }, // M.Casta: 201.639
-					7: { distance: 200 }, // F.Casta: 200
-					8: { distance: 175.81 }, // Popori: 175.811
-					//9: { distance: 220.47 }, // Elin: 220.47
-					10: { distance: 205.95 } // Baraka: 205.953
+					5: { distance: 174.84 }, // F.Aman
+					6: { distance: 201.64 }, // M.Casta
+					7: { distance: 200 }, // F.Casta
+					8: { distance: 175.81 }, // Popori
+					//9: { distance: 220.47 }, // Elin
+					10: { distance: 205.95 } // Baraka
 				}
 			},
-			0: true, // type: change, pendingType: normal
-			1: true, // type: normal, pendingType: normal
-			2: { noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25] }, // type: connect(30), pendingType: immediateCancel (chain Parent, Super cancel)
-			30: { length: 2435 } // type: normal, pendingType: immediateCancel (Chain Child, Super cancel)
+			0: true,
+			1: true,
+			2: { noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25] },
+			30: { length: 2423.57 }
 		},
 		3: { // Whirlwind
-			0: {
-				length: 2880, // 2900 before
+			0: { // 2871.66 | 33, 2844.16 | baraka, m human
+				length: 2871.66,
 				distance: 128.69,
 				abnormals: {
 					301150: { speed: 0.20 },
 					23080: { speed: 0.25 }
 				},
 				race: {
-					0: { distance: 123.21 }, // M.Human: 123.208
-					2: { distance: 116.49 }, // M.Helf: 116.489
-					4: { distance: 125 }, // M.Aman: 125
-					5: { distance: 137.22 }, // F.Aman: 137.221
-					6: { distance: 123.21 }, // M.Casta: 123.208
-					7: { distance: 155 }, // F.Casta: 155.004
-					8: { distance: 116.09 }, // Popori: 116.085
-					9: { distance: 128.69 }, // Elin: 128.691
-					10: { distance: 91.21 } // Baraka: 91.21
+					0: { // M.Human
+						length: 2844.16,
+						distance: 123.21
+					}, // BHS: w-we equalized the skill g-guys!
+					2: { distance: 116.49 }, // M.Helf
+					4: { distance: 125 }, // M.Aman
+					5: { distance: 137.22 }, // F.Aman
+					6: { distance: 123.21 }, // M.Casta
+					7: { distance: 155 }, // F.Casta
+					8: { distance: 116.09 }, // Popori
+					9: { distance: 128.69 }, // Elin
+					10: { // Baraka
+						length: 2844.16,
+						distance: 91.21
+					}
 				}
 			}
 		},
@@ -1396,6 +1397,10 @@ module.exports = {
 				distance: 78,
 				race: {
 					3: { distance: 63.24 }, // F.Helf: 63.236
+					5: { // F.Aman
+						length: 1081.8,
+						distance: 62
+					},
 					6: { distance: 55.69 }, // M.Casta: 56.687
 					8: { distance: 48.89 }, // Popori: 48.886
 					10: { distance: 44.22 } // Baraka: 44.217
@@ -1527,8 +1532,8 @@ module.exports = {
 		},
 		4: { // Flatten
 			'*': {
-				length: 3125, // 3100 pori?
-				distance: 105.685,
+				length: 3111.8,
+				distance: 105.68,
 				glyphs: {
 					24008: { speed: 0.25 },
 					24050: { speed: 0.25 }
@@ -1562,8 +1567,8 @@ module.exports = {
 					25: 31
 				}
 			},
-			30: { length: 2350 }, //
-			31: { length: 2350 }
+			30: { length: 2336.55 },
+			31: { length: 2336.55 }
 		},
 		5: { // Dash
 			0: {
@@ -1576,15 +1581,22 @@ module.exports = {
 		},
 		6: { // Sweeping Strike
 			'*': {
-				length: 1285,
+				length: 1293.63,
 				distance: 80.47,
 				noRetry: true,
 				race: {
-					3: { distance: 71.34 }, // F.Helf: 71.336
-					6: { distance: 66.21 }, // M.Casta: 66.21
-					8: { distance: 53.41 }, // Popori: 53.412
-					9: { distance: 80.47 }, // Elin: 80.468
-					10: { distance: 70 } // Baraka: 70
+					2: { // M.Helf
+						length: 1384.54,
+						distance: 82.33
+					},
+					3: { distance: 71.34 }, // F.Helf
+					6: { distance: 66.21 }, // M.Casta
+					8: { distance: 53.41 }, // Popori
+					9: {  // Elin
+						length: 1263.63, // Probably doesn't matter if chaining, same for most chains, block cancels
+						distance: 80.47
+					},
+					10: { distance: 70 } // Baraka
 				}
 			},
 			0: {
@@ -1603,11 +1615,14 @@ module.exports = {
 			'*': { noInterrupt: [2] },
 			0: {
 				fixedSpeed: 1,
-				length: [450, 605] // Idk if Helf is longer but i'm getting this
+				length: [454.54, 596.81]
 			},
 			30: {
-				length: 1760, // /Need M.Casta
-				requiredBuff: 401400
+				length: 1742.34,
+				requiredBuff: 401400,
+				race: {
+					7: { length: 1767.34 } // F.Casta
+				}
 			}
 		},
 		10: { // Cyclone
@@ -1641,35 +1656,43 @@ module.exports = {
 				]
 			},*/
 			10: {
-				length: 1350, // Cast F. - TODO
+				length: 1333, // Cast F. - TODO
 				distance: 50,
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
-					3: { length: 1800 }	// F.Helf
+					2: { length: 1400 },
+					3: { length: 1800 }, // F.Helf
+					6: { length: 1366 }
 				}
 			},
 			11: {
-				length: [375, 375, 1350],
+				length: [366, 366, 1333],
 				distance: [33.33, 33.33, 50],
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
-					3: { length: [375, 375, 1800] }	// F.Helf
+					2: { length: [366, 366, 1400] }, // M.Helf
+					3: { length: [366, 366, 1800] }, // F.Helf
+					6: { length: [366, 366, 1366] } // M.Casta
 				}
 			},
 			12: {
-				length: [375, 375, 375, 375, 1350],
+				length: [366, 366, 366, 366, 1333],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
-					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf
+					2: { length: [366, 366, 366, 366, 1400] }, // M.Helf
+					3: { length: [366, 366, 366, 366, 1800] }, // F.Helf
+					6: { length: [366, 366, 366, 366, 1366] } // M.Casta
 				}
 			},
 			13: {
-				length: [375, 375, 375, 375, 1350],
+				length: [366, 366, 366, 366, 1333],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				noInterrupt: [2, 4, 15, 24, 25, 30],
 				races: {
-					3: { length: [375, 375, 375, 375, 1800] }	// F.Helf
+					2: { length: [366, 366, 366, 366, 1400] }, // M.Helf
+					3: { length: [366, 366, 366, 366, 1800] }, // F.Helf
+					6: { length: [366, 366, 366, 366, 1366] } // M.Casta
 				},
 				enableVB: true,
 				pendingStartTime: 300
@@ -1678,7 +1701,7 @@ module.exports = {
 		11: { // Leaping Strike 
 			0: {
 				CC: "extended",
-				length: 2190, // 2185
+				length: 2191.25,
 				distance: 250,
 				noInterrupt: [2],
 			}
@@ -1814,15 +1837,18 @@ module.exports = {
 			}
 		},
 		24: { // Evasive Smash
-			'*': {	// Same animation as lethal strike cast, just slower
+			'*': {
 				consumeAbnormal: 400900,
-				length: 1635, // 1630
+				length: 1833, // 1630
 				distance: 167.63, // 167.624
 				race: {
-					6: { distance: 168.11 }, // M.Casta: 168.112
-					8: { distance: 240.4 }, // Popori: 240.4
-					9: { distance: 167.62 }, // Elin: 167.624
-					10: { distance: 158.11 } // Baraka: 158.112
+					6: { distance: 168.11 }, // M.Casta
+					8: { distance: 240.4 }, // Popori
+					9: { // Elin
+						length: 1633,
+						distance: 167.62
+					},
+					10: { distance: 158.11 } // Baraka
 				}
 			},
 			0: {
@@ -1839,7 +1865,7 @@ module.exports = {
 		},
 		25: { // Raze
 			'*': {
-				length: 1205,
+				length: 1200,
 				distance: 96,
 				glyphs: {
 					24078: { speed: 0.25 }
@@ -1861,12 +1887,12 @@ module.exports = {
 				}
 			},
 			1: true,
-			30: { length: 965 },
-			31: { length: 965 }
+			30: { length: 960 },
+			31: { length: 960 }
 		},
 		26: { // Tackle
 			0: {
-				length: 1000,
+				length: 1010,
 				distance: 80,
 				noInterrupt: [2]
 			}
@@ -1886,20 +1912,18 @@ module.exports = {
 			},
 			30: { length: 1733.33 } // Used for Berserk mode? Chain?
 		},
-		28: { // Intimidation /Need M.Casta
-			0: {
-				length: 1560,
+		28: { // Intimidation
+			'*': {
+				length: 1566,
 				noInterrupt: [2]
 			},
-			50: {
-				length: 1560,
-				noInterrupt: [2]
-			}
+			0: true,
+			50: true
 		},
 		29: { // Evasive Roll
 			0: {
 				CC: ["evasive", "extended"],
-				length: 905,
+				length: 909.1,
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29],
@@ -1907,18 +1931,22 @@ module.exports = {
 		},
 		30: { // Axe Counter
 			'*': {
-				length: 650,
+				length: 655.33,
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
 				chains: { 2: 30 },
 				race: {
-					8: { // Popori, just WTF
-						length: 1195,
+					5: { // F.Aman
+						length: 677.33,
+						distance: 24.5
+					},
+					8: { // Popori
+						length: 1188.66,
 						distance: 240.4
 					},
-					9: { distance: 21.05 }, // Elin: 21.05
-					10: { distance: 21.08 } // Baraka: 21.084
+					9: { distance: 21.05 }, // Elin
+					10: { distance: 21.08 } // Baraka
 				}
 			},
 			0: true,
@@ -1935,31 +1963,38 @@ module.exports = {
 				noRetry: true
 			},
 			1: {
-				length: 1335
+				length: 1510.83,
+				race: {
+					9: { length: 1344 }
+				}
 			}
 		},
-		32: { // Punishing Strike /Need M.Casta
+		32: { // Punishing Strike
 			0: {
-				length: 790,
+				length: 771.53,
 				distance: 31.58,
 				noInterrupt: [2],
 				requiredBuff: 401400,
 				race: {
-					8: { // Popori: 930, 61.387
-						length: 930,
+					5: { // F.Aman
+						length: 796.92,
+						distance: 24.5
+					},
+					8: { // Popori
+						length: 925.4,
 						distance: 61.39
 					},
-					9: { distance: 31.58 }, // Elin: 31.575
-					10: { distance: 31.63 } // Baraka: 31.628
+					9: { distance: 31.58 }, // Elin
+					10: { distance: 31.63 } // Baraka
 				}
 			},
 			1: {
-				length: 810,
+				length: 800,
 				distance: 134.1,
 				race: {
-					8: { distance: 192.32 }, // Popori: 192.319
-					9: { distance: 134.1 }, // Elin: 134.1
-					10: { distance: 126.49 } // Baraka: 126.49
+					8: { distance: 192.32 }, // Popori
+					9: { distance: 134.1 }, // Elin
+					10: { distance: 126.49 } // Baraka
 				}
 			}
 		},
@@ -2073,9 +2108,9 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [1000, 1000],
+				length: [800, 800],
 				noInterrupt: [7, 26],
-				lastChargeStage: 2000, // 50 <- revert to 50 once it reaches pleb regions
+				lastChargeStage: 2000, // 50 <- revert to 50 once it reaches pleb regions, keep 2000 for ktera
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}

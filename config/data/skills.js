@@ -1269,7 +1269,11 @@ module.exports = {
 				distance: 78,
 				race: {
 					3: { distance: 63.24 }, // F.Helf: 63.236
-					4: { distance: 27.715 }, //M.Aman
+					4: { distance: 27.715 }, // M.Aman
+					5: { // F.Aman
+						length: 1081.8,
+						distance: 62
+					},
 					6: { distance: 55.69 }, // M.Casta: 56.687
 					8: { distance: 48.89 }, // Popori: 48.886
 					10: { distance: 44.22 } // Baraka: 44.217
