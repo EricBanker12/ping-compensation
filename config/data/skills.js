@@ -22,7 +22,6 @@
 
 module.exports = {
 	0: { // Warrior
-		/*
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 32],
@@ -72,7 +71,6 @@ module.exports = {
 				}
 			}
 		},
-		*/
 		2: { // Evasive Roll
 			0: {
 				CC: ["evasive", "extended"],
@@ -212,14 +210,14 @@ module.exports = {
 				}
 			}
 		},
-		13: { // Retaliate
+		/*13: { // Retaliate
 			0: {
 				type: 'retaliate',
 				length: 1630,
 				noInterrupt: [32],
 				noRetry: true
 			}
-		},
+		},*/
 		16: { // Charging Slash
 			0: {
 				CC: ["evasive", "extended"],
@@ -228,6 +226,7 @@ module.exports = {
 				length: 1115,
 				distance: 467.88,
 				noRetry: true,
+				//retryAlways: true,
 				noInterrupt: [16, 32]
 			},
 			1: { length: 800 }
@@ -323,12 +322,12 @@ module.exports = {
 		24: { // Smoke Aggressor
 			0: {
 				fixedSpeed: 1,
-				length: 500,
+				length: 475,
 				noInterrupt: [32]
 			}
 		},
 		25: { // Command: Attack
-			0: { // 1060100 <- shadow-chan templateId
+			0: {
 				fixedSpeed: 1,
 				length: 700,
 				requiredBuff: 102600,
@@ -529,7 +528,6 @@ module.exports = {
 		}
 	},
 	1: { // Lancer
-		/*
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2] },
 			0: {
@@ -569,7 +567,6 @@ module.exports = {
 				}
 			}
 		},
-		*/
 		2: { // Stand Fast
 			0: {
 				CC: "extended",
@@ -580,7 +577,7 @@ module.exports = {
 		},
 		3: { // Onslaught
 			'*': {
-				distance: [0, 100, 100, 100, 100, 40],
+				distance: [0, 100, 100, 100, 100, 35],
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27],
 				abnormals: {
 					22060: { speed: 0.25 }
@@ -589,11 +586,16 @@ module.exports = {
 					5: 30
 				},
 				race: {
-					9: { distance: [0, 100, 100, 100, 100, 62.7] } // Elin
+					0: { distance: [0, 100, 100, 100, 100, 15] }, // M.Human
+					2: { distance: [0, 100, 100, 100, 100, 16] }, // M.Helf
+					4: { distance: [0, 100, 100, 100, 100, 13] }, // M.Aman
+					5: { distance: [0, 100, 100, 100, 100, 14] }, // F.Aman
+					8: { distance: [0, 100, 100, 100, 100, 15] }, // Popori
+					9: { distance: [0, 100, 100, 100, 100, 35] } // Elin, 80 FPS
 				}
 			},
-			0: { length: [939, 514.54, 514.54, 514.54, 393.63, 760.11] },
-			30: { length: [688.66, 377.33, 377.33, 377.33, 288.66, 557.35] }
+			0: { length: [950, 500, 500, 500, 400, 775] },
+			30: { length: [713, 375, 375, 375, 300, 582] }
 		},
 		4: { // Challenging Shout
 			0: {
@@ -871,7 +873,6 @@ module.exports = {
 		}
 	},
 	2: { // Slayer
-		/*
 		1: { // Combo Attack
 			'*': { noInterrupt: [1] },
 			0: {
@@ -935,7 +936,6 @@ module.exports = {
 				}
 			}
 		},
-		*/
 		2: { // Knockdown Strike
 			'*': {
 				consumeAbnormal: 23220,
@@ -1272,7 +1272,6 @@ module.exports = {
 		}
 	},
 	3: { // Berserker / There's a lot of unneeded no interrupts currently since sGrantSkill is emulated now, this applies for all charging skills
-		/*
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 2, 4],
@@ -1326,7 +1325,6 @@ module.exports = {
 				}
 			}
 		},
-		*/
 		2: { // Axe Block
 			'*': {
 				CC: "extended",
@@ -1933,11 +1931,9 @@ module.exports = {
 		}
 	},
 	4: { // Sorcerer
-		/*
 		1: { // Fireball
 			0: { length: 730 }
 		},
-		*/
 		2: { // Frost Sphere
 			0: {
 				length: 800,
@@ -2049,12 +2045,7 @@ module.exports = {
 			}
 		},
 		10: { // Mana Barrier
-			0: {
-				length: 633,
-				/*race: {
-					1: {length: 533}
-				}*/
-			}
+			0: { length: 633 }
 		},
 		11: { // Lightning Strike
 			0: {
@@ -2273,23 +2264,16 @@ module.exports = {
 			52: true
 		},
 		34: { // Mana Boost
-			0: {
-				length: 633,
-				/*race: {
-					1: {length: 533}
-				}*/
-			}
+			0: { length: 750 }
 		}
 	},
 	5: { // Archer
-		/*
 		1: { // Arrow
 			0: {
 				length: 400,
 				noRetry: true
 			}
 		},
-		*/
 		2: { // Arrow Volley
 			0: {
 				type: 'lockon',
@@ -2592,14 +2576,12 @@ module.exports = {
 		}
 	},
 	6: { // Priest
-		/*
 		1: { // Divine Radiance
 			0: { length: 590 },
 			1: { length: 650 },
 			2: { length: 720 },
 			3: { length: 802 }
 		},
-		*/
 		2: { // Regeneration Circle
 			0: {
 				length: 3150,
@@ -2639,7 +2621,10 @@ module.exports = {
 			0: { length: 1275 }
 		},
 		11: { // Metamorphic Blast
-			0: { length: 820 }
+			0: {
+				length: 820,
+				checkReset: true
+			}
 		},
 		12: { // Resurrect
 			0: {
@@ -2853,14 +2838,12 @@ module.exports = {
 		}
 	},
 	7: { // Mystic
-		/*
 		1: { // Sharan Bolt
 			0: { length: 675 },
 			1: { length: 675 },
 			2: { length: 675 },
 			3: { length: 675 }
 		},
-		*/
 		2: { // Corruption Ring
 			0: {
 				type: 'hold',
@@ -3170,7 +3153,6 @@ module.exports = {
 	},
 	8: { // Reaper
 		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10141023] },
-		/*
 		1: { // Spiral Barrage
 			'*': {
 				length: 1000,
@@ -3276,7 +3258,6 @@ module.exports = {
 				}
 			}
 		},
-		*/
 		3: { // Double Shear
 			'*': {
 				length: 2025,
@@ -3557,7 +3538,6 @@ module.exports = {
 	},
 	9: { // Gunner
 		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
-		/*
 		1: { // Blast
 			'*': {
 				triggerAbnormal: { 10152011: 3100 },
@@ -3575,7 +3555,6 @@ module.exports = {
 				flyingDistance: 500
 			}
 		},
-		*/
 		2: { // Bombardment
 			0: {
 				type: 'lockon',
@@ -3643,7 +3622,6 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
-				consumeAbnormal: 10152083,
 				length: 1532,
 				distance: 137.88,
 				noInterrupt: [20],
@@ -3839,8 +3817,7 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				//triggerAbnormal: { 10152086: 4100 },
-				consumeAbnormal: 10152083,
+				triggerAbnormal: { 10152086: 4100 },
 				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
@@ -3964,7 +3941,6 @@ module.exports = {
 		},
 		15: { // Replenishment
 			'*': {
-				consumeAbnormal: 10152083,
 				triggerAbnormal: { 10152072: 4100 },
 				fixedSpeed: 1, // The server sends 30090 500 when using the +50 will glyph
 				length: 1320,
@@ -4029,7 +4005,7 @@ module.exports = {
 		20: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1500,
+				length: 1485,
 				noRetry: true
 			}
 		},
@@ -4051,7 +4027,6 @@ module.exports = {
 		}
 	},
 	10: { // Brawler
-		/*
 		1: { // Punch
 			'*': {
 				length: 1575,
@@ -4092,7 +4067,6 @@ module.exports = {
 				distance: 68.63
 			}
 		},
-		*/
 		2: { // Counter
 			'*': {
 				CC: "extended",
@@ -4161,11 +4135,7 @@ module.exports = {
 				CC: "extended",
 				length: 3225,
 				chains: {
-					5: 30,
-					6: 30,
-					6: 30,
-					8: 30,
-					9: 30
+					6: 30
 				}
 			},
 			0: true,
@@ -4216,13 +4186,9 @@ module.exports = {
 				distance: 105,
 				noInterrupt: [7],
 				chains: {
-					2: 30,
-					4: 30,
 					6: 30,
 					8: 30,
-					9: 30,
-					10: 30
-
+					9: 30
 				},
 				hasChains: true
 			},
@@ -4270,13 +4236,9 @@ module.exports = {
 
 				},
 				chains: {
-					'2-1': 30,
 					4: 30,
-					5: 30,
-					6: 30,
 					7: 30,
-					8: 30,
-					10: 30
+					8: 30
 				},
 				hasChains: true
 			},
@@ -4288,7 +4250,7 @@ module.exports = {
 		10: { // Counterpunch
 			'*': {
 				CC: "extended",
-				length: 1855,
+				length: 1850,
 				distance: 155,
 				requiredBuff: 10153000,
 				chains: {
@@ -4316,7 +4278,7 @@ module.exports = {
 		13: { // Provoke
 			'*': {
 				fixedSpeed: 1,
-				length: 1291
+				length: 1275
 			},
 			1: true,
 			2: true
@@ -4329,7 +4291,7 @@ module.exports = {
 		},
 		16: { // Flip Kick
 			'*': {
-				length: 2066,
+				length: 2050,
 				distance: 134,
 				chains: {
 					4: 30
@@ -4366,7 +4328,6 @@ module.exports = {
 	},
 	11: { // Ninja
 		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006, 10154081, 10154082, 10154085] },
-		/*
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
@@ -4520,7 +4481,6 @@ module.exports = {
 				}
 			}
 		},
-		*/
 		2: { // Shadow Jump
 			'*': {
 				CC: ["evasive", "extended"],
@@ -4981,7 +4941,6 @@ module.exports = {
 		}
 	},
 	12: { // Valkyrie
-		/*
 		1: { // Slash
 			'*': {
 				length: 1107,
@@ -5027,7 +4986,6 @@ module.exports = {
 			},
 			30: true
 		},
-		*/
 		2: { // Overhead Slash
 			'*': {
 				length: 1917,
@@ -5466,13 +5424,13 @@ module.exports = {
 				length: 1075
 			}
 		},
-		18: { // Retaliate
+		/*18: { // Retaliate
 			0: { 
 				type: 'retaliate',
 				length: 1630,
 				noRetry: true 
 			}
-		},
+		},*/
 		19: { // Reclamation
 			'*': {
 				length: 1525,

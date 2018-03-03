@@ -1,3 +1,11 @@
+## Basic info
+
+Supported `ping` methods:
+* `active` - ask server every N time, recalculating current ping based on response
+* `passive`- calculate ping after skill cast
+
+By default: `active`
+
 ## Information
 
 ### Passive method
@@ -13,7 +21,27 @@ Cons:
 * Effect can be different for users
 * Your skills will be broken with bad settings
 
+### Active method
+
+Author: PinkiePie (edited by SaltyMonkey)
+
+Pros: 
+* Simple
+* Stable
+
+Cons:
+* Detectable (in theory)
+* For players with unstable connection can't get real values
+
 ## Configuration
+
+### Mode
+
+1) Open config.json (path `./config/config.json`)
+
+2) Find "pingMethod" field and change it to `"passive"` or `"active"`
+
+3) Edit "pingHistoryMax" field (`35+` for `"passive"`, `15-20` for `"active"` ping method)
 
 ### For users with unstable connection
 

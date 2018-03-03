@@ -2,7 +2,19 @@
 
 You can disable/enable class/skill for class with `preset.js
 
-Path: `<ping-compensation-folder>/config/preset.js`
+Path: `<skill-prediction-folder>/config/preset.js`
+
+WARNING! WARNING! WARNING!
+
+Some classes using emulated abnormals for skills.
+
+You can't disable these skills only with this preset.js
+
+You MUST change values in abnormalities.js too
+
+Path: `Path: <skill-prediction-folder>/config/abnormalities.js`
+
+WARNING! WARNING! WARNING! 
 
 ## How To
 Preset.js contains all clases in specific format + skills (specific format) but you can detect classes/skills by comments
@@ -40,7 +52,7 @@ Example:
 
 `"enabled":true,` - class activated
 
-`1: true, // Combo Attack` - combo attack compensation activated
+`1: true, // Combo Attack` - combo attack emulation activated
 
 ### Deactivation
 
@@ -62,4 +74,4 @@ Example:
 
 `"enabled":false,` - class deactivated (if class deactivated then all settings for skills will be ignored and emulation for class will be disable)
 
-`1: false, // Combo Attack` - combo attack compensation deactivated
+`1: false, // Combo Attack` - combo attack emulation deactivated
