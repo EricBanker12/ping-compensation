@@ -21,7 +21,7 @@ Cons:
 
 5) Find "pingSpikesMin": field and set it to:  `your average minimal ping - 10`
 
-6) Find "pingSpikesMax" field and set it to: `your average ping + 30`
+6) Find "pingSpikesMax" field and set it to: `your average ping * 2`
 
 ### WARNING №1! Wrong settings for spikes can ruin your gameplay.
 

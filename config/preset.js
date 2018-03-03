@@ -1,10 +1,4 @@
 /*
-WARNING! WARNING! WARNING!
-Some classes using emulated abnormals for skills.
-You can't disable these skills only with this preset.js
-You MUST change values in abnormalities.js too for disabled skills
-WARNING! WARNING! WARNING!
-
 Awakening skills naming is being done based on the following document: https://docs.google.com/document/d/1q0qxSf-Ll1nfViF9SGf1kcA2I0CjO_N8dokgpx__o2c/edit#
 (for now)
 */

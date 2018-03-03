@@ -1,11 +1,13 @@
 {
-	"version": "2.0",
+	"version": "3.0",
 	"enabled": true,
+	"debug": false,
 	"spCompatible": false,
 	"spDirectory": "skill-prediction",
-	"debug": false,
+	"useRetries": false,
+	"skillRetryMs": 50,
 	"pingHistoryMax": 30,
 	"pingSpikesLimit": false,
 	"pingSpikesMin": 100,
-	"pingSpikesMax": 300
+	"pingSpikesMax": 1000
 }
