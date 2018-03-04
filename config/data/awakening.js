@@ -490,7 +490,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1335,
+				length: 1333.33,
 				distance: 135
 			}
 		},
@@ -945,60 +945,60 @@ module.exports = {
 				length: 750,
 				distance: 36.68,
 				race: {
-					0: { distance: 36.68 }, // M.Human: 36.679
-					2: { distance: 50.68 }, // M.Helf: 50.68
-					4: { distance: 40 }, // M.Aman: 40
-					5: { distance: 36.68 }, // F.Aman: 36.68
-					6: { distance: 36.68 }, // M.Casta: 36.68
-					7: { distance: 60 }, // F.Casta: 60
-					8: { distance: 31.53 }, // Popori: 31.526
-					9: { distance: 36.68 }, // Elin: 36.68
-					10: { distance: 25.08 } // Baraka: 25.076
+					0: { distance: 36.68 }, // M.Human
+					2: { distance: 50.68 }, // M.Helf
+					4: { distance: 40 }, // M.Aman
+					5: { distance: 36.68 }, // F.Aman
+					6: { distance: 36.68 }, // M.Casta
+					7: { distance: 60 }, // F.Casta
+					8: { distance: 31.53 }, // Popori
+					9: { distance: 36.68 }, // Elin
+					10: { distance: 25.08 } // Baraka
 				}
 			},
 			1: {
 				length: 1030,
 				distance: 35.68,
 				race: {
-					0: { distance: 35.68 }, // M.Human: 35.675
-					2: { distance: 30.68 }, // M.Helf: 30.675
-					4: { distance: 35 }, // M.Aman: 35
-					5: { distance: 35.68 }, // F.Aman: 35.675
-					6: { distance: 35.68 }, // M.Casta: 35.675
-					7: { distance: 17 }, // F.Casta: 17
-					8: { distance: 49.4 }, // Popori: 49.396
-					9: { distance: 35.68 }, // Elin: 35.675
-					10: { distance: 32.95 } // Baraka: 32.952
+					0: { distance: 35.68 }, // M.Human
+					2: { distance: 30.68 }, // M.Helf
+					4: { distance: 35 }, // M.Aman
+					5: { distance: 35.68 }, // F.Aman
+					6: { distance: 35.68 }, // M.Casta
+					7: { distance: 17 }, // F.Casta
+					8: { distance: 49.4 }, // Popori
+					9: { distance: 35.68 }, // Elin
+					10: { distance: 32.95 } // Baraka
 				}
 			},
 			2: {
 				length: 750,
 				distance: 28.05,
 				race: {
-					0: { distance: 28.05 }, // M.Human: 28.054
-					2: { distance: 33.05 }, // M.Helf: 33.054
-					4: { distance: 20 }, // M.Aman: 20
-					5: { distance: 28.05 }, // F.Aman: 28.054
-					6: { distance: 22.3 }, // M.Casta: 22.302
-					7: { distance: 23 }, // F.Casta: 23
-					8: { distance: 19.33 }, // Popori: 19.333
-					9: { distance: 28.05 }, // Elin: 28.504
-					10: { distance: 22.5 } // Baraka: 22.5
+					0: { distance: 28.05 }, // M.Human
+					2: { distance: 33.05 }, // M.Helf
+					4: { distance: 20 }, // M.Aman
+					5: { distance: 28.05 }, // F.Aman
+					6: { distance: 22.3 }, // M.Casta
+					7: { distance: 23 }, // F.Casta
+					8: { distance: 19.33 }, // Popori
+					9: { distance: 28.05 }, // Elin
+					10: { distance: 22.5 } // Baraka
 				}
 			},
 			3: {
 				length: 1650,
 				distance: 46.76,
 				race: {
-					0: { distance: 46.76 }, // M.Human: 46.758
-					2: { distance: 46.76 }, // M.Helf: 46.578
-					4: { distance: 40 }, // M.Aman: 40
-					5: { distance: 64.36 }, // F.Aman: 64.359
-					6: { distance: 118.2 }, // M.Casta: 118.202
-					7: { distance: 45 }, // F.Casta: 45
-					8: { distance: 19.85 }, // Popori: 19.848
-					9: { distance: 46.76 }, // Elin: 46.757
-					10: { distance: 37.5 } // Baraka: 37.5
+					0: { distance: 46.76 }, // M.Human
+					2: { distance: 46.76 }, // M.Helf
+					4: { distance: 40 }, // M.Aman
+					5: { distance: 64.36 }, // F.Aman
+					6: { distance: 118.2 }, // M.Casta
+					7: { distance: 45 }, // F.Casta
+					8: { distance: 19.85 }, // Popori
+					9: { distance: 46.76 }, // Elin
+					10: { distance: 37.5 } // Baraka
 				}
 			}
 		},
@@ -1058,7 +1058,7 @@ module.exports = {
 		4: { // Evasive Roll
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 905,
+				length: 909.1,
 				distance: 150,
 				forceClip: true,
 				noRetry: true,
@@ -1066,7 +1066,7 @@ module.exports = {
 				race: {
 					8: {	// Popori: 150.316, 1185
 						distance: 150.32,
-						length: 1185
+						length: 1181.8
 					}
 				}
 			},
@@ -1085,15 +1085,15 @@ module.exports = {
 			'*': {
 				distance: 169.5,
 				race: {
-					0: { distance: 171.14 }, // M.Human: 171.138
-					2: { distance: 171.14 }, // M.Helf: 171.138
-					4: { distance: 145 }, // M.Aman: 145
-					5: { distance: 134.53 }, // F.Aman: 134.532
-					6: { distance: 161.14 }, // M.Casta: 161.138
-					7: { distance: 170 }, // F.Casta: 170
-					8: { distance: 150 }, // Popori: 150
-					9: { distance: 169.65 }, // Elin: 169.648
-					10: { distance: 151.14 } // Baraka: 151.138
+					0: { distance: 171.14 }, // M.Human
+					2: { distance: 171.14 }, // M.Helf
+					4: { distance: 145 }, // M.Aman
+					5: { distance: 134.53 }, // F.Aman
+					6: { distance: 161.14 }, // M.Casta
+					7: { distance: 170 }, // F.Casta
+					8: { distance: 150 }, // Popori
+					9: { distance: 169.65 }, // Elin
+					10: { distance: 151.14 } // Baraka
 				}
 			},
 			0: {
@@ -1296,7 +1296,7 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3685,
+				length: 3691.25,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22],
 				chains: {
 					8: 30,
@@ -1304,7 +1304,7 @@ module.exports = {
 					25: 30
 				}
 			},
-			30: { length: 1670 } // Maybe 1675~1700
+			30: { length: 1684.1 }
 		},
 		24: { // Eviscerate
 			0: {
@@ -1516,15 +1516,15 @@ module.exports = {
 				}
 			},
 			13: {
-				6: { distance: 69.704 }, // M.Casta, 69.704
-				distance: 87.28, // 87.272
+				distance: 69.7,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 90.98 }, // F.Helf: 90.983
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 90.98 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				},
 				enableVB: true,
 				pendingStartTime: 454.54
@@ -1543,11 +1543,11 @@ module.exports = {
 					24101: { speed: 0.30 }
 				},
 				race: {
-					3: { distance: 90.6 }, // F.Helf: 90.601
-					6: { distance: 75 }, // M.Casta: 75
-					8: { distance: 73.34 }, // Popori: 73.344
-					9: { distance: 105.69 }, // Elin: 105.685
-					10: { distance: 70.23 } // Baraka: 70.227
+					3: { distance: 90.6 }, // F.Helf
+					6: { distance: 75 }, // M.Casta
+					8: { distance: 73.34 }, // Popori
+					9: { distance: 105.69 }, // Elin
+					10: { distance: 70.23 } // Baraka
 				}
 			},
 			0: {
@@ -1592,7 +1592,7 @@ module.exports = {
 					3: { distance: 71.34 }, // F.Helf
 					6: { distance: 66.21 }, // M.Casta
 					8: { distance: 53.41 }, // Popori
-					9: {  // Elin
+					9: { // Elin
 						length: 1263.63, // Probably doesn't matter if chaining, same for most chains, block cancels
 						distance: 80.47
 					},
@@ -1854,7 +1854,7 @@ module.exports = {
 			0: {
 				CC: "evasive",
 				type: 'storeCharge',
-				length: 1015, // 1000, 1025
+				length: 1020.9,
 				distance: 150,
 			},
 			5: { type: 'grantCharge' },
@@ -1897,25 +1897,31 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		27: { // Unbreakable /Need M.Casta
+		27: { // Unbreakable
 			'*': { // i wonder how long it would take for people to realize this skill got new properties
 				noInterrupt: [2] // How would this behave..
 			},
-			0: { // to do, check racial differences
-				length: 2080,
+			0: {
+				length: 2066,
 				abnormals: {
-					401705: { chain: 30 } // Client may handle this alone
+					401705: { chain: 30 }
 				},
 				chains: { // 4x
 
+				},
+				race: {
+					7: { length: 2099 } // F.Casta
 				}
 			},
-			30: { length: 1733.33 } // Used for Berserk mode? Chain?
+			30: { length: 1455 } // Used for Berserk mode? Chain?
 		},
 		28: { // Intimidation
 			'*': {
 				length: 1566,
-				noInterrupt: [2]
+				noInterrupt: [2],
+				race: {
+					7: { length: 1599 } // F.Casta
+				}
 			},
 			0: true,
 			50: true
@@ -2108,7 +2114,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [800, 800],
+				length: [800, 800], // 1000, 1000 <- dis too
 				noInterrupt: [7, 26],
 				lastChargeStage: 2000, // 50 <- revert to 50 once it reaches pleb regions, keep 2000 for ktera
 				abnormals: {

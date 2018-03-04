@@ -490,7 +490,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1335,
+				length: 1333.33,
 				distance: 135
 			}
 		},
@@ -973,7 +973,7 @@ module.exports = {
 		4: { // Evasive Roll
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 905,
+				length: 909.1,
 				distance: 150,
 				forceClip: true,
 				noRetry: true,
@@ -981,7 +981,7 @@ module.exports = {
 				race: {
 					8: {	// Popori: 150.316, 1185
 						distance: 150.32,
-						length: 1185
+						length: 1181.8
 					}
 				}
 			},
@@ -1394,19 +1394,18 @@ module.exports = {
 				}
 			},
 			13: {
-				6: { distance: 69.704 }, // M.Casta, 69.704
-				distance: 87.28, // 87.272
+				distance: 69.7,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 90.98 }, // F.Helf: 90.983
-					4: { distance: 35 }, // M.Aman: 35
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 90.98 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				},
 				enableVB: true,
-				pendingStartTime: 454.54 // 500 / timeRate = 1.1
+				pendingStartTime: 454.54
 			}
 		},
 		4: { // Flatten
@@ -1789,7 +1788,7 @@ module.exports = {
 			0: {
 				CC: "evasive",
 				type: 'storeCharge',
-				length: 1015, // 1000, 1025
+				length: 1020.9,
 				distance: 150,
 			},
 			5: { type: 'grantCharge' },
@@ -1800,7 +1799,7 @@ module.exports = {
 		},
 		25: { // Raze
 			'*': {
-				length: 1205,
+				length: 1200,
 				distance: 96,
 				glyphs: {
 					24078: { speed: 0.25 }
@@ -1822,12 +1821,12 @@ module.exports = {
 				}
 			},
 			1: true,
-			30: { length: 965 },
-			31: { length: 965 }
+			30: { length: 960 },
+			31: { length: 960 }
 		},
 		26: { // Tackle
 			0: {
-				length: 1000,
+				length: 1010,
 				distance: 80,
 				noInterrupt: [2]
 			}
@@ -1851,7 +1850,7 @@ module.exports = {
 		29: { // Evasive Roll
 			0: {
 				CC: ["evasive", "extended"],
-				length: 905,
+				length: 909.1,
 				distance: 150,
 				forceClip: true,
 				noInterrupt: [2, 29],
