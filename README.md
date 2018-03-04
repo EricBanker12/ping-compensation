@@ -5,8 +5,8 @@ Ping Compensation | Skill Prediction
 :--:|:--:
 No Ghosting\* | Occasional Ghosting\*
 Less Fluid Animations | More Fluid Animations
-Partial Benefit For chained and lockon skills | Full Benefit For chained and lockon skills
-No Combo Attack, blocking, and chargables support | Full Combo Attack, blocking, and chargables support
+Partial Benefit For chained, lockon, and chargable skills | Full Benefit For chained, lockon, and chargable skills
+No Combo Attack or blocking support | Full Combo Attack and blocking support
 
 \* Ghosting is playing a skill animation without dealing damage or using a different skill than server recieves/sends.
 ### My Recommendation (WIP: NOT FULLY TESTED YET)
