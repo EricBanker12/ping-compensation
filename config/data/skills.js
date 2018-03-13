@@ -2468,8 +2468,11 @@ module.exports = {
 		14: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1620,
-				noRetry: true
+				length: 1633,
+				noRetry: true,
+				race: {
+					0: 1433
+				}
 			}
 		},
 		15: { // Incendiary Trap
@@ -2528,7 +2531,10 @@ module.exports = {
 				length: 433,
 				requiredBuff: 600200,
 				noInterrupt: [22],
-				noRetry: true
+				noRetry: true,
+				race: {
+					5: { length: 533 }
+				}
 			}
 		},
 		23: { // Stunning Trap Arrow
@@ -3758,12 +3764,14 @@ module.exports = {
 				},
 				triggerAbnormalEnd: { 10152081: 4100 },
 				consumeAbnormal: 10152072,
+				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
 			},
 			3: {
 				consumeAbnormal: [10152040],
+				consumeAbnormalEnd: 10152010,
 				noInterrupt: ['7-3'],
 				length: 1200
 			}
