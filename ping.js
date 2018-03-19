@@ -35,7 +35,7 @@ class Ping {
 
     //---
     
-    let cid;
+    let gameId;
     this.last = 0;
     let pingStack = {};
 
@@ -54,18 +54,18 @@ class Ping {
       return ((id > 0x4000000) ? id - 0x4000000 : id);
     };
     
-    dispatch.hook('S_LOGIN', 1, e => { ({cid} = e); });
+    dispatch.hook('S_LOGIN', 9, e => { ({gameId} = e); });
 
     const skillHook = e => {
       pingStart(skillId(e.skill));
     };
 
     for(let packet of [
-      ['C_START_SKILL', 3],
-      ['C_START_TARGETED_SKILL', 3],
-      ['C_START_COMBO_INSTANT_SKILL', 1],
-      ['C_START_INSTANCE_SKILL', 1],
-      ['C_START_INSTANCE_SKILL_EX', 2],
+      ['C_START_SKILL', 4],
+      ['C_START_TARGETED_SKILL', 4],
+      ['C_START_COMBO_INSTANT_SKILL', 2],
+      ['C_START_INSTANCE_SKILL', 3],
+      ['C_START_INSTANCE_SKILL_EX', 3],
       //['C_PRESS_SKILL', 1],
       ['C_NOTIMELINE_SKILL', 1], //not sure about this one
       ['C_CAN_LOCKON_TARGET', 1],
@@ -76,16 +76,16 @@ class Ping {
     });
 
     const actionHook = e => {
-      if(e.source && !e.source.equals(cid)) return;
+      if(e.gameId && !e.gameId.equals(gameId)) return;
       pingEnd(skillId(e.skill));
     };
 
     for(let packet of [
-      ['S_ACTION_STAGE', 1],
+      ['S_ACTION_STAGE', 4],
       ['S_CANNOT_START_SKILL', 1],
       ['S_CAN_LOCKON_TARGET', 1],
-      ['S_INSTANT_DASH', 1],
-      //['S_INSTANT_MOVE', 1], //uses id instead of source
+      ['S_INSTANT_DASH', 3], //not sure about this, often delayed extra 25ms
+      ['S_INSTANT_MOVE', 3], //not sure about this, often delayed extra 25ms
     ]) dispatch.hook(packet[0], packet[1], { filter: { fake: false, modified: false, silenced: null }, order: -1000 }, actionHook);
 
     dispatch.hook('C_REQUEST_GAMESTAT_PING', 1, () => {
