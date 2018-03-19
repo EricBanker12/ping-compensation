@@ -1,0 +1,59 @@
+{
+    "files": {
+        "index.js": "33d533099ea62911b0e0bdb62075b8ee4d4c2bc4ff5c48c4ce752b3ff3e46c42",
+        "LICENSE": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
+        "module.json": "f25b4b87d552beb330b3b51d9b4fc7eeba4b139a7da29dfa5622ec06a5e9e888",
+        "README.md": "7491448f958e86595cc9363acdb8ef46c92e06eeb573f895502ac04f67934a7a",
+        "config/config.json": {
+            "overwrite": false,
+            "hash": "ffd1336091c46d28fa10c51de090a937b616e21d09922102ef202d852dd1f8f5"
+        },
+        "config/preset.js": {
+            "overwrite": false,
+            "hash": "2154eea4db57f2fb633f8238e897824acfe5f2e48ed55ef57b677d27e0ee6bc6"
+        },
+        "config/data/awakening.js": "d3682dfc0b001e3b2d65695e718d19d014f0d01280f493827cf8e5bd6067054a",
+        "config/data/basicCC.json": "9659b7fd753047f62b7764375811e66638aaf15ee1d4e1c1ab16790a65407ec1",
+        "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
+        "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
+        "config/data/skills.js": "47b6d20d62a91aaaecd32469f9e5e6d856977bb387b787ca6a54ad3d3fca1eaf",
+        "config/data/stunStaggerKnockdownImmune.json": "e645c4ab72f419582648f8080a2e36467c3b142b83468993ed76c7595cf4c3a7",
+        "docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
+        "docs/config.md": "f1d359ad45cb22b0670b2cfe3ce2a096e4eb4ea047beb79570fb9a36ac15414f",
+        "docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
+        "docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
+        "lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
+        "lib/core.js": "8abe4356fb4f4b7b63d8e379f9f9d1ba0980a800d0fc8e4399f58ed474e3598a",
+        "lib/ping.js": "5b69ec14efda91a646ee387e9f65298919efb3ea14a10b0cffdd42aa78fee1d0"
+    },
+    "defs": {
+        "C_CANCEL_SKILL": 1,
+        "C_CAN_LOCKON_TARGET": 1,
+        "C_NOTIFY_LOCATION_IN_ACTION": 1,
+        "C_NOTIFY_LOCATION_IN_DASH": 1,
+        "C_NOTIMELINE_SKILL": 1,
+        "C_PLAYER_LOCATION": 2,
+        "C_PRESS_SKILL": 1,
+        "C_REQUEST_GAMESTAT_PING": 1,
+        "C_START_COMBO_INSTANT_SKILL": 1,
+        "C_START_INSTANCE_SKILL": 1,
+        "C_START_INSTANCE_SKILL_EX": 2,
+        "C_START_SKILL": 3,
+        "C_START_TARGETED_SKILL": 3,
+        "S_ACTION_END": 2,
+        "S_ACTION_STAGE": 1,
+        "S_ACTION_STAGE": 2,
+        "S_CANNOT_START_SKILL": 1,
+        "S_CAN_LOCKON_TARGET": 1,
+        "S_CREATURE_LIFE": 1,
+        "S_EACH_SKILL_RESULT": 4,
+        "S_INSTANT_DASH": 2,
+        "S_INSTANT_MOVE": 1,
+        "S_LOAD_TOPO": 1,
+        "S_LOGIN": 1,
+        "S_LOGIN": 9,
+        "S_RESPONSE_GAMESTAT_PONG": 1,
+        "S_SPAWN_ME": 1,
+        "S_START_COOLTIME_SKILL": 1
+    }
+}
