@@ -1387,6 +1387,7 @@ module.exports = {
 		}
 	},
 	3: { // Berserker / There's a lot of unneeded no interrupts currently since sGrantSkill is emulated now, this applies for all charging skills interactions
+		'*': { consumeAbnormal: 401404 },
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 2, 4],
@@ -1455,6 +1456,7 @@ module.exports = {
 				abnormals: {
 					24170: { speed: 0.25 }
 				},
+				noInterrupt: [3],
 				noRetry: true
 			},
 			0: {
@@ -1626,7 +1628,10 @@ module.exports = {
 			}
 		},
 		10: { // Cyclone
-			'*': { noRetry: true },
+			'*': {
+				noInterrupt: [3],
+				noRetry: true
+			},
 			0: false, // Disabled since causes issues when chaining from itself.
 			/*0: { // When Cyclone resets you basically fully charge in 1 tick, so you do for example:
 				type: 'charging', // 0 > charge > 13 > 0(doesn't need to charge, already fully charge) > 13
@@ -1715,12 +1720,15 @@ module.exports = {
 			}
 		},
 		15: { // Vampiric Blow  
-			'*': { length: 1930 },
+			'*': {
+				length: 1930,
+				noInterrupt: [15]
+			},
 			0: {
 				type: 'charging',
 				consumeAbnormal: 400900,
 				length: [800, 800, 800],
-				noInterrupt: [2, '3-0', 4, '10-0', 15, '18-0', 24, 25, 30],
+				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30],
 				lastChargeStage: 2000,
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
@@ -1734,64 +1742,63 @@ module.exports = {
 					18: 14
 				},
 				level: [
-					{ length: 800 },	// 1600
-					{ length: [800, 800] },	// 1600
-					{ length: [800, 800] }	// 1600
+					{ length: 800 },
+					{ length: [800, 800] },
+					{ length: [800, 800] }
 				]
 			},
 			10: {
-				distance: 87.28, // 87.272
+				distance: 87.28,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 72.79 }, // F.Helf: 72.785
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 72.79 }, // F.Helf
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			},
 			11: {
-				distance: 87.28, // 87.272
+				distance: 87.28,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 72.79 }, // F.Helf: 72.785
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 72.79 }, // F.Helf
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			},
 			12: {
-				distance: 87.28, // 87.272
+				distance: 87.28,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 72.79 }, // F.Helf: 72.785
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 72.79 }, // F.Helf
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			},
 			13: {
-				distance: 87.28, // 87.272
+				distance: 87.28,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 72.79 }, // F.Helf: 72.785
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 72.79 }, // F.Helf
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			},
 			14: {
-				distance: 87.28, // 87.272
-				noInterrupt: [15],
+				distance: 87.28,
 				race: {
-					3: { distance: 72.79 }, // F.Helf: 72.785
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 72.79 }, // F.Helf
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			}
 		},
@@ -4342,10 +4349,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: true,
-			1: {
-				length: 1575, // is this needed?
-				distance: 68.63
-			},
+			1: { distance: 68.63 },
 			2: {
 				length: 925,
 				distance: 50.7
@@ -4356,10 +4360,7 @@ module.exports = {
 			},
 			30: true,
 			31: true,
-			32: {
-				length: 1575, // is this needed?
-				distance: 68.63
-			}
+			32: { distance: 68.63 }
 		},
 		2: { // Counter
 			'*': {
@@ -4488,7 +4489,16 @@ module.exports = {
 				length: 860,
 				distance: 105,
 				noInterrupt: [7],
-				hasChains: true
+				/*chains: {
+					1: 30,
+					2: 30,
+					4: 30,
+					5: 30,
+					8: 30,
+					9: 30,
+					16: 30,
+					40: 30
+				}*/
 			},
 			0: true,
 			30: true
@@ -4609,9 +4619,13 @@ module.exports = {
 				hasChains: true,
 				noRetry: true,
 			},
-			0: true, // TODO: Figure out which animations are correct
+			0: true,/*{
+				triggerAbnormal: { 10153150: 8000 },
+				abnormals: { 10153150: { chain: 30 } },
+				noInterrupt: [40]
+			},*/
 			1: true,
-			30: true,
+			30: true, //{ consumeAbnormal: 10153150 },
 			31: true
 		},
 

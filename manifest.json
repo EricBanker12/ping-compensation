@@ -7,7 +7,7 @@
     "README.md": "db27dcc6a9c5fbcac0a6069ee744f2d8f6ae60119be6f9b178fb54fcf087d84f",
     "config/abnormalities.js": {
       "overwrite": false,
-      "hash": "2f81798ab7f2102f581628e52d7eeb63ebeb16dbc9c0945c283262cde9be6df0"
+      "hash": "dd818c66c5319d234542aadcc74c74d3064933f33f184263fec0a763ec19a3a8"
     },
     "config/config.json": {
       "overwrite": false,
@@ -22,7 +22,7 @@
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
     "config/data/skills.js": "67f30a5010506205e95648f0fcfcb340b6f281df52742d35da641fbe0fe45cab",
-    "config/data/awakening.js": "747b6e0f7aa9e9afd628b8d9803b1def2f836e3c502a25f6db260988e6251711",
+    "config/data/awakening.js": "49fe55dce8facb6f251679108d65e96d65e40005e3fe4765cc5f0035e579ff0e",
     "docs/commands.md": "3d1dab2882a5695d87d1f74550c0fa14fc61e55fcf14156e316ec8b2d9c56ddc",
     "docs/config.md": "a9cb49092571c0db76ea758e8ce00994a856e9758b4fdea481808da603ab93c1",
     "docs/ping.md": "6d27ee0ddf1d45df4515655b56efd8f51fb9aa91c8bcab5f2973656d3fbef0e3",

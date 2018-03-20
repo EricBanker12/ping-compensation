@@ -5,6 +5,12 @@ module.exports = {
 
 	/* Reaper */
 
+	// Spiral Barrage
+	10151020: true, // 2
+	10151021: true, // 3
+	10151022: true, // 4
+	10151023: true, // 5
+
 	// Shadow Lash (SelfChains)
 	10151040: true, // First cast
 	10151041: true, // Second cast
