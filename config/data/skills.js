@@ -139,7 +139,7 @@ module.exports = {
 		},
 		5: { // Battle Cry
 			0: {
-				length: 1665,
+				length: 1666,
 				noInterrupt: [32],
 				glyphs: {
 					21040: { speed: 0.5 }
@@ -167,8 +167,8 @@ module.exports = {
 				length: 2066,
 				noInterrupt: [2, 32],
 				race: {
-					3: { length: 2025 }, // F.Helf
-					9: { length: 2025 } // Elin
+					3: { length: 2033 }, // F.Helf
+					9: { length: 2033 } // Elin
 				}
 			}
 		},
@@ -200,15 +200,12 @@ module.exports = {
 		12: { // Leaping Strike
 			0: {
 				CC: "extended",
-				length: 1525,
+				length: 1533,
 				distance: 250,
 				noInterrupt: [32],
 				race: {
-					2: { length: 1525 }, // M.Helf
-					5: { length: 1525 }, // F.Aman
-					7: { length: 1700 }, // F.Castanic
-					8: { length: 1710 }, // Popori
-					9: { length: 1525 } // Elin
+					7: { length: 1714 }, // F.Castanic
+					8: { length: 1714 }, // Popori
 				}
 			}
 		},
@@ -225,7 +222,7 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1115,
+				length: 1120,
 				distance: 467.88,
 				noRetry: true,
 				noInterrupt: [16, 32]
@@ -306,7 +303,7 @@ module.exports = {
 		},
 		23: { // Spinning Counter
 			0: {
-				length: 1075,
+				length: 1090,
 				distance: 65.35,
 				requiredBuff: 100700,
 				abnormals: {
@@ -433,7 +430,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1386,
+				length: 1387,
 				abnormals: {
 					100801: { skill: 380130 }
 				}
@@ -442,7 +439,7 @@ module.exports = {
 		31: { // Reaping Slash
 			'*': { distance: 110 },
 			0: {
-				length: 2291,
+				length: 2292,
 				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
 				chains: {
 					4: 30,
@@ -523,7 +520,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 2668,
+				length: 2667,
 				distance: 210
 			}
 		}
@@ -2309,9 +2306,9 @@ module.exports = {
 		},
 		3: { // Radiant Arrow
 			'*': {
-				length: 1748,
+				length: 1748.2,
 				races: {
-					1: { length: 1560 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
+					1: { length: 1566.37 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
 				}
 			},
 			0: {
@@ -2476,10 +2473,10 @@ module.exports = {
 			6: { length: 1233 }
 		},
 		9: { // Slow Trap
-			0: { length: 1150 }
+			0: { length: 1149.5 }
 		},
 		10: { // Stunning Trap
-			0: { length: 1150 }
+			0: { length: 1149.5 }
 		},
 		12: { // Velik's Mark
 			0: { length: 200 }
@@ -2487,17 +2484,21 @@ module.exports = {
 		14: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1620,
-				noRetry: true
+				length: 1633,
+				noRetry: true,
+				race: {
+					0: {length:1433},
+					1: {length:1433}
+				}
 			}
 		},
 		15: { // Incendiary Trap
-			0: { length: 1149 } //
+			0: { length: 1149.5 } 
 		},
 		16: { // Breakaway Bolt
 			0: {
 				CC: "extended",
-				length: 1340,
+				length: 1335,
 				distance: -250,
 				forceClip: true
 			}
@@ -2515,12 +2516,20 @@ module.exports = {
 			},
 			1: {
 				length: 1233,
-				distance: 87.29	// 97.292
+				distance: 87.29,
+				race: {
+					0: { length: 1266 },
+					1: { length: 1266 },
+					2: { length: 1266 },
+					3: { length: 1266 },
+					4: { length: 1266 },
+					5: { length: 1266 }
+				}
 			}
 		},
 		19: { // Poison Arrow
 			0: {
-				length: 1103,
+				length: 1102.36,
 				distance: -12.5,
 				noInterrupt: [22],
 				abnormals: {
@@ -2547,14 +2556,17 @@ module.exports = {
 				length: 433,
 				requiredBuff: 600200,
 				noInterrupt: [22],
-				noRetry: true
+				noRetry: true,
+				race: {
+					5: { length: 533 }
+				}
 			}
 		},
 		23: { // Stunning Trap Arrow
-			0: { length: 1450 } // 1440
+			0: { length: 1423.6 } // 1440
 		},
 		25: { // Incendiary Trap Arrow
-			0: { length: 1225 } // 1215
+			0: { length: 1192.75 } // 1215
 		},
 		29: { // Thunderbolt
 			0: {
@@ -2580,7 +2592,7 @@ module.exports = {
 		32: { // Find Weakness
 			0: {
 				fixedSpeed: 1,
-				length: 200
+				length: 182
 			}
 		},
 		33: { // Chase
@@ -3167,7 +3179,7 @@ module.exports = {
 				noInterrupt: [42]
 			}
 		},
-		43: { // Release																																																																							
+		43: { // Release
 			0: { length: [400, 575] }
 		}
 	},
@@ -3785,12 +3797,14 @@ module.exports = {
 				},
 				triggerAbnormalEnd: { 10152081: 4100 },
 				consumeAbnormal: 10152072,
+				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
 				noInterrupt: [7],
 				noRetry: true
 			},
 			3: {
 				consumeAbnormal: [10152040],
+				consumeAbnormalEnd: 10152010,
 				noInterrupt: ['7-3'],
 				length: 1200
 			}
@@ -4991,7 +5005,7 @@ module.exports = {
 		/*
 		1: { // Slash
 			'*': {
-				length: 1107,
+				length: 1107.45,
 				distance: 47.13,
 				noInterrupt: ['1-3'],
 				chains: {
@@ -5021,15 +5035,15 @@ module.exports = {
 			},
 			0: true,
 			1: {
-				length: 1200,
+				length: 1200.35,
 				distance: 43.37
 			},
 			2: {
-				length: 1454,
+				length: 1454.3,
 				distance: 58.54
 			},
 			3: {
-				length: 1928,
+				length: 1927.58,
 				distance: 90.1
 			},
 			30: true
@@ -5037,7 +5051,7 @@ module.exports = {
 		*/
 		2: { // Overhead Slash
 			'*': {
-				length: 1917,
+				length: 1917.8,
 				distance: 102.47,
 				chains: {
 					1: 30,
@@ -5108,7 +5122,7 @@ module.exports = {
 		},
 		5: { // Maelstrom
 			'*': {
-				length: 3145,
+				length: 3145.43,
 				distance: 125.11,
 				chains: {
 					1: 30,
@@ -5135,7 +5149,7 @@ module.exports = {
 		},
 		6: { // Leaping Strike
 			'*': {
-				length: 1775,
+				length: 1772.8,
 				distance: 105,
 				chains: {
 					1: 30,
@@ -5163,7 +5177,7 @@ module.exports = {
 		},
 		7: { // Spinning Death
 			'*': {
-				length: 1786,
+				length: 1786.14,
 				distance: 139.72,
 				noInterrupt: ['7-2'],
 				abnormals: {
@@ -5225,12 +5239,12 @@ module.exports = {
 				}
 			},
 			0: true,
-			1: { length: 2000 },
+			1: { length: 2017 },
 			30: true
 		},
 		9: { // Ground Bash
 			'*': {
-				length: 1459,
+				length: 1459.62,
 				distance: 136,
 				requiredBuff: 10155112,
 				chains: {
@@ -5258,7 +5272,7 @@ module.exports = {
 		},
 		10: { // Dream Slash // need to check chains
 			'*': {
-				length: 1773,
+				length: 1772.52,
 				distance: 11.78,
 				noInterrupt: [10],
 				glyphs: {
@@ -5347,7 +5361,7 @@ module.exports = {
 		},
 		12: { // Ragnarok
 			'*': {
-				length: 2810,
+				length: 2821.54,
 				chains: {
 					1: 30,
 					2: 30,
@@ -5373,7 +5387,7 @@ module.exports = {
 		},
 		13: { // Bloodflower
 			'*': {
-				length: 1700,
+				length: 1666.67,
 				distance: 20.57,
 				chains: {
 					1: 30,
@@ -5402,7 +5416,7 @@ module.exports = {
 			'*': {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
-				length: 825,
+				length: 833.33,
 				distance: 188.18,
 				forceClip: true,
 			},
@@ -5414,7 +5428,7 @@ module.exports = {
 		},
 		15: { // Windslash
 			'*': {
-				length: 1100,
+				length: 1111.11,
 				distance: 152.82,
 				chains: {
 					1: 30,
@@ -5442,7 +5456,7 @@ module.exports = {
 		16: { // Runeburst
 			'*': {
 				fixedSpeed: 1,
-				length: 1327,
+				length: 1327.8,
 				distance: 25,
 				chains: {
 					1: 30,
@@ -5470,7 +5484,7 @@ module.exports = {
 		17: { // Balder's Tears
 			0: {
 				fixedSpeed: 1,
-				length: 1075
+				length: 1079.23
 			}
 		},
 		18: { // Retaliate
@@ -5482,7 +5496,7 @@ module.exports = {
 		},
 		19: { // Reclamation
 			'*': {
-				length: 1525,
+				length: 1531,
 				chains: {
 					1: 30,
 					2: 30,

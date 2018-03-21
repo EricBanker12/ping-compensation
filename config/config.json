@@ -5,9 +5,11 @@
 	"spCompatible": false,
 	"spDirectory": "skill-prediction",
 	"useRetries": false,
-	"skillRetryMs": 50,
+    "skillRetryMs": 50,
+    "skillRetryCount": 1,
 	"pingHistoryMax": 30,
 	"pingSpikesLimit": false,
 	"pingSpikesMin": 100,
-	"pingSpikesMax": 1000
+    "pingSpikesMax": 1000,
+    "minCombatFPS": 30
 }
