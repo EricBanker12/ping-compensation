@@ -1,30 +1,30 @@
 {
     "files": {
         "index.js": "33d533099ea62911b0e0bdb62075b8ee4d4c2bc4ff5c48c4ce752b3ff3e46c42",
-        "LICENSE": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
-        "module.json": "f25b4b87d552beb330b3b51d9b4fc7eeba4b139a7da29dfa5622ec06a5e9e888",
-        "README.md": "7491448f958e86595cc9363acdb8ef46c92e06eeb573f895502ac04f67934a7a",
+		"LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
+		"module.json": "d4fde2a900f47b97bed89b7169c72c7d10306334777fbc4c844679d162b27c8e",
+		"README.md": "51c9f92a4131b9e35899bff0f30e7d349f549195dbad39a49f5176b02b523693",
         "config/config.json": {
             "overwrite": false,
-            "hash": "ffd1336091c46d28fa10c51de090a937b616e21d09922102ef202d852dd1f8f5"
+            "hash": "55a509aa48147fb61bbb1a6842718b1298803d3a89a2b85a802a194d882ab2d5"
         },
+		"config/default-config.json": "55a509aa48147fb61bbb1a6842718b1298803d3a89a2b85a802a194d882ab2d5",
         "config/preset.js": {
             "overwrite": false,
             "hash": "2154eea4db57f2fb633f8238e897824acfe5f2e48ed55ef57b677d27e0ee6bc6"
         },
-        "config/data/awakening.js": "d3682dfc0b001e3b2d65695e718d19d014f0d01280f493827cf8e5bd6067054a",
-        "config/data/basicCC.json": "9659b7fd753047f62b7764375811e66638aaf15ee1d4e1c1ab16790a65407ec1",
-        "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
-        "config/data/extendedCC.json": "585d204dda55be393a2c449b3f7f12562ff09a331985608a671c12d0f47efaf2",
-        "config/data/skills.js": "47b6d20d62a91aaaecd32469f9e5e6d856977bb387b787ca6a54ad3d3fca1eaf",
-        "config/data/stunStaggerKnockdownImmune.json": "e645c4ab72f419582648f8080a2e36467c3b142b83468993ed76c7595cf4c3a7",
-        "docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
-        "docs/config.md": "f1d359ad45cb22b0670b2cfe3ce2a096e4eb4ea047beb79570fb9a36ac15414f",
-        "docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
-        "docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
-        "lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
-        "lib/core.js": "8abe4356fb4f4b7b63d8e379f9f9d1ba0980a800d0fc8e4399f58ed474e3598a",
-        "lib/ping.js": "32365c565b025df9c98383a1e69708c04b529ab88f353838b0ffb97b71b9e795"
+        "config/data/awakening.js": "97a4e55915e3f9dca9a69efc01393151b8a272118a27fedaa37d8cc9a9ccb5f1",
+		"config/data/basicCC.json": "6d9b4aed42035973afcfc0f25121184bf95ca090e84d48ecc3381be86d1b702f",
+		"config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
+		"config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
+		"config/data/skills.js": "f005e1470a388b41aa987d140d60dac57627ee62608f2df70d9eaeb1e39de292",
+		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
+		"docs/config.md": "4df9d7469e5daec20618e8c64bb4b0bf2df76fb4427d54f75704181053ea3a72",
+		"docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
+		"docs/preset.md": "49c9cfae30bf7e4268bf1142158094edfbc0f70fd5cddd5cefd4f9d9527f3eac",
+		"lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
+		"lib/core.js": "9a8d899d05e227970de638cd01a4e1c10f5aa9ee6326ac576750d3b43b2a6aa9",
+		"lib/ping.js": "ae387ae3cf255bba5758751bbd311abd7c687593a428a1cd08b8a9a5e98d4543"
     },
     "defs": {
         "C_CANCEL_SKILL": 1,
@@ -33,7 +33,7 @@
         "C_NOTIFY_LOCATION_IN_DASH": 2,
         "C_NOTIMELINE_SKILL": 1,
         "C_PLAYER_LOCATION": 3,
-        "C_PRESS_SKILL": 1,
+        "C_PRESS_SKILL": 2,
         "C_REQUEST_GAMESTAT_PING": 1,
         "C_START_COMBO_INSTANT_SKILL": 2,
         "C_START_INSTANCE_SKILL": 3,
