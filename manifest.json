@@ -31,7 +31,7 @@
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
     "lib/core.js": "e9e0f228bd87e870d0a0cf62202ebbb5bf50ebe52551dae14f516e186479dd55",
     "lib/autoconfig.js": "6dbc6584b331a34d1100fc6cb818f845a57f5d4998f12edeb8cd068e43d7d866",
-    "lib/ping.js": "96b413fb5fcf6531d693fa80c761f6a2c5e7dbecdf0188384983aa1fb07000b0",
+    "lib/ping.js": "e61c7e19ea8bf4180ccd67385257ccbe788565d65b4224f70c570dde3769a44e",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
     "migration/partial-config.json": "16380b9904eebc2b30910832dc1f1b8733bf6053ed61a1cba41a60713b76241e"
   }
