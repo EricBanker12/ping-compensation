@@ -974,23 +974,22 @@ module.exports = {
 				distance: 150,
 				forceClip: true,
 				noRetry: true,
-				noInterrupt: [4],
 				race: {
-					8: {	// Popori: 150.316, 1185
+					8: {	// Popori
 						distance: 150.32,
 						length: 1181.8
 					}
 				}
 			},
-			0: true,
-			30: { requiredBuff: 301200 }
+			0: { abnormals: { 301200: { chain: 30 } } },
+			30: { consumeAbnormal: 301200 }
 		},
 		5: { // Dash
 			0: {
 				CC: "evasive",
 				withoutWeapon: true,
 				fixedSpeed: 1,
-				length: 700,
+				length: 700
 			}
 		},
 		8: { // Overhand Strike
@@ -1343,6 +1342,7 @@ module.exports = {
 				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
+					24170: { speed: 0.25 },
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
 					400508: { chargeSpeed: 0.4 },
@@ -2041,11 +2041,11 @@ module.exports = {
 		},
 		11: { // Lightning Strike
 			0: {
-				length: 981.4,
+				length: 869.56,
 				checkReset: true,
 				race: {
-					7: { length: 979.8 },
-					9: { length: 810 } // Elin
+					7: { length: 868.56 }, // F.Casta
+					9: { length: 805.56 } // Elin
 				}
 			}
 		},
@@ -2198,7 +2198,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -2415,7 +2416,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -2468,13 +2470,13 @@ module.exports = {
 				length: 1633,
 				noRetry: true,
 				race: {
-					0: {length:1433},
-					1: {length:1433}
+					0: { length: 1433 },
+					1: { length: 1433 }
 				}
 			}
 		},
 		15: { // Incendiary Trap
-			0: { length: 1149.5 } 
+			0: { length: 1149.5 }
 		},
 		16: { // Breakaway Bolt
 			0: {
@@ -2608,7 +2610,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -2652,7 +2655,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -2922,7 +2926,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -3546,13 +3551,14 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
+		'*': { consumeAbnormal: [10152000, 10152001, 10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083] },
 		1: { // Blast
 			'*': {
-				triggerAbnormal: { 10152011: 3100 },
 				fixedSpeed: 1,
 				noRetry: true,
 				length: 1195,
+				triggerAbnormal: { 10152011: 3100 },
+				consumeAbnormal: [10152000, 10152001, 10152010],
 				noInterrupt: [1],
 				projectiles: [20]
 			},
@@ -3565,9 +3571,6 @@ module.exports = {
 			}
 		},
 		2: { // Bombardment
-			'*': {
-				consumeAbnormal: [10152081, 10152010, 10152040],
-			},
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3576,8 +3579,8 @@ module.exports = {
 			},
 			1: {
 				type: 'lockonCast',
-				triggerAbnormal: { 10152082: 4100 },
 				length: 2999,
+				noInterrupt: ['2-1'],
 				glyphs: {
 					30004: { speed: 0.25 }
 				}
@@ -3585,13 +3588,12 @@ module.exports = {
 		},
 		3: { // Scattershot
 			'*': {
-				triggerAbnormal: { 10152083: 4100 },
-				consumeAbnormal: 10152080, // Chain Display
 				length: 1725,
 				distance: -108,
+				triggerAbnormal: { 10152083: [4100, 485] },
 				noInterrupt: [3, 20],
 				glyphs: {
-					30007: { // The server also sends 30030 when active
+					30007: {
 						movement: [
 							{
 								duration: 394,
@@ -3618,8 +3620,9 @@ module.exports = {
 				chains: {
 					'2-1': 30,
 					4: 30,
+					5: 30,
 					'7-3': 30,
-					'9-11': 30,
+					9: 30,
 					10: 30,
 					11: 30,
 					13: 30,
@@ -3634,18 +3637,19 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
-				consumeAbnormal: 10152083,
 				length: 1532,
 				distance: 137.88,
-				noInterrupt: [20],
+				triggerAbnormal: {
+					10152000: [2100, 390],
+					10152001: [2100, 390]
+				},
+				noInterrupt: [4, 20],
 				chains: {
 					'2-1': 30,
 					3: 30,
-					'4-1': 4,
-					'4-2': 4,
-					'4-30': 4,
-					'9-10': 30,
-					'9-11': 30,
+					5: 30,
+					9: 30,
+					'7-3': 30,
 					10: 30,
 					11: 30,
 					13: 30,
@@ -3653,65 +3657,52 @@ module.exports = {
 					19: 30,
 					40: 30
 				},
-				/*abnormals: {
-					//10152000: { chain: 3 }, .......................................................
-					10152010: { chain: 2 },
-					10152011: { chain: 2 }
-				}*/
 			},
-			1: {
-				triggerAbnormal: {
-					10152000: 2100,
-					10152001: 2100
-				},
-				noInterrupt: [4]
-			},
-			2: {
-				triggerAbnormal: {
-					10152000: 2100,
-					10152001: 2100
-				},
-				noInterrupt: [4]
-			},
+			1: true,
+			2: true,
 			3: {
 				length: 1195,
-				distance: -198.53 // Not possible to correctly emulate but needed for chaining
+				distance: -198.53,
+				triggerAbnormal: { 10152002: 4100 },
+				requiredBuff: 10152000,
+				noInterrupt: ['4-3', '4-4'],
+				chains: {
+					4: 4,
+					5: 30,
+					'7-1': 2,
+					'7-2': 2,
+					'7-3': 30,
+					21: 3,
+					40: 30
+				}
 			},
 			4: {
-				triggerAbnormal: { 10152002: 4100 },
 				length: 1195,
-				distance: -198.53
+				distance: -198.53,
+				triggerAbnormal: { 10152002: 4100 },
 			},
-			30: {
-				noInterrupt: ['4-30'],
-				triggerAbnormal: {
-					10152000: 2100,
-					10152001: 2100
-				}
-			}
+			30: { noInterrupt: [4] }
 		},
 		5: { // Burst Fire
 			'*': {
-				consumeAbnormal: [10152081, 10152010, 10152040],
 				bodyRolls: {
 					350905: { stamina: -5 }
 				},
 				blockCancelPacket: true,
-				noInterrupt: ['9-0'],
 				chains: {
-					'5-0': 1
+					5: 1,
+					7: 0,
+					9: 0
 				}
 			},
 			0: {
-				triggerAbnormal: { 10152053: 2100 }, //
-				length: 855,
+				length: 860,
+				triggerAbnormal: { 10152053: [2100, 30] },
+				consumeAbnormal: [10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083],
+				noInterrupt: [5],
 				noRetry: true
 			},
 			1: {
-				triggerAbnormal: {
-					10152050: 1200, //
-					10152054: 1200 //
-				},
 				fixedSpeed: 1,
 				length: 125,
 				stamina: 70,
@@ -3729,12 +3720,13 @@ module.exports = {
 		},
 		6: { // Time Bomb
 			'*': {
+				fixedSpeed: 1,
+				length: 1000,
 				triggerAbnormal: {
 					10152010: 3100,
 					10152084: 4100
 				},
-				fixedSpeed: 1,
-				length: 1000,
+				noInterrupt: [6],
 				projectiles: [20]
 			},
 			1: true,
@@ -3747,62 +3739,46 @@ module.exports = {
 		7: { // Arcane Barrage
 			'*': {
 				length: 1533,
-				chains: {
-					5: 1
-				}
+				triggerAbnormal: {
+					//30050: 3100, // -15~20
+					10152010: [3100, 25],
+					//10152040: [3100, 25]
+				},
+				noInterrupt: [7]
 			},
 			1: {
-				triggerAbnormal: {
-					//30050: 3100, // AS Buff
-					10152010: 3100,
-					10152040: 3100
-				},
-				triggerAbnormalEnd: { 10152081: 4100 },
-				consumeAbnormal: 10152072,
 				fixedSpeed: 1,
-				noInterrupt: [7],
 				noRetry: true
 			},
 			2: {
-				triggerAbnormal: {
-					10152010: 3100,
-					10152040: 3100
-				},
-				triggerAbnormalEnd: { 10152081: 4100 },
-				consumeAbnormal: 10152072,
-				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
-				noInterrupt: [7],
 				noRetry: true
 			},
 			3: {
-				consumeAbnormal: [10152040],
-				consumeAbnormalEnd: 10152010,
-				noInterrupt: ['7-3'],
-				length: 1200
+				length: 1200,
+				triggerAbnormal: { 10152081: [4100, 20] },
+				consumeAbnormal: [30050, 10152000, 10152001, 10152002, 10152010, 10152011, 10152040, 10152072, 10152080, 10152083],
+				noInterrupt: ['7-3']
 			}
 		},
 		9: { // Mana Missiles
-			'*': {
-				length: 1200,
-				noInterrupt: [20]
-			},
+			'*': { length: 1200 },
 			0: {
-				triggerAbnormal: { 10152085: 4100 },
 				type: 'charging',
 				length: 1200,
+				noInterrupt: ['9-10', '9-11', 20],
 				lastChargeStage: 0
 			},
 			10: {
-				triggerAbnormal: { 10152085: 4100 },
 				distance: -50,
 				noRetry: true,
+				noInterrupt: ['9-10'],
 				projectiles: [21, 22]
 			},
 			11: {
-				triggerAbnormal: { 10152085: 4100 },
 				distance: -100,
 				noRetry: true,
+				noInterrupt: ['9-11'],
 				projectiles: [21, 22, 23, 24, 25]
 			},
 			21: {
@@ -3833,8 +3809,6 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				//triggerAbnormal: { 10152086: 4100 },
-				consumeAbnormal: 10152083,
 				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
@@ -3844,16 +3818,12 @@ module.exports = {
 					4: null,
 					5: null,
 					'7-3': null,
-					'9-10': null,
-					'9-11': null,
-					//10: null,
 					11: null,
 					13: null,
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
 			1: true,
 			2: true,
@@ -3867,7 +3837,6 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				CC: ["evasive", "extended"],
-				triggerAbnormal: { 10152087: 4100 },
 				length: 1400,
 				noInterrupt: [3, 11, 15, 20],
 				distance: 415.45,
@@ -3875,10 +3844,10 @@ module.exports = {
 					'2-1': 30,
 					3: 30,
 					4: 30,
+					5: 30,
 					'7-3': 30,
-					'9-10': 30,
-					'9-11': 30,
-					'10-11': 30,
+					9: 30,
+					10: 30,
 					13: 30,
 					19: 30,
 					40: 31
@@ -3898,59 +3867,24 @@ module.exports = {
 				}
 			}
 		},
-		/*-		13: { // Balder's Vengeance (old version)
-					'*': {
-						triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
-						consumeAbnormalEnd: 10152097,
-						length: 5800,
-						distance: -269.09,
-						//noInterrupt: [13],
-						chains: {
-							'2-1': null,
-							3: null,
-							4: null,
-							5: null,
-							'7-3': null,
-							'9-10': null,
-							'9-11': null,
-							10: null,
-							11: null,
-							13: null,
-							15: null,
-							19: null,
-							40: null
-						},
-						noRetry: true
-					},
-					1: true,
-					2: true,
-					30: true
-				},*/
 		13: { // Balder's Vengeance
 			'*': {
 				length: 5800,
 				distance: -269.09,
 				noInterrupt: [13],
-				abnormals: {
-					10152010: { chain: 2 }, //
-					10152011: { chain: 2 } // Must only trigger if currenaction won't result in a chain
-				},
 				chains: {
 					'2-1': null,
 					3: null,
 					4: null,
 					5: null,
 					'7-3': null,
-					'9-10': null,
-					'9-11': null,
+					9: null,
 					10: null,
 					11: null,
-					13: null,
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
 			1: true,
 			2: true,
@@ -3958,22 +3892,20 @@ module.exports = {
 		},
 		15: { // Replenishment
 			'*': {
-				consumeAbnormal: 10152083,
-				triggerAbnormal: { 10152072: 4100 },
-				fixedSpeed: 1, // The server sends 30090 500 when using the +50 will glyph
+				fixedSpeed: 1,
 				length: 1320,
+				triggerAbnormal: { 10152072: [4100, 485] },
 				noInterrupt: [15, 20],
 				chains: {
 					'2-1': 30,
 					3: 30,
 					4: 30,
+					5: 30,
 					'7-3': 30,
-					'9-10': 30,
-					'9-11': 30,
+					9: 30,
 					10: 30,
 					11: 30,
 					13: 30,
-					//15: 30,
 					19: 30,
 					40: 30
 				}
@@ -3983,9 +3915,11 @@ module.exports = {
 			30: true
 		},
 		18: { // HB
-			'*': {// 10152251 2147483647
+			'*': {
 				fixedSpeed: 1,
 				length: 1433,
+				//triggerAbnormalOnce: {10152251: 0x7fffffff },				
+				consumeAbnormal: [10152000, 10152001, 10152010, 10152011],
 				noInterrupt: [18]
 			},
 			1: true,
@@ -3994,22 +3928,21 @@ module.exports = {
 		19: { // ST
 			'*': {
 				length: 1325,
+				consumeAbnormal: [10152000, 10152001, 10152010, 10152011],
 				projectiles: [20],
 				chains: {
 					'2-1': null,
 					3: null,
 					4: null,
+					5: null,
 					'7-3': null,
-					'9-10': null,
-					'9-11': null,
+					9: null,
 					10: null,
 					11: null,
 					13: null,
 					15: null,
-					//19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
 			1: true,
 			2: true,
@@ -4021,25 +3954,50 @@ module.exports = {
 			30: true
 		},
 		20: { // Retaliate
-			0: {
+			0: { // Kd animation consumes abnormals
 				type: 'retaliate',
 				length: 1500,
 				noRetry: true
 			}
 		},
+		/*
+		21: { // Command: Recall 
+			0: { 
+				length: null,
+				consumeAbnormal: [10152010, 10152011]
+			}
+		}
+		22: { // Command: Self-Destruct
+			0: { 
+				length: null,
+				consumeAbnormal: [10152010, 10152011]
+			}
+		}
+		23: { // Command: Stay/Follow
+			'*': { length: null },
+			0: true,
+			1: { // Stay!
+				triggerAbnormal: { 10152250: 0x7fffffff },
+				consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152251]
+			},
+			2: { // Follow!
+				 triggerAbnormal: { 10152251: 0x7fffffff },
+				 consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152250]
+			}
+		},
+		*/
 		40: { // Rolling Reload
 			0: {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 935,
+				triggerAbnormal: {
+					10152010: 3100,
+					10152080: [4100, 20]
+				},
+				consumeAbnormal: [10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083],
 				noInterrupt: [11],
 				distance: 172.5,
-				triggerAbnormal: {
-					10152010: 3100, // "chains"
-					10152012: 3100,
-					10152071: 3100,
-					10152080: 4100
-				},
 				forceClip: true
 			}
 		}
@@ -4554,11 +4512,18 @@ module.exports = {
 			30: true
 		},
 		4: { // Jagged Path
+			'*': { length: 665 },
 			1: {
 				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 665,
+				distance: 469,
+				noInterrupt: [4],
+			},
+			2: {
+				CC: ["evasive", "extended"],
+				type: 'dash',
+				fixedSpeed: 1,
 				distance: 469,
 				noInterrupt: [4],
 			},
@@ -4670,11 +4635,13 @@ module.exports = {
 			0: true,
 			1: {
 				triggerAbnormal: { 10154081: 5000 },
+				consumeAbnormal: 10154080,
 				length: [1375, 325],
 				distance: [411.39, 0]
 			},
 			2: {
 				triggerAbnormal: { 10154082: 1 },
+				consumeAbnormal: 10154081,
 				length: [1375, 325],
 				distance: [455.47, 0]
 			},
@@ -4811,50 +4778,16 @@ module.exports = {
 					32058: { speed: 0.3 }
 				}
 			},
-			0: {
-				triggerAbnormal: {
-					10154060: 1300,
-					10154100: 2000,
-					10154101: 2000
-				},
-				length: 900
-			},
-			1: {
-				triggerAbnormal: { 10154061: 850 },
-				consumeAbnormal: 10154060
-			},
-			2: {
-				triggerAbnormal: { 10154062: 850 },
-				consumeAbnormal: 10154061
-			},
-			3: {
-				triggerAbnormal: { 10154063: 850 },
-				consumeAbnormal: 10154062
-			},
-			4: {
-				triggerAbnormal: { 10154064: 850 },
-				consumeAbnormal: 10154063
-			},
-			5: {
-				triggerAbnormal: { 10154065: 850 },
-				consumeAbnormal: 10154064
-			},
-			6: {
-				triggerAbnormal: { 10154066: 850 },
-				consumeAbnormal: 10154065
-			},
-			7: {
-				triggerAbnormal: { 10154067: 850 },
-				consumeAbnormal: 10154066
-			},
-			8: {
-				triggerAbnormal: { 10154068: 850 },
-				consumeAbnormal: 10154067
-			},
-			9: {
-				triggerAbnormal: { 10154069: 850 },
-				consumeAbnormal: 10154068
-			},
+			0: { length: 900 },
+			1: true,
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true,
+			8: true,
+			9: true
 		},
 		16: { // Death Blossom
 			'*': {

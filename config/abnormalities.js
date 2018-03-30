@@ -1,20 +1,20 @@
 module.exports = {
 	/* Slayer */
 	23220: true, // Distant Blade & ICB (enableChain)
-	//301603: true, // Piercing Lunge(abnConnect) 
+	//301603: true, // Piercing Lunge (enableChain) 
 
 	/* Reaper */
 
 	// Spiral Barrage
-	10151020: true, // 2
-	10151021: true, // 3
-	10151022: true, // 4
-	10151023: true, // 5
+	10151020: true, // 1
+	10151021: true, // 2
+	10151022: true, // 3
+	10151023: true, // 4
 
 	// Shadow Lash (SelfChains)
-	10151040: true, // First cast
-	10151041: true, // Second cast
-	10151042: true, // Third cast
+	10151040: true, // 1
+	10151041: true, // 2
+	10151042: true, // 3
 
 	10151131: true, // Spiral Death (enableChain, selfChain)
 	10151150: true, // Shadow Burst (selfChain)
@@ -24,31 +24,30 @@ module.exports = {
 	// Point Blank 
 	10152000: true, // First cast (enableChain)
 	10152001: true, // Second cast (chain display)
-	10152002: true, // Arc bOMB (chain display)
+	10152002: true, // (chain display)
 
-	10152010: true, // 
-	10152011: true, // 
-	10152012: true, // Rolling Reload (enableChain)
-	10152040: true, // Arcane Barrage (Second cast & chain display)
+	10152010: true, // (enableChain)
+	10152011: true, // (enableChain)
+	10152012: true, // Rolling Reload (redirect)
+	//10152040: true, // Arcane Barrage 1 (enableChain & chain display)
+	
+	// Burst Fire
+	10152050: true, // 1 (dmgIncrease && redirect)
+	10152053: true, // ? (chain display)
+	10152054: true, // (critChance)
 
-	// Burst Fire(enableChain)
-	10152050: true, // Second cast (self chain display && -> 10152054)
-	10152053: true, // First cast (chain display)
-	10152054: true, // (??????????????????????????????????????????????????)
+	10152071: true, // Rolling Reload (redirect)
+	10152072: true, // Replenishment (chain display)
+	10152080: true, // Rolling Reload (chain display)
+	10152081: true, // Arcane Barrage 2 (chain display)
+	10152082: true, // Bombardment(redirect)
+	10152083: true, // Scattershot (chain display)
+	10152084: true, // Time Bomb (redirect)
+	10152085: true, // Mana Missiles (unused)
+	10152086: true, // Arc Bomb (unused)
+	10152087: true, // Rocket Jump (redirect)
 
-	10152071: true, // Rolling Reload (enableChain)
-	10152072: true, // Arcane barrage (chain display)
-	10152080: true, // Scatter Shot (chain display)
-	10152081: true, // Replenishment (chain display)
-	10152082: true, // Unused(?)
-	10152083: true, // Multi chain display (possible only arc bomb or smth weird... (c) Monkey)
-	10152084: true, // -> 10152010
-	10152085: true, // Unused(?)
-	10152086: true, // Unused(?)
-	10152087: true, // Unused(?)
-	10153093: true, // Rocket Jump & Rolling Reload (Memory leak >//>) 
-	//10152097: true // Balder's Vengeance (enableChain)
-
+	10153093: true, // Rocket Jump & Rolling Reload (Memory leak >//>[status]) 
 
 	/* Brawler */
 	10153060: true, // Punch (duration)
@@ -58,7 +57,6 @@ module.exports = {
 	10153004: true, // Punch > Counter 4 (duration)
 	10153005: true, // Counter (duration)
 	10153006: true, // Counter (duration)
-
 
 	/* Ninja */
 
@@ -71,22 +69,8 @@ module.exports = {
 	10154005: true,
 	10154006: true,
 
-	// Burning Heart(enableChain) Todo: find skills affected
-	10154100: true, // 0
-	10154101: true, // 0
-	10154060: true, // 0
-	10154061: true, // 1
-	10154062: true, // 2
-	10154063: true, // 3
-	10154064: true, // 4
-	10154065: true, // 5
-	10154066: true, // 6
-	10154067: true, // 7
-	10154068: true, // 8
-	10154069: true, // 9
-
-	// Fire Avalanche(enableChain)
-	10154080: true, // First cast
-	10154081: true, // Second cast
-	10154082: true // Third cast
+	// Fire Avalanche (enableChain)
+	10154080: true, // 1
+	10154081: true, // 2
+	10154082: true  // 3 (redirect)
 }

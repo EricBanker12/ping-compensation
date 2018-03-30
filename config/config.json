@@ -6,7 +6,7 @@
 	"skillRetryJittercomp": 25,
 	"skillRetryAlways": false,
 	"skillDelayOnFail": true,
-	"serverTimeout": 250,
+	"serverTimeout": 100,
 	"forceClipStrict": true,
 	"debugGlyphs": false,
 	"debug": false,

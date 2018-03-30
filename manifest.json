@@ -7,31 +7,31 @@
     "README.md": "db27dcc6a9c5fbcac0a6069ee744f2d8f6ae60119be6f9b178fb54fcf087d84f",
     "config/abnormalities.js": {
       "overwrite": false,
-      "hash": "dd818c66c5319d234542aadcc74c74d3064933f33f184263fec0a763ec19a3a8"
+      "hash": "be80c09b1508b5c7c0fa7d2e93c5c22fa0fca0fce2b46f6bf3f8e03dfd30329f"
     },
     "config/config.json": {
       "overwrite": false,
-      "hash": "99746bbab5fc8b63293ba6210e6774a2076b239bc65d8766ecb89471cba85cf6"
+      "hash": "f45841513927de4dd915c3825efc5e593f310383bd8cab29b7e43c3eac893046"
     },
     "config/preset.js": {
       "overwrite": false,
       "hash": "54eaf94bd3c1bcad6ff192ca80a64c16161c3bd04d5861bbb8f42fc2f6b25536"
     },
     "config/default-config.json": "3c744cf42857b665d0c719cc692cd234e55367132acf8eb4475b27ae33961a32",
-    "config/data/basicCC.json": "6d9b4aed42035973afcfc0f25121184bf95ca090e84d48ecc3381be86d1b702f",
+    "config/data/basicCC.json": "b94ff2356594b6c1f8502013cfa3fe35bb5961fea3e3e662a0171ed52bc062a2",
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
-    "config/data/skills.js": "67f30a5010506205e95648f0fcfcb340b6f281df52742d35da641fbe0fe45cab",
-    "config/data/awakening.js": "49fe55dce8facb6f251679108d65e96d65e40005e3fe4765cc5f0035e579ff0e",
+    "config/data/skills.js": "50e034e52acecec11f882a0b9ac3314512018516bcdc9a2b6bb5c2dcd6d6311c",
+    "config/data/awakening.js": "f0147f648ee5f06ac02fe43298f72acf7862293c83677fa5e5b1dcb3ff9bd49d",
     "docs/commands.md": "3d1dab2882a5695d87d1f74550c0fa14fc61e55fcf14156e316ec8b2d9c56ddc",
     "docs/config.md": "a9cb49092571c0db76ea758e8ce00994a856e9758b4fdea481808da603ab93c1",
     "docs/ping.md": "6d27ee0ddf1d45df4515655b56efd8f51fb9aa91c8bcab5f2973656d3fbef0e3",
     "docs/preset.md": "65defb713d68d517f2040ecf55a588dcf036e02c86f0dab6a6d6f8c3d6f98ecc",
-    "lib/abnormalities.js": "61d08a3e74b2011c91796d325c9c86a980411e20641a09991f41ba0a324c27ea",
+    "lib/abnormalities.js": "f3a400b5f63ecc4f05773d38432c48848867f7b3fccf5152ea399e6b24eb2c54",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "e9e0f228bd87e870d0a0cf62202ebbb5bf50ebe52551dae14f516e186479dd55",
-    "lib/autoconfig.js": "6dbc6584b331a34d1100fc6cb818f845a57f5d4998f12edeb8cd068e43d7d866",
-    "lib/ping.js": "dc45453762a0399b8c91cb810a038c3272ed3cfff7b724e8c927a2a5a7b03ed9",
+    "lib/core.js": "f842bd19f5697f7e105618064dae1b088ea5b3175b642f2cabb531cb8c8751f7",
+    "lib/autoconfig.js": "ae36eeefd6421199aff457849719d8b9df13ef55708ef31967952176850d9f42",
+    "lib/ping.js": "5abff7060377e29f7b30f36a97508b6127d23c96db7260c5d87b7691eb01f28b",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
     "migration/partial-config.json": "16380b9904eebc2b30910832dc1f1b8733bf6053ed61a1cba41a60713b76241e"
   }

@@ -1,9 +1,10 @@
 /*	Notes:
-	* '*' can be used in place of the skill or sub-skill to set default values
-	* Processing order is 'noInterrupt' > 'chains' > 'abnormals'
-	* Default race is Elin unless specified
+	* '*' can be used in place of the skill or sub-skill to set default values.
+	* Processing order is 'noInterrupt' > 'chains' > 'abnormals'.
+	* Abnormal chains aren't needed if the client is already sending the correct skillId!
+	* Default Abnormal application delay is 10 unless specified utilizing an array.
 
-	Races:
+		Races:
 	0 = Male Human
 	1 = Female Human
 	2 = Male High Elf
@@ -16,8 +17,6 @@
 	9 = Elin
 	10 = Baraka
 
-	Refer to here for what races have its numbers already added: https://github.com/SaltyMonkey/skill-prediction/wiki 
-	If a race doesn't have its own property therefore assumed to use the same default value.
 */
 
 module.exports = {
@@ -31,43 +30,43 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 565,
+				length: 566.4,
 				distance: 64.29,
 				race: {
-					2: { distance: 47.53 }, // M.Helf: 47.534
-					5: { distance: 45 }, // F.Aman: 45
-					8: { distance: 54.32 }, // Popori: 54.32
-					9: { distance: 64.29 } // Elin: 64.288
+					2: { distance: 47.53 }, // M.Helf
+					5: { distance: 45 }, // F.Aman
+					8: { distance: 54.32 }, // Popori
+					9: { distance: 64.29 } // Elin
 				}
 			},
 			1: {
-				length: 650,
+				length: 657.3,
 				distance: 51.69,
 				race: {
-					2: { distance: 42.12 }, // M.Helf: 42.117
-					5: { distance: 39 }, // F.Aman: 39
-					8: { distance: 21.17 }, // Popori: 21.171
-					9: { distance: 51.69 } // Elin: 51.69
+					2: { distance: 42.12 }, // M.Helf
+					5: { distance: 39 }, // F.Aman
+					8: { distance: 21.17 }, // Popori
+					9: { distance: 51.69 } // Elin
 				}
 			},
 			2: {
-				length: 650,
+				length: 657.3,
 				distance: 28.08,
 				race: {
-					2: { distance: 28.08 }, // M.Helf: 28.078
-					5: { distance: 26 }, // F.Aman: 26
-					8: { distance: 56.2 }, // Popori: 56.196
-					9: { distance: 28.08 } // Elin: 28.078
+					2: { distance: 28.08 }, // M.Helf
+					5: { distance: 26 }, // F.Aman
+					8: { distance: 56.2 }, // Popori
+					9: { distance: 28.08 } // Elin
 				}
 			},
 			3: {
 				length: 900,
 				distance: 73.34,
 				race: {
-					2: { distance: 79.9 }, // M.Helf: 79.897
-					5: { distance: 85 }, // F.Aman: 85
-					8: { distance: 63.53 }, // Popori: 63.529
-					9: { distance: 73.34 } // Elin: 73.344
+					2: { distance: 79.9 }, // M.Helf
+					5: { distance: 85 }, // F.Aman
+					8: { distance: 63.53 }, // Popori
+					9: { distance: 73.34 } // Elin
 				}
 			}
 		},
@@ -87,7 +86,7 @@ module.exports = {
 					21101: { stamina: -120 }
 				},
 				race: {
-					7: { length: 837 }, //casta fem
+					7: { length: 837 }, // F. Casta
 					8: { length: 1081 }, // Popori
 					10: { length: 778.2 } // Baraka
 				}
@@ -109,18 +108,17 @@ module.exports = {
 			'*': {
 				distance: 151.87,
 				race: {
-					2: { distance: 152.73 }, // M.Helf: 152.733
-					5: { distance: 150.71 }, // F.Aman: 150.714
-					8: { distance: 148.9 }, // Popori: 148.904
-					9: { distance: 151.87 } // Elin: 151.867
+					2: { distance: 152.73 }, // M.Helf
+					5: { distance: 150.71 }, // F.Aman
+					8: { distance: 148.9 }, // Popori
+					9: { distance: 151.87 } // Elin
 				}
 			},
 			0: {
 				length: 2545.45,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39], // todo
 				abnormals: {
 					100801: { skill: 360100 },
-					104110: { chain: 30 }
 				},
 				chains: {
 					18: 30,
@@ -146,7 +144,7 @@ module.exports = {
 		},
 		8: { // Assault Stance
 			'*': {
-				length: 575,
+				length: 566.4,
 				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
@@ -154,7 +152,7 @@ module.exports = {
 		},
 		9: { // Defensive Stance
 			'*': {
-				length: 575,
+				length: 566.4,
 				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
@@ -162,55 +160,50 @@ module.exports = {
 		},
 		10: { // Death From Above
 			0: {
-				length: 2055,
+				length: 2066,
 				noInterrupt: [2, 32],
 				race: {
-					//1: { length: 2100 }, // F.Human
-					//2: { length: 2055 }, // M.Helf
-					3: { length: 2025 }, // F.Helf
-					//7: { length: 2055 }, // F.Castanic
-					//8: { length: 2055 }, // Popori
-					9: { length: 2025 } // Elin
+					1: { length: 2100 }, // F.Human
+					3: { length: 2033 }, // F.Helf
+					6: { length: 2033 }, // M.Casta
+					9: { length: 2033 } // Elin
 				}
 			}
 		},
 		11: { // Poison Blade
 			0: {
-				length: 930,
+				length: 933,
 				distance: 35,
 				noInterrupt: [32],
 				race: {
-					0: { length: 830 }, // M.Human
-					1: { length: 830 }, // F.Human
+					0: { length: 833 }, // M.Human
+					1: { length: 833 }, // F.Human
 					2: { // M.Helf
-						length: 830,
+						length: 833,
 						distance: 0
 					},
-					4: { length: 830 }, // M.Aman
+					4: { length: 833 }, // M.Aman
 					5: { // F.Aman
-						length: 830,
+						length: 833,
 						distance: 40
 					},
 					8: { // Popori
-						length: 830,
+						length: 833,
 						distance: 35
 					},
-					9: { distance: 54.85 },// Elin 54.582
+					9: { distance: 54.85 }, // Elin
 				}
 			}
 		},
 		12: { // Leaping Strike
 			0: {
 				CC: "extended",
-				length: 1525,
+				length: 1533,
 				distance: 250,
 				noInterrupt: [32],
 				race: {
-					2: { length: 1525 }, // M.Helf
-					5: { length: 1525 }, // F.Aman
-					7: { length: 1700 }, // F.Castanic
-					8: { length: 1710 }, // Popori
-					9: { length: 1525 } // Elin
+					7: { length: 1714 }, // F.Castanic
+					8: { length: 1714 }, // Popori
 				}
 			}
 		},
@@ -227,7 +220,7 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1115,
+				length: 1117,
 				distance: 467.88,
 				noRetry: true,
 				noInterrupt: [16, 32]
@@ -236,10 +229,9 @@ module.exports = {
 		},
 		17: { // Vortex Slash
 			'*': {
-				length: 1633,
+				length: 1633, // ?
 				noInterrupt: [32]
 			},
-			0: true,
 			1: true,
 			2: { requiredBuff: 100201 }
 		},
@@ -249,10 +241,10 @@ module.exports = {
 				distance: 120.28,
 				noInterrupt: [32],
 				race: {
-					//2: { distance: 120.28 }, // M.Helf: 120.277
-					//5: { distance: 120.28 }, // F.Aman: 120.277
-					8: { distance: 128.89 }, // Popori: 128.889
-					9: { distance: 138.28 } // Elin: 138.284
+					//2: { distance: 120.28 }, // M.Helf
+					//5: { distance: 120.28 }, // F.Aman
+					8: { distance: 128.89 }, // Popori
+					9: { distance: 138.28 } // Elin
 				}
 			},
 			0: true,
@@ -265,20 +257,20 @@ module.exports = {
 				length: 733,
 				distance: 144.85,
 				race: {
-					2: { distance: 144.85 }, // M.Helf: 144.846
-					5: { distance: 143.27 }, // F.Aman: 143.269
-					8: { distance: 161.74 }, // Popori: 161.738
-					9: { distance: 170.67 } // Elin: 170.671
+					2: { distance: 144.85 }, // M.Helf
+					5: { distance: 143.27 }, // F.Aman
+					8: { distance: 161.74 }, // Popori
+					9: { distance: 170.67 } // Elin
 				}
 			},
 			1: {
 				length: 1400,
 				distance: 100.15,
 				race: {
-					2: { distance: 100.11 }, // M.Helf: 100.114
-					5: { distance: 101.69 }, // F.Aman: 101.689
-					8: { distance: 116.63 }, // Popori: 116.629
-					9: { distance: 122.34 } // Elin: 122.342
+					2: { distance: 100.11 }, // M.Helf
+					5: { distance: 101.69 }, // F.Aman
+					8: { distance: 116.63 }, // Popori
+					9: { distance: 122.34 } // Elin
 				}
 			}
 		},
@@ -295,15 +287,15 @@ module.exports = {
 				distance: 116.63,
 				noInterrupt: [32],
 				race: {
-					2: { distance: 100.11 }, // M.Helf: 100.114
-					8: { distance: 116.63 }, // Popori: 116.629
-					9: { distance: 122.34 } // Elin: 122.342
+					2: { distance: 100.11 }, // M.Helf
+					8: { distance: 116.63 }, // Popori
+					9: { distance: 122.34 } // Elin
 				}
 			}
 		},
 		23: { // Spinning Counter
 			0: {
-				length: 1091, // 1075
+				length: 1091,
 				distance: 65.35,
 				requiredBuff: 100700,
 				abnormals: {
@@ -311,9 +303,9 @@ module.exports = {
 					100201: { chain: 6 }
 				},
 				race: {
-					2: { distance: 68.81 }, // M.Helf: 68.805
-					8: { distance: 65.34 }, // Popori: 65.344
-					9: { distance: 77.36 } // Elin: 77.359
+					2: { distance: 68.81 }, // M.Helf
+					8: { distance: 65.34 }, // Popori
+					9: { distance: 77.36 } // Elin
 				}
 			}
 		},
@@ -325,7 +317,7 @@ module.exports = {
 			}
 		},
 		25: { // Command: Attack
-			0: {
+			0: { // 1060100 <- shadow-chan templateId
 				fixedSpeed: 1,
 				length: 700,
 				requiredBuff: 102600,
@@ -344,7 +336,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39, 40, 41, 42],
 				chains: {
 					11: 30,
 					18: 30,
@@ -354,7 +346,6 @@ module.exports = {
 					9: {
 						abnormals: {
 							100201: { skill: 390100 },
-							104110: { chain: 30 }
 						}
 					}
 				}
@@ -375,14 +366,13 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37], // todo
 				interruptibleWithAbnormal: {
 					102010: 3
 				},
 				abnormals: {
 					100801: { skill: 370100 },
 					102010: { chain: 30 },
-					104110: { chain: 30 }
 				},
 				chains: {
 					3: 30,
@@ -405,8 +395,8 @@ module.exports = {
 		30: { // Scythe
 			'*': { distance: 150 },
 			0: {
-				length: 1825,
-				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39],
+				length: 1833,
+				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39], // todo
 				abnormals: {
 					100801: { skill: 380100 }
 				},
@@ -421,7 +411,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1385,
+				length: 1387,
 				abnormals: {
 					100801: { skill: 380130 }
 				}
@@ -430,15 +420,15 @@ module.exports = {
 		31: { // Reaping Slash
 			'*': { distance: 110 },
 			0: {
-				length: 2275,
-				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39],
+				length: 2292,
+				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39], // todo
 				chains: {
 					4: 30,
 					18: 30,
 					36: 30
 				}
 			},
-			30: { length: 1665 }
+			30: { length: 1667 }
 		},
 		32: { // Cross Parry
 			0: {
@@ -451,8 +441,8 @@ module.exports = {
 		},
 		34: { // Binding Sword
 			0: {
-				length: 1900,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39]
+				length: 1902,
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39] // todo
 			}
 		},
 		35: { // Infuriate
@@ -466,18 +456,15 @@ module.exports = {
 			'*': {
 				distance: 151.87,
 				race: {
-					2: { distance: 152.73 }, // M.Helf: 152.733
-					5: { distance: 150.71 }, // F.Aman: 150.714
-					8: { distance: 148.9 }, // Popori: 148.904
-					9: { distance: 151.87 } // Elin: 151.867
+					2: { distance: 152.73 }, // M.Helf
+					5: { distance: 150.71 }, // F.Aman
+					8: { distance: 148.9 }, // Popori
+					9: { distance: 151.87 } // Elin
 				}
 			},
 			0: {
 				length: 2800,
 				noInterrupt: [32],
-				abnormals: {
-					104110: { chain: 30 }
-				}
 			},
 			30: { length: 2000 }
 		},
@@ -497,16 +484,16 @@ module.exports = {
 		38: { // Scythe (Deadly Gamble)
 			'*': { distance: 150 },
 			0: {
-				length: 1850,
+				length: 1833,
 				noInterrupt: [32]
 			},
-			30: { length: 1385 }
+			30: { length: 1387 }
 		},
 		39: { // Traverse Cut (Defensive Stance)
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 40, 41, 42],
 				chains: {
 					11: 30,
 					18: 30,
@@ -514,38 +501,82 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 2668,
+				length: 2666.66,
 				distance: 210
 			}
 		},
-		40: { // Spiral Slash 
-			0: false, // obligatory
-			10: false, // obligatory
-			11: false, // normal
-			12: false, // cancel
-			19: false, // ?
-			20: false, // obligatory
-			21: false, // normal
-			22: false, // cancel
-			29: false // ?
-		},
-		41: { // Storm Crash
-			0: false,
-			30: false,
-			31: false // abnormal based maybe
-		},
-		42: { // Tempest Rush
+		40: { // Spiral Slash, Blade de Deux 
 			'*': {
-				/*chains: {
+				length: 1654.54, // 810.6
+				triggerAbnormal: {
+					104100: 8000,
+					//104101: 800,
+					104110: 2000
+				}
+			},
+			10: {
+				noInterrupt: [2, 40]
+				/*
+					chains: {
+						: 11
+					}
+				*/
+			},
+			11: true,
+			12: {
+				triggerAbnormal: false,
+				consumeAbnormal: 104100,
+				noInterrupt: [2]
+			},
+			20: {
+				requiredBuff: 100201,
+				noInterrupt: [2, 40]
+				/*
+				chains: {
+					: 21
+				}
+				*/
+			},
+			21: true,
+			22: {
+				triggerAbnormal: false,
+				consumeAbnormal: 104100,
+				noInterrupt: [2]
+			}
+		},
+		41: { // Storm Crash, Vertical Slice
+			'*': {
+				length: 1976.15,
+				noInterrupt: [41],
+				triggerAbnormal: { 105100: 1800 }
+			}, // 105100 -> 31
+			0: {
+				/*
+				chains: {
+					: 31
+				}
+				*/
+			},
+			30: true,
+			31: {
+				length: 1999, // or 1800
+				triggerAbnormal: false,
+				consumeAbnormal: 105100,
+				noInterrupt: false
+			}
+		},
+		42: { // Tempest Rush, Storm of Blades
+			0: {
+				length: 3309.23,
+				noInterrupt: [42],
+				chains: {
 					2: 30,
 					30: 30,
 					38: 30,
 					41: 30
-				}*/
+				}
 			},
-			0: false,
-			30: false,
-			31: false // abnormal based maybe
+			30: { length: 2507.06 },
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
@@ -558,36 +589,36 @@ module.exports = {
 				length: 635,
 				distance: 74.45,
 				race: {
-					0: { distance: 78.55 }, // M.Human: 78.546
-					2: { distance: 74.41 }, // M.Helf: 74.414
-					4: { distance: 70 }, // M.Aman: 70
-					5: { distance: 75 }, // F.Aman: 75
-					8: { distance: 72.89 }, // Popori: 72.894
-					9: { distance: 74.45 } // Elin: 74.453
+					0: { distance: 78.55 }, // M.Human
+					2: { distance: 74.41 }, // M.Helf
+					4: { distance: 70 }, // M.Aman
+					5: { distance: 75 }, // F.Aman
+					8: { distance: 72.89 }, // Popori
+					9: { distance: 74.45 } // Elin
 				}
 			},
 			1: {
 				length: 1025,
 				distance: 19.2,
 				race: {
-					0: { distance: 25 }, // M.Human: 25
-					2: { distance: 30.8 }, // M.Helf: 30.798
-					4: { distance: 25 }, // M.Aman: 25
-					5: { distance: 30.52 }, // F.Aman: 30.523
-					8: { distance: 39.05 }, // Popori: 39.051
-					9: { distance: 19.2 } // Elin: 19.2
+					0: { distance: 25 }, // M.Human
+					2: { distance: 30.8 }, // M.Helf
+					4: { distance: 25 }, // M.Aman
+					5: { distance: 30.52 }, // F.Aman
+					8: { distance: 39.05 }, // Popori
+					9: { distance: 19.2 } // Elin
 				}
 			},
 			2: {
 				length: 1818.12,
 				distance: 66.07,
 				race: {
-					0: { distance: 70 }, // M.Human: 70
-					2: { distance: 70 }, // M.Helf: 70
-					4: { distance: 60 }, // M.Aman: 60
-					5: { distance: 54.48 }, // F.Aman: 54.476
-					8: { distance: 41.06 }, // Popori: 41.058
-					9: { distance: 66.07 } // Elin: 66.07
+					0: { distance: 70 }, // M.Human
+					2: { distance: 70 }, // M.Helf
+					4: { distance: 60 }, // M.Aman
+					5: { distance: 54.48 }, // F.Aman
+					8: { distance: 41.06 }, // Popori
+					9: { distance: 66.07 } // Elin
 				}
 			}
 		},
@@ -634,7 +665,7 @@ module.exports = {
 		},
 		5: { // Shield Bash / Changed
 			0: {
-				length: 830,
+				length: 839.1,
 				distance: 30,
 				noInterrupt: [2],
 				chains: {
@@ -646,14 +677,14 @@ module.exports = {
 					4: { distance: 30.000 }, // M.Aman
 					5: { distance: 30.000 }, // F.Aman
 					8: { distance: 30.000 }, // Popori*/
-					9: { distance: 43.69 } // Elin: 43.693
+					9: { distance: 43.69 } // Elin
 				}
 			},
 			30: false
 		},
 		7: { // Guardian Shout
 			0: {
-				length: 550,
+				length: 566.4,
 				noInterrupt: [2],
 				race: {
 					/*0: { length: 550 }, // M.Human
@@ -667,22 +698,22 @@ module.exports = {
 		},
 		8: { // Shield Counter
 			0: {
-				length: 1450,
+				length: 1455.33,
 				distance: 90,
-				onlyDefenceSuccess: true,
+				//onlyDefenceSuccess: true,
 				race: {
-					0: { distance: 90 }, // M.Helf: 90
-					2: { distance: 95 }, // M.Helf: 95
-					4: { distance: 85 }, // M.Aman: 85
-					5: { distance: 85 }, // F.Aman: 85
-					8: { distance: 90 }, // Popori: 90
-					9: { distance: 108.06 } // Elin: 108.063
+					0: { distance: 90 }, // M.Helf
+					2: { distance: 95 }, // M.Helf
+					4: { distance: 85 }, // M.Aman
+					5: { distance: 85 }, // F.Aman
+					8: { distance: 90 }, // Popori
+					9: { distance: 108.06 } // Elin
 				}
 			}
 		},
 		9: { // Leash
 			0: {
-				length: [725, 850],
+				length: [725, 850], //633,833 in DC <- Brainlet probably didn't understand it
 				noInterrupt: [2]
 			}
 		},
@@ -701,7 +732,7 @@ module.exports = {
 					4: { distance: 30}, // M.Aman
 					5: { distance: 30 }, // F.Aman
 					8: { distance: 30 }, // Popori*/
-					9: { distance: 43.69 } // Elin: 43.693
+					9: { distance: 43.69 } // Elin
 				}
 			},
 			30: { length: 840 }
@@ -709,12 +740,9 @@ module.exports = {
 		11: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1635, // Is this correct? hello im correct
+				length: 1633,
 				noRetry: true,
 				noInterrupt: [2],
-				race: {
-					9: { length: 1625 } // Elin, also this?
-				}
 			}
 		},
 		12: { // Infuriate
@@ -778,27 +806,25 @@ module.exports = {
 					201550: { speed: 0.2 }
 				},
 				race: {
-					0: { distance: 100.13 }, // M.Human: 100.125
-					2: { // M.Helf: 525, 102.701
+					0: { distance: 100.13 }, // M.Human
+					2: { // M.Helf
 						length: 525,
 						distance: 102.7
 					},
-					4: { distance: 95 }, // M.Aman: 95
-					5: { distance: 100.13 }, // F.Aman: 100.125
-					8: { distance: 92.39 }, // Popori: 92.39
-					9: { distance: 122.66 } // Elin: 122.66
+					5: { distance: 100.13 }, // F.Aman
+					8: { distance: 92.39 }, // Popori
+					9: { distance: 122.66 } // Elin
 				}
 			},
 			1: {
 				length: 800,
 				distance: 87, // M.Aman
 				race: {
-					0: { distance: 74.84 }, // M.Human: 74.836
-					2: { distance: 80.43 }, // M.Helf: 80.428
-					4: { distance: 87 }, // M.Aman: 87
-					5: { distance: 74.84 }, // F.Aman: 74.836
-					8: { distance: 89.46 }, // Popori: 89.462
-					9: { distance: 66.04 } // Elin: 66.043
+					0: { distance: 74.84 }, // M.Human
+					2: { distance: 80.43 }, // M.Helf
+					5: { distance: 74.84 }, // F.Aman
+					8: { distance: 89.46 }, // Popori
+					9: { distance: 66.04 } // Elin
 				}
 			}
 		},
@@ -811,22 +837,22 @@ module.exports = {
 		},
 		21: { // Lockdown Blow / Changed
 			'*': {
-				distance: 100.13, // M.Human, 100.126
+				distance: 100.13, // M.Human
 				noInterrupt: [2],
 				chains: {
 					10: 30,
 					18: 30
 				},
 				race: {
-					0: { distance: 100.13 }, // M.Human: 100.125
-					2: { // M.Helf: 1175, 102.701
+					0: { distance: 100.13 }, // M.Human
+					2: { // M.Helf
 						length: 1175,
 						distance: 102.7
 					},
-					4: { distance: 95 }, // M.Aman: 95
-					5: { distance: 100.13 }, // F.Aman: 100.125
-					8: { distance: 92.39 }, // Popori: 92.39
-					9: { distance: 122.66 } // Elin: 122.66
+					4: { distance: 95 }, // M.Aman
+					5: { distance: 100.13 }, // F.Aman
+					8: { distance: 92.39 }, // Popori
+					9: { distance: 122.66 } // Elin
 				}
 			},
 			0: { length: 1400 },
@@ -857,7 +883,6 @@ module.exports = {
 				length: 1000,
 				noInterrupt: [2]
 			},
-			0: true,
 			1: true,
 			2: { length: 1820 } // summon arcana!!
 		},
@@ -887,7 +912,7 @@ module.exports = {
 		26: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 725,
+				length: 733,
 				distance: -150,
 				forceClip: true,
 				stamina: 800,
@@ -913,7 +938,7 @@ module.exports = {
 				}
 			}
 		},
-		28: { // Righteous Leap / Justice Leap fuc bhs
+		28: { // Righteous Leap
 			'*': { distance: [29.48, 445.52, 0] },
 			0: {
 				length: [375, 1025, 3100],
@@ -1014,7 +1039,7 @@ module.exports = {
 				race: {
 					//0: { distance: 220.47 }, // M.Human
 					2: { distance: 220.15 }, // M.Helf
-					4: { distance: 155 }, // M.Aman: 155
+					4: { distance: 155 }, // M.Aman
 					5: { distance: 174.84 }, // F.Aman
 					6: { distance: 201.64 }, // M.Casta
 					7: { distance: 200 }, // F.Casta
@@ -1023,13 +1048,12 @@ module.exports = {
 					10: { distance: 205.95 } // Baraka
 				}
 			},
-			0: true,
 			1: true,
 			2: { noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25] },
 			30: { length: 2423.57 }
 		},
 		3: { // Whirlwind
-			0: { // 2871.66 | 33, 2844.16 | baraka, m human
+			0: {
 				length: 2871.66,
 				distance: 128.69,
 				abnormals: {
@@ -1040,7 +1064,7 @@ module.exports = {
 					0: { // M.Human
 						length: 2844.16,
 						distance: 123.21
-					}, // BHS: w-we equalized the skill g-guys!
+					},
 					2: { distance: 116.49 }, // M.Helf
 					4: { distance: 125 }, // M.Aman
 					5: { distance: 137.22 }, // F.Aman
@@ -1062,23 +1086,22 @@ module.exports = {
 				distance: 150,
 				forceClip: true,
 				noRetry: true,
-				noInterrupt: [4],
 				race: {
-					8: {	// Popori: 150.316, 1185
+					8: {	// Popori
 						distance: 150.32,
 						length: 1181.8
 					}
 				}
 			},
-			0: true,
-			30: { requiredBuff: 301200 }
+			0: { abnormals: { 301200: { chain: 30 } } },
+			30: { consumeAbnormal: 301200 }
 		},
 		5: { // Dash
 			0: {
 				CC: "evasive",
 				withoutWeapon: true,
 				fixedSpeed: 1,
-				length: 700,
+				length: 700
 			}
 		},
 		8: { // Overhand Strike
@@ -1101,8 +1124,7 @@ module.exports = {
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
 				abnormals: {
 					300801: { skill: 250100 },
-					300805: { skill: 250100 },
-					301604: { skill: 301604 }
+					300805: { skill: 250100 }
 				},
 				chains: {
 					1: 30,
@@ -1287,9 +1309,6 @@ module.exports = {
 		23: { // Measured Slice
 			'*': {
 				distance: 189,
-				abnormals: {
-					301604: { chain: 30 }
-				},
 				races: {
 					5: { distance: 190 }, // F.Aman
 					10: { distance: 190 } // Baraka
@@ -1311,9 +1330,6 @@ module.exports = {
 				length: 1925,
 				distance: 50,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 24],
-				abnormals: {
-					301604: { chain: 30 }
-				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -1334,9 +1350,6 @@ module.exports = {
 		25: { // Ultimate Overhand Strike
 			'*': {
 				distance: 169.5,
-				abnormals: {
-					301604: { chain: 30 }
-				},
 				race: {
 					0: { distance: 171.14 }, // M.Human: 171.138
 					2: { distance: 171.14 }, // M.Helf: 171.138
@@ -1353,28 +1366,27 @@ module.exports = {
 			30: { length: 1325 } //
 		},
 		26: { // Gaia Crusch / Rending Crash
-			'*': {
-				abnormals: {
-					301604: { chain: 30 }
+			0: {
+				length: 3375,
+				/*
+				chains: {
+					: 30,
+					: 30,
+					: 30
 				}
-			},
-			0: { length: 3375 }, // super cancel 
-			30: { length: 900 }
+				*/
+			}, // super cancel 
+			30: { length: 900 } // chains on here too ?__________?
 		},
 		27: { // Piercing Lunge
-			'*': {
-				length: 751.25,
-				abnormals: {
-					301603: { chain: 30 }
-				}
-			},
-			0: { triggerAbnormal: { 301603: 5000 } }, // immediate cancel
-			30: { triggerAbnormal: { 301603: 5000 } }, // rear cancel	
-			31: true//  rear cancel
+			'*': { length: 751.25 },
+			0: { triggerAbnormal: { 301603: 5000 } }, // delet if unused later, imme-desu
+			30: { triggerAbnormal: { 301603: 5000 } }, // rearo-desu
+			31: { consumeAbnormal: 301603 }//  rearo-desu
 			// 90   <- cooltime handler / 10151130 5000
 		}, // 301803 supposly cool abnormal
 		28: { // Colossus Blade
-			0: { // superCancel
+			0: { // super cancel cancel
 				type: 'charging',
 				length: [650, 650, 1000], // no hold stage?
 			},
@@ -1397,47 +1409,51 @@ module.exports = {
 				length: 1107,
 				distance: 78,
 				race: {
-					3: { distance: 63.24 }, // F.Helf: 63.236
+					3: { distance: 63.24 }, // F.Helf
+					4: { distance: 27.715 }, // M.Aman
 					5: { // F.Aman
 						length: 1081.8,
 						distance: 62
 					},
-					6: { distance: 55.69 }, // M.Casta: 56.687
-					8: { distance: 48.89 }, // Popori: 48.886
-					10: { distance: 44.22 } // Baraka: 44.217
+					6: { distance: 55.69 }, // M.Casta
+					8: { distance: 48.89 }, // Popori
+					10: { distance: 44.22 } // Baraka
 				}
 			},
 			1: {
 				length: 925,
 				distance: 21.05,
 				race: {
-					3: { distance: 27.38 }, // F.Helf: 27.382
-					6: { distance: 23.27 }, // M.Casta: 23.274
-					8: { distance: 7.06 }, // Popori: 7.06
-					9: { distance: 21.05 }, // Elin: 21.05
-					10: { distance: 21.09 } // Baraka: 21.085
+					3: { distance: 27.38 }, // F.Helf
+					4: { distance: 25 },	// M.Aman
+					6: { distance: 23.27 }, // M.Casta
+					8: { distance: 7.06 }, // Popori
+					9: { distance: 21.05 }, // Elin
+					10: { distance: 21.09 } // Baraka
 				}
 			},
 			2: {
 				length: 1120,
 				distance: 31.84,
 				race: {
-					3: { distance: 32.47 }, // F.Helf: 32.474
-					6: { distance: 22.83 }, // M.Casta: 22.833
-					8: { distance: 40.93 }, // Popori: 40.926
-					9: { distance: 31.84 }, // Elin: 31.842
-					10: { distance: 20.68 } // Baraka: 20.676
+					3: { distance: 32.47 }, // F.Helf
+					4: { distance: 25 },	// M.Aman
+					6: { distance: 22.83 }, // M.Casta
+					8: { distance: 40.93 }, // Popori
+					9: { distance: 31.84 }, // Elin
+					10: { distance: 20.68 } // Baraka
 				}
 			},
 			3: {
 				length: 1825,
 				distance: 54.28,
 				race: {
-					3: { distance: 55.25 }, // F.Helf: 55.251
-					6: { distance: 59.47 }, // M.Casta: 59.467
-					8: { distance: 43.68 }, // Popori: 43.68
-					9: { distance: 54.29 }, // Elin: 54.285
-					10: { distance: 63.26 } // Baraka: 63.257
+					3: { distance: 55.25 }, // F.Helf
+					4: { distance: 45 }, // M.Aman
+					6: { distance: 59.47 }, // M.Casta
+					8: { distance: 43.68 }, // Popori
+					9: { distance: 54.29 }, // Elin
+					10: { distance: 63.26 } // Baraka
 				}
 			}
 		},
@@ -1456,14 +1472,13 @@ module.exports = {
 				abnormals: {
 					24170: { speed: 0.25 }
 				},
-				noInterrupt: [3],
 				noRetry: true
 			},
 			0: {
 				type: 'charging',
-				consumeAbnormal: 400900,
+				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
-				noInterrupt: [2, 4, 10, 15, 18, 24, 25, 30],
+				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, 10, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000,
 				glyphs: {
 					24067: {
@@ -1485,36 +1500,39 @@ module.exports = {
 				]
 			},
 			10: {
-				distance: 87.28, // 87.272 Cast F. - TODO
+				distance: 87.28,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 90.98 }, // F.Helf: 90.983
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 90.98 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			},
 			11: {
-				distance: 87.28, // 87.272
+				distance: 87.28,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 90.98 }, // F.Helf: 90.983
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 90.98 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			},
 			12: {
-				distance: 87.28, // 87.272
+				distance: 87.28,
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
-					3: { distance: 90.98 }, // F.Helf: 90.983
-					6: { distance: 69.7 }, // M.Casta: 69.704
-					8: { distance: 69.51 }, // Popori: 69.513
-					9: { distance: 87.27 }, // Elin: 87.272
-					10: { distance: 64.88 } // Baraka: 64.884
+					3: { distance: 90.98 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
+					6: { distance: 69.7 }, // M.Casta
+					8: { distance: 69.51 }, // Popori
+					9: { distance: 87.27 }, // Elin
+					10: { distance: 64.88 } // Baraka
 				}
 			},
 			13: {
@@ -1546,6 +1564,7 @@ module.exports = {
 				},
 				race: {
 					3: { distance: 90.6 }, // F.Helf
+					4: { distance: 80 }, // M.Aman
 					6: { distance: 75 }, // M.Casta
 					8: { distance: 73.34 }, // Popori
 					9: { distance: 105.69 }, // Elin
@@ -1595,7 +1614,7 @@ module.exports = {
 					6: { distance: 66.21 }, // M.Casta
 					8: { distance: 53.41 }, // Popori
 					9: { // Elin
-						length: 1263.63, // Probably doesn't matter if chaining, same for most chains, block cancels
+						length: 1263.63,
 						distance: 80.47
 					},
 					10: { distance: 70 } // Baraka
@@ -1633,9 +1652,10 @@ module.exports = {
 				noRetry: true
 			},
 			0: false, // Disabled since causes issues when chaining from itself.
-			/*0: { // When Cyclone resets you basically fully charge in 1 tick, so you do for example:
+			/*
+			0: { // When Cyclone resets you basically fully charge in 1 tick, so you do for example:
 				type: 'charging', // 0 > charge > 13 > 0(doesn't need to charge, already fully charge) > 13
-				consumeAbnormal: 400900,				
+				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650], // This is a bit mundane and just based on a quick observation, though
 				noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
 				//lastChargeStage: 2000
@@ -1659,7 +1679,8 @@ module.exports = {
 					{ length: [800, 800] },	// 1150
 					{ length: [800, 800] }	// 1150
 				]
-			},*/
+			},
+			*/
 			10: {
 				length: 1333, // Cast F. - TODO
 				distance: 50,
@@ -1726,7 +1747,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				consumeAbnormal: 400900,
+				consumeAbnormal: [400900, 401404],
 				length: [800, 800, 800],
 				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30],
 				lastChargeStage: 2000,
@@ -1752,6 +1773,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta
 					8: { distance: 69.51 }, // Popori
 					9: { distance: 87.27 }, // Elin
@@ -1763,6 +1785,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta
 					8: { distance: 69.51 }, // Popori
 					9: { distance: 87.27 }, // Elin
@@ -1774,6 +1797,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta
 					8: { distance: 69.51 }, // Popori
 					9: { distance: 87.27 }, // Elin
@@ -1785,6 +1809,7 @@ module.exports = {
 				noInterrupt: [2, 4, 24, 25, 30],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta
 					8: { distance: 69.51 }, // Popori
 					9: { distance: 87.27 }, // Elin
@@ -1795,6 +1820,7 @@ module.exports = {
 				distance: 87.28,
 				race: {
 					3: { distance: 72.79 }, // F.Helf
+					4: { distance: 35 }, // M.Aman
 					6: { distance: 69.7 }, // M.Casta
 					8: { distance: 69.51 }, // Popori
 					9: { distance: 87.27 }, // Elin
@@ -1845,9 +1871,10 @@ module.exports = {
 		},
 		24: { // Evasive Smash
 			'*': {
-				consumeAbnormal: 400900,
 				length: 1833, // 1630
 				distance: 167.63, // 167.624
+				consumeAbnormal: [400900, 401404],
+				requiredBuff: 400900,
 				race: {
 					6: { distance: 168.11 }, // M.Casta
 					8: { distance: 240.4 }, // Popori
@@ -1863,8 +1890,12 @@ module.exports = {
 				type: 'storeCharge',
 				length: 1020.9,
 				distance: 150,
+				requiredBuff: false,
 			},
-			5: { type: 'grantCharge' },
+			5: {
+				type: 'grantCharge',
+				requiredBuff: false
+			},
 			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] }, // check noInterrupts
 			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
 			12: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
@@ -2105,7 +2136,7 @@ module.exports = {
 		},
 		3: { // Lightning Trap
 			0: {
-				length: 1300,
+				length: 1307.22,
 				abnormals: {
 					25090: { speed: 0.4 }
 				}
@@ -2113,9 +2144,9 @@ module.exports = {
 		},
 		4: { // Arcane Pulse
 			'*': {
-				length: 1285,
+				length: 1293,
 				race: {
-					9: { length: 1015 } // Elin
+					9: { length: 990.91 } // Elin
 				},
 				noRetry: true
 			},
@@ -2163,11 +2194,11 @@ module.exports = {
 			}
 		},
 		5: { // Mana Infusion
-			0: { length: 4600 }
+			0: { length: 4595.5 }
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3925,
+				length: 3932,
 				glyphs: {
 					25003: { speed: 0.17 },
 					25069: { speed: 0.25 }
@@ -2191,7 +2222,7 @@ module.exports = {
 		7: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 660,
+				length: 657,
 				distance: -200,
 				forceClip: true,
 			}
@@ -2207,25 +2238,31 @@ module.exports = {
 		10: { // Mana Barrier
 			0: {
 				length: 633,
-				/*race: {
+				race: {
 					1: { length: 533 }
-				}*/
+				}
 			}
 		},
 		11: { // Lightning Strike
 			0: {
-				length: 840,
+				length: 869.56,
+				checkReset: true,
 				race: {
-					9: { length: 800 } // Elin
+					7: { length: 868.56 }, // F.Casta
+					9: { length: 805.56 } // Elin
 				}
 			}
 		},
 		12: { // Void Pulse
-			0: { length: 935 } //
+			0: { length: 933 } //
 		},
 		13: { // Mindblast
 			0: {
-				length: 2325,
+				length: 2462,
+				race: {
+					7: { length: 2460 },
+					9: { length: 2315 } // Elin
+				},
 				glyphs: {
 					25048: { speed: 0.3 }
 				},
@@ -2236,14 +2273,15 @@ module.exports = {
 		},
 		16: { // Painblast
 			0: {
-				length: 1590, //
+				length: 1608, //
 				race: {
+					7: { length: 1605 },
 					9: { length: 1330 } // Elin
 				}
 			}
 		},
 		17: { // Painful Trap
-			0: { length: 1100 }
+			0: { length: 1106 }
 		},
 		18: { // Glacial Retreat
 			0: {
@@ -2364,7 +2402,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -2376,7 +2415,7 @@ module.exports = {
 		//},
 		30: { // Nova
 			0: {
-				length: 2850,
+				length: 2858,
 				glyphs: {
 					25092: { speed: 0.3 }
 				}
@@ -2384,13 +2423,12 @@ module.exports = {
 		},
 		31: { // Warp Barrier
 			'*': { length: 500 },
-			0: true,
 			10: true,
 			20: true
 		},
 		32: { // Meteor Shower
 			'*': {
-				length: 6775,
+				length: 6778.2,
 				glyphs: {
 					25003: { speed: 0.17 },
 					25069: { speed: 0.25 }
@@ -2399,23 +2437,25 @@ module.exports = {
 					25100: { speed: 0.25 },
 				},
 				race: {
+					7: { length: 6774.54 }, // F. Casta
 					9: { length: 6475 } // Elin
 				}
 			},
 			0: true,
 			50: {
-				length: 3925,
+				length: 3933,
 				race: {
-					9: { length: 3700 } // Elin
+					7: { length: 3929.4 }, //Casta F.
+					9: { length: 3699 } // Elin
 				}
 			}
 		},
 		33: { // Arcane Pulse (Mana Boost)
 			'*': {
-				length: 1285,
+				length: 1292,
 				noRetry: true,
 				race: {
-					9: { length: 1015 } // Elin
+					9: { length: 990.91 } // Elin
 				}
 			},
 			10: true,
@@ -2455,15 +2495,15 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1225,
+				length: 1233,
 				noInterrupt: [22]
 			}
 		},
 		3: { // Radiant Arrow
 			'*': {
-				length: 1727.3,
+				length: 1748.2,
 				races: {
-					1: { length: 1560 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
+					1: { length: 1566.37 }
 				}
 			},
 			0: {
@@ -2486,36 +2526,37 @@ module.exports = {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			}, // Cast F. - TODO
 			11: {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			},
 			12: {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			},
 			13: {
 				distance: -100,
 				noInterrupt: [22],
 				race: {
-					8: { distance: -90.6 } // Popori, 90.604
+					8: { distance: -90.6 } // Popori
 				}
 			}
 		},
 		4: { // Penetrating Arrow
 			'*': {
-				length: 1320,
+				length: 1294, //1323 for fking elins ... | stop fking elins
 				races: {
-					1: { length: 1260 }	// F.Human(Faster but due to SF cancel it ends being as fast as other races)
+					1: { length: 1275 }, // F.Human
+					9: { length: 1323 }	// Elin
 				}
 			},
 			0: {
@@ -2542,7 +2583,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			}, // Cast F. - TODO
 			11: {
@@ -2550,7 +2591,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			},
 			12: {
@@ -2558,7 +2599,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			},
 			13: {
@@ -2566,7 +2607,7 @@ module.exports = {
 				noInterrupt: [22],
 				race: {
 					1: { distance: -80 }, // F.Human
-					8: { distance: -48.69 } // Popori, 48.688
+					8: { distance: -48.69 } // Popori
 				}
 			}
 		},
@@ -2587,14 +2628,15 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
 		6: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 700,
+				length: 670,
 				distance: -200,
 				noRetry: true,
 				forceClip: true,
@@ -2615,7 +2657,7 @@ module.exports = {
 				noInterrupt: [22] // this actually doesn't do anything
 			},
 			0: {
-				length: 433, // 445
+				length: 433,
 				noInterrupt: [6, '8-6']
 			},
 			1: { length: 600 },
@@ -2623,13 +2665,13 @@ module.exports = {
 			3: { length: 800 },
 			4: { length: 700 },
 			5: { length: 800 },
-			6: { length: 1220 } // 1240
+			6: { length: 1233 }
 		},
 		9: { // Slow Trap
-			0: { length: 1170 }
+			0: { length: 1149.5 }
 		},
 		10: { // Stunning Trap
-			0: { length: 1170 }
+			0: { length: 1149.5 }
 		},
 		12: { // Velik's Mark
 			0: { length: 200 }
@@ -2640,53 +2682,62 @@ module.exports = {
 				length: 1633,
 				noRetry: true,
 				race: {
-					0: 1433
+					0: { length: 1433 },
+					1: { length: 1433 }
 				}
 			}
 		},
 		15: { // Incendiary Trap
-			0: { length: 1150 } //
+			0: { length: 1149.5 }
 		},
 		16: { // Breakaway Bolt
 			0: {
 				CC: "extended",
-				length: 1340,
+				length: 1335,
 				distance: -250,
 				forceClip: true
 			}
 		},
 		17: { // Web Arrow
 			0: {
-				length: 525,
+				length: 533,
 				noInterrupt: [22]
 			}
 		},
 		18: { // Close Quarters
 			0: {
 				length: 300,
-				distance: 89.8	// 89.797
+				distance: 89.8
 			},
 			1: {
-				length: 1200,
-				distance: 87.29	// 97.292
+				length: 1233,
+				distance: 87.29,
+				race: {
+					0: { length: 1266 },
+					1: { length: 1266 },
+					2: { length: 1266 },
+					3: { length: 1266 },
+					4: { length: 1266 },
+					5: { length: 1266 }
+				}
 			}
 		},
 		19: { // Poison Arrow
 			0: {
-				length: 1117.6,
+				length: 1102.36,
 				distance: -12.5,
 				noInterrupt: [22],
 				abnormals: {
 					26100: { speed: 0.25 }
 				},
 				race: {
-					8: { distance: -12.17 } // Popori, 12.167
+					8: { distance: -12.17 } // Popori
 				}
 			}
 		},
 		20: { // Restraining Arrow
 			0: {
-				length: 525,
+				length: 533,
 				noInterrupt: [22]
 			}
 		},
@@ -2697,8 +2748,8 @@ module.exports = {
 		},
 		22: { // Sequential Fire
 			0: {
-				consumeAbnormal: 600200,
 				length: 433,
+				consumeAbnormal: 600200,
 				requiredBuff: 600200,
 				noRetry: true,
 				race: {
@@ -2707,14 +2758,14 @@ module.exports = {
 			}
 		},
 		23: { // Stunning Trap Arrow
-			0: { length: 1450 } // 1440
+			0: { length: 1423.6 }
 		},
 		25: { // Incendiary Trap Arrow
-			0: { length: 1225 } // 1215
+			0: { length: 1192.75 }
 		},
 		29: { // Thunderbolt
 			0: {
-				length: 3750,
+				length: 3766,
 				distance: -100,
 				noInterrupt: [22],
 				glyphs: {
@@ -2722,8 +2773,8 @@ module.exports = {
 					26102: { speed: 0.3 }
 				},
 				race: {
-					1: { length: 3560 }, // F.Human(Actually faster even if cancelled with SF, -100ms~ in comparisson at base AS)
-					8: { distance: -96.6 } // Popori, -96.604
+					1: { length: 3560 }, // F.Human
+					8: { distance: -96.6 } // Popori
 				}
 			}
 		},
@@ -2736,7 +2787,7 @@ module.exports = {
 		32: { // Find Weakness
 			0: {
 				fixedSpeed: 1,
-				length: 200
+				length: 182
 			}
 		},
 		33: { // Chase
@@ -2756,7 +2807,7 @@ module.exports = {
 	},
 	6: { // Priest
 		1: { // Divine Radiance
-			0: { length: 625 },
+			0: { length: 625 }, // Check
 			1: { length: 650 },
 			2: { length: 675 },
 			3: { length: 725 }
@@ -2775,7 +2826,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -2795,7 +2847,7 @@ module.exports = {
 			0: { length: 1293.63 }
 		},
 		6: { // Arise
-			0: { length: 830 }
+			0: { length: 839 }
 		},
 		8: { // Mana Infusion
 			0: {
@@ -2831,7 +2883,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -2939,7 +2992,7 @@ module.exports = {
 			11: { noInterrupt: [26, 27, 38] },
 			12: { noInterrupt: [26, 27, 38] }
 		},*/
-		28: { // Spiritual Mana Charge
+		28: { // Mana Charge / Spiritual Mana Charge
 			'*': {
 				length: 825, // formula isn't reliable enough so using the the most in theory correct values for now
 				noRetry: true,
@@ -2980,7 +3033,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1433,
+				length: 1433
 			}
 		},
 		31: { // Guardian Sanctuary
@@ -3010,7 +3063,7 @@ module.exports = {
 			}
 		},
 		34: { // Restorative Burst
-			0: { length: 1430 }
+			0: { length: 1433 }
 		},
 		35: { // Energy Stars
 			0: {
@@ -3053,7 +3106,7 @@ module.exports = {
 			0: { length: 5900 }
 		},
 		40: { // Zenobia's Vortex
-			'*': { length: 1080 },
+			'*': { length: 1070.71 },
 			0: true,
 			10: true,
 			20: true
@@ -3073,7 +3126,6 @@ module.exports = {
 		},
 		42: { // Holy Brilliance
 			'*': { length: 866 },
-			0: true,
 			20: true,
 			30: true
 		},
@@ -3158,7 +3210,8 @@ module.exports = {
 					920: { nocTanSpeed: 0.225 },
 					921: { nocTanSpeed: 0.225 },
 					922: { nocTanSpeed: 0.225 },
-					929: { nocTanSpeed: 0.225 }
+					929: { nocTanSpeed: 0.225 },
+					999010000: { nocTanSpeed: 0.15 }
 				}
 			}
 		},
@@ -3415,7 +3468,7 @@ module.exports = {
 				noInterrupt: [42]
 			}
 		},
-		43: { // Release																																																																							
+		43: { // Release
 			0: { length: [400, 575] } // 384.6 | 923
 		},
 		44: { // Group huggu 
@@ -3654,7 +3707,7 @@ module.exports = {
 			30: { length: [1450, 975] }
 		},
 		6: { // Death Spiral
-			'*': {
+			'*': { // todo: fix
 				length: 1250,
 				abnormals: {
 					10151131: { chain: 31 }
@@ -3676,7 +3729,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				triggerAbnormal: { 10151131: 6000 }, // We emulated for two reasons, 1. Other skills precise it to chain and 2. It's possible to send second casts without the abnormal in the server, resulting in ghosting.
+				triggerAbnormal: { 10151131: 6000 },
 				noRetry: true
 			},
 			30: {
@@ -3833,13 +3886,14 @@ module.exports = {
 		}
 	},
 	9: { // Gunner
-		'*': { consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152012, 10152050, 10152053, 10152054, 10152084, 10152085, 10152086] },
+		'*': { consumeAbnormal: [10152000, 10152001, 10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083] },
 		1: { // Blast
 			'*': {
-				triggerAbnormal: { 10152011: 3100 },
 				fixedSpeed: 1,
 				noRetry: true,
 				length: 1195,
+				triggerAbnormal: { 10152011: 3100 },
+				consumeAbnormal: [10152000, 10152001, 10152010],
 				noInterrupt: [1],
 				projectiles: [20]
 			},
@@ -3860,8 +3914,8 @@ module.exports = {
 			},
 			1: {
 				type: 'lockonCast',
-				triggerAbnormal: { 10152082: 4100 },
 				length: 2999,
+				noInterrupt: ['2-1'],
 				glyphs: {
 					30004: { speed: 0.25 }
 				}
@@ -3869,13 +3923,12 @@ module.exports = {
 		},
 		3: { // Scattershot
 			'*': {
-				triggerAbnormal: { 10152083: 4100 },
-				consumeAbnormal: 10152080, // Chain Display
 				length: 1725,
 				distance: -108,
+				triggerAbnormal: { 10152083: [4100, 485] },
 				noInterrupt: [3, 20],
 				glyphs: {
-					30007: { // The server also sends 30030 when active
+					30007: {
 						movement: [
 							{
 								duration: 394,
@@ -3902,8 +3955,9 @@ module.exports = {
 				chains: {
 					'2-1': 30,
 					4: 30,
+					5: 30,
 					'7-3': 30,
-					'9-11': 30,
+					9: 30,
 					10: 30,
 					11: 30,
 					13: 30,
@@ -3918,18 +3972,19 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
-				consumeAbnormal: 10152083,
 				length: 1532,
 				distance: 137.88,
-				noInterrupt: [20],
+				triggerAbnormal: {
+					10152000: [2100, 390],
+					10152001: [2100, 390]
+				},
+				noInterrupt: [4, 20],
 				chains: {
 					'2-1': 30,
 					3: 30,
-					'4-1': 4,
-					'4-2': 4,
-					'4-30': 4,
-					'9-10': 30,
-					'9-11': 30,
+					5: 30,
+					9: 30,
+					'7-3': 30,
 					10: 30,
 					11: 30,
 					13: 30,
@@ -3937,42 +3992,31 @@ module.exports = {
 					19: 30,
 					40: 30
 				},
-				/*abnormals: {
-					//10152000: { chain: 3 }, .......................................................
-					10152010: { chain: 2 },
-					10152011: { chain: 2 }
-				}*/
 			},
-			1: {
-				triggerAbnormal: {
-					10152000: 2100,
-					10152001: 2100
-				},
-				noInterrupt: [4]
-			},
-			2: {
-				triggerAbnormal: {
-					10152000: 2100,
-					10152001: 2100
-				},
-				noInterrupt: [4]
-			},
+			1: true,
+			2: true,
 			3: {
 				length: 1195,
-				distance: -198.53 // Not possible to correctly emulate but needed for chaining
+				distance: -198.53,
+				triggerAbnormal: { 10152002: 4100 },
+				requiredBuff: 10152000,
+				noInterrupt: ['4-3', '4-4'],
+				chains: {
+					4: 4,
+					5: 30,
+					'7-1': 2,
+					'7-2': 2,
+					'7-3': 30,
+					21: 3,
+					40: 30
+				}
 			},
 			4: {
-				triggerAbnormal: { 10152002: 4100 },
 				length: 1195,
-				distance: -198.53
+				distance: -198.53,
+				triggerAbnormal: { 10152002: 4100 },
 			},
-			30: {
-				noInterrupt: ['4-30'],
-				triggerAbnormal: {
-					10152000: 2100,
-					10152001: 2100
-				}
-			}
+			30: { noInterrupt: [4] }
 		},
 		5: { // Burst Fire
 			'*': {
@@ -3980,21 +4024,20 @@ module.exports = {
 					350905: { stamina: -5 }
 				},
 				blockCancelPacket: true,
-				noInterrupt: ['9-0'],
 				chains: {
-					'5-0': 1
+					5: 1,
+					7: 0,
+					9: 0
 				}
 			},
 			0: {
-				triggerAbnormal: { 10152053: 2100 }, //
-				length: 855,
+				length: 860,
+				triggerAbnormal: { 10152053: [2100, 30] },
+				consumeAbnormal: [10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083],
+				noInterrupt: [5],
 				noRetry: true
 			},
 			1: {
-				triggerAbnormal: {
-					10152050: 1200, //
-					10152054: 1200 //
-				},
 				fixedSpeed: 1,
 				length: 125,
 				stamina: 70,
@@ -4012,12 +4055,13 @@ module.exports = {
 		},
 		6: { // Time Bomb
 			'*': {
+				fixedSpeed: 1,
+				length: 1000,
 				triggerAbnormal: {
 					10152010: 3100,
 					10152084: 4100
 				},
-				fixedSpeed: 1,
-				length: 1000,
+				noInterrupt: [6],
 				projectiles: [20]
 			},
 			1: true,
@@ -4030,62 +4074,46 @@ module.exports = {
 		7: { // Arcane Barrage
 			'*': {
 				length: 1533,
-				chains: {
-					5: 1
-				}
+				triggerAbnormal: {
+					//30050: 3100, // -15~20
+					10152010: [3100, 25],
+					//10152040: [3100, 25]
+				},
+				noInterrupt: [7]
 			},
 			1: {
-				triggerAbnormal: {
-					//30050: 3100, // AS Buff
-					10152010: 3100,
-					10152040: 3100
-				},
-				triggerAbnormalEnd: { 10152081: 4100 },
-				consumeAbnormal: 10152072,
-				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
-				noInterrupt: [7],
 				noRetry: true
 			},
 			2: {
-				triggerAbnormal: {
-					10152010: 3100,
-					10152040: 3100
-				},
-				triggerAbnormalEnd: { 10152081: 4100 },
-				consumeAbnormal: 10152072,
-				consumeAbnormalEnd: 10152010,
 				fixedSpeed: 1,
-				noInterrupt: [7],
 				noRetry: true
 			},
 			3: {
-				consumeAbnormal: [10152040],
-				noInterrupt: ['7-3'],
-				length: 1200
+				length: 1200,
+				triggerAbnormal: { 10152081: [4100, 20] },
+				consumeAbnormal: [30050, 10152000, 10152001, 10152002, 10152010, 10152011, 10152040, 10152072, 10152080, 10152083],
+				noInterrupt: ['7-3']
 			}
 		},
 		9: { // Mana Missiles
-			'*': {
-				length: 1200,
-				noInterrupt: [20]
-			},
+			'*': { length: 1200 },
 			0: {
-				triggerAbnormal: { 10152085: 4100 },
 				type: 'charging',
 				length: 1200,
+				noInterrupt: ['9-10', '9-11', 20],
 				lastChargeStage: 0
 			},
 			10: {
-				triggerAbnormal: { 10152085: 4100 },
 				distance: -50,
 				noRetry: true,
+				noInterrupt: ['9-10'],
 				projectiles: [21, 22]
 			},
 			11: {
-				triggerAbnormal: { 10152085: 4100 },
 				distance: -100,
 				noRetry: true,
+				noInterrupt: ['9-11'],
 				projectiles: [21, 22, 23, 24, 25]
 			},
 			21: {
@@ -4116,8 +4144,6 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
-				//triggerAbnormal: { 10152086: 4100 },
-				consumeAbnormal: 10152083,
 				length: 1320,
 				noInterrupt: [10, 20],
 				projectiles: [20],
@@ -4127,16 +4153,12 @@ module.exports = {
 					4: null,
 					5: null,
 					'7-3': null,
-					'9-10': null,
-					'9-11': null,
-					//10: null,
 					11: null,
 					13: null,
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
 			1: true,
 			2: true,
@@ -4150,7 +4172,6 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				CC: ["evasive", "extended"],
-				triggerAbnormal: { 10152087: 4100 },
 				length: 1400,
 				noInterrupt: [3, 11, 15, 20],
 				distance: 415.45,
@@ -4158,10 +4179,10 @@ module.exports = {
 					'2-1': 30,
 					3: 30,
 					4: 30,
+					5: 30,
 					'7-3': 30,
-					'9-10': 30,
-					'9-11': 30,
-					'10-11': 30,
+					9: 30,
+					10: 30,
 					13: 30,
 					19: 30,
 					40: 31
@@ -4181,59 +4202,24 @@ module.exports = {
 				}
 			}
 		},
-		/*-		13: { // Balder's Vengeance (old version)
-					'*': {
-						triggerAbnormal: { 10152097: 4000 }, // someone ples fix shit skill AaaaA
-						consumeAbnormalEnd: 10152097,
-						length: 5800,
-						distance: -269.09,
-						//noInterrupt: [13],
-						chains: {
-							'2-1': null,
-							3: null,
-							4: null,
-							5: null,
-							'7-3': null,
-							'9-10': null,
-							'9-11': null,
-							10: null,
-							11: null,
-							13: null,
-							15: null,
-							19: null,
-							40: null
-						},
-						noRetry: true
-					},
-					1: true,
-					2: true,
-					30: true
-				},*/
 		13: { // Balder's Vengeance
 			'*': {
 				length: 5800,
 				distance: -269.09,
 				noInterrupt: [13],
-				abnormals: {
-					10152010: { chain: 2 }, //
-					10152011: { chain: 2 } // Must only trigger if currenaction won't result in a chain
-				},
 				chains: {
 					'2-1': null,
 					3: null,
 					4: null,
 					5: null,
 					'7-3': null,
-					'9-10': null,
-					'9-11': null,
+					9: null,
 					10: null,
 					11: null,
-					13: null,
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
 			1: true,
 			2: true,
@@ -4241,22 +4227,20 @@ module.exports = {
 		},
 		15: { // Replenishment
 			'*': {
-				consumeAbnormal: 10152083,
-				triggerAbnormal: { 10152072: 4100 },
-				fixedSpeed: 1, // The server sends 30090 500 when using the +50 will glyph
+				fixedSpeed: 1,
 				length: 1320,
+				triggerAbnormal: { 10152072: [4100, 485] },
 				noInterrupt: [15, 20],
 				chains: {
 					'2-1': 30,
 					3: 30,
 					4: 30,
+					5: 30,
 					'7-3': 30,
-					'9-10': 30,
-					'9-11': 30,
+					9: 30,
 					10: 30,
 					11: 30,
 					13: 30,
-					//15: 30,
 					19: 30,
 					40: 30
 				}
@@ -4266,9 +4250,11 @@ module.exports = {
 			30: true
 		},
 		18: { // HB
-			'*': {// 10152251 2147483647
+			'*': {
 				fixedSpeed: 1,
 				length: 1433,
+				//triggerAbnormalOnce: {10152251: 0x7fffffff },				
+				consumeAbnormal: [10152000, 10152001, 10152010, 10152011],
 				noInterrupt: [18]
 			},
 			1: true,
@@ -4277,22 +4263,21 @@ module.exports = {
 		19: { // ST
 			'*': {
 				length: 1325,
+				consumeAbnormal: [10152000, 10152001, 10152010, 10152011],
 				projectiles: [20],
 				chains: {
 					'2-1': null,
 					3: null,
 					4: null,
+					5: null,
 					'7-3': null,
-					'9-10': null,
-					'9-11': null,
+					9: null,
 					10: null,
 					11: null,
 					13: null,
 					15: null,
-					//19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
 			1: true,
 			2: true,
@@ -4304,25 +4289,50 @@ module.exports = {
 			30: true
 		},
 		20: { // Retaliate
-			0: {
+			0: { // Kd animation consumes abnormals
 				type: 'retaliate',
 				length: 1500,
 				noRetry: true
 			}
 		},
+		/*
+		21: { // Command: Recall 
+			0: { 
+				length: null,
+				consumeAbnormal: [10152010, 10152011]
+			}
+		}
+		22: { // Command: Self-Destruct
+			0: { 
+				length: null,
+				consumeAbnormal: [10152010, 10152011]
+			}
+		}
+		23: { // Command: Stay/Follow
+			'*': { length: null },
+			0: true,
+			1: { // Stay!
+				triggerAbnormal: { 10152250: 0x7fffffff },
+				consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152251]
+			},
+			2: { // Follow!
+				 triggerAbnormal: { 10152251: 0x7fffffff },
+				 consumeAbnormal: [10152000, 10152001, 10152010, 10152011, 10152250]
+			}
+		},
+		*/
 		40: { // Rolling Reload
 			0: {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 935,
+				triggerAbnormal: {
+					10152010: 3100,
+					10152080: [4100, 20]
+				},
+				consumeAbnormal: [10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083],
 				noInterrupt: [11],
 				distance: 172.5,
-				triggerAbnormal: {
-					10152010: 3100, // "chains"
-					10152012: 3100,
-					10152071: 3100,
-					10152080: 4100
-				},
 				forceClip: true
 			}
 		}
@@ -4367,6 +4377,15 @@ module.exports = {
 				CC: "extended",
 				noRetry: true
 			},
+			/*
+			0: 				 -> 10
+				10153001 -> 11,
+				10153002 -> 11,
+				10153003 -> 11,
+				10153004 -> 11,
+				10153005 -> 11,
+				10153060 -> 12,
+			*/
 			1: {
 				length: 1200,
 				distance: 139.97,
@@ -4408,12 +4427,6 @@ module.exports = {
 				consumeAbnormalEnd: 10153005
 			},
 			12: {
-				/*abnormals: {
-					10153061: { chain: 1 },
-					10153062: { chain: 2 },
-					10153063: { chain: 3 },
-					10153064: { chain: 4 }
-				},*/
 				chains: {
 					'1-0': 1,
 					'1-1': 2,
@@ -4425,18 +4438,14 @@ module.exports = {
 				}
 			}
 		},
-		/*3: { // Divine Wrath
+		3: { // Divine Wrath
 			0: {
 				fixedSpeed: 1,
 				length: 29900,
 				noRetry: true
 			},
-			1: {
-				type: 'lockonCast',
-				length: [,,],
-				distance: [,,]
-			}
-		},*/
+			1: false
+		},
 		4: { // Ground Pound
 			'*': {
 				CC: "extended",
@@ -4479,6 +4488,13 @@ module.exports = {
 					40: 30
 				}
 			},
+			/*
+			0: 				 -> 1
+				10153001 -> 
+				10153002 -> -> 2
+				10153003 -> -> 2
+				10153004 ->
+			*/
 			1: true,
 			2: true,
 			30: true,
@@ -4489,7 +4505,8 @@ module.exports = {
 				length: 860,
 				distance: 105,
 				noInterrupt: [7],
-				/*chains: {
+				/*
+				chains: {
 					1: 30,
 					2: 30,
 					4: 30,
@@ -4498,7 +4515,9 @@ module.exports = {
 					9: 30,
 					16: 30,
 					40: 30
-				}*/
+				}
+				*/
+				hasChains: true
 			},
 			0: true,
 			30: true
@@ -4542,6 +4561,17 @@ module.exports = {
 				abnormals: {
 					31120: { chain: 31 }
 				},
+				/*
+				chains: {
+					'2-1': 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					10: 30
+				},
+				*/
 				hasChains: true
 			},
 			1: true,
@@ -4552,7 +4582,7 @@ module.exports = {
 		10: { // Counterpunch
 			'*': {
 				CC: "extended",
-				length: 1850,
+				length: 1855,
 				distance: 155,
 				requiredBuff: 10153000,
 				chains: {
@@ -4580,26 +4610,48 @@ module.exports = {
 		13: { // Provoke
 			'*': {
 				fixedSpeed: 1,
-				length: 1275
+				length: 1291
 			},
 			1: true,
 			2: true
 		},
 		14: { // Infuriate
-			'*': { length: 1650 },
+			'*': { length: 1666 },
 			1: true,
 			2: true,
 			30: true
 		},
+		15: { // High Kick
+			'*': { length: 1305.44 },
+			0: { hasChains: true },
+			30: true
+		},
 		16: { // Flip Kick
 			'*': {
-				length: 2050,
+				length: 2066,
 				distance: 134,
+				/*
+				chains: {
+					4: 30
+				},
+				*/
 				hasChains: true
 			},
 			1: true,
 			2: true,
 			30: true
+		},
+		// 17 retard owob
+		18: { // Growing Fury
+			'*': { length: 1371.66 },
+			1: { hasChains: true },
+			2: true,
+			30: true
+		},
+		19: { // Invigorating Rage
+			'*': { length: 1433 },
+			1: true,
+			2: true
 		},
 		21: { // Mounting Rage
 			'*': {
@@ -4609,6 +4661,44 @@ module.exports = {
 			1: true,
 			2: true
 		},
+		22: { // Retardo BHS style flying kicku
+			0: {
+				length: 1815,
+				/*
+				chains: {
+					: 30,
+					: 30,
+					: 30,
+					: 30
+				}
+				10153190 -> 
+				10153191 -> ->
+				10153192 -> -> -> 3
+				10153193 -> -> -> 0
+				10153194 -> ->
+				10153195 -> 
+				*/
+				hasChains: true
+			},
+			30: { length: 1222 }
+		},
+		/*
+		23: { // Human_M_Fighter_Lv13_BackSpinElbow_02
+
+		},
+		24: { // 2.54cm Punch
+			1: 
+			2:
+			30:
+			33: 
+		},
+		26: { // Human_M_Fighter_Lv13_DampseyRollShot
+
+		},
+		27: { // 2.54cm Punch rearCancel
+
+		}
+		*/
 		40: { // Quick Dash
 			'*': {
 				CC: ["evasive", "extended"],
@@ -4619,11 +4709,14 @@ module.exports = {
 				hasChains: true,
 				noRetry: true,
 			},
-			0: true,/*{
+			0: true,
+			/*
+			{
 				triggerAbnormal: { 10153150: 8000 },
 				abnormals: { 10153150: { chain: 30 } },
 				noInterrupt: [40]
-			},*/
+			},
+			*/
 			1: true,
 			30: true, //{ consumeAbnormal: 10153150 },
 			31: true
@@ -4634,7 +4727,7 @@ module.exports = {
 		}
 	},
 	11: { // Ninja
-		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006, 10154081, 10154082, 10154085] },
+		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006] },
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
@@ -4792,7 +4885,7 @@ module.exports = {
 			'*': {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
-				length: 650,
+				length: 650.3,
 				distance: 175,
 				forceClip: true,
 				abnormals: {
@@ -4831,16 +4924,29 @@ module.exports = {
 			30: true
 		},
 		4: { // Jagged Path
-			1: {
+			'*': {
 				CC: ["evasive", "extended"],
 				type: 'dash',
+				length: 665
+			},
+			1: {
 				fixedSpeed: 1,
-				length: 665,
 				distance: 469,
 				noInterrupt: [4],
 			},
-			10: { length: 1500 },
+			2: {
+				fixedSpeed: 1,
+				distance: 469,
+				noInterrupt: [4],
+			},
+			10: {
+				CC: false,
+				type: false,
+				length: 1500
+			},
 			11: {
+				CC: false,
+				type: false,
 				length: 300,
 				distance: 150
 			}
@@ -4848,7 +4954,7 @@ module.exports = {
 		5: { // Impact Bomb
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 10022,
+				length: 1022,
 				distance: -291.6,
 				noInterrupt: [5],
 				chains: {
@@ -4905,7 +5011,7 @@ module.exports = {
 				length: 300,
 				distance: 246
 			},
-			10: { length: 3500 },
+			10: { length: 3516 },
 			30: true
 		},
 		7: { // Decoy Jutsu
@@ -4947,11 +5053,13 @@ module.exports = {
 			0: true,
 			1: {
 				triggerAbnormal: { 10154081: 5000 },
+				consumeAbnormal: 10154080,
 				length: [1375, 325],
 				distance: [411.39, 0]
 			},
 			2: {
 				triggerAbnormal: { 10154082: 1 },
+				consumeAbnormal: 10154081,
 				length: [1375, 325],
 				distance: [455.47, 0]
 			},
@@ -4959,7 +5067,7 @@ module.exports = {
 		},
 		9: { // Smoke Bomb
 			'*': {
-				length: 725,
+				length: 722,
 				chains: {
 					1: null,
 					2: null,
@@ -4988,13 +5096,13 @@ module.exports = {
 		10: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1630,
+				length: 1633,
 				noRetry: true
 			}
 		},
 		11: { // Focus
 			'*': {
-				length: 1430,
+				length: 1431,
 				noInterrupt: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 			},
 			0: true,
@@ -5002,11 +5110,11 @@ module.exports = {
 		},
 		12: { // Skyfall
 			'*': {
-				length: 1325,
+				length: 1320,
 				distance: 154.72,
 				chains: {
 					1: 30,
-					2: 30, // Rarely triggers, does not affect its normal usage
+					2: 30,
 					4: 30,
 					5: 30,
 					6: 30,
@@ -5028,7 +5136,7 @@ module.exports = {
 		},
 		13: { // Circle of Steel
 			'*': {
-				length: 3225,
+				length: 3210,
 				distance: 245.06,
 				chains: {
 					1: 30,
@@ -5054,7 +5162,7 @@ module.exports = {
 		},
 		14: { // Double Cut
 			'*': {
-				length: 1425,
+				length: 1429,
 				distance: 162,
 				chains: {
 					1: 30,
@@ -5080,7 +5188,7 @@ module.exports = {
 		},
 		15: { // Burning Heart
 			'*': {
-				length: 390,
+				length: 400,
 				stamina: 100,
 				instantStamina: true,
 				abnormals: {
@@ -5088,55 +5196,21 @@ module.exports = {
 					32058: { speed: 0.3 }
 				}
 			},
-			0: {
-				triggerAbnormal: {
-					10154060: 1300,
-					10154100: 2000,
-					10154101: 2000
-				},
-				length: 880
-			},
-			1: {
-				triggerAbnormal: { 10154061: 850 },
-				consumeAbnormal: 10154060
-			},
-			2: {
-				triggerAbnormal: { 10154062: 850 },
-				consumeAbnormal: 10154061
-			},
-			3: {
-				triggerAbnormal: { 10154063: 850 },
-				consumeAbnormal: 10154062
-			},
-			4: {
-				triggerAbnormal: { 10154064: 850 },
-				consumeAbnormal: 10154063
-			},
-			5: {
-				triggerAbnormal: { 10154065: 850 },
-				consumeAbnormal: 10154064
-			},
-			6: {
-				triggerAbnormal: { 10154066: 850 },
-				consumeAbnormal: 10154065
-			},
-			7: {
-				triggerAbnormal: { 10154067: 850 },
-				consumeAbnormal: 10154066
-			},
-			8: {
-				triggerAbnormal: { 10154068: 850 },
-				consumeAbnormal: 10154067
-			},
-			9: {
-				triggerAbnormal: { 10154069: 850 },
-				consumeAbnormal: 10154068
-			},
+			0: { length: 900 },
+			1: true,
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true,
+			8: true,
+			9: true
 		},
 		16: { // Death Blossom
 			'*': {
 				fixedSpeed: 1,
-				length: 1525,
+				length: 1532.3,
 				noInterrupt: [16],
 				chains: {
 					1: null,
@@ -5163,7 +5237,7 @@ module.exports = {
 		},
 		17: { // Attunement
 			'*': {
-				length: 1000,
+				length: 995,
 				chains: {
 					1: 30,
 					2: 30,
@@ -5188,7 +5262,7 @@ module.exports = {
 		},
 		18: { // Bladestorm
 			'*': {
-				length: 1000,
+				length: 1016.5,
 				distance: 68.535,
 				noInterrupt: [18],
 				chains: {
@@ -5243,7 +5317,7 @@ module.exports = {
 		20: { // Clone Jutsu
 			0: {
 				fixedSpeed: 1,
-				length: 1275
+				length: 1258
 			}
 		},
 
@@ -5254,7 +5328,7 @@ module.exports = {
 	12: { // Valkyrie
 		1: { // Slash
 			'*': {
-				length: 1100,
+				length: 1107.45,
 				distance: 47.13,
 				noInterrupt: ['1-3'],
 				chains: {
@@ -5284,22 +5358,22 @@ module.exports = {
 			},
 			0: true,
 			1: {
-				length: 1200,
+				length: 1200.35,
 				distance: 43.37
 			},
 			2: {
-				length: 1450,
+				length: 1454.3,
 				distance: 58.54
 			},
 			3: {
-				length: 1925,
+				length: 1927.58,
 				distance: 90.1
 			},
 			30: true
 		},
 		2: { // Overhead Slash
 			'*': {
-				length: 1900,
+				length: 1917.8,
 				distance: 102.47,
 				chains: {
 					1: 30,
@@ -5326,7 +5400,7 @@ module.exports = {
 		},
 		3: { // Glaive Strike
 			'*': {
-				length: 2450,
+				length: 2457,
 				distance: 105.62,
 				requiredBuff: 10155112,
 				chains: {
@@ -5370,7 +5444,7 @@ module.exports = {
 		},
 		5: { // Maelstrom
 			'*': {
-				length: 3150,
+				length: 3145.43,
 				distance: 125.11,
 				chains: {
 					1: 30,
@@ -5397,7 +5471,7 @@ module.exports = {
 		},
 		6: { // Leaping Strike
 			'*': {
-				length: 1775,
+				length: 1772.8,
 				distance: 105,
 				chains: {
 					1: 30,
@@ -5425,7 +5499,7 @@ module.exports = {
 		},
 		7: { // Spinning Death
 			'*': {
-				length: 1775,
+				length: 1786.14,
 				distance: 139.72,
 				noInterrupt: ['7-2'],
 				abnormals: {
@@ -5456,7 +5530,7 @@ module.exports = {
 			0: true,
 			1: true,
 			2: {
-				length: 2300,
+				length: 2293,
 				distance: 197.82
 			},
 			30: true
@@ -5464,7 +5538,7 @@ module.exports = {
 		8: { // Titansbane
 			'*': {
 				fixedSpeed: 1,
-				length: 7700,
+				length: 7702,
 				chains: {
 					1: 30,
 					2: 30,
@@ -5487,12 +5561,12 @@ module.exports = {
 				}
 			},
 			0: true,
-			1: { length: 2000 },
+			1: { length: 2017 },
 			30: true
 		},
 		9: { // Ground Bash
 			'*': {
-				length: 1450,
+				length: 1459.62,
 				distance: 136,
 				requiredBuff: 10155112,
 				chains: {
@@ -5520,7 +5594,7 @@ module.exports = {
 		},
 		10: { // Dream Slash // need to check chains
 			'*': {
-				length: 1775,
+				length: 1772.52,
 				distance: 11.78,
 				noInterrupt: [10],
 				glyphs: {
@@ -5609,7 +5683,7 @@ module.exports = {
 		},
 		12: { // Ragnarok
 			'*': {
-				length: 2800,
+				length: 2821.54,
 				chains: {
 					1: 30,
 					2: 30,
@@ -5635,7 +5709,7 @@ module.exports = {
 		},
 		13: { // Bloodflower
 			'*': {
-				length: 1700,
+				length: 1666.67,
 				distance: 20.57,
 				chains: {
 					1: 30,
@@ -5664,7 +5738,7 @@ module.exports = {
 			'*': {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
-				length: 825,
+				length: 833.33,
 				distance: 188.18,
 				forceClip: true,
 			},
@@ -5676,7 +5750,7 @@ module.exports = {
 		},
 		15: { // Windslash
 			'*': {
-				length: 1100,
+				length: 1111.11,
 				distance: 152.82,
 				chains: {
 					1: 30,
@@ -5704,7 +5778,7 @@ module.exports = {
 		16: { // Runeburst
 			'*': {
 				fixedSpeed: 1,
-				length: 1325,
+				length: 1327.8,
 				distance: 25,
 				chains: {
 					1: 30,
@@ -5732,7 +5806,7 @@ module.exports = {
 		17: { // Balder's Tears
 			0: {
 				fixedSpeed: 1,
-				length: 1075
+				length: 1079.23
 			}
 		},
 		/*18: { // Retaliate
@@ -5744,7 +5818,7 @@ module.exports = {
 		},*/
 		19: { // Reclamation
 			'*': {
-				length: 1525,
+				length: 1531,
 				chains: {
 					1: 30,
 					2: 30,
@@ -5763,7 +5837,6 @@ module.exports = {
 					15: 30,
 					16: 30,
 					18: 30,
-					//19: 30,
 					20: 30
 				}
 			},
@@ -5773,14 +5846,14 @@ module.exports = {
 		20: { // Backstab
 			0: {
 				CC: ["evasive", "extended"],
-				length: 1500,
+				length: 1490,
 				onlyTarget: true
 			}
 		},
 		21: { // Dark Herald
 			0: {
 				fixedSpeed: 1,
-				length: 925,
+				length: 922,
 				requiredBuff: 10155201
 			}
 		},
