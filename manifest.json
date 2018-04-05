@@ -34,5 +34,21 @@
     "lib/ping.js": "5abff7060377e29f7b30f36a97508b6127d23c96db7260c5d87b7691eb01f28b",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
     "migration/partial-config.json": "16380b9904eebc2b30910832dc1f1b8733bf6053ed61a1cba41a60713b76241e"
+  },
+  "defs": {
+    "C_START_SKILL": [4, 5],
+    "C_START_TARGETED_SKILL": 4,
+    "C_START_COMBO_INSTANT_SKILL": 2,
+    "C_START_INSTANCE_SKILL": 3,
+    "C_START_INSTANCE_SKILL_EX": 3,
+    "C_PRESS_SKILL": 2,
+    "S_INSTANT_DASH": 3,
+    "S_INSTANT_MOVE": 3,
+    "S_ACTION_END": 3,
+    "S_ACTION_STAGE": 4,
+    "S_LOGIN": [9, 10],
+    "S_SPAWN_ME": 2,
+    "S_CREATURE_LIFE": 2,
+    "S_INVEN": 12
   }
 }
