@@ -12,5 +12,8 @@
 	"bugs": {
 		"url": "https://github.com/SaltyMonkey/skill-prediction/issues"
 	},
-	"homepage": "https://github.com/SaltyMonkey/skill-prediction#wiki"
+	"homepage": "https://github.com/SaltyMonkey/skill-prediction#wiki",
+	"devDependencies": {
+		"mocha": "^5.0.4"
+	}
 }

@@ -161,7 +161,7 @@ module.exports = {
 		10: { // Death From Above
 			0: {
 				length: 2066,
-				noInterrupt: [2, 32],
+				noInterrupt: [2, 10, 32],
 				race: {
 					1: { length: 2100 }, // F.Human
 					3: { length: 2033 }, // F.Helf
@@ -2509,6 +2509,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
+				//triggerAbnormal: {600200: 7000 },
 				noInterrupt: [4, 22],
 				lastChargeStage: 2500,
 				noRetry: true,
@@ -2553,7 +2554,7 @@ module.exports = {
 		},
 		4: { // Penetrating Arrow
 			'*': {
-				length: 1294, //1323 for fking elins ... | stop fking elins
+				length: 1294,
 				races: {
 					1: { length: 1275 }, // F.Human
 					9: { length: 1323 }	// Elin
@@ -2562,6 +2563,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
+				//triggerAbnormal: {600200: 7000 },
 				noInterrupt: [3, 22],
 				noRetry: true,
 				lastChargeStage: 2500,
@@ -2767,6 +2769,7 @@ module.exports = {
 			0: {
 				length: 3766,
 				distance: -100,
+				//triggerAbnormal: { 600200: [7000, 780] },
 				noInterrupt: [22],
 				glyphs: {
 					26089: { speed: 0.3 },
@@ -3983,8 +3986,8 @@ module.exports = {
 					'2-1': 30,
 					3: 30,
 					5: 30,
-					9: 30,
 					'7-3': 30,
+					9: 30,
 					10: 30,
 					11: 30,
 					13: 30,
@@ -4075,7 +4078,7 @@ module.exports = {
 			'*': {
 				length: 1533,
 				triggerAbnormal: {
-					//30050: 3100, // -15~20
+					//30050: 3100, // -15~-20
 					10152010: [3100, 25],
 					//10152040: [3100, 25]
 				},
@@ -4683,7 +4686,7 @@ module.exports = {
 			30: { length: 1222 }
 		},
 		/*
-		23: { // Human_M_Fighter_Lv13_BackSpinElbow_02
+		23: { // BackSpinElbow?
 
 		},
 		24: { // 2.54cm Punch
@@ -4692,10 +4695,10 @@ module.exports = {
 			30:
 			33: 
 		},
-		26: { // Human_M_Fighter_Lv13_DampseyRollShot
+		26: { // Storm Combo?
 
 		},
-		27: { // 2.54cm Punch rearCancel
+		27: { // 2.54cm Punch II?
 
 		}
 		*/
@@ -4924,29 +4927,23 @@ module.exports = {
 			30: true
 		},
 		4: { // Jagged Path
-			'*': {
+			'*': { length: 665 },
+			1: {
 				CC: ["evasive", "extended"],
 				type: 'dash',
-				length: 665
-			},
-			1: {
 				fixedSpeed: 1,
 				distance: 469,
 				noInterrupt: [4],
 			},
 			2: {
+				CC: ["evasive", "extended"],
+				type: 'dash',
 				fixedSpeed: 1,
 				distance: 469,
 				noInterrupt: [4],
 			},
-			10: {
-				CC: false,
-				type: false,
-				length: 1500
-			},
+			10: { length: 1500 },
 			11: {
-				CC: false,
-				type: false,
 				length: 300,
 				distance: 150
 			}
@@ -5112,6 +5109,7 @@ module.exports = {
 			'*': {
 				length: 1320,
 				distance: 154.72,
+				noInterrupt: [12],
 				chains: {
 					1: 30,
 					2: 30,
@@ -5138,6 +5136,7 @@ module.exports = {
 			'*': {
 				length: 3210,
 				distance: 245.06,
+				noInterrupt: [13],
 				chains: {
 					1: 30,
 					2: 30,
@@ -5164,6 +5163,7 @@ module.exports = {
 			'*': {
 				length: 1429,
 				distance: 162,
+				noInterrupt: [14],
 				chains: {
 					1: 30,
 					2: 30,
