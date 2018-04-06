@@ -1,6 +1,6 @@
 {
   "files": {
-    "index.js": "e056bc3a11d0302149227514883b50cbd533da25df7229935dcca283e4b4c226",
+    "index.js": "78e528758b9ea2fc3c8cdfd68b64f59a95fe25865388f8b5c63def6bfad06791",
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
     "module.json": "8e73f7575ee71a68f91647c386adf75df8d4c4a24ccc8f7627bfc76291f28a34",
     "package.json": "872e41662b327cc705cc8174c9060f40898fbf10d01b034d778ad76de90697b8",
@@ -29,7 +29,7 @@
     "docs/preset.md": "65defb713d68d517f2040ecf55a588dcf036e02c86f0dab6a6d6f8c3d6f98ecc",
     "lib/abnormalities.js": "d558980259de9e7bad0a7f0ba5f4921591b053820a49e50a25aaa33139ab4258",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "90296ddb2b103ab869d960ecf7461ecf3b1aad27a3b2a93c36f3b573606039b7",
+    "lib/core.js": "5189b957ff6b925704cfa98eb5469adf785108cfa66b152d5fb3fbb0c7368b53",
     "lib/autoconfig.js": "ae36eeefd6421199aff457849719d8b9df13ef55708ef31967952176850d9f42",
     "lib/ping.js": "48928ca3a65919b99eed6871cf5f27835a5cfa2be302539a00c64a88cb470893",
     "lib/migration.js": "ef69a00348e290e43c894fa06013713ea201781676ceb16270916640121b7c3b",
@@ -65,8 +65,8 @@
     "S_ACTION_STAGE": 4,
     "S_CREST_MESSAGE": 2,
     "S_PLAYER_STAT_UPDATE": 9,
-    "S_CREST_INFO": 1,
-    "S_CREST_APPLY": 1,
+    "S_CREST_INFO": 2,
+    "S_CREST_APPLY": 2,
     "S_PLAYER_CHANGE_STAMINA": 1,
     "S_SPAWN_ME": 2,
     "S_USER_STATUS": 1,
