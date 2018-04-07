@@ -6,20 +6,20 @@
 
 **Does this mean my ping will effectively be lower?** 
 
-No. What the module does is attempt to avoid the restrains caused by ping on skills and so letting the player interact with skills the way it's intended to be. Please do remember that skill emulation isn't perfect(or can be due to the lack of server side support) and the module's accuracy is heavily affected by the user's **network quality**.
+No. What the module does is attempt to avoid the restrains caused by ping on skills and so letting the player interact with skills in the intended way. Please do remember that skill emulation isn't perfect(or can be due to the lack of server side support) and the module's accuracy is heavily affected by the user's **network quality and natural ping**.
 
 **What about PvP, does it work with no affairs?** 
 
-While the module does support PvP in certain areas it doesn't fully do it or does it perfectly manage player's position as per the server will expect, it's **not recommended for this purpose.** Furthermore, the module can be deactivated in-game via accesing the command `sp off`, more info can be found in `skill-prediction\docs\commands.pdf` locally or hosted [here](https://github.com/SaltyMonkey/skill-prediction/wiki/Commands).
+While the module does support PvP in certain areas it doesn't fully do it or does it perfectly manage player's position as per the server will expect, it's **not recommended for this purpose.** Furthermore, the module can be deactivated in-game via accessing the command `/8 sp off`, more info can be found in `skill-prediction\docs\commands.pdf` locally or hosted [here](https://github.com/SaltyMonkey/skill-prediction/wiki/Commands).
 
 **Notes:**
 
 * By default and when using "active" ping method the ingame ping stats will instead of showing your framerate + ping delay, show the delay provided by **only framerate**.
-* It can get you banned due to possible desync and further users report. Use at own risk
+* It can get you banned due to possible desync and further users report. Use at own risk.
 
 ## Installation
 
-1. Download the module via clicking in the button `Clone or Download` and then on `Download Zip`
+1. Download the module via clicking in the button `Clone or Download` and then on `Download Zip`.
 2. Uncompress and place the resulting folder in `Tera-proxy\bin\node_modules` and you're set.
 
 **Notes:**
@@ -28,11 +28,11 @@ While the module does support PvP in certain areas it doesn't fully do it or doe
 
 ## Usage
 
-The module by itself doesn't require you to do anything in game to then make use of it. It's instead suggested that you do take a look at users documentation in the folder `skill-prediction\docs\` locally or hosted in the [wiki](https://github.com/SaltyMonkey/skill-prediction/wiki#usage).
+The module by itself doesn't require you to do anything in-game to then make use of it. It's instead suggested that you do take a look at users documentation in the folder `skill-prediction\docs\` locally or hosted in the [wiki](https://github.com/SaltyMonkey/skill-prediction/wiki#usage).
 
 ## Troubleshooting
 
-Refer to the [troubleshooting section](https://github.com/SaltyMonkey/skill-prediction/wiki#troubleshooting) in the wiki **(not developed yet)**. Alternatively, help will provided in [Caali's Proxy and Private server development discord](https://discord.gg/maqBmJV).
+Refer to the [Troubleshooting section](https://github.com/SaltyMonkey/skill-prediction/wiki#troubleshooting) in the wiki **(not developed yet)**. Alternatively, help will also be provided in [Caali's Proxy and Private server development discord](https://discord.gg/maqBmJV).
 
 ## Awakening update
 
