@@ -7,6 +7,10 @@ WARNING! WARNING! WARNING!
 
 Awakening skills naming is being done based on the following document: https://docs.google.com/document/d/1q0qxSf-Ll1nfViF9SGf1kcA2I0CjO_N8dokgpx__o2c/edit#
 (for now)
+
+Note: If you can't find a specific skill on these list that probably means the preset file is outdated. 
+To update it just delete it and restart proxy, let it update and it will be done.
+If after following this process skills are still missing do report it on discord or an issue in github, links to both can be found in the readme.pdf file.
 */
 module.exports = {
 	0: { // Warrior
@@ -358,6 +362,9 @@ module.exports = {
 		21: true, // Mounting Rage
 		40: true, // Quick Dash
 		// Awakening
+		22: true, // Flying Kick
+		24: true, // 2.54cm Punch
+		26: true, // Resounding Uppercut
 
 		91: true, // Awakening Eyes Aura
 	},

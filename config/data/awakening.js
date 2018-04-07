@@ -950,11 +950,14 @@ module.exports = {
 			1: { length: [281.25, 768.75, 2325] }
 		},
 		29: { // Bulwark
-			0: {
+			0: false 
+			/*
+			{
 				//CC: "extended",
 				type: 'holdInfinite',
 				fixedSpeed: 1
 			}
+			*/
 		},
 		30: { // Heavenly Shield 
 			0: { length: 1252 }
@@ -2152,9 +2155,9 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				length: [800, 800], // 1000, 1000 <- dis too
+				length: [800, 800],
 				noInterrupt: [7, 26],
-				lastChargeStage: 2000, // 50 <- revert to 50 once it reaches pleb regions, keep 2000 for ktera
+				lastChargeStage: 2000,
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
@@ -4971,6 +4974,7 @@ module.exports = {
 					15: null,
 					16: null,
 					17: null,
+					18: null,
 					19: null,
 					20: null
 				},
@@ -5081,6 +5085,7 @@ module.exports = {
 					15: null,
 					16: null,
 					17: null,
+					18: null,
 					19: null,
 					20: null
 				},

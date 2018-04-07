@@ -4,7 +4,7 @@
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
     "module.json": "8e73f7575ee71a68f91647c386adf75df8d4c4a24ccc8f7627bfc76291f28a34",
     "package.json": "872e41662b327cc705cc8174c9060f40898fbf10d01b034d778ad76de90697b8",
-    "README.md": "db27dcc6a9c5fbcac0a6069ee744f2d8f6ae60119be6f9b178fb54fcf087d84f",
+    "README.pdf": "7e3ca64c5b0856620a179fd114bf404e3413fb2b87a76b330c645b1f2bc2f486",
     "config/abnormalities.js": {
       "overwrite": false,
       "hash": "be80c09b1508b5c7c0fa7d2e93c5c22fa0fca0fce2b46f6bf3f8e03dfd30329f"
@@ -15,18 +15,18 @@
     },
     "config/preset.js": {
       "overwrite": false,
-      "hash": "54eaf94bd3c1bcad6ff192ca80a64c16161c3bd04d5861bbb8f42fc2f6b25536"
+      "hash": "b7f48d83e778773de39df11a98860afe8df9be8829be2db9ad33f9c89cdacc50"
     },
     "config/default-config.json": "3c744cf42857b665d0c719cc692cd234e55367132acf8eb4475b27ae33961a32",
     "config/data/basicCC.json": "1a41a0082a74f6d39edd2017572f1e6d3fa5a7115dbbf880d1e9370a9bb4a9be",
     "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
-    "config/data/skills.js": "50e034e52acecec11f882a0b9ac3314512018516bcdc9a2b6bb5c2dcd6d6311c",
-    "config/data/awakening.js": "1fc3aa56e03eda3f080a223122aaf14204b991f48d7da40624825ef9b73b5473",
-    "docs/commands.md": "1905cb8e33be70ca23a61734a864d2f4f1f4976c13204d21131e801708863c24",
-    "docs/config.md": "a9cb49092571c0db76ea758e8ce00994a856e9758b4fdea481808da603ab93c1",
-    "docs/ping.md": "6d27ee0ddf1d45df4515655b56efd8f51fb9aa91c8bcab5f2973656d3fbef0e3",
-    "docs/preset.md": "65defb713d68d517f2040ecf55a588dcf036e02c86f0dab6a6d6f8c3d6f98ecc",
+    "config/data/skills.js": "7e93ac55b609b6c1fca48a2bb21c45f27438fb816d3b930bde6797c6873f63d9",
+    "config/data/awakening.js": "4172f8185c98c4b5e72a9e91ffae2398e02dc20e1d68b56b2062b567744129c4",
+    "docs/commands.pdf": "bf37f9199fabd756ff3271fc34e5cab2d052007832cbfe904d9334d0b071f5da",
+    "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
+    "docs/ping.pdf": "3ff334efdf6adfd384165006c2017ea3a96d16557dfbf59b06da67dfdfa148f8",
+    "docs/preset.pdf": "c4b80fe73383812859a7aa155353d061fd60f87591c1cd24615f36f881686355",
     "lib/abnormalities.js": "d558980259de9e7bad0a7f0ba5f4921591b053820a49e50a25aaa33139ab4258",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
     "lib/core.js": "8cef4121e47aee3f9d88c385e276d2a7ce0b1f1ed81309cba9f02f474e9b852e",

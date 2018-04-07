@@ -4556,6 +4556,7 @@ module.exports = {
 					15: null,
 					16: null,
 					17: null,
+					18: null,
 					19: null,
 					20: null
 				},
@@ -4666,6 +4667,7 @@ module.exports = {
 					15: null,
 					16: null,
 					17: null,
+					18: null,
 					19: null,
 					20: null
 				},
