@@ -22,8 +22,6 @@ Example: `/8 sp config print`
     
 *    `mount` - switch for "your character mounted" check
     
-*    `ping` - ping information
-    
 *    `off` - disable SP. You should be unmounted, not in battle and etc 
     
 *    `on` - enable SP. You should be unmounted, not in battle and etc 
@@ -36,7 +34,7 @@ Main command: `config`
 
 Sub commands:
     
-*    `print` - print all current comfig 
+*    `print` - print all current config 
  
 *    `generate` - try to generate config for your connection (TEST)
     
@@ -45,7 +43,13 @@ Sub commands:
 *    `reload` - just reload current config (useful for manual changes)
     
 *    `save` - save current configuration
-   
+
+Main command: `ping`
+
+*    `log` - print ping history
+
+*    `<empty>` - basic ping info (you supposed to use just `/8 sp ping`)
+
 ### Debug commands
 
 *    `debug` - switch for debug mode (output will be in console)
@@ -53,4 +57,3 @@ Sub commands:
 *    `debugloc` - switch for location debug mode (output will be in console)
     
 *    `debugabnorm` - switch for abnormals debug mode (output will be in console)
-    
