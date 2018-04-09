@@ -24,7 +24,7 @@
         "docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
         "lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
         "lib/core.js": "78e7d0c73232322b20736871006f2c3fa6ddb8c8a2da9b3b246ec552c8c9ac92",
-        "lib/ping.js": "86b8f2fd9c057fb3ea68e51a8906e2f4e7ba7f930789dfee283a997021ecd4b6"
+        "lib/ping.js": "3f866ba0bc4e77788055179aef680fb9c4675f06d1ecb545b789ff57585848bd"
     },
     "defs": {
         "C_CANCEL_SKILL": 1,
