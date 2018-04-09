@@ -6,5 +6,7 @@ module.exports = function PingCompensation(dispatch) {
     if (!config.spCompatible) childModules.push(require('./lib/cooldowns.js'))
     //if (!config.useRetries) childModules.push(require('./lib/retry.js'))
 
-    for (let mod of childModules) mod(dispatch)
+    dispatch.hookOnce('C_CHECK_VERSION', 'raw', () => {
+        for (let mod of childModules) mod(dispatch)
+    })
 };

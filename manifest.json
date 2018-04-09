@@ -1,30 +1,30 @@
 {
     "files": {
-        "index.js": "33d533099ea62911b0e0bdb62075b8ee4d4c2bc4ff5c48c4ce752b3ff3e46c42",
-		"LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
-		"module.json": "d4fde2a900f47b97bed89b7169c72c7d10306334777fbc4c844679d162b27c8e",
-		"README.md": "51c9f92a4131b9e35899bff0f30e7d349f549195dbad39a49f5176b02b523693",
+        "index.js": "fb74ac48c54a1c5d852a1e388c1f4f3972ef95a0033a00a85cdac711980421af",
+        "LICENSE": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
+        "module.json": "f25b4b87d552beb330b3b51d9b4fc7eeba4b139a7da29dfa5622ec06a5e9e888",
+        "README.md": "7491448f958e86595cc9363acdb8ef46c92e06eeb573f895502ac04f67934a7a",
         "config/config.json": {
             "overwrite": false,
             "hash": "55a509aa48147fb61bbb1a6842718b1298803d3a89a2b85a802a194d882ab2d5"
         },
-		"config/default-config.json": "55a509aa48147fb61bbb1a6842718b1298803d3a89a2b85a802a194d882ab2d5",
+        "config/default-config.json": "3a7394028a0d116a6076f8309bd8d1961fc279b4f562ea2d3628bca463f9c9e0",
         "config/preset.js": {
             "overwrite": false,
             "hash": "2154eea4db57f2fb633f8238e897824acfe5f2e48ed55ef57b677d27e0ee6bc6"
         },
-        "config/data/awakening.js": "6ee61e258a01e50ef514ea22d3487605b923b0c30344494a16c290e2c9a33c48",
-		"config/data/basicCC.json": "b94ff2356594b6c1f8502013cfa3fe35bb5961fea3e3e662a0171ed52bc062a2",
-		"config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
-		"config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
-		"config/data/skills.js": "909701416feedd6aaedfa664f57652764f0c6b8bff815529c093acb31e4d4d62",
-		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
-		"docs/config.md": "4df9d7469e5daec20618e8c64bb4b0bf2df76fb4427d54f75704181053ea3a72",
-		"docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
-		"docs/preset.md": "49c9cfae30bf7e4268bf1142158094edfbc0f70fd5cddd5cefd4f9d9527f3eac",
-		"lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-		"lib/core.js": "9a8d899d05e227970de638cd01a4e1c10f5aa9ee6326ac576750d3b43b2a6aa9",
-		"lib/ping.js": "ae387ae3cf255bba5758751bbd311abd7c687593a428a1cd08b8a9a5e98d4543"
+        "config/data/awakening.js": "f0147f648ee5f06ac02fe43298f72acf7862293c83677fa5e5b1dcb3ff9bd49d",
+        "config/data/basicCC.json": "b94ff2356594b6c1f8502013cfa3fe35bb5961fea3e3e662a0171ed52bc062a2",
+        "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
+        "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
+        "config/data/skills.js": "a4f4161bb920f6527dde1dc91019b5aea0da2a5b29f0d012886ae2638ef320bd",
+        "docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
+        "docs/config.md": "f1d359ad45cb22b0670b2cfe3ce2a096e4eb4ea047beb79570fb9a36ac15414f",
+        "docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
+        "docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
+        "lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
+        "lib/core.js": "78e7d0c73232322b20736871006f2c3fa6ddb8c8a2da9b3b246ec552c8c9ac92",
+        "lib/ping.js": "86b8f2fd9c057fb3ea68e51a8906e2f4e7ba7f930789dfee283a997021ecd4b6"
     },
     "defs": {
         "C_CANCEL_SKILL": 1,
@@ -38,7 +38,7 @@
         "C_START_COMBO_INSTANT_SKILL": 2,
         "C_START_INSTANCE_SKILL": 3,
         "C_START_INSTANCE_SKILL_EX": 3,
-        "C_START_SKILL": 4,
+        "C_START_SKILL": [4,5],
         "C_START_TARGETED_SKILL": 4,
         "S_ACTION_END": 3,
         "S_ACTION_STAGE": 4,
@@ -48,8 +48,7 @@
         "S_EACH_SKILL_RESULT": 5,
         "S_INSTANT_DASH": 3,
         "S_INSTANT_MOVE": 3,
-        "S_LOAD_TOPO": 1,
-        "S_LOGIN": 9,
+        "S_LOGIN": [9,10],
         "S_RESPONSE_GAMESTAT_PONG": 1,
         "S_SPAWN_ME": 2,
         "S_START_COOLTIME_SKILL": 1
