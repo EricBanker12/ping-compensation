@@ -3,28 +3,25 @@
         "index.js": "fb74ac48c54a1c5d852a1e388c1f4f3972ef95a0033a00a85cdac711980421af",
         "LICENSE": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
         "module.json": "f25b4b87d552beb330b3b51d9b4fc7eeba4b139a7da29dfa5622ec06a5e9e888",
-        "README.md": "7491448f958e86595cc9363acdb8ef46c92e06eeb573f895502ac04f67934a7a",
+        "README.md": "51c9f92a4131b9e35899bff0f30e7d349f549195dbad39a49f5176b02b523693",
         "config/config.json": {
             "overwrite": false,
-            "hash": "55a509aa48147fb61bbb1a6842718b1298803d3a89a2b85a802a194d882ab2d5"
+            "hash": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a"
         },
-        "config/default-config.json": "3a7394028a0d116a6076f8309bd8d1961fc279b4f562ea2d3628bca463f9c9e0",
+        "config/default-config.json": "2c984c97e5f4556b3161725933be94df023aeb11398cede180a40b3a31c55476",
         "config/preset.js": {
             "overwrite": false,
-            "hash": "2154eea4db57f2fb633f8238e897824acfe5f2e48ed55ef57b677d27e0ee6bc6"
+            "hash": "11aecb807c484fe841aa5fda4c86ecb8215051a4e25652bd2c29aa2d994c711c"
         },
-        "config/data/awakening.js": "f0147f648ee5f06ac02fe43298f72acf7862293c83677fa5e5b1dcb3ff9bd49d",
-        "config/data/basicCC.json": "b94ff2356594b6c1f8502013cfa3fe35bb5961fea3e3e662a0171ed52bc062a2",
-        "config/data/evasiveCC.json": "e3b8afd622054569da25e12463c1fc79f33dacd2d570c0646bcceaca219a9a03",
-        "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
-        "config/data/skills.js": "a4f4161bb920f6527dde1dc91019b5aea0da2a5b29f0d012886ae2638ef320bd",
+        "config/data/awakening.js": "d61145879169bc14877edd09fd0d33e324cad2807a32ffdf57221db84f817cb5",
+        "config/data/skills.js": "a6e7dd83387d0ecadb45dfcdfca1c53f9a71ca2a8548a92297f34461222270b9",
         "docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
-        "docs/config.md": "f1d359ad45cb22b0670b2cfe3ce2a096e4eb4ea047beb79570fb9a36ac15414f",
+        "docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
         "docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
         "docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
         "lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
-        "lib/core.js": "78e7d0c73232322b20736871006f2c3fa6ddb8c8a2da9b3b246ec552c8c9ac92",
-        "lib/ping.js": "3f866ba0bc4e77788055179aef680fb9c4675f06d1ecb545b789ff57585848bd"
+        "lib/core.js": "3993955d7d28d5e452d1cc919617b77498e59ac4cdcea2b7923cd1110579c0d1",
+        "lib/ping.js": "c6a3f2a8da80eae2187685fabc481c5471da436f3a5372b4df746e85bbd03bd6"
     },
     "defs": {
         "C_CANCEL_SKILL": 1,
