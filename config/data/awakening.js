@@ -3989,8 +3989,8 @@ module.exports = {
 					'2-1': 30,
 					3: 30,
 					5: 30,
-					'7-3': 30,
 					9: 30,
+					'7-3': 30,
 					10: 30,
 					11: 30,
 					13: 30,
@@ -4046,7 +4046,7 @@ module.exports = {
 			1: {
 				fixedSpeed: 1,
 				length: 125,
-				stamina: 70,
+				stamina: 75,
 				instantStamina: true,
 				glyphs: {
 					30046: { stamina: -10 }
@@ -4081,7 +4081,7 @@ module.exports = {
 			'*': {
 				length: 1533,
 				triggerAbnormal: {
-					//30050: 3100, // -15~-20
+					//30050: 3100, // -15~20
 					10152010: [3100, 25],
 					//10152040: [3100, 25]
 				},
