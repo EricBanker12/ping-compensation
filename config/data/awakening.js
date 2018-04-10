@@ -654,7 +654,7 @@ module.exports = {
 			'*': {
 				triggerAbnormal: { 201803: 3000 }, // 201800 3000
 				length: 2215,
-				//noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27], // check
+				//noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27, 28, 29], // check
 				glyphs: {
 					22056: { speed: 0.25 },
 					22085: { speed: 0.25 }
@@ -700,7 +700,7 @@ module.exports = {
 			0: {
 				length: 1455.33,
 				distance: 90,
-				//onlyDefenceSuccess: true,
+				onlyDefenceSuccess: true,
 				race: {
 					0: { distance: 90 }, // M.Helf
 					2: { distance: 95 }, // M.Helf
@@ -713,15 +713,15 @@ module.exports = {
 		},
 		9: { // Leash
 			0: {
-				length: [725, 850], //633,833 in DC <- Brainlet probably didn't understand it
+				length: [733, 833],
 				noInterrupt: [2]
 			}
 		},
 		10: { // Debilitate / Changed
-			0: { // Same animation as shield bash, just slower
+			0: {
 				length: 925,
-				distance: 30, // Seems pretty equalized
-				noInterrupt: [2],
+				distance: 30,
+				noInterrup: [2, 3, 8, 9, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					18: 30
@@ -755,7 +755,7 @@ module.exports = {
 			'*': { distance: 85 },
 			0: {
 				length: 2800,
-				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27],
+				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					5: 30,
@@ -837,7 +837,9 @@ module.exports = {
 		},
 		21: { // Lockdown Blow / Changed
 			'*': {
+				length: 1400,
 				distance: 100.13, // M.Human
+				consumeAbnormal: [201830, 201831],
 				noInterrupt: [2],
 				chains: {
 					10: 30,
@@ -855,7 +857,9 @@ module.exports = {
 					9: { distance: 122.66 } // Elin
 				}
 			},
-			0: { length: 1400 },
+			0: true,
+			1: true,
+			2: true,
 			30: {
 				length: 1272.72,
 				race: {
@@ -2251,8 +2255,7 @@ module.exports = {
 				length: 869.56,
 				checkReset: true,
 				race: {
-					7: { length: 868.56 }, // F.Casta
-					9: { length: 805.56 } // Elin
+					9: { length: 809 } // Elin
 				}
 			}
 		},
@@ -3989,8 +3992,8 @@ module.exports = {
 					'2-1': 30,
 					3: 30,
 					5: 30,
-					9: 30,
 					'7-3': 30,
+					9: 30,
 					10: 30,
 					11: 30,
 					13: 30,
