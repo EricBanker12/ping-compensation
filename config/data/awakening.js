@@ -1389,11 +1389,25 @@ module.exports = {
 			30: { length: 900 } // chains on here too ?__________?
 		},
 		27: { // Piercing Lunge
-			'*': { length: 751.25 },
-			0: { triggerAbnormal: { 301603: 5000 } }, // delet if unused later, imme-desu
-			30: { triggerAbnormal: { 301603: 5000 } }, // rearo-desu
-			31: { consumeAbnormal: 301603 }//  rearo-desu
-			// 90   <- cooltime handler / 10151130 5000
+			0: {
+				length: [525, 900, 1316.25],
+				triggerAbnormal: { 301603: 5000 },
+				//noInterrupt: [],
+				chains: {
+					8: 30,
+					24: 30,
+					26: 30,
+					27: 30
+				}
+			},
+			30: {
+				length: [900, 1316.25],
+				triggerAbnormal: { 301603: 5000 }
+			},
+			31: {
+				length: 751.25,
+				consumeAbnormal: 301603
+			}
 		}, // 301803 supposly cool abnormal
 		28: { // Colossus Blade
 			0: { // super cancel cancel
@@ -4696,7 +4710,7 @@ module.exports = {
 		},
 		/*
 		23: { // BackSpinElbow?
-
+	
 		},
 		24: { // 2.54cm Punch
 			1: 
@@ -4705,10 +4719,10 @@ module.exports = {
 			33: 
 		},
 		26: { // Storm Combo?
-
+	
 		},
 		27: { // 2.54cm Punch II?
-
+	
 		}
 		*/
 		40: { // Quick Dash
