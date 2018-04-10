@@ -721,7 +721,7 @@ module.exports = {
 			0: {
 				length: 925,
 				distance: 30,
-				noInterrup: [2, 3, 8, 9, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: [2, 3, 4, 8, 9, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					18: 30
@@ -841,10 +841,6 @@ module.exports = {
 				distance: 100.13, // M.Human
 				consumeAbnormal: [201830, 201831],
 				noInterrupt: [2],
-				chains: {
-					10: 30,
-					18: 30
-				},
 				race: {
 					0: { distance: 100.13 }, // M.Human
 					2: { // M.Helf
@@ -857,9 +853,14 @@ module.exports = {
 					9: { distance: 122.66 } // Elin
 				}
 			},
-			0: true,
 			1: true,
-			2: true,
+			2: {
+				chains: {
+					10: 30,
+					18: 30
+				},
+				noInterrupt: [2, 3, 4, 8, 9, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29]
+			},
 			30: {
 				length: 1272.72,
 				race: {
@@ -954,7 +955,7 @@ module.exports = {
 			1: { length: [281.25, 768.75, 2325] }
 		},
 		29: { // Bulwark
-			0: false 
+			0: false
 			/*
 			{
 				//CC: "extended",
@@ -1042,7 +1043,6 @@ module.exports = {
 				abnormals: {
 					23070: { speed: 0.25 }
 				},
-				chains: { 14: 30 },
 				race: {
 					//0: { distance: 220.47 }, // M.Human
 					2: { distance: 220.15 }, // M.Helf
@@ -1056,7 +1056,10 @@ module.exports = {
 				}
 			},
 			1: true,
-			2: { noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25] },
+			2: {
+				chains: { 14: 30 },
+				noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25]
+			},
 			30: { length: 2423.57 }
 		},
 		3: { // Whirlwind
