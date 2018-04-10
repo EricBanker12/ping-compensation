@@ -514,9 +514,10 @@ module.exports = {
 				distance: 210
 			}
 		},
-		40: { // Spiral Slash, Blade de Deux 
+		40: { // Blade Waltz
 			'*': {
 				length: 810.6,
+				distance: 156.67,
 				triggerAbnormal: {
 					104100: 8000,
 					//104101: 800,
@@ -553,13 +554,14 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		41: { // Storm Crash, Vertical Slice
+		41: { // Aerial Scythe
 			'*': {
 				length: 1976.15,
 				noInterrupt: [41],
 				triggerAbnormal: { 105100: 1800 }
 			}, // 105100 -> 31
 			0: {
+				distance: 219
 				/*
 				chains: {
 					: 31
@@ -574,7 +576,10 @@ module.exports = {
 				noInterrupt: false
 			}
 		},
-		42: { // Tempest Rush, Storm of Blades
+		42: { // Blade Frenzy
+			'*': {
+				distance: 325
+			},
 			0: {
 				length: 3309.23,
 				noInterrupt: [42],

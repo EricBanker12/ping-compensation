@@ -269,7 +269,7 @@ module.exports = {
 		14: true, // Aura of the Swift
 		15: true, // Aura of the Unyielding
 		16: true, // Aura of the Tenacious
-		17: false, // Teleport Jaunt
+		17: true, // Teleport Jaunt
 		18: true, // Arun's Vitae
 		21: true, // Retaliate
 		22: true, // Arun's Tears

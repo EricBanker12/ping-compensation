@@ -8,19 +8,19 @@
             "overwrite": false,
             "hash": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a"
         },
-        "config/default-config.json": "2c984c97e5f4556b3161725933be94df023aeb11398cede180a40b3a31c55476",
+        "config/default-config.json": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a",
         "config/preset.js": {
             "overwrite": false,
-            "hash": "11aecb807c484fe841aa5fda4c86ecb8215051a4e25652bd2c29aa2d994c711c"
+            "hash": "2f37e19fe09dc5fb5cb9ff754f832baf9c63acf135a23c113843ed845f8b41d8"
         },
-        "config/data/awakening.js": "d61145879169bc14877edd09fd0d33e324cad2807a32ffdf57221db84f817cb5",
+        "config/data/awakening.js": "d19d938fd182401e48e10b01c422a21daa16a49d269e2ec4d8646a23dd526785",
         "config/data/skills.js": "a6e7dd83387d0ecadb45dfcdfca1c53f9a71ca2a8548a92297f34461222270b9",
         "docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
         "docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
         "docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
         "docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
         "lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
-        "lib/core.js": "3993955d7d28d5e452d1cc919617b77498e59ac4cdcea2b7923cd1110579c0d1",
+        "lib/core.js": "c670bf3ddbedd334fdc321f8b8772065b42c1c6ac01c8a03c10b5ce42fafd484",
         "lib/ping.js": "c6a3f2a8da80eae2187685fabc481c5471da436f3a5372b4df746e85bbd03bd6"
     },
     "defs": {
