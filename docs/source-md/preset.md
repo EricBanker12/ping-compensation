@@ -6,17 +6,17 @@ Path: `<skill-prediction-folder>/config/preset.js`.
 
 *WARNING! WARNING! WARNING!*
 
-Some classes also utilize **abnormals emulation** for skills.
+Some skills also utilize **abnormals emulation**.
 
 You can't disable these skills only with this `preset.js`.
 
 You **must** disable the triggered abnormals from the disabled skill in `abnormalities.js` too.
 
-Path: `Path: <skill-prediction-folder>/config/abnormalities.js`.
+Path: `<skill-prediction-folder>/config/abnormalities.js`.
 
 *WARNING! WARNING! WARNING!*
 
-## How To Edit `Preset.js` 
+## How To Edit Preset.js
 
 This is best explained along an example of what you're gonna see inside the file. *You won't see the arrows written in the example from here on the actual file, that's part of the explanation.*
 

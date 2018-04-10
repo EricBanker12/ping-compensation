@@ -507,7 +507,7 @@ module.exports = {
 		},
 		40: { // Spiral Slash, Blade de Deux 
 			'*': {
-				length: 1654.54, // 810.6
+				length: 810.6,
 				triggerAbnormal: {
 					104100: 8000,
 					//104101: 800,
@@ -559,7 +559,7 @@ module.exports = {
 			},
 			30: true,
 			31: {
-				length: 1999, // or 1800
+				length: 1800,
 				triggerAbnormal: false,
 				consumeAbnormal: 105100,
 				noInterrupt: false
