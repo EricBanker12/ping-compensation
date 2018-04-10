@@ -1,0 +1,12 @@
+{
+    "version": "4.7",
+    "config": {
+
+    },
+    "remove": [
+        "../index.js",
+        "../config/data/config.json",
+        "../config/abnormalities.js",
+        "../config/default-config.json"
+    ]
+}

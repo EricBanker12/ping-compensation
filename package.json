@@ -1,12 +1,13 @@
 {
+	"main": "./lib/loader.js",
 	"name": "unofficial-skill-prediction",
-	"version": "4.4",
+	"version": "4.7",
 	"description": "Simulates skills client-side, eliminating ping-based delays and animation lock.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SaltyMonkey/skill-prediction.git"
 	},
-	"authors": "SaltyMonkey, Leyki, Yunfei, Vani",
+	"authors": "SaltyMonkey, Leyki, Yunfei",
 	"originalauthor": "Pinkie Pie",
 	"license": "GPL-3.0",
 	"bugs": {

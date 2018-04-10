@@ -2,7 +2,7 @@
 	"enabled": true,
 	"jitterCompensation": true,
 	"skillRetryCount": 1,
-	"skillRetryMs": 30,
+	"skillRetryMs": 25,
 	"skillRetryJittercomp": 25,
 	"skillRetryAlways": false,
 	"skillDelayOnFail": true,
