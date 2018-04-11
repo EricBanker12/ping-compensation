@@ -341,7 +341,8 @@ module.exports = {
 				chains: {
 					11: 30,
 					18: 30,
-					27: 30
+					27: 30,
+					'40-10': 30
 				},
 				level: {
 					9: {
@@ -409,7 +410,8 @@ module.exports = {
 					12: 30,
 					29: 30,
 					36: 30,
-					37: 30
+					37: 30,
+					'40-10': 30
 				}
 			},
 			30: {
@@ -427,7 +429,8 @@ module.exports = {
 				chains: {
 					4: 30,
 					18: 30,
-					36: 30
+					36: 30,
+					'40-10': 30
 				}
 			},
 			30: { length: 1667 }
@@ -499,7 +502,8 @@ module.exports = {
 				chains: {
 					11: 30,
 					18: 30,
-					27: 30
+					27: 30,
+					'40-10': 30
 				}
 			},
 			30: {
@@ -546,7 +550,7 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		41: { // Storm Crash, Vertical Slice
+		41: { // Aerial Scythe
 			'*': {
 				length: 1976.15,
 				noInterrupt: [41],
@@ -567,7 +571,7 @@ module.exports = {
 				noInterrupt: false
 			}
 		},
-		42: { // Tempest Rush, Storm of Blades
+		42: { // Blade Frenzy
 			0: {
 				length: 3309.23,
 				noInterrupt: [42],
