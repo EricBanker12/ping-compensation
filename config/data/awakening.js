@@ -1881,7 +1881,6 @@ module.exports = {
 		18: { // Lethal Strike // Changed
 			'*': {
 				//noRetry: true,
-				noInterrupt: [15],
 				chains: {//enableVB: true,
 					3: 30,
 					11: 30,
