@@ -653,19 +653,26 @@ module.exports = {
 		4: { // Challenging Shout / Changed
 			'*': {
 				length: 2215,
-				//noInterrupt: [4, 7,  ], // check
 				glyphs: {
 					22056: { speed: 0.25 },
 					22085: { speed: 0.25 }
 				}
 			},
 			0: {
-				1: null,
-				3: null,
-				5: null,
-				13: null,
+				noInterrupt: [2, 9, 12, 23, 26],
+				chains: {
+					1: 30,
+					3: 30,
+					5: 30,
+					8: 30,
+					13: 30,
+					15: 30,
+					18: 30,
+					21: 30,
+					25: 30
+				}
 			},
-			30: true // wtb chain
+			30: true
 		},
 		5: { // Shield Bash / Changed
 			'*': {
@@ -728,7 +735,7 @@ module.exports = {
 			0: {
 				length: 925,
 				distance: 30,
-				noInterrupt: [2, 3, 4, 8, 9, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: [2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					18: 30
