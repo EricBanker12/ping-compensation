@@ -652,25 +652,26 @@ module.exports = {
 		},
 		4: { // Challenging Shout / Changed
 			'*': {
-				triggerAbnormal: { 201803: 3000 }, // 201800 3000
 				length: 2215,
-				//noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 15, 18, 21, 23, 24, 25, 26, 27, 28, 29], // check
+				//noInterrupt: [4, 7,  ], // check
 				glyphs: {
 					22056: { speed: 0.25 },
 					22085: { speed: 0.25 }
 				}
 			},
-			0: true,
+			0: {
+				1: null,
+				3: null,
+				5: null,
+				13: null,
+			},
 			30: true // wtb chain
 		},
 		5: { // Shield Bash / Changed
-			0: {
+			'*': {
 				length: 839.1,
 				distance: 30,
 				noInterrupt: [2],
-				chains: {
-					10: 30
-				},
 				race: {
 					/*0: { distance: 30.000 }, // M.Human
 					2: { distance: 30.000 }, // M.Helf
@@ -680,7 +681,9 @@ module.exports = {
 					9: { distance: 43.69 } // Elin
 				}
 			},
-			30: false
+			1: true,
+			2: { chains: { 10: 30 } },
+			30: { length: 694.6 }
 		},
 		7: { // Guardian Shout
 			0: {
@@ -718,6 +721,10 @@ module.exports = {
 			}
 		},
 		10: { // Debilitate / Changed
+			'*': {
+				triggerAbnormal: { 201830: 2000 },
+				consumeAbnormalEnd: 201830
+			},
 			0: {
 				length: 925,
 				distance: 30,
@@ -798,7 +805,11 @@ module.exports = {
 			}
 		},
 		18: { // Shield Barrage
-			'*': { noInterrupt: [2] },
+			'*': {
+				triggerAbnormal: { 201831: 2000 },
+				consumeAbnormalEnd: 201831,
+				noInterrupt: [2]
+			},
 			0: {
 				length: 625,
 				distance: 95, // M.Aman
@@ -839,7 +850,6 @@ module.exports = {
 			'*': {
 				length: 1400,
 				distance: 100.13, // M.Human
-				consumeAbnormal: [201830, 201831],
 				noInterrupt: [2],
 				race: {
 					0: { distance: 100.13 }, // M.Human
@@ -854,13 +864,7 @@ module.exports = {
 				}
 			},
 			1: true,
-			2: {
-				chains: {
-					10: 30,
-					18: 30
-				},
-				noInterrupt: [2, 3, 4, 8, 9, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29]
-			},
+			2: { chains: { 10: 30, 18: 30 } },
 			30: {
 				length: 1272.72,
 				race: {
