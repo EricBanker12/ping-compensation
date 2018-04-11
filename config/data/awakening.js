@@ -124,7 +124,7 @@ module.exports = {
 					18: 30,
 					21: 30,
 					27: 30,
-					'40-10':30
+					40:30
 				}
 			},
 			30: {
@@ -342,7 +342,7 @@ module.exports = {
 					11: 30,
 					18: 30,
 					27: 30,
-					'40-10': 30
+					40: 30
 				},
 				level: {
 					9: {
@@ -384,7 +384,7 @@ module.exports = {
 					28: 30,
 					32: 30,
 					39: 30,
-					'40-10':30
+					40:30
 				}
 			},
 			30: {
@@ -411,7 +411,7 @@ module.exports = {
 					29: 30,
 					36: 30,
 					37: 30,
-					'40-10': 30
+					40: 30
 				}
 			},
 			30: {
@@ -430,7 +430,7 @@ module.exports = {
 					4: 30,
 					18: 30,
 					36: 30,
-					'40-10': 30
+					40: 30
 				}
 			},
 			30: { length: 1667 }
@@ -503,7 +503,7 @@ module.exports = {
 					11: 30,
 					18: 30,
 					27: 30,
-					'40-10': 30
+					40: 30
 				}
 			},
 			30: {
@@ -2234,7 +2234,7 @@ module.exports = {
 						}
 					}
 				}
-			}
+			},
 		},
 		5: { // Mana Infusion
 			0: { length: 4595.5 }
@@ -4748,7 +4748,7 @@ module.exports = {
 			'*': {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
-				length: 580,
+				length: 588,
 				distance: 144,
 				forceClip: true,
 				hasChains: true,
