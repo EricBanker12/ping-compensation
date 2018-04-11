@@ -123,7 +123,8 @@ module.exports = {
 				chains: {
 					18: 30,
 					21: 30,
-					27: 30
+					27: 30,
+					'40-10':30
 				}
 			},
 			30: {
@@ -381,7 +382,8 @@ module.exports = {
 					19: 30,
 					28: 30,
 					32: 30,
-					39: 30
+					39: 30,
+					'40-10':30
 				}
 			},
 			30: {
@@ -907,7 +909,7 @@ module.exports = {
 				CC: "extended",
 			},
 			0: {
-				length: 2391.3,
+				length: 2934.782608695652,
 				distance: 100,
 				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27],
 				chains: {
@@ -921,7 +923,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1913,
+				length: 1913.0434782608697,
 				distance: 100
 			}
 		},
@@ -942,7 +944,7 @@ module.exports = {
 		},
 		27: { // Rallying Cry
 			0: {
-				length: 620,
+				length: 640.4040404040403,
 				noInterrupt: [2],
 				race: {
 					/*0: { length: 625 }, // M.Human
@@ -957,13 +959,15 @@ module.exports = {
 		28: { // Righteous Leap
 			'*': { distance: [29.48, 445.52, 0] },
 			0: {
-				length: [375, 1025, 3100],
+				length: [333.33333333333337, 1055.0, 3121.666666666667],
+				noInterrupt: [28],
 				chains: {
 					15: 1,
-					24: 1
+					24: 1,
+					25: 1
 				}
 			},
-			1: { length: [281.25, 768.75, 2325] }
+			1: { length: [250, 791.25, 833.75] }
 		},
 		29: { // Bulwark
 			0: false
@@ -3152,13 +3156,13 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54545.45,
+				length: 50196.78,
 				noRetry: true,
 				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
-				length: 925,
+				length: 933,
 			}
 		},
 		42: { // Holy Brilliance
@@ -3167,8 +3171,8 @@ module.exports = {
 			30: true
 		},
 		43: { // Invocation of Judgement
-			0: { length: 1700 },
-			50: { length: 300 }
+			0: { length: 1416 },
+			50: { length: 200 }
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
@@ -3509,7 +3513,7 @@ module.exports = {
 			0: { length: [400, 575] } // 384.6 | 923
 		},
 		44: { // Group huggu 
-			0: { length: [355.33, 255.33] }
+			0: { length: [222, 355] }
 		},
 		45: { // Kowai
 			'*': { length: 1626.36 },
