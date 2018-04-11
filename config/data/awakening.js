@@ -561,7 +561,8 @@ module.exports = {
 				triggerAbnormal: { 105100: 1800 }
 			}, // 105100 -> 31
 			0: {
-				distance: 219
+				distance: 219,
+				noRetry: true
 				/*
 				chains: {
 					: 31
