@@ -124,7 +124,7 @@ module.exports = {
 					18: 30,
 					21: 30,
 					27: 30,
-					40:30
+					40: 30
 				}
 			},
 			30: {
@@ -384,7 +384,7 @@ module.exports = {
 					28: 30,
 					32: 30,
 					39: 30,
-					40:30
+					40: 30
 				}
 			},
 			30: {
@@ -557,13 +557,15 @@ module.exports = {
 				triggerAbnormal: { 105100: 1800 }
 			}, // 105100 -> 31
 			0: {
-				/*
 				chains: {
-					: 31
+					41: 31
 				}
-				*/
 			},
-			30: true,
+			30: {
+				chains: {
+					41: 31
+				}
+			},
 			31: {
 				length: 1800,
 				triggerAbnormal: false,
