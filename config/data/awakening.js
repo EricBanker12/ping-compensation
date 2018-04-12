@@ -554,22 +554,16 @@ module.exports = {
 			'*': {
 				length: 1976.15,
 				noInterrupt: [41],
-				triggerAbnormal: { 105100: 1800 }
+				triggerAbnormal: { 105100: 1800 },
+				consumeAbnormalEnd: 105100,
+				abnormals: { 105100: { chain: 31 } }
 			}, // 105100 -> 31
-			0: {
-				chains: {
-					41: 31
-				}
-			},
-			30: {
-				chains: {
-					41: 31
-				}
-			},
+			0: true,
+			30: true,
 			31: {
 				length: 1800,
 				triggerAbnormal: false,
-				consumeAbnormal: 105100,
+				abnormals: false,
 				noInterrupt: false
 			}
 		},
