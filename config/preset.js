@@ -1,13 +1,4 @@
 /*
-WARNING! WARNING! WARNING!
-Some classes using emulated abnormals for skills.
-You can't disable these skills only with this preset.js
-You MUST change values in abnormalities.js too for disabled skills
-WARNING! WARNING! WARNING!
-
-Awakening skills naming is being done based on the following document: https://docs.google.com/document/d/1q0qxSf-Ll1nfViF9SGf1kcA2I0CjO_N8dokgpx__o2c/edit#
-(for now)
-
 Note: If you can't find a specific skill on these list that probably means the preset file is outdated. 
 To update it just delete it and restart proxy, let it update and it will be done.
 If after following this process skills are still missing do report it on discord or an issue in github, links to both can be found in the readme.pdf file.
@@ -48,9 +39,9 @@ module.exports = {
 		38: true, // Scythe (Deadly Gamble)
 		39: true, // Traverse Cut (Defensive Stance)
 		// Awakening
-		40: true, // Spiral Slash
-		41: true, // Storm Crash
-		42: true, // Tempest Rush
+		40: true, // Blade Waltz
+		41: true, // Aerial Scythe
+		42: true, // Blade Frenzy
 		91: true, // Awakening Eyes Aura
  	},
 	1: { // Lancer
@@ -81,9 +72,9 @@ module.exports = {
 		26: true, // Backstep
 		27: true, // Rallying Cry
 		// Awakening
-		28: true, // Righteous Leap / Justice Leap
-		29: true, // Bulwark
-		30: true, // Divine Aegis
+		28: true, // Righteous Leap
+		29: true, // Guardian's Barrier
+		30: true, // Divine Protection
 		91: true, // Awakening Eyes Aura 
 	},
 	2: { // Slayer
@@ -110,9 +101,9 @@ module.exports = {
 		24: true, // Eviscerate
 		25: true, // Ultimate Overhand Strike
 		// Awakening
-		26: true, // Rending Crash
-		27: true, // Piercing Lunge
-		28: true, // Colossus Blade
+		26: true, // Decimate
+		27: true, // Blazing Thrust
+		28: true, // Unsheathe
 		91: true, // Awakening Eyes Aura
 	},
 	3: { // Berserker
@@ -145,12 +136,12 @@ module.exports = {
 		31: true, // Overwhelm
 		32: true, // Punishing Strike
 		// Awakening
-		33: true, // Berserk?
-		34: true, // Crush
-		35: true, // Smash
-		36: true, // Decimate
-		37: true, // Crimson Assault
-		38: true, // Berserk?
+		33: true, // Unleash
+		34: true, // Unleash: Dexter
+		35: true, // Unleash: Sinister
+		36: true, // Unleash: Rampage
+		37: true, // Unleash: Beast Fury
+		38: true, // Unleash End
 		91: true, // Awakening Eyes Aura
 	},
 	4: { // Sorcerer
@@ -239,7 +230,7 @@ module.exports = {
 		23: true, // Blessing of Balder
 		26: true, // Fiery Escape
 		27: true, // Final Reprisal
-		28: true, // Mana Charge
+		28: true, // Mana Charge / Words of Vitality (Awakening)
 		29: true, // Triple Nemesis
 		30: true, // Plague of Exhaustion
 		31: true, // Guardian Sanctuary
@@ -251,10 +242,10 @@ module.exports = {
 		38: true, // Backstep
 		39: true, // Grace of Resurrection
 		40: true, // Zenobia's Vortex
-		41: true, // Divine Intervention / Salvation(Awakening-form)
+		41: true, // Divine Intervention / Divine Vitality (Awakening)
 		// Awakening
-		42: true, // Holy Brilliance
-		43: true, // Invocation of Judgement
+		42: true, // Holy Burst
+		43: true, // Words of Judgment
 		91: true, // Awakening Eyes Aura
 	},
 	7: { // Mystic
@@ -295,11 +286,10 @@ module.exports = {
 		42: true, // Boomerang Pulse
 		43: true, // Release
 		// Awakening
-		44: true, // Transmission
-		45: true, // Soul augmentation
-		46: true, // Thrall of Sovereignty?
-		47: true, // Mote Blast
-		48: true, // Thrall of Sovereignty?
+		44: true, // Mass Teleport
+		45: true, // Thrall Augumentation
+		47: true, // Arunic Release
+		48: true, // Summon: Thrall Lord
 		91: true, // Awakening Eyes Aura
 	},
 	8: { // Reaper
@@ -364,8 +354,7 @@ module.exports = {
 		// Awakening
 		22: true, // Flying Kick
 		24: true, // 2.54cm Punch
-		26: true, // Resounding Uppercut
-
+		26: true, // Brawling Roll
 		91: true, // Awakening Eyes Aura
 	},
 	11: { // Ninja

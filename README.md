@@ -21,6 +21,7 @@ While the module does support PvP in certain areas it doesn't fully do it or doe
 
 1. Download the module via clicking in the button `Clone or Download` and then on `Download Zip`.
 2. Uncompress and place the resulting folder in `Tera-proxy\bin\node_modules` and you're set.
+3. Make sure that Windows Game mode isn't enabled since it can delay the proxy and thus the skills and everything else.
 
 **Notes:**
 

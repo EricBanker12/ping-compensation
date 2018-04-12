@@ -511,7 +511,7 @@ module.exports = {
 				distance: 210
 			}
 		},
-		40: { // Spiral Slash, Blade de Deux 
+		40: { // Blade Waltz
 			'*': {
 				length: 810.6,
 				triggerAbnormal: {
@@ -950,7 +950,7 @@ module.exports = {
 		},
 		27: { // Rallying Cry
 			0: {
-				length: 640.4040404040403,
+				length: 640.4,
 				noInterrupt: [2],
 				race: {
 					/*0: { length: 625 }, // M.Human
@@ -965,7 +965,7 @@ module.exports = {
 		28: { // Righteous Leap
 			'*': { distance: [29.48, 445.52, 0] },
 			0: {
-				length: [333.33333333333337, 1055.0, 3121.666666666667],
+				length: [333.33, 1055, 3121.66],
 				noInterrupt: [28],
 				chains: {
 					15: 1,
@@ -975,7 +975,7 @@ module.exports = {
 			},
 			1: { length: [250, 791.25, 833.75] }
 		},
-		29: { // Bulwark
+		29: { // Guardian's Barrier
 			0: false
 			/*
 			{
@@ -985,7 +985,7 @@ module.exports = {
 			}
 			*/
 		},
-		30: { // Heavenly Shield 
+		30: { // Divine Protection
 			0: { length: 1252 }
 		},
 		91: { // Awakening Eyes Aura
@@ -1396,7 +1396,7 @@ module.exports = {
 			0: { length: 3365 },
 			30: { length: 1325 } //
 		},
-		26: { // Gaia Crusch / Rending Crash
+		26: { // Gaia Crusch / Decimate
 			0: {
 				length: 3375,
 				/*
@@ -1409,7 +1409,7 @@ module.exports = {
 			}, // super cancel 
 			30: { length: 900 } // chains on here too ?__________?
 		},
-		27: { // Piercing Lunge
+		27: { // Blazing Thrust
 			0: {
 				length: [525, 900, 1316.25],
 				triggerAbnormal: { 301603: 5000 },
@@ -1430,7 +1430,7 @@ module.exports = {
 				consumeAbnormal: 301603
 			}
 		}, // 301803 supposly cool abnormal
-		28: { // Colossus Blade
+		28: { // Unsheathe / Colossus Blade
 			0: { // super cancel cancel
 				type: 'charging',
 				length: [650, 650, 1000], // no hold stage?
@@ -2086,10 +2086,10 @@ module.exports = {
 				}
 			}
 		},
-		33: { // Berserk
+		33: { // Unleash
 			0: { length: [700, 1500, 1766] } // You can cancel this sooner with a skill
 		},
-		34: { // Crush
+		34: { // Unleash: Dexter
 			'*': { distance: 25 },
 			0: {
 				length: [600, 833, 833],
@@ -2104,7 +2104,7 @@ module.exports = {
 			30: { length: [833, 833] },
 			31: { length: [833, 833] }
 		},
-		35: { // Smash
+		35: { // Unleash: Sinister
 			'*': {
 				length: [1133, 833],
 				distance: 180
@@ -2123,7 +2123,7 @@ module.exports = {
 			30: { length: [871.5, 833] },
 			31: { length: [871.5, 833] }
 		},
-		36: { // Decimate
+		36: { // Unleash: Rampage
 			'*': {
 				distance: 35
 			},
@@ -2157,7 +2157,7 @@ module.exports = {
 			},
 			30: true
 		},
-		38: { // Berserk End
+		38: { // Unleash End
 			0: { length: [700, 1000, 966] }
 		},
 		91: { // Awakening Eyes Aura
@@ -3038,7 +3038,7 @@ module.exports = {
 			11: { noInterrupt: [26, 27, 38] },
 			12: { noInterrupt: [26, 27, 38] }
 		},*/
-		28: { // Mana Charge / Spiritual Mana Charge
+		28: { // Mana Charge / Words of Vitality
 			'*': {
 				length: 825, // formula isn't reliable enough so using the the most in theory correct values for now
 				noRetry: true,
@@ -3157,7 +3157,7 @@ module.exports = {
 			10: true,
 			20: true
 		},
-		41: { // Divine Intervention / Salvation(Spirit-form)
+		41: { // Divine Intervention / Divine Vitality
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
@@ -3170,12 +3170,12 @@ module.exports = {
 				length: 933,
 			}
 		},
-		42: { // Holy Brilliance
+		42: { // Holy Burst
 			'*': { length: 866 },
 			20: true,
 			30: true
 		},
-		43: { // Invocation of Judgement
+		43: { // Words of Judgment
 			0: { length: 1416 },
 			50: { length: 200 }
 		},
@@ -3517,21 +3517,20 @@ module.exports = {
 		43: { // Release
 			0: { length: [400, 575] } // 384.6 | 923
 		},
-		44: { // Group huggu 
+		44: { // Mass Teleport
 			0: { length: [222, 355] }
 		},
-		45: { // Kowai
+		45: { // Thrall Augumentation
 			'*': { length: 1626.36 },
 			0: true,
 			50: true
 		},
-		47: { // Mote Detonation
+		47: { // Arunic Release
 			0: { length: 2466 }
 		},
-		48: { // Summon Thrall King 
+		48: { // Summon: Thrall Lord
 			0: { length: 4050 } // 4399 | 10239003
 		},
-
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
 		}
@@ -4707,7 +4706,7 @@ module.exports = {
 			1: true,
 			2: true
 		},
-		22: { // Retardo BHS style flying kicku
+		22: { // Flying Kick
 			0: {
 				length: 1815,
 				/*
@@ -4729,21 +4728,15 @@ module.exports = {
 			30: { length: 1222 }
 		},
 		/*
-		23: { // BackSpinElbow?
-	
-		},
 		24: { // 2.54cm Punch
 			1: 
 			2:
 			30:
 			33: 
 		},
-		26: { // Storm Combo?
+		26: { // Brawling Roll
 	
 		},
-		27: { // 2.54cm Punch II?
-	
-		}
 		*/
 		40: { // Quick Dash
 			'*': {
