@@ -14,7 +14,7 @@ While the module does support PvP in certain areas it doesn't fully do it or doe
 
 **Notes:**
 
-* By default and when using "active" ping method the ingame ping stats will instead of showing your framerate + ping delay, show the delay provided by **only framerate**.
+* By default and when using "active" ping method the ingame ping stats will instead of showing your framerate + ping delay, show the delay provided by **only framerate**. `/8 sp ping` will display your estimated **real ping**.
 * It can get you banned due to possible desync and further users report. Use at own risk.
 
 ## Installation
