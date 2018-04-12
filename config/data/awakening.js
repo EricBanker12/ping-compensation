@@ -4737,6 +4737,7 @@ module.exports = {
 		24: { // 2.54cm Punch
 			'*': {
 				distance: 16.59,
+				length: 2000,
 				chains: {
 					1: 30,
 					2: 30,
@@ -4759,7 +4760,8 @@ module.exports = {
 					40: 30
 				}
 			},
-			1: { length: 2000 },
+			1: true,
+			2: true,
 			30: { length: 950 }
 		},
 		26: { // Brawling roll
