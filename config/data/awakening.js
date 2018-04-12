@@ -553,13 +553,12 @@ module.exports = {
 		41: { // Aerial Scythe
 			'*': {
 				length: 1976.15,
-				noInterrupt: [41],
 				triggerAbnormal: { 105100: 1800 },
 				consumeAbnormalEnd: 105100,
 				abnormals: { 105100: { chain: 31 } }
 			}, // 105100 -> 31
-			0: true,
-			30: true,
+			0: { noInterrupt: [41] },
+			30: { noInterrupt: [41] },
 			31: {
 				length: 1800,
 				triggerAbnormal: false,
@@ -768,7 +767,11 @@ module.exports = {
 			}
 		},
 		13: { // Spring Attack / Changed
-			'*': { distance: 85 },
+			'*': {
+				distance: 85,
+				triggerAbnormal: { 201831: 2000 },
+				consumeAbnormalEnd: 201831
+			},
 			0: {
 				length: 2800,
 				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27, 28, 29],
@@ -873,7 +876,7 @@ module.exports = {
 				}
 			},
 			1: true,
-			2: { chains: { 10: 30, 18: 30 } },
+			2: { chains: { 10: 30, 13: 30, 18: 30 } },
 			30: {
 				length: 1272.72,
 				race: {
