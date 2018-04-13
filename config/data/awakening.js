@@ -523,6 +523,7 @@ module.exports = {
 					//104101: 800,
 					104110: 2000
 				},
+				noRetry:true,
 				consumeAbnormalEnd: 104110,
 				noInterrupt: [2, 40]
 			},
@@ -558,6 +559,7 @@ module.exports = {
 		},
 		41: { // Aerial Scythe
 			'*': {
+				noRetry: true,
 				length: 1976.15,
 				triggerAbnormal: { 105100: 1800 },
 				consumeAbnormalEnd: 105100,
@@ -573,6 +575,9 @@ module.exports = {
 			}
 		},
 		42: { // Blade Frenzy
+			"*": {
+				noRetry:true
+			},
 			0: {
 				length: 3309.23,
 				noInterrupt: [42],
@@ -3180,6 +3185,7 @@ module.exports = {
 		},
 		42: { // Holy Burst
 			'*': { length: 866 },
+			0: true,
 			20: true,
 			30: true
 		},
