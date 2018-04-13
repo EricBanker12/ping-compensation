@@ -119,7 +119,8 @@ module.exports = {
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39], // todo
 				abnormals: {
 					100801: { skill: 360100 },
-				},
+				  104110: { chain: 30 }
+			  },
 				chains: {
 					18: 30,
 					21: 30,
@@ -337,7 +338,8 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39, 40, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39, 41, 42],
+				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					11: 30,
 					18: 30,
@@ -369,13 +371,12 @@ module.exports = {
 				length: 3000,
 				distance: 94.5,
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37], // todo
-				interruptibleWithAbnormal: {
-					102010: 3
-				},
+				interruptibleWithAbnormal: { 102010: 3 },
 				abnormals: {
 					100801: { skill: 370100 },
 					102010: { chain: 30 },
-				},
+				  104110: { chain: 30 }
+			  },
 				chains: {
 					3: 30,
 					16: 30,
@@ -390,9 +391,7 @@ module.exports = {
 			30: {
 				length: 1333.33,
 				distance: 135,
-				abnormals: {
-					100801: { skill: 370130 }
-				}
+				abnormals: { 100801: { skill: 370130 } }
 			}
 		},
 		30: { // Scythe
@@ -401,8 +400,9 @@ module.exports = {
 				length: 1833,
 				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39], // todo
 				abnormals: {
-					100801: { skill: 380100 }
-				},
+					100801: { skill: 380100 },
+				  104110: { chain: 30 }
+			  },
 				chains: {
 					2: 30,
 					4: 30,
@@ -426,6 +426,7 @@ module.exports = {
 			0: {
 				length: 2292,
 				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39], // todo
+				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					4: 30,
 					18: 30,
@@ -470,6 +471,7 @@ module.exports = {
 			0: {
 				length: 2800,
 				noInterrupt: [32],
+				abnormals: { 104110: { chain: 30 } },
 			},
 			30: { length: 2000 }
 		},
@@ -478,7 +480,8 @@ module.exports = {
 				length: 3000,
 				distance: 94.5,
 				abnormals: {
-					102010: { chain: 30 }
+					102010: { chain: 30 },
+					104110: { chain: 30 }
 				}
 			},
 			30: {
@@ -490,7 +493,8 @@ module.exports = {
 			'*': { distance: 150 },
 			0: {
 				length: 1833,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				abnormals: { 104110: { chain: 30 } }
 			},
 			30: { length: 1387 }
 		},
@@ -498,12 +502,12 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 40, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 41, 42],
+				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					11: 30,
 					18: 30,
-					27: 30,
-					40: 30
+					27: 30
 				}
 			},
 			30: {
@@ -518,10 +522,13 @@ module.exports = {
 					104100: 8000,
 					//104101: 800,
 					104110: 2000
-				}
-			},
-			10: {
+				},
+				consumeAbnormalEnd: 104110,
 				noInterrupt: [2, 40]
+			},
+			0: { abnormals: { 100201: { chain: 20 } } },
+			10: {
+				abnormals: { 104100: { chain: 12 } }
 				/*
 					chains: {
 						: 11
@@ -531,12 +538,11 @@ module.exports = {
 			11: true,
 			12: {
 				triggerAbnormal: false,
-				consumeAbnormal: 104100,
-				noInterrupt: [2]
+				noInterrupt: [2],
+				consumeAbnormal: 104100
 			},
 			20: {
-				requiredBuff: 100201,
-				noInterrupt: [2, 40]
+				abnormals: { 104100: { chain: 22 } }
 				/*
 				chains: {
 					: 21
@@ -912,7 +918,7 @@ module.exports = {
 				CC: "extended",
 			},
 			0: {
-				length: 2934.782608695652,
+				length: 2391.3,
 				distance: 100,
 				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27],
 				chains: {
@@ -926,7 +932,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1913.0434782608697,
+				length: 1913,
 				distance: 100
 			}
 		},
@@ -963,7 +969,6 @@ module.exports = {
 			'*': { distance: [29.48, 445.52, 0] },
 			0: {
 				length: [333.33, 1055, 3121.66],
-				noInterrupt: [28],
 				chains: {
 					15: 1,
 					24: 1,
@@ -1877,14 +1882,14 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		18: { // Lethal Strike // Changed
+		18: { // Lethal Strike / Changed
 			'*': {
-				//noRetry: true,
 				chains: {//enableVB: true,
 					3: 30,
 					11: 30,
-					10: 30
-				}//pendingStartTime: 500
+					10: 30,
+					15: 30
+				}
 			},
 			0: { length: 687.5 },
 			30: { length: 550 }
@@ -1892,7 +1897,7 @@ module.exports = {
 		19: { // Fortitude / Tenacity, changed?
 			0: {
 				fixedSpeed: 1,
-				length: [500, 710],
+				length: [500, 700],
 				noInterrupt: [2]
 			}
 		},
@@ -3005,9 +3010,9 @@ module.exports = {
 					40: 30
 				}
 			},
-			10: { chains: {} },
+			10: true,
 			11: { length: 1040 },
-			20: { chains: {} },
+			20: true,
 			21: { length: 1040 },
 			30: { length: 1040 }
 		},
@@ -3037,10 +3042,15 @@ module.exports = {
 		},*/
 		28: { // Mana Charge / Words of Vitality
 			'*': {
-				length: 825, // formula isn't reliable enough so using the the most in theory correct values for now
+				length: 700,
 				noRetry: true,
-				race: {
-					9: { length: 798.3 }
+				level: {
+					1: {
+						length: 825,
+						race: {
+							9: { length: 783.3 }
+						}
+					}
 				}
 			},
 			0: {
@@ -3158,7 +3168,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 50196.78,
+				length: 54445.45,
 				noRetry: true,
 				partyOnly: true
 			},
