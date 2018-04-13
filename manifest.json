@@ -11,13 +11,13 @@
     },
     "config/preset.js": {
       "overwrite": false,
-      "hash": "c8d25308ad60dfea00987d2168efad90b2cdbcf48cd1fd24511d8488319d4a90"
+      "hash": "7a302a73883612976ec37edc6b0149c49111b62bef633a5a70590eda12861a9c"
     },
     "config/data/basicCC.json": "0d91a8c6d8c4e90c8e9a758b54285c9978e4f8159bc33115e46a9c9cd08f8968",
     "config/data/evasiveCC.json": "162984b94cf62fd651de1a596b63e5de7d1419a4771a8a833ba425acd8db0c45",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
     "config/data/skills.js": "7e93ac55b609b6c1fca48a2bb21c45f27438fb816d3b930bde6797c6873f63d9",
-    "config/data/awakening.js": "bce1829148853ff087e6386378e37478b1890735ffebba487215a47094caa4ac",
+    "config/data/awakening.js": "051215eb6950d5f715ec7b8a2d44542ab7f7c8a07aee2990982c9279c1231f22",
     "docs/commands.pdf": "bf37f9199fabd756ff3271fc34e5cab2d052007832cbfe904d9334d0b071f5da",
     "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
     "docs/ping.pdf": "3ff334efdf6adfd384165006c2017ea3a96d16557dfbf59b06da67dfdfa148f8",

@@ -119,8 +119,8 @@ module.exports = {
 				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39], // todo
 				abnormals: {
 					100801: { skill: 360100 },
-				  104110: { chain: 30 }
-			  },
+					104110: { chain: 30 }
+				},
 				chains: {
 					18: 30,
 					21: 30,
@@ -139,9 +139,7 @@ module.exports = {
 			0: {
 				length: 1666,
 				noInterrupt: [32],
-				glyphs: {
-					21040: { speed: 0.5 }
-				}
+				glyphs: { 21109: { speed: 0.5 } }
 			}
 		},
 		8: { // Assault Stance
@@ -203,6 +201,10 @@ module.exports = {
 				length: 1533,
 				distance: 250,
 				noInterrupt: [32],
+				glyphs: { 
+					21048: { speed: 0.2 },
+					21082: { speed: 0.2 }
+				 },
 				race: {
 					7: { length: 1714 }, // F.Castanic
 					8: { length: 1714 }, // Popori
@@ -231,8 +233,9 @@ module.exports = {
 		},
 		17: { // Vortex Slash
 			'*': {
-				length: 1633, // ?
-				noInterrupt: [32]
+				length: 1633,
+				noInterrupt: [32],
+				glyphs: { 21040: { speed: 0.3 } }
 			},
 			1: true,
 			2: { requiredBuff: 100201 }
@@ -375,8 +378,8 @@ module.exports = {
 				abnormals: {
 					100801: { skill: 370100 },
 					102010: { chain: 30 },
-				  104110: { chain: 30 }
-			  },
+					104110: { chain: 30 }
+				},
 				chains: {
 					3: 30,
 					16: 30,
@@ -401,8 +404,8 @@ module.exports = {
 				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 32, 34, 35, 39], // todo
 				abnormals: {
 					100801: { skill: 380100 },
-				  104110: { chain: 30 }
-			  },
+					104110: { chain: 30 }
+				},
 				chains: {
 					2: 30,
 					4: 30,
@@ -1884,6 +1887,7 @@ module.exports = {
 		},
 		18: { // Lethal Strike / Changed
 			'*': {
+				abnormals: { 24120: { speed: 0.3 } },
 				chains: {//enableVB: true,
 					3: 30,
 					11: 30,
@@ -1894,7 +1898,7 @@ module.exports = {
 			0: { length: 687.5 },
 			30: { length: 550 }
 		},
-		19: { // Fortitude / Tenacity, changed?
+		19: { // Triumphant Shout
 			0: {
 				fixedSpeed: 1,
 				length: [500, 700],
