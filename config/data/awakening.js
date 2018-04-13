@@ -2133,20 +2133,25 @@ module.exports = {
 		},
 		36: { // Unleash: Rampage
 			'*': {
-				distance: 35
+				length: 1588.6,
+				distance: 35,
+				noRetry: true
 			},
 			0: {
 				length: 2714.4,
+				noRetry: false,
 				abnormals: {
 					401708: { speed: 1.2 },
 					401718: { chain: 31 }
 				},
 				chains: { // x 3 to 30
+					34: 30,
+					35: 30,
 					36: 30
 				}
 			},
-			30: { length: 1588.6 },
-			31: { length: 1588.6 }
+			30: true,
+			31: true
 		},
 		37: { // Unleash: Beast Fury
 			'*': {
@@ -4756,6 +4761,9 @@ module.exports = {
 			'*': {
 				distance: 16.59,
 				length: 2000,
+				abnormals: {
+					31120: { chain: 31 }
+				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -4780,7 +4788,8 @@ module.exports = {
 			},
 			1: true,
 			2: true,
-			30: { length: 950 }
+			30: { length: 950 },
+			31: { length: 950 }
 		},
 		26: { // Brawling roll
 			'*': { noRetry: true },
