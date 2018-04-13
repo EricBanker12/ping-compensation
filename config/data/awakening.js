@@ -1158,10 +1158,7 @@ module.exports = {
 			0: {
 				length: 3365,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25],
-				abnormals: {
-					300801: { skill: 250100 },
-					300805: { skill: 250100 }
-				},
+				abnormals: { 300801: { skill: 250100 } },
 				chains: {
 					1: 30,
 					2: 30,
