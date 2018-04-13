@@ -201,10 +201,10 @@ module.exports = {
 				length: 1533,
 				distance: 250,
 				noInterrupt: [32],
-				glyphs: { 
+				glyphs: {
 					21048: { speed: 0.2 },
 					21082: { speed: 0.2 }
-				 },
+				},
 				race: {
 					7: { length: 1714 }, // F.Castanic
 					8: { length: 1714 }, // Popori
@@ -1886,8 +1886,9 @@ module.exports = {
 			}
 		},
 		18: { // Lethal Strike / Changed
-			'*': {
-				abnormals: { 24120: { speed: 0.3 } },
+			'*': { abnormals: { 24120: { speed: 0.3 } } },
+			0: {
+				length: 687.5,
 				chains: {//enableVB: true,
 					3: 30,
 					11: 30,
@@ -1895,7 +1896,6 @@ module.exports = {
 					15: 30
 				}
 			},
-			0: { length: 687.5 },
 			30: { length: 550 }
 		},
 		19: { // Triumphant Shout
@@ -2144,7 +2144,7 @@ module.exports = {
 				}
 			},
 			30: { length: 1588.6 },
-			30: { length: 1588.6 }
+			31: { length: 1588.6 }
 		},
 		37: { // Unleash: Beast Fury
 			'*': {
