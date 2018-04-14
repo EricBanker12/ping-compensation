@@ -1434,48 +1434,82 @@ module.exports = {
 			0: { length: 3365 },
 			30: { length: 1325 } //
 		},
-		26: { // Gaia Crusch / Decimate
+		26: { // Decimate
 			0: {
 				length: 3375,
-				/*
+				distance: 11.21,
+				noRetry: true,
 				chains: {
-					: 30,
-					: 30,
-					: 30
-				}
-				*/
+					8: 30,
+					23: 30,
+					24: 30,
+					25: 30,
+					27: 30
+				},
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28]
 			}, // super cancel 
-			30: { length: 900 } // chains on here too ?__________?
+			30: {
+				length: 900,
+				distance: 21
+			}
 		},
 		27: { // Blazing Thrust
 			0: {
-				length: [525, 900, 1316.25],
+				length: [900, 1316.25],
+				distance: [0, 268.19],
+				noRetry: true,
 				triggerAbnormal: { 301603: 5000 },
-				//noInterrupt: [],
+				noInterrupt: [1, 4, 6, 10, '14-1', '14-2', 17, 21, 22, '27-31', 28],
 				chains: {
+					2: 30,
+					3: 30,
 					8: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					'14-2': 30,
+					15: 30,
+					16: 30,
+					23: 30,
 					24: 30,
-					26: 30,
-					27: 30
+					25: 30,
+					26: 30
+				},
+				abnormal: {
+					301603: { chain : 31 },
 				}
 			},
 			30: {
 				length: [900, 1316.25],
+				distance: [0, 268.19],
 				triggerAbnormal: { 301603: 5000 }
 			},
 			31: {
 				length: 751.25,
+				distance: -194.98,
 				consumeAbnormal: 301603
 			}
-		}, // 301803 supposly cool abnormal
-		28: { // Unsheathe / Colossus Blade
-			0: { // super cancel cancel
+		},
+		28: { // Unsheathe
+			0: {
 				type: 'charging',
-				length: [650, 650, 1000], // no hold stage?
+				length: [650, 650], // no hold stage?
+				abnormals: {
+					301601: { chargeSpeed: 0.6 },
+				}
 			},
-			1: { length: [929.4, 1248] },
-			2: { length: [929.4, 978] },
-			3: { length: [929.4, 1248] }
+			1: {
+				distance: [1.41, 44.82],
+				length: [929.4, 1248]
+			},
+			2: {	// Missing logs
+				distance: [1.41, 44.82],
+				length: [929.4, 978]
+			},	// Why length is different here?
+			3: {
+				distance: [1.41, 44.82],
+				length: [929.4, 1248]
+			}
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
