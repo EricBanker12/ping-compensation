@@ -1,6 +1,6 @@
 {
 	"files": {
-		"index.js": "fb74ac48c54a1c5d852a1e388c1f4f3972ef95a0033a00a85cdac711980421af",
+		"index.js": "6267e3e48fdddb82f9f036158beb1c222849464eb0b5a26af7bf92477e7f8aa6",
 		"LICENSE": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
 		"module.json": "f25b4b87d552beb330b3b51d9b4fc7eeba4b139a7da29dfa5622ec06a5e9e888",
 		"README.md": "51c9f92a4131b9e35899bff0f30e7d349f549195dbad39a49f5176b02b523693",
@@ -11,9 +11,9 @@
 		"config/default-config.json": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a",
 		"config/preset.js": {
 			"overwrite": false,
-			"hash": "2f37e19fe09dc5fb5cb9ff754f832baf9c63acf135a23c113843ed845f8b41d8"
+			"hash": "3ccd6981845e8502426a9637e92b27c6db700c63c1eaf0a7d87af557bf1c5add"
 		},
-		"config/data/awakening.js": "9c23cf5b2ad90696a8ac910637a38554c41ef2854465b5443a997f35e3b31680",
+		"config/data/awakening.js": "14563ebf58493d5e4e9c4b52d19bd3d1eef25a3bb47decc1aee28f23d40929c1",
 		"config/data/skills.js": "a6e7dd83387d0ecadb45dfcdfca1c53f9a71ca2a8548a92297f34461222270b9",
 		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
 		"docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
