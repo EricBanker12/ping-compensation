@@ -2,7 +2,7 @@
   "files": {
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
     "module.json": "8e73f7575ee71a68f91647c386adf75df8d4c4a24ccc8f7627bfc76291f28a34",
-    "package.json": "872e41662b327cc705cc8174c9060f40898fbf10d01b034d778ad76de90697b8",
+    "package.json": "e92cae6bb9dae148fe9906b6a62dc69fca10116e5b6eee99556fdd2e7ef9ddbe",
     "README.pdf": "27952e1f245b0da1e122ee3f37b9a793dd4095ce863e1a43b13ec5754843498c",
     "config/data/abnormalities.js": "789180d56f8d84398085b09850b0acbe824f0fc111ca569cf6d18fa03ab6b27d",
     "config/config.json": {
@@ -17,7 +17,7 @@
     "config/data/evasiveCC.json": "162984b94cf62fd651de1a596b63e5de7d1419a4771a8a833ba425acd8db0c45",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
     "config/data/skills.js": "7e93ac55b609b6c1fca48a2bb21c45f27438fb816d3b930bde6797c6873f63d9",
-    "config/data/awakening.js": "940dc069c4627a3af685724903ef40a582af6569b2351e34ea06d2736dd7091a",
+    "config/data/awakening.js": "88517773581f8c906918af9b3dcf12f97d511f40220ba17338392b2c0bad37e1",
     "docs/commands.pdf": "bf37f9199fabd756ff3271fc34e5cab2d052007832cbfe904d9334d0b071f5da",
     "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
     "docs/ping.pdf": "3ff334efdf6adfd384165006c2017ea3a96d16557dfbf59b06da67dfdfa148f8",

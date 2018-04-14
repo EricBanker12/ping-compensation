@@ -564,12 +564,18 @@ module.exports = {
 			'*': {
 				noRetry: true,
 				length: 1976.15,
-				triggerAbnormal: { 105100: 1800 },
+				triggerAbnormal: {
+					105100: 1800
+				},
 				consumeAbnormalEnd: 105100,
-				abnormals: { 105100: { chain: 31 } }
-			}, // 105100 -> 31
-			0: { noInterrupt: [41] },
-			30: { noInterrupt: [41] },
+				abnormals: { 105100: { chain: 31 } },
+				chains: {
+					'41-0': 31,
+					'41-30': 31
+				},
+			},
+			0: true,
+			30: true,
 			31: {
 				length: 1800,
 				triggerAbnormal: false,
@@ -579,7 +585,9 @@ module.exports = {
 		},
 		42: { // Blade Frenzy
 			"*": {
-				noRetry:true
+				noRetry:true,
+				distance: 327,
+				triggerAbnormal: { 103103: 10000} // ?_? something should consume it
 			},
 			0: {
 				length: 3309.23,
