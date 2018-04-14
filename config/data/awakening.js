@@ -521,6 +521,7 @@ module.exports = {
 		40: { // Blade Waltz
 			'*': {
 				length: 810.6,
+				distance: 150,
 				triggerAbnormal: {
 					104100: 8000,
 					//104101: 800,
@@ -528,7 +529,7 @@ module.exports = {
 				},
 				noRetry:true,
 				consumeAbnormalEnd: 104110,
-				noInterrupt: [2, 40]
+				noInterrupt: [2, 32, 40]
 			},
 			0: { abnormals: { 100201: { chain: 20 } } },
 			10: {
@@ -564,20 +565,42 @@ module.exports = {
 			'*': {
 				noRetry: true,
 				length: 1976.15,
+				distance: 200,
 				triggerAbnormal: {
 					105100: 1800
 				},
 				consumeAbnormalEnd: 105100,
 				abnormals: { 105100: { chain: 31 } },
-				chains: {
+				chains: {	// NEED TO CONFIRM THE CHAINS
+					1: 30,
+					3: 30,
+					4: 30,
+					10: 30,
+					12: 30,
+					'16-1': 30,
+					17: 30,
+					18: 30,
+					19: 30,
+					21: 30,
+					28: 30,
+					29: 30,
+					30: 30,
+					31: 30,
+					36: 30,
+					37: 30,
+					38: 30,
+					39: 30,
+					40: 30,
 					'41-0': 31,
-					'41-30': 31
-				},
+					'41-30': 31,
+					42: 30
+				}
 			},
 			0: true,
 			30: true,
 			31: {
 				length: 1800,
+				distance: 0,
 				triggerAbnormal: false,
 				abnormals: false,
 				noInterrupt: false
@@ -591,7 +614,7 @@ module.exports = {
 			},
 			0: {
 				length: 3309.23,
-				noInterrupt: [42],
+				noInterrupt: [32, 42],
 				chains: {
 					2: 30,
 					30: 30,
