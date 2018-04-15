@@ -341,31 +341,22 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39, 41, 42],
 				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					11: 30,
+					12: 30,
 					18: 30,
 					27: 30,
 					40: 30
 				},
-				level: {
-					9: {
-						abnormals: {
-							100201: { skill: 390100 },
-						}
-					}
-				}
+				level: { 9: { abnormals: { 100201: { skill: 390100 } } } }
 			},
 			30: {
 				length: 2666.66,
 				distance: 210,
 				level: {
-					9: {
-						abnormals: {
-							100201: { skill: 390130 }
-						}
-					}
+					9: { abnormals: { 100201: { skill: 390130 } } }
 				}
 			}
 		},
@@ -505,10 +496,11 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 41, 42],
 				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					11: 30,
+					12: 30,
 					18: 30,
 					27: 30,
 					40: 30
@@ -528,7 +520,7 @@ module.exports = {
 					//104101: 800,
 					104110: 2000
 				},
-				noRetry:true,
+				noRetry: true,
 				consumeAbnormalEnd: 104110,
 				noInterrupt: [2, 32, 40]
 			},
@@ -609,9 +601,9 @@ module.exports = {
 		},
 		42: { // Blade Frenzy
 			"*": {
-				noRetry:true,
+				noRetry: true,
 				distance: 327,
-				triggerAbnormal: { 103103: 10000} // ?_? something should consume it
+				triggerAbnormal: { 103103: 10000 } // ?_? something should consume it
 			},
 			0: {
 				length: 3309.23,
@@ -1467,7 +1459,7 @@ module.exports = {
 			},
 			30: {
 				length: [1710, 0],
-        distance: [122, 22]
+				distance: [122, 22]
 			}
 		},
 		27: { // Blazing Thrust
@@ -1980,7 +1972,7 @@ module.exports = {
 					15: 30
 				}
 			},
-			30: { 
+			30: {
 				length: 550,
 				pendingStartTime: 300
 			}
@@ -3108,7 +3100,7 @@ module.exports = {
 			}
 		},
 		27: { // Final Reprisal
-			'*' : {
+			'*': {
 				length: 2600,
 				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, '28-10', 34, 38, '41-10'],
 				abnormals: {
