@@ -1451,8 +1451,8 @@ module.exports = {
 		},
 		26: { // Decimate
 			0: {
-				length: 3375,
-				distance: 11.21,
+				length: [1078, 2166, 120],
+				distance: [40.51, 122.33, 11.21],
 				noRetry: true,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
 				abnormals: { 301604: { chain: 31 } }, // todo: check c-s				
@@ -1465,20 +1465,20 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 900,
-				distance: 21
+				length: [1710, 0],
+        distance: [122, 22]
 			}
 		},
 		27: { // Blazing Thrust
+			'*': {
+				length: [600, 751.25],
+				distance: [0, 275.6],
+				triggerAbnormal: { 301603: 5000 }
+			},
 			0: {
-				length: [900, 1316.25],
-				distance: [0, 268.19],
 				noRetry: true,
-				triggerAbnormal: { 301603: 5000 },
 				noInterrupt: ['27-31'],
-				abnormals: {
-					301603: { chain: 31 },
-				},
+				abnormals: { 301603: { chain: 31 } },
 				chains: {
 					2: 30,
 					3: 30,
@@ -1495,14 +1495,11 @@ module.exports = {
 					26: 30
 				}
 			},
-			30: {
-				length: [900, 1316.25],
-				distance: [0, 268.19],
-				triggerAbnormal: { 301603: 5000 }
-			},
+			30: true,
 			31: {
 				length: 751.25,
-				distance: 194.98,
+				distance: 275.6,
+				triggerAbnormal: false,
 				consumeAbnormal: 301603
 			}
 		},
