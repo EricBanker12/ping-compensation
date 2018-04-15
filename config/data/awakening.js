@@ -1841,7 +1841,7 @@ module.exports = {
 					6: { length: [366, 366, 366, 366, 1366] } // M.Casta
 				},
 				enableVB: true,
-				pendingStartTime: 300
+				pendingStartTime: 0
 			}
 		},
 		11: { // Leaping Strike 
@@ -1959,6 +1959,7 @@ module.exports = {
 			'*': { abnormals: { 24120: { speed: 0.3 } } },
 			0: {
 				length: 687.5,
+				pendingStartTime: 375,
 				chains: {//enableVB: true,
 					3: 30,
 					11: 30,
@@ -1966,7 +1967,10 @@ module.exports = {
 					15: 30
 				}
 			},
-			30: { length: 550 }
+			30: { 
+				length: 550,
+				pendingStartTime: 300
+			}
 		},
 		19: { // Triumphant Shout
 			0: {
@@ -2962,6 +2966,7 @@ module.exports = {
 			0: {
 				length: 1750,
 				chains: { // x3
+					'19-10': 30,
 					38: 30,
 					26: 30
 				}
@@ -2988,10 +2993,15 @@ module.exports = {
 			0: { length: 1275 }
 		},
 		11: { // Metamorphic Blast / Changed
-			'*': { length: 820 },
-			0: true,
-			1: true,
-			2: { requiredBuff: 805800 },
+			'*': {
+				length: 820,
+				abnormals: {
+					805800: { chain: 2 }
+				}
+			},
+			0: true,	// Maybe for Low skill levels
+			1: true,	// Maybe for Max skill level only
+			2: true, 	// Max skill level + Word of Judgement
 		},
 		12: { // Resurrect
 			0: {
@@ -3019,36 +3029,39 @@ module.exports = {
 			0: { length: 4500 }
 		},
 		16: { // Shocking Implosion
-			'*': { length: 1700 },
-			0: {  // I > XI
-				chains: { // x2
-
+			'*': {
+				length: 1700,
+				abnormals: {
+					805800: { chain: 20 }
 				}
 			},
-			10: true, // XI
-			11: { // XI
-				length: 1438.45,
+			0: {  // Maybe for Low skill levels
 				chains: { // x2
-
+					11: 30
 				}
 			},
-			20: { // XI
-				requiredBuff: 805800,
-				chains: { // x2
-
-				},
+			10: { // Maybe for Max skill level
+				chains: {
+					11: 11
+				}
 			},
-			21: { length: 1438.45 }, // XI
-			30: { length: 1438.46 } // I > X
+			11: { length: 1438.45 }, // Maybe for Max skill level as a chain
+			20: { // Max skill level + Word of Judgement
+				chains: { // x2
+					11: 21
+				}
+			},
+			21: { length: 1438.45 }, // // Max skill level as a chain + Word of Judgement
+			30: { length: 1438.46 } // Low skill levels as a chain
 		},
-		17: { // Prayer of Peace / r-removed?
+		/*17: { // Prayer of Peace / r-removed?
 			0: {
 				length: [925, 925, 850],
 				glyphs: {
 					28021: { speed: 2 }
 				}
 			}
-		},
+		},*/
 		18: { // Heal Thyself
 			0: {
 				withoutWeapon: true,
@@ -3079,9 +3092,14 @@ module.exports = {
 			}
 		},
 		27: { // Final Reprisal
-			'*': { length: 2600 },
-			0: {
+			'*' : {
+				length: 2600,
 				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, '28-10', 34, 38, '41-10'],
+				abnormals: {
+					805800: { chain: 20 }
+				}
+			},
+			0: { // low level skill
 				chains: {
 					11: 30,
 					16: 30,
@@ -3089,11 +3107,25 @@ module.exports = {
 					40: 30
 				}
 			},
-			10: true,
-			11: { length: 1040 },
-			20: true,
-			21: { length: 1040 },
-			30: { length: 1040 }
+			10: { // max level skill
+				chains: {
+					11: 11,
+					16: 11,
+					29: 11,
+					40: 11
+				}
+			},
+			11: { length: 1040 }, // low level chain
+			20: { // max level skill + word of judgement
+				chains: {
+					11: 21,
+					16: 21,
+					29: 21,
+					40: 21
+				}
+			},
+			21: { length: 1040 }, // max level chain + word of judgement
+			30: { length: 1040 } // low level chain
 		},
 		/*28: { // Mana Charge / Spirit something
 			'*': {
@@ -3124,7 +3156,7 @@ module.exports = {
 				length: 700,
 				noRetry: true,
 				level: {
-					1: {
+					0: {
 						length: 825,
 						race: {
 							9: { length: 783.3 }
@@ -3143,7 +3175,7 @@ module.exports = {
 					28031: { chargeSpeed: 0.25 }
 				},
 				level: {
-					1: { length: [800, 1600] },
+					0: { length: [800, 1600] },
 				}
 			},
 			10: true,
@@ -3175,13 +3207,13 @@ module.exports = {
 				length: 700
 			}
 		},
-		32: { // Divine Respite
+		/*32: { // Divine Respite (Removed)
 			0: {
 				withoutWeapon: true,
 				fixedSpeed: 1,
 				length: [1300, 900]
 			}
-		},
+		},*/
 		33: { // Ishara's Lullaby
 			0: {
 				type: 'lockon',
@@ -3239,10 +3271,16 @@ module.exports = {
 			0: { length: 5900 }
 		},
 		40: { // Zenobia's Vortex
-			'*': { length: 1070.71 },
-			0: true,
-			10: true,
-			20: true
+			'*': {
+				length: 1070.71,
+				noInterrupt: [40],
+				abnormals: {
+					805800: { chain: 20 }
+				}
+			},
+			0: true,	// low level skill
+			10: true,	// max level skill
+			20: true	// max level skill + word of judgement
 		},
 		41: { // Divine Intervention / Divine Vitality
 			0: {
@@ -3258,10 +3296,15 @@ module.exports = {
 			}
 		},
 		42: { // Holy Burst
-			'*': { length: 866 },
+			'*': {
+				length: 866,
+				abnormals: {
+					805800: { chain: 20 }
+				}
+			},
 			0: true,
-			20: true,
-			30: true
+			20: true, // maybe + word of judgement
+			30: true // XD i don't know
 		},
 		43: { // Words of Judgment
 			0: { length: 1416 },
@@ -3287,9 +3330,9 @@ module.exports = {
 			11: { length: 835 }, // 840
 			12: { length: 1300 }
 		},
-		4: { // Ancient Binding
+		/*4: { // Ancient Binding (Removed)
 			0: { length: 1280 }
-		},
+		},*/
 		5: { // Titanic Favor
 			0: {
 				type: 'lockon',
@@ -4487,7 +4530,25 @@ module.exports = {
 					'1-32': 2,
 					'2-2': 31,
 					'2-3': 31,
-					2: 30
+					2: 30,
+					'3-1': 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
+					40: 30
 				},
 				noRetry: true
 			},
@@ -4583,6 +4644,28 @@ module.exports = {
 			'*': {
 				CC: "extended",
 				length: 3225,
+				chains: {
+					1: 30,
+					2: 30,
+					'3-1': 30,
+					//4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
+					40: 30
+				}
 			},
 			0: true,
 			30: true
@@ -4618,6 +4701,9 @@ module.exports = {
 					17: 30,
 					18: 30,
 					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
 					40: 30
 				}
 			},
@@ -4642,11 +4728,23 @@ module.exports = {
 				chains: {
 					1: 30,
 					2: 30,
+					'3-1': 30,
 					4: 30,
 					5: 30,
+					6: 30,
+					//7: 30,
 					8: 30,
 					9: 30,
+					10: 30,
+					14: 30,
+					15: 30,
 					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
 					40: 30
 				}
 				*/
@@ -4670,13 +4768,18 @@ module.exports = {
 					5: 30,
 					6: 30,
 					7: 30,
+					//8: 30,
 					9: 30,
+					10: 30,
 					14: 30,
 					15: 30,
 					16: 30,
 					17: 30,
 					18: 30,
 					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
 					40: 30
 				}
 			},
@@ -4696,13 +4799,26 @@ module.exports = {
 				},
 				/*
 				chains: {
-					'2-1': 30,
+					1: 30,
+					2: 30,
+					'3-1': 30,
 					4: 30,
 					5: 30,
 					6: 30,
 					7: 30,
 					8: 30,
-					10: 30
+					//9: 30,
+					10: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
+					40: 30
 				},
 				*/
 				hasChains: true
@@ -4728,12 +4844,16 @@ module.exports = {
 					7: 30,
 					8: 30,
 					9: 30,
+					//10: 30,
 					14: 30,
 					15: 30,
 					16: 30,
 					17: 30,
 					18: 30,
 					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
 					40: 30
 				}
 			},
@@ -4749,14 +4869,65 @@ module.exports = {
 			2: true
 		},
 		14: { // Infuriate
-			'*': { length: 1666 },
+			'*': {
+				length: 1666,
+				noRetry: true,
+				chains: {
+					1: 30,
+					2: 30,
+					'3-1': 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					//14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
+					40: 30
+				}
+			},
 			1: true,
 			2: true,
 			30: true
 		},
 		15: { // High Kick
-			'*': { length: 1305.44 },
-			0: { hasChains: true },
+			'*': {
+				length: 1305.44,
+				distance: 133.27,
+				requiredBuff: 10153503,
+				chains: {
+					1: 30,
+					2: 30,
+					'3-1': 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					14: 30,
+					//15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
+					40: 30
+				}
+			},
+			0: true,
 			30: true
 		},
 		16: { // Flip Kick
@@ -4765,7 +4936,26 @@ module.exports = {
 				distance: 134,
 				/*
 				chains: {
-					4: 30
+					1: 30,
+					2: 30,
+					'3-1': 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					14: 30,
+					15: 30,
+					//16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					22: 30,
+					24: 30,
+					26: 30,
+					40: 30
 				},
 				*/
 				hasChains: true
@@ -4776,20 +4966,32 @@ module.exports = {
 		},
 		// 17 retard owob
 		18: { // Growing Fury
-			'*': { length: 1371.66 },
+			'*': {
+				length: 1371.66,
+				requiredBuff: 10153050,
+			},
 			1: { hasChains: true },
-			2: true,
 			30: true
 		},
 		19: { // Invigorating Rage
-			'*': { length: 1433 },
+			'*': {
+				fixedSpeed: 1,
+				length: 1433,
+				noRetry: true,
+				stamina: 1500,
+				instantStamina: true,
+				bodyRolls: {
+					351009: { stamina: -600 }
+				},
+			},
 			1: true,
 			2: true
 		},
 		21: { // Mounting Rage
 			'*': {
 				fixedSpeed: 1,
-				length: 1275
+				length: 1275,
+				/*abnormals: { 10153040: { chain: 6 } } //can't use this skill when GF is active */
 			},
 			1: true,
 			2: true
