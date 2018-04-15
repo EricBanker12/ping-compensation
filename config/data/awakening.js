@@ -3037,18 +3037,21 @@ module.exports = {
 			},
 			0: {  // Maybe for Low skill levels
 				chains: { // x2
-					11: 30
+					11: 30,	// Metamorphic blast -> shocking implosion
+					27: 30 // Final reprisal -> shocking implosion
 				}
 			},
 			10: { // Maybe for Max skill level
 				chains: {
-					11: 11
+					11: 11,
+					27: 11
 				}
 			},
 			11: { length: 1438.45 }, // Maybe for Max skill level as a chain
 			20: { // Max skill level + Word of Judgement
 				chains: { // x2
-					11: 21
+					11: 21,
+					27: 21
 				}
 			},
 			21: { length: 1438.45 }, // // Max skill level as a chain + Word of Judgement
@@ -4971,6 +4974,7 @@ module.exports = {
 				requiredBuff: 10153050,
 			},
 			1: { hasChains: true },
+			2: true,
 			30: true
 		},
 		19: { // Invigorating Rage
