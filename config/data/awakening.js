@@ -1472,7 +1472,7 @@ module.exports = {
 		27: { // Blazing Thrust
 			'*': {
 				length: [600, 751.25],
-				distance: [0, 275.6],
+				distance: [275.6, 0],
 				triggerAbnormal: { 301603: 5000 }
 			},
 			0: {
