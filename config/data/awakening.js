@@ -1509,7 +1509,7 @@ module.exports = {
 		28: { // Unsheathe
 			0: {
 				type: 'charging',
-				length: [650, 650], // no hold stage?
+				length: [650, 650, 1000], // no hold stage?
 				abnormals: {
 					301601: { chargeSpeed: 0.6 },
 				}
