@@ -6,7 +6,7 @@ Path: `<skill-prediction-folder>/config/preset.js`.
 
 ## How To Edit Preset.js
 
-This is best explained along an example of what you're gonna see inside the file. *You won't see the arrows written in the example from here on the actual file, that's part of the explanation.*
+This is best explained along an example of what you're gonna see inside the file. *You won't see the arrows and indications along them written in the example from here on the actual file, that's part of the explanation.*
 
 ```JS
 0: { // Warrior <- Class category.

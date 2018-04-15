@@ -1191,10 +1191,14 @@ module.exports = {
 					10: { distance: 151.14 } // Baraka
 				}
 			},
-			0: {
+			0: { // 
 				length: 3365,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25, 26, 28],
-				abnormals: { 300801: { skill: 250100 } },
+				abnormals: {
+					300801: { skill: 250100 },
+					300805: { skill: 250100 },
+					301604: { chain: 31 } // todo: check c-s
+				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -1212,8 +1216,8 @@ module.exports = {
 			30: {
 				length: 1325, //
 				abnormals: {
-					300801: { skill: 250130 }, // II
-					300805: { skill: 250130 } // II Aw? Changed?
+					300801: { skill: 250130 },
+					300805: { skill: 250130 }
 				}
 			}
 		},
@@ -1387,6 +1391,7 @@ module.exports = {
 			0: {
 				length: 3691.25,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
+				abnormals: { 301604: { chain: 31 } }, // todo: check c-s	
 				chains: {
 					8: 30,
 					24: 30,
@@ -1401,6 +1406,7 @@ module.exports = {
 				length: 1925,
 				distance: 50,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 24, 26, 28],
+				abnormals: { 301604: { chain: 31 } }, // todo: check c-s	
 				chains: {
 					1: 30,
 					2: 30,
@@ -1434,7 +1440,10 @@ module.exports = {
 					10: { distance: 151.14 } // Baraka: 151.138
 				}
 			},
-			0: { length: 3365 },
+			0: {
+				length: 3365,
+				abnormals: { 301604: { chain: 31 } }, // todo: check c-s	
+			},
 			30: { length: 1325 } //
 		},
 		26: { // Decimate
@@ -1442,15 +1451,16 @@ module.exports = {
 				length: 3375,
 				distance: 11.21,
 				noRetry: true,
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
+				abnormals: { 301604: { chain: 31 } }, // todo: check c-s				
 				chains: {
 					8: 30,
 					23: 30,
 					24: 30,
 					25: 30,
 					27: 30
-				},
-				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28]
-			}, // super cancel 
+				}
+			},
 			30: {
 				length: 900,
 				distance: 21
@@ -1463,6 +1473,9 @@ module.exports = {
 				noRetry: true,
 				triggerAbnormal: { 301603: 5000 },
 				noInterrupt: [1, 4, 6, 10, '14-0', '14-1', 17, 21, 22, '27-31', 28],
+				abnormals: {
+					301603: { chain: 31 },
+				},
 				chains: {
 					2: 30,
 					3: 30,
@@ -1477,9 +1490,6 @@ module.exports = {
 					24: 30,
 					25: 30,
 					26: 30
-				},
-				abnormals: {
-					301603: { chain : 31 },
 				}
 			},
 			30: {
