@@ -672,15 +672,19 @@ module.exports = {
 			0: {
 				CC: "extended",
 				type: 'holdInfinite',
+				noRetry: true,
 				fixedSpeed: 1,
 				stamina: 50,
-				// stamina: 40
+				level: {
+					length: 333,
+					1: { stamina: 40 }
+				}
 			}
 		},
 		3: { // Onslaught / Changed
 			'*': {
 				distance: [0, 100, 100, 100, 100, 40],
-				noInterrupt: [2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27],
+				noInterrupt: [2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				abnormals: {
 					22060: { speed: 0.25 }
 				},
@@ -734,6 +738,7 @@ module.exports = {
 					9: { distance: 43.69 } // Elin
 				}
 			},
+			0: true,
 			1: true,
 			2: { chains: { 10: 30 } },
 			30: { length: 694.6 }
@@ -827,7 +832,7 @@ module.exports = {
 					10: 30,
 					18: 30,
 					21: 30,
-					24: 30
+					24: 30		// Chained leash->Spring attack really? NoInterrupt has 24 too
 				}
 			},
 			30: { length: 1850 }
@@ -959,7 +964,7 @@ module.exports = {
 			0: {
 				length: 2391.3,
 				distance: 100,
-				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27],
+				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					8: 30,
 					10: 30,
@@ -967,7 +972,7 @@ module.exports = {
 					15: 30,
 					18: 30,
 					21: 30,
-					24: 30
+					24: 30	// Chained Leash->Wallop wut? NoInterrupt has 24 too
 				}
 			},
 			30: {
@@ -1007,24 +1012,22 @@ module.exports = {
 		28: { // Righteous Leap
 			'*': { distance: [29.48, 445.52, 0] },
 			0: {
+				noInterrupt: [1, 2, 3, 4, 5, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
 				length: [333.33, 1055, 3121.66],
 				chains: {
 					15: 1,
-					24: 1,
+					24: 1,	// Chained Leash->Righteous Leap? Again?
 					25: 1
 				}
 			},
 			1: { length: [250, 791.25, 833.75] }
 		},
 		29: { // Guardian's Barrier
-			0: false
-			/*
-			{
-				//CC: "extended",
+			0: {
 				type: 'holdInfinite',
-				fixedSpeed: 1
+				fixedSpeed: 1,
+				length: 700
 			}
-			*/
 		},
 		30: { // Divine Protection
 			0: { length: 1252 }
