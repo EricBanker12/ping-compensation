@@ -1475,7 +1475,7 @@ module.exports = {
 				distance: [0, 268.19],
 				noRetry: true,
 				triggerAbnormal: { 301603: 5000 },
-				noInterrupt: [1, 4, 6, 10, '14-0', '14-1', 17, 21, 22, '27-31', 28],
+				noInterrupt: ['27-31'],
 				abnormals: {
 					301603: { chain: 31 },
 				},
