@@ -1502,7 +1502,7 @@ module.exports = {
 			},
 			31: {
 				length: 751.25,
-				distance: -194.98,
+				distance: 194.98,
 				consumeAbnormal: 301603
 			}
 		},
