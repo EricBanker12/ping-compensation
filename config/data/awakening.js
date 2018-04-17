@@ -827,8 +827,7 @@ module.exports = {
 					8: 30,
 					10: 30,
 					18: 30,
-					21: 30,
-					24: 30		// Chained leash->Spring attack really? NoInterrupt has 24 too
+					21: 30
 				}
 			},
 			30: { length: 1850 }
@@ -947,11 +946,10 @@ module.exports = {
 		24: { // Chained Leash / Changed
 			'*': {
 				consumeAbnormal: 201803,
-				length: 1000,
 				noInterrupt: [2]
 			},
-			1: true,
-			2: { length: 1820 } // summon arcana!!
+			1: { length: [733, 833] },
+			2: { length: 1692.42 }
 		},
 		25: { // Wallop / Changed
 			'*': {
@@ -967,8 +965,7 @@ module.exports = {
 					13: 30,
 					15: 30,
 					18: 30,
-					21: 30,
-					24: 30	// Chained Leash->Wallop wut? NoInterrupt has 24 too
+					21: 30
 				}
 			},
 			30: {
