@@ -167,7 +167,7 @@ module.exports = {
 		22: true, // Burning Breath
 		23: true, // Mana Volley
 		25: true, // Time Gyre
-		26: false, // Teleport Jaunt
+		26: true, // Teleport Jaunt
 		27: true, // Hailstorm
 		30: true, // Nova
 		31: true, // Warp Barrier
@@ -264,7 +264,7 @@ module.exports = {
 		14: true, // Aura of the Swift
 		15: true, // Aura of the Unyielding
 		16: true, // Aura of the Tenacious
-		17: false, // Teleport Jaunt
+		17: true, // Teleport Jaunt
 		18: true, // Arun's Vitae
 		21: false, // Retaliate
 		22: true, // Arun's Tears
