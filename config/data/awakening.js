@@ -435,6 +435,7 @@ module.exports = {
 				CC: "extended",
 				type: 'holdInfinite',
 				fixedSpeed: 1,
+				consumeAbnormal: 102010,
 				requiredBuff: [100200, 100201],
 				stamina: 50,
 			}
@@ -1349,7 +1350,7 @@ module.exports = {
 			}
 		},
 		18: { // Overpower / Changed
-			'*': { length: 1531 }, // for whatever reason it was made so it cancels things an evasive roll cancels
+			'*': { length: 1533 }, // for whatever reason it was made so it cancels things an evasive roll cancels
 			0: true,
 			50: true
 		},
@@ -1502,21 +1503,25 @@ module.exports = {
 				type: 'charging',
 				length: [650, 650],
 				chargeLevels: [1, 2, 3],
+				noInterrupt: [28],
 				abnormals: {
 					301601: { chargeSpeed: 0.6 },
 				}
 			},
 			1: {
+				length: [929.4, 1248],
 				distance: [1.41, 44.82],
-				length: [929.4, 1248]
+				noInterrupt: ['28-1'],
 			},
 			2: {	// Missing logs
+				length: [929.4, 978],
 				distance: [1.41, 44.82],
-				length: [929.4, 978]
-			},	// Why length is different here?
+				noInterrupt: ['28-2'],
+			},	// Why length is different here? | everything's probably wrong :ppscared:
 			3: {
+				length: [929.4, 1248],
 				distance: [1.41, 44.82],
-				length: [929.4, 1248]
+				noInterrupt: ['28-3'],
 			}
 		},
 		91: { // Awakening Eyes Aura
@@ -1603,13 +1608,8 @@ module.exports = {
 				type: 'charging',
 				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
-				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, 10, 15, 18, 24, 25, 30],
-				//lastChargeStage: 2000,
-				glyphs: {
-					24067: {
-						chargeSpeed: 0.25 // only value that affects last charge state duration
-					}
-				},
+				noInterrupt: [3, 10, 15],
+				glyphs: { 24067: { chargeSpeed: 0.25 } },
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { speed: 0.25 },
@@ -1626,7 +1626,7 @@ module.exports = {
 			},
 			10: {
 				distance: 87.28,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['3-10'],
 				race: {
 					3: { distance: 90.98 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1638,7 +1638,7 @@ module.exports = {
 			},
 			11: {
 				distance: 87.28,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['3-11'],
 				race: {
 					3: { distance: 90.98 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1650,7 +1650,7 @@ module.exports = {
 			},
 			12: {
 				distance: 87.28,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['3-12'],
 				race: {
 					3: { distance: 90.98 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1662,7 +1662,7 @@ module.exports = {
 			},
 			13: {
 				distance: 69.7,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['3-13'],
 				race: {
 					3: { distance: 90.98 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1772,24 +1772,17 @@ module.exports = {
 			}
 		},
 		10: { // Cyclone
-			'*': {
-				noInterrupt: [3],
-				noRetry: true
-			},
-			0: false, // Disabled since causes issues when chaining from itself.
+			'*': { noRetry: true },
+			0: false,
 			/*
-			0: { // When Cyclone resets you basically fully charge in 1 tick, so you do for example:
-				type: 'charging', // 0 > charge > 13 > 0(doesn't need to charge, already fully charge) > 13
+			0: {
+				type: 'charging',
 				consumeAbnormal: [400900, 401404],
-				length: [650, 650, 650], // This is a bit mundane and just based on a quick observation, though
-				noInterrupt: [2, 3, 4, 15, 18, 24, 25, 30],
-				//lastChargeStage: 2000
+				length: [650, 650, 650],
 				glyphs: {
 					24009: { chargeSpeed: 0.25 },
 					24052: { chargeSpeed: 0.25 },
-					24096: {
-						chargeSpeed: 0.3
-					}
+					24096: { chargeSpeed: 0.3  }
 				},
 				abnormals: {
 					24190: { chargeSpeed: 0.3 },
@@ -1807,9 +1800,8 @@ module.exports = {
 			},
 			*/
 			10: {
-				length: 1333, // Cast F. - TODO
+				length: 1333,
 				distance: 50,
-				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
 					2: { length: 1400 },
 					3: { length: 1800 }, // F.Helf
@@ -1819,7 +1811,6 @@ module.exports = {
 			11: {
 				length: [366, 366, 1333],
 				distance: [33.33, 33.33, 50],
-				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
 					2: { length: [366, 366, 1400] }, // M.Helf
 					3: { length: [366, 366, 1800] }, // F.Helf
@@ -1829,7 +1820,6 @@ module.exports = {
 			12: {
 				length: [366, 366, 366, 366, 1333],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
-				noInterrupt: [2, 4, 24, 25, 30],
 				races: {
 					2: { length: [366, 366, 366, 366, 1400] }, // M.Helf
 					3: { length: [366, 366, 366, 366, 1800] }, // F.Helf
@@ -1839,7 +1829,6 @@ module.exports = {
 			13: {
 				length: [366, 366, 366, 366, 1333],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
-				noInterrupt: [2, 4, 15, 24, 25, 30],
 				races: {
 					2: { length: [366, 366, 366, 366, 1400] }, // M.Helf
 					3: { length: [366, 366, 366, 366, 1800] }, // F.Helf
@@ -1857,7 +1846,7 @@ module.exports = {
 				noInterrupt: [2],
 			}
 		},
-		13: { // Retaliate (TODO: Check)
+		13: { // Retaliate
 			0: {
 				type: 'retaliate',
 				length: 1625,
@@ -1866,16 +1855,12 @@ module.exports = {
 			}
 		},
 		15: { // Vampiric Blow  
-			'*': {
-				length: 1930,
-				noInterrupt: [15]
-			},
+			'*': { length: 1930 },
 			0: {
 				type: 'charging',
 				consumeAbnormal: [400900, 401404],
 				length: [800, 800, 800],
-				noInterrupt: [2, '3-0', 4, '10-0', '18-0', 24, 25, 30],
-				lastChargeStage: 2000,
+				noInterrupt: ['3-0', '10-0', 15],
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 },
@@ -1895,7 +1880,7 @@ module.exports = {
 			},
 			10: {
 				distance: 87.28,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['15-10'],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1907,7 +1892,7 @@ module.exports = {
 			},
 			11: {
 				distance: 87.28,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['15-11'],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1919,7 +1904,7 @@ module.exports = {
 			},
 			12: {
 				distance: 87.28,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['15-12'],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1931,7 +1916,7 @@ module.exports = {
 			},
 			13: {
 				distance: 87.28,
-				noInterrupt: [2, 4, 24, 25, 30],
+				noInterrupt: ['15-13'],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -1943,6 +1928,7 @@ module.exports = {
 			},
 			14: {
 				distance: 87.28,
+				noInterrupt: [15],
 				race: {
 					3: { distance: 72.79 }, // F.Helf
 					4: { distance: 35 }, // M.Aman
@@ -2003,7 +1989,7 @@ module.exports = {
 				length: 1833, // 1630
 				distance: 167.63, // 167.624
 				consumeAbnormal: [400900, 401404],
-				requiredBuff: 400900,
+				requiredBuff: 400900, // <- no werk?
 				race: {
 					6: { distance: 168.11 }, // M.Casta
 					8: { distance: 240.4 }, // Popori
@@ -2025,10 +2011,10 @@ module.exports = {
 				type: 'grantCharge',
 				requiredBuff: false
 			},
-			10: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] }, // check noInterrupts
-			11: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
-			12: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] },
-			13: { noInterrupt: [2, 3, 4, 10, 15, 18, 25, 30] }
+			10: true, // shud be ok but confirmation would be nice
+			11: true,
+			12: true,
+			13: true
 		},
 		25: { // Raze
 			'*': {
@@ -2279,22 +2265,17 @@ module.exports = {
 		4: { // Arcane Pulse
 			'*': {
 				length: 1293,
-				race: {
-					9: { length: 990.91 } // Elin
-				},
-				noRetry: true
+				noRetry: true,
+				race: { 9: { length: 990.91 } }, // Elin
 			},
 			0: {
 				type: 'charging',
 				length: [800, 800],
-				noInterrupt: [7, 26],
-				lastChargeStage: 2000,
-				abnormals: {
-					25140: { chargeSpeed: 0.3 }
-				}
+				noInterrupt: [4],
+				abnormals: { 25140: { chargeSpeed: 0.3 } }
 			},
 			10: {
-				noInterrupt: [7, 26],
+				noInterrupt: ['4-10'],
 				level: {
 					11: {
 						abnormals: {
@@ -2305,7 +2286,7 @@ module.exports = {
 				}
 			},
 			11: {
-				noInterrupt: [7, 26],
+				noInterrupt: ['4-11'],
 				level: {
 					11: {
 						abnormals: {
@@ -2316,7 +2297,7 @@ module.exports = {
 				}
 			},
 			12: {
-				noInterrupt: [7, 26],
+				noInterrupt: ['4-12'],
 				level: {
 					11: {
 						abnormals: {
@@ -2432,12 +2413,11 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [1000, 1000],
-				noInterrupt: [7, 26],
-				lastChargeStage: 2000
+				noInterrupt: [19],
 			},
-			10: { noInterrupt: [7, 26] },
-			11: { noInterrupt: [7, 26] },
-			12: { noInterrupt: [7, 26] }
+			10: { noInterrupt: ['19-10'] },
+			11: { noInterrupt: ['19-11'] },
+			12: { noInterrupt: ['19-12'] }
 		},
 		20: { // Flaming Barrage
 			0: {
@@ -2642,9 +2622,8 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
-				//triggerAbnormal: {600200: 7000 },
-				noInterrupt: [4, 22],
-				lastChargeStage: 2500,
+				//triggerAbnormal: { 600200: 7000 },
+				noInterrupt: [3],
 				noRetry: true,
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
@@ -2658,28 +2637,28 @@ module.exports = {
 			},
 			10: {
 				distance: -100,
-				noInterrupt: [22],
+				noInterrupt: ['3-10'],
 				race: {
 					8: { distance: -90.6 } // Popori
 				}
-			}, // Cast F. - TODO
+			},
 			11: {
 				distance: -100,
-				noInterrupt: [22],
+				noInterrupt: ['3-11'],
 				race: {
 					8: { distance: -90.6 } // Popori
 				}
 			},
 			12: {
 				distance: -100,
-				noInterrupt: [22],
+				noInterrupt: ['3-12'],
 				race: {
 					8: { distance: -90.6 } // Popori
 				}
 			},
 			13: {
 				distance: -100,
-				noInterrupt: [22],
+				noInterrupt: ['3-13'],
 				race: {
 					8: { distance: -90.6 } // Popori
 				}
@@ -2696,10 +2675,9 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
-				//triggerAbnormal: {600200: 7000 },
-				noInterrupt: [3, 22],
+				//triggerAbnormal: { 600200: 7000 },
+				noInterrupt: [4],
 				noRetry: true,
-				lastChargeStage: 2500,
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
@@ -2715,15 +2693,15 @@ module.exports = {
 			},
 			10: {
 				distance: -50,
-				noInterrupt: [22],
+				noInterrupt: ['4-10'],
 				race: {
 					1: { distance: -80 }, // F.Human
 					8: { distance: -48.69 } // Popori
 				}
-			}, // Cast F. - TODO
+			},
 			11: {
 				distance: -50,
-				noInterrupt: [22],
+				noInterrupt: ['4-11'],
 				race: {
 					1: { distance: -80 }, // F.Human
 					8: { distance: -48.69 } // Popori
@@ -2731,7 +2709,7 @@ module.exports = {
 			},
 			12: {
 				distance: -50,
-				noInterrupt: [22],
+				noInterrupt: ['4-12'],
 				race: {
 					1: { distance: -80 }, // F.Human
 					8: { distance: -48.69 } // Popori
@@ -2739,7 +2717,7 @@ module.exports = {
 			},
 			13: {
 				distance: -50,
-				noInterrupt: [22],
+				noInterrupt: ['4-13'],
 				race: {
 					1: { distance: -80 }, // F.Human
 					8: { distance: -48.69 } // Popori
@@ -3175,21 +3153,15 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: [900, 900, 900],
-				lastChargeStage: 3200,
-				bodyRolls: {
-					350708: { chargeSpeed: 0.15 }
-				},
-				glyphs: {
-					28031: { chargeSpeed: 0.25 }
-				},
-				level: {
-					0: { length: [800, 1600] },
-				}
+				noInterrupt: [28],
+				bodyRolls: { 350708: { chargeSpeed: 0.15 } },
+				glyphs: { 28031: { chargeSpeed: 0.25 } },
+				level: { 0: { length: [800, 1600] } }
 			},
-			10: true,
-			11: true,
-			12: true,
-			13: true
+			10: { noInterrupt: ['28-10'] },
+			11: { noInterrupt: ['28-11'] },
+			12: { noInterrupt: ['28-12'] },
+			13: { noInterrupt: ['28-13'] }
 		},
 		29: { // Triple Nemesis
 			0: { length: 810 },
@@ -3450,22 +3422,20 @@ module.exports = {
 			}
 		},
 		18: { // Arun's Vitae
-			'*': {
-				noInterrupt: [8, 17, 23],
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: 1240,
 				chargeLevels: [10, 10],
-				lastChargeStage: 10
-			},
-			10: {
-				length: 850,
+				noInterrupt: [18],
 				abnormals: {
 					27070: { speed: 0.25 },
 					27080: { speed: 0.25 }
 				}
+			},
+			10: {
+				length: 850,
+				noInterrupt: ['18-10'],
 			}
 		},
 		21: { // Retaliate
@@ -3476,21 +3446,17 @@ module.exports = {
 			}
 		},
 		22: { // Arun's Tears
-			'*': {
-				noInterrupt: [8, 17, 23],
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: 1240,
 				chargeLevels: [10, 10],
-				lastChargeStage: 10
+				noInterrupt: [22],
+				abnormals: { 27100: { speed: 0.25 } }
 			},
 			10: {
-				length: 850, // 810 female high elf
-				abnormals: {
-					27100: { speed: 0.25 }
-				}
+				length: 850,
+				noInterrupt: ['22-10']
 			}
 		},
 		23: { // Metamorphic Smite
@@ -3665,7 +3631,7 @@ module.exports = {
 			50: true
 		},
 		47: { // Arunic Release
-			0: { length: 2466 }
+			0: { length: 1160 }
 		},
 		48: { // Summon: Thrall Lord
 			0: { length: 4050 } // 4399 | 10239003
@@ -4285,7 +4251,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1200,
-				noInterrupt: ['9-10', '9-11', 20],
+				noInterrupt: [9, 20],
 				lastChargeStage: 0
 			},
 			10: {
