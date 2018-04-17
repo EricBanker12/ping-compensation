@@ -287,7 +287,7 @@ module.exports = {
 		43: true, // Release
 		// Awakening
 		44: true, // Mass Teleport
-		45: true, // Thrall Augumentation
+		45: true, // Thrall Augmentation
 		47: true, // Arunic Release
 		48: true, // Summon: Thrall Lord
 		91: true, // Awakening Eyes Aura

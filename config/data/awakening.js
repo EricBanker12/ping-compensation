@@ -1505,7 +1505,8 @@ module.exports = {
 				chargeLevels: [1, 2, 3],
 				noInterrupt: [28],
 				abnormals: {
-					301601: { chargeSpeed: 0.6 },
+					301600: { chargeSpeed: 0.4 }, // pls dunt tell me this triggers before action stage qq
+					301601: { chargeSpeed: 0.6 }
 				}
 			},
 			1: {
@@ -1599,9 +1600,7 @@ module.exports = {
 		3: { // Thunderstrike
 			'*': {
 				length: 1748,
-				abnormals: {
-					24170: { speed: 0.25 }
-				},
+				abnormals: { 24170: { speed: 0.25 } },
 				noRetry: true
 			},
 			0: {
@@ -1698,9 +1697,7 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', 24, 27, 28, 29, 30, 31, '32-0'],
-				abnormals: {
-					401400: { chain: 1 }
-				},
+				abnormals: { 401400: { chain: 1 } },
 				chains: {
 					6: 30,
 					25: 30,
@@ -3040,14 +3037,6 @@ module.exports = {
 			21: { length: 1438.45 }, // // Max skill level as a chain + Word of Judgement
 			30: { length: 1438.46 } // Low skill levels as a chain
 		},
-		/*17: { // Prayer of Peace / r-removed?
-			0: {
-				length: [925, 925, 850],
-				glyphs: {
-					28021: { speed: 2 }
-				}
-			}
-		},*/
 		18: { // Heal Thyself
 			0: {
 				withoutWeapon: true,
@@ -3113,30 +3102,6 @@ module.exports = {
 			21: { length: 1040 }, // max level chain + word of judgement
 			30: { length: 1040 } // low level chain
 		},
-		/*28: { // Mana Charge / Spirit something
-			'*': {
-				length: 825,
-				noRetry: true,
-				bodyRolls: {
-					350708: { chargeSpeed: 0.15 }
-				},
-				race: {
-					9: { length: 798.3 }
-				}
-			},
-			0: {
-				type: 'charging',
-				length: [800, 1600],
-				noInterrupt: [26, 27, 38],
-				lastChargeStage: 3200,
-				glyphs: {
-					28031: { chargeSpeed: 0.25 }
-				}
-			},
-			10: { noInterrupt: [26, 27, 38] },
-			11: { noInterrupt: [26, 27, 38] },
-			12: { noInterrupt: [26, 27, 38] }
-		},*/
 		28: { // Mana Charge / Words of Vitality
 			'*': {
 				length: 700,
@@ -3296,23 +3261,26 @@ module.exports = {
 	},
 	7: { // Mystic
 		1: { // Sharan Bolt
-			0: { length: 675 },
-			1: { length: 675 },
-			2: { length: 675 },
-			3: { length: 675 }
+			'*': { length: 689 },
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Corruption Ring
 			0: {
 				type: 'hold',
-				length: 10850,
+				length: 10869,
 				chainOnRelease: 11
 			},
-			11: { length: 835 }, // 840
-			12: { length: 1300 }
+			11: { length: 839 },
+			12: {
+				length: 1294,
+				race: {
+					1: { length: 1224 }
+				}
+			}
 		},
-		/*4: { // Ancient Binding (Removed)
-			0: { length: 1280 }
-		},*/
 		5: { // Titanic Favor
 			0: {
 				type: 'lockon',
@@ -3322,20 +3290,20 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940
+				length: 1950
 			}
 		},
 		8: { // Metamorphic Blast
 			0: {
-				length: 820,
-				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, 21, '18-10', '22-10', 37, '41-10', 43], // The skill behaves the same way Metamorphic Smite does from lvls 1 to 10 then at lvl 11 it loses its cancelling properties
+				length: 839,
+				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, 21, '18-10', '22-10', 37, '41-10', 43], // Last level got fixed? todo: update
 				checkReset: true,
 				chains: {
 					8: 30,
 					23: 30
 				}
 			},
-			30: { length: 820 }
+			30: { length: 839 }
 		},
 		9: { // Arun's Cleansing
 			0: {
@@ -3346,12 +3314,12 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 790
+				length: 800
 			}
 		},
 		10: { // Resurrect
 			0: {
-				length: 8070, // 8050, 8060 //
+				length: 8066,
 				glyphs: {
 					27049: { speed: 0.2 },
 					27079: { speed: 0.2 }
@@ -3373,7 +3341,7 @@ module.exports = {
 			}
 		},
 		11: { // Summon: Party
-			0: { length: 4400 }
+			0: { length: 4445 }
 		},
 		12: { // Vow of Rebirth
 			0: {
@@ -3385,26 +3353,29 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940
+				length: 1950,
+				race: {
+					4: { length: 939 }
+				}
 			}
 		},
 		13: { // Aura of the Merciless
-			'*': { length: 1300 }, //
+			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		14: { // Aura of the Swift
-			'*': { length: 1300 },
+			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		15: { // Aura of the Unyielding
-			'*': { length: 1300 },
+			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		16: { // Aura of the Tenacious
-			'*': { length: 1300 },
+			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
@@ -3412,13 +3383,12 @@ module.exports = {
 			0: {
 				CC: ["evasive", "extended"],
 				type: 'teleport',
-				length: [200, 266],
+				length: [222, 255],
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
 				noRetry: true,
-				checkReset: true
-
+				checkReset: true // is this supposed to be here?
 			}
 		},
 		18: { // Arun's Vitae
@@ -3429,13 +3399,16 @@ module.exports = {
 				chargeLevels: [10, 10],
 				noInterrupt: [18],
 				abnormals: {
-					27070: { speed: 0.25 },
-					27080: { speed: 0.25 }
+					27070: { chargSpeed: 0.25 },
+					27080: { chargSpeed: 0.25 }
 				}
 			},
 			10: {
-				length: 850,
+				length: 800,
 				noInterrupt: ['18-10'],
+				race: {
+					9: { length: 833 }
+				}
 			}
 		},
 		21: { // Retaliate
@@ -3452,22 +3425,22 @@ module.exports = {
 				length: 1240,
 				chargeLevels: [10, 10],
 				noInterrupt: [22],
-				abnormals: { 27100: { speed: 0.25 } }
+				abnormals: { 27100: { chargeSpeed: 0.25 } }
 			},
 			10: {
-				length: 850,
-				noInterrupt: ['22-10']
+				length: 800,
+				race: {
+					9: { length: 833 }
+				}
 			}
 		},
 		23: { // Metamorphic Smite
 			0: {
-				length: 1430,
-				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43],
-				chains: {
-					8: 30
-				}
+				length: 1440,
+				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43], // todo: update
+				chains: { 8: 30 }
 			},
-			30: { length: 1100 }
+			30: { length: 1108 }
 		},
 		24: { // Volley of Curses
 			0: {
@@ -3479,32 +3452,26 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [533.33, 633.33],
+				length: [533.33, 667], // [533.33, 633.33]
 			}
 		},
 		25: { // Thrall of Protection
 			'*': {
 				fixedSpeed: 1,
-				length: [1000, 1700],
-				abnormals: {
-					702000: { chain: 30 }
-				}
+				length: [1000, 1700]
 			},
 			0: true,
 			10: true, // 1023016
-			30: true // 1023017 // [1000, 1100]
+			30: {length: [500, 700]} // 1023017
 		},
 		27: { // Thrall of Life
 			'*': {
 				fixedSpeed: 1,
-				length: [228.58, 471.42],
-				abnormals: {
-					702000: { chain: 30 }
-				}
+				length: [229, 471] // [229, 438]
 			},
 			0: true,
 			10: true, // 10236013
-			30: { length: [500, 1100] } // 10236014
+			30: { length: [500, 700] } // 10236014
 		},
 		28: { // Sonorous Dreams
 			0: {
@@ -3516,7 +3483,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430,
+				length: 1433,
 			}
 		},
 		29: { // Regression
@@ -3533,7 +3500,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1433
 			}
 		},
 		31: { // Curse of Confusion
@@ -3546,7 +3513,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1433
 			}
 		},
 		32: { // Mire
@@ -3559,32 +3526,26 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: 1430
+				length: 1433
 			}
 		},
 		33: { // Thrall of Vengeance
 			'*': {
 				fixedSpeed: 1,
-				length: [266.66, 566.66],
-				abnormals: {
-					702000: { chain: 30 }
-				}
+				length: [267, 511]
 			},
 			0: true,
 			10: true, // 10237014
-			30: { length: [500, 1100] } // 10237015
+			30: { length: [500, 700] } //  (500, 1200) 10237015
 		},
 		34: { // Thrall of Wrath
 			'*': {
 				fixedSpeed: 1,
-				length: [1000, 1700],
-				abnormals: {
-					702000: { chain: 30 }
-				}
+				length: [1000, 1700]
 			},
 			0: true,
 			10: true, //10238007
-			30: true // 10238008
+			30: { length: [500, 1200] } // 10238008
 		},
 		35: { // Command: Attack
 			0: {
@@ -3610,7 +3571,7 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1000 // 1020
+				length: 1020
 			}
 		},
 		42: { // Boomerang Pulse
@@ -3620,21 +3581,31 @@ module.exports = {
 			}
 		},
 		43: { // Release
-			0: { length: [400, 575] } // 384.6 | 923
+			0: { length: [400, 575] }
 		},
 		44: { // Mass Teleport
-			0: { length: [222, 355] }
+			0: {
+				type: 'teleport',
+				length: [222, 255],
+				distance: [0, 333],
+				noInterrupt: [17],
+				teleportStage: 1,
+				noRetry: true
+			}
 		},
-		45: { // Thrall Augumentation
-			'*': { length: 1626.36 },
+		45: { // Thrall Augmentation
+			'*': { length: 91 },
 			0: true,
 			50: true
 		},
 		47: { // Arunic Release
-			0: { length: 1160 }
+			0: { length: 1060 } // -100?
 		},
 		48: { // Summon: Thrall Lord
-			0: { length: 4050 } // 4399 | 10239003
+			0: {
+				fixedSpeed: 1, 
+				length: 4050
+			} // 10239003
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
