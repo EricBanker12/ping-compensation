@@ -1442,13 +1442,13 @@ module.exports = {
 			},
 			30: { length: 1325 } //
 		},
-		26: { // Decimate
+		26: { // Decimate(EU), Punishing Blow(NA)
 			0: {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
 				noRetry: true,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
-				abnormals: { 301604: { chain: 31 } }, // todo: check c-s				
+				//abnormals: { 301604: { chain: 31 } }, // todo: check c-s				
 				chains: {
 					8: 30,
 					23: 30,
@@ -1462,39 +1462,56 @@ module.exports = {
 				distance: [122, 22]
 			}
 		},
-		27: { // Blazing Thrust
-			'*': { triggerAbnormal: { 301603: 5000 } },
-			0: {
-				length: [625, 1000, 1316.25],
-				distance: [0, 274.6, 1],
+		27: { // Blazing Thrust(EU), Savage Strike(NA)
+			'*': {
 				noRetry: true,
 				noInterrupt: ['27-31'],
-				abnormals: { 301603: { chain: 31 } },
+				abnormals: {
+					301603: { chain : 31 }
+				}
+			},
+			0: {
+				length: [625, 1000, 1316.25],
+				distance: [0, 274.69, 0.91],
 				chains: {
+					1: 30,
 					2: 30,
 					3: 30,
+					4: 30,
+					5: 30,
+					6: 30,
 					8: 30,
 					9: 30,
+					10: 30, // i assume retaliate can chain into this too
 					12: 30,
 					13: 30,
-					'14-2': 30,
+					14: 30,
 					15: 30,
 					16: 30,
+					17: 30,
+					18: 30,
+					19: 30,
+					20: 30,
+					21: 30,
+					22: 30,
 					23: 30,
 					24: 30,
 					25: 30,
-					26: 30
-				}
+					26: 30,
+					'28-1': 30,
+					'28-2': 30,
+					'28-3': 30
+				},
+				triggerAbnormal: { 301603: 5000 },
 			},
 			30: {
 				length: [625, 751.25],
 				distance: [274.8, 0],
+				triggerAbnormal: { 301603: 5000 }
 			},
 			31: {
 				length: 751.25,
-				distance: 275.6,
-				triggerAbnormal: false,
-				consumeAbnormal: 301603
+				distance: 275.6
 			}
 		},
 		28: { // Unsheathe
@@ -1509,18 +1526,18 @@ module.exports = {
 				}
 			},
 			1: {
-				length: [929.4, 1248],
-				distance: [1.41, 44.82],
+				length: [1020, 1],	// approximate length, please double check DC parse lengths
+				distance: [44.82, 0],
 				noInterrupt: ['28-1'],
 			},
 			2: {	// Missing logs
-				length: [929.4, 978],
-				distance: [1.41, 44.82],
+				length: [1020, 1],
+				distance: [44.82, 0],
 				noInterrupt: ['28-2'],
 			},	// Why length is different here? | everything's probably wrong :ppscared:
 			3: {
-				length: [929.4, 1248],
-				distance: [1.41, 44.82],
+				length: [1020, 1],
+				distance: [44.82, 0],
 				noInterrupt: ['28-3'],
 			}
 		},
