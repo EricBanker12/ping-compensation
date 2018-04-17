@@ -145,7 +145,8 @@ module.exports = {
 		8: { // Assault Stance
 			'*': {
 				length: 566.4,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				abnormals: { 102500: { chain: 6 } },
 			},
 			0: { stamina: 1000 },
 			50: true
@@ -153,7 +154,8 @@ module.exports = {
 		9: { // Defensive Stance
 			'*': {
 				length: 566.4,
-				noInterrupt: [32]
+				noInterrupt: [32],
+				abnormals: { 102500: { chain: 6 } },
 			},
 			0: { stamina: 1000 },
 			50: true
@@ -435,7 +437,7 @@ module.exports = {
 				CC: "extended",
 				type: 'holdInfinite',
 				fixedSpeed: 1,
-				consumeAbnormal: 102010,
+				consumeAbnormal: 102010, // This should exist for all skills but this is the only real case where it's needed in practice
 				requiredBuff: [100200, 100201],
 				stamina: 50,
 			}
@@ -2930,14 +2932,14 @@ module.exports = {
 	},
 	6: { // Priest
 		1: { // Divine Radiance
-			0: { length: 625 }, // Check
+			0: { length: 619 },
 			1: { length: 650 },
-			2: { length: 675 },
-			3: { length: 725 }
+			2: { length: 684 },
+			3: { length: 722 }
 		},
 		2: { // Regeneration Circle
 			0: {
-				length: 2165.625,
+				length: 2149,
 				abnormals: {
 					902: { nocTanSpeed: 0.15 },
 					910: { nocTanSpeed: 0.15 },
@@ -2951,21 +2953,20 @@ module.exports = {
 					922: { nocTanSpeed: 0.225 },
 					929: { nocTanSpeed: 0.225 },
 					999010000: { nocTanSpeed: 0.15 }
-				}
+				},
+				race: { 10: { length: 2774 } }
 			}
 		},
 		3: { // Healing Circle / changed
 			0: {
-				length: 1750,
+				length: 1763,
 				chains: { // x3
-					'19-10': 30,
-					38: 30,
-					26: 30
+					'19-10': 30, // todo: check
+					26: 30,
+					38: 30
 				}
 			},
-			30: {
-				length: 1480.76
-			}
+			30: { length: 1477 }
 		},
 		5: { // Blessing of Shakan, Seren, Balder, Zenobia and Arachne
 			0: { length: 1293.63 }
@@ -2975,32 +2976,26 @@ module.exports = {
 		},
 		8: { // Mana Infusion
 			0: {
-				length: 4600,
-				glyphs: {
-					28044: { speed: 0.25 }
+				length: 4595,
+				glyphs: { 28044: { speed: 0.25 } },
+				race: { 0: { length: 4625 } }
 				}
-			}
 		},
 		10: { // Purifying Circle
-			0: { length: 1275 }
+			0: { length: 1294 }
 		},
 		11: { // Metamorphic Blast / Changed
 			'*': {
-				length: 820,
-				abnormals: {
-					805800: { chain: 2 }
-				}
+				length: 839,
 			},
-			0: true,	// Maybe for Low skill levels
-			1: true,	// Maybe for Max skill level only
-			2: true, 	// Max skill level + Word of Judgement
+			0: true,
+			1: true,
+			2: true
 		},
 		12: { // Resurrect
 			0: {
-				length: 5915,
-				glyphs: {
-					28045: { speed: 0.15 }
-				},
+				length: 5900,
+				glyphs: { 28045: { speed: 0.15 } },
 				abnormals: {
 					902: { nocTanSpeed: 0.15 },
 					910: { nocTanSpeed: 0.15 },
@@ -3018,41 +3013,39 @@ module.exports = {
 			}
 		},
 		14: { // Summon: Party
-			0: { length: 4500 }
+			0: {
+				length: 4506,
+				race: { 0: { length: 4535 } }
+			}
 		},
 		16: { // Shocking Implosion
-			'*': {
-				length: 1700,
-				abnormals: {
-					805800: { chain: 20 }
+			'*': { length: 1718 },
+			0: {
+				chains: {
+					11: 30,
+					27: 30
 				}
 			},
-			0: {  // Maybe for Low skill levels
-				chains: { // x2
-					11: 30,	// Metamorphic blast -> shocking implosion
-					27: 30 // Final reprisal -> shocking implosion
-				}
-			},
-			10: { // Maybe for Max skill level
+			10: {
 				chains: {
 					11: 11,
 					27: 11
 				}
 			},
-			11: { length: 1438.45 }, // Maybe for Max skill level as a chain
-			20: { // Max skill level + Word of Judgement
-				chains: { // x2
+			11: { length: 1438.45 },
+			20: {
+				chains: {
 					11: 21,
 					27: 21
 				}
 			},
-			21: { length: 1438.45 }, // // Max skill level as a chain + Word of Judgement
-			30: { length: 1438.46 } // Low skill levels as a chain
+			21: { length: 1438.45 },
+			30: { length: 1438.46 }
 		},
 		18: { // Heal Thyself
 			0: {
 				withoutWeapon: true,
-				length: 1250
+				length: 1266
 			}
 		},
 		19: { // Focus Heal
@@ -3064,11 +3057,11 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1940,
+				length: 1950,
 			}
 		},
 		22: { // Kaia's Shield
-			0: { length: 650 }
+			0: { length: 667 }
 		},
 		26: { // Fiery Escape
 			0: {
@@ -3078,15 +3071,12 @@ module.exports = {
 				forceClip: true
 			}
 		},
-		27: { // Final Reprisal
+		27: { // Final Reprisal todo: check
 			'*': {
-				length: 2600,
-				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, '28-10', 34, 38, '41-10'],
-				abnormals: {
-					805800: { chain: 20 }
-				}
+				length: 2600, // 2993?
+				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, '28-10', 34, 38, '41-10']
 			},
-			0: { // low level skill
+			0: {
 				chains: {
 					11: 30,
 					16: 30,
@@ -3094,7 +3084,7 @@ module.exports = {
 					40: 30
 				}
 			},
-			10: { // max level skill
+			10: {
 				chains: {
 					11: 11,
 					16: 11,
@@ -3102,8 +3092,11 @@ module.exports = {
 					40: 11
 				}
 			},
-			11: { length: 1040 }, // low level chain
-			20: { // max level skill + word of judgement
+			11: {
+				length: 1113, // 1040
+				race: { 9: { length: 1273 } }
+			},
+			20: {
 				chains: {
 					11: 21,
 					16: 21,
@@ -3111,19 +3104,23 @@ module.exports = {
 					40: 21
 				}
 			},
-			21: { length: 1040 }, // max level chain + word of judgement
-			30: { length: 1040 } // low level chain
+			21: {
+				length: 1113,
+				race: { 9: { length: 1273 } }
+			},
+			30: {
+				length: 1113,
+				race: { 9: { length: 1273 } }
+			}
 		},
-		28: { // Mana Charge / Words of Vitality
+		28: { // Mana Charge / Words of Vitality todo: check
 			'*': {
 				length: 700,
 				noRetry: true,
 				level: {
 					0: {
-						length: 825,
-						race: {
-							9: { length: 783.3 }
-						}
+						length: 798.26,
+						race: { 0: { length: 827 } }
 					}
 				}
 			},
@@ -3164,13 +3161,6 @@ module.exports = {
 				length: 700
 			}
 		},
-		/*32: { // Divine Respite (Removed)
-			0: {
-				withoutWeapon: true,
-				fixedSpeed: 1,
-				length: [1300, 900]
-			}
-		},*/
 		33: { // Ishara's Lullaby
 			0: {
 				type: 'lockon',
@@ -3219,25 +3209,22 @@ module.exports = {
 		38: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				length: 665,
+				length: 657.27,
 				distance: -200,
 				forceClip: true,
 			}
 		},
 		39: { // Grace of Resurrection
-			0: { length: 5900 }
+			0: { length: 5904 }
 		},
 		40: { // Zenobia's Vortex
 			'*': {
 				length: 1070.71,
-				noInterrupt: [40],
-				abnormals: {
-					805800: { chain: 20 }
-				}
+				noInterrupt: [40]
 			},
-			0: true,	// low level skill
-			10: true,	// max level skill
-			20: true	// max level skill + word of judgement
+			0: true,
+			10: true,
+			20: true
 		},
 		41: { // Divine Intervention / Divine Vitality
 			0: {
@@ -3253,18 +3240,13 @@ module.exports = {
 			}
 		},
 		42: { // Holy Burst
-			'*': {
-				length: 866,
-				abnormals: {
-					805800: { chain: 20 }
-				}
-			},
+			'*': { length: 800 }, // 866
 			0: true,
-			20: true, // maybe + word of judgement
-			30: true // XD i don't know
+			20: true,
+			30: true
 		},
 		43: { // Words of Judgment
-			0: { length: 1416 },
+			0: { length: 1416.66 },
 			50: { length: 200 }
 		},
 		91: { // Awakening Eyes Aura
@@ -3474,7 +3456,7 @@ module.exports = {
 			},
 			0: true,
 			10: true, // 1023016
-			30: {length: [500, 700]} // 1023017
+			30: { length: [500, 700] } // 1023017
 		},
 		27: { // Thrall of Life
 			'*': {
@@ -4938,9 +4920,7 @@ module.exports = {
 				noRetry: true,
 				stamina: 1500,
 				instantStamina: true,
-				bodyRolls: {
-					351009: { stamina: -600 }
-				},
+				bodyRolls: { 351009: { stamina: -600 } }
 			},
 			1: true,
 			2: true
@@ -4989,9 +4969,7 @@ module.exports = {
 			'*': {
 				distance: 16.59,
 				length: 2000,
-				abnormals: {
-					31120: { chain: 31 }
-				},
+				abnormals: { 31120: { chain: 31 } },
 				chains: {
 					1: 30,
 					2: 30,
@@ -5459,6 +5437,7 @@ module.exports = {
 		},
 		9: { // Smoke Bomb
 			'*': {
+				CC: "evasive",
 				length: 722,
 				chains: {
 					1: null,
@@ -5481,9 +5460,7 @@ module.exports = {
 					20: null
 				},
 			},
-			0: {
-				CC: "evasive"
-			},
+			0: true,
 			30: true
 		},
 		10: { // Retaliate
@@ -5822,7 +5799,7 @@ module.exports = {
 			0: true,
 			30: true
 		},
-		4: { // Charge
+		4: { // Charge tod: fix
 			0: {
 				type: 'dash',
 				fixedSpeed: 1,
