@@ -25,9 +25,7 @@ module.exports = {
 			'*': {
 				noInterrupt: [1, 32],
 				noRetry: true,
-				abnormals: {
-					101750: { speed: 0.20 }
-				}
+				abnormals: { 101750: { speed: 0.20 } }
 			},
 			0: {
 				length: 566.4,
@@ -1712,18 +1710,20 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', 24, 27, 28, 29, 30, 31, '32-0'],
+				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', 24, 28, 29, 30, 31, '32-0'],
 				abnormals: { 401400: { chain: 1 } },
 				chains: {
 					6: 30,
 					25: 30,
-					32: 31
+					32: 31,
+					31: 30
 				}
 			},
 			1: {
 				chains: {
 					6: 31,
-					25: 31
+					25: 31,
+					31: 31
 				}
 			},
 			30: { length: 2336.55 },
@@ -1960,21 +1960,22 @@ module.exports = {
 			}
 		},
 		18: { // Lethal Strike / Changed
-			'*': { abnormals: { 24120: { speed: 0.3 } } },
+			'*': { 
+				distance: 167.62,
+				abnormals: { 24120: { speed: 0.3 } } 
+			},
 			0: {
 				length: 687.5,
-				pendingStartTime: 375,
-				chains: {//enableVB: true,
+				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31, ],
+				abnormals: { chain: 401400 },
+				chains: {
 					3: 30,
 					11: 30,
 					10: 30,
 					15: 30
 				}
 			},
-			30: {
-				length: 550,
-				pendingStartTime: 300
-			}
+			30: { length: 550 }
 		},
 		19: { // Triumphant Shout
 			0: {
@@ -2038,15 +2039,14 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
-				interruptibleWithAbnormal: {
-					401404: 2 // Lori says BHS :b:orked it
-				},
-				abnormals: {
-					401404: { chain: 31 }
-				},
+				noInterrupt: [2, 4, 6, '8-30', 11, 12, 13, '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
+				interruptibleWithAbnormal: { 401404: 2  }, // .........................
+				abnormals: { 401404: { chain: 31 } }, // todo: correct ids
 				chains: {
 					1: 30,
+					3: 30,
+					10: 30,
+					18: 30,
 					30: 31,
 					31: 30,
 					32: 31
@@ -2064,9 +2064,7 @@ module.exports = {
 			}
 		},
 		27: { // Unbreakable
-			'*': { // i wonder how long it would take for people to realize this skill got new properties
-				noInterrupt: [2] // How would this behave..
-			},
+			'*': { noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32] },
 			0: {
 				length: 2066,
 				abnormals: {
@@ -2085,9 +2083,7 @@ module.exports = {
 			'*': {
 				length: 1566,
 				noInterrupt: [2],
-				race: {
-					7: { length: 1599 } // F.Casta
-				}
+				race: { 7: { length: 1599 } }// F.Casta
 			},
 			0: true,
 			50: true
