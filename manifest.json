@@ -11,7 +11,7 @@
     },
     "config/preset.js": {
       "overwrite": false,
-      "hash": "da2050f6b61b86e2c7bfe0e1737fc16f669ad65fa5ff2377b4aa6726b6386d6b"
+      "hash": "f31c0eaf6a9ef18d2f4c8515931ba635265eae81bf4ed6c37835e60602b43437"
     },
     "config/data/basicCC.json": "0d91a8c6d8c4e90c8e9a758b54285c9978e4f8159bc33115e46a9c9cd08f8968",
     "config/data/evasiveCC.json": "162984b94cf62fd651de1a596b63e5de7d1419a4771a8a833ba425acd8db0c45",
@@ -24,7 +24,7 @@
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "af0d70656d500e0931a8e64bc3fa5881b133ab0581ff2a882bdabe00d9f765eb",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "f33d9963852639157dc12d47d3757933e671e7015f30b1c19fe72b88e334e1a1",
+    "lib/core.js": "b2934fc75a07fd91543827b5502231c576cb717987ddd563a1b3ad782ef60857",
     "lib/autoconfig.js": "82c563add166db14d04219ccd5ca6cf4570ae47495a8d83d9b4b354014aadd68",
     "lib/ping.js": "48928ca3a65919b99eed6871cf5f27835a5cfa2be302539a00c64a88cb470893",
     "lib/utils.js": "e123a4b6ce91eb61587acead9cacf6c3cf8f3040b6184c3399901773dbefba55",
