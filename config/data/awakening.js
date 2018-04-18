@@ -1528,11 +1528,11 @@ module.exports = {
 			'*': {
 				noInterrupt: ['27-31'],
 				triggerAbnormal: {
-					301600: [4000, 30], 
+					301600: [4000, 30],
 					301603: [5000, 30],
 					301604: [4000, 30]
 				}, // 301600 4000
-				abnormals: { 301603: { chain : 31 } },
+				abnormals: { 301603: { chain: 31 } },
 			},
 			0: {
 				length: [625, 1000, 1316.25],
@@ -1777,7 +1777,7 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', 24, 28, 29, 30, 31, '32-0'],
+				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', 24, 28, 29, 30, '32-0'],
 				abnormals: { 401400: { chain: 1 } },
 				chains: {
 					6: 30,
@@ -1915,7 +1915,7 @@ module.exports = {
 					6: { length: [366, 366, 366, 366, 1366] } // M.Casta
 				},
 				enableVB: true,
-				pendingStartTime: 0
+				pendingStartTime: 1
 			}
 		},
 		11: { // Leaping Strike 
@@ -2027,13 +2027,13 @@ module.exports = {
 			}
 		},
 		18: { // Lethal Strike / Changed
-			'*': { 
+			'*': {
 				distance: 167.62,
-				abnormals: { 24120: { speed: 0.3 } } 
+				abnormals: { 24120: { speed: 0.3 } }
 			},
 			0: {
 				length: 687.5,
-				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31, ],
+				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31],
 				abnormals: { chain: 401400 },
 				chains: {
 					3: 30,
@@ -2107,7 +2107,7 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [2, 4, 6, '8-30', 11, 12, 13, '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
-				interruptibleWithAbnormal: { 401404: 2  }, // .........................
+				interruptibleWithAbnormal: { 401404: 2 }, // .........................
 				abnormals: { 401404: { chain: 31 } }, // todo: correct ids
 				chains: {
 					1: 30,
@@ -2237,24 +2237,23 @@ module.exports = {
 			0: { length: [700, 1500, 1766] },
 		},
 		34: { // Unleash: Dexter
-			0: {
+			'*': {
 				length: [600, 833, 833],
 				distance: [0, 27.5, 0],
+			},
+			0: {
 				noInterrupt: [34, 36, 37],
 				noRetry: true,
 				abnormals: {
 					401706: { speed: 1.2 },
 					401716: { chain: 31 }
 				},
-				chains: { // x3 to 30
+				chains: {
 					33: 30,
 					35: 30
 				}
 			},
-			1: { 
-				length: [600, 833, 833],
-				distance: [0, 27.5, 0]
-			},
+			1: true,
 			30: {
 				length: [833, 833],
 				distance: [27.5, 0]
@@ -2265,6 +2264,10 @@ module.exports = {
 			}
 		},
 		35: { // Unleash: Sinister
+			'*': {
+				length: [1133, 833],
+				distance: [198, 0]
+			},
 			0: {
 				abnormals: {
 					401707: { speed: 1.2 },
@@ -2276,13 +2279,8 @@ module.exports = {
 				},
 				noRetry: true,
 				noInterrupt: [35, 36, 37],
-				length: [1133, 833],
-				distance: [198, 0]
 			},
-			1: {
-				length: [1133, 833],
-				distance: [198, 0]
-			},
+			1: true,
 			30: {
 				length: [625, 833],
 				distance: [27.5, 0]
@@ -2306,7 +2304,7 @@ module.exports = {
 					401708: { speed: 1.2 },
 					401718: { chain: 31 }
 				},
-				chains: { // x 3 to 30
+				chains: {
 					34: 30,
 					35: 30,
 					36: 30
@@ -3079,7 +3077,7 @@ module.exports = {
 				length: 4595,
 				glyphs: { 28044: { speed: 0.25 } },
 				race: { 0: { length: 4625 } }
-				}
+			}
 		},
 		10: { // Purifying Circle
 			0: { length: 1294 }
@@ -3693,7 +3691,7 @@ module.exports = {
 		},
 		48: { // Summon: Thrall Lord
 			0: {
-				fixedSpeed: 1, 
+				fixedSpeed: 1,
 				length: 4050
 			} // 10239003
 		},
