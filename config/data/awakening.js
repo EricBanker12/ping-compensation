@@ -732,7 +732,8 @@ module.exports = {
 				stamina: 50,
 				level: {
 					length: 333,
-					1: { stamina: 40 }
+					1: { stamina: 40 },
+					endType51: true
 				}
 			}
 		},
@@ -1078,7 +1079,8 @@ module.exports = {
 			0: {
 				type: 'holdInfinite',
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				endType51: true
 			}
 		},
 		30: { // Divine Protection
@@ -4644,7 +4646,8 @@ module.exports = {
 				length: 800,
 				distance: 33.38,
 				triggerAbnormal: { 10153006: 0x7fffffff },
-				consumeAbnormalEnd: 10153006
+				consumeAbnormalEnd: 10153006,
+				endType51: true
 			},
 			11: {
 				type: 'holdInfinite',
@@ -4652,7 +4655,8 @@ module.exports = {
 				length: 800,
 				distance: 33.38,
 				triggerAbnormal: { 10153005: 0x7fffffff },
-				consumeAbnormalEnd: 10153005
+				consumeAbnormalEnd: 10153005,
+				endType51: true
 			},
 			12: {
 				chains: {
