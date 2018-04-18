@@ -515,108 +515,169 @@ module.exports = {
 		40: { // Blade Waltz
 			'*': {
 				length: 810.6,
-				distance: 150,
-				triggerAbnormal: {
-					104100: 8000,
-					//104101: 800,
-					104110: 2000
-				},
+				distance: 156.248,
 				noRetry: true,
-				consumeAbnormalEnd: 104110,
-				noInterrupt: [2, 32, 40]
+				noInterrupt: [32, 40, '41-0', '41-30'],
 			},
-			0: { abnormals: { 100201: { chain: 20 } } },
-			10: {
-				abnormals: { 104100: { chain: 12 } }
-				/*
-					chains: {
-						: 11
-					}
-				*/
-			},
-			11: true,
-			12: {
-				triggerAbnormal: false,
-				noInterrupt: [2],
-				consumeAbnormal: 104100
-			},
-			20: {
-				abnormals: { 104100: { chain: 22 } }
-				/*
+			10: {	// astance 1st?
+				triggerAbnormal: { 104100: 8000 },
+				abnormals: {
+					104100: { chain: 12 }
+				},
 				chains: {
-					: 21
+					// essential mana says all skills can chain into BW, but need to specify them
+					1: 11,
+					2: 11,
+					3: 11,
+					4: 11,
+					5: 11,
+					8: 11,
+					9: 11,
+					10: 11,
+					11: 11,
+					12: 11,
+					13: 11, // I assume retaliate can chain into this skill
+					16: 11,
+					17: 11,
+					18: 11,
+					19: 11,
+					20: 11,
+					21: 11,
+					23: 11,
+					24: 11,
+					25: 11,
+					26: 11,
+					28: 11,
+					29: 11,
+					30: 11,
+					31: 11,
+					34: 11,
+					35: 11,
+					36: 11,
+					37: 11,
+					38: 11,
+					39: 11,
+					'41-31': 11,
+					42: 11,
 				}
-				*/
 			},
-			21: true,
-			22: {
-				triggerAbnormal: false,
-				consumeAbnormal: 104100,
-				noInterrupt: [2]
-			}
+			11: { triggerAbnormal: { 104100: 8000 } },
+			12: { consumeAbnormal: 104100 },
+			20: {
+				triggerAbnormal: { 104100: 8000 },
+				abnormals: {
+					104100: { chain: 22 }
+				},
+				chains: {
+					// essential mana says all skills can chain into BW, but need to specify them
+					1: 21,
+					2: 21,
+					3: 21,
+					4: 21,
+					5: 21,
+					8: 21,
+					9: 21,
+					10: 21,
+					11: 21,
+					12: 21,
+					13: 21, // I assume retaliate can chain into this skill
+					16: 21,
+					17: 21,
+					18: 21,
+					19: 21,
+					20: 21,
+					21: 21,
+					23: 21,
+					24: 21,
+					25: 21,
+					26: 21,
+					28: 21,
+					29: 21,
+					30: 21,
+					31: 21,
+					34: 21,
+					35: 21,
+					36: 21,
+					37: 21,
+					38: 21,
+					39: 21,
+					'41-31': 21,
+					42: 21,
+				}
+			},
+			21: { triggerAbnormal: { 104100: 8000 } },
+			22: { consumeAbnormal: 104100 }
 		},
 		41: { // Aerial Scythe
 			'*': {
 				noRetry: true,
 				length: 1976.15,
-				distance: 200,
-				triggerAbnormal: {
-					105100: 1800
-				},
-				consumeAbnormalEnd: 105100,
-				abnormals: { 105100: { chain: 31 } },
-				chains: {	// NEED TO CONFIRM THE CHAINS
+				distance: 219.04,
+				abnormals: { 105100: { chain: 31 } }
+			},
+			0: {
+				triggerAbnormal: { 105100: 1800 },
+				chains: {
 					1: 30,
+					2: 30,
 					3: 30,
 					4: 30,
+					5: 30,
+					8: 30,
+					9: 30,
 					10: 30,
+					11: 30,
 					12: 30,
-					'16-1': 30,
+					13: 30, // I assume retaliate can chain into this skill
+					16: 30,
 					17: 30,
 					18: 30,
 					19: 30,
+					20: 30,
 					21: 30,
+					23: 30,
+					24: 30,
+					25: 30,
+					26: 30,
 					28: 30,
 					29: 30,
 					30: 30,
 					31: 30,
+					34: 30,
+					35: 30,
 					36: 30,
 					37: 30,
 					38: 30,
 					39: 30,
 					40: 30,
-					'41-0': 31,
-					'41-30': 31,
-					42: 30
+					42: 30,
 				}
 			},
-			0: true,
-			30: true,
+			30: {
+				triggerAbnormal: { 105100: 1800 },
+			},
 			31: {
+				consumeAbnormal: 105100,
 				length: 1800,
-				distance: 0,
-				triggerAbnormal: false,
-				abnormals: false,
-				noInterrupt: false
+				distance: 0
 			}
 		},
 		42: { // Blade Frenzy
-			"*": {
-				noRetry: true,
-				distance: 327,
-				triggerAbnormal: { 103103: 10000 } // ?_? something should consume it
-			},
 			0: {
 				length: 3309.23,
-				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 40, 42],
+				distance: 326.55,
+				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 40, '41-0', '41-30', 42],
 				chains: {
 					2: 30,
 					30: 30,
 					38: 30,
-					41: 30,
+					'41-31': 30
 				}
 			},
-			30: { length: 2507.06 },
+			30: {
+				length: 2507.06,
+				distance: 326.55
+			}
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
