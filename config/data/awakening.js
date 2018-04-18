@@ -4674,9 +4674,10 @@ module.exports = {
 			},
 			1: false
 		},
-		4: { // Ground Pound
+		4: { // Ground Pounder
 			'*': {
 				CC: "extended",
+				noInterrupt: [4],
 				length: 3225,
 				chains: {
 					1: 30,
@@ -4865,6 +4866,7 @@ module.exports = {
 		10: { // Counterpunch
 			'*': {
 				CC: "extended",
+				noInterrupt: [10],
 				length: 1855,
 				distance: 155,
 				requiredBuff: 10153000,
@@ -4905,7 +4907,7 @@ module.exports = {
 		14: { // Infuriate
 			'*': {
 				length: 1666,
-				noRetry: true,
+				noInterrupt: [14],
 				chains: {
 					1: 30,
 					2: 30,
@@ -4937,6 +4939,7 @@ module.exports = {
 			'*': {
 				length: 1305.44,
 				distance: 133.27,
+				noInterrupt: [15],
 				requiredBuff: 10153503,
 				chains: {
 					1: 30,
@@ -4998,7 +5001,6 @@ module.exports = {
 			2: true,
 			30: true
 		},
-		// 17 retard owob
 		18: { // Growing Fury
 			'*': {
 				length: 1371.66,
@@ -5012,7 +5014,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1433,
-				noRetry: true,
+				noInterrupt: [19],
 				stamina: 1500,
 				instantStamina: true,
 				bodyRolls: { 351009: { stamina: -600 } }
@@ -5033,6 +5035,7 @@ module.exports = {
 			0: {
 				length: 1815,
 				distance: 245.21,
+				noInterrupt: [22],
 				chains: {
 					1: 30,
 					2: 30,
@@ -5092,8 +5095,11 @@ module.exports = {
 			30: { length: 950 },
 			31: { length: 950 }
 		},
-		26: { // Brawling roll
-			'*': { noRetry: true },
+		26: { // Ult aka Brawling Roll/Rythmic Blows
+			'*': {
+				noInterrupt: [26],
+				noRetry: true
+			},
 			0: {
 				length: [178.57, 412.85],
 				distance: [0, 30],

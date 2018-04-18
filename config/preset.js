@@ -349,6 +349,7 @@ module.exports = {
 		13: true, // Provoke
 		14: true, // Infuriate
 		16: true, // Flip Kick
+		18: true, // Growing Fury
 		21: true, // Mounting Rage
 		40: true, // Quick Dash
 		// Awakening
