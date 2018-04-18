@@ -11,20 +11,20 @@
     },
     "config/preset.js": {
       "overwrite": false,
-      "hash": "fdf9507afa113758f6a6a1ab4138e76f569ca0e3b1f6d2170e15a88e6d1fc023"
+      "hash": "a3701efc663004c5659811c3e4f2c8a3df70f7b95af87e76ad08dd8f0d039999"
     },
     "config/data/basicCC.json": "0d91a8c6d8c4e90c8e9a758b54285c9978e4f8159bc33115e46a9c9cd08f8968",
     "config/data/evasiveCC.json": "162984b94cf62fd651de1a596b63e5de7d1419a4771a8a833ba425acd8db0c45",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
     "config/data/skills.js": "7e93ac55b609b6c1fca48a2bb21c45f27438fb816d3b930bde6797c6873f63d9",
-    "config/data/awakening.js": "fd316cee2de41d59ed03dc788ad40a3aafb4de344a9c675ab74bb3dd38c9635c",
+    "config/data/awakening.js": "a4dea901f74108f86cf056177bcfe3750f67d9dfd3573a7d0b15ace03bd9d25f",
     "docs/commands.pdf": "bf37f9199fabd756ff3271fc34e5cab2d052007832cbfe904d9334d0b071f5da",
     "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
     "docs/ping.pdf": "3ff334efdf6adfd384165006c2017ea3a96d16557dfbf59b06da67dfdfa148f8",
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "af0d70656d500e0931a8e64bc3fa5881b133ab0581ff2a882bdabe00d9f765eb",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "c383e241d6bea8e72a9b7707ca9a4b9c742be49d9cb42f86cad48be1218257cf",
+    "lib/core.js": "31b4fdeb9849b474f9684639b96ab861c25680ad9e133cd22b9541c375c50c49",
     "lib/autoconfig.js": "82c563add166db14d04219ccd5ca6cf4570ae47495a8d83d9b4b354014aadd68",
     "lib/ping.js": "48928ca3a65919b99eed6871cf5f27835a5cfa2be302539a00c64a88cb470893",
     "lib/utils.js": "e123a4b6ce91eb61587acead9cacf6c3cf8f3040b6184c3399901773dbefba55",
