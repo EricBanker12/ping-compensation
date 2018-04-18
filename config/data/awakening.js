@@ -1299,32 +1299,32 @@ module.exports = {
 					23061: { speed: 0.35 }
 				},
 				race: {
-					0: { distance: 166.56 }, // M.Human: 166.555
-					2: { distance: 173.75 }, // M.Helf: 173.752
-					4: { distance: 175 }, // M.Aman: 175
-					5: { distance: 166.56 }, // F.Aman: 166.555
-					6: { distance: 168.61 }, // M.Casta: 168.612
-					7: { distance: 230 }, // F.Casta: 230, wind down animation moves her a lot
-					8: { distance: 174.05 }, // Popori: 174.05
-					9: { distance: 180.96 }, // Elin: 180.962
-					10: { distance: 136.55 } // Baraka: 136.554
+					0: { distance: 166.56 }, // M.Human
+					2: { distance: 173.75 }, // M.Helf
+					4: { distance: 175 }, // M.Aman
+					5: { distance: 166.56 }, // F.Aman
+					6: { distance: 168.61 }, // M.Casta
+					7: { distance: 230 }, // F.Casta
+					8: { distance: 174.05 }, // Popori
+					9: { distance: 180.96 }, // Elin
+					10: { distance: 136.55 } // Baraka
 				}
 			}
 		},
 		13: { // Stunning Backhand
 			0: {
-				length: 2125, //2150 before 
+				length: 2125,
 				distance: 76.71,
 				race: {
-					0: { distance: 62.07 }, // M.Human: 62.073
-					2: { distance: 55.79 }, // M.Helf: 55.787
-					4: { distance: 40 }, // M.Aman: 40
-					5: { distance: 62.07 }, // F.Aman: 62.073
-					6: { distance: 86.12 }, // M.Casta: 86.124
-					7: { distance: 80 }, // F.Casta: 80
-					8: { distance: 56.49 }, // Popori: 56.491
-					9: { distance: 76.71 }, // Elin: 76.706
-					10: { distance: 47.07 } // Baraka: 47.072
+					0: { distance: 62.07 }, // M.Human
+					2: { distance: 55.79 }, // M.Helf
+					4: { distance: 40 }, // M.Aman
+					5: { distance: 62.07 }, // F.Aman
+					6: { distance: 86.12 }, // M.Casta
+					7: { distance: 80 }, // F.Casta
+					8: { distance: 56.49 }, // Popori
+					9: { distance: 76.71 }, // Elin
+					10: { distance: 47.07 } // Baraka
 				}
 			}
 		},
@@ -1336,24 +1336,24 @@ module.exports = {
 			},
 			0: {
 				race: {
-					2: { distance: 79.01 }, // M.Helf: 79.014
+					2: { distance: 79.01 }, // M.Helf
 				}
 			},
 			1: {
 				race: {
-					2: { distance: 70.99 }, // M.Helf: 70.986
-					5: { distance: 100.02 }, // F.Aman: 100.018
-					9: { distance: 100.02 } // Elin: 100.018
+					2: { distance: 70.99 }, // M.Helf
+					5: { distance: 100.02 }, // F.Aman
+					9: { distance: 100.02 } // Elin
 				}
 			},
 			2: {
 				length: 1500,
 				distance: 120,
 				race: {
-					5: { distance: 94.98 }, // F.Aman: 94.983
-					6: { distance: 150 }, // M.Casta: 150
-					8: { distance: 112.42 }, // Popori: 112.417
-					9: { distance: 104.82 } // Elin: 104.818
+					5: { distance: 94.98 }, // F.Aman
+					6: { distance: 150 }, // M.Casta
+					8: { distance: 112.42 }, // Popori
+					9: { distance: 104.82 } // Elin
 				}
 			}
 		},
@@ -1373,15 +1373,15 @@ module.exports = {
 				length: 1000,
 				distance: 100,
 				race: {
-					0: { distance: 96.26 }, // M.Human: 96.255
-					2: { distance: 103.85 }, // M.Helf: 103.848
-					4: { distance: 100 }, // M.Aman: 100
-					5: { distance: 96.25 }, // F.Aman: 96.25
-					6: { distance: 135.85 }, // M.Casta: 135.847
-					7: { distance: 140 }, // F.Casta: 140
-					8: { distance: 141.74 }, // Popori: 141.738
-					9: { distance: 142.53 }, // Elin: 142.53
-					10: { distance: 100 } // Baraka: 100
+					0: { distance: 96.26 }, // M.Human
+					2: { distance: 103.85 }, // M.Helf
+					4: { distance: 100 }, // M.Aman
+					5: { distance: 96.25 }, // F.Aman
+					6: { distance: 135.85 }, // M.Casta
+					7: { distance: 140 }, // F.Casta
+					8: { distance: 141.74 }, // Popori
+					9: { distance: 142.53 }, // Elin
+					10: { distance: 100 } // Baraka
 				}
 			}
 		},
@@ -1396,8 +1396,8 @@ module.exports = {
 				race: {
 					0: { distance: 420 },// M.Human
 					4: { distance: 420 },// M.Aman
-					7: { distance: 419.33 }, //F.Casta 419.328
-					10: { distance: 420 } // Baraka, 420.018
+					7: { distance: 419.33 }, //F.Casta
+					10: { distance: 420 } // Baraka
 				},
 				level: [
 					{ emulateAttackSpeedBonus: 40 },
@@ -1408,7 +1408,7 @@ module.exports = {
 			}
 		},
 		18: { // Overpower / Changed
-			'*': { 
+			'*': {
 				length: 1433,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 9, 12, 13, 14, 15, 16, 17, 18, 21, 23, 24, 25, 26, 27, 28] // todo: check abnormal
 			},
@@ -1547,7 +1547,7 @@ module.exports = {
 					6: 30,
 					8: 30,
 					9: 30,
-					10: 30, // i assume retaliate can chain into this too
+					10: 30,
 					12: 30,
 					13: 30,
 					14: 30,
@@ -3173,16 +3173,19 @@ module.exports = {
 		},
 		27: { // Final Reprisal todo: check
 			'*': {
-				length: 2600, // 2993?
+				length: 1113,
+				race: { 9: { length: 1273 } },
 				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, '28-10', 34, 38, '41-10']
 			},
 			0: {
+				length: 2933,
 				chains: {
 					11: 30,
 					16: 30,
 					29: 30,
 					40: 30
-				}
+				},
+				race: { 9: { length: 3333 } }
 			},
 			10: {
 				chains: {
@@ -3192,26 +3195,19 @@ module.exports = {
 					40: 11
 				}
 			},
-			11: {
-				length: 1113, // 1040
-				race: { 9: { length: 1273 } }
-			},
+			11: true,
 			20: {
+				length: 2933,
 				chains: {
 					11: 21,
 					16: 21,
 					29: 21,
 					40: 21
-				}
+				},
+				race: { 9: { length: 3333 } }
 			},
-			21: {
-				length: 1113,
-				race: { 9: { length: 1273 } }
-			},
-			30: {
-				length: 1113,
-				race: { 9: { length: 1273 } }
-			}
+			21: true,
+			30: true
 		},
 		28: { // Mana Charge / Words of Vitality todo: check
 			'*': {
