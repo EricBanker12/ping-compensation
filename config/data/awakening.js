@@ -731,9 +731,11 @@ module.exports = {
 				fixedSpeed: 1,
 				stamina: 50,
 				level: {
-					length: 333,
-					1: { stamina: 40 },
-					endType51: true
+					1: { 	
+						length: 333,
+						stamina: 40,
+						endType51: true
+					}
 				}
 			}
 		},
