@@ -1530,7 +1530,7 @@ module.exports = {
 				triggerAbnormal: {
 					301600: [4000, 30],
 					301603: [5000, 30],
-					301604: [4000, 30]
+					//301604: [4000, 30]
 				}, // 301600 4000
 				abnormals: { 301603: { chain: 31 } },
 			},
@@ -2034,7 +2034,7 @@ module.exports = {
 			0: {
 				length: 687.5,
 				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31],
-				abnormals: { chain: 401400 },
+				abnormals: { 401400: { chain: 6 } } ,
 				chains: {
 					3: 30,
 					11: 30,
