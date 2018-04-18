@@ -1175,7 +1175,7 @@ module.exports = {
 			1: true,
 			2: {
 				chains: { 14: 30 },
-				noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25]
+				noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25, 26, 27, 28]
 			},
 			30: { length: 2423.57 }
 		},
@@ -1234,6 +1234,7 @@ module.exports = {
 		8: { // Overhand Strike
 			'*': {
 				distance: 169.5,
+				consumeAbnormal: 301604,
 				race: {
 					0: { distance: 171.14 }, // M.Human
 					2: { distance: 171.14 }, // M.Helf
@@ -1252,7 +1253,7 @@ module.exports = {
 				abnormals: {
 					300801: { skill: 250100 },
 					300805: { skill: 250100 },
-					301604: { chain: 31 } // todo: check c-s
+					301604: { chain: 30 } // todo: check c-s
 				},
 				chains: {
 					1: 30,
@@ -1264,8 +1265,7 @@ module.exports = {
 					14: 30,
 					15: 30,
 					16: 30,
-					24: 30,
-					27: 30
+					24: 30
 				}
 			},
 			30: {
@@ -1408,7 +1408,10 @@ module.exports = {
 			}
 		},
 		18: { // Overpower / Changed
-			'*': { length: 1533 }, // for whatever reason it was made so it cancels things an evasive roll cancels
+			'*': { 
+				length: 1433,
+				noInterrupt: [1, 2, 3, 4, 6, 8, 9, 12, 13, 14, 15, 16, 17, 18, 21, 23, 24, 25, 26, 27, 28] // todo: check abnormal
+			},
 			0: true,
 			50: true
 		},
@@ -1438,6 +1441,7 @@ module.exports = {
 		23: { // Measured Slice
 			'*': {
 				distance: 189,
+				consumeAbnormal: 301604,
 				races: {
 					5: { distance: 190 }, // F.Aman
 					10: { distance: 190 } // Baraka
@@ -1446,12 +1450,11 @@ module.exports = {
 			0: {
 				length: 3691.25,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
-				abnormals: { 301604: { chain: 31 } }, // todo: check c-s	
+				abnormals: { 301604: { chain: 30 } },
 				chains: {
 					8: 30,
 					24: 30,
-					25: 30,
-					27: 30
+					25: 30
 				}
 			},
 			30: { length: 1684.1 }
@@ -1460,8 +1463,9 @@ module.exports = {
 			0: {
 				length: 1925,
 				distance: 50,
+				consumeAbnormal: 301604,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 24, 26, 28],
-				abnormals: { 301604: { chain: 31 } }, // todo: check c-s	
+				abnormals: { 301604: { chain: 30 } },
 				chains: {
 					1: 30,
 					2: 30,
@@ -1471,8 +1475,7 @@ module.exports = {
 					12: 30,
 					13: 30,
 					15: 30,
-					25: 30,
-					27: 30
+					25: 30
 				}
 			},
 			30: {
@@ -1484,20 +1487,20 @@ module.exports = {
 			'*': {
 				distance: 169.5,
 				race: {
-					0: { distance: 171.14 }, // M.Human: 171.138
-					2: { distance: 171.14 }, // M.Helf: 171.138
-					4: { distance: 145 }, // M.Aman: 145
-					5: { distance: 134.53 }, // F.Aman: 134.532
-					6: { distance: 161.14 }, // M.Casta: 161.138
-					7: { distance: 170 }, // F.Casta: 170
-					8: { distance: 150 }, // Popori: 150
-					9: { distance: 169.65 }, // Elin: 169.648
-					10: { distance: 151.14 } // Baraka: 151.138
+					0: { distance: 171.14 }, // M.Human
+					2: { distance: 171.14 }, // M.Helf
+					4: { distance: 145 }, // M.Aman
+					5: { distance: 134.53 }, // F.Aman
+					6: { distance: 161.14 }, // M.Casta
+					7: { distance: 170 }, // F.Casta
+					8: { distance: 150 }, // Popori
+					9: { distance: 169.65 }, // Elin
+					10: { distance: 151.14 } // Baraka
 				}
 			},
 			0: {
 				length: 3365,
-				abnormals: { 301604: { chain: 31 } }, // todo: check c-s	
+				abnormals: { 301604: { chain: 30 } }, // todo: check c-s	
 			},
 			30: { length: 1325 } //
 		},
@@ -1506,14 +1509,14 @@ module.exports = {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
 				noRetry: true,
+				consumeAbnormal: 301604,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
-				//abnormals: { 301604: { chain: 31 } }, // todo: check c-s				
+				abnormals: { 301604: { chain: 30 } }, // todo: check c-s				
 				chains: {
 					8: 30,
 					23: 30,
 					24: 30,
-					25: 30,
-					27: 30
+					25: 30
 				}
 			},
 			30: {
@@ -1523,15 +1526,18 @@ module.exports = {
 		},
 		27: { // Blazing Thrust(EU), Savage Strike(NA)
 			'*': {
-				noRetry: true,
 				noInterrupt: ['27-31'],
-				abnormals: {
-					301603: { chain : 31 }
-				}
+				triggerAbnormal: {
+					301600: [4000, 30], 
+					301603: [5000, 30],
+					301604: [4000, 30]
+				}, // 301600 4000
+				abnormals: { 301603: { chain : 31 } },
 			},
 			0: {
 				length: [625, 1000, 1316.25],
-				distance: [0, 274.69, 0.91],
+				distance: [0, 274.6, 1],
+				noRetry: true,
 				chains: {
 					1: 30,
 					2: 30,
@@ -1560,42 +1566,42 @@ module.exports = {
 					'28-1': 30,
 					'28-2': 30,
 					'28-3': 30
-				},
-				triggerAbnormal: { 301603: 5000 },
+				}
 			},
 			30: {
 				length: [625, 751.25],
 				distance: [274.8, 0],
-				triggerAbnormal: { 301603: 5000 }
+				noRetry: true,
 			},
 			31: {
 				length: 751.25,
-				distance: 275.6
+				distance: 275.6,
+				triggerAbnormal: { 301601: [4000, 30] },
+				consumeAbnormal: 301603,
+				//consumeAbnormalPending: [301604, 450]
 			}
 		},
 		28: { // Unsheathe
+			'*': { length: [1024.26, 0] },
 			0: {
 				type: 'charging',
 				length: [650, 650],
 				chargeLevels: [1, 2, 3],
 				noInterrupt: [28],
 				abnormals: {
-					301600: { chargeSpeed: 0.4 }, // pls dunt tell me this triggers before action stage qq
+					301600: { chargeSpeed: 0.4 },
 					301601: { chargeSpeed: 0.6 }
 				}
 			},
 			1: {
-				length: [1020, 1],	// approximate length, please double check DC parse lengths
 				distance: [44.82, 0],
 				noInterrupt: ['28-1'],
 			},
-			2: {	// Missing logs
-				length: [1020, 1],
+			2: {
 				distance: [44.82, 0],
 				noInterrupt: ['28-2'],
-			},	// Why length is different here? | everything's probably wrong :ppscared:
+			},
 			3: {
-				length: [1020, 1],
 				distance: [44.82, 0],
 				noInterrupt: ['28-3'],
 			}
