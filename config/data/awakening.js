@@ -3494,8 +3494,8 @@ module.exports = {
 				chargeLevels: [10, 10],
 				noInterrupt: [18],
 				abnormals: {
-					27070: { chargSpeed: 0.25 },
-					27080: { chargSpeed: 0.25 }
+					27070: { chargeSpeed: 0.25 },
+					27080: { chargeSpeed: 0.25 }
 				}
 			},
 			10: {
