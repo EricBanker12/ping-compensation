@@ -1237,8 +1237,8 @@ module.exports = {
 		},
 		8: { // Overhand Strike
 			'*': {
+				//noRetry: true,
 				distance: 169.5,
-				consumeAbnormal: 301604,
 				race: {
 					0: { distance: 171.14 }, // M.Human
 					2: { distance: 171.14 }, // M.Helf
@@ -1251,13 +1251,14 @@ module.exports = {
 					10: { distance: 151.14 } // Baraka
 				}
 			},
-			0: { // 
+			0: {
 				length: 3365,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 25, 26, 28],
+				interruptAllWithAbnormal: { 301604: 8 },
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 23, 25, 26, 28],
 				abnormals: {
 					300801: { skill: 250100 },
 					300805: { skill: 250100 },
-					301604: { chain: 30 } // todo: check c-s
+					301604: { chain: 30 }
 				},
 				chains: {
 					1: 30,
@@ -1445,7 +1446,6 @@ module.exports = {
 		23: { // Measured Slice
 			'*': {
 				distance: 189,
-				consumeAbnormal: 301604,
 				races: {
 					5: { distance: 190 }, // F.Aman
 					10: { distance: 190 } // Baraka
@@ -1453,7 +1453,8 @@ module.exports = {
 			},
 			0: {
 				length: 3691.25,
-				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
+				interruptAllWithAbnormal: { 301604: 23 },
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 23, 26, 28],
 				abnormals: { 301604: { chain: 30 } },
 				chains: {
 					8: 30,
@@ -1467,8 +1468,8 @@ module.exports = {
 			0: {
 				length: 1925,
 				distance: 50,
-				consumeAbnormal: 301604,
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 24, 26, 28],
+				interruptAllWithAbnormal: { 301604: 24 },
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 23, 24, 26, 28],
 				abnormals: { 301604: { chain: 30 } },
 				chains: {
 					1: 30,
@@ -1489,6 +1490,7 @@ module.exports = {
 		},
 		25: { // Ultimate Overhand Strike
 			'*': {
+				noRetry: true, // Maybe not possible to properly emulate repetitions without using real packets timings.
 				distance: 169.5,
 				race: {
 					0: { distance: 171.14 }, // M.Human
@@ -1504,7 +1506,8 @@ module.exports = {
 			},
 			0: {
 				length: 3365,
-				abnormals: { 301604: { chain: 30 } }, // todo: check c-s	
+				interruptAllWithAbnormal: { 301604: 25 },
+				abnormals: { 301604: { chain: 30 } },
 			},
 			30: { length: 1325 } //
 		},
@@ -1512,10 +1515,9 @@ module.exports = {
 			0: {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
-				noRetry: true,
-				consumeAbnormal: 301604,
+				interruptAllWithAbnormal: { 301604: 26 },
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
-				abnormals: { 301604: { chain: 30 } }, // todo: check c-s				
+				abnormals: { 301604: { chain: 30 } },		
 				chains: {
 					8: 30,
 					23: 30,
@@ -1530,18 +1532,19 @@ module.exports = {
 		},
 		27: { // Blazing Thrust(EU), Savage Strike(NA)
 			'*': {
+				noRetry: true,
 				noInterrupt: ['27-31'],
 				triggerAbnormal: {
 					301600: [4000, 30],
 					301603: [5000, 30],
-					//301604: [4000, 30]
-				}, // 301600 4000
+					301604: [4000, 30]
+				},
+				consumeAbnormalEndPending: { 301604: 1000 },
 				abnormals: { 301603: { chain: 31 } },
 			},
 			0: {
 				length: [625, 1000, 1316.25],
 				distance: [0, 274.6, 1],
-				noRetry: true,
 				chains: {
 					1: 30,
 					2: 30,
@@ -1574,15 +1577,14 @@ module.exports = {
 			},
 			30: {
 				length: [625, 751.25],
-				distance: [274.8, 0],
-				noRetry: true,
+				distance: [274.8, 0]
 			},
 			31: {
 				length: 751.25,
 				distance: 275.6,
 				triggerAbnormal: { 301601: [4000, 30] },
-				consumeAbnormal: 301603,
-				//consumeAbnormalPending: [301604, 450]
+				triggerAbnormalOnCondition: { 301604: [4000, 30] },
+				consumeAbnormal: 301603
 			}
 		},
 		28: { // Unsheathe
