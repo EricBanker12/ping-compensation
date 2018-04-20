@@ -1237,7 +1237,6 @@ module.exports = {
 		},
 		8: { // Overhand Strike
 			'*': {
-				//noRetry: true,
 				distance: 169.5,
 				race: {
 					0: { distance: 171.14 }, // M.Human
@@ -1270,11 +1269,12 @@ module.exports = {
 					14: 30,
 					15: 30,
 					16: 30,
-					24: 30
+					24: 30,
+					27: 30
 				}
 			},
 			30: {
-				length: 1325, //
+				length: 1325,
 				abnormals: {
 					300801: { skill: 250130 },
 					300805: { skill: 250130 }
@@ -1459,7 +1459,8 @@ module.exports = {
 				chains: {
 					8: 30,
 					24: 30,
-					25: 30
+					25: 30,
+					27: 30
 				}
 			},
 			30: { length: 1684.1 }
@@ -1480,7 +1481,8 @@ module.exports = {
 					12: 30,
 					13: 30,
 					15: 30,
-					25: 30
+					25: 30,
+					27: 30
 				}
 			},
 			30: {
@@ -1522,7 +1524,8 @@ module.exports = {
 					8: 30,
 					23: 30,
 					24: 30,
-					25: 30
+					25: 30,
+					27: 30
 				}
 			},
 			30: {
@@ -3178,19 +3181,17 @@ module.exports = {
 		},
 		27: { // Final Reprisal todo: check
 			'*': {
-				length: 1113,
-				race: { 9: { length: 1273 } },
-				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 19, 23, 25, 26, 27, '28-10', 34, 38, '41-10']
+				length: 2933,
+				race: { 9: { length: 3333 } },
+				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, '19-10', 23, 25, 26, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', 38, '41-10', 42],
 			},
 			0: {
-				length: 2933,
 				chains: {
 					11: 30,
 					16: 30,
 					29: 30,
 					40: 30
-				},
-				race: { 9: { length: 3333 } }
+				}
 			},
 			10: {
 				chains: {
@@ -3200,19 +3201,26 @@ module.exports = {
 					40: 11
 				}
 			},
-			11: true,
+			11: {
+				length: 1113,
+				race: { 9: { length: 1273 } },
+			},
 			20: {
-				length: 2933,
 				chains: {
 					11: 21,
 					16: 21,
 					29: 21,
 					40: 21
-				},
-				race: { 9: { length: 3333 } }
+				}
+			}, 
+			21: {
+				length: 1113,
+				race: { 9: { length: 1273 } },
 			},
-			21: true,
-			30: true
+			30: {
+				length: 1113,
+				race: { 9: { length: 1273 } },
+			}
 		},
 		28: { // Mana Charge / Words of Vitality todo: check
 			'*': {
@@ -3347,7 +3355,7 @@ module.exports = {
 			30: true
 		},
 		43: { // Words of Judgment
-			0: { length: 1416.66 },
+			0: { length: 1416.66 }, // 805800
 			50: { length: 200 }
 		},
 		91: { // Awakening Eyes Aura
