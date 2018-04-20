@@ -10,17 +10,17 @@
 		"config/default-config.json": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a",
 		"config/preset.js": {
 			"overwrite": false,
-			"hash": "3ccd6981845e8502426a9637e92b27c6db700c63c1eaf0a7d87af557bf1c5add"
+			"hash": "694b5b6ad3cdc60b5149834d3992e93a7c0fca612e26cd7be02c5a311111e856"
 		},
-		"config/data/awakening.js": "14563ebf58493d5e4e9c4b52d19bd3d1eef25a3bb47decc1aee28f23d40929c1",
+		"config/data/awakening.js": "ff7ffb0eb51fbe8656e1bad909a6d90b42d5aa50738227fc9277c3f028e68fbf",
 		"config/data/skills.js": "a6e7dd83387d0ecadb45dfcdfca1c53f9a71ca2a8548a92297f34461222270b9",
 		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
 		"docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
 		"docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
 		"lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
-		"lib/core.js": "fde345979fb2799e1316bd8fae859d2ef99b989705b952ac486c8b314523fb33",
-		"lib/ping.js": "29bf69d09e6fc6c054ba02e59353a529ecd2fb20c4aafa08a4c18f1606c82210"
+		"lib/core.js": "f5044e9639c54042e8fff8323d92ba8996fedb392815d1e8d6ce58b2ee05e44d",
+		"lib/ping.js": "42d1fc2e5d9c34f05caea5ddfa575ec609caba81a068b7c5788fe309596b13e8"
 	},
 	"defs": {
 		"C_CANCEL_SKILL": 1,
@@ -34,26 +34,17 @@
 		"C_START_COMBO_INSTANT_SKILL": 2,
 		"C_START_INSTANCE_SKILL": 3,
 		"C_START_INSTANCE_SKILL_EX": 3,
-		"C_START_SKILL": [
-			4,
-			5
-		],
+		"C_START_SKILL": 5,
 		"C_START_TARGETED_SKILL": 4,
 		"S_ACTION_END": 3,
 		"S_ACTION_STAGE": 4,
 		"S_CANNOT_START_SKILL": 1,
 		"S_CAN_LOCKON_TARGET": 1,
 		"S_CREATURE_LIFE": 2,
-		"S_EACH_SKILL_RESULT": [
-			5,
-			6
-		],
+		"S_EACH_SKILL_RESULT": 6,
 		"S_INSTANT_DASH": 3,
 		"S_INSTANT_MOVE": 3,
-		"S_LOGIN": [
-			9,
-			10
-		],
+		"S_LOGIN": 10,
 		"S_RESPONSE_GAMESTAT_PONG": 1,
 		"S_SPAWN_ME": 2,
 		"S_START_COOLTIME_SKILL": 1
