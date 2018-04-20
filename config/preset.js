@@ -169,7 +169,7 @@ module.exports = {
 		22: true, // Burning Breath
 		23: true, // Mana Volley
 		25: true, // Time Gyre
-		26: false, // Teleport Jaunt
+		26: true, // Teleport Jaunt
 		27: true, // Hailstorm
 		30: true, // Nova
 		31: true, // Warp Barrier
@@ -289,7 +289,7 @@ module.exports = {
 		43: true, // Release
 		// Awakening
 		44: true, // Mass Teleport
-		45: true, // Thrall Augumentation
+		45: true, // Thrall Augmentation
 		47: true, // Arunic Release
 		48: true, // Summon: Thrall Lord
 		91: true, // Awakening Eyes Aura
@@ -351,6 +351,8 @@ module.exports = {
 		13: true, // Provoke
 		14: true, // Infuriate
 		16: true, // Flip Kick
+		18: true, // Growing Fury
+		19: true, // Invigorating Rage
 		21: true, // Mounting Rage
 		40: true, // Quick Dash
 		// Awakening
