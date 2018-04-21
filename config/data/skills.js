@@ -517,6 +517,7 @@ module.exports = {
 				length: 810.6,
 				distance: 156.248,
 				noRetry: true,
+				toggleOnAbnormality: 425100,
 				noInterrupt: [32, 40, '41-0', '41-30'],
 			},
 			10: {	// astance 1st?
@@ -613,6 +614,7 @@ module.exports = {
 				noRetry: true,
 				length: 1976.15,
 				distance: 219.04,
+				toggleOnAbnormality: 425100,
 				abnormals: { 105100: { chain: 31 } }
 			},
 			0: {
@@ -663,12 +665,10 @@ module.exports = {
 			}
 		},
 		42: { // Blade Frenzy
-			'*': {
-				noRetry: true
-			},
 			0: {
 				length: 3309.23,
 				distance: 326.55,
+				toggleOnAbnormality: [425100, 425101],
 				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 40, '41-0', '41-30', 42],
 				chains: {
 					2: 30,
@@ -734,7 +734,7 @@ module.exports = {
 				fixedSpeed: 1,
 				stamina: 50,
 				level: {
-					1: { 	
+					1: {
 						length: 333,
 						stamina: 40,
 						endType51: true
@@ -742,10 +742,10 @@ module.exports = {
 				}
 			}
 		},
-		3: { // Onslaught / Changed
+		3: { // Onslaught
 			'*': {
 				distance: [0, 100, 100, 100, 100, 40],
-				noInterrupt: [2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: [3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				abnormals: {
 					22060: { speed: 0.25 }
 				},
@@ -761,7 +761,7 @@ module.exports = {
 			0: { length: [939, 514.54, 514.54, 514.54, 393.63, 760.11] },
 			30: { length: [688.66, 377.33, 377.33, 377.33, 288.66, 557.35] }
 		},
-		4: { // Challenging Shout / Changed
+		4: { // Challenging Shout
 			'*': {
 				length: 2215,
 				glyphs: {
@@ -770,7 +770,7 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [2, 9, 12, 23, 26],
+				noInterrupt: [9, 12, 23, 26],
 				chains: {
 					1: 30,
 					3: 30,
@@ -785,7 +785,7 @@ module.exports = {
 			},
 			30: true
 		},
-		5: { // Shield Bash / Changed
+		5: { // Shield Bash
 			'*': {
 				length: 839.1,
 				distance: 30,
@@ -839,7 +839,7 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		10: { // Debilitate / Changed
+		10: { // Debilitate
 			'*': {
 				triggerAbnormal: { 201830: 2000 },
 				consumeAbnormalEnd: 201830
@@ -877,7 +877,7 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		13: { // Spring Attack / Changed
+		13: { // Spring Attack
 			'*': {
 				distance: 85,
 				triggerAbnormal: { 201831: 2000 },
@@ -885,7 +885,7 @@ module.exports = {
 			},
 			0: {
 				length: 2800,
-				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: ['1-0', '1-1', 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					5: 30,
@@ -968,7 +968,7 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		21: { // Lockdown Blow / Changed
+		21: { // Lockdown Blow
 			'*': {
 				length: 1400,
 				distance: 100.13, // M.Human
@@ -1008,7 +1008,7 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		24: { // Chained Leash / Changed
+		24: { // Chained Leash
 			'*': {
 				consumeAbnormal: 201803,
 				noInterrupt: [2]
@@ -1016,21 +1016,22 @@ module.exports = {
 			1: { length: [733, 833] },
 			2: { length: 1692.42 }
 		},
-		25: { // Wallop / Changed
+		25: { // Wallop
 			'*': {
 				CC: "extended",
 			},
 			0: {
 				length: 2391.3,
 				distance: 100,
-				noInterrupt: [1, 2, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: [1, 3, 4, 5, 9, 11, 12, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					8: 30,
 					10: 30,
 					13: 30,
 					15: 30,
 					18: 30,
-					21: 30
+					21: 30,
+					28: 30
 				}
 			},
 			30: {
@@ -1068,14 +1069,16 @@ module.exports = {
 			}
 		},
 		28: { // Righteous Leap
-			'*': { noRetry: true,
-				distance: [29.48, 445.52, 0] },
+			'*': {
+				noRetry: true,
+				distance: [29.48, 445.52, 0]
+			},
 			0: {
-				noInterrupt: [1, 2, 3, 4, 5, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
+				toggleOnAbnormality: 425100,
+				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
 				length: [333.33, 1055, 3121.66],
 				chains: {
 					15: 1,
-					24: 1,	// Chained Leash->Righteous Leap? Again?
 					25: 1
 				}
 			},
@@ -1083,15 +1086,18 @@ module.exports = {
 		},
 		29: { // Guardian's Barrier
 			0: {
-				noRetry: true,
 				type: 'holdInfinite',
 				fixedSpeed: 1,
 				length: 700,
-				endType51: true
+				endType51: true,
+				toggleOnAbnormality: 425100
 			}
 		},
 		30: { // Divine Protection
-			0: { length: 1252 }
+			0: {
+				length: 1252,
+				toggleOnAbnormality: [425100, 425101]
+			}
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
@@ -1182,10 +1188,7 @@ module.exports = {
 				}
 			},
 			1: true,
-			2: {
-				chains: { 14: 30 },
-				noInterrupt: [1, 2, 3, 6, 8, 9, 10, 12, 13, 15, 16, 17, 24, 25, 26, 27, 28]
-			},
+			2: { chains: { 14: 30 } },
 			30: { length: 2423.57 }
 		},
 		3: { // Whirlwind
@@ -1340,9 +1343,10 @@ module.exports = {
 		},
 		14: { // Distant Blade
 			'*': {
-				triggerAbnormal: { 23220: 2000 },
 				length: 600,
-				distance: 75
+				distance: 75,
+				triggerAbnormal: { 23220: 2000 },
+				consumeAbnormalEnd: 23220
 			},
 			0: {
 				race: {
@@ -1417,7 +1421,7 @@ module.exports = {
 				noRetry: true
 			}
 		},
-		18: { // Overpower / Changed
+		18: { // Overpower
 			'*': {
 				length: 1433,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 9, 12, 13, 14, 15, 16, 17, 18, 21, 23, 24, 25, 26, 27, 28] // todo: check abnormal
@@ -1522,9 +1526,9 @@ module.exports = {
 			0: {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
-				interruptAllWithAbnormal: { 301604: 26 },
+				toggleOnAbnormality: 425100,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
-				abnormals: { 301604: { chain: 30 } },		
+				abnormals: { 301604: { chain: 30 } },
 				chains: {
 					8: 30,
 					23: 30,
@@ -1541,6 +1545,7 @@ module.exports = {
 		27: { // Blazing Thrust(EU), Savage Strike(NA)
 			'*': {
 				noRetry: true,
+				toggleOnAbnormality: 425100,
 				noInterrupt: ['27-31'],
 				triggerAbnormal: {
 					301600: [4000, 30],
@@ -1583,7 +1588,7 @@ module.exports = {
 					'28-3': 30
 				}
 			},
-			30: {
+			30: { // todo: fix queueing skills ignoring the second stage
 				length: [625, 751.25],
 				distance: [274.8, 0]
 			},
@@ -1601,6 +1606,7 @@ module.exports = {
 				type: 'charging',
 				length: [650, 650],
 				chargeLevels: [1, 2, 3],
+				toggleOnAbnormality: [425100, 425101],
 				noInterrupt: [28],
 				abnormals: {
 					301600: { chargeSpeed: 0.4 },
@@ -1841,12 +1847,8 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [2],
-				interruptibleWithAbnormal: {
-					401404: 2 // Lori says BHS :b:orked it
-				},
-				abnormals: {
-					401400: { chain: 30 }
-				}
+				interruptibleWithAbnormal: { 401404: 2 },
+				abnormals: { 401400: { chain: 30 } }
 			},
 			1: true,
 			30: true,
@@ -2040,15 +2042,21 @@ module.exports = {
 				noInterrupt: [2]
 			}
 		},
-		18: { // Lethal Strike / Changed
+		18: { // Lethal Strike
 			'*': {
 				distance: 167.62,
-				abnormals: { 24120: { speed: 0.3 } }
+				abnormals: { 24120: { speed: 0.3 } },
+				race: {
+					4: { distance: 145 },
+					6: { distance: 168.11 }, // M.Casta
+					8: { distance: 240.4 }, // Popori
+					10: { distance: 158.11 } // Baraka
+				}
 			},
 			0: {
 				length: 687.5,
 				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31],
-				abnormals: { 401400: { chain: 6 } } ,
+				abnormals: { 401400: { chain: 6 } },
 				chains: {
 					3: 30,
 					11: 30,
@@ -2248,12 +2256,16 @@ module.exports = {
 			}
 		},
 		33: { // Unleash
-			0: { length: [700, 1500, 1766] },
+			0: {
+				length: [700, 1500, 1766],
+				toggleOnAbnormality: 425100
+			}
 		},
 		34: { // Unleash: Dexter
 			'*': {
 				length: [600, 833, 833],
 				distance: [0, 27.5, 0],
+				requiredBuff: 401705
 			},
 			0: {
 				noInterrupt: [34, 36],
@@ -2281,7 +2293,8 @@ module.exports = {
 		35: { // Unleash: Sinister
 			'*': {
 				length: [1133, 833],
-				distance: [198, 0]
+				distance: [198, 0],
+				requiredBuff: 401705
 			},
 			0: {
 				abnormals: {
@@ -2311,6 +2324,7 @@ module.exports = {
 				distance: 38.5,
 				noRetry: true,
 				noInterrupt: [37],
+				requiredBuff: 401705
 			},
 			0: {
 				length: 2714.4,
@@ -2333,7 +2347,9 @@ module.exports = {
 				// race difference could be a thing
 				length: [610.8, 694, 721.6, 471.66, 1194],
 				distance: [126, 144.824, 151.1, 9.4, 98.64],
-				noInterrupt: [37]
+				toggleOnAbnormality: 425101,
+				noInterrupt: [37],
+				requiredBuff: 401705
 			},
 			0: {
 				chains: {
@@ -2344,9 +2360,6 @@ module.exports = {
 				}
 			},
 			30: true
-		},
-		38: { // Unleash End
-			0: { length: [700, 1000, 966] }
 		},
 		91: { // Awakening Eyes Aura
 			0: { length: 3000 }
@@ -2890,8 +2903,7 @@ module.exports = {
 		8: { // Rapid Fire
 			'*': {
 				noRetry: true,
-				blockCancelPacket: true,
-				noInterrupt: [22] // this actually doesn't do anything
+				blockCancelPacket: true
 			},
 			0: {
 				length: 433,
@@ -2989,9 +3001,7 @@ module.exports = {
 				consumeAbnormal: 600200,
 				requiredBuff: 600200,
 				noRetry: true,
-				race: {
-					5: { length: 533 }
-				}
+				race: { 5: { length: 533 } }
 			}
 		},
 		23: { // Stunning Trap Arrow
@@ -3070,7 +3080,7 @@ module.exports = {
 				race: { 10: { length: 2774 } }
 			}
 		},
-		3: { // Healing Circle / changed
+		3: { // Healing Circle
 			0: {
 				length: 1763,
 				chains: { // x3
@@ -3097,7 +3107,7 @@ module.exports = {
 		10: { // Purifying Circle
 			0: { length: 1294 }
 		},
-		11: { // Metamorphic Blast / Changed
+		11: { // Metamorphic Blast
 			'*': {
 				length: 839,
 			},
@@ -3217,7 +3227,7 @@ module.exports = {
 					29: 21,
 					40: 21
 				}
-			}, 
+			},
 			21: {
 				length: 1113,
 				race: { 9: { length: 1273 } },
@@ -3229,22 +3239,23 @@ module.exports = {
 		},
 		28: { // Mana Charge / Words of Vitality todo: check
 			'*': {
-				length: 700,
+				length: 798.26,
 				noRetry: true,
+				race: { 0: { length: 827 } },
 				level: {
-					0: {
-						length: 798.26,
-						race: { 0: { length: 827 } }
+					1: {
+						length: 700,
+						toggleOnAbnormality: 425100
 					}
 				}
 			},
 			0: {
 				type: 'charging',
-				length: [900, 900, 900],
+				length: [800, 1600],
 				noInterrupt: [28],
 				bodyRolls: { 350708: { chargeSpeed: 0.15 } },
 				glyphs: { 28031: { chargeSpeed: 0.25 } },
-				level: { 0: { length: [800, 1600] } }
+				level: { 1: { length: [900, 900, 900] } }
 			},
 			10: { noInterrupt: ['28-10'] },
 			11: { noInterrupt: ['28-11'] },
@@ -3354,16 +3365,19 @@ module.exports = {
 			}
 		},
 		42: { // Holy Burst
-			'*': { 
-				noRetry: true,
-				length: 800 }, // 866
+			'*': {
+				length: 800,
+				toggleOnAbnormality: 425100
+			},
 			0: true,
 			20: true,
 			30: true
 		},
 		43: { // Words of Judgment
-			'*': { noRetry: true },
-			0: { length: 1416.66 }, // 805800
+			0: {
+				length: 1416.66,
+				toggleOnAbnormality: [425100, 425101]
+			}, // 805800
 			50: { length: 200 }
 		},
 		91: { // Awakening Eyes Aura
@@ -3699,6 +3713,7 @@ module.exports = {
 				type: 'teleport',
 				length: [222, 255],
 				distance: [0, 333],
+				toggleOnAbnormality: 425100,
 				noInterrupt: [17],
 				teleportStage: 1,
 				noRetry: true
@@ -3706,16 +3721,20 @@ module.exports = {
 		},
 		45: { // Thrall Augmentation
 			'*': { length: 91 },
-			0: true,
+			0: { toggleOnAbnormality: 425100 },
 			50: true
 		},
 		47: { // Arunic Release
-			0: { length: 1060 } // -100?
+			0: {
+				length: 1060,
+				toggleOnAbnormality: 425100
+			}
 		},
 		48: { // Summon: Thrall Lord
 			0: {
 				fixedSpeed: 1,
-				length: 4050
+				length: 4050,
+				toggleOnAbnormality: [425100, 425101]
 			} // 10239003
 		},
 		91: { // Awakening Eyes Aura
@@ -5058,8 +5077,8 @@ module.exports = {
 		22: { // Flying Kick
 			0: {
 				length: 1815,
-				noRetry: true,
 				distance: 245.21,
+				toggleOnAbnormality: 425100,
 				noInterrupt: [22],
 				chains: {
 					1: 30,
@@ -5088,10 +5107,11 @@ module.exports = {
 				distance: 351.98
 			}
 		},
-		24: { // 2.54cm Punch
+		24: { // 2.54cm Punch / todo: check
 			'*': {
 				noRetry: true,
 				distance: 16.59,
+				toggleOnAbnormality: 425100,
 				length: 2000,
 				abnormals: { 31120: { chain: 31 } },
 				chains: {
@@ -5129,6 +5149,7 @@ module.exports = {
 			0: {
 				length: [178.57, 412.85],
 				distance: [0, 30],
+				toggleOnAbnormality: [425100, 425101],
 				abnormals: {
 					10153190: { chain: 2 },
 					10153191: { chain: 3 },
