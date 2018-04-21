@@ -9,6 +9,6 @@
         "../config/abnormalities.js",
         "../config/default-config.json",
         "./migration.js",
-        "../config/data/skills.js"
+        "../config/data/awakening.js"
     ]
 }
