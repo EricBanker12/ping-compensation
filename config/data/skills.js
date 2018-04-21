@@ -1526,6 +1526,7 @@ module.exports = {
 			0: {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
+				interruptAllWithAbnormal: { 301604: 25 },
 				toggleOnAbnormality: 425100,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
 				abnormals: { 301604: { chain: 30 } },
