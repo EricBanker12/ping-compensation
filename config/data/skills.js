@@ -663,6 +663,9 @@ module.exports = {
 			}
 		},
 		42: { // Blade Frenzy
+			'*': {
+				noRetry: true
+			},
 			0: {
 				length: 3309.23,
 				distance: 326.55,
@@ -1065,7 +1068,8 @@ module.exports = {
 			}
 		},
 		28: { // Righteous Leap
-			'*': { distance: [29.48, 445.52, 0] },
+			'*': { noRetry: true,
+				distance: [29.48, 445.52, 0] },
 			0: {
 				noInterrupt: [1, 2, 3, 4, 5, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
 				length: [333.33, 1055, 3121.66],
@@ -1079,6 +1083,7 @@ module.exports = {
 		},
 		29: { // Guardian's Barrier
 			0: {
+				noRetry: true,
 				type: 'holdInfinite',
 				fixedSpeed: 1,
 				length: 700,
@@ -3328,6 +3333,7 @@ module.exports = {
 		},
 		40: { // Zenobia's Vortex
 			'*': {
+				noRetry: true,
 				length: 1070.71,
 				noInterrupt: [40]
 			},
@@ -3349,12 +3355,15 @@ module.exports = {
 			}
 		},
 		42: { // Holy Burst
-			'*': { length: 800 }, // 866
+			'*': { 
+				noRetry: true,
+				length: 800 }, // 866
 			0: true,
 			20: true,
 			30: true
 		},
 		43: { // Words of Judgment
+			'*': { noRetry: true },
 			0: { length: 1416.66 }, // 805800
 			50: { length: 200 }
 		},
@@ -3707,7 +3716,8 @@ module.exports = {
 		48: { // Summon: Thrall Lord
 			0: {
 				fixedSpeed: 1,
-				length: 4050
+				length: 4050,
+				noRetry: true
 			} // 10239003
 		},
 		91: { // Awakening Eyes Aura
@@ -5050,6 +5060,7 @@ module.exports = {
 		22: { // Flying Kick
 			0: {
 				length: 1815,
+				noRetry: true,
 				distance: 245.21,
 				noInterrupt: [22],
 				chains: {
@@ -5081,6 +5092,7 @@ module.exports = {
 		},
 		24: { // 2.54cm Punch
 			'*': {
+				noRetry: true,
 				distance: 16.59,
 				length: 2000,
 				abnormals: { 31120: { chain: 31 } },
