@@ -1,5 +1,5 @@
 {
-    "version": "4.7",
+    "version": "4.8",
     "config": {
 
     },
@@ -8,6 +8,7 @@
         "../config/data/config.json",
         "../config/abnormalities.js",
         "../config/default-config.json",
-        "./migration.js"
+        "./migration.js",
+        "../config/data/skills.js"
     ]
 }
