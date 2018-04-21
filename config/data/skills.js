@@ -3333,7 +3333,6 @@ module.exports = {
 		},
 		40: { // Zenobia's Vortex
 			'*': {
-				noRetry: true,
 				length: 1070.71,
 				noInterrupt: [40]
 			},
@@ -3716,8 +3715,7 @@ module.exports = {
 		48: { // Summon: Thrall Lord
 			0: {
 				fixedSpeed: 1,
-				length: 4050,
-				noRetry: true
+				length: 4050
 			} // 10239003
 		},
 		91: { // Awakening Eyes Aura
