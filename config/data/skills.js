@@ -518,13 +518,15 @@ module.exports = {
 				distance: 156.248,
 				noRetry: true,
 				toggleOnAbnormality: 425100,
-				noInterrupt: [32, 40, '41-0', '41-30'],
+				triggerAbnormal: { 
+					104100: 8000,
+					104101: 800, //
+					//104110: 2000
+				},
+				noInterrupt: [32, 40, '41-0', '41-30']
 			},
 			10: {	// astance 1st?
-				triggerAbnormal: { 104100: 8000 },
-				abnormals: {
-					104100: { chain: 12 }
-				},
+				abnormals: { 104100: { chain: 12 } },
 				chains: {
 					// essential mana says all skills can chain into BW, but need to specify them
 					1: 11,
@@ -562,13 +564,14 @@ module.exports = {
 					42: 11,
 				}
 			},
-			11: { triggerAbnormal: { 104100: 8000 } },
-			12: { consumeAbnormal: 104100 },
+			11: true,
+			12: { 
+				toggleOnAbnormality: 104101,
+				triggerAbnormal: false,
+				consumeAbnormal: 104100
+			},
 			20: {
-				triggerAbnormal: { 104100: 8000 },
-				abnormals: {
-					104100: { chain: 22 }
-				},
+				abnormals: { 104100: { chain: 22 } },
 				chains: {
 					// essential mana says all skills can chain into BW, but need to specify them
 					1: 21,
@@ -606,8 +609,12 @@ module.exports = {
 					42: 21,
 				}
 			},
-			21: { triggerAbnormal: { 104100: 8000 } },
-			22: { consumeAbnormal: 104100 }
+			21: true,
+			22: {
+				toggleOnAbnormality: 104101,
+				triggerAbnormal: false,
+				consumeAbnormal: 104100
+			}
 		},
 		41: { // Aerial Scythe
 			'*': {
@@ -2059,9 +2066,12 @@ module.exports = {
 				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31],
 				abnormals: { 401400: { chain: 6 } },
 				chains: {
+					'3-0': 30,
 					3: 30,
 					11: 30,
+					'10-0': 0,
 					10: 30,
+					'15-0': 0,
 					15: 30
 				}
 			},
@@ -3064,6 +3074,7 @@ module.exports = {
 		2: { // Regeneration Circle
 			0: {
 				length: 2149,
+				toggleOnAbnormality: 805800,
 				abnormals: {
 					902: { nocTanSpeed: 0.15 },
 					910: { nocTanSpeed: 0.15 },
@@ -3084,6 +3095,7 @@ module.exports = {
 		3: { // Healing Circle
 			0: {
 				length: 1763,
+				toggleOnAbnormality: 805800,
 				chains: { // x3
 					'19-10': 30, // todo: check
 					26: 30,
@@ -3101,6 +3113,7 @@ module.exports = {
 		8: { // Mana Infusion
 			0: {
 				length: 4595,
+				toggleOnAbnormality: 805800,
 				glyphs: { 28044: { speed: 0.25 } },
 				race: { 0: { length: 4625 } }
 			}
@@ -3169,6 +3182,7 @@ module.exports = {
 		18: { // Heal Thyself
 			0: {
 				withoutWeapon: true,
+				toggleOnAbnormality: 805800,
 				length: 1266
 			}
 		},
@@ -3177,6 +3191,7 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54445.45,
+				toggleOnAbnormality: 805800,
 				noRetry: true
 			},
 			10: {
@@ -3185,7 +3200,10 @@ module.exports = {
 			}
 		},
 		22: { // Kaia's Shield
-			0: { length: 667 }
+			0: { 
+				length: 667,
+				toggleOnAbnormality: 805800
+			}
 		},
 		26: { // Fiery Escape
 			0: {
@@ -3284,7 +3302,16 @@ module.exports = {
 		31: { // Guardian Sanctuary
 			0: {
 				fixedSpeed: 1,
-				length: 700
+				length: 700,
+				toggleOnAbnormality: 805800
+			}
+		},
+		32: { // Divine Prayer
+			0: {
+				withoutWeapon: true,
+				fixedSpeed: 1,
+				length: [1300, 900],
+				toggleOnAbnormality: 805800
 			}
 		},
 		33: { // Ishara's Lullaby
@@ -3329,6 +3356,7 @@ module.exports = {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1433,
+				toggleOnAbnormality: 805800,
 				noInterrupt: ['37-10']
 			}
 		},
@@ -3357,6 +3385,7 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54445.45,
+				toggleOnAbnormality: 805800,
 				noRetry: true,
 				partyOnly: true
 			},
@@ -3378,7 +3407,7 @@ module.exports = {
 			0: {
 				length: 1416.66,
 				toggleOnAbnormality: [425100, 425101]
-			}, // 805800
+			}, 
 			50: { length: 200 }
 		},
 		91: { // Awakening Eyes Aura
@@ -3770,10 +3799,12 @@ module.exports = {
 					10151022: { chain: 4 },
 					10151023: { chain: 5 }
 				},
-				chains: { 1: 1 }, // 1 to 1 :thinking:
+				chains: { // This supposly has chains ? 
+
+				},
 				noRetry: true
 			},
-			0: { triggerAbnormal: { 10151020: 2000 } },
+			0: { triggerAbnormal: { 10151020: 2000 } }, // check
 			1: { triggerAbnormal: { 10151020: 2000 } },
 			2: {
 				length: 1200,
@@ -3853,9 +3884,7 @@ module.exports = {
 			'*': {
 				length: 2025,
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 13, 14, 20],
-				abnormals: {
-					29030: { speed: 0.25 }
-				},
+				abnormals: { 29030: { speed: 0.25 } },
 				chains: {
 					1: 30,
 					5: 30,
@@ -3875,7 +3904,6 @@ module.exports = {
 				chains: {
 					1: null,
 					3: null,
-					//4: null,
 					5: null,
 					6: null,
 					8: null,
@@ -3961,34 +3989,28 @@ module.exports = {
 		6: { // Death Spiral
 			'*': { // todo: fix
 				length: 1250,
-				abnormals: {
-					10151131: { chain: 31 }
-				},
+				triggerAbnormal: { 10151131: 6000 },
+				noInterrupt: ['6-31'],
+				noRetry: true
+			},
+			0: {
+				abnormals: { 10151131: { chain: 31 } }, //
 				chains: {
 					1: 30,
 					3: 30,
 					4: 30,
 					5: 30,
-					'6-0': 31,
-					'6-30': 31,
 					8: 30,
 					9: 30,
 					10: 30,
 					11: 30,
 					12: 30,
 					20: 30
-				},
-				noRetry: true
+				}
 			},
-			0: {
-				triggerAbnormal: { 10151131: 6000 },
-				noRetry: true
-			},
-			30: {
-				triggerAbnormal: { 10151131: 6000 },
-				noRetry: true
-			},
-			31: {
+			30: true,
+			31: { 
+				triggerAbnormal: false,
 				consumeAbnormal: 10151131
 			}
 		},
@@ -4046,11 +4068,11 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 1250, // Length for any stage unless the stage itself has one stated already
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
+				length: 1250,
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-3', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 2150, // Specific length for stage 0
+				length: 2150,
 				triggerAbnormal: { 10151040: 2000 },
 				abnormals: {
 					10151040: { chain: 1 },
@@ -4070,26 +4092,31 @@ module.exports = {
 			3: { consumeAbnormal: 10151042 }
 		},
 		12: { // Shadow Burst
-			'*': {
-				glyphs: {
-					29026: { speed: 0.25 }
-				},
-				chains: { '12-0': 1 }
-			},
+			'*': { glyphs: { 29026: { speed: 0.25 } } },
 			0: {
-				triggerAbnormal: { 10151150: 3000 },
-				consumeAbnormalEnd: 10151150,
 				length: 3225,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
+				chains: { '12-0': 1 }
 			},
-			1: {
-				length: 2025,
-			}
+			1: { length: 2025 }
 		},
+		/*
+		13: { // Soul Reversemento
+			0: { 
+				length: '', toggle?
+				abnormals: {
+					10151031: { chain: 30 }
+					10151035: { chain: 40 }
+				}
+			},
+			30: false, // Swap
+			40: false  // Backstab
+		},
+		*/
 		14: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1600,
+				length: 1633,
 				noRetry: true
 			}
 		},
@@ -4113,12 +4140,14 @@ module.exports = {
 				distance: 150,
 			}
 		},
-		/*20: { // Cable Step
+		/*
+		20: { // Cable Step
 			0: {
 				type: 'dynamicDistance',
 				length: 1250
 			}
-		},*/
+		},
+		*/
 		40: { // Shadow Step
 			'*': {
 				CC: ["evasive", "extended"],
@@ -5129,6 +5158,7 @@ module.exports = {
 					10153195 : { chain: 30 }
 				},
 				chains: {
+					1: 30,
 					2: 30,
 					'3-1': 30,
 					4: 30,
