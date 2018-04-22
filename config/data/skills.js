@@ -4596,7 +4596,7 @@ module.exports = {
 				distance: 71.28,
 				triggerAbnormal: { 10153060: 3000 },
 				consumeAbnormalEnd: 10153060,
-				noInterrupt: ['1-3'],
+				noInterrupt: ['1-3', 22, 24, 26],
 				chains: {
 					'1-0': 1,
 					'1-1': 2,
@@ -4621,9 +4621,6 @@ module.exports = {
 					17: 30,
 					18: 30,
 					20: 30,
-					22: 30,
-					24: 30,
-					26: 30,
 					40: 30
 				},
 				noRetry: true
@@ -5081,6 +5078,14 @@ module.exports = {
 				distance: 245.21,
 				toggleOnAbnormality: 425100,
 				noInterrupt: [22],
+				abnormals: {
+					10153190 : { chain: 30 },
+					10153191 : { chain: 30 },
+					10153192 : { chain: 30 },
+					10153193 : { chain: 30 },
+					10153194 : { chain: 30 },
+					10153195 : { chain: 30 }
+				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -5114,9 +5119,16 @@ module.exports = {
 				distance: 16.59,
 				toggleOnAbnormality: 425100,
 				length: 2000,
-				abnormals: { 31120: { chain: 31 } },
+				abnormals: {
+					31120: { chain: 31 },
+					10153190 : { chain: 30 },
+					10153191 : { chain: 30 },
+					10153192 : { chain: 30 },
+					10153193 : { chain: 30 },
+					10153194 : { chain: 30 },
+					10153195 : { chain: 30 }
+				},
 				chains: {
-					1: 30,
 					2: 30,
 					'3-1': 30,
 					4: 30,
