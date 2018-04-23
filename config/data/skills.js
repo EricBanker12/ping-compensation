@@ -854,7 +854,7 @@ module.exports = {
 			0: {
 				length: 925,
 				distance: 30,
-				noInterrupt: [2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: [3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					18: 30
@@ -1054,7 +1054,7 @@ module.exports = {
 				forceClip: true,
 				stamina: 800,
 				instantStamina: true,
-				noInterrupt: [2, 26],
+				noInterrupt: [26],
 				glyphs: {
 					22067: { stamina: -100 },
 					22089: { stamina: -100 }
@@ -1973,8 +1973,7 @@ module.exports = {
 				},
 				chains: {
 					3: 14,
-					10: 14,
-					18: 14
+					10: 14
 				},
 				level: [
 					{ length: 800 },
