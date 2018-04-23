@@ -1384,9 +1384,7 @@ module.exports = {
 				length: 1500,
 				distance: -175,
 				forceClip: true,
-				glyphs: {
-					23060: { speed: 0.25 }
-				},
+				glyphs: { 23060: { speed: 0.25 } },
 			}
 		},
 		16: { // Fury Strike
@@ -1596,8 +1594,8 @@ module.exports = {
 					'28-3': 30
 				}
 			},
-			30: { // todo: fix queueing skills ignoring the second stage
-				length: [625, 751.25],
+			30: {
+				length: [1000, 1316.25],
 				distance: [274.8, 0]
 			},
 			31: {
@@ -2052,6 +2050,7 @@ module.exports = {
 		18: { // Lethal Strike
 			'*': {
 				distance: 167.62,
+				toggleOnAbnormality: 401400,
 				abnormals: { 24120: { speed: 0.3 } },
 				race: {
 					4: { distance: 145 },
@@ -2063,7 +2062,6 @@ module.exports = {
 			0: {
 				length: 687.5,
 				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31],
-				abnormals: { 401400: { chain: 6 } },
 				chains: {
 					'3-0': 30,
 					3: 30,
@@ -2163,7 +2161,7 @@ module.exports = {
 			}
 		},
 		27: { // Unbreakable
-			'*': { noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32] },
+			'*': { noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32] },
 			0: {
 				length: 2066,
 				abnormals: {
