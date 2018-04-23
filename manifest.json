@@ -12,14 +12,13 @@
 			"overwrite": false,
 			"hash": "694b5b6ad3cdc60b5149834d3992e93a7c0fca612e26cd7be02c5a311111e856"
 		},
-		"config/data/awakening.js": "ff7ffb0eb51fbe8656e1bad909a6d90b42d5aa50738227fc9277c3f028e68fbf",
-		"config/data/skills.js": "a6e7dd83387d0ecadb45dfcdfca1c53f9a71ca2a8548a92297f34461222270b9",
+		"config/data/skills.js": "3e16ac4db8e889f1a7866983afac3fd01ad9d389486450c2d4da3dc7b45dc88d",
 		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
 		"docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
 		"docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
 		"lib/cooldowns.js": "c23a50f2a7f769defb4ff7fb58be833013e762022ed1d0760801380a7a0dc3c8",
-		"lib/core.js": "7f07eb44d4bb9876c114e3b80a815e7d6ad77dd2c18941671a46cb5527e4eb52",
+		"lib/core.js": "bf82eaaf6e5b9e526afc52e065defc6c999d2190b99a226ff21010950739b82c",
 		"lib/ping.js": "42d1fc2e5d9c34f05caea5ddfa575ec609caba81a068b7c5788fe309596b13e8",
 		"LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad"
 	},
