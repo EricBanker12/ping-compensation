@@ -16,7 +16,6 @@
 	8 = Popori
 	9 = Elin
 	10 = Baraka
-
 */
 
 module.exports = {
@@ -518,7 +517,7 @@ module.exports = {
 				distance: 156.248,
 				noRetry: true,
 				toggleOnAbnormality: 425100,
-				triggerAbnormal: { 
+				triggerAbnormal: {
 					104100: 8000,
 					104101: 800, //
 					//104110: 2000
@@ -565,7 +564,7 @@ module.exports = {
 				}
 			},
 			11: true,
-			12: { 
+			12: {
 				toggleOnAbnormality: 104101,
 				triggerAbnormal: false,
 				consumeAbnormal: 104100
@@ -1506,7 +1505,7 @@ module.exports = {
 		},
 		25: { // Ultimate Overhand Strike
 			'*': {
-				noRetry: true, // Maybe not possible to properly emulate repetitions without using real packets timings.
+				noRetry: true,
 				distance: 169.5,
 				race: {
 					0: { distance: 171.14 }, // M.Human
@@ -1523,7 +1522,7 @@ module.exports = {
 			0: {
 				length: 3365,
 				interruptAllWithAbnormal: { 301604: 25 },
-				abnormals: { 301604: { chain: 30 } },
+				abnormals: { 301604: { chain: 30 } }
 			},
 			30: { length: 1325 } //
 		},
@@ -2051,6 +2050,7 @@ module.exports = {
 			'*': {
 				distance: 167.62,
 				toggleOnAbnormality: 401400,
+				consumeAbnormal: 400900,
 				abnormals: { 24120: { speed: 0.3 } },
 				race: {
 					4: { distance: 145 },
@@ -2164,23 +2164,22 @@ module.exports = {
 			'*': { noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32] },
 			0: {
 				length: 2066,
-				abnormals: {
-					401705: { chain: 30 }
+				abnormals: { 401705: { chain: 30 } },
+				chains: {
+					34: 30,
+					35: 30,
+					36: 30,
+					37: 30
 				},
-				chains: { // 4x
-
-				},
-				race: {
-					7: { length: 2099 } // F.Casta
-				}
+				race: { 7: { length: 2099 } } // F.Casta
 			},
-			30: { length: 1455 } // Used for Berserk mode? Chain?
+			30: { length: 1455 }
 		},
 		28: { // Intimidation
 			'*': {
 				length: 1566,
 				noInterrupt: [2],
-				race: { 7: { length: 1599 } }// F.Casta
+				race: { 7: { length: 1599 } } // F.Casta
 			},
 			0: true,
 			50: true
@@ -3154,7 +3153,10 @@ module.exports = {
 			}
 		},
 		16: { // Shocking Implosion
-			'*': { length: 1718 },
+			'*': {
+				length: 1718,
+				noInterrupt: [2, 3, 5, 10, 12, 14, 16, 17, 18, '19-10', 23, 25, 26, 28, 29, '30-10', '33-10', 34, '35-10', '37-10', 38, 40, '41-10', 42]
+			},
 			0: {
 				chains: {
 					11: 30,
@@ -3198,7 +3200,7 @@ module.exports = {
 			}
 		},
 		22: { // Kaia's Shield
-			0: { 
+			0: {
 				length: 667,
 				toggleOnAbnormality: 805800
 			}
@@ -3405,7 +3407,7 @@ module.exports = {
 			0: {
 				length: 1416.66,
 				toggleOnAbnormality: [425100, 425101]
-			}, 
+			},
 			50: { length: 200 }
 		},
 		91: { // Awakening Eyes Aura
@@ -3988,11 +3990,11 @@ module.exports = {
 			'*': { // todo: fix
 				length: 1250,
 				triggerAbnormal: { 10151131: 6000 },
+				abnormals: { 10151131: { chain: 31 } },
 				noInterrupt: ['6-31'],
 				noRetry: true
 			},
 			0: {
-				abnormals: { 10151131: { chain: 31 } }, //
 				chains: {
 					1: 30,
 					3: 30,
@@ -4007,7 +4009,7 @@ module.exports = {
 				}
 			},
 			30: true,
-			31: { 
+			31: {
 				triggerAbnormal: false,
 				consumeAbnormal: 10151131
 			}
@@ -5106,12 +5108,12 @@ module.exports = {
 				toggleOnAbnormality: 425100,
 				noInterrupt: [22],
 				abnormals: {
-					10153190 : { chain: 30 },
-					10153191 : { chain: 30 },
-					10153192 : { chain: 30 },
-					10153193 : { chain: 30 },
-					10153194 : { chain: 30 },
-					10153195 : { chain: 30 }
+					10153190: { chain: 30 },
+					10153191: { chain: 30 },
+					10153192: { chain: 30 },
+					10153193: { chain: 30 },
+					10153194: { chain: 30 },
+					10153195: { chain: 30 }
 				},
 				chains: {
 					1: 30,
@@ -5148,12 +5150,12 @@ module.exports = {
 				length: 2000,
 				abnormals: {
 					31120: { chain: 31 },
-					10153190 : { chain: 30 },
-					10153191 : { chain: 30 },
-					10153192 : { chain: 30 },
-					10153193 : { chain: 30 },
-					10153194 : { chain: 30 },
-					10153195 : { chain: 30 }
+					10153190: { chain: 30 },
+					10153191: { chain: 30 },
+					10153192: { chain: 30 },
+					10153193: { chain: 30 },
+					10153194: { chain: 30 },
+					10153195: { chain: 30 }
 				},
 				chains: {
 					1: 30,
