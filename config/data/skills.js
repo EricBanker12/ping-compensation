@@ -2493,7 +2493,6 @@ module.exports = {
 		11: { // Lightning Strike
 			0: {
 				length: 869.56,
-				checkReset: true,
 				race: {
 					9: { length: 809 } // Elin
 				}
@@ -2631,6 +2630,7 @@ module.exports = {
 				noInterrupt: [26],
 				teleportStage: 1,
 				noRetry: true,
+				timeout: 150
 			}
 		},
 		27: { // Hailstorm
@@ -3452,7 +3452,6 @@ module.exports = {
 			0: {
 				length: 839,
 				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, 21, '18-10', '22-10', 37, '41-10', 43], // Last level got fixed? todo: update
-				checkReset: true,
 				chains: {
 					8: 30,
 					23: 30
@@ -3543,7 +3542,7 @@ module.exports = {
 				noInterrupt: [17],
 				teleportStage: 1,
 				noRetry: true,
-				checkReset: true // is this supposed to be here?
+				timeout: 150 
 			}
 		},
 		18: { // Arun's Vitae
