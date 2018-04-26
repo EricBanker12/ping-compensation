@@ -20,7 +20,7 @@
 
 module.exports = {
 	0: { // Warrior
-		'*': { consumeAbnormal: 104100 },
+		'*': { consumeAbnormal: 104110 },
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 32],
@@ -428,7 +428,7 @@ module.exports = {
 				CC: "extended",
 				type: 'holdInfinite',
 				fixedSpeed: 1,
-				consumeAbnormal: [102010, 104100], // This should exist for all skills but this is the only real case where it's needed in practice
+				consumeAbnormal: [102010, 104110], // This should exist for all skills but this is the only real case where it's needed in practice
 				requiredBuff: [100200, 100201],
 				stamina: 50
 			}
