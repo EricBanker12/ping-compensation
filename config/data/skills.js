@@ -20,6 +20,7 @@
 
 module.exports = {
 	0: { // Warrior
+		'*': { consumeAbnormal: 104100 },
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1, 32],
@@ -113,7 +114,7 @@ module.exports = {
 			},
 			0: {
 				length: 2545.45,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39], // todo
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39, 41, 42], // todo
 				abnormals: {
 					100801: { skill: 360100 },
 					104110: { chain: 30 }
@@ -127,9 +128,7 @@ module.exports = {
 			},
 			30: {
 				length: 2000,
-				abnormals: {
-					100801: { skill: 360130 }
-				}
+				abnormals: { 100801: { skill: 360130 } }
 			}
 		},
 		5: { // Battle Cry
@@ -142,8 +141,8 @@ module.exports = {
 		8: { // Assault Stance
 			'*': {
 				length: 566.4,
-				noInterrupt: [32],
-				abnormals: { 102500: { chain: 6 } },
+				toggleOnAbnormality: 102500, 
+				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
 			50: true
@@ -151,8 +150,8 @@ module.exports = {
 		9: { // Defensive Stance
 			'*': {
 				length: 566.4,
-				noInterrupt: [32],
-				abnormals: { 102500: { chain: 6 } },
+				toggleOnAbnormality: 102500, 
+				noInterrupt: [32]
 			},
 			0: { stamina: 1000 },
 			50: true
@@ -301,11 +300,8 @@ module.exports = {
 			0: {
 				length: 1091,
 				distance: 65.35,
+				toggleOnAbnormality: [100200, 100201], 
 				requiredBuff: 100700,
-				abnormals: {
-					100200: { chain: 6 },
-					100201: { chain: 6 }
-				},
 				race: {
 					2: { distance: 68.81 }, // M.Helf
 					8: { distance: 65.34 }, // Popori
@@ -363,7 +359,7 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37], // todo
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37, 41, 42], // todo
 				interruptibleWithAbnormal: { 102010: 3 },
 				abnormals: {
 					100801: { skill: 370100 },
@@ -391,7 +387,7 @@ module.exports = {
 			'*': { distance: 150 },
 			0: {
 				length: 1833,
-				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 30, 32, 34, 35, 38, 39], // todo
+				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 30, 32, 34, 35, 38, 39, 41, 42], // todo
 				abnormals: {
 					100801: { skill: 380100 },
 					104110: { chain: 30 }
@@ -409,16 +405,14 @@ module.exports = {
 			},
 			30: {
 				length: 1387,
-				abnormals: {
-					100801: { skill: 380130 }
-				}
+				abnormals: { 100801: { skill: 380130 } }
 			}
 		},
 		31: { // Reaping Slash
 			'*': { distance: 110 },
 			0: {
 				length: 2292,
-				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39], // todo
+				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39, 41, 42], // todo
 				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					4: 30,
@@ -434,15 +428,15 @@ module.exports = {
 				CC: "extended",
 				type: 'holdInfinite',
 				fixedSpeed: 1,
-				consumeAbnormal: 102010, // This should exist for all skills but this is the only real case where it's needed in practice
+				consumeAbnormal: [102010, 104100], // This should exist for all skills but this is the only real case where it's needed in practice
 				requiredBuff: [100200, 100201],
-				stamina: 50,
+				stamina: 50
 			}
 		},
 		34: { // Binding Sword
 			0: {
 				length: 1902,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39] // todo
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42] // welp
 			}
 		},
 		35: { // Infuriate
@@ -496,7 +490,6 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 41, 42],
 				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					11: 30,
@@ -516,11 +509,11 @@ module.exports = {
 				length: 810.6,
 				distance: 156.248,
 				noRetry: true,
-				toggleOnAbnormality: 425100,
+				toggleOnAbnormality: [104101, 425100],
 				triggerAbnormal: {
-					104100: 8000,
-					104101: 800, //
-					//104110: 2000
+					//104100: 8000,
+					//104101: 800,
+					104110: 2000
 				},
 				noInterrupt: [32, 40, '41-0', '41-30']
 			},
@@ -565,7 +558,6 @@ module.exports = {
 			},
 			11: true,
 			12: {
-				toggleOnAbnormality: 104101,
 				triggerAbnormal: false,
 				consumeAbnormal: 104100
 			},
@@ -610,7 +602,6 @@ module.exports = {
 			},
 			21: true,
 			22: {
-				toggleOnAbnormality: 104101,
 				triggerAbnormal: false,
 				consumeAbnormal: 104100
 			}
@@ -1555,7 +1546,7 @@ module.exports = {
 				triggerAbnormal: {
 					301600: [4000, 30],
 					301603: [5000, 30],
-					301604: [4000, 30]
+					301604: [5000, 30]
 				},
 				consumeAbnormalEndPending: { 301604: 1000 },
 				abnormals: { 301603: { chain: 31 } },
@@ -1878,6 +1869,7 @@ module.exports = {
 			/*
 			0: {
 				type: 'charging',
+				toggleOnAbnormality: 401400, 
 				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
 				glyphs: {
@@ -1891,7 +1883,6 @@ module.exports = {
 					400501: { chargeSpeed: 0.4 },
 					400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 },
-					401400: { chain: 6 }
 				},
 				level: [
 					{ length: 800 },	// 1300
@@ -4094,8 +4085,8 @@ module.exports = {
 			'*': { glyphs: { 29026: { speed: 0.25 } } },
 			0: {
 				length: 3225,
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 14, 20],
-				chains: { '12-0': 1 }
+				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, '12-1', 14, 20],
+				chains: { 12: 1 }
 			},
 			1: { length: 2025 }
 		},
@@ -4233,6 +4224,7 @@ module.exports = {
 					}
 				},
 				chains: {
+					1: 30,
 					'2-1': 30,
 					4: 30,
 					5: 30,
@@ -4428,6 +4420,7 @@ module.exports = {
 				noInterrupt: [10, 20],
 				projectiles: [20],
 				chains: {
+					1: null,
 					'2-1': null,
 					3: null,
 					4: null,
@@ -4456,6 +4449,7 @@ module.exports = {
 				noInterrupt: [3, 11, 15, 20],
 				distance: 415.45,
 				chains: {
+					1: 30,
 					'2-1': 30,
 					3: 30,
 					4: 30,
@@ -4488,6 +4482,7 @@ module.exports = {
 				distance: -269.09,
 				noInterrupt: [13],
 				chains: {
+					1: null,
 					'2-1': null,
 					3: null,
 					4: null,
@@ -4512,6 +4507,7 @@ module.exports = {
 				triggerAbnormal: { 10152072: [4100, 485] },
 				noInterrupt: [15, 20],
 				chains: {
+					1: 30,
 					'2-1': 30,
 					3: 30,
 					4: 30,
@@ -4546,6 +4542,7 @@ module.exports = {
 				consumeAbnormal: [10152000, 10152001, 10152010, 10152011],
 				projectiles: [20],
 				chains: {
+					1: null,
 					'2-1': null,
 					3: null,
 					4: null,
@@ -5095,7 +5092,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1275,
-				/*abnormals: { 10153040: { chain: 6 } } //can't use this skill when GF is active */
+				// toggleOnAbnormality: 10153040 can't use this skill when GF is active
 			},
 			1: true,
 			2: true
