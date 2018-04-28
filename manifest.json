@@ -23,7 +23,7 @@
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "9eb21f657a230505c360d5743b672cbc896f2dd5eb64923fa64305588097d0a2",
     "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "c7f241865b8fc9f98dca2ecba75aa116550086e1f31be68613689aa64eda720b",
+    "lib/core.js": "6c321d262ca9f096847910fc3cb380a53a2fadfd728573c035cb4bf54309cc02",
     "lib/autoconfig.js": "82c563add166db14d04219ccd5ca6cf4570ae47495a8d83d9b4b354014aadd68",
     "lib/ping.js": "caf6edf345098201977ac0217ae350244ce2eb26d3cad22b1a52209138985c4c",
     "lib/utils.js": "e123a4b6ce91eb61587acead9cacf6c3cf8f3040b6184c3399901773dbefba55",
