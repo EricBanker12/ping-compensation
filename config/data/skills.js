@@ -300,7 +300,7 @@ module.exports = {
 			0: {
 				length: 1091,
 				distance: 65.35,
-				toggleOnAbnormality: [100200, 100201], 
+				toggleOnAbnormality: 100299,
 				requiredBuff: 100700,
 				race: {
 					2: { distance: 68.81 }, // M.Helf
