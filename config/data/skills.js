@@ -1865,8 +1865,6 @@ module.exports = {
 		},
 		10: { // Cyclone
 			'*': { noRetry: true },
-			0: false,
-			/*
 			0: {
 				type: 'charging',
 				toggleOnAbnormality: 401400, 
@@ -1890,7 +1888,6 @@ module.exports = {
 					{ length: [800, 800] }	// 1150
 				]
 			},
-			*/
 			10: {
 				length: 1333,
 				distance: 50,
@@ -3438,6 +3435,9 @@ module.exports = {
 				type: 'lockonCast',
 				length: 1950
 			}
+		},
+		6: { // Shara's Lash
+			0: { length: 1300 }
 		},
 		8: { // Metamorphic Blast
 			0: {
