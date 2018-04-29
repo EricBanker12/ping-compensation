@@ -1256,7 +1256,7 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3365,
+				length: 3375.7,
 				interruptAllWithAbnormal: { 301604: 8 },
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 21, 23, 25, 26, 28],
 				abnormals: {
@@ -1279,7 +1279,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 1325,
+				length: 1331.2,
 				abnormals: {
 					300801: { skill: 250130 },
 					300805: { skill: 250130 }
@@ -1289,20 +1289,20 @@ module.exports = {
 		9: { // Leaping Strike
 			0: {
 				CC: "extended",
-				length: 2175,
+				length: 2191.2,
 				distance: 250,
 			}
 		},
 		10: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1630,
+				length: 1633,
 				noRetry: true
 			}
 		},
 		12: { // Heart Thrust
 			0: {
-				length: 2320,
+				length: 2333,
 				distance: 180.96,
 				abnormals: {
 					23060: { speed: 0.25 },
@@ -1443,7 +1443,7 @@ module.exports = {
 		},
 		21: { // Exhausting Blow
 			0: {
-				length: 1175,
+				length: 1200,
 				distance: 75
 			},
 		},
@@ -1471,7 +1471,7 @@ module.exports = {
 		},
 		24: { // Eviscerate
 			0: {
-				length: 1925,
+				length: 1941,
 				distance: 50,
 				interruptAllWithAbnormal: { 301604: 24 },
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 10, 14, 16, 17, 21, 22, 23, 24, 26, 28],
@@ -1511,11 +1511,11 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3365,
+				length: 3375.7,
 				interruptAllWithAbnormal: { 301604: 25 },
 				abnormals: { 301604: { chain: 30 } }
 			},
-			30: { length: 1325 } //
+			30: { length: 1331 } //
 		},
 		26: { // Decimate(EU), Punishing Blow(NA)
 			0: {
