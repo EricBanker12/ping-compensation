@@ -114,7 +114,7 @@ module.exports = {
 			},
 			0: {
 				length: 2545.45,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39, 41, 42], // todo
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39, 41, 42],
 				abnormals: {
 					100801: { skill: 360100 },
 					104110: { chain: 30 }
@@ -359,7 +359,7 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 27, 29, 34, 35, 36, 37, 41, 42], // todo
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 29, 34, 35, 36, 37, 41, 42],
 				interruptibleWithAbnormal: { 102010: 3 },
 				abnormals: {
 					100801: { skill: 370100 },
@@ -387,7 +387,7 @@ module.exports = {
 			'*': { distance: 150 },
 			0: {
 				length: 1833,
-				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 27, 28, 30, 32, 34, 35, 38, 39, 41, 42], // todo
+				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 28, 30, 32, 34, 35, 38, 39, 41, 42],
 				abnormals: {
 					100801: { skill: 380100 },
 					104110: { chain: 30 }
@@ -412,7 +412,7 @@ module.exports = {
 			'*': { distance: 110 },
 			0: {
 				length: 2292,
-				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 37, 39, 41, 42], // todo
+				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 28, 29, 32, 33, 34, 35, 37, 39, 41, 42],
 				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					4: 30,
@@ -436,7 +436,7 @@ module.exports = {
 		34: { // Binding Sword
 			0: {
 				length: 1902,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 27, 28, 29, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42] // welp
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42]
 			}
 		},
 		35: { // Infuriate
@@ -517,10 +517,9 @@ module.exports = {
 				},
 				noInterrupt: [32, 40, '41-0', '41-30']
 			},
-			10: {	// astance 1st?
+			10: {
 				abnormals: { 104100: { chain: 12 } },
 				chains: {
-					// essential mana says all skills can chain into BW, but need to specify them
 					1: 11,
 					2: 11,
 					3: 11,
@@ -531,7 +530,7 @@ module.exports = {
 					10: 11,
 					11: 11,
 					12: 11,
-					13: 11, // I assume retaliate can chain into this skill
+					13: 11,
 					16: 11,
 					17: 11,
 					18: 11,
@@ -564,7 +563,6 @@ module.exports = {
 			20: {
 				abnormals: { 104100: { chain: 22 } },
 				chains: {
-					// essential mana says all skills can chain into BW, but need to specify them
 					1: 21,
 					2: 21,
 					3: 21,
@@ -575,7 +573,7 @@ module.exports = {
 					10: 21,
 					11: 21,
 					12: 21,
-					13: 21, // I assume retaliate can chain into this skill
+					13: 21,
 					16: 21,
 					17: 21,
 					18: 21,
@@ -627,7 +625,7 @@ module.exports = {
 					10: 30,
 					11: 30,
 					12: 30,
-					13: 30, // I assume retaliate can chain into this skill
+					13: 30,
 					16: 30,
 					17: 30,
 					18: 30,
@@ -1592,7 +1590,7 @@ module.exports = {
 				length: 751.25,
 				distance: 275.6,
 				triggerAbnormal: { 301601: [4000, 30] },
-				triggerAbnormalOnCondition: { 301604: [4000, 30] },
+				triggerAbnormalIfMissing: { 301604: [4000, 30] },
 				consumeAbnormal: [301600, 301603]
 			}
 		},
@@ -1626,7 +1624,7 @@ module.exports = {
 			0: { length: 3000 }
 		}
 	},
-	3: { // Berserker / There's a lot of unneeded no interrupts currently since sGrantSkill is emulated now, this applies for all charging skills interactions
+	3: { // Berserker
 		'*': { consumeAbnormal: 401404 },
 		1: { // Combo Attack
 			'*': {
@@ -1793,13 +1791,17 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '16', '18-10', '18-11', '18-12', '18-13', 24, 28, 29, 30, '32-0'],
+				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 13, '15-10', '15-11', '15-12', '15-13', '15-14', 16, 18, 24, 27, 28, 29, 30, '32-0'],
 				abnormals: { 401400: { chain: 1 } },
 				chains: {
 					6: 30,
 					25: 30,
 					32: 31,
-					31: 30
+					31: 30,
+					34: 30,
+					35: 30,
+					36: 30,
+					37: 30
 				}
 			},
 			1: {
@@ -1858,9 +1860,7 @@ module.exports = {
 			30: {
 				length: 1742.34,
 				requiredBuff: 401400,
-				race: {
-					7: { length: 1767.34 } // F.Casta
-				}
+				race: { 7: { length: 1767.34 } } // F.Casta
 			}
 		},
 		10: { // Cyclone
@@ -2039,7 +2039,7 @@ module.exports = {
 				distance: 167.62,
 				toggleOnAbnormality: 401400,
 				consumeAbnormal: 400900,
-				abnormals: { 24120: { speed: 0.3 } },
+				//abnormals: { 24120: { speed: 0.3 } },
 				race: {
 					4: { distance: 145 },
 					6: { distance: 168.11 }, // M.Casta
@@ -2049,9 +2049,9 @@ module.exports = {
 			},
 			0: {
 				length: 687.5,
-				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 28, 29, 31],
+				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 27, 28, 29, 31, 34, 35, 36, 37],
 				chains: {
-					'3-0': 30,
+					'3-0': 0,
 					3: 30,
 					11: 30,
 					'10-0': 0,
@@ -2088,7 +2088,7 @@ module.exports = {
 				length: 1833, // 1630
 				distance: 167.63, // 167.624
 				consumeAbnormal: [400900, 401404],
-				requiredBuff: 400900, // <- no werk?
+				requiredBuff: 400900,
 				race: {
 					6: { distance: 168.11 }, // M.Casta
 					8: { distance: 240.4 }, // Popori
@@ -2119,12 +2119,10 @@ module.exports = {
 			'*': {
 				length: 1200,
 				distance: 96,
-				glyphs: {
-					24078: { speed: 0.25 }
-				}
+				glyphs: { 24078: { speed: 0.25 } }
 			},
 			0: {
-				noInterrupt: [2, 4, 6, '8-30', 11, 12, 13, '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
+				noInterrupt: [2, 4, 6, '8-30', 11, 13, '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
 				interruptibleWithAbnormal: { 401404: 2 }, // .........................
 				abnormals: { 401404: { chain: 31 } }, // todo: correct ids
 				chains: {
@@ -2149,7 +2147,7 @@ module.exports = {
 			}
 		},
 		27: { // Unbreakable
-			'*': { noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32] },
+			'*': { noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32] },
 			0: {
 				length: 2066,
 				abnormals: { 401705: { chain: 30 } },
@@ -2185,7 +2183,7 @@ module.exports = {
 			'*': {
 				length: 655.33,
 				distance: 21.05,
-				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
+				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				requiredBuff: 401402,
 				chains: { 2: 30 },
 				race: {
@@ -2216,9 +2214,7 @@ module.exports = {
 			},
 			1: {
 				length: 1510.83,
-				race: {
-					9: { length: 1344 }
-				}
+				race: { 9: { length: 1344 } }
 			}
 		},
 		32: { // Punishing Strike
@@ -3080,7 +3076,7 @@ module.exports = {
 			0: {
 				length: 1763,
 				toggleOnAbnormality: 805800,
-				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, 23, 25, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', '41-10', 42],
+				noInterrupt: [2, 3, 5, 10, 12, 14, 18, 25, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', '41-10', 42],
 				chains: {
 					'19-10': 30,
 					26: 30,
@@ -3143,7 +3139,7 @@ module.exports = {
 		16: { // Shocking Implosion
 			'*': {
 				length: 1718,
-				noInterrupt: [2, 3, 5, 10, 12, 14, 16, 17, 18, '19-10', 23, 25, 26, 28, 29, '30-10', '33-10', 34, '35-10', '37-10', 38, 40, '41-10', 42]
+				noInterrupt: [2, 3, 5, 10, 12, 14, 16, 18, '19-10', 25, 26, 28, 29, '30-10', '33-10', 34, '35-10', '37-10', 38, 40, '41-10', 42]
 			},
 			0: {
 				chains: {
@@ -3201,11 +3197,11 @@ module.exports = {
 				forceClip: true
 			}
 		},
-		27: { // Final Reprisal todo: check
+		27: { // Final Reprisal
 			'*': {
 				length: 2933,
 				race: { 9: { length: 3333 } },
-				noInterrupt: [2, 3, 5, 10, 12, 14, 17, 18, '19-10', 23, 25, 26, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', 38, '41-10', 42],
+				noInterrupt: [2, 3, 5, 10, 12, 14, 18, '19-10', 25, 26, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', 38, '41-10', 42],
 			},
 			0: {
 				chains: {
@@ -3442,7 +3438,7 @@ module.exports = {
 		8: { // Metamorphic Blast
 			0: {
 				length: 839,
-				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, 21, '18-10', '22-10', 37, '41-10', 43], // Last level got fixed? todo: update
+				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, 21, '18-10', '22-10', 37, '41-10', 43, 48], // Last level got fixed?
 				chains: {
 					8: 30,
 					23: 30
@@ -3582,7 +3578,7 @@ module.exports = {
 		23: { // Metamorphic Smite
 			0: {
 				length: 1440,
-				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43], // todo: update
+				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43, 48],
 				chains: { 8: 30 }
 			},
 			30: { length: 1108 }
