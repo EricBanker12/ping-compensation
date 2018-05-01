@@ -22,15 +22,14 @@
     "docs/ping.pdf": "3ff334efdf6adfd384165006c2017ea3a96d16557dfbf59b06da67dfdfa148f8",
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "b4a85dcc997bf56f0d9d3540e1d6692f74e1379709e2d9137a4829e4dad1a69d",
-    "lib/cooldowns.js": "59312e5d7426884b1f2ab28def4ff27ee33b55ceadbe0a32689629686511abf3",
-    "lib/core.js": "e037700b3c21439b650306bdfe8ae55706f981e79ee01e6745f17feb0880cc18",
+    "lib/core.js": "877ae3a63c8e1563f4d47df6d5614603657fe7ebf5ac454a21f4f22c29f6dfc6",
     "lib/autoconfig.js": "82c563add166db14d04219ccd5ca6cf4570ae47495a8d83d9b4b354014aadd68",
     "lib/ping.js": "caf6edf345098201977ac0217ae350244ce2eb26d3cad22b1a52209138985c4c",
     "lib/utils.js": "e123a4b6ce91eb61587acead9cacf6c3cf8f3040b6184c3399901773dbefba55",
     "res/spLogo.png": "d4952c4d3327c7b3a33ad247be0722f3c645ef357acc4abb05c67f335b3c8c70",
     "migration/steps.json": "37241c651dc6241e00937a19bbe49eeee2db7a44bfe350205bcb0711df217445",
     "config/data/default-config.json": "4e02b87396bc61baf3eae839dd027e40772270aa1214d1a64dca1404d10574d6",
-    "lib/loader.js": "655b04c1b72d95c12304e268d1b1d17c68ae7d96855c1821e093d5863fc8e0fc"
+    "lib/loader.js": "6c0ccf10f134e8ac6a5753dd4d46e8d0e6ef02e76c439311e3693d5c84aebce5"
     
   },
   "defs": {
