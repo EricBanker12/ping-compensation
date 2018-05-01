@@ -1,5 +1,5 @@
 {
-    "version": "4.8",
+    "version": "4.81",
     "config": {
 
     },
@@ -9,6 +9,7 @@
         "../config/abnormalities.js",
         "../config/default-config.json",
         "./migration.js",
-        "../config/data/awakening.js"
+        "../config/data/awakening.js",
+        "./cooldowns.js"
     ]
 }
