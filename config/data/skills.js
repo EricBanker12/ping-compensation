@@ -4778,8 +4778,7 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: [2950, 650],
-				distance: [0, 135],
-				noInterrupt: [5]
+				distance: [0, 135]
 			}
 		},
 		6: { // Haymaker
