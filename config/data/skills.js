@@ -225,7 +225,7 @@ module.exports = {
 				length: 1117,
 				distance: 467.88,
 				noRetry: true,
-				noInterrupt: [16, 32]
+				noInterrupt: [32]
 			},
 			1: { length: 800 }
 		},
@@ -899,7 +899,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1115,
 				distance: 474.5,
-				noInterrupt: [2, 15]
+				noInterrupt: [2]
 			},
 			1: {
 				length: 935,
@@ -1410,7 +1410,6 @@ module.exports = {
 					{ emulateAttackSpeedBonus: 40 },
 					{ emulateAttackSpeedBonus: 50 }
 				],
-				noInterrupt: [17],
 				noRetry: true
 			}
 		},
@@ -1430,13 +1429,12 @@ module.exports = {
 		},
 		20: { // In Cold Blood
 			0: {
-				triggerAbnormal: { 23220: 2000 },
 				fixedSpeed: 1,
-				emulateAttackSpeedBonus: 8,
 				length: 1200,
-				level: {
-					1: { emulateAttackSpeedBonus: 6 }
-				}
+				triggerAbnormal: { 23220: 2000 },
+				consumeAbnormalEnd: 23220,
+				emulateAttackSpeedBonus: 8,
+				level: { 0: { emulateAttackSpeedBonus: 6 } }
 			}
 		},
 		21: { // Exhausting Blow
@@ -2209,7 +2207,7 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1115,
 				distance: 470,
-				noInterrupt: [2, 31],
+				noInterrupt: [2],
 				noRetry: true
 			},
 			1: {
@@ -2256,15 +2254,15 @@ module.exports = {
 			'*': {
 				length: [600, 833, 833],
 				distance: [0, 27.5, 0],
-				requiredBuff: 401705
-			},
-			0: {
-				noInterrupt: [34, 36],
-				noRetry: true,
+				requiredBuff: 401705,
 				abnormals: {
-					401706: { speed: 1.2 },
+					401706: { speed: 0.2 },
 					401716: { chain: 31 }
 				},
+			},
+			0: {
+				noRetry: true,
+				noInterrupt: [34, 36],
 				chains: {
 					33: 30,
 					35: 30,
@@ -2285,19 +2283,19 @@ module.exports = {
 			'*': {
 				length: [1133, 833],
 				distance: [198, 0],
-				requiredBuff: 401705
+				requiredBuff: 401705,
+				abnormals: {
+					401707: { speed: 0.2 },
+					401717: { chain: 31 }
+				}
 			},
 			0: {
-				abnormals: {
-					401707: { speed: 1.2 },
-					401717: { chain: 31 }
-				},
+				noRetry: true,
+				noInterrupt: [35, 36, 37],
 				chains: {
 					33: 1,
 					34: 30
-				},
-				noRetry: true,
-				noInterrupt: [35, 36, 37],
+				}
 			},
 			1: true,
 			30: {
@@ -2315,15 +2313,15 @@ module.exports = {
 				distance: 38.5,
 				noRetry: true,
 				noInterrupt: [37],
-				requiredBuff: 401705
+				requiredBuff: 401705,
+				abnormals: {
+					401708: { speed: 0.2 },
+					401718: { chain: 31 }
+				},
 			},
 			0: {
 				length: 2714.4,
 				noRetry: true,
-				abnormals: {
-					401708: { speed: 1.2 },
-					401718: { chain: 31 }
-				},
 				chains: {
 					34: 30,
 					35: 30,
@@ -2335,7 +2333,7 @@ module.exports = {
 		},
 		37: { // Unleash: Beast Fury
 			'*': {
-				// race difference could be a thing
+				// to do pasta some stuff from :b:inkie
 				length: [610.8, 694, 721.6, 471.66, 1194],
 				distance: [126, 144.824, 151.1, 9.4, 98.64],
 				toggleOnAbnormality: 425101,
@@ -3020,7 +3018,7 @@ module.exports = {
 		31: { // Tenacity
 			0: {
 				fixedSpeed: 1,
-				length: [500, 720] // 700
+				length: [500, 700]
 			}
 		},
 		32: { // Find Weakness
@@ -3034,9 +3032,8 @@ module.exports = {
 				CC: "evasive",
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1050, // 950-1025
-				distance: 413, // 412.078
-				noInterrupt: [33],
+				length: 1050,
+				distance: 413,
 			}
 		},
 
@@ -5545,15 +5542,13 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
-				distance: 469,
-				noInterrupt: [4],
+				distance: 469
 			},
 			2: {
 				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
-				distance: 469,
-				noInterrupt: [4],
+				distance: 469
 			},
 			10: { length: 1500 },
 			11: {
