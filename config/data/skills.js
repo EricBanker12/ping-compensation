@@ -1851,7 +1851,7 @@ module.exports = {
 		},
 		8: { // Fiery Rage
 			'*': { noInterrupt: [2] },
-			0: {
+			1: {
 				fixedSpeed: 1,
 				length: [454.54, 596.81]
 			},
