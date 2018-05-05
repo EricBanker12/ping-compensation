@@ -114,7 +114,7 @@ module.exports = {
 			},
 			0: {
 				length: 2545.45,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 32, 34, 35, 36, 37, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39, 41, 42],
 				abnormals: {
 					100801: { skill: 360100 },
 					104110: { chain: 30 }
@@ -209,14 +209,16 @@ module.exports = {
 				}
 			}
 		},
-		/*13: { // Retaliate
+		/*
+		13: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1630,
+				length: 1633,
 				noInterrupt: [32],
 				noRetry: true
 			}
-		},*/
+		},
+		*/
 		16: { // Charging Slash
 			0: {
 				CC: ["evasive", "extended"],
@@ -244,8 +246,6 @@ module.exports = {
 				distance: 120.28,
 				noInterrupt: [32],
 				race: {
-					//2: { distance: 120.28 }, // M.Helf
-					//5: { distance: 120.28 }, // F.Aman
 					8: { distance: 128.89 }, // Popori
 					9: { distance: 138.28 } // Elin
 				}
@@ -336,7 +336,7 @@ module.exports = {
 			0: {
 				length: 2000,
 				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 13, 16, 17, 19, 21, 22, 28, 29, 32, 34, 36, 37, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 13, 16, 17, 19, 21, 22, 28, 29, 30, 32, 34, 36, 37, 38, 39, 41, 42],
 				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					11: 30,
@@ -357,7 +357,7 @@ module.exports = {
 			0: {
 				length: 3000,
 				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 29, 34, 35, 36, 37, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 23, 29, 30, 34, 35, 36, 37, 38, 41, 42],
 				interruptibleWithAbnormal: { 102010: 3 },
 				abnormals: {
 					100801: { skill: 370100 },
@@ -410,7 +410,7 @@ module.exports = {
 			'*': { distance: 110 },
 			0: {
 				length: 2292,
-				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 28, 29, 32, 33, 34, 35, 37, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 28, 29, 30, 32, 33, 34, 35, 37, 38, 39, 41, 42],
 				abnormals: { 104110: { chain: 30 } },
 				chains: {
 					4: 30,
@@ -434,7 +434,7 @@ module.exports = {
 		34: { // Binding Sword
 			0: {
 				length: 1902,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42]
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
 			}
 		},
 		35: { // Infuriate
@@ -673,8 +673,8 @@ module.exports = {
 				distance: 326.55
 			}
 		},
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	1: { // Lancer
@@ -1057,8 +1057,8 @@ module.exports = {
 				toggleOnAbnormality: [425100, 425101]
 			}
 		},
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	2: { // Slayer
@@ -1581,8 +1581,8 @@ module.exports = {
 				noInterrupt: ['28-3']
 			}
 		},
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	3: { // Berserker
@@ -2313,8 +2313,8 @@ module.exports = {
 			},
 			30: true
 		},
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	4: { // Sorcerer
@@ -2638,8 +2638,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	5: { // Archer
@@ -2958,8 +2958,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	6: { // Priest
@@ -3310,8 +3310,8 @@ module.exports = {
 			},
 			50: { length: 200 }
 		},
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	7: { // Mystic
@@ -3661,8 +3661,8 @@ module.exports = {
 				toggleOnAbnormality: [425100, 425101]
 			} // 10239003
 		},
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	8: { // Reaper
@@ -4054,8 +4054,8 @@ module.exports = {
 			30: true
 		},
 
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	9: { // Gunner
@@ -4463,8 +4463,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	10: { // Brawler
@@ -5180,8 +5180,8 @@ module.exports = {
 			31: true
 		},
 
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	11: { // Ninja
@@ -5772,8 +5772,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	},
 	12: { // Valkyrie
@@ -6307,8 +6307,8 @@ module.exports = {
 			}
 		},
 
-		91: { // Awakening Eyes Aura
-			0: { length: 3000 }
+		910: { // Awakening Eyes Aura
+			0: { length: 500 }
 		}
 	}
 }
