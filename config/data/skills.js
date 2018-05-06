@@ -3626,7 +3626,8 @@ module.exports = {
 		42: { // Boomerang Pulse
 			0: {
 				length: 545.45,
-				noInterrupt: [42]
+				noInterrupt: [42],
+				timeout: 150
 			}
 		},
 		43: { // Release
@@ -3640,7 +3641,8 @@ module.exports = {
 				toggleOnAbnormality: 425100,
 				noInterrupt: [17],
 				teleportStage: 1,
-				noRetry: true
+				noRetry: true,
+				timeout: 150
 			}
 		},
 		45: { // Thrall Augmentation
@@ -4641,6 +4643,7 @@ module.exports = {
 			'*': {
 				length: [1025, 1825],
 				distance: [0, 171.61],
+				timeout: 150,
 				abnormals: { 31120: { chain: 31 } },
 				chains: {
 					1: 30,
