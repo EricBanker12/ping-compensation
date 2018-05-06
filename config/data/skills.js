@@ -506,14 +506,14 @@ module.exports = {
 			'*': {
 				length: 810.6,
 				distance: 156.248,
-				noRetry: true,
 				toggleOnAbnormality: [104101, 425100],
 				triggerAbnormal: {
 					//104100: 8000,
 					//104101: 800,
 					104110: 2000
 				},
-				noInterrupt: [32, 40, '41-0', '41-30']
+				consumeAbnormal: 104100, // Shouldn't be present in 10, 20, but it doesn't matter
+				noInterrupt: [32, 40]
 			},
 			10: {
 				abnormals: { 104100: { chain: 12 } },
@@ -553,11 +553,8 @@ module.exports = {
 					42: 11
 				}
 			},
-			11: true,
-			12: {
-				triggerAbnormal: false,
-				consumeAbnormal: 104100
-			},
+			11: true, // if the other abnormals ever get emulated this should only trigger 104110
+			12: { triggerAbnormal: { 104110: 2000 } },
 			20: {
 				abnormals: { 104100: { chain: 22 } },
 				chains: {
@@ -596,11 +593,8 @@ module.exports = {
 					42: 21
 				}
 			},
-			21: true,
-			22: {
-				triggerAbnormal: false,
-				consumeAbnormal: 104100
-			}
+			21: { abnormals: { 104100: { chain: 22 } } }, // if the other abnormals ever get emulated this should only trigger 104110
+			22: { triggerAbnormal: { 104110: 2000 } }
 		},
 		41: { // Aerial Scythe
 			'*': {
@@ -823,7 +817,7 @@ module.exports = {
 			0: {
 				length: 925,
 				distance: 30,
-				noInterrupt: [3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: [3, 4, 5, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					18: 30
@@ -4262,8 +4256,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1200,
-				noInterrupt: [9, 20],
-				lastChargeStage: 0
+				noInterrupt: [9, 20]
 			},
 			10: {
 				distance: -50,
