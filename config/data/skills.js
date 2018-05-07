@@ -3270,7 +3270,8 @@ module.exports = {
 		40: { // Zenobia's Vortex
 			'*': {
 				length: 1070.71,
-				noInterrupt: [40]
+				noInterrupt: [40],
+				timeout: 150
 			},
 			0: true,
 			10: true,
