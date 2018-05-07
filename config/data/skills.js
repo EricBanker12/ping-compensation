@@ -3102,6 +3102,7 @@ module.exports = {
 		26: { // Fiery Escape
 			0: {
 				CC: ["evasive", "extended"],
+				noInterrupt: [38],
 				length: 1125,
 				distance: -250.5,
 				forceClip: true
@@ -3257,6 +3258,7 @@ module.exports = {
 		38: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
+				noInterrupt: [26],
 				length: 657.27,
 				distance: -200,
 				forceClip: true
