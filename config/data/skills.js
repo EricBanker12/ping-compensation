@@ -3328,6 +3328,7 @@ module.exports = {
 			11: { length: 839 },
 			12: {
 				length: 1294,
+				timeout: 135,
 				race: { 1: { length: 1224 } }
 			}
 		},
@@ -3504,7 +3505,8 @@ module.exports = {
 		25: { // Thrall of Protection
 			'*': {
 				fixedSpeed: 1,
-				length: [1000, 1700]
+				length: [1000, 1700],
+				timeout: 150
 			},
 			0: true,
 			10: true, // 1023016
