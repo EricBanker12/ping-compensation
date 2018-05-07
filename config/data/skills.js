@@ -4825,7 +4825,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1291,
-				noInterrupt: [13]
+				noInterrupt: [13, 40]
 			},
 			1: true,
 			2: true
