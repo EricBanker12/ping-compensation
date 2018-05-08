@@ -29,7 +29,7 @@
     "res/spLogo.png": "d6f8ea63c54d3e99cf12e029e538e2ed51eb76a1c7999f1cfa7e913db26d219b",
     "migration/steps.json": "004b56aed50b5005464f3837e59633e6dc24566fa1ae8fceb4cf0307c4f38fb3",
     "config/data/default-config.json": "31aa27b90b10ff91eb2ccb7e196b2fc1d366a2f30b50e896be53d4fc2155a03f",
-    "lib/loader.js": "0ef5d70c7b6e399768896f7cc3558e42b69a1de1f9b78e065fce7bcb951064d9",
+    "lib/loader.js": "0ef5d70c7b6e399768896f7cc3558e42b69a1de1f9b78e065fce7bcb951064d9"
     
   },
   "defs": {
