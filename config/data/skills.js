@@ -1021,20 +1021,30 @@ module.exports = {
 			}
 		},
 		28: { // Righteous Leap
-			'*': {
-				noRetry: true,
-				distance: [29.48, 445.52, 0]
-			},
 			0: {
 				toggleOnAbnormality: 425100,
-				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
 				length: [333.33, 1055, 3121.66],
+				distance: [29.48, 445.52, 0],
+				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
 				chains: {
 					15: 1,
 					25: 1
-				}
+				},
+				race: {
+					1: { distance: [20.32, 398.47, 0] },
+					5: { distance: [20.32, 398.47, 0] },
+					6: { distance: [20.32, 398.47, 0] }
+			}
 			},
-			1: { length: [250, 791.25, 833.75] }
+			1: { 
+				length: [250, 791.25, 833.75],
+				distance: [29.48, 469, 0],
+				race: {
+					1: { distance: [20.32, 419.44, 0] },
+					5: { distance: [20.32, 419.44, 0] },
+					6: { distance: [20.32, 419.44, 0] }
+				}
+			}
 		},
 		29: { // Guardian's Barrier
 			0: {
