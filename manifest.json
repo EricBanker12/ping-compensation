@@ -25,7 +25,7 @@
     "lib/core.js": "24210719ada0c9e24ceb424b3b472e5412817ea0271d1275f07a5a86036508b5",
     "lib/autoconfig.js": "dce97bca54be0c4c50aab6c36ed6c3923096d5ed31cec3a84e581ec055fe6fed",
     "lib/ping.js": "1a2f75106027a20d81ca903be373c065c4902fc7715357e94495e4cda13473c1",
-    "lib/utils.js": "4064254c2b7f373bbe5e46146f0092bd9821983631d08928796c27d4a894844b",
+    "lib/utils.js": "910944438cfc7db5c0adcf04e35793eabe87b562865833ab8e4d9ada00b7a0e5",
     "res/spLogo.png": "d6f8ea63c54d3e99cf12e029e538e2ed51eb76a1c7999f1cfa7e913db26d219b",
     "migration/steps.json": "004b56aed50b5005464f3837e59633e6dc24566fa1ae8fceb4cf0307c4f38fb3",
     "config/data/default-config.json": "31aa27b90b10ff91eb2ccb7e196b2fc1d366a2f30b50e896be53d4fc2155a03f",
