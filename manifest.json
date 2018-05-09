@@ -13,7 +13,7 @@
       "overwrite": false,
       "hash": "a3701efc663004c5659811c3e4f2c8a3df70f7b95af87e76ad08dd8f0d039999"
     },
-    "config/data/basicCC.json": "0d91a8c6d8c4e90c8e9a758b54285c9978e4f8159bc33115e46a9c9cd08f8968",
+    "config/data/basicCC.json": "c82c8b5fc2c1fd947c6732c24cc2a33ac4e8b7426d1f6ad4331bfaf9d513c635",
     "config/data/evasiveCC.json": "162984b94cf62fd651de1a596b63e5de7d1419a4771a8a833ba425acd8db0c45",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
     "config/data/skills.js": "0a7ffcf785b8dc377b198f97ac97cae536f1f2a0569ee632158806e517ca2cdb",
@@ -23,12 +23,12 @@
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "49fa2182df0570d604e9ef1b81ba38091b41ac695399e602b9b2b5ab8337c571",
     "lib/core.js": "24210719ada0c9e24ceb424b3b472e5412817ea0271d1275f07a5a86036508b5",
-    "lib/autoconfig.js": "dce97bca54be0c4c50aab6c36ed6c3923096d5ed31cec3a84e581ec055fe6fed",
-    "lib/ping.js": "1a2f75106027a20d81ca903be373c065c4902fc7715357e94495e4cda13473c1",
-    "lib/utils.js": "910944438cfc7db5c0adcf04e35793eabe87b562865833ab8e4d9ada00b7a0e5",
+    "lib/autoconfig.js": "92b5847bc49836cad4b66f9ce73580a4d14e824f511f4cb76b3a766c940c5927",
+    "lib/ping.js": "24fb2c037990d5f3ca92b45b76db9c7afb0d2d2bea8323d2facb6b04e784360a",
+    "lib/utils.js": "1983d27fb2ce708853fdefabd955b0e2e12954cf3d0b1de51828c47163acaf0d",
     "res/spLogo.png": "d6f8ea63c54d3e99cf12e029e538e2ed51eb76a1c7999f1cfa7e913db26d219b",
-    "migration/steps.json": "004b56aed50b5005464f3837e59633e6dc24566fa1ae8fceb4cf0307c4f38fb3",
-    "config/data/default-config.json": "31aa27b90b10ff91eb2ccb7e196b2fc1d366a2f30b50e896be53d4fc2155a03f",
+    "migration/steps.json": "ea9d67c807989c994d3e6dd13d8c9601ed6de9d62c3346bc4af350e9c1007a36",
+    "config/data/default-config.json": "589c2aae4e25b1949f0cbff4c6b1a1100a4e19d45a475de685051a6b471f8b32",
     "lib/loader.js": "0ef5d70c7b6e399768896f7cc3558e42b69a1de1f9b78e065fce7bcb951064d9"
     
   },
