@@ -6,7 +6,7 @@
 	"skillRetryJittercomp": 25,
 	"skillRetryAlways": false,
 	"skillDelayOnFail": true,
-	"serverTimeout": 100,
+	"serverTimeout": 200,
 	"debugGlyphs": false,
 	"debug": false,
 	"debugAbnormals": false,
@@ -15,9 +15,6 @@
 	"mountCheck": true,
 	"version": "4.7",
 	"pingMethod": "active",
-	"pingHistoryMax": 20,
-	"pingSpikesLimit": false,
-	"pingSpikesMin": 100,
-	"pingSpikesMax": 300,
+	"pingHistoryMax": 35,
 	"emulateAttackSpeedFromSelfBuffs": false
 }
