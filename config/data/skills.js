@@ -548,16 +548,13 @@ module.exports = {
 					26: 11,
 					28: 11,
 					29: 11,
-					30: 11,
 					31: 11,
 					34: 11,
 					35: 11,
 					36: 11,
 					37: 11,
-					38: 11,
 					39: 11,
-					'41-31': 11,
-					42: 11
+					'41-31': 11
 				}
 			},
 			11: true, // if the other abnormals ever get emulated this should only trigger 104110
@@ -588,16 +585,13 @@ module.exports = {
 					26: 21,
 					28: 21,
 					29: 21,
-					30: 21,
 					31: 21,
 					34: 21,
 					35: 21,
 					36: 21,
 					37: 21,
-					38: 21,
 					39: 21,
-					'41-31': 21,
-					42: 21
+					'41-31': 21
 				}
 			},
 			21: { abnormals: { 104100: { chain: 22 } } }, // if the other abnormals ever get emulated this should only trigger 104110
@@ -637,16 +631,13 @@ module.exports = {
 					26: 30,
 					28: 30,
 					29: 30,
-					30: 30,
 					31: 30,
 					34: 30,
 					35: 30,
 					36: 30,
 					37: 30,
-					38: 30,
 					39: 30,
-					40: 30,
-					42: 30
+					40: 30
 				}
 			},
 			30: { triggerAbnormal: { 105100: 1800 } },

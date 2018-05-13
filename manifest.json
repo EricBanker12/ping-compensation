@@ -11,12 +11,12 @@
 			"overwrite": false,
 			"hash": "694b5b6ad3cdc60b5149834d3992e93a7c0fca612e26cd7be02c5a311111e856"
 		},
-		"config/data/skills.js": "d4dc326ee7c5f9131c809e3385899dad1dde027469b9fffffe58e225c95d6f44",
+		"config/data/skills.js": "bde7a074ec32da59e8b1babb814a1c705a7fa61193d019f968bf777f2729eb63",
 		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
 		"docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
 		"docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
-		"lib/core.js": "a53ac764e7a5a432adea698e48bdacb6f70e7caf218df160853ee1a47992e82d",
+		"lib/core.js": "f8992d5ec7c4d3ccacf75366583aca887b10e2c58b26e535ec0a35c2814a396e",
 		"lib/ping.js": "42d1fc2e5d9c34f05caea5ddfa575ec609caba81a068b7c5788fe309596b13e8",
 		"LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
 		"config/data/default-config.json": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a"
