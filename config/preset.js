@@ -164,11 +164,11 @@ module.exports = {
 		17: true, // Painful Trap
 		18: true, // Glacial Retreat
 		19: false, // Mana Siphon
-		20: true, // Flaming Barrage
-		21: true, // Nerve Exhaustion
-		22: true, // Burning Breath
-		23: true, // Mana Volley
-		25: true, // Time Gyre
+		20: false, // Flaming Barrage
+		21: false, // Nerve Exhaustion
+		22: false, // Burning Breath
+		23: false, // Mana Volley
+		25: false, // Time Gyre
 		26: true, // Teleport Jaunt
 		27: true, // Hailstorm
 		30: true, // Nova
@@ -183,7 +183,7 @@ module.exports = {
 	5: { // Archer
 		"enabled": true,
 		1: false, // Arrow
-		2: true, // Arrow Volley
+		2: false, // Arrow Volley
 		3: false, // Radiant Arrow
 		4: false, // Penetrating Arrow
 		5: true, // Rain of Arrows
@@ -227,24 +227,24 @@ module.exports = {
 		16: true, // Shocking Implosion
 		17: true, // Prayer of Peace
 		18: true, // Heal Thyself
-		19: true, // Focus Heal
+		19: false, // Focus Heal
 		22: true, // Kaia's Shield
 		23: true, // Blessing of Balder
 		26: true, // Fiery Escape
 		27: true, // Final Reprisal
 		28: false, // Mana Charge / Words of Vitality (Awakening)
 		29: true, // Triple Nemesis
-		30: true, // Plague of Exhaustion
+		30: false, // Plague of Exhaustion
 		31: true, // Guardian Sanctuary
 		32: true, // Divine Respite
-		33: true, // Ishara's Lullaby
+		33: false, // Ishara's Lullaby
 		34: true, // Restorative Burst
-		35: true, // Energy Stars
-		37: true, // Healing Immersion
+		35: false, // Energy Stars
+		37: false, // Healing Immersion
 		38: true, // Backstep
 		39: true, // Grace of Resurrection
 		40: true, // Zenobia's Vortex
-		41: true, // Divine Intervention / Divine Vitality (Awakening)
+		41: false, // Divine Intervention / Divine Vitality (Awakening)
 		// Awakening
 		42: true, // Holy Burst
 		43: true, // Words of Judgment
@@ -255,13 +255,13 @@ module.exports = {
 		1: false, // Sharan Bolt
 		2: true, // Corruption Ring
 		4: true, // Ancient Binding
-		5: true, // Titanic Favor
+		5: false, // Titanic Favor
 		6: true, // Shara's Lash
 		8: true, // Metamorphic Blast
-		9: true, // Arun's Cleansing
+		9: false, // Arun's Cleansing
 		10: true, // Resurrect
 		11: true, // Summon: Party
-		12: true, // Vow of Rebirth
+		12: false, // Vow of Rebirth
 		13: true, // Aura of the Merciless
 		14: true, // Aura of the Swift
 		15: true, // Aura of the Unyielding
@@ -271,20 +271,20 @@ module.exports = {
 		21: true, // Retaliate
 		22: false, // Arun's Tears
 		23: true, // Metamorphic Smite
-		24: true, // Volley of Curses
+		24: false, // Volley of Curses
 		25: true, // Thrall of Protection
 		27: true, // Thrall of Life
-		28: true, // Sonorous Dreams
+		28: false, // Sonorous Dreams
 		29: true, // Regression
-		30: true, // Curse of Exhaustion
-		31: true, // Curse of Confusion
-		32: true, // Mire
+		30: false, // Curse of Exhaustion
+		31: false, // Curse of Confusion
+		32: false, // Mire
 		33: true, // Thrall of Vengeance
 		34: true, // Thrall of Wrath
 		35: true, // Command: Attack
 		36: true, // Command: Follow
 		37: true, // Warding Totem
-		41: true, // Contagion
+		41: false, // Contagion
 		42: true, // Boomerang Pulse
 		43: true, // Release
 		// Awakening
@@ -318,7 +318,7 @@ module.exports = {
 	9: { // Gunner
 		"enabled": true,
 		1: false, // Blast
-		2: true, // Bombardment
+		2: false, // Bombardment
 		3: true, // Scattershot
 		4: true, // Point Blank
 		5: false, // Burst Fire
