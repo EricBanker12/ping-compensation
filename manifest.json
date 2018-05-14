@@ -5,11 +5,11 @@
 		"README.md": "51c9f92a4131b9e35899bff0f30e7d349f549195dbad39a49f5176b02b523693",
 		"config/config.json": {
 			"overwrite": false,
-			"hash": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a"
+			"hash": "33092a3b4fc5c7ff4079d09105d4118b6c0690606fe1228f584c4ba032de33d0"
 		},
 		"config/preset.js": {
 			"overwrite": false,
-			"hash": "694b5b6ad3cdc60b5149834d3992e93a7c0fca612e26cd7be02c5a311111e856"
+			"hash": "5944770a160db5fda24b32050922c69ccc3efaf5b9522764fb945bb770b27c8c"
 		},
 		"config/data/skills.js": "bde7a074ec32da59e8b1babb814a1c705a7fa61193d019f968bf777f2729eb63",
 		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",

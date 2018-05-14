@@ -33,7 +33,7 @@ module.exports = {
 		29: true, // Blade Draw
 		30: true, // Scythe
 		31: true, // Reaping Slash
-		32: true, // Cross Parry
+		32: false, // Cross Parry
 		34: true, // Binding Sword
 		35: true, // Infuriate
 		36: true, // Rain of Blows (Deadly Gamble)
@@ -49,7 +49,7 @@ module.exports = {
 	1: { // Lancer
 		"enabled": true,
 		1: false, // Combo Attack
-		2: true, // Stand Fast
+		2: false, // Stand Fast
 		3: true, // Onslaught
 		4: true, // Challenging Shout
 		5: true, // Shield Bash
@@ -105,26 +105,26 @@ module.exports = {
 		// Awakening
 		26: true, // Decimate
 		27: true, // Blazing Thrust
-		28: true, // Unsheathe
+		28: false, // Unsheathe
 		91: true, // Awakening Eyes Aura
 	},
 	3: { // Berserker
 		"enabled": true,
 		1: false, // Combo Attack
-		2: true, // Axe Block
-		3: true, // Thunderstrike
+		2: false, // Axe Block
+		3: false, // Thunderstrike
 		4: true, // Flatten
 		5: true, // Dash
 		6: true, // Sweeping Strike
 		7: true, // Mocking Shout / x
 		8: true, // Fiery Rage
-		10: true, // Cyclone
+		10: false, // Cyclone
 		11: true, // Leaping Strike
 		12: true, // Unchained Anger / x
 		13: true, // Retaliate
-		15: true, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
+		15: false, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
-		18: true, // Lethal Strike
+		18: false, // Lethal Strike
 		19: true, // Triumphant Shout
 		20: true, // Inescapable Doom
 		21: true, // Bloodlust
@@ -151,7 +151,7 @@ module.exports = {
 		1: false, // Fireball
 		2: true, // Frost Sphere
 		3: true, // Lightning Trap
-		4: true, // Arcane Pulse
+		4: false, // Arcane Pulse
 		5: true, // Mana Infusion
 		6: true, // Meteor Strike
 		7: true, // Backstep
@@ -163,7 +163,7 @@ module.exports = {
 		16: true, // Painblast
 		17: true, // Painful Trap
 		18: true, // Glacial Retreat
-		19: true, // Mana Siphon
+		19: false, // Mana Siphon
 		20: true, // Flaming Barrage
 		21: true, // Nerve Exhaustion
 		22: true, // Burning Breath
@@ -184,12 +184,12 @@ module.exports = {
 		"enabled": true,
 		1: false, // Arrow
 		2: true, // Arrow Volley
-		3: true, // Radiant Arrow
-		4: true, // Penetrating Arrow
+		3: false, // Radiant Arrow
+		4: false, // Penetrating Arrow
 		5: true, // Rain of Arrows
 		6: true, // Backstep
 		7: true, // Feign Death
-		8: true, // Rapid Fire
+		8: false, // Rapid Fire
 		9: true, // Slow Trap
 		10: true, // Stunning Trap
 		12: true, // Velik's Mark
@@ -232,7 +232,7 @@ module.exports = {
 		23: true, // Blessing of Balder
 		26: true, // Fiery Escape
 		27: true, // Final Reprisal
-		28: true, // Mana Charge / Words of Vitality (Awakening)
+		28: false, // Mana Charge / Words of Vitality (Awakening)
 		29: true, // Triple Nemesis
 		30: true, // Plague of Exhaustion
 		31: true, // Guardian Sanctuary
@@ -267,9 +267,9 @@ module.exports = {
 		15: true, // Aura of the Unyielding
 		16: true, // Aura of the Tenacious
 		17: true, // Teleport Jaunt
-		18: true, // Arun's Vitae
+		18: false, // Arun's Vitae
 		21: true, // Retaliate
-		22: true, // Arun's Tears
+		22: false, // Arun's Tears
 		23: true, // Metamorphic Smite
 		24: true, // Volley of Curses
 		25: true, // Thrall of Protection
@@ -321,10 +321,10 @@ module.exports = {
 		2: true, // Bombardment
 		3: true, // Scattershot
 		4: true, // Point Blank
-		5: true, // Burst Fire
+		5: false, // Burst Fire
 		6: true, // Time Bomb
 		7: true, // Arcane Barrage
-		9: true, // Mana Missiles
+		9: false, // Mana Missiles
 		10: true, // Arc Bomb
 		11: true, // Rocket Jump
 		13: true, // Balder's Vengeance
@@ -377,7 +377,7 @@ module.exports = {
 		12: true, // Skyfall
 		13: true, // Circle of Steel
 		14: true, // Double Cut
-		15: true, // Burning Heart
+		15: false, // Burning Heart
 		16: true, // Death Blossom
 		17: true, // Attunement
 		18: true, // Bladestorm
