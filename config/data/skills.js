@@ -666,7 +666,7 @@ module.exports = {
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2] },
 			0: {
-				length: 635,
+				length: 624.4,
 				distance: 74.45,
 				race: {
 					0: { distance: 78.55 }, // M.Human
@@ -678,7 +678,7 @@ module.exports = {
 				}
 			},
 			1: {
-				length: 1025,
+				length: 1021,
 				distance: 19.2,
 				race: {
 					0: { distance: 25 }, // M.Human
@@ -690,7 +690,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 1818.12,
+				length: 1818.1,
 				distance: 66.07,
 				race: {
 					0: { distance: 70 }, // M.Human
@@ -887,13 +887,13 @@ module.exports = {
 				noInterrupt: [2]
 			},
 			0: {
-				length: 625,
+				length: 598,
 				distance: 95, // M.Aman
 				abnormals: { 01550: { speed: 0.2 } },
 				race: {
 					0: { distance: 100.13 }, // M.Human
 					2: { // M.Helf
-						length: 525,
+						length: 503,
 						distance: 102.7
 					},
 					5: { distance: 100.13 }, // F.Aman
@@ -1402,10 +1402,12 @@ module.exports = {
 		23: { // Measured Slice
 			'*': {
 				distance: 189,
-				races: {
+				/*
+				race: {
 					5: { distance: 190 }, // F.Aman
 					10: { distance: 190 } // Baraka
 				}
+				*/
 			},
 			0: {
 				length: 3691.25,
@@ -1847,7 +1849,7 @@ module.exports = {
 			10: {
 				length: 1333,
 				distance: 50,
-				races: {
+				race: {
 					2: { length: 1400 },
 					3: { length: 1800 }, // F.Helf
 					6: { length: 1366 }
@@ -1856,7 +1858,7 @@ module.exports = {
 			11: {
 				length: [366, 366, 1333],
 				distance: [33.33, 33.33, 50],
-				races: {
+				race: {
 					2: { length: [366, 366, 1400] }, // M.Helf
 					3: { length: [366, 366, 1800] }, // F.Helf
 					6: { length: [366, 366, 1366] } // M.Casta
@@ -1865,7 +1867,7 @@ module.exports = {
 			12: {
 				length: [366, 366, 366, 366, 1333],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
-				races: {
+				race: {
 					2: { length: [366, 366, 366, 366, 1400] }, // M.Helf
 					3: { length: [366, 366, 366, 366, 1800] }, // F.Helf
 					6: { length: [366, 366, 366, 366, 1366] } // M.Casta
@@ -1874,7 +1876,7 @@ module.exports = {
 			13: {
 				length: [366, 366, 366, 366, 1333],
 				distance: [33.33, 33.33, 33.33, 33.33, 50],
-				races: {
+				race: {
 					2: { length: [366, 366, 366, 366, 1400] }, // M.Helf
 					3: { length: [366, 366, 366, 366, 1800] }, // F.Helf
 					6: { length: [366, 366, 366, 366, 1366] } // M.Casta
@@ -2270,7 +2272,6 @@ module.exports = {
 				length: 1588.6,
 				distance: 38.5,
 				noRetry: true,
-				noInterrupt: [37],
 				requiredBuff: 401705,
 				abnormals: {
 					401708: { speed: 0.2 },
@@ -2279,7 +2280,7 @@ module.exports = {
 			},
 			0: {
 				length: 2714.4,
-				noRetry: true,
+				noInterrupt: [37],
 				chains: {
 					34: 30,
 					35: 30,
@@ -2486,7 +2487,7 @@ module.exports = {
 				length: 1501,
 				glyphs: {
 					25001: { speed: 0.3 },
-					25096: { speed: 0.4 }
+					25096: { speed: 0.4 }  // Broke in v71
 				},
 				abnormals: { 25060: { speed: 0.25 } }
 			}
@@ -2661,7 +2662,7 @@ module.exports = {
 		3: { // Radiant Arrow
 			'*': {
 				length: 1748.2,
-				races: { 1: { length: 1566.37 } }
+				race: { 1: { length: 1566.37 } }
 			},
 			0: {
 				type: 'charging',
@@ -2703,7 +2704,7 @@ module.exports = {
 		4: { // Penetrating Arrow
 			'*': {
 				length: 1294,
-				races: {
+				race: {
 					1: { length: 1275 },
 					9: { length: 1323 }
 				}
@@ -3006,7 +3007,7 @@ module.exports = {
 		},
 		8: { // Mana Infusion
 			0: {
-				length: 4595,
+				length: 4595, // diff after v72?
 				toggleOnAbnormality: 805800,
 				glyphs: { 28044: { speed: 0.25 } },
 				race: { 0: { length: 4625 } }
@@ -3103,7 +3104,7 @@ module.exports = {
 		26: { // Fiery Escape
 			0: {
 				CC: ["evasive", "extended"],
-				noInterrupt: [38],
+				noInterrupt: [26, 38],
 				length: 1125,
 				distance: -250.5,
 				forceClip: true
@@ -3259,7 +3260,7 @@ module.exports = {
 		38: { // Backstep
 			0: {
 				CC: ["evasive", "extended"],
-				noInterrupt: [26],
+				noInterrupt: [26, 38],
 				length: 657.27,
 				distance: -200,
 				forceClip: true
@@ -3479,6 +3480,7 @@ module.exports = {
 			},
 			10: {
 				length: 800,
+				noInterrupt: ['18-10'],
 				race: { 9: { length: 833 } }
 			}
 		},
