@@ -731,7 +731,7 @@ module.exports = {
 				race: { 9: { distance: [0, 100, 100, 100, 100, 62.7] } }
 			},
 			0: { length: [939, 514.54, 514.54, 514.54, 393.63, 760.11] },
-			30: { length: [688.66, 377.33, 377.33, 377.33, 288.66, 557.35] }
+			30: { length: [688.66, 377.33, 377.33, 377.33, 288.66, 557.35] } // todo
 		},
 		4: { // Challenging Shout
 			'*': {
@@ -861,8 +861,15 @@ module.exports = {
 				noInterrupt: [2]
 			},
 			1: {
-				length: 935,
-				noInterrupt: [2]
+				length: 933,
+				distance: 40,
+				noInterrupt: [2],
+				race: {
+					3: { length: 966 },
+					4: { length: 966 },
+					6: { length: 966 },
+					9: { distance: 62.7 } 
+				}
 			}
 		},
 		16: { // Second Wind
@@ -922,16 +929,20 @@ module.exports = {
 		},
 		21: { // Lockdown Blow
 			'*': {
-				length: 1400,
+				length: 1.399,
 				distance: 100.13, // M.Human
 				noInterrupt: [2],
 				race: {
 					0: { distance: 100.13 }, // M.Human
 					2: { // M.Helf
-						length: 1175,
+						length: 1166,
 						distance: 102.7
 					},
-					4: { distance: 95 }, // M.Aman
+					3: { length: 1.299 },
+					4: { 
+						length: 1.299,
+						distance: 95
+					}, // M.Aman
 					5: { distance: 100.13 }, // F.Aman
 					8: { distance: 92.39 }, // Popori
 					9: { distance: 122.66 } // Elin
@@ -941,7 +952,11 @@ module.exports = {
 			2: { chains: { 10: 30, 13: 30, 18: 30 } },
 			30: {
 				length: 1272.72,
-				race: { 2: { length: 1068 } }
+				race: { 
+					2: { length: 1068 },
+					3: { length: 1238.45 },
+					4: { length: 1238.45 }
+				}
 			}
 		},
 		22: { // Iron Will
@@ -2990,7 +3005,7 @@ module.exports = {
 			0: {
 				length: 1763,
 				toggleOnAbnormality: 805800,
-				noInterrupt: [2, 3, 5, 10, 12, 14, 18, 25, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', '41-10', 42],
+				noInterrupt: [2, 3, 5, 10, 12, 11, 14, 16, 18, 25, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', '41-10', 42],
 				chains: {
 					'19-10': 30,
 					26: 30,
@@ -3158,6 +3173,7 @@ module.exports = {
 				length: 798.26,
 				noRetry: true,
 				race: { 0: { length: 827 } },
+				glyphs: { 28039: { effectScale: 1.5 } },
 				level: {
 					1: {
 						length: 700,
@@ -3170,8 +3186,19 @@ module.exports = {
 				length: [800, 1600],
 				noInterrupt: [28],
 				bodyRolls: { 350708: { chargeSpeed: 0.15 } },
-				glyphs: { 28031: { chargeSpeed: 0.25 } },
-				level: { 1: { length: [900, 900, 900] } }
+				glyphs: { 
+					28031: { chargeSpeed: 0.25 },
+					28039: { effectScale: 1 }
+				},
+				level: { 
+					1: { 
+						length: [900, 900, 900],
+						glyphs: { 
+							28031: { chargeSpeed: 0.25 },
+							28039: { effectScale: 1.5 }
+						},
+					} 
+				}
 			},
 			10: { noInterrupt: ['28-10'] },
 			11: { noInterrupt: ['28-11'] },
