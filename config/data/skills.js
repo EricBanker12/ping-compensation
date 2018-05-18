@@ -929,7 +929,7 @@ module.exports = {
 		},
 		21: { // Lockdown Blow
 			'*': {
-				length: 1.399,
+				length: 1399,
 				distance: 100.13, // M.Human
 				noInterrupt: [2],
 				race: {
@@ -940,7 +940,7 @@ module.exports = {
 					},
 					3: { length: 1.299 },
 					4: { 
-						length: 1.299,
+						length: 1299,
 						distance: 95
 					}, // M.Aman
 					5: { distance: 100.13 }, // F.Aman
