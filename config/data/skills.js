@@ -938,7 +938,7 @@ module.exports = {
 						length: 1166,
 						distance: 102.7
 					},
-					3: { length: 1.299 },
+					3: { length: 1299 },
 					4: { 
 						length: 1299,
 						distance: 95
