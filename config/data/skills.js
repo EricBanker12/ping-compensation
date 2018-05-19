@@ -255,7 +255,7 @@ module.exports = {
 			2: { requiredBuff: 100201 }
 		},
 		19: { // Rising Fury
-			'*': { noInterrupt: [32] },
+			'*': { noInterrupt: [19, 32] },
 			0: {
 				length: 733,
 				distance: 144.85,
