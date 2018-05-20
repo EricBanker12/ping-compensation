@@ -3,6 +3,14 @@
     "config": {
         "pingHistoryMax" : 35
     },
+    "configRemove": [
+        "pingSpikesLimit",
+        "pingSpikesMin",
+        "pingSpikesMax",
+        "mountCheck",
+        "bodyRollsCheck",
+        "forceClipStrict"
+    ],
     "remove": [
         "../index.js",
         "../config/data/config.json",
