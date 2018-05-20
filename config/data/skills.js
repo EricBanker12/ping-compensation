@@ -891,12 +891,12 @@ module.exports = {
 			'*': {
 				triggerAbnormal: { 201831: 2000 },
 				consumeAbnormalEnd: 201831,
-				noInterrupt: [2]
+				noInterrupt: [2, 18]
 			},
 			0: {
 				length: 598,
 				distance: 95, // M.Aman
-				abnormals: { 01550: { speed: 0.2 } },
+				abnormals: { 201550: { speed: 0.2 } },
 				race: {
 					0: { distance: 100.13 }, // M.Human
 					2: { // M.Helf
@@ -2191,10 +2191,10 @@ module.exports = {
 			}
 		},
 		32: { // Punishing Strike
+			'*': { noInterrupt: [2, 32] },
 			0: {
 				length: 771.53,
 				distance: 31.58,
-				noInterrupt: [2],
 				requiredBuff: 401400,
 				race: {
 					5: { // F.Aman
@@ -2879,6 +2879,7 @@ module.exports = {
 			}
 		},
 		18: { // Close Quarters
+			'*': { noInterrupt: [18] },
 			0: {
 				length: 300,
 				distance: 89.8
@@ -2975,6 +2976,7 @@ module.exports = {
 	},
 	6: { // Priest
 		1: { // Divine Radiance
+			'*': { noInterrupt: [1] },
 			0: { length: 619 },
 			1: { length: 650 },
 			2: { length: 684 },
