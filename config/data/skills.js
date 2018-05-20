@@ -96,8 +96,6 @@ module.exports = {
 				distance: 75,
 				noInterrupt: [32],
 				race: {
-					2: { distance: 75 }, // M.Helf
-					8: { distance: 75 }, // Popori
 					9: { distance: 68.26 } // Elin: 68.259
 				}
 			}
@@ -107,9 +105,24 @@ module.exports = {
 				distance: 151.87,
 				race: {
 					2: { distance: 152.73 }, // M.Helf
+					3: {
+						distance: 143.35
+					}, 
+					4: {
+						distance: 142.61
+					}, 
 					5: { distance: 150.71 }, // F.Aman
+					6: {
+						distance: 143.47
+					}, 
+					7: {
+						distance: 159
+					}, // F.Aman
 					8: { distance: 148.9 }, // Popori
-					9: { distance: 151.87 } // Elin
+					9: { distance: 151.87 }, // Elin
+					10: {
+						distance: 96.1
+					}, 
 				}
 			},
 			0: {
@@ -175,21 +188,37 @@ module.exports = {
 				noInterrupt: [32],
 				race: {
 					0: { length: 833 }, // M.Human
-					1: { length: 833 }, // F.Human
+					1: { length: 833,
+						 distance: 45
+					}, // F.Human
 					2: { // M.Helf
 						length: 833,
 						distance: 0
 					},
-					4: { length: 833 }, // M.Aman
+					3: {
+						distance: 40
+					}, 
+					4: { length: 833,
+						 distance: 25.2
+					}, 
 					5: { // F.Aman
 						length: 833,
 						distance: 40
+					},
+					6: {
+						distance: 40
+					}, 
+					7: {
+						distance: 45
 					},
 					8: { // Popori
 						length: 833,
 						distance: 35
 					},
 					9: { distance: 54.85 }, // Elin
+					10: {
+						distance: 23.68
+					},
 				}
 			}
 		},
@@ -682,6 +711,7 @@ module.exports = {
 				distance: 19.2,
 				race: {
 					0: { distance: 25 }, // M.Human
+					1: { distance: 28.39 }, // F.Human
 					2: { distance: 30.8 }, // M.Helf
 					4: { distance: 25 }, // M.Aman
 					5: { distance: 30.52 }, // F.Aman
@@ -898,12 +928,24 @@ module.exports = {
 				distance: 95, // M.Aman
 				abnormals: { 201550: { speed: 0.2 } },
 				race: {
-					0: { distance: 100.13 }, // M.Human
+					0: { distance: 100.13 }, // M.Human,
+					1: {
+						distance: 100.13
+					}, // F.Human
 					2: { // M.Helf
 						length: 503,
 						distance: 102.7
 					},
+					3: {
+						distance: 103.42
+					}, // F.Helf
 					5: { distance: 100.13 }, // F.Aman
+					6: {
+						distance: 110.39
+					}, 
+					7: {
+						distance: 116.2
+					}, 
 					8: { distance: 92.39 }, // Popori
 					9: { distance: 122.66 } // Elin
 				}
@@ -913,10 +955,25 @@ module.exports = {
 				distance: 87, // M.Aman
 				race: {
 					0: { distance: 74.84 }, // M.Human
+					1: {
+						distance: 74.84
+					}, // F.Human
+					3: {
+						distance: 70.31
+					}, // M.Human
 					2: { distance: 80.43 }, // M.Helf
 					5: { distance: 74.84 }, // F.Aman
+					6: {
+						distance: 74.84
+					}, 
+					7: {
+						distance: 74.84
+					}, 
 					8: { distance: 89.46 }, // Popori
-					9: { distance: 66.04 } // Elin
+					9: { distance: 66.04 }, // Elin
+					10: {
+						distance: 74.84
+					}, // M.Human
 				}
 			}
 		},
@@ -934,18 +991,33 @@ module.exports = {
 				noInterrupt: [2],
 				race: {
 					0: { distance: 100.13 }, // M.Human
+					1: {
+						distance: 105.13
+					}, //
 					2: { // M.Helf
 						length: 1166,
 						distance: 102.7
 					},
-					3: { length: 1299 },
+					3: { 
+						length: 1299, //??????????????
+						distance: 103.42
+					},
 					4: { 
 						length: 1299,
 						distance: 95
 					}, // M.Aman
 					5: { distance: 100.13 }, // F.Aman
+					6: {
+						distance: 110.39
+					}, // F.Aman
+					7: {
+						distance: 116.18
+					}, // F.Aman
 					8: { distance: 92.39 }, // Popori
-					9: { distance: 122.66 } // Elin
+					9: { distance: 122.66 },
+					10: {
+						distance: 92.18
+					}, 
 				}
 			},
 			1: true,
@@ -1110,6 +1182,7 @@ module.exports = {
 				race: {
 					0: { distance: 28.05 }, // M.Human
 					2: { distance: 33.05 }, // M.Helf
+					3: { distance: 24.225 },
 					4: { distance: 20 }, // M.Aman
 					5: { distance: 28.05 }, // F.Aman
 					6: { distance: 22.3 }, // M.Casta
@@ -1125,6 +1198,7 @@ module.exports = {
 				race: {
 					0: { distance: 46.76 }, // M.Human
 					2: { distance: 46.76 }, // M.Helf
+					3: { distance: 45.33 },													
 					4: { distance: 40 }, // M.Aman
 					5: { distance: 64.36 }, // F.Aman
 					6: { distance: 118.2 }, // M.Casta
@@ -1142,14 +1216,16 @@ module.exports = {
 				distance: 220.47,
 				abnormals: { 23070: { speed: 0.25 } },
 				race: {
-					//0: { distance: 220.47 }, // M.Human
+					0: { distance: 220.47 }, // M.Human
+					1: { distance: 220.47 }, // F.Human
 					2: { distance: 220.15 }, // M.Helf
+					3: { distance: 213.63 }, // M.Helf
 					4: { distance: 155 }, // M.Aman
 					5: { distance: 174.84 }, // F.Aman
 					6: { distance: 201.64 }, // M.Casta
 					7: { distance: 200 }, // F.Casta
 					8: { distance: 175.81 }, // Popori
-					//9: { distance: 220.47 }, // Elin
+					9: { distance: 220.47 }, // Elin
 					10: { distance: 205.95 } // Baraka
 				}
 			},
@@ -1170,7 +1246,9 @@ module.exports = {
 						length: 2844.16,
 						distance: 123.21
 					},
+					1: { distance: 128.69 }, // F.Human
 					2: { distance: 116.49 }, // M.Helf
+					3: { distance: 99.6	}, // F.Helf
 					4: { distance: 125 }, // M.Aman
 					5: { distance: 137.22 }, // F.Aman
 					6: { distance: 123.21 }, // M.Casta
@@ -1214,7 +1292,9 @@ module.exports = {
 				distance: 169.5,
 				race: {
 					0: { distance: 171.14 }, // M.Human
+					1: { distance: 171.14 }, // F.Human
 					2: { distance: 171.14 }, // M.Helf
+					3: { distance: 152.2 }, // F.Helf
 					4: { distance: 145 }, // M.Aman
 					5: { distance: 134.53 }, // F.Aman
 					6: { distance: 161.14 }, // M.Casta
@@ -1279,7 +1359,9 @@ module.exports = {
 				},
 				race: {
 					0: { distance: 166.56 }, // M.Human
+					1: { distance: 179.56 }, // F.Human	
 					2: { distance: 173.75 }, // M.Helf
+					3: { distance: 174.9 }, // F.Helf
 					4: { distance: 175 }, // M.Aman
 					5: { distance: 166.56 }, // F.Aman
 					6: { distance: 168.61 }, // M.Casta
@@ -1296,7 +1378,9 @@ module.exports = {
 				distance: 76.71,
 				race: {
 					0: { distance: 62.07 }, // M.Human
+					1: { distance: 77.4  }, // F.Human
 					2: { distance: 55.79 }, // M.Helf
+					3: { distance: 69.62 }, // F.Helf
 					4: { distance: 40 }, // M.Aman
 					5: { distance: 62.07 }, // F.Aman
 					6: { distance: 86.12 }, // M.Casta
@@ -1316,12 +1400,14 @@ module.exports = {
 			},
 			0: {
 				race: {
-					2: { distance: 79.01 } // M.Helf
+					2: { distance: 79.01 }, // M.Helf
+					3: { distance: 92.36 } // F.Helf
 				}
 			},
 			1: {
 				race: {
 					2: { distance: 70.99 }, // M.Helf
+					3: { distance: 68.07 }, // F.Helf
 					5: { distance: 100.02 }, // F.Aman
 					9: { distance: 100.02 } // Elin
 				}
@@ -1330,6 +1416,7 @@ module.exports = {
 				length: 1500,
 				distance: 120,
 				race: {
+					3: { distance: 109.58 }, // F.Helf
 					5: { distance: 94.98 }, // F.Aman
 					6: { distance: 150 }, // M.Casta
 					8: { distance: 112.42 }, // Popori
@@ -1352,7 +1439,9 @@ module.exports = {
 				distance: 100,
 				race: {
 					0: { distance: 96.26 }, // M.Human
+					1: { distance: 120.78 }, // F.Human
 					2: { distance: 103.85 }, // M.Helf
+					3: { distance: 91.79 }, // F.Helf
 					4: { distance: 100 }, // M.Aman
 					5: { distance: 96.25 }, // F.Aman
 					6: { distance: 135.85 }, // M.Casta
@@ -1411,19 +1500,17 @@ module.exports = {
 		21: { // Exhausting Blow
 			0: {
 				length: 1200,
-				distance: 75
+				distance: 75,
+				race: {
+					2: {distance: 79.01	}, // M.Helf
+					3: {distance: 92.35	}, // F.Helf
+				}
 			},
 		},
 		23: { // Measured Slice
 			'*': {
 				distance: 189,
-				/*
-				race: {
-					5: { distance: 190 }, // F.Aman
-					10: { distance: 190 } // Baraka
-				}
-				*/
-			},
+						},
 			0: {
 				length: 3691.25,
 				interruptAllWithAbnormal: { 301604: 23 },
@@ -1469,7 +1556,13 @@ module.exports = {
 				distance: 169.5,
 				race: {
 					0: { distance: 171.14 }, // M.Human
+					1: {
+						distance: 171.14
+					}, // F.Human
 					2: { distance: 171.14 }, // M.Helf
+					3: {
+						distance: 152.19
+					}, // F.Helf
 					4: { distance: 145 }, // M.Aman
 					5: { distance: 134.53 }, // F.Aman
 					6: { distance: 161.14 }, // M.Casta
@@ -3292,7 +3385,11 @@ module.exports = {
 				noInterrupt: [26, 38],
 				length: 657.27,
 				distance: -200,
-				forceClip: true
+				forceClip: true,
+				race: {
+					0: { distance: -211.52},
+					4: { distance: -215.3}
+				}
 			}
 		},
 		39: { // Grace of Resurrection
@@ -4750,6 +4847,9 @@ module.exports = {
 			'*': {
 				length: 1950,
 				distance: 164.94,
+				race: {
+					0: { distance: 162 }
+				},
 				abnormals: { 31120: { chain: 31 } },
 				chains: {
 					1: 30,
@@ -5064,7 +5164,10 @@ module.exports = {
 		24: { // 2.54cm Punch / todo: check
 			'*': {
 				noRetry: true,
-				distance: 16.59,
+				race: {
+					0: { distance: 16.6 },
+					1: { distance: 23.7 }
+				},
 				toggleOnAbnormality: 425100,
 				length: 2000,
 				abnormals: {
