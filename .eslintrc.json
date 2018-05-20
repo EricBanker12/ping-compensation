@@ -1,0 +1,85 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "script"
+    },
+    "rules": {
+        "indent": [
+            "warn",
+            "tab"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-lone-blocks": [
+            "error"
+        ],
+        "no-multi-str": [
+            "error"
+        ],
+        "no-path-concat": [
+            "error"
+        ],
+        "no-process-exit": [
+            "error"
+        ],
+        "global-require": [
+            "warn"
+        ],
+        "no-lonely-if": [
+            "error"
+        ],
+        "no-spaced-func": [
+            "error"
+        ],
+        "no-confusing-arrow": [
+            "error"
+        ],
+        "prefer-template": [
+            "error"
+        ],
+        "no-constant-condition": [
+            "error"
+        ],
+        "arrow-body-style": [
+            "warn",
+            "as-needed"
+        ],
+        "no-var": [
+            "error"
+        ],
+        "no-nested-ternary": [
+            "error"
+        ],
+        "no-multiple-empty-lines": [
+            "warn"
+        ],
+        "no-template-curly-in-string": [
+            "error"
+        ],
+        "no-empty-function": [
+            "error"
+        ],
+        "no-floating-decimal": [
+            "error"
+        ],
+        "no-multi-spaces": [
+            "error"
+        ],
+        "no-loop-func": [
+            "error"
+        ],
+        "yoda" : [
+            "error"
+        ]
+    }
+}
