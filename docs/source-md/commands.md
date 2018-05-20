@@ -19,8 +19,6 @@ Example: `/8 sp config print`
 * `info` - print basic info about current SP and configuration.
  
 * `strictdef` - switch for showing Brawler's Perfect Block messages if not rightfully showing(please do remember that this can cause crashes at very high ping).
-    
-* `mount` - switch for blocking skills usage when mounting.
      
 * `off` - disable SP. In addition to that, you should not be: mounting, in battle, dead or using a skill.  
     
