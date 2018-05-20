@@ -12,8 +12,7 @@
 	"debugAbnormals": false,
 	"defendSuccessStrict": true,
 	"debugLoc": false,
-	"mountCheck": true,
-	"version": "4.7",
+	"version": "4.85",
 	"pingMethod": "active",
 	"pingHistoryMax": 35,
 	"emulateAttackSpeedFromSelfBuffs": false

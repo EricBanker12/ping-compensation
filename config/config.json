@@ -12,12 +12,8 @@
 	"debugAbnormals": false,
 	"defendSuccessStrict": true,
 	"debugLoc": false,
-	"mountCheck": true,
 	"version": "4.7",
 	"pingMethod": "active",
 	"pingHistoryMax": 20,
-	"pingSpikesLimit": false,
-	"pingSpikesMin": 100,
-	"pingSpikesMax": 300,
 	"emulateAttackSpeedFromSelfBuffs": false
 }
