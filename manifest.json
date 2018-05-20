@@ -7,7 +7,7 @@
     "config/data/abnormalities.js": "789180d56f8d84398085b09850b0acbe824f0fc111ca569cf6d18fa03ab6b27d",
     "config/config.json": {
       "overwrite": false,
-      "hash": "31aa27b90b10ff91eb2ccb7e196b2fc1d366a2f30b50e896be53d4fc2155a03f"
+      "hash": "1bcd73af439f42ad6fb0eac7fc6fdf403b534d4df69246915211ada17e90c657"
     },
     "config/preset.js": {
       "overwrite": false,
@@ -16,21 +16,20 @@
     "config/data/basicCC.json": "9cbe77bd7ab863cb4b2c3e00ed50cfd39405e5579275218c8b45ab17908f1289",
     "config/data/evasiveCC.json": "162984b94cf62fd651de1a596b63e5de7d1419a4771a8a833ba425acd8db0c45",
     "config/data/extendedCC.json": "f873db2dc2df74fcdad1b3322253f6669f3c5441d9ed302860b3cbecafbe9de3",
-    "config/data/skills.js": "2fec231ad834a641c72f84341b94efd3a549e88ce44ce5cf6eebe4d88007fbee",
+    "config/data/skills.js": "8ecaf63f5a16494c5eac7fc5b68a761d038856fd1107ce854d3edd0260a976d1",
     "docs/commands.pdf": "bf37f9199fabd756ff3271fc34e5cab2d052007832cbfe904d9334d0b071f5da",
     "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
-    "docs/ping.pdf": "3ff334efdf6adfd384165006c2017ea3a96d16557dfbf59b06da67dfdfa148f8",
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
-    "lib/abnormalities.js": "b75a46cc61551a4db1a66aa288aaf0f4c7201c29319f1f7662a992a4efbeed40",
-    "lib/core.js": "77a8accf43fc0ad7c665918416d1f2f61ebe34604402ca8a0830f6b1c8d1b87b",
-    "lib/autoconfig.js": "92b5847bc49836cad4b66f9ce73580a4d14e824f511f4cb76b3a766c940c5927",
-    "lib/ping.js": "ec53ec36c9e9487bc948dcfdaeafe82d5a191d374f0ae9a364b0c0aa6d2890f8",
-    "lib/utils.js": "fbb57040d0c5d5060b40e69490fd6cd661dc587fae7ac96f1fd41f4ab0fe4637",
+    "lib/abnormalities.js": "4d59179688e544744f9e8075a6004fc3debe32b0e09131fb0f1465bc398f1663",
+    "lib/core.js": "d132e26b8d3fabf663f0ec2445fada60fe4c62491bb264d3af931085467e38f8",
+    "lib/autoconfig.js": "4d59179688e544744f9e8075a6004fc3debe32b0e09131fb0f1465bc398f1663",
+    "lib/ping.js": "3a4a4429f5c95513b804730e41ac3222a133539f85f1406cc3d467aad31a5fdf",
+    "lib/utils.js": "116ce8683ab1715fc411b54e1a805578b7cf8d821e9cf767b87e49171d0f99d9",
     "res/spLogo.png": "d6f8ea63c54d3e99cf12e029e538e2ed51eb76a1c7999f1cfa7e913db26d219b",
-    "migration/steps.json": "ea9d67c807989c994d3e6dd13d8c9601ed6de9d62c3346bc4af350e9c1007a36",
-    "config/data/default-config.json": "589c2aae4e25b1949f0cbff4c6b1a1100a4e19d45a475de685051a6b471f8b32",
-    "lib/loader.js": "0ef5d70c7b6e399768896f7cc3558e42b69a1de1f9b78e065fce7bcb951064d9"
-    
+    "migration/steps.json": "194eff2a086bbaa72919c9a84f3efe03cc946a8717771ae7731a000cf68d71e1",
+    "config/data/default-config.json": "cbcd8eb22f6375d0584795f1549e73463f973a88899fbfe839a72b541ead25a5",
+    "lib/loader.js": "1dce7abd7af504e7eea2119084f2f5c23bc6df6afc51dbedc374aa3a24169451"
+   
   },
   "defs": {
     "S_LOGIN": 10,
