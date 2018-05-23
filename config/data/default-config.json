@@ -3,7 +3,7 @@
 	"jitterCompensation": true,
 	"skillRetryCount": 1,
 	"skillRetryMs": 25,
-	"skillRetryJittercomp": 25,
+	"skillRetryJittercomp": 15,
 	"skillRetryAlways": false,
 	"skillDelayOnFail": true,
 	"serverTimeout": 200,
