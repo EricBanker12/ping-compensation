@@ -354,7 +354,7 @@ module.exports = {
 		11: { // Poison Blade
 			0: {
 				length: 933,
-				noInterrupt: [32],
+				noInterrupt: [32, 30],
 				race: {
 					0: {
 						distance: 35
