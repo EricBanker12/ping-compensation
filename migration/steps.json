@@ -1,6 +1,6 @@
 {
     "version": "4.82",
-    "config": {
+    "configAdd": {
         "pingHistoryMax" : 35
     },
     "configRemove": [
@@ -11,7 +11,7 @@
         "bodyRollsCheck",
         "forceClipStrict"
     ],
-    "remove": [
+    "removeFile": [
         "../index.js",
         "../config/data/config.json",
         "../config/abnormalities.js",
