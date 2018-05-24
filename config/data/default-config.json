@@ -1,6 +1,7 @@
 {
 	"version": "5.0",
 	"enabled": true,
+<<<<<<< HEAD
 	"debug": false,
 	"spCompatible": false,
 	"spDirectory": "skill-prediction",
@@ -12,4 +13,22 @@
 	"pingSpikesMin": 100,
     "pingSpikesMax": 1000,
     "minCombatFPS": 30
+=======
+	"jitterCompensation": true,
+	"skillRetryCount": 1,
+	"skillRetryMs": 25,
+	"skillRetryJittercomp": 15,
+	"skillRetryAlways": false,
+	"skillDelayOnFail": true,
+	"serverTimeout": 200,
+	"debugGlyphs": false,
+	"debug": false,
+	"debugAbnormals": false,
+	"defendSuccessStrict": true,
+	"debugLoc": false,
+	"version": "4.85",
+	"pingMethod": "active",
+	"pingHistoryMax": 35,
+	"emulateAttackSpeedFromSelfBuffs": false
+>>>>>>> salty/master
 }
