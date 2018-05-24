@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"version": "5.0",
 	"enabled": true,
@@ -12,4 +13,24 @@
 	"pingSpikesMin": 100,
     "pingSpikesMax": 1000,
     "minCombatFPS": 30
+=======
+{
+	"enabled": true,
+	"jitterCompensation": true,
+	"skillRetryCount": 1,
+	"skillRetryMs": 25,
+	"skillRetryJittercomp": 15,
+	"skillRetryAlways": false,
+	"skillDelayOnFail": true,
+	"serverTimeout": 100,
+	"debugGlyphs": false,
+	"debug": false,
+	"debugAbnormals": false,
+	"defendSuccessStrict": true,
+	"debugLoc": false,
+	"version": "4.82",
+	"pingMethod": "active",
+	"pingHistoryMax": 35,
+	"emulateAttackSpeedFromSelfBuffs": false
+>>>>>>> salty/master
 }
