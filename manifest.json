@@ -19,7 +19,7 @@
 		"lib/core.js": "f8992d5ec7c4d3ccacf75366583aca887b10e2c58b26e535ec0a35c2814a396e",
 		"lib/ping.js": "a784d1e1c164e9ec955531d6299e7ded6bd1621e97743fd698b3843bf58d9c57",
 		"LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
-		"config/data/default-config.json": "1ae40730029b9071e6a0c713a17ab16e87c28bc8788fa5b99883882c1a23d260"
+		"config/data/default-config.json": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a"
 	},
 	"defs": {
 		"C_CANCEL_SKILL": 1,
