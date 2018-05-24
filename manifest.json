@@ -26,8 +26,8 @@
     "lib/utils.js": "116ce8683ab1715fc411b54e1a805578b7cf8d821e9cf767b87e49171d0f99d9",
     "lib/state.js": "cc3ffeb9c82503c7e84d5c4557c03dfa602b19d85134fe851c6b1fdbaca6a27c",
     "res/spLogo.png": "d6f8ea63c54d3e99cf12e029e538e2ed51eb76a1c7999f1cfa7e913db26d219b",
-    "migration/steps.json": "194eff2a086bbaa72919c9a84f3efe03cc946a8717771ae7731a000cf68d71e1",
-    "config/data/default-config.json": "d961c14f7fbb81d05bee9e80662b3ff2a4b4737a06801bfe096b42d13cef6e53",
+    "migration/steps.json": "d961c14f7fbb81d05bee9e80662b3ff2a4b4737a06801bfe096b42d13cef6e53",
+    "config/data/default-config.json": "c0833249813a0b0b20dacab19b31d0695cc9942b90694b3e9a01cf62b321227f",
     "lib/loader.js": "fb1a75043a5e7a2cb475524a01b08b7f2454f69967e0c492e25b4f94cf9878d2"
 
   },
