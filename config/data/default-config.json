@@ -1,7 +1,7 @@
 {
 	"enabled": true,
 	"jitterCompensation": true,
-	"skillRetryCount": 1,
+	"skillRetryCount": 2,
 	"skillRetryMs": 25,
 	"skillRetryJittercomp": 15,
 	"skillRetryAlways": false,
