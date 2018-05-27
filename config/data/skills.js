@@ -27,47 +27,23 @@ module.exports = {
 				noInterrupt: [1, 32],
 				noRetry: true,
 				abnormals: {
-					101750: {
-						speed: 0.20
-					}
+					101750: {speed: 0.20}
 				}
 			},
 			0: {
 				length: 566.4,
 				race: {
-					0: {
-						distance: 47.534
-					},
-					1: {
-						distance: 47.534
-					},
-					2: {
-						distance: 47.5339966
-					},
-					3: {
-						distance: 47.534
-					},
-					4: {
-						distance: 35.4914246
-					},
-					5: {
-						distance: 45
-					},
-					6: {
-						distance: 47.534
-					},
-					7: {
-						distance: 60
-					},
-					8: {
-						distance: 54.3200531
-					},
-					9: {
-						distance: 64.28748
-					},
-					10: {
-						distance: 32.81029
-					}
+					0: { distance: 47.534 },
+					1: { distance: 47.534 },
+					2: { distance: 47.5339966 },
+					3: { distance: 47.534},
+					4: { distance: 35.4914246 },
+					5: { distance: 45 },
+					6: { distance: 47.534 },
+					7: { distance: 60 },
+					8: { distance: 54.3200531 },
+					9: { distance: 64.28748 },
+					10: { distance: 32.81029 }
 				}
 			},
 			1: {
@@ -197,15 +173,9 @@ module.exports = {
 				noRetry: true,
 				noInterrupt: [2, 10, 32],
 				glyphs: {
-					21015: {
-						stamina: -100
-					},
-					21067: {
-						stamina: -100
-					},
-					21101: {
-						stamina: -120
-					}
+					21015: {stamina: -100},
+					21067: {stamina: -100},
+					21101: {stamina: -120}
 				},
 				race: {
 					7: {
@@ -428,9 +398,9 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				type: 'dash',
 				fixedSpeed: 1,
-				length: 1117,
+				length: 1105,
 				distance: 467.88,
-				noRetry: true,
+				//noRetry: true,
 				noInterrupt: [32]
 			},
 			1: {
@@ -633,39 +603,17 @@ module.exports = {
 				toggleOnAbnormality: 100299,
 				requiredBuff: 100700,
 				race: {
-					0: {
-						distance: 68.80444
-					},
-					1: {
-						distance: 105.200417
-					},
-					2: {
-						distance: 68.80444
-					},
-					3: {
-						distance: 80.69249
-					},
-					4: {
-						distance: 60.6973038
-					},
-					5: {
-						distance: 78.072
-					},
-					6: {
-						distance: 68.80445
-					},
-					7: {
-						distance: 90
-					},
-					8: {
-						distance: 65.34422
-					},
-					9: {
-						distance: 77.3590546
-					},
-					10: {
-						distance: 77.072
-					}
+					0: { distance: 68.80444 },
+					1: { distance: 105.200417 },
+					2: { distance: 68.80444 },
+					3: { distance: 80.69249 },
+					4: { distance: 60.6973038 },
+					5: { distance: 78.072 },
+					6: { distance: 68.80445 },
+					7: { distance: 90 },
+					8: { distance: 65.34422 },
+					9: { distance: 77.3590546 },
+					10: { distance: 77.072 }
 				}
 			}
 		},
@@ -9126,9 +9074,7 @@ module.exports = {
 			}
 		},
 		910: { // Awakening Eyes Aura
-			0: {
-				length: 500
-			}
+			0: { length: 500 }
 		}
 	}
 }
