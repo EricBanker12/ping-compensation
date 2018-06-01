@@ -4862,64 +4862,64 @@ module.exports = {
 				race: {
 					0: {
 						length: [3399.99, 49577, 1757.3],
-						distance: [119.575417, 0, 0]
+						distance: [-119.575417, 0, 0]
 					},
 					1: {
 						length: [2945, 49546, 1757.3],
-						distance: [70, 0, 0]
+						distance: [-70, 0, 0]
 					},
 					2: {
 						length: [3990, 49516.77, 1757.3],
-						distance: [102.666664,
+						distance: [-102.666664,
 							0,
 							0
 						]
 					},
 					3: {
 						length: [2809, 49546.77, 1818.2],
-						distance: [100,
+						distance: [-100,
 							0,
 							0
 						]
 					},
 					4: {
 						length: [4763.6, 49516.77, 1757.3],
-						distance: [66.59007,
+						distance: [-66.59007,
 							0,
 							0
 						]
 					},
 					5: {
 						length: [3718, 49516.77, 1757.3],
-						distance: [119.723,
+						distance: [-119.723,
 							0,
 							0
 						]
 					},
 					6: {
 						length: [4202, 49546.8, 1757],
-						distance: [113.775879,
+						distance: [-113.775879,
 							0,
 							0
 						]
 					},
 					8: {
 						length: [3127.3, 49516.77, 1757.3],
-						distance: [136.38,
+						distance: [-136.38,
 							0,
 							0
 						]
 					},
 					9: {
 						length: [2854.5, 49516.77, 1757.3],
-						distance: [114.050468,
+						distance: [-114.050468,
 							0,
 							0
 						]
 					},
 					10: {
 						length: [4400, 49546.77, 1757.3],
-						distance: [40.0000038,
+						distance: [-40.0000038,
 							0,
 							0
 						]
@@ -6130,7 +6130,7 @@ module.exports = {
 		},
 		1: { // Spiral Barrage
 			'*': {
-				length: 1000,
+				length: 1012,
 				distance: 48,
 				inPlace: {
 					movement: [{
@@ -6176,7 +6176,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 1200,
+				length: 1196.5,
 				distance: 42,
 				inPlace: {
 					movement: [{
@@ -6197,7 +6197,7 @@ module.exports = {
 				},
 			},
 			3: {
-				length: 860,
+				length: 862.5,
 				distance: 56,
 				inPlace: {
 					movement: [{
@@ -6218,7 +6218,7 @@ module.exports = {
 				},
 			},
 			4: {
-				length: 1400,
+				length: 1394,
 				distance: 60,
 				inPlace: {
 					movement: [{
@@ -6239,7 +6239,7 @@ module.exports = {
 				},
 			},
 			5: {
-				length: 1900,
+				length: 1916,
 				distance: 91,
 				inPlace: {
 					movement: [{
@@ -6254,8 +6254,8 @@ module.exports = {
 		},
 		3: { // Double Shear
 			'*': {
-				length: 2025,
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 13, 14, 20],
+				length: 2040,
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
 				abnormals: {
 					29030: {
 						speed: 0.25
@@ -6276,7 +6276,7 @@ module.exports = {
 		},
 		4: { // Sundering Strike
 			'*': {
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 13, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 14, 20],
 				chains: {
 					1: null,
 					3: null,
@@ -6291,7 +6291,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				length: [1175, 1750, 1025],
+				length: [1166.25, 1757.3, 1038.34],
 				distance: [0, 100, 0],
 				inPlace: {
 					movement: [
@@ -6308,7 +6308,7 @@ module.exports = {
 				}
 			},
 			30: {
-				length: [1750, 1025],
+				length: [1757.3, 1038.3],
 				distance: [100, 0],
 				inPlace: {
 					movement: [
@@ -6326,7 +6326,6 @@ module.exports = {
 		},
 		5: { // Grim Strike
 			'*': {
-				blockCancelPacket: true,
 				distance: [120, 0],
 				inPlace: {
 					movement: [
@@ -6361,12 +6360,12 @@ module.exports = {
 				}
 			},
 			30: {
-				length: [1450, 975]
+				length: [1450, 966]
 			}
 		},
 		6: { // Death Spiral
 			'*': { // todo: fix
-				length: 1250,
+				length: 1246.7,
 				triggerAbnormal: {
 					10151131: 6000
 				},
@@ -6375,10 +6374,10 @@ module.exports = {
 						chain: 31
 					}
 				},
-				noInterrupt: ['6-31'],
 				noRetry: true
 			},
 			0: {
+				noInterrupt: ['6-31'],
 				chains: {
 					1: 30,
 					3: 30,
@@ -6388,8 +6387,7 @@ module.exports = {
 					9: 30,
 					10: 30,
 					11: 30,
-					12: 30,
-					20: 30
+					12: 30
 				}
 			},
 			30: true,
@@ -6400,7 +6398,7 @@ module.exports = {
 		},
 		8: { // Whipsaw
 			'*': {
-				length: 2500,
+				length: 2511.1,
 				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 14, 20],
 				chains: {
 					1: 30,
@@ -6414,7 +6412,7 @@ module.exports = {
 		9: { // Smite
 			0: {
 				CC: ["evasive", "extended"],
-				length: 1725,
+				length: 1732.8,
 				distance: 168,
 				inPlace: {
 					movement: [{
@@ -6431,7 +6429,7 @@ module.exports = {
 		10: { // Pendulum Strike
 			'*': {
 				CC: "extended",
-				length: 1000,
+				length: 983,
 				distance: -200,
 				noInterrupt: [10],
 				chains: {
@@ -6452,15 +6450,20 @@ module.exports = {
 		},
 		11: { // Shadow Lash
 			'*': {
-				length: 1250,
+				length: 1247.3,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-3', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
+				interruptibleWithAbnormal: { //thx, Yunfei
+					10151040: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40],
+					10151041: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40],
+					10151042: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
+				},
 				length: 2150,
 				triggerAbnormal: {
 					10151040: 2000
 				},
-				abnormals: {
+				abnormals: { 
 					10151040: {
 						chain: 1
 					},
@@ -6498,13 +6501,14 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3225,
+				length: 3221.9,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, '12-1', 14, 20],
 				chains: {
 					12: 1
 				}
 			},
 			1: {
+				noInterrupt: ['12-1'],
 				length: 2025
 			}
 		},
@@ -6538,13 +6542,13 @@ module.exports = {
 		16: { // Shadow Reaping
 			0: {
 				fixedSpeed: 1,
-				length: 775
+				length: 789.3
 			}
 		},
 		18: { // Shrouded Escape
 			0: {
 				CC: ["evasive", "extended"],
-				length: 850,
+				length: 839,
 				distance: 150
 			}
 		},
@@ -6559,7 +6563,7 @@ module.exports = {
 		40: { // Shadow Step
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 700,
+				length: 692,
 				distance: 180,
 				forceClip: true,
 				abnormals: {
