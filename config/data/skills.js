@@ -19,16 +19,14 @@
 */
 module.exports = {
 	0: { // Warrior
-		'*': {
-			consumeAbnormal: 104110
-		},
+		'*': { consumeAbnormal: 104110 },
+		// noInterrupt: [32], same reason as Lancer
+		
 		1: { // Combo Attack
 			'*': {
-				noInterrupt: [1, 32],
+				noInterrupt: [1],
 				noRetry: true,
-				abnormals: {
-					101750: {speed: 0.20}
-				}
+				abnormals: { 101750: { speed: 0.20 } }
 			},
 			0: {
 				length: 566.4,
@@ -171,7 +169,7 @@ module.exports = {
 				stamina: 500,
 				instantStamina: true,
 				noRetry: true,
-				noInterrupt: [2, 10, 32],
+				noInterrupt: [2, 10],
 				glyphs: {
 					21015: {stamina: -100},
 					21067: {stamina: -100},
@@ -194,7 +192,6 @@ module.exports = {
 			0: {
 				length: 1600,
 				distance: 75,
-				noInterrupt: [32],
 				race: {
 					9: {
 						distance: 68.26
@@ -243,7 +240,7 @@ module.exports = {
 			},
 			0: {
 				length: 2545.45,
-				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 30, 32, 34, 35, 36, 37, 38, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 23, 28, 29, 30, 34, 35, 36, 37, 38, 39, 41, 42],
 				abnormals: {
 					100801: {
 						skill: 360100
@@ -255,8 +252,7 @@ module.exports = {
 				chains: {
 					18: 30,
 					21: 30,
-					27: 30,
-					40: 30
+					27: 30
 				}
 			},
 			30: {
@@ -271,7 +267,6 @@ module.exports = {
 		5: { // Battle Cry
 			0: {
 				length: 1666,
-				noInterrupt: [32],
 				glyphs: {
 					21109: {
 						speed: 0.5
@@ -282,8 +277,7 @@ module.exports = {
 		8: { // Assault Stance
 			'*': {
 				length: 566.4,
-				toggleOnAbnormality: 102500,
-				noInterrupt: [32]
+				toggleOnAbnormality: 102500
 			},
 			0: {
 				stamina: 1000
@@ -294,7 +288,6 @@ module.exports = {
 			'*': {
 				length: 566.4,
 				toggleOnAbnormality: 102500,
-				noInterrupt: [32]
 			},
 			0: {
 				stamina: 1000
@@ -304,7 +297,7 @@ module.exports = {
 		10: { // Death From Above
 			0: {
 				length: 2066,
-				noInterrupt: [2, 10, 32],
+				noInterrupt: [2, 10],
 				race: {
 					1: {
 						length: 2100
@@ -324,7 +317,7 @@ module.exports = {
 		11: { // Poison Blade
 			0: {
 				length: 933,
-				noInterrupt: [32, 30],
+				noInterrupt: [30],
 				race: {
 					0: {
 						distance: 35
@@ -364,7 +357,6 @@ module.exports = {
 				CC: "extended",
 				length: 1533,
 				distance: 250,
-				noInterrupt: [32],
 				glyphs: {
 					21048: {
 						speed: 0.2
@@ -388,7 +380,6 @@ module.exports = {
 			0: {
 				type: 'retaliate',
 				length: 1633,
-				noInterrupt: [32],
 				noRetry: true
 			}
 		},
@@ -401,7 +392,6 @@ module.exports = {
 				length: 1105,
 				distance: 467.88,
 				//noRetry: true,
-				noInterrupt: [32]
 			},
 			1: {
 				length: 800
@@ -410,7 +400,6 @@ module.exports = {
 		17: { // Vortex Slash
 			'*': {
 				length: 1633,
-				noInterrupt: [32],
 				glyphs: {
 					21040: {
 						speed: 0.3
@@ -425,7 +414,6 @@ module.exports = {
 		18: { // Combative Strike
 			'*': {
 				length: 1100,
-				noInterrupt: [32],
 				race: {
 					0: {
 						distance: 120.276566
@@ -470,7 +458,7 @@ module.exports = {
 		},
 		19: { // Rising Fury
 			'*': {
-				noInterrupt: [19, 32]
+				noInterrupt: [19]
 			},
 			0: {
 				length: 733,
@@ -552,14 +540,12 @@ module.exports = {
 		20: { // Deadly Gamble
 			0: {
 				fixedSpeed: 1,
-				length: 320,
-				noInterrupt: [32]
+				length: 320
 			}
 		},
 		21: { // Cascade of Stuns
 			0: { // Same animation as 2nd cast of Rising fury
 				length: 1400,
-				noInterrupt: [32],
 				race: {
 					0: {
 						distance: 92.66016
@@ -620,8 +606,7 @@ module.exports = {
 		24: { // Smoke Aggressor
 			0: {
 				fixedSpeed: 1,
-				length: 500,
-				noInterrupt: [32]
+				length: 500
 			}
 		},
 		25: { // Command: Attack
@@ -629,7 +614,6 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 700,
 				requiredBuff: 102600,
-				noInterrupt: [32]
 			}
 		},
 		26: { // Command: Follow
@@ -637,7 +621,6 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 700,
 				requiredBuff: 102600,
-				noInterrupt: [32]
 			}
 		},
 		28: { // Traverse Cut
@@ -654,8 +637,7 @@ module.exports = {
 					11: 30,
 					12: 30,
 					18: 30,
-					27: 30,
-					40: 30
+					27: 30
 				},
 				level: {
 					9: {
@@ -706,9 +688,7 @@ module.exports = {
 					17: 30,
 					19: 30,
 					28: 30,
-					32: 30,
-					39: 30,
-					40: 30
+					39: 30
 				}
 			},
 			30: {
@@ -727,7 +707,7 @@ module.exports = {
 			},
 			0: {
 				length: 1833,
-				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 28, 30, 31, 32, 34, 35, 38, 39, 42],
+				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 23, 28, 30, 31, 34, 35, 38, 39, 42],
 				abnormals: {
 					100801: {
 						skill: 380100
@@ -743,8 +723,7 @@ module.exports = {
 					12: 30,
 					29: 30,
 					36: 30,
-					37: 30,
-					40: 30
+					37: 30
 				}
 			},
 			30: {
@@ -762,7 +741,7 @@ module.exports = {
 			},
 			0: {
 				length: 2292,
-				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 28, 29, 30, 32, 33, 34, 35, 37, 38, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 23, 28, 29, 30, 33, 34, 35, 37, 38, 39, 41, 42],
 				abnormals: {
 					104110: {
 						chain: 30
@@ -771,8 +750,7 @@ module.exports = {
 				chains: {
 					4: 30,
 					18: 30,
-					36: 30,
-					40: 30
+					36: 30
 				}
 			},
 			30: {
@@ -792,13 +770,12 @@ module.exports = {
 		34: { // Binding Sword
 			0: {
 				length: 1902,
-				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+				noInterrupt: [1, 2, 3, 4, 5, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
 			}
 		},
 		35: { // Infuriate
 			0: {
 				length: 2425,
-				noInterrupt: [32],
 				requiredBuff: [100200, 100201]
 			}
 		},
@@ -842,7 +819,6 @@ module.exports = {
 			},
 			0: {
 				length: 2800,
-				noInterrupt: [32],
 				abnormals: {
 					104110: {
 						chain: 30
@@ -877,7 +853,6 @@ module.exports = {
 			},
 			0: {
 				length: 1833,
-				noInterrupt: [32],
 				abnormals: {
 					104110: {
 						chain: 30
@@ -901,8 +876,7 @@ module.exports = {
 					11: 30,
 					12: 30,
 					18: 30,
-					27: 30,
-					40: 30
+					27: 30
 				}
 			},
 			30: {
@@ -921,7 +895,7 @@ module.exports = {
 					104110: 2000
 				},
 				consumeAbnormal: 104100, // Shouldn't be present in 10, 20, but it doesn't matter
-				noInterrupt: [32, 40, '41-0', '41-30', 42]
+				noInterrupt: [40, '41-0', '41-30', 42]
 			},
 			10: {
 				abnormals: {
@@ -1092,7 +1066,7 @@ module.exports = {
 				length: 3309.23,
 				distance: 326.55,
 				toggleOnAbnormality: [425100, 425101],
-				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 32, 34, 36, 37, 39, 40, '41-0', '41-30', 42],
+				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 34, 36, 37, 39, 40, '41-0', '41-30', 42],
 				chains: {
 					2: 30,
 					30: 30,
@@ -1112,9 +1086,10 @@ module.exports = {
 		}
 	},
 	1: { // Lancer
+		//'*': { noInterrupt: [2] }, if bhs breaks it again this might be needed everywhere
 		1: { // Combo Attack
 			'*': {
-				noInterrupt: [1, 2]
+				noInterrupt: [1]
 			},
 			0: {
 				length: 624.4,
@@ -1267,7 +1242,6 @@ module.exports = {
 			'*': {
 				length: 839.1,
 				distance: 30,
-				noInterrupt: [2],
 				race: {
 					9: {
 						distance: 43.69
@@ -1327,10 +1301,7 @@ module.exports = {
 			}
 		},
 		9: { // Leash
-			0: {
-				length: [733, 833],
-				noInterrupt: [2]
-			}
+			0: { length: [733, 833] }
 		},
 		10: { // Debilitate
 			'*': {
@@ -1361,15 +1332,11 @@ module.exports = {
 			0: {
 				type: 'retaliate',
 				length: 1633,
-				noRetry: true,
-				noInterrupt: [2]
+				noRetry: true
 			}
 		},
 		12: { // Infuriate
-			0: { // 201803 ?
-				length: 2425,
-				noInterrupt: [2]
-			}
+			0: { length: 2425 }
 		},
 		13: { // Spring Attack
 			'*': {
@@ -1381,7 +1348,7 @@ module.exports = {
 			},
 			0: {
 				length: 2800,
-				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27, 28, 29],
+				noInterrupt: ['1-0', '1-1', 3, 4, 9, 11, 12, 13, 15, 23, 24, 25, 26, 27, 28, 29],
 				chains: {
 					1: 30,
 					5: 30,
@@ -1401,13 +1368,11 @@ module.exports = {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 1115,
-				distance: 474.5,
-				noInterrupt: [2]
+				distance: 474.5
 			},
 			1: {
 				length: 933,
 				distance: 40,
-				noInterrupt: [2],
 				race: {
 					3: {
 						length: 966
@@ -1428,15 +1393,13 @@ module.exports = {
 			0: {
 				withoutWeapon: true,
 				fixedSpeed: 1,
-				length: 700,
-				noInterrupt: [2]
+				length: 700
 			}
 		},
 		17: { // Adrenaline Rush
 			0: {
 				fixedSpeed: 1,
-				length: 700,
-				noInterrupt: [2]
+				length: 700
 			}
 		},
 		18: { // Shield Barrage
@@ -1445,7 +1408,7 @@ module.exports = {
 					201831: 2000
 				},
 				consumeAbnormalEnd: 201831,
-				noInterrupt: [2, 18]
+				noInterrupt: [18]
 			},
 			0: {
 				length: 598,
@@ -1526,15 +1489,13 @@ module.exports = {
 		19: { // Pledge of Protection
 			0: {
 				fixedSpeed: 1,
-				length: 1000,
-				noInterrupt: [2]
+				length: 1000
 			}
 		},
 		21: { // Lockdown Blow
 			'*': {
 				length: 1399,
 				distance: 100.13, // M.Human
-				noInterrupt: [2],
 				race: {
 					0: {
 						distance: 100.13
@@ -1600,22 +1561,17 @@ module.exports = {
 		22: { // Iron Will
 			0: {
 				fixedSpeed: 1,
-				length: 800,
-				noInterrupt: [2]
+				length: 800
 			}
 		},
 		23: { // Master's Leash
 			0: {
 				length: [725, 850],
-				requiredBuff: 201000,
-				noInterrupt: [2]
+				requiredBuff: 201000
 			}
 		},
 		24: { // Chained Leash
-			'*': {
-				consumeAbnormal: 201803,
-				noInterrupt: [2]
-			},
+			'*': { consumeAbnormal: 201803 },
 			1: {
 				length: [733, 833]
 			},
@@ -1668,7 +1624,6 @@ module.exports = {
 		27: { // Rallying Cry
 			0: {
 				length: 640.4,
-				noInterrupt: [2],
 				race: {
 					8: {
 						length: 943.43
@@ -2502,7 +2457,7 @@ module.exports = {
 				length: 1331
 			}
 		},
-		26: { // Decimate(EU), Punishing Blow(NA)
+		26: { // Punishing Blow
 			0: {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
@@ -2529,7 +2484,7 @@ module.exports = {
 				distance: [122, 22]
 			}
 		},
-		27: { // Blazing Thrust(EU), Savage Strike(NA)
+		27: { // Savage Strike
 			'*': {
 				noRetry: true,
 				toggleOnAbnormality: 425100,
@@ -2638,10 +2593,11 @@ module.exports = {
 	3: { // Berserker
 		'*': {
 			consumeAbnormal: 401404
+			//noInterrupt: [2], Same reason as lancer
 		},
 		1: { // Combo Attack
 			'*': {
-				noInterrupt: [1, 2, 4],
+				noInterrupt: [1, 4],
 				noRetry: true
 			},
 			0: {
@@ -2805,15 +2761,12 @@ module.exports = {
 		2: { // Axe Block
 			'*': {
 				CC: "extended",
-				type: 'holdInfinite'
-			},
-			0: {
+				type: 'holdInfinite',
 				fixedSpeed: 1
 			},
-			30: true,
-			31: {
-				fixedSpeed: 1
-			}
+			0: true,
+			30: { fixedSpeed: false },
+			31: { consumeAbnormal: 401701 }
 		},
 		3: { // Thunderstrike
 			'*': {
@@ -3082,7 +3035,7 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 27, 28, 29, 30, '32-0'],
+				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 27, 28, 29, 30, '32-0'],
 				abnormals: {
 					401400: {
 						chain: 1
@@ -3118,8 +3071,7 @@ module.exports = {
 				withoutWeapon: true,
 				CC: "evasive",
 				fixedSpeed: 1,
-				length: 700,
-				noInterrupt: [2]
+				length: 700
 			}
 		},
 		6: { // Sweeping Strike
@@ -3165,7 +3117,6 @@ module.exports = {
 				}
 			},
 			0: {
-				noInterrupt: [2],
 				interruptibleWithAbnormal: {
 					401404: 2
 				},
@@ -3179,9 +3130,6 @@ module.exports = {
 			30: true,
 		},
 		8: { // Fiery Rage
-			'*': {
-				noInterrupt: [2]
-			},
 			1: {
 				fixedSpeed: 1,
 				length: [454.54, 596.81]
@@ -3311,15 +3259,13 @@ module.exports = {
 			0: {
 				CC: "extended",
 				length: 2191.25,
-				distance: 250,
-				noInterrupt: [2]
+				distance: 250
 			}
 		},
 		13: { // Retaliate
 			0: {
 				type: 'retaliate',
 				length: 1625,
-				noInterrupt: [2],
 				noRetry: true
 			}
 		},
@@ -3557,8 +3503,7 @@ module.exports = {
 		16: { // Fearsome Shout
 			0: {
 				fixedSpeed: 1,
-				length: [700, 1425],
-				noInterrupt: [2]
+				length: [700, 1425]
 			}
 		},
 		18: { // Lethal Strike
@@ -3623,22 +3568,19 @@ module.exports = {
 		19: { // Triumphant Shout
 			0: {
 				fixedSpeed: 1,
-				length: [500, 700],
-				noInterrupt: [2]
+				length: [500, 700]
 			}
 		},
 		20: { // Inescapable Doom
 			0: {
 				fixedSpeed: 1,
-				length: [600, 900],
-				noInterrupt: [2]
+				length: [600, 900]
 			}
 		},
 		21: { // Bloodlust
 			0: {
 				fixedSpeed: 1,
-				length: 700,
-				noInterrupt: [2]
+				length: 700
 			}
 		},
 		24: { // Evasive Smash
@@ -3741,13 +3683,12 @@ module.exports = {
 		26: { // Tackle
 			0: {
 				length: 1010,
-				distance: 80,
-				noInterrupt: [2]
+				distance: 80
 			}
 		},
 		27: { // Unbreakable
 			'*': {
-				noInterrupt: [1, 2, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 			},
 			0: {
 				length: 2066,
@@ -3775,7 +3716,6 @@ module.exports = {
 		28: { // Intimidation
 			'*': {
 				length: 1566,
-				noInterrupt: [2],
 				race: {
 					7: {
 						length: 1599
@@ -3791,7 +3731,7 @@ module.exports = {
 				length: 909.1,
 				distance: 150,
 				forceClip: true,
-				noInterrupt: [2, 29]
+				noInterrupt: [29]
 			}
 		},
 		30: { // Axe Counter
@@ -3849,7 +3789,6 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 1115,
 				distance: 470,
-				noInterrupt: [2],
 				noRetry: true
 			},
 			1: {
@@ -3863,7 +3802,7 @@ module.exports = {
 		},
 		32: { // Punishing Strike
 			'*': {
-				noInterrupt: [2, 32]
+				noInterrupt: [32]
 			},
 			0: {
 				length: 771.53,
@@ -3989,11 +3928,11 @@ module.exports = {
 			},
 			1: true,
 			30: {
-				length: [625, 833],
+				length: [641, 833],
 				distance: [25, 0]
 			},
 			31: {
-				length: [625, 833],
+				length: [641, 833],
 				distance: [25, 0]
 			}
 		},
@@ -4857,68 +4796,68 @@ module.exports = {
 			0: {
 				withoutWeapon: true,
 				fixedSpeed: 1,
-				length: [3627, 49543.14, 1757],
+				length: [3727.273, 54545.455, 1657.273],
 				distance: [136.38, 0, 0],
 				race: {
 					0: {
-						length: [3399.99, 49577, 1757.3],
+						length: [3500, 54545.455, 1657.273],
 						distance: [-119.575417, 0, 0]
 					},
 					1: {
-						length: [2945, 49546, 1757.3],
+						length: [3045.455, 54545.455, 1657.273],
 						distance: [-70, 0, 0]
 					},
 					2: {
-						length: [3990, 49516.77, 1757.3],
+						length: [4090.909, 54545.455, 1657.273],
 						distance: [-102.666664,
 							0,
 							0
 						]
 					},
 					3: {
-						length: [2809, 49546.77, 1818.2],
+						length: [2909.091, 54545.455, 1718.182],
 						distance: [-100,
 							0,
 							0
 						]
 					},
 					4: {
-						length: [4763.6, 49516.77, 1757.3],
+						length: [4863.636, 54545.455, 1657.273],
 						distance: [-66.59007,
 							0,
 							0
 						]
 					},
 					5: {
-						length: [3718, 49516.77, 1757.3],
+						length: [3818.182, 54545.455, 1657.273],
 						distance: [-119.723,
 							0,
 							0
 						]
 					},
 					6: {
-						length: [4202, 49546.8, 1757],
+						length: [4302.727, 54545.455, 1657.273],
 						distance: [-113.775879,
 							0,
 							0
 						]
 					},
 					8: {
-						length: [3127.3, 49516.77, 1757.3],
+						length: [3227.273, 54545.455, 1657.273],
 						distance: [-136.38,
 							0,
 							0
 						]
 					},
 					9: {
-						length: [2854.5, 49516.77, 1757.3],
+						length: [2954.545, 54545.455, 1657.273],
 						distance: [-114.050468,
 							0,
 							0
 						]
 					},
 					10: {
-						length: [4400, 49546.77, 1757.3],
+						length: [4500, 54545.455, 1657.273],
 						distance: [-40.0000038,
 							0,
 							0
@@ -6326,6 +6265,7 @@ module.exports = {
 		},
 		5: { // Grim Strike
 			'*': {
+				blockCancelPacket: true,
 				distance: [120, 0],
 				inPlace: {
 					movement: [
@@ -6454,16 +6394,16 @@ module.exports = {
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-3', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
-				interruptibleWithAbnormal: { //thx, Yunfei
-					10151040: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40],
-					10151041: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40],
-					10151042: [1, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 40]
-				},
 				length: 2150,
 				triggerAbnormal: {
 					10151040: 2000
 				},
-				abnormals: { 
+				interruptAllWithAbnormal: {
+					10151040: 11,
+					10151041: 11,
+					10151042: 11
+				},
+				abnormals: {
 					10151040: {
 						chain: 1
 					},
@@ -6507,10 +6447,7 @@ module.exports = {
 					12: 1
 				}
 			},
-			1: {
-				noInterrupt: ['12-1'],
-				length: 2025
-			}
+			1: { length: 2025 }
 		},
 		/*
 		13: { // Soul Reversemento
