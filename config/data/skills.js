@@ -7570,9 +7570,9 @@ module.exports = {
 				distance: 351.98
 			}
 		},
-		24: { // 2.54cm Punch / todo: check
+		24: { // 2.54cm Punch
 			'*': {
-				noRetry: true,
+				noInterrupt: [24],
 				race: {
 					0: {
 						distance: 16.6
