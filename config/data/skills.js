@@ -642,9 +642,8 @@ module.exports = {
 				level: {
 					9: {
 						abnormals: {
-							100201: {
-								skill: 390100
-							}
+							100201: {skill: 390100 },
+							104110: { chain: 30 }
 						}
 					}
 				}
@@ -888,6 +887,7 @@ module.exports = {
 			'*': {
 				length: 810.6,
 				distance: 156.25,
+				noRetry: true,
 				toggleOnAbnormality: [104101, 425100],
 				triggerAbnormal: {
 					//104100: 8000,
