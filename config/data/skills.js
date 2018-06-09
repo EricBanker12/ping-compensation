@@ -6764,10 +6764,11 @@ module.exports = {
 		},
 		10: { // Arc Bomb
 			'*': {
+				abnormals: { 10152011: { chain: 2}},
+				consumeAbnormal: [10152011],
 				length: 1320,
 				noInterrupt: [10, 20],
 				chains: {
-					1: null,
 					'2-1': null,
 					3: null,
 					4: null,
