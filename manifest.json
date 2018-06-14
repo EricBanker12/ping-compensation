@@ -1,25 +1,26 @@
 {
 	"files": {
-		"index.js": "537340ea4a88fce436cdc2dcb464c190a9d214bbdecc2e3b3e8b8a9f1f0b6949",
+		"index.js": "f4b6fed1a5a0b2dd4a93b1ab0923d0fba85b63d465c1550ca02c3776f5f220c0",
 		"module.json": "f25b4b87d552beb330b3b51d9b4fc7eeba4b139a7da29dfa5622ec06a5e9e888",
-		"README.md": "51c9f92a4131b9e35899bff0f30e7d349f549195dbad39a49f5176b02b523693",
+		"README.md": "7491448f958e86595cc9363acdb8ef46c92e06eeb573f895502ac04f67934a7a",
 		"config/config.json": {
 			"overwrite": false,
 			"hash": "2c984c97e5f4556b3161725933be94df023aeb11398cede180a40b3a31c55476"
 		},
 		"config/preset.js": {
 			"overwrite": false,
-			"hash": "694b5b6ad3cdc60b5149834d3992e93a7c0fca612e26cd7be02c5a311111e856"
+			"hash": "4e01f1fbdc336cd4475d9d35d05a63d037d363c3a1d241b6d87cdc9bddb8be6a"
 		},
 		"config/data/skills.js": "6901ffcfd5cdeebcb15e78b279194d998448537f93dcb36f3b804ac867bc4b07",
-		"docs/commands.md": "b67a1215d2f53de5943041cec3ccf349cbd7d32ace1f0779f1b1a3c54ea75eb3",
+		"docs/commands.md": "bed854ef1e9f14bedb1966fd27d9a73f159ecb9eb2b0218fb0f7f9d77b322c97",
 		"docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
-		"docs/ping.md": "13e32834603a523adee6ff50083079693ef8d92c83644091f21f6b184e1547a9",
+		"docs/ping.md": "c1b870cfe3b0a38b0e61dac9ae990577dd96aacdce2ddc2657ec3f703fbe2374",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
-		"lib/core.js": "f8992d5ec7c4d3ccacf75366583aca887b10e2c58b26e535ec0a35c2814a396e",
-		"lib/ping.js": "42d1fc2e5d9c34f05caea5ddfa575ec609caba81a068b7c5788fe309596b13e8",
+		"lib/core.js": "8532fb22c27614e744cf7b555230aa8df580c40a252576d8c6bc937e84305645",
+		"lib/ping.js": "6fffb4e7442e94d23c9b6c4c40e1aa3e1768c99831468ac97d1696b0aed74579",
 		"LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
-		"config/data/default-config.json": "e55ec22a8a135a3c1227b373fd4900aee9b816a7e8e4c63d02412a8f9fe4069a"
+		"config/data/default-config.json": "2c984c97e5f4556b3161725933be94df023aeb11398cede180a40b3a31c55476",
+		"README.url": "f5ec6b97ec23c6d1fda9d9f946e0f7b931da9170a8f36d5ac8f6ffee41c30d00"
 	},
 	"defs": {
 		"C_CANCEL_SKILL": 1,
@@ -36,7 +37,7 @@
 		"C_START_SKILL": 5,
 		"C_START_TARGETED_SKILL": 4,
 		"S_ACTION_END": 3,
-		"S_ACTION_STAGE": 4,
+		"S_ACTION_STAGE": 5,
 		"S_CANNOT_START_SKILL": 1,
 		"S_CAN_LOCKON_TARGET": 1,
 		"S_CREATURE_LIFE": 2,
