@@ -6071,7 +6071,7 @@ module.exports = {
 		},
 		1: { // Spiral Barrage
 			'*': {
-				length: 1012,
+				length: 1012.4,
 				distance: 48,
 				inPlace: {
 					movement: [{
@@ -6117,7 +6117,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 1196.5,
+				length: 1196.4,
 				distance: 42,
 				inPlace: {
 					movement: [{
@@ -6138,7 +6138,7 @@ module.exports = {
 				},
 			},
 			3: {
-				length: 862.5,
+				length: 862.4,
 				distance: 56,
 				inPlace: {
 					movement: [{
@@ -6159,7 +6159,7 @@ module.exports = {
 				},
 			},
 			4: {
-				length: 1394,
+				length: 1394.4,
 				distance: 60,
 				inPlace: {
 					movement: [{
@@ -6396,7 +6396,7 @@ module.exports = {
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, '11-3', 12, 13, 14, 15, 16, 18, 20, 40]
 			},
 			0: {
-				length: 2150,
+				length: 2156,
 				triggerAbnormal: {
 					10151040: 2000
 				},
@@ -6419,16 +6419,16 @@ module.exports = {
 				noRetry: true
 			},
 			1: {
+				consumeAbnormal: 10151040,
 				triggerAbnormal: {
 					10151041: 2000
-				},
-				consumeAbnormal: 10151040
+				}
 			},
 			2: {
+				consumeAbnormal: 10151041,
 				triggerAbnormal: {
 					10151042: 2000
-				},
-				consumeAbnormal: 10151041
+				}
 			},
 			3: {
 				consumeAbnormal: 10151042
@@ -6449,7 +6449,7 @@ module.exports = {
 					12: 1
 				}
 			},
-			1: { length: 2025 }
+			1: { length: 2019 }
 		},
 		/*
 		13: { // Soul Reversemento
@@ -6481,13 +6481,13 @@ module.exports = {
 		16: { // Shadow Reaping
 			0: {
 				fixedSpeed: 1,
-				length: 789.3
+				length: 789.24
 			}
 		},
 		18: { // Shrouded Escape
 			0: {
 				CC: ["evasive", "extended"],
-				length: 839,
+				length: 839.1,
 				distance: 150
 			}
 		},
@@ -6502,7 +6502,7 @@ module.exports = {
 		40: { // Shadow Step
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 692,
+				length: 692.3,
 				distance: 180,
 				forceClip: true,
 				abnormals: {
