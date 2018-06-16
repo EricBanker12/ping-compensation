@@ -20,7 +20,7 @@
     "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "94df3294899c7be76fcb4c4abe1b758fed049dfd547e770d9d628bb7d1c2d582",
-    "lib/core.js": "c7137b18b8e2cc7536dfe148dd3e163836ac7fe8d37c3a56bb18a2b4640bc078",
+    "lib/core.js": "a5e34f5f2004c96c2a69c3acb2fb8e41f3ae12f166c55c351e15ec52820dcbf5",
     "lib/commands.js": "83ff7a042df4ae4fcada0ce01094dfdaa61d054c2d182a076afa66230370b114",
     "lib/autoconfig.js": "7c5909b33185f12dc6099985e2ed1af755526a05fc6af4c8250889409606a46c",
     "lib/ping.js": "59222ed00878ac038efbb0e81325916f1578bca7f4f9843b0c00513779589286",
@@ -29,7 +29,7 @@
     "res/spLogo.png": "d6f8ea63c54d3e99cf12e029e538e2ed51eb76a1c7999f1cfa7e913db26d219b",
     "migration/steps.json": "d961c14f7fbb81d05bee9e80662b3ff2a4b4737a06801bfe096b42d13cef6e53",
     "config/data/default-config.json": "03c00611a9e04031e99708c8b1c2a807d5a01d456b924223d8ac16d2cad9fab3",
-    "lib/loader.js": "d29ce539eacaba7e988ef0eca6468c49058059815ac7286b76db00ff4ef16adc"
+    "lib/loader.js": "a91cf6bf1c8531eec256acc203f340167e54e2e09601fa9c302aa07c3f9a7c63"
 
   },
   "defs": {
