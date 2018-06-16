@@ -7040,7 +7040,7 @@ module.exports = {
 				consumeAbnormalEnd: 10153001
 			},
 			2: {
-				length: 1800,
+				length: 1817.8,
 				distance: 84,
 				triggerAbnormal: {
 					10153002: 0x7fffffff
@@ -7048,7 +7048,7 @@ module.exports = {
 				consumeAbnormalEnd: 10153002
 			},
 			3: {
-				length: 1925,
+				length: 1932,
 				distance: 131.2,
 				triggerAbnormal: {
 					10153003: 0x7fffffff
@@ -7056,7 +7056,7 @@ module.exports = {
 				consumeAbnormalEnd: 10153003
 			},
 			4: {
-				length: 1950,
+				length: 1973.4,
 				distance: 142.86,
 				triggerAbnormal: {
 					10153004: 0x7fffffff
@@ -7109,7 +7109,7 @@ module.exports = {
 			'*': {
 				CC: "extended",
 				noInterrupt: [4],
-				length: 3225,
+				length: 3234.75,
 				chains: {
 					1: 30,
 					2: 30,
@@ -7148,7 +7148,7 @@ module.exports = {
 		},
 		6: { // Haymaker
 			'*': {
-				length: [1025, 1825],
+				length: [1022, 1833],
 				distance: [0, 171.61],
 				timeout: 150,
 				abnormals: {
@@ -7196,7 +7196,7 @@ module.exports = {
 		},
 		7: { // Roundhouse Kick
 			'*': {
-				length: 860,
+				length: 866,
 				distance: 105,
 				noInterrupt: [7],
 				chains: {
@@ -7229,7 +7229,7 @@ module.exports = {
 		},
 		8: { // Piledriver
 			'*': {
-				length: 1950,
+				length: 1960,
 				distance: 164.94,
 				race: {
 					0: {
@@ -7274,7 +7274,7 @@ module.exports = {
 		9: { // Jackhammer
 			'*': {
 				fixedSpeed: 1,
-				length: 1540,
+				length: 1543,
 				distance: 40,
 				noInterrupt: [9],
 				abnormals: {
@@ -7350,7 +7350,7 @@ module.exports = {
 		13: { // Provoke
 			'*': {
 				fixedSpeed: 1,
-				length: 1291,
+				length: 1292,
 				noInterrupt: [13, 40]
 			},
 			1: true,
@@ -7700,7 +7700,7 @@ module.exports = {
 					40: 2
 				}
 			},
-			1: { // todo: check
+			1: {
 				length: [178.57, 412.85],
 				distance: [0, 30],
 			},
@@ -7753,7 +7753,7 @@ module.exports = {
 			'*': {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
-				length: 588,
+				length: 588.2,
 				distance: 144,
 				forceClip: true,
 				hasChains: true,
