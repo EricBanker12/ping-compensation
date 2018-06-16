@@ -7098,12 +7098,16 @@ module.exports = {
 			}
 		},
 		3: { // Divine Wrath
-			0: {
+			'*': {
 				fixedSpeed: 1,
-				length: 29900,
 				noRetry: true
 			},
-			1: false
+			0: { length: 30681 },
+			1: {
+				type: 'lockonCast',
+				setEndpointStage: 1,
+				length: [1800, 1433, 1366.5]
+			}
 		},
 		4: { // Ground Pounder
 			'*': {
