@@ -4871,7 +4871,7 @@ module.exports = {
 		8: { // Rapid Fire
 			'*': {
 				noRetry: true,
-				blockCancelPacket: true
+				//blockCancelPacket: true
 			},
 			0: {
 				length: 433,
@@ -6267,7 +6267,7 @@ module.exports = {
 		},
 		5: { // Grim Strike
 			'*': {
-				blockCancelPacket: true,
+				//blockCancelPacket: true,
 				distance: [120, 0],
 				inPlace: {
 					movement: [
