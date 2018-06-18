@@ -885,6 +885,7 @@ module.exports = {
 		},
 		40: { // Blade Waltz
 			'*': {
+				hasChains:true,
 				length: 810.6,
 				distance: 156.25,
 				noRetry: true,
@@ -1000,6 +1001,7 @@ module.exports = {
 		},
 		41: { // Aerial Scythe
 			'*': {
+				hasChains:true,
 				noRetry: true,
 				length: 1976.15,
 				distance: 219.04,
