@@ -1,5 +1,5 @@
 {
-    "version": "4.82",
+    "version": "4.85",
     "configAdd": {
         "pingHistoryMax" : 35
     },
@@ -9,7 +9,8 @@
         "pingSpikesMax",
         "mountCheck",
         "bodyRollsCheck",
-        "forceClipStrict"
+        "forceClipStrict",
+        "emulateAttackSpeedFromSelfBuffs"
     ],
     "removeFile": [
         "../index.js",
