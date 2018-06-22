@@ -7010,6 +7010,25 @@ module.exports = {
 			'*': {
 				length: 876 // no clue lol
 			},
+			/*1 and 30 - "distance": [
+				20,
+				42.5,
+				45.70926
+			]
+			3 and 50 - 	"distance": [
+						40,
+						85,
+						91.41852
+					]
+			51 and 90 - 	"distance": [
+						135,
+						74.99996
+					]
+			31 - "distance": [
+						67.5,
+						37.49998
+					]
+			*/
 			1: false,
 			2: false,
 			3: false,
@@ -7024,12 +7043,16 @@ module.exports = {
 		},
 		44: { //UNKNOWN
 			'*': {
-				length: 5813
+				length: 5813,
+				distance: 269 //(possible should be recoil)
 			},
 			1: true,
 			2: true
 		},
 		47: { //UNKNOWN
+			'*': {
+				distance: 129.74 //(possible should be recoil)
+			},
 			1: false,
 			2: false,
 			30: false
