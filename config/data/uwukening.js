@@ -4729,7 +4729,7 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
-				length: 3131,
+				length: 3153 //?_?,
 				glyphs: {
 					26077: {
 						speed: 0.4
@@ -4996,7 +4996,7 @@ module.exports = {
 		},
 		21: { // Sniper's Eye
 			'*': {
-				length: 625
+				length: 625 //636?_?
 			},
 			0: true,
 			50: true
@@ -5060,6 +5060,7 @@ module.exports = {
 				length: 182
 			}
 		},
+		//here should be charges... lazy...
 		33: { // Chase
 			0: {
 				CC: "evasive",
