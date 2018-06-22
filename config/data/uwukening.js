@@ -6692,7 +6692,53 @@ module.exports = {
 				}, {
 					stamina: 65
 				}]
-			}
+			},
+			10: { //windup
+				length: 860 
+			},
+			11: {
+				fixedSpeed: 1,
+				length: 125,
+				stamina: 75,
+				instantStamina: true,
+				glyphs: {
+					30046: {
+						stamina: -10
+					}
+				},
+				level: [{
+					stamina: 50
+				}, {
+					stamina: 55
+				}, {
+					stamina: 60
+				}, {
+					stamina: 65
+				}]
+			},
+			20: { //windup LUL WAT
+				length: 860 
+			},
+			21: { //SIGH
+				fixedSpeed: 1,
+				length: 125,
+				stamina: 75,
+				instantStamina: true,
+				glyphs: {
+					30046: {
+						stamina: -10
+					}
+				},
+				level: [{
+					stamina: 50
+				}, {
+					stamina: 55
+				}, {
+					stamina: 60
+				}, {
+					stamina: 65
+				}]
+			},
 		},
 		6: { // Time Bomb
 			'*': {
@@ -6734,13 +6780,13 @@ module.exports = {
 				noInterrupt: ['7-3']
 			}
 		},
-		9: { // Mana Missiles
+		9: { // Mana Missiles TODO: add insta charge
 			'*': {
-				length: 1200
+				length: 1200 //1266 seems
 			},
 			0: {
 				type: 'charging',
-				length: 1200,
+				length: 1200, //1266 seems
 				noInterrupt: [9, 20]
 			},
 			10: {
@@ -6752,6 +6798,11 @@ module.exports = {
 				distance: -100,
 				noRetry: true,
 				noInterrupt: ['9-11']
+			},
+			12: {
+				distance: -100,
+				noRetry: true,
+				noInterrupt: ['9-12']
 			}
 		},
 		10: { // Arc Bomb
@@ -6779,7 +6830,7 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 1400,
+				length: 1409, //welp ?_?
 				noInterrupt: [3, 11, 15, 20],
 				distance: 415.45,
 				chains: {
@@ -6812,7 +6863,7 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				length: 5800,
+				length: 5812, //welp ?_?
 				distance: -269.09,
 				noInterrupt: [13],
 				chains: {
@@ -6873,7 +6924,7 @@ module.exports = {
 		},
 		19: { // ST
 			'*': {
-				length: 1325,
+				length: 1320, // hmmmm
 				consumeAbnormal: [10152000, 10152001, 10152010, 10152011],
 				chains: {
 					1: null,
@@ -6928,7 +6979,7 @@ module.exports = {
 		},
 		*/
 		40: { // Rolling Reload
-			0: {
+			'*':{
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 935,
@@ -6940,7 +6991,47 @@ module.exports = {
 				noInterrupt: [11],
 				distance: 172.5,
 				forceClip: true
+			},
+			1: true,
+			2: true
+		},
+		41: { //UNKNOWN
+			1: false,
+			2: false,
+			3: false
+		},
+		42: { //UNKNOWN
+			1: {
+				length: 632 
 			}
+		},
+		43: { //UNKNOWN
+			'*': {
+				length: 876 // no clue lol
+			},
+			1: false,
+			2: false,
+			3: false,
+			30: false,
+			31: {
+				length: 1669
+			},
+			50: false,
+			51: {
+				length: 1669
+			}
+		},
+		44: { //UNKNOWN
+			'*': {
+				length: 5813
+			},
+			1: true,
+			2: true
+		},
+		47: { //UNKNOWN
+			1: false,
+			2: false,
+			30: false
 		},
 		910: { // Awakening Eyes Aura
 			0: {
