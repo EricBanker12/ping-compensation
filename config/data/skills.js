@@ -3692,29 +3692,17 @@ module.exports = {
 		},
 		27: { // Unbreakable
 			'*': {
-				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
 			},
 			0: {
 				length: 2066,
-				abnormals: {
-					401705: {
-						chain: 30
-					}
-				},
-				chains: {
-					34: 30,
-					35: 30,
-					36: 30,
-					37: 30
-				},
-				race: {
-					7: {
-						length: 2099
-					}
-				} // F.Casta
+				abnormals: { 401705: { chain: 30 } },
+				interruptibleWithAbnormal: { 401705: 33 }, // Ping taxed for now due to the lack of proper emulation.
+				race: { 7: { length: 2099 } }
 			},
 			30: {
-				length: 1455
+				length: 1455,
+				requiredBuff: 401705
 			}
 		},
 		28: { // Intimidation
@@ -3871,7 +3859,7 @@ module.exports = {
 		},
 		33: { // Unleash
 			0: {
-				length: [700, 1500, 1766],
+				length: [700, 1500, 1766], // 401705 Should trigger based on something here, idk wut but it's affected by aspd due to that.
 				toggleOnAbnormality: 425100
 			}
 		},
