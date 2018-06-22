@@ -3891,7 +3891,7 @@ module.exports = {
 			},
 			0: {
 				noRetry: true,
-				noInterrupt: [34, 36],
+				noInterrupt: [27, 34, 36],
 				chains: {
 					33: 30,
 					35: 30,
@@ -3924,7 +3924,7 @@ module.exports = {
 			},
 			0: {
 				noRetry: true,
-				noInterrupt: [35, 36, 37],
+				noInterrupt: [27, 35, 36, 37],
 				chains: {
 					33: 1,
 					34: 30
@@ -3957,7 +3957,7 @@ module.exports = {
 			},
 			0: {
 				length: 2714.4,
-				noInterrupt: [37],
+				noInterrupt: [27, 37],
 				chains: {
 					34: 30,
 					35: 30,
