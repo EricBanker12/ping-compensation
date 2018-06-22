@@ -9107,6 +9107,29 @@ module.exports = {
 				requiredBuff: 10155201
 			}
 		},
+		23: {
+			'*': {
+				length: 900
+			},
+			0: true,
+			1: true,
+			2: true,
+		},
+		24: {
+			0: false,
+			1: false,
+			2: false,
+			3: false,
+			4: false,
+		},
+		25: {
+			0: true,
+			1: true,
+			2: true,
+			3: true,
+			31: true,
+			32: true
+		},
 		910: { // Awakening Eyes Aura
 			0: { length: 500 }
 		}
