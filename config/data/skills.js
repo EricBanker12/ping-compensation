@@ -1636,6 +1636,9 @@ module.exports = {
 			}
 		},
 		28: { // Righteous Leap
+			'*': {
+				ignoreCnliaForStages: [0]
+			},
 			0: {
 				toggleOnAbnormality: 425100,
 				length: [333.33, 1055, 3121.66],
