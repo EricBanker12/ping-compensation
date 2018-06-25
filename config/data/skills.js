@@ -8149,7 +8149,7 @@ module.exports = {
 		8: { // Fire Avalanche
 			'*': {
 				triggerAbnormal: { 10154080: 10000 },
-				length: [700, 1375, 325],
+				length: [700, 1366, 333],
 				distance: [0, 367.31, 0],
 				abnormals: {
 					32033: { speed: 0.2 },
@@ -8182,7 +8182,7 @@ module.exports = {
 					10154081: 5000
 				},
 				consumeAbnormal: 10154080,
-				length: [1375, 325],
+				length: [1366, 333],
 				distance: [411.39, 0]
 			},
 			2: {
@@ -8190,7 +8190,7 @@ module.exports = {
 					10154082: 1
 				},
 				consumeAbnormal: 10154081,
-				length: [1375, 325],
+				length: [1366, 333],
 				distance: [455.47, 0]
 			},
 			30: true
