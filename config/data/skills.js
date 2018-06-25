@@ -21,7 +21,7 @@ module.exports = {
 	0: { // Warrior
 		'*': { consumeAbnormal: 104110 },
 		// noInterrupt: [32], same reason as Lancer
-		
+
 		1: { // Combo Attack
 			'*': {
 				noInterrupt: [1],
@@ -34,7 +34,7 @@ module.exports = {
 					0: { distance: 47.534 },
 					1: { distance: 47.534 },
 					2: { distance: 47.5339966 },
-					3: { distance: 47.534},
+					3: { distance: 47.534 },
 					4: { distance: 35.4914246 },
 					5: { distance: 45 },
 					6: { distance: 47.534 },
@@ -171,9 +171,9 @@ module.exports = {
 				noRetry: true,
 				noInterrupt: [2, 10],
 				glyphs: {
-					21015: {stamina: -100},
-					21067: {stamina: -100},
-					21101: {stamina: -120}
+					21015: { stamina: -100 },
+					21067: { stamina: -100 },
+					21101: { stamina: -120 }
 				},
 				race: {
 					7: {
@@ -642,7 +642,7 @@ module.exports = {
 				level: {
 					9: {
 						abnormals: {
-							100201: {skill: 390100 },
+							100201: { skill: 390100 },
 							104110: { chain: 30 }
 						}
 					}
@@ -885,7 +885,7 @@ module.exports = {
 		},
 		40: { // Blade Waltz
 			'*': {
-				hasChains:true,
+				hasChains: true,
 				length: 810.6,
 				distance: 156.25,
 				noRetry: true,
@@ -1001,7 +1001,7 @@ module.exports = {
 		},
 		41: { // Aerial Scythe
 			'*': {
-				hasChains:true,
+				hasChains: true,
 				noRetry: true,
 				length: 1976.15,
 				distance: 219.04,
@@ -2816,14 +2816,14 @@ module.exports = {
 					}
 				},
 				level: [{
-						length: 800
-					}, // 1300
-					{
-						length: [800, 800]
-					}, // 1150
-					{
-						length: [800, 800]
-					} // 1150
+					length: 800
+				}, // 1300
+				{
+					length: [800, 800]
+				}, // 1150
+				{
+					length: [800, 800]
+				} // 1150
 				]
 			},
 			10: {
@@ -3189,14 +3189,14 @@ module.exports = {
 					},
 				},
 				level: [{
-						length: 800
-					}, // 1300
-					{
-						length: [800, 800]
-					}, // 1150
-					{
-						length: [800, 800]
-					} // 1150
+					length: 800
+				}, // 1300
+				{
+					length: [800, 800]
+				}, // 1150
+				{
+					length: [800, 800]
+				} // 1150
 				]
 			},
 			10: {
@@ -8148,18 +8148,14 @@ module.exports = {
 		},
 		8: { // Fire Avalanche
 			'*': {
-				triggerAbnormal: {
-					10154080: 10000
-				},
+				triggerAbnormal: { 10154080: 10000 },
 				length: [700, 1375, 325],
 				distance: [0, 367.31, 0],
 				abnormals: {
-					10154080: {
-						chain: 1
-					},
-					10154081: {
-						chain: 2
-					}
+					32033: { speed: 0.2 },
+					32058: { speed: 0.3 },
+					10154080: { chain: 1 },
+					10154081: { chain: 2 }
 				},
 				chains: {
 					1: 30,
@@ -8329,17 +8325,11 @@ module.exports = {
 				stamina: 100,
 				instantStamina: true,
 				abnormals: {
-					32033: {
-						speed: 0.2
-					},
-					32058: {
-						speed: 0.3
-					}
+					32033: { speed: 0.2 },
+					32058: { speed: 0.3 }
 				}
 			},
-			0: {
-				length: 900
-			},
+			0: { length: 900 },
 			1: true,
 			2: true,
 			3: true,
