@@ -3157,6 +3157,7 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
+				canInstantCharge: { abnormal: 401701},
 				toggleOnAbnormality: 401400,
 				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
