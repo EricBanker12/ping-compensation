@@ -326,7 +326,8 @@ module.exports = {
 						distance: 44.9627571
 					},
 					3: {
-						distance: 40
+						distance: 40,
+						length: 1033
 					},
 					4: {
 						distance: 25.1893
@@ -335,19 +336,23 @@ module.exports = {
 						distance: 40
 					},
 					6: {
-						distance: 40
+						distance: 40,
+						length: 1033
 					},
 					7: {
-						distance: 45
+						distance: 45,
+						length: 1033
 					},
 					8: {
 						distance: 35
 					},
 					9: {
-						distance: 54.85104
+						distance: 54.85104,
+						length: 1033
 					},
 					10: {
-						distance: 23.67408
+						distance: 23.67408,
+						length: 1033
 					}
 				}
 			}
