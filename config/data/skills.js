@@ -1069,10 +1069,13 @@ module.exports = {
 			}
 		},
 		42: { // Blade Frenzy
+			'*':{
+				disableOnAbnormal: [425100, 425101],
+			},
 			0: {
 				length: 3309.23,
 				distance: 326.55,
-				disableOnAbnormal: [425100, 425101],
+				
 				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 34, 36, 37, 39, 40, '41-0', '41-30', 42],
 				chains: {
 					2: 30,
@@ -1642,10 +1645,10 @@ module.exports = {
 		},
 		28: { // Righteous Leap
 			'*': {
-				ignoreCnliaForStages: [0]
+				disableOnAbnormal: 425100
 			},
 			0: {
-				disableOnAbnormal: 425100,
+				
 				length: [333.33, 1055, 3121.66],
 				distance: [29.48, 445.52, 0],
 				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
@@ -2470,13 +2473,15 @@ module.exports = {
 			}
 		},
 		26: { // Punishing Blow
+			'*': {
+				disableOnAbnormal: 425100,
+			},
 			0: {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
 				interruptAllWithAbnormal: {
 					301604: 25
 				},
-				disableOnAbnormal: 425100,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
 				abnormals: {
 					301604: {
@@ -2566,13 +2571,13 @@ module.exports = {
 		28: { // Unsheathe
 			'*': {
 				length: [1024.26, 0],
-				noRetry: true
+				noRetry: true,
+				disableOnAbnormal: [425100, 425101],
 			},
 			0: {
 				type: 'charging',
 				length: [650, 650],
 				chargeLevels: [1, 2, 3],
-				disableOnAbnormal: [425100, 425101],
 				noInterrupt: [28],
 				abnormals: {
 					301600: {
@@ -5598,9 +5603,11 @@ module.exports = {
 			30: true
 		},
 		43: { // Words of Judgment
+			'*':{
+				disableOnAbnormal: [425100, 425101]
+			},
 			0: {
 				length: 1416.66,
-				disableOnAbnormal: [425100, 425101]
 			},
 			50: {
 				length: 200
@@ -6038,11 +6045,10 @@ module.exports = {
 		},
 		45: { // Thrall Augmentation
 			'*': {
-				length: 91
-			},
-			0: {
+				length: 91,
 				disableOnAbnormal: 425100
 			},
+			0: true,
 			50: true
 		},
 		47: { // Arunic Release
@@ -7519,10 +7525,12 @@ module.exports = {
 			2: true
 		},
 		22: { // Flying Kick
+			'*':{
+				disableOnAbnormal: 425100,
+			},
 			0: {
 				length: 1815,
 				distance: 245.21,
-				disableOnAbnormal: 425100,
 				noInterrupt: [22],
 				abnormals: {
 					10153190: {
@@ -7647,12 +7655,12 @@ module.exports = {
 		26: { // Ult aka Brawling Roll/Rythmic Blows
 			'*': {
 				noInterrupt: [26],
-				noRetry: true
+				noRetry: true,
+				disableOnAbnormal: [425100, 425101],
 			},
 			0: {
 				length: [178.57, 412.85],
 				distance: [0, 30],
-				disableOnAbnormal: [425100, 425101],
 				abnormals: {
 					10153190: {
 						chain: 2
