@@ -277,7 +277,7 @@ module.exports = {
 		8: { // Assault Stance
 			'*': {
 				length: 566.4,
-				toggleOnAbnormality: 102500
+				disableOnAbnormal: 102500
 			},
 			0: {
 				stamina: 1000
@@ -287,7 +287,7 @@ module.exports = {
 		9: { // Defensive Stance
 			'*': {
 				length: 566.4,
-				toggleOnAbnormality: 102500,
+				disableOnAbnormal: 102500,
 			},
 			0: {
 				stamina: 1000
@@ -413,7 +413,7 @@ module.exports = {
 			},
 			1: true,
 			2: {
-				requiredBuff: 100201
+				enableOnAbnormal: 100201
 			}
 		},
 		18: { // Combative Strike
@@ -458,7 +458,7 @@ module.exports = {
 			0: true,
 			1: true,
 			2: {
-				requiredBuff: 100201
+				enableOnAbnormal: 100201
 			}
 		},
 		19: { // Rising Fury
@@ -591,8 +591,8 @@ module.exports = {
 		23: { // Spinning Counter
 			0: {
 				length: 1091,
-				toggleOnAbnormality: 100299,
-				requiredBuff: 100700,
+				disableOnAbnormal: 100299,
+				enableOnAbnormal: 100700,
 				race: {
 					0: { distance: 68.80444 },
 					1: { distance: 105.200417 },
@@ -618,14 +618,14 @@ module.exports = {
 			0: { // 1060100 <- shadow-chan templateId
 				fixedSpeed: 1,
 				length: 700,
-				requiredBuff: 102600,
+				enableOnAbnormal: 102600,
 			}
 		},
 		26: { // Command: Follow
 			0: {
 				fixedSpeed: 1,
 				length: 700,
-				requiredBuff: 102600,
+				enableOnAbnormal: 102600,
 			}
 		},
 		28: { // Traverse Cut
@@ -767,7 +767,7 @@ module.exports = {
 				type: 'holdInfinite',
 				fixedSpeed: 1,
 				consumeAbnormal: [102010, 104110], // This should exist for all skills but this is the only real case where it's needed in practice
-				requiredBuff: [100200, 100201],
+				enableOnAbnormal: [100200, 100201],
 				stamina: 50
 			}
 		},
@@ -780,7 +780,7 @@ module.exports = {
 		35: { // Infuriate
 			0: {
 				length: 2425,
-				requiredBuff: [100200, 100201]
+				enableOnAbnormal: [100200, 100201]
 			}
 		},
 		36: { // Rain of Blows (Deadly Gamble)
@@ -894,7 +894,7 @@ module.exports = {
 				length: 810.6,
 				distance: 156.25,
 				noRetry: true,
-				toggleOnAbnormality: [104101, 425100],
+				disableOnAbnormal: [104101, 425100],
 				triggerAbnormal: {
 					//104100: 8000,
 					//104101: 800,
@@ -1010,7 +1010,7 @@ module.exports = {
 				noRetry: true,
 				length: 1976.15,
 				distance: 219.04,
-				toggleOnAbnormality: 425100,
+				disableOnAbnormal: 425100,
 				noInterrupt: ['41-31', 42],
 				abnormals: {
 					105100: {
@@ -1072,7 +1072,7 @@ module.exports = {
 			0: {
 				length: 3309.23,
 				distance: 326.55,
-				toggleOnAbnormality: [425100, 425101],
+				disableOnAbnormal: [425100, 425101],
 				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 34, 36, 37, 39, 40, '41-0', '41-30', 42],
 				chains: {
 					2: 30,
@@ -1576,7 +1576,7 @@ module.exports = {
 		23: { // Master's Leash
 			0: {
 				length: [725, 850],
-				requiredBuff: 201000
+				enableOnAbnormal: 201000
 			}
 		},
 		24: { // Chained Leash
@@ -1645,7 +1645,7 @@ module.exports = {
 				ignoreCnliaForStages: [0]
 			},
 			0: {
-				toggleOnAbnormality: 425100,
+				disableOnAbnormal: 425100,
 				length: [333.33, 1055, 3121.66],
 				distance: [29.48, 445.52, 0],
 				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
@@ -1687,13 +1687,13 @@ module.exports = {
 				fixedSpeed: 1,
 				length: 700,
 				endType51: true,
-				toggleOnAbnormality: 425100
+				disableOnAbnormal: 425100
 			}
 		},
 		30: { // Divine Protection
 			0: {
 				length: 1252,
-				toggleOnAbnormality: [425100, 425101]
+				disableOnAbnormal: [425100, 425101]
 			}
 		},
 		910: { // Awakening Eyes Aura
@@ -2476,7 +2476,7 @@ module.exports = {
 				interruptAllWithAbnormal: {
 					301604: 25
 				},
-				toggleOnAbnormality: 425100,
+				disableOnAbnormal: 425100,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
 				abnormals: {
 					301604: {
@@ -2499,7 +2499,7 @@ module.exports = {
 		27: { // Savage Strike
 			'*': {
 				noRetry: true,
-				toggleOnAbnormality: 425100,
+				disableOnAbnormal: 425100,
 				noInterrupt: ['27-31'],
 				triggerAbnormal: {
 					301600: [4000, 30],
@@ -2572,7 +2572,7 @@ module.exports = {
 				type: 'charging',
 				length: [650, 650],
 				chargeLevels: [1, 2, 3],
-				toggleOnAbnormality: [425100, 425101],
+				disableOnAbnormal: [425100, 425101],
 				noInterrupt: [28],
 				abnormals: {
 					301600: {
@@ -3148,7 +3148,7 @@ module.exports = {
 			},
 			30: {
 				length: 1742.34,
-				requiredBuff: 401400,
+				enableOnAbnormal: 401400,
 				race: {
 					7: {
 						length: 1767.34
@@ -3163,7 +3163,7 @@ module.exports = {
 			0: {
 				type: 'charging',
 				canInstantCharge: { abnormal: 401701},
-				toggleOnAbnormality: 401400,
+				disableOnAbnormal: 401400,
 				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
 				glyphs: {
@@ -3522,7 +3522,7 @@ module.exports = {
 		18: { // Lethal Strike
 			'*': {
 				distance: 167.62,
-				toggleOnAbnormality: 401400,
+				disableOnAbnormal: 401400,
 				consumeAbnormal: 400900,
 				//abnormals: { 24120: { speed: 0.3 } },
 				race: {
@@ -3601,7 +3601,7 @@ module.exports = {
 				length: 1833,
 				distance: 167.63,
 				consumeAbnormal: [400900, 401404],
-				requiredBuff: 400900,
+				enableOnAbnormal: 400900,
 				race: {
 					0: {
 						distance: 168.112289
@@ -3644,11 +3644,11 @@ module.exports = {
 				type: 'storeCharge',
 				length: 1020.9,
 				distance: 150,
-				requiredBuff: false
+				enableOnAbnormal: false
 			},
 			5: {
 				type: 'grantCharge',
-				requiredBuff: false
+				enableOnAbnormal: false
 			},
 			10: true, // shud be ok but confirmation would be nice
 			11: true,
@@ -3711,7 +3711,7 @@ module.exports = {
 			},
 			30: {
 				length: 1455,
-				requiredBuff: 401705
+				enableOnAbnormal: 401705
 			}
 		},
 		28: { // Intimidation
@@ -3740,7 +3740,7 @@ module.exports = {
 				length: 655.33,
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32],
-				requiredBuff: 401402,
+				enableOnAbnormal: 401402,
 				chains: {
 					2: 30
 				},
@@ -3808,7 +3808,7 @@ module.exports = {
 			0: {
 				length: 771.53,
 				distance: 31.58,
-				requiredBuff: 401400,
+				enableOnAbnormal: 401400,
 				race: {
 					5: { // F.Aman
 						length: 796.92,
@@ -3869,14 +3869,14 @@ module.exports = {
 		33: { // Unleash
 			0: {
 				length: [700, 1500, 1766], // 401705 Should trigger based on something here, idk wut but it's affected by aspd due to that.
-				toggleOnAbnormality: 425100
+				disableOnAbnormal: 425100
 			}
 		},
 		34: { // Unleash: Dexter
 			'*': {
 				length: [600, 833, 833],
 				distance: [0, 25, 0],
-				requiredBuff: 401705,
+				enableOnAbnormal: 401705,
 				abnormals: {
 					401706: {
 						speed: 0.2
@@ -3909,7 +3909,7 @@ module.exports = {
 			'*': {
 				length: [1133, 833],
 				distance: [180, 0],
-				requiredBuff: 401705,
+				enableOnAbnormal: 401705,
 				abnormals: {
 					401707: {
 						speed: 0.2
@@ -3942,7 +3942,7 @@ module.exports = {
 				length: 1588.6,
 				distance: 35,
 				noRetry: true,
-				requiredBuff: 401705,
+				enableOnAbnormal: 401705,
 				abnormals: {
 					401708: {
 						speed: 0.2
@@ -3969,9 +3969,9 @@ module.exports = {
 				// to do pasta some stuff from :b:inkie (nope! (c) Salty :^)
 				length: [610.8, 694, 721.6, 471.66, 1194],
 				distance: [126, 144.824, 151.1, 9.4, 98.64],
-				toggleOnAbnormality: 425101,
+				disableOnAbnormal: 425101,
 				noInterrupt: [37],
-				requiredBuff: 401705,
+				enableOnAbnormal: 401705,
 				race: {
 					0: {
 						distance: [114.545456,
@@ -5014,7 +5014,7 @@ module.exports = {
 			0: {
 				length: 433,
 				consumeAbnormal: 600200,
-				requiredBuff: 600200,
+				enableOnAbnormal: 600200,
 				noRetry: true,
 				race: {
 					5: {
@@ -5105,7 +5105,7 @@ module.exports = {
 		2: { // Regeneration Circle
 			0: {
 				length: 2149,
-				toggleOnAbnormality: 805800,
+				disableOnAbnormal: 805800,
 				abnormals: {
 					902: {
 						nocTanSpeed: 0.15
@@ -5154,7 +5154,7 @@ module.exports = {
 		3: { // Healing Circle
 			0: {
 				length: 1763,
-				toggleOnAbnormality: 805800,
+				disableOnAbnormal: 805800,
 				noInterrupt: [2, 3, 5, 10, 12, 11, 14, 16, 18, 25, 27, 28, '30-10', '33-10', 34, '35-10', '37-10', '41-10', 42],
 				chains: {
 					'19-10': 30,
@@ -5179,7 +5179,7 @@ module.exports = {
 		8: { // Mana Infusion
 			0: {
 				length: 4595, // diff after v72?
-				toggleOnAbnormality: 805800,
+				disableOnAbnormal: 805800,
 				glyphs: {
 					28044: {
 						speed: 0.25
@@ -5299,7 +5299,7 @@ module.exports = {
 		18: { // Heal Thyself
 			0: {
 				withoutWeapon: true,
-				toggleOnAbnormality: 805800,
+				disableOnAbnormal: 805800,
 				length: 1266
 			}
 		},
@@ -5308,7 +5308,7 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54445.45,
-				toggleOnAbnormality: 805800,
+				disableOnAbnormal: 805800,
 				noRetry: true
 			},
 			10: {
@@ -5319,7 +5319,7 @@ module.exports = {
 		22: { // Kaia's Shield
 			0: {
 				length: 667,
-				toggleOnAbnormality: 805800
+				disableOnAbnormal: 805800
 			}
 		},
 		26: { // Fiery Escape
@@ -5407,7 +5407,7 @@ module.exports = {
 				level: {
 					1: {
 						length: 700,
-						toggleOnAbnormality: 425100
+						disableOnAbnormal: 425100
 					}
 				}
 			},
@@ -5483,7 +5483,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 700,
-				toggleOnAbnormality: 805800
+				disableOnAbnormal: 805800
 			}
 		},
 		32: { // Divine Prayer
@@ -5491,7 +5491,7 @@ module.exports = {
 				withoutWeapon: true,
 				fixedSpeed: 1,
 				length: [1300, 900],
-				toggleOnAbnormality: 805800
+				disableOnAbnormal: 805800
 			}
 		},
 		33: { // Ishara's Lullaby
@@ -5538,7 +5538,7 @@ module.exports = {
 				type: 'lockonCast',
 				fixedSpeed: 1,
 				length: 1433,
-				toggleOnAbnormality: 805800,
+				disableOnAbnormal: 805800,
 				noInterrupt: ['37-10']
 			}
 		},
@@ -5579,7 +5579,7 @@ module.exports = {
 				type: 'lockon',
 				fixedSpeed: 1,
 				length: 54445.45,
-				toggleOnAbnormality: 805800,
+				disableOnAbnormal: 805800,
 				noRetry: true,
 				partyOnly: true
 			},
@@ -5591,7 +5591,7 @@ module.exports = {
 		42: { // Holy Burst
 			'*': {
 				length: 800,
-				toggleOnAbnormality: 425100
+				disableOnAbnormal: 425100
 			},
 			0: true,
 			20: true,
@@ -5600,7 +5600,7 @@ module.exports = {
 		43: { // Words of Judgment
 			0: {
 				length: 1416.66,
-				toggleOnAbnormality: [425100, 425101]
+				disableOnAbnormal: [425100, 425101]
 			},
 			50: {
 				length: 200
@@ -6029,7 +6029,7 @@ module.exports = {
 				type: 'teleport',
 				length: [222, 255],
 				distance: [0, 333],
-				toggleOnAbnormality: 425100,
+				disableOnAbnormal: 425100,
 				noInterrupt: [17],
 				teleportStage: 1,
 				noRetry: true,
@@ -6041,21 +6041,21 @@ module.exports = {
 				length: 91
 			},
 			0: {
-				toggleOnAbnormality: 425100
+				disableOnAbnormal: 425100
 			},
 			50: true
 		},
 		47: { // Arunic Release
 			0: {
 				length: 1060,
-				toggleOnAbnormality: 425100
+				disableOnAbnormal: 425100
 			}
 		},
 		48: { // Summon: Thrall Lord
 			0: {
 				fixedSpeed: 1,
 				length: 4050,
-				toggleOnAbnormality: [425100, 425101]
+				disableOnAbnormal: [425100, 425101]
 			} // 10239003
 		},
 		910: { // Awakening Eyes Aura
@@ -6636,7 +6636,7 @@ module.exports = {
 				triggerAbnormal: {
 					10152002: 4100
 				},
-				requiredBuff: 10152000,
+				enableOnAbnormal: 10152000,
 				noInterrupt: ['4-3', '4-4'],
 				chains: {
 					4: 4,
@@ -7321,7 +7321,7 @@ module.exports = {
 				noInterrupt: [10],
 				length: 1855,
 				distance: 155,
-				requiredBuff: 10153000,
+				enableOnAbnormal: 10153000,
 				chains: {
 					1: 30,
 					2: 30,
@@ -7397,7 +7397,7 @@ module.exports = {
 				length: 1305.44,
 				distance: 133.27,
 				noInterrupt: [15],
-				requiredBuff: 10153503,
+				enableOnAbnormal: 10153503,
 				chains: {
 					1: 30,
 					2: 30,
@@ -7462,7 +7462,7 @@ module.exports = {
 		18: { // Growing Fury
 			'*': {
 				length: 1371.66,
-				requiredBuff: 10153050,
+				enableOnAbnormal: 10153050,
 			},
 			1: {
 				chains: {
@@ -7513,7 +7513,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1275,
-				toggleOnAbnormality: 10153040
+				disableOnAbnormal: 10153040
 			},
 			1: true,
 			2: true
@@ -7522,7 +7522,7 @@ module.exports = {
 			0: {
 				length: 1815,
 				distance: 245.21,
-				toggleOnAbnormality: 425100,
+				disableOnAbnormal: 425100,
 				noInterrupt: [22],
 				abnormals: {
 					10153190: {
@@ -7585,7 +7585,7 @@ module.exports = {
 						distance: 23.7
 					}
 				},
-				toggleOnAbnormality: 425100,
+				disableOnAbnormal: 425100,
 				length: 2000,
 				abnormals: {
 					31120: {
@@ -7652,7 +7652,7 @@ module.exports = {
 			0: {
 				length: [178.57, 412.85],
 				distance: [0, 30],
-				toggleOnAbnormality: [425100, 425101],
+				disableOnAbnormal: [425100, 425101],
 				abnormals: {
 					10153190: {
 						chain: 2
@@ -8542,7 +8542,7 @@ module.exports = {
 			'*': {
 				length: 2457,
 				distance: 105.62,
-				requiredBuff: 10155112,
+				enableOnAbnormal: 10155112,
 				chains: {
 					1: 30,
 					2: 30,
@@ -8716,7 +8716,7 @@ module.exports = {
 			'*': {
 				length: 1459.62,
 				distance: 136,
-				requiredBuff: 10155112,
+				enableOnAbnormal: 10155112,
 				chains: {
 					1: 30,
 					2: 30,
@@ -8903,7 +8903,7 @@ module.exports = {
 			},
 			1: {
 				consumeAbnormal: 10155020,
-				requiredBuff: 10155020
+				enableOnAbnormal: 10155020
 			}
 		},
 		15: { // Windslash
@@ -9012,7 +9012,7 @@ module.exports = {
 			0: {
 				fixedSpeed: 1,
 				length: 922,
-				requiredBuff: 10155201
+				enableOnAbnormal: 10155201
 			}
 		},
 		910: { // Awakening Eyes Aura
