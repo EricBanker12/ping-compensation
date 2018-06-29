@@ -6201,7 +6201,7 @@ module.exports = {
 		3: { // Double Shear
 			'*': {
 				length: 2040,
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 14, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 13, 14, 20],
 				abnormals: {
 					29030: {
 						speed: 0.25
