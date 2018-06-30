@@ -3529,7 +3529,7 @@ module.exports = {
 		18: { // Lethal Strike
 			'*': {
 				distance: 167.62,
-				disableOnAbnormal: 401400,
+				//disableOnAbnormal: 401400,
 				consumeAbnormal: 400900,
 				//abnormals: { 24120: { speed: 0.3 } },
 				race: {
