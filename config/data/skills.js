@@ -3528,7 +3528,6 @@ module.exports = {
 		},
 		18: { // Lethal Strike
 			'*': {
-				noInterrupt: [32],
 				distance: 167.62,
 				//disableOnAbnormal: 401400,
 				consumeAbnormal: 400900,
@@ -3571,7 +3570,7 @@ module.exports = {
 			},
 			0: {
 				length: 687.5,
-				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 27, 28, 29, 31, 34, 35, 36, 37],
+				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 27, 28, 29, 31, 32, 34, 35, 36, 37],
 				chains: {
 					'3-0': 0,
 					3: 30,
