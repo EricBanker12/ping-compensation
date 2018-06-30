@@ -3270,6 +3270,8 @@ module.exports = {
 					} // M.Casta
 				},
 				enableVB: true,
+				noRetry: false,
+				consumeAbnormal:[401701],
 				pendingStartTime: 1
 			}
 		},
