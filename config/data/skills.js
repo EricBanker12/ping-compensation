@@ -3528,6 +3528,7 @@ module.exports = {
 		},
 		18: { // Lethal Strike
 			'*': {
+				noInterrupt: [32],
 				distance: 167.62,
 				//disableOnAbnormal: 401400,
 				consumeAbnormal: 400900,
