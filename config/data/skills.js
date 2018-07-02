@@ -3678,28 +3678,33 @@ module.exports = {
 				interruptibleWithAbnormal: {
 					401404: 2
 				}, // .........................
-				abnormals: {
-					401404: {
-						chain: 31
-					}
-				}, // todo: correct ids
+				abnormalChains:{
+					401400: 1
+				},
+				chains: {
+					1: 30,
+					3: 30,
+					10: 30,
+					18: 30,
+					31: 30
+				}
+			},
+			1: {
+				abnormalChains:{
+					401404: 1
+				},
 				chains: {
 					1: 30,
 					3: 30,
 					10: 30,
 					18: 30,
 					30: 31,
-					31: 30,
+					31: 31,
 					32: 31
-				}
+				}	
 			},
-			1: true,
-			30: {
-				length: 960
-			},
-			31: {
-				length: 960
-			}
+			30: {length: 960},
+			31: {length: 960}
 		},
 		26: { // Tackle
 			0: {
