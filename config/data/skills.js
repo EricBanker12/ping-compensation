@@ -1,6 +1,6 @@
 /*	Notes:
 	* '*' can be used in place of the skill or sub-skill to set default values.
-	* Processing order is 'noInterrupt' > 'chains' > 'abnormals'.
+	* Processing order is 'noInterrupt' > 'abnormals' > 'chains'  .
 	* Abnormal chains aren't needed if the client is already sending the correct skillId!
 	* Default Abnormal application delay is 10 unless specified utilizing an array.
 
@@ -204,37 +204,37 @@ module.exports = {
 				distance: 151.87,
 				race: {
 					0: {
-						distance: 150.251541
+						distance: 150.25
 					},
 					1: {
-						distance: 151.605423
+						distance: 151.60
 					},
 					2: {
-						distance: 152.733551
+						distance: 152.74
 					},
 					3: {
-						distance: 143.349747
+						distance: 143.35
 					},
 					4: {
-						distance: 142.6105
+						distance: 142.61
 					},
 					5: {
-						distance: 150.713348
+						distance: 150.72
 					},
 					6: {
-						distance: 143.468155
+						distance: 143.47
 					},
 					7: {
-						distance: 158.999908
+						distance: 159
 					},
 					8: {
-						distance: 148.903992
+						distance: 149
 					},
 					9: {
-						distance: 151.866516
+						distance: 152
 					},
 					10: {
-						distance: 96.092804
+						distance: 96
 					}
 				}
 			},
@@ -3053,10 +3053,8 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 27, 28, 29, 30, '32-0'],
-				abnormals: {
-					401400: {
-						chain: 1
-					}
+				abnormalChains: {
+					401400: 1
 				},
 				chains: {
 					6: 30,
@@ -3070,6 +3068,9 @@ module.exports = {
 				}
 			},
 			1: {
+				abnormalChains: {
+					401404: 31
+				},
 				chains: {
 					6: 31,
 					25: 31,
@@ -4878,25 +4879,26 @@ module.exports = {
 			'*': {
 				noRetry: true,
 				//blockCancelPacket: true
+				noInterrupt:[5]
 			},
 			0: {
 				length: 433,
 				noInterrupt: [6, '8-6']
 			},
 			1: {
-				length: 600
+				length: 700
 			},
 			2: {
 				length: 700
 			},
 			3: {
-				length: 800
+				length: 700
 			},
 			4: {
 				length: 700
 			},
 			5: {
-				length: 800
+				length: 700
 			},
 			6: {
 				length: 1233
@@ -4990,14 +4992,10 @@ module.exports = {
 				distance: -12.5,
 				noInterrupt: [22],
 				abnormals: {
-					26100: {
-						speed: 0.25
-					}
+					26100: { speed: 0.25 }
 				},
 				race: {
-					8: {
-						distance: -12.17
-					},
+					8: {distance: -12.17},
 					1: {
 						distance: -20
 					}
