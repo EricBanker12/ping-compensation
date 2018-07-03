@@ -3272,7 +3272,6 @@ module.exports = {
 				},
 				enableVB: true,
 				noRetry: false,
-				consumeAbnormal:[401701],
 				pendingStartTime: 1
 			}
 		},
