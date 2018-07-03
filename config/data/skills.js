@@ -4234,6 +4234,7 @@ module.exports = {
 			0: {
 				CC: ["evasive", "extended"],
 				length: 657,
+				noInterrupt: [7],
 				distance: -200,
 				forceClip: true
 			}
