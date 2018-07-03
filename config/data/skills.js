@@ -4888,7 +4888,8 @@ module.exports = {
 			},
 			0: {
 				length: 433,
-				noInterrupt: [6, '8-6']
+				noInterrupt: [6, '8-6'],
+				forceDelay: 15
 			},
 			1: {
 				length: 700
