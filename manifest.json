@@ -13,7 +13,7 @@
       "overwrite": false,
       "hash": "a3701efc663004c5659811c3e4f2c8a3df70f7b95af87e76ad08dd8f0d039999"
     },
-    "config/data/skills.js": "52cb8f5c7a944aa733c9126284a71e24125692aee82e6dd75fadea36fba7d875",
+    "config/data/skills.js": "1fa07ec3249b69111184dcb661f4b72c414e332eb5b464cdb761d68c6cd6e3cd",
     "config/data/uwukening.js": "06cc5b876a35691c564bbf45de540d833a2d15524ee7bc16dbb514142c4497b0",
     "config/data/cc.json": "3fbf9816413a0828df3d105ba8e8a4bc0631a1a1cbd05ba4f273fe8f908513b1",
     "config/data/blacklist.json": "3cadcfb474752ece884a0b52c1b7d31a53582e36e3e43775e373832a23168b45",
@@ -21,7 +21,7 @@
     "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "94df3294899c7be76fcb4c4abe1b758fed049dfd547e770d9d628bb7d1c2d582",
-    "lib/core.js": "900e6b157cd24b0c216d76c7243ac062ebf9553eed35ab38b0bef83897647841",
+    "lib/core.js": "ead862648fab56f92978b76cae92f7b3eef75a4ad980c731a692354f2f371ed7",
     "lib/commands.js": "3e9130a17733657b5286687ba7ed673881e0f3f00e5f695b03f38eff9360d3d9",
     "lib/autoconfig.js": "ec1262cf7de14ec51e17e7dac19550f7b5ac4f5f0b6d1b414a9838f572a12a70",
     "lib/ping.js": "1c6f0249be08a5303beab60c5a0a791c62ee0ed9e18d159acb0e8f6ae6fa9f49",
