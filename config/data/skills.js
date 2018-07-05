@@ -6544,7 +6544,7 @@ module.exports = {
 					10152011: 3100
 				},
 				consumeAbnormal: [10152000, 10152001, 10152010],
-				noInterrupt: [1],
+				noInterrupt: [1, 20],
 			},
 			1: true,
 			2: {
@@ -6723,7 +6723,7 @@ module.exports = {
 					10152010: 3100,
 					10152084: 4100
 				},
-				noInterrupt: [6],
+				noInterrupt: [6, 20],
 			},
 			1: true,
 			2: true
@@ -6736,7 +6736,7 @@ module.exports = {
 					10152010: [3100, 25]
 					//10152040: [3100, 25]
 				},
-				noInterrupt: [7]
+				noInterrupt: [7, 20]
 			},
 			1: {
 				fixedSpeed: 1,
@@ -6958,7 +6958,7 @@ module.exports = {
 					10152080: [4100, 20]
 				},
 				consumeAbnormal: [10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083],
-				noInterrupt: [11],
+				noInterrupt: [11, 20],
 				distance: 172.5,
 				forceClip: true
 			}
