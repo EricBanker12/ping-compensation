@@ -4907,7 +4907,7 @@ module.exports = {
 				length: 700
 			},
 			6: {
-				length: 1233
+				length: 1235
 			}
 		},
 		9: { // Slow Trap
