@@ -2618,7 +2618,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				length: 1107,
+				length: 1111.81,
 				distance: 78,
 				race: {
 					0: {
@@ -2658,7 +2658,7 @@ module.exports = {
 				}
 			},
 			1: {
-				length: 925,
+				length: 930,
 				distance: 21.05,
 				race: {
 					0: {
@@ -2697,7 +2697,7 @@ module.exports = {
 				}
 			},
 			2: {
-				length: 1120,
+				length: 1111.81,
 				distance: 31.84,
 				race: {
 					0: {
@@ -3808,10 +3808,17 @@ module.exports = {
 			1: {
 				length: 1510.83,
 				race: {
-					9: {
-						length: 1344
-					}
-				}
+                    1: { distance: 188.37 },
+                    3: { distance: 173.19 },
+                    4: { distance: 145 },
+                    7: { distance: 191.79 },
+                    8: { distance: 240.4 },
+                    9: {
+                        length: 1344,
+                        distance: 167.62
+                    },
+                    10: { distance: 158.11 }
+                }
 			}
 		},
 		32: { // Punishing Strike
@@ -3980,7 +3987,7 @@ module.exports = {
 		37: { // Unleash: Beast Fury
 			'*': {
 				// to do pasta some stuff from :b:inkie (nope! (c) Salty :^)
-				length: [610.8, 694, 721.6, 471.66, 1194],
+				length: [610.83, 694, 721.66, 396.42, 1194],
 				distance: [126, 144.824, 151.1, 9.4, 98.64],
 				disableOnAbnormal: 425101,
 				noInterrupt: [37],
@@ -4580,7 +4587,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5681,
 				noInterrupt: [22],
 				noRetry: true
 			},
@@ -4660,7 +4667,7 @@ module.exports = {
 		},
 		4: { // Penetrating Arrow
 			'*': {
-				length: 1294,
+				length: 1293.63,
 				race: {
 					1: {
 						length: 1275
@@ -4752,7 +4759,7 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
-				length: 3131,
+				length: 3153.84,
 				glyphs: {
 					26077: {
 						speed: 0.4
@@ -4884,7 +4891,7 @@ module.exports = {
 		8: { // Rapid Fire
 			'*': {
 				noRetry: true,
-				//blockCancelPacket: true
+				blockCancelPacket: true,
 				noInterrupt:[5]
 			},
 			0: {
@@ -5017,7 +5024,7 @@ module.exports = {
 		},
 		21: { // Sniper's Eye
 			'*': {
-				length: 625
+				length: 636
 			},
 			0: true,
 			50: true
@@ -5319,7 +5326,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54445.45,
+				length: 50244,
 				disableOnAbnormal: 805800,
 				noRetry: true
 			},
@@ -5482,7 +5489,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noRetry: true
 			},
 			10: {
@@ -5510,7 +5517,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noRetry: true
 			},
 			10: {
@@ -5528,7 +5535,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noRetry: true
 			},
 			10: {
@@ -5541,7 +5548,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noInterrupt: [37],
 				noRetry: true,
 				partyOnly: true
@@ -5590,7 +5597,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54445.45,
+				length: 50244,
 				disableOnAbnormal: 805800,
 				noRetry: true,
 				partyOnly: true
