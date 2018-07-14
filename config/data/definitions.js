@@ -39,8 +39,8 @@ module.exports = {
 		75: 3
 	},
 	"S_CANNOT_START_SKILL": {
-		"default": 1,
-		75: 2
+		"default": 3,
+		75: 4
 	},
 	"C_CAN_LOCKON_TARGET": {
 		"default": 2,
@@ -109,7 +109,8 @@ module.exports = {
 	},
 	"S_ACTION_STAGE": {
 		"default": 6,
-		75: 7
+		74: 7,
+		75: 8
 	},
 	"S_CREST_MESSAGE": {
 		"default": 2
