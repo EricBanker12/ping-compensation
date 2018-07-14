@@ -2614,7 +2614,7 @@ module.exports = {
 		},
 		1: { // Combo Attack
 			'*': {
-				noInterrupt: [1, 4],
+				noInterrupt: [1],
 				noRetry: true
 			},
 			0: {
@@ -2788,11 +2788,7 @@ module.exports = {
 		3: { // Thunderstrike
 			'*': {
 				length: 1748,
-				abnormals: {
-					24170: {
-						speed: 0.25
-					}
-				},
+				abnormals: { 24170: { speed: 0.25 } },
 				noRetry: true
 			},
 			0: {
@@ -3000,20 +2996,12 @@ module.exports = {
 				length: 3111.8,
 				distance: 105.68,
 				glyphs: {
-					24008: {
-						speed: 0.25
-					},
-					24050: {
-						speed: 0.25
-					}
+					24008: { speed: 0.25 },
+					24050: { speed: 0.25 }
 				},
 				abnormals: {
-					24100: {
-						speed: 0.25
-					},
-					24101: {
-						speed: 0.30
-					}
+					24100: { speed: 0.25 },
+					24101: { speed: 0.30 }
 				},
 				race: {
 					0: {
@@ -3053,13 +3041,10 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 27, 28, 29, 30, '32-0'],
-				abnormalChains: {
-					401400: 1
-				},
+				abnormalChains: { 401400: 1 },
 				chains: {
 					6: 30,
 					25: 30,
-					32: 31,
 					31: 30,
 					34: 30,
 					35: 30,
@@ -3068,21 +3053,15 @@ module.exports = {
 				}
 			},
 			1: {
-				abnormalChains: {
-					401404: 31
-				},
 				chains: {
 					6: 31,
 					25: 31,
-					31: 31
+					31: 31,
+					32: 31
 				}
 			},
-			30: {
-				length: 2336.55
-			},
-			31: {
-				length: 2336.55
-			}
+			30: { length: 2336.55 },
+			31: { length: 2336.55 }
 		},
 		5: { // Dash
 			0: {
@@ -3096,7 +3075,6 @@ module.exports = {
 			'*': {
 				length: 1293.63,
 				distance: 80.47,
-				noRetry: true,
 				race: {
 					0: {
 						distance: 66.209465
@@ -3135,17 +3113,10 @@ module.exports = {
 				}
 			},
 			0: {
-				interruptibleWithAbnormal: {
-					401404: 2
-				},
-				abnormals: {
-					401400: {
-						chain: 30
-					}
-				}
+				interruptibleWithAbnormal: { 401404: 2 },
+				abnormals: { 401400: { chain: 30 } }
 			},
-			1: true,
-			30: true,
+			30: true
 		},
 		8: { // Fiery Rage
 			1: {
@@ -3156,16 +3127,12 @@ module.exports = {
 				length: 1742.34,
 				enableOnAbnormal: 401400,
 				race: {
-					7: {
-						length: 1767.34
-					}
+					7: { length: 1767.34 }
 				} // F.Casta
 			}
 		},
 		10: { // Cyclone
-			'*': {
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				canInstantCharge: { abnormal: 401701},
@@ -3286,32 +3253,22 @@ module.exports = {
 		13: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1625,
+				length: 1633,
 				noRetry: true
 			}
 		},
 		15: { // Vampiric Blow  
-			'*': {
-				length: 1930
-			},
+			'*': { length: 1930 },
 			0: {
 				type: 'charging',
 				consumeAbnormal: [400900, 401404],
 				length: [800, 800, 800],
 				noInterrupt: ['3-0', '10-0', 15],
 				abnormals: {
-					400500: {
-						chargeSpeed: 0.2
-					},
-					400501: {
-						chargeSpeed: 0.4
-					},
-					400508: {
-						chargeSpeed: 0.4
-					},
-					401150: {
-						chargeSpeed: 0.2
-					}
+					400500: { chargeSpeed: 0.2 },
+					400501: { chargeSpeed: 0.4 },
+					400508: { chargeSpeed: 0.4 },
+					401150: { chargeSpeed: 0.2 }
 				},
 				chains: {
 					3: 14,
@@ -3530,9 +3487,8 @@ module.exports = {
 		18: { // Lethal Strike
 			'*': {
 				distance: 167.62,
-				//disableOnAbnormal: 401400,
 				consumeAbnormal: 400900,
-				//abnormals: { 24120: { speed: 0.3 } },
+				//abnormals: { 24120: { speed: 0.3 } }, fixed in Patch 75.xx
 				race: {
 					0: {
 						distance: 168.112289
@@ -3582,9 +3538,7 @@ module.exports = {
 					15: 30
 				}
 			},
-			30: {
-				length: 550
-			}
+			30: { length: 550 }
 		},
 		19: { // Triumphant Shout
 			0: {
@@ -3658,7 +3612,7 @@ module.exports = {
 				type: 'grantCharge',
 				enableOnAbnormal: false
 			},
-			10: true, // shud be ok but confirmation would be nice
+			10: true,
 			11: true,
 			12: true,
 			13: true
@@ -3667,44 +3621,38 @@ module.exports = {
 			'*': {
 				length: 1200,
 				distance: 96,
-				glyphs: {
-					24078: {
-						speed: 0.25
-					}
-				}
+				glyphs: { 24078: { speed: 0.25 } }
 			},
 			0: {
-				noInterrupt: [2, 4, 6, '8-30', 11, 13, '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, '32-0'],
-				interruptibleWithAbnormal: {
-					401404: 2
-				}, // .........................
-				abnormalChains:{
-					401400: 1
-				},
+				noInterrupt: [2, 4, 6, '8-30', 11, 13, 24, 25, 26, 27, 28, 29, '32-0'],
+				interruptibleWithAbnormal: { 401404: 2 }, // .........................
+				abnormalChains:{ 401400: 1 },
 				chains: {
 					1: 30,
 					3: 30,
 					10: 30,
+					'15-0': 0,
+					15: 30,
 					18: 30,
 					31: 30
 				}
 			},
-			1: {
-				abnormalChains:{
-					401404: 1
-				},
+			1: { 
+				abnormalChains: { 401404: 31 },
 				chains: {
-					1: 30,
-					3: 30,
-					10: 30,
-					18: 30,
+					1: 31,
+					3: 31,
+					10: 31,
+					'15-0': 1,
+					15: 31,
+					18: 31,
 					30: 31,
 					31: 31,
 					32: 31
 				}	
 			},
-			30: {length: 960},
-			31: {length: 960}
+			30: { length: 960 },
+			31: { length: 960 }
 		},
 		26: { // Tackle
 			0: {
@@ -3713,9 +3661,7 @@ module.exports = {
 			}
 		},
 		27: { // Unbreakable
-			'*': {
-				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
-			},
+			'*': { noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33] },
 			0: {
 				length: 2066,
 				abnormals: { 401705: { chain: 30 } },
@@ -3730,11 +3676,7 @@ module.exports = {
 		28: { // Intimidation
 			'*': {
 				length: 1566,
-				race: {
-					7: {
-						length: 1599
-					}
-				} // F.Casta
+				race: { 7: { length: 1599 } } // F.Casta
 			},
 			0: true,
 			50: true
@@ -3754,9 +3696,7 @@ module.exports = {
 				distance: 21.05,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32],
 				enableOnAbnormal: 401402,
-				chains: {
-					2: 30
-				},
+				abnormalChains: { 401404: 30 },
 				race: {
 					0: {
 						distance: 23.28463
@@ -3793,8 +3733,8 @@ module.exports = {
 					}
 				}
 			},
-			0: true,
-			30: true
+			0: true, // False
+			30: true // True
 		},
 		31: { // Overwhelm
 			0: {
@@ -3822,9 +3762,7 @@ module.exports = {
 			}
 		},
 		32: { // Punishing Strike
-			'*': {
-				noInterrupt: [32]
-			},
+			'*': { noInterrupt: [32] },
 			0: {
 				length: 771.53,
 				distance: 31.58,
@@ -3986,8 +3924,7 @@ module.exports = {
 		},
 		37: { // Unleash: Beast Fury
 			'*': {
-				// to do pasta some stuff from :b:inkie (nope! (c) Salty :^)
-				length: [610.83, 694, 721.66, 396.42, 1194],
+				length: [610.83, 694, 721.66, 396.42, 1094],
 				distance: [126, 144.824, 151.1, 9.4, 98.64],
 				disableOnAbnormal: 425101,
 				noInterrupt: [37],
