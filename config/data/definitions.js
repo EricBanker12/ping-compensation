@@ -10,8 +10,7 @@
 
 module.exports = {
 	"S_LOGIN": {
-		71: 10,
-		75: 11
+		"default": 10
 	},
 	"S_RETURN_TO_LOBBY": {
 		"default": 1
