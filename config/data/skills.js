@@ -2793,14 +2793,10 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				consumeAbnormal: [400900, 401404],
+				consumeAbnormal: 400900,
 				length: [650, 650, 650],
 				noInterrupt: [3, 10, 15],
-				glyphs: {
-					24067: {
-						chargeSpeed: 0.25
-					}
-				},
+				glyphs: { 24067: { chargeSpeed: 0.25 } },
 				abnormals: {
 					24130: {
 						chargeSpeed: 0.3
@@ -3041,26 +3037,23 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 27, 28, 29, 30, '32-0'],
-				abnormalChains: { 401400: 1 },
-				chains: {
+				abnormals: { 401400: { chain: 1 } }, // Send 1 if no chains and Intimidation is active.
+				chains: { // Bunch of chains
 					6: 30,
 					25: 30,
 					31: 30,
+					32: 31, // Intimidation doesn't matter here.
 					34: 30,
 					35: 30,
 					36: 30,
 					37: 30
 				}
 			},
-			1: {
-				chains: {
-					6: 31,
-					25: 31,
-					31: 31,
-					32: 31
-				}
+			1: true, // No chains here because the script doesn't support this kind of BHS austism!
+			30: { // We chained something!
+				length: 2336.55,
+				abnormals: { 401400: { chain: 31 } } // Check if Intimidation is active, send 31 if so.
 			},
-			30: { length: 2336.55 },
 			31: { length: 2336.55 }
 		},
 		5: { // Dash
@@ -3107,13 +3100,11 @@ module.exports = {
 						length: 1263.63,
 						distance: 80.4679947
 					},
-					10: {
-						distance: 70
-					}
+					10: { distance: 70 }
 				}
 			},
 			0: {
-				interruptibleWithAbnormal: { 401404: 2 },
+				interruptibleWithAbnormal: { 401404: 2 }, // Currently broken by BHS to fix a client bug.
 				abnormals: { 401400: { chain: 30 } }
 			},
 			30: true
@@ -3126,9 +3117,7 @@ module.exports = {
 			30: {
 				length: 1742.34,
 				enableOnAbnormal: 401400,
-				race: {
-					7: { length: 1767.34 }
-				} // F.Casta
+				race: { 7: { length: 1767.34 } } // F.Casta
 			}
 		},
 		10: { // Cyclone
@@ -3139,6 +3128,7 @@ module.exports = {
 				disableOnAbnormal: 401400,
 				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
+				noInterrupt: ['28-0'],
 				glyphs: {
 					24009: {
 						chargeSpeed: 0.25
@@ -3261,7 +3251,7 @@ module.exports = {
 			'*': { length: 1930 },
 			0: {
 				type: 'charging',
-				consumeAbnormal: [400900, 401404],
+				consumeAbnormal: 400900,
 				length: [800, 800, 800],
 				noInterrupt: ['3-0', '10-0', 15],
 				abnormals: {
@@ -3625,33 +3615,28 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [2, 4, 6, '8-30', 11, 13, 24, 25, 26, 27, 28, 29, '32-0'],
-				interruptibleWithAbnormal: { 401404: 2 }, // .........................
-				abnormalChains:{ 401400: 1 },
+				interruptibleWithAbnormal: { 401404: 2 }, // Currently broken by BHS to fix a client bug.
+				abnormals: { 401400: { chain: 1 } },
+				abnormalChains: { 401404: 31 },
 				chains: {
 					1: 30,
+					'3-0': 0,
 					3: 30,
+					'10-0': 0,
 					10: 30,
 					'15-0': 0,
 					15: 30,
 					18: 30,
-					31: 30
+					30: 31,
+					31: 30,
+					32: 31
 				}
 			},
-			1: { 
-				abnormalChains: { 401404: 31 },
-				chains: {
-					1: 31,
-					3: 31,
-					10: 31,
-					'15-0': 1,
-					15: 31,
-					18: 31,
-					30: 31,
-					31: 31,
-					32: 31
-				}	
+			1: true,
+			30: { 
+				length: 960,
+				abnormals: { 401400: { chain: 31 } }
 			},
-			30: { length: 960 },
 			31: { length: 960 }
 		},
 		26: { // Tackle
@@ -3665,7 +3650,7 @@ module.exports = {
 			0: {
 				length: 2066,
 				abnormals: { 401705: { chain: 30 } },
-				interruptibleWithAbnormal: { 401705: 33 }, // Ping taxed for now due to the lack of proper emulation.
+				interruptibleWithAbnormal: { 401705: 33 }, // Half ping taxed for now due to the lack of proper emulation.
 				race: { 7: { length: 2099 } }
 			},
 			30: {
