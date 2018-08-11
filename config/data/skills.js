@@ -5702,28 +5702,32 @@ module.exports = {
 		},
 		13: { // Aura of the Merciless
 			'*': {
-				length: 1294
+				length: 1293.63,
+				race: { 4: { length: 1206.36 } }
 			},
 			0: true,
 			50: true
 		},
 		14: { // Aura of the Swift
 			'*': {
-				length: 1294
+				length: 1293.63,
+				race: { 4: { length: 1206.36 } }
 			},
 			0: true,
 			50: true
 		},
 		15: { // Aura of the Unyielding
 			'*': {
-				length: 1294
+				length: 1293.63,
+				race: { 4: { length: 1206.36 } }
 			},
 			0: true,
 			50: true
 		},
 		16: { // Aura of the Tenacious
 			'*': {
-				length: 1294
+				length: 1293.63,
+				race: { 4: { length: 1206.36 } }
 			},
 			0: true,
 			50: true
@@ -5804,9 +5808,7 @@ module.exports = {
 			0: {
 				length: 1440,
 				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43, 48],
-				chains: {
-					8: 30
-				}
+				chains: { 8: 30 }
 			},
 			30: {
 				length: 1108
@@ -5822,7 +5824,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [533.33, 667] // [533.33, 633.33]
+				length: [533.33, 667]
 			}
 		},
 		25: { // Thrall of Protection
@@ -5862,8 +5864,10 @@ module.exports = {
 			}
 		},
 		29: { // Regression
+			0: {
 			fixedSpeed: 1,
 			length: [500, 700]
+			}
 		},
 		30: { // Curse of Exhaustion
 			0: {
