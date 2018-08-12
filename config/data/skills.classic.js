@@ -17,6 +17,8 @@
 	9 = Elin
 	10 = Baraka
 */
+/* eslint-disable quotes */
+
 module.exports = {
 	0: { // Warrior
 		'*': { consumeAbnormal: 104110 },
@@ -9156,4 +9158,4 @@ module.exports = {
 			0: { length: 500 }
 		}
 	}
-}
+};

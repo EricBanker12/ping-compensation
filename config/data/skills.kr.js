@@ -1071,13 +1071,13 @@ module.exports = {
 			}
 		},
 		42: { // Blade Frenzy
-			'*': {
+			'*':{
 				disableOnAbnormal: [425100, 425101],
 			},
 			0: {
 				length: 3309.23,
 				distance: 326.55,
-
+				
 				noInterrupt: [1, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 29, 34, 36, 37, 39, 40, '41-0', '41-30', 42],
 				chains: {
 					2: 30,
@@ -1650,7 +1650,7 @@ module.exports = {
 				disableOnAbnormal: 425100
 			},
 			0: {
-
+				
 				length: [333.33, 1055, 3121.66],
 				distance: [29.48, 445.52, 0],
 				noInterrupt: [1, 3, 4, 5, 8, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28, 29],
@@ -2795,10 +2795,14 @@ module.exports = {
 			},
 			0: {
 				type: 'charging',
-				consumeAbnormal: 400900,
+				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
 				noInterrupt: [3, 10, 15],
-				glyphs: { 24067: { chargeSpeed: 0.25 } },
+				glyphs: {
+					24067: {
+						chargeSpeed: 0.25
+					}
+				},
 				abnormals: {
 					24130: {
 						chargeSpeed: 0.3
@@ -3039,23 +3043,26 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, '8-30', '10-10', '10-11', '10-12', 11, '10-13', 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 27, 28, 29, 30, '32-0'],
-				abnormals: { 401400: { chain: 1 } }, // Send 1 if no chains and Intimidation is active.
-				chains: { // Bunch of chains
+				abnormalChains: { 401400: 1 },
+				chains: {
 					6: 30,
 					25: 30,
 					31: 30,
-					32: 31, // Intimidation doesn't matter here.
 					34: 30,
 					35: 30,
 					36: 30,
 					37: 30
 				}
 			},
-			1: true, // No chains here because the script doesn't support this kind of BHS austism!
-			30: { // We chained something!
-				length: 2336.55,
-				abnormals: { 401400: { chain: 31 } } // Check if Intimidation is active, send 31 if so.
+			1: {
+				chains: {
+					6: 31,
+					25: 31,
+					31: 31,
+					32: 31
+				}
 			},
+			30: { length: 2336.55 },
 			31: { length: 2336.55 }
 		},
 		5: { // Dash
@@ -3102,11 +3109,13 @@ module.exports = {
 						length: 1263.63,
 						distance: 80.4679947
 					},
-					10: { distance: 70 }
+					10: {
+						distance: 70
+					}
 				}
 			},
 			0: {
-				interruptibleWithAbnormal: { 401404: 2 }, // Currently broken by BHS to fix a client bug.
+				interruptibleWithAbnormal: { 401404: 2 },
 				abnormals: { 401400: { chain: 30 } }
 			},
 			30: true
@@ -3119,18 +3128,19 @@ module.exports = {
 			30: {
 				length: 1742.34,
 				enableOnAbnormal: 401400,
-				race: { 7: { length: 1767.34 } } // F.Casta
+				race: {
+					7: { length: 1767.34 }
+				} // F.Casta
 			}
 		},
 		10: { // Cyclone
 			'*': { noRetry: true },
 			0: {
 				type: 'charging',
-				canInstantCharge: { abnormal: 401701 },
+				canInstantCharge: { abnormal: 401701},
 				disableOnAbnormal: 401400,
 				consumeAbnormal: [400900, 401404],
 				length: [650, 650, 650],
-				noInterrupt: ['28-0'],
 				glyphs: {
 					24009: {
 						chargeSpeed: 0.25
@@ -3231,7 +3241,7 @@ module.exports = {
 				},
 				enableVB: true,
 				noRetry: false,
-				consumeAbnormal: [401701],
+				consumeAbnormal:[401701],
 				pendingStartTime: 1
 			}
 		},
@@ -3253,7 +3263,7 @@ module.exports = {
 			'*': { length: 1930 },
 			0: {
 				type: 'charging',
-				consumeAbnormal: 400900,
+				consumeAbnormal: [400900, 401404],
 				length: [800, 800, 800],
 				noInterrupt: ['3-0', '10-0', 15],
 				abnormals: {
@@ -3617,28 +3627,33 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [2, 4, 6, '8-30', 11, 13, 24, 25, 26, 27, 28, 29, '32-0'],
-				interruptibleWithAbnormal: { 401404: 2 }, // Currently broken by BHS to fix a client bug.
-				abnormals: { 401400: { chain: 1 } },
-				abnormalChains: { 401404: 31 },
+				interruptibleWithAbnormal: { 401404: 2 }, // .........................
+				abnormalChains:{ 401400: 1 },
 				chains: {
 					1: 30,
-					'3-0': 0,
 					3: 30,
-					'10-0': 0,
 					10: 30,
 					'15-0': 0,
 					15: 30,
 					18: 30,
-					30: 31,
-					31: 30,
-					32: 31
+					31: 30
 				}
 			},
-			1: true,
-			30: {
-				length: 960,
-				abnormals: { 401400: { chain: 31 } }
+			1: { 
+				abnormalChains: { 401404: 31 },
+				chains: {
+					1: 31,
+					3: 31,
+					10: 31,
+					'15-0': 1,
+					15: 31,
+					18: 31,
+					30: 31,
+					31: 31,
+					32: 31
+				}	
 			},
+			30: { length: 960 },
 			31: { length: 960 }
 		},
 		26: { // Tackle
@@ -3652,7 +3667,7 @@ module.exports = {
 			0: {
 				length: 2066,
 				abnormals: { 401705: { chain: 30 } },
-				interruptibleWithAbnormal: { 401705: 33 }, // Half ping taxed for now due to the lack of proper emulation.
+				interruptibleWithAbnormal: { 401705: 33 }, // Ping taxed for now due to the lack of proper emulation.
 				race: { 7: { length: 2099 } }
 			},
 			30: {
@@ -3735,17 +3750,17 @@ module.exports = {
 			1: {
 				length: 1510.83,
 				race: {
-					1: { distance: 188.37 },
-					3: { distance: 173.19 },
-					4: { distance: 145 },
-					7: { distance: 191.79 },
-					8: { distance: 240.4 },
-					9: {
-						length: 1344,
-						distance: 167.62
-					},
-					10: { distance: 158.11 }
-				}
+                    1: { distance: 188.37 },
+                    3: { distance: 173.19 },
+                    4: { distance: 145 },
+                    7: { distance: 191.79 },
+                    8: { distance: 240.4 },
+                    9: {
+                        length: 1344,
+                        distance: 167.62
+                    },
+                    10: { distance: 158.11 }
+                }
 			}
 		},
 		32: { // Punishing Strike
@@ -4596,8 +4611,12 @@ module.exports = {
 			'*': {
 				length: 1293.63,
 				race: {
-					1: { length: 1275 },
-					9: { length: 1323 }
+					1: {
+						length: 1275
+					},
+					9: {
+						length: 1323
+					}
 				}
 			},
 			0: {
@@ -4607,23 +4626,37 @@ module.exports = {
 				noInterrupt: [4],
 				noRetry: true,
 				abnormals: {
-					26160: { chargeSpeed: 0.3 },
-					26170: { chargeSpeed: 0.3 },
-					26171: { chargeSpeed: 0.4 },
-					26190: { chargeSpeed: 0.3 },
-					601450: { chargeSpeed: 0.5 }
+					26160: {
+						chargeSpeed: 0.3
+					},
+					26170: {
+						chargeSpeed: 0.3
+					},
+					26171: {
+						chargeSpeed: 0.4
+					},
+					26190: {
+						chargeSpeed: 0.3
+					},
+					601450: {
+						chargeSpeed: 0.5
+					}
 				},
-				level: [
-					{ length: 1000 },
-					{ length: [1000, 1000] },
-					{ length: [1000, 1000] }
-				]
+				level: [{
+					length: 1000
+				}, {
+					length: [1000, 1000]
+				}, {
+					length: [1000, 1000]
+				}]
 			},
 			10: {
 				distance: -50,
 				noInterrupt: ['4-10'],
 				race: {
-					1: { distance: -80 },
+					1: {
+						distance: -80
+					},
 					8: {
 						distance: -48.69
 					}
@@ -4802,22 +4835,33 @@ module.exports = {
 		},
 		8: { // Rapid Fire
 			'*': {
-				length: 700,
 				noRetry: true,
 				blockCancelPacket: true,
-				noInterrupt: [5]
+				noInterrupt:[5]
 			},
 			0: {
 				length: 433,
 				noInterrupt: [6, '8-6'],
 				forceDelay: 15
 			},
-			1: true,
-			2: true,
-			3: true,
-			4: true,
-			5: true,
-			6: { length: 1235 }
+			1: {
+				length: 700
+			},
+			2: {
+				length: 700
+			},
+			3: {
+				length: 700
+			},
+			4: {
+				length: 700
+			},
+			5: {
+				length: 700
+			},
+			6: {
+				length: 1235
+			}
 		},
 		9: { // Slow Trap
 			0: {
@@ -4910,7 +4954,7 @@ module.exports = {
 					26100: { speed: 0.25 }
 				},
 				race: {
-					8: { distance: -12.17 },
+					8: {distance: -12.17},
 					1: {
 						distance: -20
 					}
@@ -5233,13 +5277,13 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 54545.45,
+				length: 50244,
 				disableOnAbnormal: 805800,
 				noRetry: true
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1949.5
+				length: 1950
 			}
 		},
 		22: { // Kaia's Shield
@@ -5248,18 +5292,11 @@ module.exports = {
 				disableOnAbnormal: 805800
 			}
 		},
-		25: { // Retaliate
-			0: {
-				type: 'retaliate',
-				length: 1633,
-				noRetry: true
-			}
-		},
 		26: { // Fiery Escape
 			0: {
 				CC: ["evasive", "extended"],
 				noInterrupt: [26, 38],
-				length: 1110.83,
+				length: 1125,
 				distance: -250.5,
 				forceClip: true
 			}
@@ -5403,7 +5440,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noRetry: true
 			},
 			10: {
@@ -5431,7 +5468,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noRetry: true
 			},
 			10: {
@@ -5449,7 +5486,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noRetry: true
 			},
 			10: {
@@ -5462,7 +5499,7 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 4900,
+				length: 5733,
 				noInterrupt: [37],
 				noRetry: true,
 				partyOnly: true
@@ -5531,7 +5568,7 @@ module.exports = {
 			30: true
 		},
 		43: { // Words of Judgment
-			'*': {
+			'*':{
 				disableOnAbnormal: [425100, 425101]
 			},
 			0: {
@@ -5697,32 +5734,28 @@ module.exports = {
 		},
 		13: { // Aura of the Merciless
 			'*': {
-				length: 1293.63,
-				race: { 4: { length: 1206.36 } }
+				length: 1294
 			},
 			0: true,
 			50: true
 		},
 		14: { // Aura of the Swift
 			'*': {
-				length: 1293.63,
-				race: { 4: { length: 1206.36 } }
+				length: 1294
 			},
 			0: true,
 			50: true
 		},
 		15: { // Aura of the Unyielding
 			'*': {
-				length: 1293.63,
-				race: { 4: { length: 1206.36 } }
+				length: 1294
 			},
 			0: true,
 			50: true
 		},
 		16: { // Aura of the Tenacious
 			'*': {
-				length: 1293.63,
-				race: { 4: { length: 1206.36 } }
+				length: 1294
 			},
 			0: true,
 			50: true
@@ -5803,7 +5836,9 @@ module.exports = {
 			0: {
 				length: 1440,
 				noInterrupt: [1, 2, 4, '5-10', 6, '9-10', 10, 13, 14, 15, 16, 17, '18-10', 21, '22-10', 23, 37, '41-10', 43, 48],
-				chains: { 8: 30 }
+				chains: {
+					8: 30
+				}
 			},
 			30: {
 				length: 1108
@@ -5819,7 +5854,7 @@ module.exports = {
 			10: {
 				type: 'lockonCast',
 				fixedSpeed: 1,
-				length: [533.33, 667]
+				length: [533.33, 667] // [533.33, 633.33]
 			}
 		},
 		25: { // Thrall of Protection
@@ -5859,10 +5894,8 @@ module.exports = {
 			}
 		},
 		29: { // Regression
-			0: {
-				fixedSpeed: 1,
-				length: [500, 700]
-			}
+			fixedSpeed: 1,
+			length: [500, 700]
 		},
 		30: { // Curse of Exhaustion
 			0: {
@@ -6642,7 +6675,57 @@ module.exports = {
 				}, {
 					stamina: 65
 				}]
-			}
+			},
+			10: { //windup
+				length: 860,
+				noInterrupt: [5],
+				noRetry: true
+			},
+			11: {
+				fixedSpeed: 1,
+				length: 125,
+				stamina: 75,
+				instantStamina: true,
+				glyphs: {
+					30046: {
+						stamina: -10
+					}
+				},
+				level: [{
+					stamina: 50
+				}, {
+					stamina: 55
+				}, {
+					stamina: 60
+				}, {
+					stamina: 65
+				}]
+			},
+			20: { //windup LUL WAT
+				length: 860,
+				noInterrupt: [5],
+				noRetry: true
+			},
+			21: { //SIGH
+				fixedSpeed: 1,
+				length: 125,
+				stamina: 90,
+				instantStamina: true,
+				glyphs: {
+					30046: {
+						stamina: -10
+					}
+				},
+				level: [{
+					stamina: 50
+				}, {
+					stamina: 55
+				}, {
+					stamina: 60
+				}, {
+					stamina: 65
+				}]
+			},
 		},
 		6: { // Time Bomb
 			'*': {
@@ -6651,6 +6734,10 @@ module.exports = {
 				triggerAbnormal: {
 					10152010: 3100,
 					10152084: 4100
+				},
+				abnormalChains: {
+					10152010: 2,
+					10152011: 2
 				},
 				noInterrupt: [6, 20],
 			},
@@ -6684,7 +6771,7 @@ module.exports = {
 				noInterrupt: ['7-3']
 			}
 		},
-		9: { // Mana Missiles
+		9: { // Mana Missiles TODO: add insta charge
 			'*': {
 				length: 1200
 			},
@@ -6702,6 +6789,11 @@ module.exports = {
 				distance: -100,
 				noRetry: true,
 				noInterrupt: ['9-11']
+			},
+			12: {
+				distance: -100,
+				noRetry: true,
+				noInterrupt: ['9-12']
 			}
 		},
 		10: { // Arc Bomb
@@ -6729,7 +6821,7 @@ module.exports = {
 		11: { // Rocket Jump
 			'*': {
 				CC: ["evasive", "extended"],
-				length: 1400,
+				length: 1409,
 				noInterrupt: [3, 11, 15, 20],
 				distance: 415.45,
 				chains: {
@@ -6762,9 +6854,13 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				length: 5800,
+				length: 5812,
 				distance: -269.09,
 				noInterrupt: [13],
+				abnormalChains: {
+					10152010: 2,
+					10152011: 2
+				},
 				chains: {
 					'2-1': null,
 					3: null,
@@ -6787,6 +6883,7 @@ module.exports = {
 			'*': {
 				fixedSpeed: 1,
 				length: 1320,
+				disableOnAbnormal: 10152340,
 				triggerAbnormal: {
 					10152072: [4100, 485]
 				},
@@ -6824,6 +6921,10 @@ module.exports = {
 		19: { // ST
 			'*': {
 				length: 1325,
+				abnormalChains: { //?????????
+					10152010: 2,
+					10152011: 2
+				},
 				consumeAbnormal: [10152000, 10152001, 10152010, 10152011],
 				chains: {
 					1: null,
@@ -6882,6 +6983,9 @@ module.exports = {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 935,
+				abnormalChains: {
+					10152340: 2
+				},
 				triggerAbnormal: {
 					10152010: 3100,
 					10152080: [4100, 20]
@@ -6890,7 +6994,99 @@ module.exports = {
 				noInterrupt: [11, 20],
 				distance: 172.5,
 				forceClip: true
+			},
+			1: true,
+			2: true
+		},
+		41: { //Beam Panel: Summon
+			"*": {
+				fixedSpeed: true,
+				length: 2190,
+				noInterrupt: [41],
+				abnormalChains: {
+					10152010: 2,
+					10152011: 2
+				},
+			},
+			1: true,
+			2: true,
+			30: true //?
+		},
+		42: { //Beam Panel: Blast
+			1: {
+				noRetry: true,
+				fixedSpeed: true,
+				length: 632,
+				//noInterrupt: [42],
 			}
+		},
+		43: { //Arcane Ray
+			'*': {
+				noRetry: true,
+				abnormalChains: {
+					10152340: 3
+				},
+				fixedSpeed: true,
+				length: 876 // no clue lol
+			},
+			1: {
+				//toggleOnAbnormality: 102911,
+				distance: -108.2,
+				abnormalChains: {
+					10152331: 31
+				},
+			},
+			3: {
+				//toggleOnAbnormality: 102911,
+				distance: -216.42,
+				abnormalChains: {
+					10152331: 51
+				},
+			},
+			30: {
+				//toggleOnAbnormality: 102911,
+				distance: -108.2,
+			},
+			31: {
+				distance: -105,
+				length: 1669
+			},
+			50: {
+				//toggleOnAbnormality: 102911,
+				distance: -216.42,
+				abnormalChains: {
+					10152331: 31
+				},
+			},
+			51: {
+				distance: -210,
+				length: 1669
+			}
+		},
+		44: { //Beam Panel: Balder's Vengeance
+			'*': {
+				length: 5813,
+				fixedSpeed: true,
+				noInterrupt: [44],
+				distance: -269
+			},
+			1: true,
+			2: true
+		},
+		47: { //Beam Panel: Carpet Bomb
+			'*': {
+				disableOnAbnormal: 425101,
+				enableOnAbnormal: 10152340,
+				distance: -129.74,
+				length: 5190,
+				abnormalChains: {
+					10152010: 2,
+					10152011: 2
+				},
+			},
+			1: true,
+			2: true,
+			30: true
 		},
 		910: { // Awakening Eyes Aura
 			0: {
@@ -7460,7 +7656,7 @@ module.exports = {
 			2: true
 		},
 		22: { // Flying Kick
-			'*': {
+			'*':{
 				disableOnAbnormal: 425100,
 			},
 			0: {
