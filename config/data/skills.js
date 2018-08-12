@@ -4398,6 +4398,9 @@ module.exports = {
 					929: {
 						nocTanSpeed: 0.225
 					},
+					5010009: {
+						nocTanSpeed: 0.15
+					},
 					999010000: {
 						nocTanSpeed: 0.15
 					}
@@ -4702,6 +4705,9 @@ module.exports = {
 					},
 					929: {
 						nocTanSpeed: 0.225
+					},
+					5010009: {
+						nocTanSpeed: 0.15
 					},
 					999010000: {
 						nocTanSpeed: 0.15
@@ -5052,6 +5058,9 @@ module.exports = {
 					929: {
 						nocTanSpeed: 0.225
 					},
+					5010009: {
+						nocTanSpeed: 0.15
+					},
 					999010000: {
 						nocTanSpeed: 0.15
 					}
@@ -5158,6 +5167,9 @@ module.exports = {
 					},
 					929: {
 						nocTanSpeed: 0.225
+					},
+					5010009: {
+						nocTanSpeed: 0.15
 					},
 					999010000: {
 						nocTanSpeed: 0.15
@@ -5648,6 +5660,9 @@ module.exports = {
 					},
 					929: {
 						nocTanSpeed: 0.225
+					},
+					5010009: {
+						nocTanSpeed: 0.15
 					},
 					999010000: {
 						nocTanSpeed: 0.15
