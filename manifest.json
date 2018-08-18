@@ -13,15 +13,12 @@
       "overwrite": false,
       "hash": "32f66b0eb5d2820bc8952565f0ef99c8102ba8cd9141b05538fb4d0576f475bd"
     },
-    "config/preset.classic.js": {
-      "overwrite": false,
-      "hash": "32f66b0eb5d2820bc8952565f0ef99c8102ba8cd9141b05538fb4d0576f475bd"
-    },
+    "config/preset.classic.js": "1ff42805e523e06524564893b29638d23540910531fdfb8d49891cdb366d1257",
     "config/preset.kr.js": {
       "overwrite": false,
       "hash": "32f66b0eb5d2820bc8952565f0ef99c8102ba8cd9141b05538fb4d0576f475bd"
     },
-    "config/data/skills.classic.js": "c91777f73bef33c490862b7ec26709a61295eee976e5ac7eb1e0bacbcb32f091",
+    "config/data/skills.classic.js": "f95ecbc3f3677acbb3edfd9763aaf7791b01697b718691a1bcb2ee35d78d7510",
     "config/data/skills.js": "3bd72928c6c38441eca31ec067a6e883d845819907f2d6205bf2fa8acbb735e7",
     "config/data/skills.kr.js": "c91777f73bef33c490862b7ec26709a61295eee976e5ac7eb1e0bacbcb32f091",
     "config/data/definitions.js": "8c563759023698fe55b9c9498e08ccb073a0943827fc3b41ba3b5000ba53bf9b",
