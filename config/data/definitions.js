@@ -20,39 +20,43 @@ module.exports = {
 	},
 	"S_ABNORMALITY_BEGIN": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
 	"S_ABNORMALITY_REFRESH": {
-		"default": 1,
-		75: 1,
-		76: 1
+		"default": 1
 	},
 	"S_ABNORMALITY_END": {
 		"default": 1
 	},
 	"S_START_COOLTIME_SKILL": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
 	"S_DEFEND_SUCCESS": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
 	"S_CANNOT_START_SKILL": {
 		"default": 3,
+		74: 4,
 		75: 4,
 		76: 4
 	},
 	"C_CAN_LOCKON_TARGET": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
 	"S_CAN_LOCKON_TARGET": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
@@ -61,51 +65,61 @@ module.exports = {
 	},
 	"C_NOTIFY_LOCATION_IN_ACTION": {
 		"default": 3,
+		74: 4,
 		75: 4,
 		76: 4
 	},
 	"C_NOTIFY_LOCATION_IN_DASH": {
 		"default": 3,
+		74: 4,
 		75: 4,
 		76: 4
 	},
 	"C_START_SKILL": {
 		"default": 6,
+		74: 7,
 		75: 7,
 		76: 7
 	},
 	"C_START_TARGETED_SKILL": {
 		"default": 5,
+		74: 6,
 		75: 6,
 		76: 6
 	},
 	"C_START_COMBO_INSTANT_SKILL": {
 		"default": 3,
+		74: 4,
 		75: 4,
 		76: 4
 	},
 	"C_START_INSTANCE_SKILL": {
 		"default": 4,
+		74: 5,
 		75: 5,
 		76: 5
 	},
 	"C_START_INSTANCE_SKILL_EX": {
 		"default": 4,
+		74: 5,
 		75: 5,
 		76: 5
 	},
 	"C_PRESS_SKILL": {
 		"default": 3,
+		74: 4,
 		75: 4,
 		76: 4
 	},
 	"C_NOTIMELINE_SKILL": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
 	"S_GRANT_SKILL": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
@@ -117,11 +131,13 @@ module.exports = {
 	},
 	"S_ACTION_END": {
 		"default": 4,
+		74: 5,
 		75: 5,
 		76: 5
 	},
 	"C_CANCEL_SKILL": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
@@ -182,8 +198,18 @@ module.exports = {
 	"S_RESPONSE_GAMESTAT_PONG": {
 		"default": 1
 	},
+	"S_LEARN_EP_PERK":{
+		"default": 1
+	},
+	"S_LOAD_EP_INFO":{
+		"default": 1
+	},
+	"S_PLAYER_RESET_EP": {
+		"default": 1
+	},
 	"S_EACH_SKILL_RESULT": {
 		"default": 10,
+		74: 12,
 		75: 12,
 		76: 12
 	},
@@ -192,6 +218,7 @@ module.exports = {
 	},
 	"S_DECREASE_COOLTIME_SKILL": {
 		"default": 2,
+		74: 3,
 		75: 3,
 		76: 3
 	},
