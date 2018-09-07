@@ -20,7 +20,7 @@ module.exports = {
 	},
 	"S_ABNORMALITY_BEGIN": {
 		"default": 2,
-		74: 3,
+		74: 2,
 		75: 3,
 		76: 3
 	},
