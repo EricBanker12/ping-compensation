@@ -8,7 +8,7 @@
 			"hash": "ccc409512365917d8c1e759b13a26704388355e9e813e0c0706203cbc3cb3be7"
 		},
 		"config/data/default-config.json": "ccc409512365917d8c1e759b13a26704388355e9e813e0c0706203cbc3cb3be7",
-		"config/data/skills.js": "e24b9756b63870913dc2fe8e04908a448c60360fd1bcdac8ef2968de8db09afa",
+		"config/data/skills.js": "9535297ac52a8845fd9d4bb59a3182e7359d6dcc4ea65b678fb5729ebd555b91",
 		"config/preset.js": {
 			"overwrite": false,
 			"hash": "4e01f1fbdc336cd4475d9d35d05a63d037d363c3a1d241b6d87cdc9bddb8be6a"
@@ -20,7 +20,7 @@
 		"index.js": "01f23591de11da4963a020a0cbda5fc635d7cbeb486f14f281aa7e91ffc3047a",
 		"lib/core.js": "2f90e4510bd0aa82ef1dd7f8eb14416bf763ef24adc78eaa1d3fe0963360945f",
 		"lib/ping.js": "47253aa5de659b562536190d1752518caaf0616d689c01a5ecc3f532dc748171",
-		"module.json": "688819c1229d8b9e7df696d81cfd5983a78b6023bb6cae8f8e8873f4d12f3458"
+		"module.json": "10e7469922e44df8ea3c24a764ae0258162ab0e5d2b5a2157323c10ec8457643"
 	},
 	"defs": {
 		"C_CANCEL_SKILL": 3,

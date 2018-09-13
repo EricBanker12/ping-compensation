@@ -5119,7 +5119,7 @@ module.exports = {
 		},
 		8: { // Mana Infusion
 			0: {
-				length: 4595, // diff after v72?
+				length: 2537.5,
 				disableOnAbnormal: 805800,
 				glyphs: {
 					28044: {
