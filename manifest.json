@@ -19,7 +19,7 @@
       "hash": "32f66b0eb5d2820bc8952565f0ef99c8102ba8cd9141b05538fb4d0576f475bd"
     },
     "config/data/skills.classic.js": "f95ecbc3f3677acbb3edfd9763aaf7791b01697b718691a1bcb2ee35d78d7510",
-    "config/data/skills.js": "3bd72928c6c38441eca31ec067a6e883d845819907f2d6205bf2fa8acbb735e7",
+    "config/data/skills.js": "60f26fc60bcf5ffab5f4a2279eb63eee01b1a3a1b1130cdc9549245aa097d4ff",
     "config/data/skills.kr.js": "c91777f73bef33c490862b7ec26709a61295eee976e5ac7eb1e0bacbcb32f091",
     "config/data/definitions.js": "6bdd373a72a076b7c4e0dfcdabf33f26b40a2d4cd0dfc51dda2512c75cd1fb6c",
     "config/data/cc.json": "3fbf9816413a0828df3d105ba8e8a4bc0631a1a1cbd05ba4f273fe8f908513b1",
@@ -37,7 +37,7 @@
     "migration/steps.json": "2fb7b5d8157709344506c15c5421f3e0b80c6495f9686c96e177464b8b29be71",
     "config/data/default-config.json": "e4bc6c96da198ae71329451cf24ed57ce1985d62b000df0f4ed29abbbc80ec4b",
     "lib/defs.js": "42ab4c890085098ed53af721280950fd94dab542e890f0091e23aa60f38019fb",
-    "lib/loader.js": "75e8379d1f13c13c04af6227bfdd78513fb2c07a8dbd5603ebf0ec7fe0f1a59d"
+    "lib/loader.js": "d1c534f33874636ee455f205a01db05aa716dc08063b8aeeddf3e96b8376fc1e"
   },
   "defs": {
     "S_LOGIN": 10,
