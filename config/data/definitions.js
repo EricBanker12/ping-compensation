@@ -214,7 +214,7 @@ module.exports = {
 		76: 12
 	},
 	"S_SKILL_LIST": {
-		"default": 1
+		"default": 2
 	},
 	"S_DECREASE_COOLTIME_SKILL": {
 		"default": 2,

@@ -21,14 +21,14 @@
     "config/data/skills.classic.js": "f95ecbc3f3677acbb3edfd9763aaf7791b01697b718691a1bcb2ee35d78d7510",
     "config/data/skills.js": "60f26fc60bcf5ffab5f4a2279eb63eee01b1a3a1b1130cdc9549245aa097d4ff",
     "config/data/skills.kr.js": "c91777f73bef33c490862b7ec26709a61295eee976e5ac7eb1e0bacbcb32f091",
-    "config/data/definitions.js": "6bdd373a72a076b7c4e0dfcdabf33f26b40a2d4cd0dfc51dda2512c75cd1fb6c",
+    "config/data/definitions.js": "43e23d37187834a7e405ba7c81946306d3abb8dc0a9cc1399f5eaa129d95b314",
     "config/data/cc.json": "3fbf9816413a0828df3d105ba8e8a4bc0631a1a1cbd05ba4f273fe8f908513b1",
     "config/data/blacklist.json": "3cadcfb474752ece884a0b52c1b7d31a53582e36e3e43775e373832a23168b45",
     "docs/commands.pdf": "bf37f9199fabd756ff3271fc34e5cab2d052007832cbfe904d9334d0b071f5da",
     "docs/config.pdf": "c9abc272cab10491a913f50c213a23fe97c726483b0e6261320f4a44b3357bae",
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "70e78b02da883622089e327425a8f7f69bbdfaa8a6bc67b7fba3ad292f6c23db",
-    "lib/core.js": "3adfd067347fd130613b5bc5ac20548a009da2c63e73fb639fa509482dbffd73",
+    "lib/core.js": "e9265389072365ebe1e3acfbae127ede433ef6eba6a68b0cba0aa1cb6fcbf18c",
     "lib/commands.js": "201a8885359fc0e13e97169342485c007a7f9e73a981d522305f3dce6c1626c5",
     "lib/autoconfig.js": "ec1262cf7de14ec51e17e7dac19550f7b5ac4f5f0b6d1b414a9838f572a12a70",
     "lib/ping.js": "9868a034284f4f8a095cc2e943acc35340f339e2e0b5a267579258acd4515923",
@@ -85,7 +85,7 @@
     "C_REQUEST_GAMESTAT_PING": 1,
     "S_RESPONSE_GAMESTAT_PONG": 1,
     "S_EACH_SKILL_RESULT": [12, 10],
-    "S_SKILL_LIST" : 1,
+    "S_SKILL_LIST" : 2,
     "S_DECREASE_COOLTIME_SKILL": [2,3]
   }
 }
