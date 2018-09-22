@@ -18,7 +18,7 @@
 		"docs/ping.md": "c1b870cfe3b0a38b0e61dac9ae990577dd96aacdce2ddc2657ec3f703fbe2374",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
 		"index.js": "01f23591de11da4963a020a0cbda5fc635d7cbeb486f14f281aa7e91ffc3047a",
-		"lib/core.js": "2f90e4510bd0aa82ef1dd7f8eb14416bf763ef24adc78eaa1d3fe0963360945f",
+		"lib/core.js": "35938de3fe3bf4bfd9667badc3d12d101f410e063f7c2320f7b798bfcb01e14f",
 		"lib/ping.js": "47253aa5de659b562536190d1752518caaf0616d689c01a5ecc3f532dc748171",
 		"module.json": "10e7469922e44df8ea3c24a764ae0258162ab0e5d2b5a2157323c10ec8457643"
 	},
