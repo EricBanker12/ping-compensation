@@ -3,6 +3,8 @@ Note: If you can't find a specific skill on these list that probably means the p
 To update it just delete it and restart proxy, let it update and it will be done.
 If after following this process skills are still missing do report it on discord or an issue in github, links to both can be found in the readme.pdf file.
 */
+/* eslint-disable quotes */
+
 module.exports = {
 	0: { // Warrior
 		"enabled": true,
@@ -16,6 +18,7 @@ module.exports = {
 		10: true, // Death From Above
 		11: true, // Poison Blade
 		12: true, // Leaping Strike
+		13: true, // Retaliate
 		16: true, // Charging Slash
 		17: true, // Vortex Slash
 		18: true, // Combative Strike
@@ -26,7 +29,6 @@ module.exports = {
 		24: true, // Smoke Aggressor
 		25: true, // Command: Attack
 		26: true, // Command: Follow
-		27: true, // Pounce / x
 		28: true, // Traverse Cut
 		29: true, // Blade Draw
 		30: true, // Scythe
@@ -42,8 +44,8 @@ module.exports = {
 		40: true, // Blade Waltz
 		41: true, // Aerial Scythe
 		42: true, // Blade Frenzy
-		91: true, // Awakening Eyes Aura
-	},
+		910: true, // Apex Urgency
+ 	},
 	1: { // Lancer
 		"enabled": true,
 		1: true, // Combo Attack
@@ -55,7 +57,7 @@ module.exports = {
 		8: true, // Shield Counter
 		9: true, // Leash
 		10: true, // Debilitate
-		11: false, // Retaliate
+		11: true, // Retaliate
 		12: true, // Infuriate
 		13: true, // Spring Attack
 		15: true, // Charging Lunge
@@ -63,7 +65,6 @@ module.exports = {
 		17: true, // Adrenaline Rush
 		18: true, // Shield Barrage
 		19: true, // Pledge of Protection
-		20: true, // Menacing Wave / x
 		21: true, // Lockdown Blow
 		22: true, // Iron Will
 		23: true, // Master's Leash
@@ -72,10 +73,10 @@ module.exports = {
 		26: true, // Backstep
 		27: true, // Rallying Cry
 		// Awakening
-		28: true, // Righteous Leap
+		28: true, // Super Leap
 		29: true, // Guardian's Barrier
 		30: true, // Divine Protection
-		91: true, // Awakening Eyes Aura 
+		910: true, // Apex Urgency 
 	},
 	2: { // Slayer
 		"enabled": true,
@@ -86,7 +87,7 @@ module.exports = {
 		5: true, // Dash
 		8: true, // Overhand Strike
 		9: true, // Leaping Strike
-		10: false, // Retaliate
+		10: true, // Retaliate
 		12: true, // Heart Thrust
 		13: true, // Stunning Backhand
 		14: true, // Distant Blade
@@ -101,10 +102,10 @@ module.exports = {
 		24: true, // Eviscerate
 		25: true, // Ultimate Overhand Strike
 		// Awakening
-		26: true, // Decimate
-		27: true, // Blazing Thrust
+		26: true, // Punishing Blow
+		27: true, // Savage Strike
 		28: true, // Unsheathe
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	3: { // Berserker
 		"enabled": true,
@@ -114,12 +115,10 @@ module.exports = {
 		4: true, // Flatten
 		5: true, // Dash
 		6: true, // Sweeping Strike
-		7: true, // Mocking Shout / x
 		8: true, // Fiery Rage
 		10: true, // Cyclone
 		11: true, // Leaping Strike
-		12: true, // Unchained Anger / x
-		13: false, // Retaliate
+		13: true, // Retaliate
 		15: true, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout
 		18: true, // Lethal Strike
@@ -141,8 +140,7 @@ module.exports = {
 		35: true, // Unleash: Sinister
 		36: true, // Unleash: Rampage
 		37: true, // Unleash: Beast Fury
-		38: true, // Unleash End
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	4: { // Sorcerer
 		"enabled": true,
@@ -158,6 +156,7 @@ module.exports = {
 		11: true, // Lightning Strike
 		12: true, // Void Pulse
 		13: true, // Mindblast
+		14: true, // Retaliate
 		16: true, // Painblast
 		17: true, // Painful Trap
 		18: true, // Glacial Retreat
@@ -176,7 +175,7 @@ module.exports = {
 		34: true, // Mana Boost
 		// Awakening
 
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	5: { // Archer
 		"enabled": true,
@@ -191,7 +190,7 @@ module.exports = {
 		9: true, // Slow Trap
 		10: true, // Stunning Trap
 		12: true, // Velik's Mark
-		14: false, // Retaliate
+		14: true, // Retaliate
 		15: true, // Incendiary Trap
 		16: true, // Breakaway Bolt
 		17: true, // Web Arrow
@@ -208,7 +207,7 @@ module.exports = {
 		33: true, // Chase
 		// Awakening
 
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	6: { // Priest
 		"enabled": true,
@@ -228,9 +227,10 @@ module.exports = {
 		19: true, // Focus Heal
 		22: true, // Kaia's Shield
 		23: true, // Blessing of Balder
+		25: true, // Retaliate
 		26: true, // Fiery Escape
 		27: true, // Final Reprisal
-		28: true, // Mana Charge / Words of Vitality (Awakening)
+		28: true, // Mana Charge / Divine Charge (Awakening)
 		29: true, // Triple Nemesis
 		30: true, // Plague of Exhaustion
 		31: true, // Guardian Sanctuary
@@ -245,8 +245,8 @@ module.exports = {
 		41: true, // Divine Intervention / Divine Vitality (Awakening)
 		// Awakening
 		42: true, // Holy Burst
-		43: true, // Words of Judgment
-		91: true, // Awakening Eyes Aura
+		43: true, // Edict of Judgement
+		910: true, // Apex Urgency
 	},
 	7: { // Mystic
 		"enabled": true,
@@ -255,6 +255,7 @@ module.exports = {
 		4: true, // Ancient Binding
 		5: true, // Titanic Favor
 		6: true, // Shara's Lash
+		7: true, // Mana Infusion
 		8: true, // Metamorphic Blast
 		9: true, // Arun's Cleansing
 		10: true, // Resurrect
@@ -266,7 +267,7 @@ module.exports = {
 		16: true, // Aura of the Tenacious
 		17: true, // Teleport Jaunt
 		18: true, // Arun's Vitae
-		21: false, // Retaliate
+		21: true, // Retaliate
 		22: true, // Arun's Tears
 		23: true, // Metamorphic Smite
 		24: true, // Volley of Curses
@@ -290,7 +291,7 @@ module.exports = {
 		45: true, // Thrall Augmentation
 		47: true, // Arunic Release
 		48: true, // Summon: Thrall Lord
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	8: { // Reaper
 		"enabled": true,
@@ -311,7 +312,7 @@ module.exports = {
 		40: true, // Shadow Step
 		// Awakening
 
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	9: { // Gunner
 		"enabled": true,
@@ -333,7 +334,7 @@ module.exports = {
 		40: true, // Rolling Reload
 		// Awakening
 
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	10: { // Brawler
 		"enabled": true,
@@ -346,6 +347,7 @@ module.exports = {
 		8: true, // Piledriver
 		9: true, // Jackhammer
 		10: true, // Counterpunch
+		12: true, // Retaliate
 		13: true, // Provoke
 		14: true, // Infuriate
 		16: true, // Flip Kick
@@ -357,7 +359,7 @@ module.exports = {
 		22: true, // Flying Kick
 		24: true, // 2.54cm Punch
 		26: true, // Brawling Roll
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	11: { // Ninja
 		"enabled": true,
@@ -370,7 +372,7 @@ module.exports = {
 		7: true, // Decoy Jutsu
 		8: true, // Fire Avalanche
 		9: true, // Smoke Bomb
-		10: false, //Retaliate
+		10: true, // Retaliate
 		11: true, // Focus
 		12: true, // Skyfall
 		13: true, // Circle of Steel
@@ -383,7 +385,7 @@ module.exports = {
 		20: true, // Clone Jutsu
 		// Awakening
 
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	},
 	12: { // Valkyrie
 		"enabled": true,
@@ -404,11 +406,12 @@ module.exports = {
 		15: true, // Windslash
 		16: true, // Runeburst
 		17: true, // Balder's Tears
+		18: true, // Retaliate
 		19: true, // Reclamation
 		20: true, // Backstab
 		21: true, // Dark Herald
 		// Awakening
 
-		91: true, // Awakening Eyes Aura
+		910: true, // Apex Urgency
 	}
 };

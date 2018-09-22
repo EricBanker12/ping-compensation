@@ -11,12 +11,12 @@
     },
     "config/preset.js": {
       "overwrite": false,
-      "hash": "32f66b0eb5d2820bc8952565f0ef99c8102ba8cd9141b05538fb4d0576f475bd"
+      "hash": "3c82384bca29692410ea452bd62317fd622042595c5af0c9a1f42763f91b4a11"
     },
     "config/preset.classic.js": "1ff42805e523e06524564893b29638d23540910531fdfb8d49891cdb366d1257",
     "config/preset.kr.js": {
       "overwrite": false,
-      "hash": "32f66b0eb5d2820bc8952565f0ef99c8102ba8cd9141b05538fb4d0576f475bd"
+      "hash": "9c9fe63cbeae49c9fc76d5c32ac032aef0a57012e97603cab9f8696642f43aa3"
     },
     "config/data/skills.classic.js": "f95ecbc3f3677acbb3edfd9763aaf7791b01697b718691a1bcb2ee35d78d7510",
     "config/data/skills.js": "60f26fc60bcf5ffab5f4a2279eb63eee01b1a3a1b1130cdc9549245aa097d4ff",
