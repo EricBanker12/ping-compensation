@@ -166,10 +166,10 @@ module.exports = {
 		"default": 3
 	},
 	"S_USER_STATUS": {
-		"default": 1
+		"default": 2
 	},
 	"S_INVEN": {
-		"default": 14
+		"default": 16
 	},
 	"S_PARTY_MEMBER_LIST": {
 		"default": 7
