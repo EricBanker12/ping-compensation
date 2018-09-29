@@ -1,5 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/SaltyMonkey/skill-prediction/master/res/spLogo.png)
 
+## NOT WORKING WITH TERA NA (gl, ENMASSE) 
 ## Introduction
 
  [TL;DR.](https://www.youtube.com/watch?v=PX7zPlQjAr8) *Simulates skills client-side, eliminating ping-based delays and animation lock.*
