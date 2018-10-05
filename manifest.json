@@ -17,9 +17,9 @@
 		"docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
 		"docs/ping.md": "c1b870cfe3b0a38b0e61dac9ae990577dd96aacdce2ddc2657ec3f703fbe2374",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
-		"index.js": "01f23591de11da4963a020a0cbda5fc635d7cbeb486f14f281aa7e91ffc3047a",
-		"lib/core.js": "35938de3fe3bf4bfd9667badc3d12d101f410e063f7c2320f7b798bfcb01e14f",
-		"lib/ping.js": "47253aa5de659b562536190d1752518caaf0616d689c01a5ecc3f532dc748171",
+		"index.js": "1d5ba2464d3ced9afff7e91f07f1beec9883e73577c4df3539ad2a30b7740b89",
+		"lib/core.js": "b73f0aba733c9d95fbdf8e0ffaf084987d956ac2b7ada7c8af7c7bb62327f337",
+		"lib/ping.js": "4babdd1769ea9e804e29a019f3dcb439f8b698619773697b39dcc3c7056ff070",
 		"module.json": "10e7469922e44df8ea3c24a764ae0258162ab0e5d2b5a2157323c10ec8457643"
 	},
 	"defs": {
