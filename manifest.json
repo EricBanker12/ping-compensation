@@ -5,9 +5,9 @@
 		"README.url": "f5ec6b97ec23c6d1fda9d9f946e0f7b931da9170a8f36d5ac8f6ffee41c30d00",
 		"config/config.json": {
 			"overwrite": false,
-			"hash": "ccc409512365917d8c1e759b13a26704388355e9e813e0c0706203cbc3cb3be7"
+			"hash": "588b2cc4daa2ce9e78e8196208797073eacd81dc536c578b068ef25c23e7a7b1"
 		},
-		"config/data/default-config.json": "ccc409512365917d8c1e759b13a26704388355e9e813e0c0706203cbc3cb3be7",
+		"config/data/default-config.json": "588b2cc4daa2ce9e78e8196208797073eacd81dc536c578b068ef25c23e7a7b1",
 		"config/data/skills.js": "9535297ac52a8845fd9d4bb59a3182e7359d6dcc4ea65b678fb5729ebd555b91",
 		"config/preset.js": {
 			"overwrite": false,
