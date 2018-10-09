@@ -36,7 +36,7 @@
     "migration/steps.json": "2fb7b5d8157709344506c15c5421f3e0b80c6495f9686c96e177464b8b29be71",
     "config/data/default-config.json": "e4bc6c96da198ae71329451cf24ed57ce1985d62b000df0f4ed29abbbc80ec4b",
     "lib/defs.js": "42ab4c890085098ed53af721280950fd94dab542e890f0091e23aa60f38019fb",
-    "lib/loader.js": "d1c534f33874636ee455f205a01db05aa716dc08063b8aeeddf3e96b8376fc1e"
+    "lib/loader.js": "0451106933ac867b2f54e65a3cf0668ac7c1452573078e4b6616a8252ae0e646"
   },
   "defs": {
     "S_LOGIN": 10,
