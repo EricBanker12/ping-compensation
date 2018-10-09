@@ -19,6 +19,8 @@
         "../config/default-config.json",
         "./migration.js",
         "../config/data/awakening.js",
-        "./cooldowns.js"
+        "./cooldowns.js",
+        "../config/data/skills.classic.js",
+        "../config/data/preset.classic.js"
     ]
 }

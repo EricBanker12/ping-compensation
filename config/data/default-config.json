@@ -12,7 +12,7 @@
 	"debugAbnormals": false,
 	"defendSuccessStrict": true,
 	"debugLoc": false,
-	"version": "4.87",
+	"version": "4.98",
 	"pingMethod": "active",
 	"pingHistoryMax": 35
 }
