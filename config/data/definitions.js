@@ -19,10 +19,8 @@ module.exports = {
 		"default": 2
 	},
 	"S_ABNORMALITY_BEGIN": {
-		"default": 2,
-		74: 2,
-		75: 3,
-		76: 3
+		"default": 3,
+		74: 2
 	},
 	"S_ABNORMALITY_REFRESH": {
 		"default": 1
@@ -31,97 +29,52 @@ module.exports = {
 		"default": 1
 	},
 	"S_START_COOLTIME_SKILL": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
 	"S_DEFEND_SUCCESS": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
 	"S_CANNOT_START_SKILL": {
-		"default": 3,
-		74: 4,
-		75: 4,
-		76: 4
+		"default": 4
 	},
 	"C_CAN_LOCKON_TARGET": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
 	"S_CAN_LOCKON_TARGET": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
 	"C_PLAYER_LOCATION": {
 		"default": 5
 	},
 	"C_NOTIFY_LOCATION_IN_ACTION": {
-		"default": 3,
-		74: 4,
-		75: 4,
-		76: 4
+		"default": 4
 	},
 	"C_NOTIFY_LOCATION_IN_DASH": {
-		"default": 3,
-		74: 4,
-		75: 4,
-		76: 4
+		"default": 4
 	},
 	"C_START_SKILL": {
-		"default": 6,
-		74: 7,
-		75: 7,
-		76: 7
+		"default": 7
 	},
 	"C_START_TARGETED_SKILL": {
-		"default": 5,
-		74: 6,
-		75: 6,
-		76: 6
+		"default": 6
 	},
 	"C_START_COMBO_INSTANT_SKILL": {
-		"default": 3,
-		74: 4,
-		75: 4,
-		76: 4
+		"default": 4
 	},
 	"C_START_INSTANCE_SKILL": {
-		"default": 4,
-		74: 5,
-		75: 5,
-		76: 5
+		"default": 5
 	},
 	"C_START_INSTANCE_SKILL_EX": {
-		"default": 4,
-		74: 5,
-		75: 5,
-		76: 5
+		"default": 5
 	},
 	"C_PRESS_SKILL": {
-		"default": 3,
-		74: 4,
-		75: 4,
-		76: 4
+		"default": 4
 	},
 	"C_NOTIMELINE_SKILL": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
 	"S_GRANT_SKILL": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
 	"S_INSTANT_DASH": {
 		"default": 3
@@ -130,28 +83,21 @@ module.exports = {
 		"default": 3
 	},
 	"S_ACTION_END": {
-		"default": 4,
-		74: 5,
-		75: 5,
-		76: 5
+		"default": 5
 	},
 	"C_CANCEL_SKILL": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
 	"S_ACTION_STAGE": {
-		"default": 6,
-		74: 7,
-		75: 8,
-		76: 8
+		"default": 8,
+		74: 7
 	},
 	"S_CREST_MESSAGE": {
 		"default": 2
 	},
 	"S_PLAYER_STAT_UPDATE": {
-		"default": 9
+		"default": 10,
+		74: 9
 	},
 	"S_CREST_INFO": {
 		"default": 2
@@ -208,18 +154,15 @@ module.exports = {
 		"default": 1
 	},
 	"S_EACH_SKILL_RESULT": {
-		"default": 10,
-		74: 12,
-		75: 12,
-		76: 12
+		"default": 12
 	},
 	"S_SKILL_LIST": {
 		"default": 2
 	},
 	"S_DECREASE_COOLTIME_SKILL": {
-		"default": 2,
-		74: 3,
-		75: 3,
-		76: 3
+		"default": 3
 	},
+	"S_START_COOLTIME_ITEM": {
+		"default": 1
+	}
 };
