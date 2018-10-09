@@ -8,19 +8,17 @@
       "overwrite": false,
       "hash": "b86b1991e5985c15390fb5841e2c6c2dbeef82408890bd739d8f28122c4aa1d0"
     },
-    "config/preset.js": {
+    "config/preset.awoke1.js": {
       "overwrite": false,
       "hash": "3c82384bca29692410ea452bd62317fd622042595c5af0c9a1f42763f91b4a11"
     },
-    "config/preset.classic.js": "1ff42805e523e06524564893b29638d23540910531fdfb8d49891cdb366d1257",
-    "config/preset.kr.js": {
+    "config/preset.awoke2.js": {
       "overwrite": false,
       "hash": "9c9fe63cbeae49c9fc76d5c32ac032aef0a57012e97603cab9f8696642f43aa3"
     },
-    "config/data/skills.classic.js": "f95ecbc3f3677acbb3edfd9763aaf7791b01697b718691a1bcb2ee35d78d7510",
-    "config/data/skills.js": "60f26fc60bcf5ffab5f4a2279eb63eee01b1a3a1b1130cdc9549245aa097d4ff",
-    "config/data/skills.kr.js": "c91777f73bef33c490862b7ec26709a61295eee976e5ac7eb1e0bacbcb32f091",
-    "config/data/definitions.js": "3a6dcb9ebb669ab0ab71ec831cd5dbfd085b5b9ffefc678994deaeb818c9107b",
+    "config/data/skills.awoke1.js": "edcd0ae9536fc28d9b0fe1758974654c7e0790ae41c6578682dcd3301815314c",
+    "config/data/skills.awoke2.js": "43e09bc1eae8b55116d480ed3241058096dbb2e0966f6091037ed1db39d659fe",   
+    "config/data/definitions.js": "739e28c84555952387dd47c929c1cfaea2b5faace7b9f0a4365d228cc52222ac",
     "config/data/cc.json": "3fbf9816413a0828df3d105ba8e8a4bc0631a1a1cbd05ba4f273fe8f908513b1",
     "config/data/blacklist.json": "3cadcfb474752ece884a0b52c1b7d31a53582e36e3e43775e373832a23168b45",
     "docs/commands.pdf": "bf37f9199fabd756ff3271fc34e5cab2d052007832cbfe904d9334d0b071f5da",
@@ -28,15 +26,15 @@
     "docs/preset.pdf": "152a0e837e2a50d7278cc92d371c783d233f6122dea1b767a0ba81cc0112479f",
     "lib/abnormalities.js": "70e78b02da883622089e327425a8f7f69bbdfaa8a6bc67b7fba3ad292f6c23db",
     "lib/core.js": "c42178fd68bb4003187c4a11e81dccf2d3ed36cce8b6e937b1904584dacbbca3",
-    "lib/commands.js": "201a8885359fc0e13e97169342485c007a7f9e73a981d522305f3dce6c1626c5",
+    "lib/commands.js": "3da0ecc8ce1b34903bf6420c7e15f3d352336061ba29b8bcaa91fc36b34f93ec",
     "lib/autoconfig.js": "ec1262cf7de14ec51e17e7dac19550f7b5ac4f5f0b6d1b414a9838f572a12a70",
     "lib/ping.js": "9868a034284f4f8a095cc2e943acc35340f339e2e0b5a267579258acd4515923",
-    "lib/utils.js": "116ce8683ab1715fc411b54e1a805578b7cf8d821e9cf767b87e49171d0f99d9",
-    "lib/state.js": "b676ef3a1aee2f8275337605a327c3fe94f6f7ed0220c6b0fcb8a37b6036f671",
-    "migration/steps.json": "2fb7b5d8157709344506c15c5421f3e0b80c6495f9686c96e177464b8b29be71",
+    "lib/utils.js": "581f68267d339ad1c31f8b67d7a2d123852b9a5dcd31aa42000fa416928abdd7",
+    "lib/state.js": "1d1e27fe5311f0ca8c4ebc4d4c67c1af5c0b81197a67efed0f63c1a3d1a74811",
+    "migration/steps.json": "620ed9d65e823a1112c72743b93fabedd52bcf747cbd24ba51b0e3c177ea4497",
     "config/data/default-config.json": "e4bc6c96da198ae71329451cf24ed57ce1985d62b000df0f4ed29abbbc80ec4b",
     "lib/defs.js": "42ab4c890085098ed53af721280950fd94dab542e890f0091e23aa60f38019fb",
-    "lib/loader.js": "fca9fe3a583362315675aea61a368d479b69843b8f68fc6c0f763deb8fdce2ac"
+    "lib/loader.js": "1feebaa183ab99e721b7154d4287b89b0b6ced7b438512a4c7407c48054f6a26"
   },
   "defs": {
     "S_LOGIN": 10,
