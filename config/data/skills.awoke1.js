@@ -233,7 +233,7 @@ module.exports = {
 				distance: 467.88,
 				//noRetry: true,
 			},
-			1: { 
+			1: {
 				length: 800,
 				noInterrupt: [2, 10, 32, 40, 41]
 			}
@@ -1488,7 +1488,7 @@ module.exports = {
 			0: {
 				length: [1078, 2166, 120],
 				distance: [40.51, 122.33, 11.21],
-				interruptAllWithAbnormal: { 301604: 25 },
+				interruptAllWithAbnormal: { 301604: 26 },
 				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
 				abnormals: { 301604: { chain: 30 } },
 				chains: {
@@ -1884,7 +1884,7 @@ module.exports = {
 				race: {
 					1: { distance: 79.19432 },
 					2: { distance: 82.33742 },
-					3: { 
+					3: {
 						length: 1384.54,
 						distance: 71.33583
 					},
@@ -4614,31 +4614,20 @@ module.exports = {
 		},
 		*/
 		40: { // Rolling Reload
-			"*": {
+			0: {
 				CC: ["evasive", "extended"],
 				fixedSpeed: 1,
 				length: 935,
-				triggerAbnormal: { 10152010: 3100, 10152071: [3100, 45], 10152080: [4100, 20], 10153093: 0x7fffffff, },
-				consumeAbnormal: [10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083],
-				consumeAbnormalEnd: [10153093, 10152352],
+				triggerAbnormal: {
+					10152010: 3100,
+					10152080: [4100, 20]
+				},
+				consumeAbnormal: [10152002, 10152010, 10152011, 10152072, 10152080, 10152081, 10152083], // todo: check
 				noInterrupt: [11, 20],
 				distance: 172.5,
 				forceClip: true
-			},
-			0: true,
-			1: {
-				abnormalChains: { 10152340: 2, 10152354: 31 },
-				triggerAbnormal: { 10152010: 3100, 10152071: [3100, 45], 10152080: [4100, 20], 10152354: 4000, 10153093: 0x7fffffff, },
-			},
-			2: {
-				distance: 200.3,
-				abnormalChains: { 10152354: 32 },
-				triggerAbnormal: { 10152010: 3100, 10152071: [3100, 45], 10152080: [4100, 20], 10152352: 3000, 10152354: 4000, 10153093: 0x7fffffff, },
-			},
-			31: true,
-			32: {
-				distance: 200.3,
-			},
+			}
+		},
 		910: { // Apex Urgency
 			0: { length: 500 }
 		}
@@ -6082,7 +6071,7 @@ module.exports = {
 			30: true
 		},
 		4: { // Charge
-			"*": { noInterrupt: [1, 2 , 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21] },
+			"*": { noInterrupt: [1, 2, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21] },
 			0: {
 				type: "dash",
 				fixedSpeed: 1,
