@@ -1426,12 +1426,13 @@ module.exports = {
 			0: {
 				length: 3691.25,
 				interruptAllWithAbnormal: { 301604: 23 },
-				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 23, 26, 28],
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 23, 28],
 				abnormals: { 301604: { chain: 30 } },
 				chains: {
 					8: 30,
 					24: 30,
 					25: 30,
+					26: 30,
 					27: 30
 				}
 			},
@@ -1518,8 +1519,8 @@ module.exports = {
 				abnormals: { 301603: { chain: 31 } },
 			},
 			0: {
-				length: [625, 1000, 1316.25],
-				distance: [0, 274.6, 1],
+				length: [1000, 1316.25],
+				distance: [274.6, 1],
 				chains: {
 					1: 30,
 					2: 30,
@@ -1573,12 +1574,8 @@ module.exports = {
 				chargeLevels: [1, 2, 3],
 				noInterrupt: [28],
 				abnormals: {
-					301600: {
-						chargeSpeed: 0.4
-					},
-					301601: {
-						chargeSpeed: 0.6
-					}
+					301600: { chargeSpeed: 0.4 },
+					301601: { chargeSpeed: 0.6 }
 				}
 			},
 			1: {
