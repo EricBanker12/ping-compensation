@@ -1,5 +1,5 @@
 {
-    "version": "4.87",
+    "version": "4.88",
     "configAdd": {
         "pingHistoryMax" : 35
     },
@@ -21,6 +21,8 @@
         "../config/data/awakening.js",
         "./cooldowns.js",
         "../config/data/skills.classic.js",
-        "../config/data/preset.classic.js"
+        "../config/data/preset.classic.js",
+        "../config/data/preset.kr.js",
+        "../config/data/preset.js"
     ]
 }

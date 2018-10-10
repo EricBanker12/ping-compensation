@@ -6,7 +6,7 @@
     "config/data/abnormalities.js": "789180d56f8d84398085b09850b0acbe824f0fc111ca569cf6d18fa03ab6b27d",
     "config/config.json": {
       "overwrite": false,
-      "hash": "b86b1991e5985c15390fb5841e2c6c2dbeef82408890bd739d8f28122c4aa1d0"
+      "hash": "a37041300000b9df9d83f4e7623d97602f15802fb7138193b901fe38ddeddac0"
     },
     "config/preset.awoke1.js": {
       "overwrite": false,
@@ -31,7 +31,7 @@
     "lib/ping.js": "9868a034284f4f8a095cc2e943acc35340f339e2e0b5a267579258acd4515923",
     "lib/utils.js": "581f68267d339ad1c31f8b67d7a2d123852b9a5dcd31aa42000fa416928abdd7",
     "lib/state.js": "1d1e27fe5311f0ca8c4ebc4d4c67c1af5c0b81197a67efed0f63c1a3d1a74811",
-    "migration/steps.json": "620ed9d65e823a1112c72743b93fabedd52bcf747cbd24ba51b0e3c177ea4497",
+    "migration/steps.json": "9a42af8c872a87c582ee1975daf989b8e07c0a59474d8c671c7dc8043eb9d10a",
     "config/data/default-config.json": "e4bc6c96da198ae71329451cf24ed57ce1985d62b000df0f4ed29abbbc80ec4b",
     "lib/defs.js": "42ab4c890085098ed53af721280950fd94dab542e890f0091e23aa60f38019fb",
     "lib/loader.js": "1feebaa183ab99e721b7154d4287b89b0b6ced7b438512a4c7407c48054f6a26"
