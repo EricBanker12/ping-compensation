@@ -32,7 +32,7 @@
     "lib/utils.js": "581f68267d339ad1c31f8b67d7a2d123852b9a5dcd31aa42000fa416928abdd7",
     "lib/state.js": "1d1e27fe5311f0ca8c4ebc4d4c67c1af5c0b81197a67efed0f63c1a3d1a74811",
     "migration/steps.json": "9a42af8c872a87c582ee1975daf989b8e07c0a59474d8c671c7dc8043eb9d10a",
-    "config/data/default-config.json": "e4bc6c96da198ae71329451cf24ed57ce1985d62b000df0f4ed29abbbc80ec4b",
+    "config/data/default-config.json": "4131b45b8bcc3a5715c8d495c85c37ed293bf75b59827ac6397baa9383d1b22f",
     "lib/defs.js": "42ab4c890085098ed53af721280950fd94dab542e890f0091e23aa60f38019fb",
     "lib/loader.js": "1feebaa183ab99e721b7154d4287b89b0b6ced7b438512a4c7407c48054f6a26"
   },
