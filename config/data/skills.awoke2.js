@@ -2392,15 +2392,15 @@ module.exports = {
 			0: { length: 739 }
 		},
 		2: { // Frost Sphere
-            0: {
-                length: 800,
-                race: {
-                    4: { length: 1250 }, // Male Aman
-                    9: { length: 1016 }, // todo: find why AP desyncing after
-                    10: { length: 950 }
-                }
-            }
-        },
+			0: {
+				length: 800,
+				race: {
+					4: { length: 1250 }, // Male Aman
+					9: { length: 1016 }, // todo: find why AP desyncing after
+					10: { length: 950 }
+				}
+			}
+		},
 		3: { // Lightning Trap
 			0: {
 				length: 1308,
