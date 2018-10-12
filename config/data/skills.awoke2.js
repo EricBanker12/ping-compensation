@@ -2396,7 +2396,7 @@ module.exports = {
 				length: 800,
 				race: {
 					4: { length: 1250 }, // Male Aman
-					9: { length: 1010 },
+					9: { length: 1016 }, // todo: find why AP desyncing after
 					10: { length: 950 }
 				}
 			}
