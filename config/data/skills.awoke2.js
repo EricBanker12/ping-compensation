@@ -2076,7 +2076,7 @@ module.exports = {
 			},
 			30: {
 				length: 550,
-				hardLock: 150
+				timeout: 150
 			}
 		},
 		19: { // Triumphant Shout
@@ -2229,7 +2229,7 @@ module.exports = {
 				length: 1115,
 				distance: 470,
 				noInterrupt: [31],
-				hardLock: 135, // ??
+				timeout: 135, // ??
 				noRetry: true
 			},
 			1: {
@@ -2389,21 +2389,21 @@ module.exports = {
 	},
 	4: { // Sorcerer
 		1: { // Fireball
-			0: { length: 727.27 }
+			0: { length: 739 }
 		},
 		2: { // Frost Sphere
-			0: {
-				length: 800,
-				race: {
-					4: { length: 1250 }, // Male Aman
-					9: { length: 1016 }, // todo: find why AP desyncing after
-					10: { length: 950 }
-				}
-			}
-		},
+            0: {
+                length: 800,
+                race: {
+                    4: { length: 1250 }, // Male Aman
+                    9: { length: 1016 }, // todo: find why AP desyncing after
+                    10: { length: 950 }
+                }
+            }
+        },
 		3: { // Lightning Trap
 			0: {
-				length: 1333.33,
+				length: 1308,
 				abnormals: { 25090: { speed: 0.4 } }
 			}
 		},
@@ -2458,15 +2458,15 @@ module.exports = {
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3932,
+				length: 2393.7,
 				glyphs: {
 					25003: { speed: 0.17 },
 					25069: { speed: 0.25 }
 				},
 				abnormals: { 25100: { speed: 0.25 } },
 				race: {
-					7: { length: 3930.76 },
-					9: { length: 3700 }
+					7: { length: 2391 },
+					9: { length: 2160.8 }
 				},
 				level: {
 					9: {
@@ -2489,12 +2489,12 @@ module.exports = {
 		},
 		8: { // Flame Pillar
 			0: {
-				length: 1210,
+				length: 1210, // elin 1000?
 				abnormals: { 25070: { speed: 0.25 } }
 			}
 		},
 		10: { // Mana Barrier
-			0: { // lvl 1, f amani: 566.36 | lvl 2, elin: 566.36 
+			0: {
 				length: 633,
 				race: { 1: { length: 566 } }
 			}
@@ -2506,17 +2506,12 @@ module.exports = {
 		},
 		12: { // Void Pulse
 			0: {
-				length: 933,
-				race: { 7: { length: 931 } }
+				length: 945,
 			}
 		},
-		13: { // Mindblast
+		13: { // Mindblast // 2233 eq?
 			0: {
-				length: 2462,
-				race: {
-					7: { length: 2460 },
-					9: { length: 2315 }
-				},
+				length: 2333,
 				glyphs: { 25048: { speed: 0.3 } },
 				abnormals: { 25110: { speed: 0.4 } }
 			}
@@ -2529,7 +2524,7 @@ module.exports = {
 				noRetry: true
 			}
 		},
-		16: { // Painblast
+		16: { // Painblast skill
 			0: {
 				length: 1608,
 				race: {
@@ -2630,7 +2625,7 @@ module.exports = {
 			10: {
 				type: "lockonCast",
 				fixedSpeed: 1,
-				length: 700
+				length: [367, 633]
 			}
 		},
 		26: { // Teleport Jaunt
@@ -2695,23 +2690,23 @@ module.exports = {
 		},
 		32: { // Meteor Shower
 			"*": {
-				length: 6778.2,
+				length: 3596.4,
 				glyphs: {
 					25003: { speed: 0.17 },
 					25069: { speed: 0.25 }
 				},
 				abnormals: { 25100: { speed: 0.25 } },
 				race: {
-					7: { length: 6774.54 },
-					9: { length: 6475 }
+					7: { length: 3592.7 },
+					9: { length: 3283.6 }
 				}
 			},
 			0: true,
 			50: {
-				length: 3933,
+				length: 2743.4,
 				race: {
-					7: { length: 3929.4 },
-					9: { length: 3699 }
+					7: { length: 2740.6 },
+					9: { length: 2510.5 }
 				}
 			}
 		},
@@ -2733,6 +2728,74 @@ module.exports = {
 				length: 633,
 				race: { 1: { length: 533 } }
 			}
+		},
+		35: { //  
+			0: { length: 933 }
+		},
+		36: { //
+			"*": { noInterrupt: [36],
+				abnormalChains: {
+                  502020: 0,
+                  502021: 30,
+                  502030: 0,
+                  502040: 0,
+                  502050: 0
+                }
+			},
+			0: {
+				level: {
+					0: { enableOnAbnormal: [502020, 502030, 502040, 502050, 502052] },
+					1: { length: 937.5 },
+					2: { length: 1602.4 },
+					3: { length: 1628.6 },
+					5: {
+						enableOnAbnormal: 502050,
+						length: 2684.7,
+						race: { 9: { length: 2808 } }
+					}
+				}
+			},
+			20: {
+				length: 633,
+				race: { 1: { length: 566 } }
+			},
+			30: {
+				length: 1784, //837.5
+				race: { 10: { length: 1836.3 } }
+			}
+		},
+		39: {
+			0: {
+				length: [3791.25, 3801.56, 2503.12],
+				distance: [0, 0, -219.55],
+				enableOnAbnormal: 502052
+			}
+		},
+		41: {
+			5: {
+				noInterrupt: [15],
+				length: 981.4, //769.6??
+				race: {
+					7: { length: 979.8 },
+					9: { length: 809.1 }
+				},
+				level: {
+					0: true,
+					1: true,
+					2: true,
+					3: true,
+					4: true,
+					5: true,
+					6: true,
+					7: true,
+					8: true,
+					9: true,
+					10: true,
+					11: true,
+					12: true,
+					13: true
+				}
+			},
 		},
 		910: { // Apex Urgency
 			0: { length: 500 }
