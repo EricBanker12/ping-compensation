@@ -759,7 +759,7 @@ module.exports = {
 		},
 		3: { // Onslaught
 			"*": {
-				distance: [0, 100, 100, 100, 100, 40],
+				distance: 440,
 				noInterrupt: [3, 4, 8, 9, 10, 11, 12, 13, 15, 21, 23, 24, 25, 26, 27, 28, 29],
 				abnormals: { 22060: { speed: 0.25 } },
 				chains: {
@@ -767,10 +767,10 @@ module.exports = {
 					5: 30,
 					18: 30
 				},
-				race: { 9: { distance: [0, 100, 100, 100, 100, 62.7] } }
+				race: { 9: { distance: 462.7 } }
 			},
-			0: { length: [939, 514.54, 514.54, 514.54, 393.63, 766.36] },
-			30: { length: [688.66, 377.33, 377.33, 377.33, 288.66, 562] }
+			0: { length: 3636.36 },
+			30: { length: 2666.66 }
 		},
 		4: { // Challenging Shout
 			"*": {
@@ -1443,7 +1443,7 @@ module.exports = {
 			0: {
 				length: 3691.25,
 				interruptAllWithAbnormal: { 301604: 23 },
-				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 23, 26, 28],
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 23, 28],
 				abnormals: { 301604: { chain: 30 } },
 				chains: {
 					8: 30,
@@ -1535,8 +1535,8 @@ module.exports = {
 				abnormals: { 301603: { chain: 31 } },
 			},
 			0: {
-				length: [625, 1000, 1316.25],
-				distance: [0, 274.6, 1],
+				length: [1000, 1316.25],
+				distance: [274.6, 1],
 				chains: {
 					1: 30,
 					2: 30,
@@ -2097,7 +2097,8 @@ module.exports = {
 				}
 			},
 			30: {
-				length: 550
+				length: 550,
+				hardLock: 150
 			}
 		},
 		19: { // Triumphant Shout
@@ -2250,6 +2251,7 @@ module.exports = {
 				length: 1115,
 				distance: 470,
 				noInterrupt: [31],
+				hardLock: 135, // ??
 				noRetry: true
 			},
 			1: {
@@ -2308,13 +2310,10 @@ module.exports = {
 		},
 		34: { // Unleash: Dexter
 			"*": {
-				length: [600, 833, 833],
-				distance: [0, 25, 0],
+				length: 2266,
+				distance: 25,
 				enableOnAbnormal: 401705,
-				abnormals: {
-					401706: { speed: 0.2 },
-					401716: { chain: 31 }
-				},
+				abnormals: { 401716: { chain: 31 } },
 			},
 			0: {
 				noRetry: true,
@@ -2327,23 +2326,20 @@ module.exports = {
 			},
 			1: true,
 			30: {
-				length: [833, 833],
-				distance: [27.5, 0]
+				length: 1666,
+				distance: 25 // 27.5
 			},
 			31: {
-				length: [833, 833],
-				distance: [27.5, 0]
+				length: 1666,
+				distance: 25 // 27.5
 			}
 		},
 		35: { // Unleash: Sinister
 			"*": {
-				length: [1133, 833],
-				distance: [180, 0],
+				length: 1966,
+				distance: 180,
 				enableOnAbnormal: 401705,
-				abnormals: {
-					401707: { speed: 0.2 },
-					401717: { chain: 31 }
-				}
+				abnormals: { 401717: { chain: 31 } }
 			},
 			0: {
 				noRetry: true,
@@ -2355,22 +2351,21 @@ module.exports = {
 			},
 			1: true,
 			30: {
-				length: [641, 833],
-				distance: [25, 0]
+				length: 1666,
+				distance: 25
 			},
 			31: {
-				length: [641, 833],
-				distance: [25, 0]
+				length: 1666,
+				distance: 25
 			}
 		},
 		36: { // Unleash: Rampage
 			"*": {
-				length: 1588.6,
+				length: 1588.66,
 				distance: 35,
 				noRetry: true,
 				enableOnAbnormal: 401705,
 				abnormals: {
-					401708: { speed: 0.2 },
 					401718: { chain: 31 }
 				},
 			},
@@ -6108,13 +6103,13 @@ module.exports = {
 			30: true
 		},
 		4: { // Charge
-			"*": { noInterrupt: [1, 2, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21] },
+			"*": { noInterrupt: [1, 2 , 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21] },
 			0: {
 				type: "dash",
 				fixedSpeed: 1,
 				length: 550,
 				distance: 436,
-				noInterrupt: [4],
+				//noInterrupt: ["4-0", "4-10", "4-11"],
 				noRetry: true
 			},
 			10: { length: 900 },

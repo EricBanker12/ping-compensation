@@ -405,6 +405,7 @@ module.exports = {
 		15: true, // Windslash
 		16: true, // Runeburst
 		17: true, // Balder's Tears
+		18: true, // Retaliate
 		19: true, // Reclamation
 		20: true, // Backstab
 		21: true, // Dark Herald
