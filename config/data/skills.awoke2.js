@@ -3195,7 +3195,7 @@ module.exports = {
 		},
 		8: { // Mana Infusion
 			0: {
-				ength: 2537.5,
+				length: 2537.5,
 				disableOnAbnormal: 805800,
 				glyphs: {
 					28044: { speed: 0.25 },
