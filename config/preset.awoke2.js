@@ -168,13 +168,17 @@ module.exports = {
 		25: true, // Time Gyre
 		26: true, // Teleport Jaunt
 		27: true, // Hailstorm
+		28: false, //Stone Skin
 		30: true, // Nova
 		31: true, // Warp Barrier
 		32: true, // Meteor Shower
 		33: true, // Arcane Pulse (Mana Boost)
 		34: true, // Mana Boost
 		// Awakening
-
+		35: false, // Ice Lance
+		36: true, // Fusion
+		39: true, // Implosion
+		41: true, // Lightning Strike ??
 		910: true, // Apex Urgency
 	},
 	5: { // Archer
