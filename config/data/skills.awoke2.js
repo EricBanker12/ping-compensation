@@ -2501,8 +2501,7 @@ module.exports = {
 		},
 		11: { // Lightning Strike
 			0: {
-				length: 869.56,
-				race: { 9: { length: 809 } }
+				length: 869.56
 			}
 		},
 		12: { // Void Pulse
