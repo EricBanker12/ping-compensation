@@ -1570,7 +1570,7 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
-				length: [650, 650],
+				length: [590.9, 590.9],
 				chargeLevels: [1, 2, 3],
 				noInterrupt: [28],
 				abnormals: {
@@ -1794,7 +1794,7 @@ module.exports = {
 			0: {
 				type: "charging",
 				consumeAbnormal: 400900, // dafuq was dis
-				length: [650, 650, 650],
+				length: [590.9, 590.9, 590.9],
 				distance: false,
 				noInterrupt: [3, 10, 15],
 				glyphs: { 24067: { chargeSpeed: 0.25 } },
@@ -2838,7 +2838,7 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
-				length: [600, 600, 600],
+				length: [545.5, 545.5, 545.5],
 				distance: false,
 				//triggerAbnormal: { 600200: 7000 },
 				noInterrupt: [3],
@@ -3668,7 +3668,7 @@ module.exports = {
 			"*": { noRetry: true },
 			0: {
 				type: "charging",
-				length: 1240,
+				length: 1127.27,
 				chargeLevels: [10, 10],
 				noInterrupt: [18],
 				abnormals: {
@@ -3693,7 +3693,7 @@ module.exports = {
 			"*": { noRetry: true },
 			0: {
 				type: "charging",
-				length: 1240,
+				length: 1127.27,
 				chargeLevels: [10, 10],
 				noInterrupt: [22],
 				abnormals: { 27100: { chargeSpeed: 0.25 } }
