@@ -18,7 +18,7 @@ module.exports = {
 		10: true, // Death From Above
 		11: true, // Poison Blade
 		12: true, // Leaping Strike
-		13: true, // Retaliate
+		13: false, // Retaliate
 		16: true, // Charging Slash
 		17: true, // Vortex Slash
 		18: true, // Combative Strike
@@ -57,7 +57,7 @@ module.exports = {
 		8: true, // Shield Counter
 		9: true, // Leash
 		10: true, // Debilitate
-		11: true, // Retaliate
+		11: false, // Retaliate
 		12: true, // Infuriate
 		13: true, // Spring Attack
 		15: true, // Charging Lunge
@@ -87,7 +87,7 @@ module.exports = {
 		5: true, // Dash
 		8: true, // Overhand Strike
 		9: true, // Leaping Strike
-		10: true, // Retaliate
+		10: false, // Retaliate
 		12: true, // Heart Thrust
 		13: true, // Stunning Backhand
 		14: true, // Distant Blade
@@ -118,7 +118,7 @@ module.exports = {
 		8: true, // Fiery Rage
 		10: true, // Cyclone
 		11: true, // Leaping Strike
-		13: true, // Retaliate
+		13: false, // Retaliate
 		15: true, // Vampiric Blow (unstable emulation, enable it only if your ping >180)
 		16: true, // Fearsome Shout / Normie Odium Cry (Unleash)
 		18: true, // Lethal Strike
@@ -156,7 +156,7 @@ module.exports = {
 		11: true, // Lightning Strike
 		12: true, // Void Pulse
 		13: true, // Mindblast
-		14: true, // Retaliate
+		14: false, // Retaliate
 		16: true, // Painblast
 		17: true, // Painful Trap
 		18: true, // Glacial Retreat
@@ -194,7 +194,7 @@ module.exports = {
 		9: true, // Slow Trap
 		10: true, // Stunning Trap
 		12: true, // Velik's Mark
-		14: true, // Retaliate
+		14: false, // Retaliate
 		15: true, // Incendiary Trap
 		16: true, // Breakaway Bolt
 		17: true, // Web Arrow
@@ -231,7 +231,7 @@ module.exports = {
 		19: true, // Focus Heal
 		22: true, // Kaia's Shield
 		23: true, // Blessing of Balder
-		25: true, // Retaliate
+		25: false, // Retaliate
 		26: true, // Fiery Escape
 		27: true, // Final Reprisal
 		28: true, // Mana Charge / Divine Charge (Awakening)
@@ -271,7 +271,7 @@ module.exports = {
 		16: true, // Aura of the Tenacious
 		17: true, // Teleport Jaunt
 		18: true, // Arun's Vitae
-		21: true, // Retaliate
+		21: false, // Retaliate
 		22: true, // Arun's Tears
 		23: true, // Metamorphic Smite
 		24: true, // Volley of Curses
@@ -351,7 +351,7 @@ module.exports = {
 		8: true, // Piledriver
 		9: true, // Jackhammer
 		10: true, // Counterpunch
-		12: true, // Retaliate
+		12: false, // Retaliate
 		13: true, // Provoke
 		14: true, // Infuriate
 		16: true, // Flip Kick
@@ -376,7 +376,7 @@ module.exports = {
 		7: true, // Decoy Jutsu
 		8: true, // Fire Avalanche
 		9: true, // Smoke Bomb
-		10: true, // Retaliate
+		10: false, // Retaliate
 		11: true, // Focus
 		12: true, // Skyfall
 		13: true, // Circle of Steel
@@ -410,7 +410,7 @@ module.exports = {
 		15: true, // Windslash
 		16: true, // Runeburst
 		17: true, // Balder's Tears
-		18: true, // Retaliate
+		18: false, // Retaliate
 		19: true, // Reclamation
 		20: true, // Backstab
 		21: true, // Dark Herald

@@ -10,11 +10,11 @@
     },
     "config/preset.awoke1.js": {
       "overwrite": false,
-      "hash": "3c82384bca29692410ea452bd62317fd622042595c5af0c9a1f42763f91b4a11"
+      "hash": "d0e0bed15242fef003f036182ad5fda105936dab8dd5baa4ba844e03ae36d403"
     },
     "config/preset.awoke2.js": {
       "overwrite": false,
-      "hash": "1b57f54c4aedb235186d632677284b9f57c1e5f692328e752c307e97a0dae873"
+      "hash": "3fe2ab618b61b95f3af8d9a746b98b1761fea9da16ab1d594dbd7babd89c71d0"
     },
     "config/data/skills.awoke1.js": "ad5cba6e0b37271245eaeec9f17e6ae50d1372fa1f57b2cfe5cdc2bcd8cd00bb",
     "config/data/skills.awoke2.js": "45f98122619845cc46f5b9d775e13d39cce77367cc11553bbcf9a9dab1ee2a48",   
