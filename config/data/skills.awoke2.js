@@ -1807,9 +1807,9 @@ module.exports = {
 					401150: { chargeSpeed: 0.2 }
 				},
 				level: [
-					{ length: 800 }, // 1300
-					{ length: [800, 800] }, // 1150
-					{ length: [800, 800] } // 1150
+					{ length: 727.28 },
+					{ length: [727.28, 727.28] },
+					{ length: [727.28, 727.28] }
 				]
 			},
 			10: { noInterrupt: ["3-10"] },
@@ -1847,22 +1847,22 @@ module.exports = {
 			},
 			0: {
 				noInterrupt: [1, "3-10", "3-11", "3-12", "3-13", 4, "8-30", "10-10", "10-11", "10-12", 11, "10-13", 13, "15-10", "15-11", "15-12", "15-13", "15-14", 18, 24, 27, 28, 29, 30, "32-0"],
-				abnormals: { 401400: { chain: 1 } }, // Send 1 if no chains and Intimidation is active.
-				chains: { // Bunch of chains
+				abnormals: { 401400: { chain: 1 } },
+				chains: {
 					6: 30,
 					25: 30,
 					31: 30,
-					32: 31, // Intimidation doesn't matter here.
+					32: 31,
 					34: 30,
 					35: 30,
 					36: 30,
 					37: 30
 				}
 			},
-			1: true, // No chains here because the script doesn't support this kind of BHS austism!
-			30: { // We chained something!
+			1: true,
+			30: {
 				length: 2336.55,
-				abnormals: { 401400: { chain: 31 } } // Check if Intimidation is active, send 31 if so.
+				abnormals: { 401400: { chain: 31 } }
 			},
 			31: { length: 2336.55 }
 		},
@@ -1949,9 +1949,9 @@ module.exports = {
 					6: { length: [650, 650, 650] }
 				},
 				level: [
-					{ length: 800 }, // 1300
-					{ length: [800, 800] }, // 1150
-					{ length: [800, 800] } // 1150
+					{ length: 800 },
+					{ length: [800, 800] },
+					{ length: [800, 800] }
 				]
 			},
 			10: {
@@ -2847,9 +2847,9 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				},
 				level: [
-					{ length: 600 },
-					{ length: [600, 600] },
-					{ length: [600, 600] }
+					{ length: 545.5 },
+					{ length: [545.5, 545.5] },
+					{ length: [545.5, 545.5] }
 				]
 			},
 			10: { noInterrupt: ["3-10"] },
@@ -2873,7 +2873,7 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
-				length: [800, 800, 800],
+				length: [727.27, 727.27, 727.27],
 				distance: false,
 				//triggerAbnormal: { 600200: 7000 },
 				noInterrupt: [4],
@@ -2885,9 +2885,9 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				},
 				level: [
-					{ length: 1000 },
-					{ length: [1000, 1000] },
-					{ length: [1000, 1000] }
+					{ length: 909.09 },
+					{ length: [909.09, 909.09] },
+					{ length: [909.09, 909.09] }
 				]
 			},
 			10: { noInterrupt: ["4-10"] },
@@ -5928,6 +5928,7 @@ module.exports = {
 		17: { // Attunement
 			"*": {
 				length: 995,
+				noInterrupt: [17],
 				chains: {
 					1: 30,
 					2: 30,
@@ -6332,15 +6333,15 @@ module.exports = {
 					14: null,
 					15: null,
 					16: null,
-					//17: 30, // Not correct since still triggers substage 4 on them.
+					//17: 30,
 					18: null,
 					19: null,
 					20: null,
-					//21: 30 //  But for now it works /shrug
+					//21: 30
 				}
 			},
 			0: true,
-			30: true // if we add a chain to a skill that we want to trigger substage 4 on, it will break, ghosting if there's no fast enough server response.
+			30: true
 		},
 		11: { // Shining Crescent
 			"*": { length: 2742 },
