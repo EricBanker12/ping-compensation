@@ -181,38 +181,6 @@ module.exports = {
 		41: true, // Lightning Strike ??
 		910: true, // Apex Urgency
 	},
-	5: { // Archer
-		"enabled": true,
-		1: true, // Arrow
-		2: true, // Arrow Volley
-		3: true, // Radiant Arrow
-		4: true, // Penetrating Arrow
-		5: true, // Rain of Arrows
-		6: true, // Backstep
-		7: true, // Feign Death
-		8: true, // Rapid Fire
-		9: true, // Slow Trap
-		10: true, // Stunning Trap
-		12: true, // Velik's Mark
-		14: false, // Retaliate
-		15: true, // Incendiary Trap
-		16: true, // Breakaway Bolt
-		17: true, // Web Arrow
-		18: true, // Close Quarters
-		19: true, // Poison Arrow
-		20: true, // Restraining Arrow
-		21: true, // Sniper's Eye
-		22: true, // Sequential Fire
-		23: true, // Stunning Trap Arrow
-		25: true, // Incendiary Trap Arrow
-		29: true, // Thunderbolt
-		31: true, // Tenacity
-		32: true, // Find Weakness
-		33: true, // Chase
-		// Awakening
-
-		910: true, // Apex Urgency
-	},
 	6: { // Priest
 		"enabled": true,
 		1: true, // Divine Radiance
@@ -297,49 +265,6 @@ module.exports = {
 		48: true, // Summon: Thrall Lord
 		910: true, // Apex Urgency
 	},
-	8: { // Reaper
-		"enabled": true,
-		1: true, // Spiral Barrage
-		3: true, // Double Shear
-		4: true, // Sundering Strike
-		5: true, // Grim Strike
-		6: true, // Death Spiral
-		8: true, // Whipsaw
-		9: true, // Smite
-		10: true, // Pendulum Strike
-		11: true, // Shadow Lash
-		12: true, // Shadow Burst
-		14: false, // Retaliate
-		15: true, // Retribution
-		16: true, // Shadow Reaping
-		18: true, // Shrouded Escape
-		40: true, // Shadow Step
-		// Awakening
-
-		910: true, // Apex Urgency
-	},
-	9: { // Gunner
-		"enabled": true,
-		1: true, // Blast
-		2: true, // Bombardment
-		3: true, // Scattershot
-		4: true, // Point Blank
-		5: true, // Burst Fire
-		6: true, // Time Bomb
-		7: true, // Arcane Barrage
-		9: true, // Mana Missiles
-		10: true, // Arc Bomb
-		11: true, // Rocket Jump
-		13: true, // Balder's Vengeance
-		15: true, // Replenishment
-		18: true, // HB
-		19: true, // ST
-		20: false, // Retaliate
-		40: true, // Rolling Reload
-		// Awakening
-
-		910: true, // Apex Urgency
-	},
 	10: { // Brawler
 		"enabled": true,
 		1: true, // Punch
@@ -365,57 +290,4 @@ module.exports = {
 		26: true, // Brawling Roll
 		910: true, // Apex Urgency
 	},
-	11: { // Ninja
-		"enabled": true,
-		1: true, // Combo Attack
-		2: true, // Shadow Jump
-		3: true, // Leaves on the Wind
-		4: true, // Jagged Path
-		5: true, // Impact Bomb
-		6: true, // One Thousand Cuts
-		7: true, // Decoy Jutsu
-		8: true, // Fire Avalanche
-		9: true, // Smoke Bomb
-		10: false, // Retaliate
-		11: true, // Focus
-		12: true, // Skyfall
-		13: true, // Circle of Steel
-		14: true, // Double Cut
-		15: true, // Burning Heart
-		16: true, // Death Blossom
-		17: true, // Attunement
-		18: true, // Bladestorm
-		19: true, // Chakra Thrust
-		20: true, // Clone Jutsu
-		// Awakening
-
-		910: true, // Apex Urgency
-	},
-	12: { // Valkyrie
-		"enabled": true,
-		1: true, // Slash
-		2: true, // Overhead Slash
-		3: true, // Glaive Strike
-		4: true, // Charge
-		5: true, // Maelstrom
-		6: true, // Leaping Strike
-		7: true, // Spinning Death
-		8: true, // Titansbane
-		9: true, // Ground Bash
-		10: true, // Dream Slash
-		11: true, // Shining Crescent
-		12: true, // Ragnarok
-		13: true, // Bloodflower
-		14: true, // Evasion
-		15: true, // Windslash
-		16: true, // Runeburst
-		17: true, // Balder's Tears
-		18: false, // Retaliate
-		19: true, // Reclamation
-		20: true, // Backstab
-		21: true, // Dark Herald
-		// Awakening
-
-		910: true, // Apex Urgency
-	}
 };
