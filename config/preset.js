@@ -139,7 +139,7 @@ module.exports = {
 		35: true, // Unleash: Sinister
 		36: true, // Unleash: Rampage
 		37: true, // Unleash: Beast Fury
-        910: true, // Apex Urgency
+		910: true, // Apex Urgency
 	},
 	4: { // Sorcerer
 		"enabled": true,
@@ -154,7 +154,7 @@ module.exports = {
 		10: true, // Mana Barrier
 		11: true, // Lightning Strike
 		12: true, // Void Pulse
-        13: true, // Mindblast
+		13: true, // Mindblast
 		14: true, // Retaliate
 		16: true, // Painblast
 		17: true, // Painful Trap
@@ -167,13 +167,17 @@ module.exports = {
 		25: true, // Time Gyre
 		26: true, // Teleport Jaunt
 		27: true, // Hailstorm
+		28: true, //Stone Skin
 		30: true, // Nova
 		31: true, // Warp Barrier
 		32: true, // Meteor Shower
 		33: true, // Arcane Pulse (Mana Boost)
 		34: true, // Mana Boost
 		// Awakening
-
+		35: true, // Ice Lance
+		36: true, // Fusion
+		39: true, // Implosion
+		41: true, // Lightning Strike ??
 		910: true, // Apex Urgency
 	},
 	5: { // Archer
@@ -205,7 +209,8 @@ module.exports = {
 		32: true, // Find Weakness
 		33: true, // Chase
 		// Awakening
-
+		35: true, // Windsong
+		36: true, // Gust Arrow
 		910: true, // Apex Urgency
 	},
 	6: { // Priest
@@ -225,8 +230,8 @@ module.exports = {
 		18: true, // Heal Thyself
 		19: true, // Focus Heal
 		22: true, // Kaia's Shield
-        23: true, // Blessing of Balder
-        25: true, // Retaliate
+		23: true, // Blessing of Balder
+		25: true, // Retaliate
 		26: true, // Fiery Escape
 		27: true, // Final Reprisal
 		28: true, // Mana Charge / Divine Charge (Awakening)
@@ -253,8 +258,8 @@ module.exports = {
 		2: true, // Corruption Ring
 		4: true, // Ancient Binding
 		5: true, // Titanic Favor
-        6: true, // Shara's Lash
-        7: true, // Mana Infusion
+		6: true, // Shara's Lash
+		7: true, // Mana Infusion
 		8: true, // Metamorphic Blast
 		9: true, // Arun's Cleansing
 		10: true, // Resurrect
@@ -345,8 +350,8 @@ module.exports = {
 		7: true, // Roundhouse Kick
 		8: true, // Piledriver
 		9: true, // Jackhammer
-        10: true, // Counterpunch
-        12: true, // Retaliate
+		10: true, // Counterpunch
+		12: true, // Retaliate
 		13: true, // Provoke
 		14: true, // Infuriate
 		16: true, // Flip Kick

@@ -8,11 +8,11 @@
 			"hash": "588b2cc4daa2ce9e78e8196208797073eacd81dc536c578b068ef25c23e7a7b1"
 		},
 		"config/data/default-config.json": "588b2cc4daa2ce9e78e8196208797073eacd81dc536c578b068ef25c23e7a7b1",
-		"config/data/skills.75.js": "00928328f021ad4e31ad88a9a01042e605351dab2def92348848c491067b6529",
-		"config/data/skills.js": "bad1239dff079c485c60de6c391605d14b427cabe08969f3140d332646b14a63",
+		"config/data/skills.75.js": "6175498169265f7a82ad1bb885d0eeb2be3eca4f4eaddeb98e94b7bc2308a9b1",
+		"config/data/skills.js": "701cdc0162d88485ed34dacfb65f53f1beb8f472cf606d9d0d748f9bd91e4a58",
 		"config/preset.js": {
 			"overwrite": false,
-			"hash": "7a3cd4b62469e3848d1da2e62ef057e9058d000dbfaea618aa0fee3b45dbf7ef"
+			"hash": "eea3fc48f0e4f8d494c251c4032a326f2948f96627614c3eff8c4def9528b964"
 		},
 		"docs/commands.md": "bed854ef1e9f14bedb1966fd27d9a73f159ecb9eb2b0218fb0f7f9d77b322c97",
 		"docs/config.md": "a5817439d773b8d79e3479d4202277fa6dcb069cbb3ad9405133fb44a68f8e33",
