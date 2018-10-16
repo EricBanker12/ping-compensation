@@ -2801,6 +2801,366 @@ module.exports = {
 			0: { length: 500 }
 		}
 	},
+	5: { // Archer
+		1: { // Arrow
+			0: {
+				length: 412,
+				noInterrupt: [1]
+			}
+		},
+		2: { // Arrow Volley
+			0: {
+				type: "lockon",
+				fixedSpeed: 1,
+				length: 4900,
+				noInterrupt: [22],
+				noRetry: true
+			},
+			10: {
+				type: "lockonCast",
+				length: 1233,
+				noInterrupt: [22],
+				race: {
+					2: { length: 1266 },
+					5: { length: 1266 }
+				}
+			}
+		},
+		3: { // Radiant Arrow
+			"*": {
+				length: 1748.2,
+				noRetry: true,
+				distance: -100,
+				race: {
+					1: { length: 1566.37 },
+					8: { distance: -96.6 }
+				}
+			},
+			0: {
+				type: "charging",
+				length: [545.5, 545.5, 545.5],
+				distance: false,
+				//triggerAbnormal: { 600200: 7000 },
+				noInterrupt: [3],
+				abnormals: {
+					26180: { chargeSpeed: 0.3 },
+					601450: { chargeSpeed: 0.5 }
+				},
+				level: [
+					{ length: 545.5 },
+					{ length: [545.5, 545.5] },
+					{ length: [545.5, 545.5] }
+				]
+			},
+			10: { noInterrupt: ["3-10"] },
+			11: { noInterrupt: ["3-11"] },
+			12: { noInterrupt: ["3-12"] },
+			13: { noInterrupt: ["3-13"] }
+		},
+		4: { // Penetrating Arrow
+			"*": {
+				length: 1293.63,
+				distance: -50,
+				noRetry: true,
+				race: {
+					1: {
+						length: 1275,
+						distance: -80
+					},
+					8: { distance: -48.69 },
+					9: { length: 1323 }
+				}
+			},
+			0: {
+				type: "charging",
+				length: [727.27, 727.27, 727.27],
+				distance: false,
+				//triggerAbnormal: { 600200: 7000 },
+				noInterrupt: [4],
+				abnormals: {
+					26160: { chargeSpeed: 0.3 },
+					26170: { chargeSpeed: 0.3 },
+					26171: { chargeSpeed: 0.4 },
+					26190: { chargeSpeed: 0.3 },
+					601450: { chargeSpeed: 0.5 }
+				},
+				level: [
+					{ length: 909.09 },
+					{ length: [909.09, 909.09] },
+					{ length: [909.09, 909.09] }
+				]
+			},
+			10: { noInterrupt: ["4-10"] },
+			11: { noInterrupt: ["4-11"] },
+			12: { noInterrupt: ["4-12"] },
+			13: { noInterrupt: ["4-13"] }
+		},
+		5: { // Rain of Arrows
+			0: {
+				length: 3153.84,
+				glyphs: { 26077: { speed: 0.4 } },
+				abnormals: {
+					902: { nocTanSpeed: 0.15 },
+					910: { nocTanSpeed: 0.15 },
+					911: { nocTanSpeed: 0.15 },
+					912: { nocTanSpeed: 0.15 },
+					913: { nocTanSpeed: 0.15 },
+					916: { nocTanSpeed: 0.15 },
+					917: { nocTanSpeed: 0.15 },
+					920: { nocTanSpeed: 0.225 },
+					921: { nocTanSpeed: 0.225 },
+					922: { nocTanSpeed: 0.225 },
+					929: { nocTanSpeed: 0.225 },
+					5010009: { nocTanSpeed: 0.15 },
+					999010000: { nocTanSpeed: 0.15 }
+				}
+			}
+		},
+		6: { // Backstep
+			0: {
+				CC: ["evasive", "extended"],
+				length: 657.27,
+				distance: -200,
+				noInterrupt: [6],
+				stamina: 180,
+				noRetry: true,
+				forceClip: true
+			}
+		},
+		7: { // Feign Death
+			0: {
+				withoutWeapon: true,
+				fixedSpeed: 1,
+				length: [3727.273, 54545.455, 1657.273],
+				distance: [-136.38, 0, 0],
+				race: {
+					0: {
+						length: [3500, 54545.455, 1657.273],
+						distance: [-119.575417, 0, 0]
+					},
+					1: {
+						length: [3045.455, 54545.455, 1657.273],
+						distance: [-70, 0, 0]
+					},
+					2: {
+						length: [4090.909, 54545.455, 1657.273],
+						distance: [-102.666664, 0, 0]
+					},
+					3: {
+						length: [2909.091, 54545.455, 1718.182],
+						distance: [-100, 0, 0]
+					},
+					4: {
+						length: [4863.636, 54545.455, 1657.273],
+						distance: [-66.59007, 0, 0]
+					},
+					5: {
+						length: [3818.182, 54545.455, 1657.273],
+						distance: [-119.723, 0, 0]
+					},
+					6: {
+						length: [4302.727, 54545.455, 1657.273],
+						distance: [-113.775879, 0, 0]
+					},
+					9: {
+						length: [2954.545, 54545.455, 1657.273],
+						distance: [-114.050468, 0, 0]
+					},
+					10: {
+						length: [4500, 54545.455, 1657.273],
+						distance: [-40.0000038, 0, 0]
+					}
+				},
+			}
+		},
+		8: { // Rapid Fire
+			"*": {
+				length: 700,
+				noRetry: true,
+				blockCancelPacket: true,
+				noInterrupt: [5]
+			},
+			0: {
+				length: 433,
+				noInterrupt: [6, "8-6"],
+				forceDelay: 15
+			},
+			1: true,
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: { length: 1235 },
+			7: { length: 1235 },
+			11: { length: 433 },
+			12: true,
+			13: true,
+			14: {
+				length: 833
+			}
+		},
+		9: { // Slow Trap
+			0: { length: 1149.5 }
+		},
+		10: { // Stunning Trap
+			0: {
+				length: 1149.5,
+				abnormals: {
+					26110: { speed: 0.4 },
+					26111: { speed: 0.5 }
+				}
+			}
+		},
+		12: { // Velik's Mark
+			0: { length: 200 }
+		},
+		14: { // Retaliate
+			0: {
+				type: "retaliate",
+				length: 1633,
+				noRetry: true,
+				noInterrupt: [14],
+				race: {
+					0: { length: 1433 },
+					1: { length: 1433 }
+				}
+			}
+		},
+		15: { // Incendiary Trap
+			0: { length: 1149.5 }
+		},
+		16: { // Breakaway Bolt
+			0: {
+				CC: "extended",
+				length: 1333,
+				distance: -250,
+				forceClip: true
+			}
+		},
+		17: { // Web Arrow
+			0: { length: 533 }
+		},
+		18: { // Close Quarters
+			"*": { noInterrupt: [18] },
+			0: {
+				length: 186, //todo: wew equalized
+				distance: 89.8
+			},
+			1: {
+				length: 852.2,
+				distance: 87.29,
+				race: {
+					0: { length: 875.7 },
+					1: { length: 875.7 },
+					2: { length: 875.7 },
+					3: { length: 875.7 },
+					4: { length: 875.7 },
+					5: { length: 875.7 }
+				}
+			}
+		},
+		19: { // Poison Arrow
+			0: {
+				length: 1102.36,
+				distance: -12.5,
+				noInterrupt: [22],
+				abnormals: { 26100: { speed: 0.25 } },
+				race: {
+					0: { length: 1151.47 },
+					1: {
+						length: 1086.17,
+						distance: -20
+					},
+					6: { length: 1151.4 },
+					8: { distance: -12.17 },
+					9: { length: 1118.53 }
+				}
+			}
+		},
+		20: { // Restraining Arrow
+			0: {
+				length: 533,
+				noInterrupt: [22]
+			}
+		},
+		21: { // Sniper's Eye
+			"*": { length: 636 },
+			0: true,
+			50: true
+		},
+		22: { // Sequential Fire
+			0: {
+				length: 433,
+				consumeAbnormal: 600200,
+				enableOnAbnormal: 600200,
+				noRetry: true,
+				race: { 5: { length: 533 } }
+			}
+		},
+		23: { // Stunning Trap Arrow
+			0: { length: 1423.6 }
+		},
+		25: { // Incendiary Trap Arrow
+			0: { length: 1192.73 }
+		},
+		29: { // Thunderbolt
+			0: {
+				length: 3766,
+				distance: -100,
+				//triggerAbnormal: { 600200: [7000, 798] }, // Fixed ASPD
+				noInterrupt: [22],
+				glyphs: {
+					26089: { speed: 0.3 },
+					26102: { speed: 0.3 }
+				},
+				race: {
+					1: { length: 3566 },
+					5: { length: 3799 },
+					8: { distance: -96.6 }
+				}
+			}
+		},
+		31: { // Tenacity
+			0: {
+				fixedSpeed: 1,
+				length: [500, 700]
+			}
+		},
+		32: { // Find Weakness
+			0: {
+				fixedSpeed: 1,
+				length: 182
+			}
+		},
+		33: { // Chase
+			0: {
+				CC: "evasive",
+				type: "dash",
+				fixedSpeed: 1,
+				length: 1050,
+				distance: 413
+			}
+		},
+		35: { // Windsong
+			length: 200,
+			noInterrupt: [35],
+			fixedSpeed: 1 // seems, recheck
+		},
+		36: { // Gust Arrow
+			"*": { noRetry: true },
+			0: {
+				type: "charging",
+				chargeLevels: [110, 113],
+				length: 2709,
+				noInterrupt: [36]
+			},
+			10: { length: 190, noInterrupt: ["36-10"] },
+			13: { length: 1259.26, noInterrupt: ["36-13"] }
+		},
+		910: { // Apex Urgency
+			0: { length: 500 }
+		}
+	},
 	6: { // Priest
 		1: { // Divine Radiance
 			"*": { noInterrupt: [1] },

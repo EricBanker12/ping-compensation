@@ -181,6 +181,39 @@ module.exports = {
 		41: true, // Lightning Strike ??
 		910: true, // Apex Urgency
 	},
+	5: { // Archer
+		"enabled": true,
+		1: true, // Arrow
+		2: true, // Arrow Volley
+		3: true, // Radiant Arrow
+		4: true, // Penetrating Arrow
+		5: true, // Rain of Arrows
+		6: true, // Backstep
+		7: true, // Feign Death
+		8: true, // Rapid Fire
+		9: true, // Slow Trap
+		10: true, // Stunning Trap
+		12: true, // Velik's Mark
+		14: true, // Retaliate
+		15: true, // Incendiary Trap
+		16: true, // Breakaway Bolt
+		17: true, // Web Arrow
+		18: true, // Close Quarters
+		19: true, // Poison Arrow
+		20: true, // Restraining Arrow
+		21: true, // Sniper's Eye
+		22: true, // Sequential Fire
+		23: true, // Stunning Trap Arrow
+		25: true, // Incendiary Trap Arrow
+		29: true, // Thunderbolt
+		31: true, // Tenacity
+		32: true, // Find Weakness
+		33: true, // Chase
+		// Awakening
+		35: true, // Windsong
+		36: true, // Gust Arrow
+		910: true, // Apex Urgency
+	},
 	6: { // Priest
 		"enabled": true,
 		1: true, // Divine Radiance
