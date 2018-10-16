@@ -1930,10 +1930,11 @@ module.exports = {
 				type: "charging",
 				canInstantCharge: { abnormal: 401701 },
 				disableOnAbnormal: 401400,
-				consumeAbnormal: [400900, 401404],
+				interruptibleWithAbnormal: { 401701: 10 },
+				consumeAbnormal: [400900, 401404, 401701],
 				length: [650, 650, 650],
 				distance: false,
-				noInterrupt: ["28-0"],
+				noInterrupt: ["28-0", 10],
 				glyphs: {
 					24009: { chargeSpeed: 0.25 },
 					24052: { chargeSpeed: 0.25 },
@@ -1978,8 +1979,7 @@ module.exports = {
 			12: true,
 			13: {
 				enableVB: true,
-				consumeAbnormal: [401701],
-				pendingStartTime: 1
+				pendingStartTime: 300
 			}
 		},
 		11: { // Leaping Strike 
