@@ -3084,8 +3084,6 @@ module.exports = {
 		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10151023, 10151040, 10151041, 10151042] },
 		1: { // Spiral Barrage
 			'*': {
-				length: 1000,
-				distance: 48,
 				inPlace: {
 					movement: [{
 						duration: 766,
@@ -3115,8 +3113,6 @@ module.exports = {
 			0: true,
 			1: true,
 			2: {
-				length: 1200,
-				distance: 42,
 				inPlace: {
 					movement: [{
 						duration: 950,
@@ -3135,8 +3131,6 @@ module.exports = {
 				triggerAbnormal: { 10151021: 2000 }
 			},
 			3: {
-				length: 860,
-				distance: 56,
 				inPlace: {
 					movement: [{
 						duration: 616,
@@ -3155,8 +3149,6 @@ module.exports = {
 				triggerAbnormal: { 10151022: 1800 }
 			},
 			4: {
-				length: 1400,
-				distance: 60,
 				inPlace: {
 					movement: [{
 						duration: 1150,
@@ -3175,8 +3167,6 @@ module.exports = {
 				triggerAbnormal: { 10151023: 2000 }
 			},
 			5: {
-				length: 1900,
-				distance: 91,
 				inPlace: {
 					movement: [{
 						duration: 2016,
@@ -3190,11 +3180,12 @@ module.exports = {
 		},
 		3: { // Double Shear
 			'*': {
-				length: 2025,
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 20],
 				abnormals: {
 					29030: { speed: 1.25 }
-				},
+				}
+			},
+			0: {
 				chains: {
 					1: 30,
 					5: 30,
@@ -3205,8 +3196,19 @@ module.exports = {
 					11: 30
 				}
 			},
-			0: true,
-			30: true
+			30: true,
+			40: {
+				chains: {
+					1: 41,
+					5: 41,
+					6: 41,
+					8: 41,
+					9: 41,
+					10: 41,
+					11: 41
+				}
+			},
+			41: true
 		},
 		4: { // Sundering Strike
 			'*': {
@@ -3226,8 +3228,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				length: [1175, 1750, 1025],
-				distance: [0, 100, 0],
+				abnormalChains: { 10151010: 40 },
 				inPlace: {
 					movement: [
 						[],
@@ -3243,8 +3244,6 @@ module.exports = {
 				}
 			},
 			30: {
-				length: [1750, 1025],
-				distance: [100, 0],
 				inPlace: {
 					movement: [
 						[{
@@ -3257,11 +3256,14 @@ module.exports = {
 					],
 					distance: [0, 0]
 				}
-			}
+			},
+			31: true,
+			40: true,
+			60: true,
+			61: true
 		},
 		5: { // Grim Strike
 			'*': {
-				distance: [120, 0],
 				inPlace: {
 					movement: [
 						[{
@@ -3281,7 +3283,6 @@ module.exports = {
 				}
 			},
 			0: {
-				length: [2400, 975],
 				noInterrupt: ['1-0', '1-2', 4, 12, 20],
 				chains: {
 					1: 30,
@@ -3294,14 +3295,24 @@ module.exports = {
 					11: 30
 				}
 			},
-			30: { length: [1450, 975] }
+			30: true,
+			31: {
+				chains: {
+					1: 32,
+					3: 32,
+					5: 32,
+					6: 32,
+					8: 32,
+					9: 32,
+					10: 32,
+					11: 32
+				}
+			},
+			32: true
 		},
 		6: { // Death Spiral
-			'*': {
-				length: 1250,
-				abnormals: {
-					10151131: { chain: 31 }
-				},
+			'*': { noRetry: true },
+			0: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -3313,29 +3324,48 @@ module.exports = {
 					10: 30,
 					11: 30,
 					12: 30
-				},
-				noRetry: true
+				}
 			},
-			0: true,
 			30: true,
-			31: true
+			31: true,
+			40: {
+				chains: {
+					1: 41,
+					3: 41,
+					4: 41,
+					5: 41,
+					6: 41,
+					8: 41,
+					9: 41,
+					10: 41,
+					11: 41,
+					12: 41
+				}
+			},
+			41: true,
+			42: true
 		},
 		8: { // Whipsaw
-			'*': {
-				length: 2500,
-				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 20],
+			'*': { noInterrupt: [4, 5, 6, 8, 9, 11, 12, 20] },
+			0: {
 				chains: {
 					1: 30,
 					3: 30,
 					10: 30
 				}
 			},
-			0: true,
-			30: true
+			30: true,
+			40: {
+				chains: {
+					1: 41,
+					3: 41,
+					10: 41
+				}
+			},
+			41: true
 		},
 		9: { // Smite
 			0: {
-				length: 1725,
 				distance: 168,
 				inPlace: {
 					movement: [{
@@ -3350,9 +3380,8 @@ module.exports = {
 			}
 		},
 		10: { // Pendulum Strike
-			'*': {
-				length: 1000,
-				distance: -200,
+			'*': { distance: -200 },
+			0: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -3366,23 +3395,26 @@ module.exports = {
 					12: 30
 				}
 			},
-			0: true,
-			30: true
-		},
-		11: { // Shadow Lash
-			'*': {
-				length: 1250,
-				noRetry: true
-			},
-			0: {
-				length: 2150,
-				triggerAbnormal: { 10151040: 2000 },
-				abnormals: {
-					10151040: { chain: 1 },
-					10151041: { chain: 2 },
-					10151042: { chain: 3 }
+			30: true,
+			40: {
+				chains: {
+					1: 41,
+					3: 41,
+					4: 41,
+					5: 41,
+					6: 41,
+					8: 41,
+					9: 41,
+					10: 41,
+					11: 41,
+					12: 41
 				}
 			},
+			41: true
+		},
+		11: { // Shadow Lash
+			'*': { noRetry: true },
+			0: { triggerAbnormal: { 10151040: 2000 } },
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
 			3: true
@@ -3394,33 +3426,16 @@ module.exports = {
 				}
 			},
 			0: {
-				length: 3225,
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 20],
-				chains: {
-					12: 1
-				}
+				chains: { 12: 1 }
 			},
-			1: {
-				length: 2025
-			}
+			1: true
 		},
 		15: { // Retribution
-			0: {
-				fixedSpeed: 1,
-				length: 1575
-			}
+			30: { fixedSpeed: 1 }
 		},
 		16: { // Shadow Reaping
-			0: {
-				fixedSpeed: 1,
-				length: 775
-			}
-		},
-		18: { // Shrouded Escape
-			0: {
-				length: 850,
-				distance: 150
-			}
+			0: { fixedSpeed: 1 }
 		},
 		/*20: { // Cable Step
 			0: {
@@ -3430,8 +3445,6 @@ module.exports = {
 		},*/
 		40: { // Shadow Step
 			'*': {
-				length: 700,
-				distance: 180,
 				forceClip: true,
 				abnormalChains: { 10151000: 30 }
 			},
@@ -3450,7 +3463,7 @@ module.exports = {
 				triggerAbnormal: { 10152011: 3100 }
 			},
 			1: true,
-			2: { noRetry: true },
+			//2: { noRetry: true },
 			20: {
 				type: 'userProjectile',
 				flyingSpeed: 800,
