@@ -2723,7 +2723,6 @@ module.exports = {
 	},
 	7: { // Mystic
 		1: { // Sharan Bolt
-			'*': { length: 689 },
 			0: true,
 			1: true,
 			2: true,
@@ -2732,38 +2731,24 @@ module.exports = {
 		2: { // Corruption Ring
 			0: {
 				type: 'hold',
-				length: 10869,
 				chainOnRelease: 11
 			},
-			11: { length: 839 },
-			12: {
-				length: 1294,
-				race: {
-					1: { length: 1224 }
-				}
-			}
-		},
-		4: { // Ancient Binding (removed)
-			0: { length: 1294 }
+			11: true,
+			12: true
 		},
 		5: { // Titanic Favor
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 59900
+				fixedSpeed: 1
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1950
-			}
+			10: { type: 'lockonCast' }
 		},
 		6: { // Shara's Lash
-			0: { length: 1294 }
+			0: true
 		},
 		8: { // Metamorphic Blast
 			0: {
-				length: 839,
 				noInterrupt: [1, 2, 6, 17],
 				checkReset: true,
 				chains: {
@@ -2771,23 +2756,18 @@ module.exports = {
 					23: 30
 				}
 			},
-			30: { length: 839 }
+			30: true
 		},
 		9: { // Arun's Cleansing
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 59900
+				fixedSpeed: 1
 			},
-			10: {
-				type: 'lockonCast',
-				length: 800
-			}
+			10: { type: 'lockonCast' }
 		},
 		10: { // Resurrect
 			0: {
-				length: 8066,
 				glyphs: {
 					27049: { speed: 1.2 },
 					27079: { speed: 1.2 }
@@ -2806,7 +2786,7 @@ module.exports = {
 				}
 			}
 		},
-		11: { // Summon: Party
+		11: { // Summon: Group
 			0: { length: 4445 }
 		},
 		12: { // Vow of Rebirth
@@ -2814,7 +2794,6 @@ module.exports = {
 			0: {
 				type: 'lockon',
 				fixedSpeed: 1,
-				length: 59900,
 				partyOnly: true
 			},
 			10: {
@@ -2826,29 +2805,24 @@ module.exports = {
 			}
 		},
 		13: { // Aura of the Merciless
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		14: { // Aura of the Swift
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		15: { // Aura of the Unyielding
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		16: { // Aura of the Tenacious
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		17: { // Teleport Jaunt
 			0: {
 				type: 'teleport',
-				length: [222, 255],
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
@@ -2869,7 +2843,6 @@ module.exports = {
 				}
 			},
 			10: {
-				length: 800,
 				race: {
 					9: { length: 833 }
 				}
@@ -2878,7 +2851,6 @@ module.exports = {
 		21: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1633,
 				noRetry: true
 			}
 		},
@@ -2894,7 +2866,6 @@ module.exports = {
 				}
 			},
 			10: {
-				length: 800,
 				race: {
 					9: { length: 833 }
 				}
@@ -2902,24 +2873,18 @@ module.exports = {
 		},
 		23: { // Metmorphic Smite
 			0: {
-				length: 1440,
 				noInterrupt: [1, 2, 6, 17, 23],
 				chains: { 8: 30 }
 			},
-			30: { length: 1108 }
+			30: true
 		},
 		24: { // Volley of Curses
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
+			'*': {
 				fixedSpeed: 1,
-				length: 4900
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: [533, 667]
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		25: { // Thrall of Protection
 			'*': {
@@ -2929,7 +2894,7 @@ module.exports = {
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		27: { // Thrall of Life
 			'*': {
@@ -2939,61 +2904,52 @@ module.exports = {
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		28: { // Sonorous Dreams
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
+			'*': {
 				fixedSpeed: 1,
-				length: 4900
+				noRetry: true
 			},
+			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
 				length: 1400
 			}
 		},
 		29: { // Regression
-			fixedSpeed: 1,
-			length: [500, 700]
+			0: { fixedSpeed: 1 }
 		},
 		30: { // Curse of Exhaustion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
+			'*': {
 				fixedSpeed: 1,
-				length: 4900
+				noRetry: true
 			},
+			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
 				length: 1400
 			}
 		},
 		31: { // Curse of Confusion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
+			'*': {
 				fixedSpeed: 1,
-				length: 4900
+				noRetry: true
 			},
+			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
 				length: 1400
 			}
 		},
 		32: { // Mire
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
+			'*': {
 				fixedSpeed: 1,
-				length: 4900
+				noRetry: true
 			},
+			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
 				length: 1400
 			}
 		},
@@ -3005,7 +2961,7 @@ module.exports = {
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		34: { // Thrall of Wrath
 			'*': {
@@ -3015,49 +2971,37 @@ module.exports = {
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 1200] }
+			30: true
 		},
 		35: { // Command: Attack
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: 1 }
 		},
 		36: { // Command: Follow
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: 1 }
 		},
 		37: { // Warding Totem
-			0: { length: 1900 }
+			0: true
 		},
 		41: { // Contagion
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: 1
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1020
-			}
+			10: { type: 'lockonCast' }
 		},
 		42: { // Boomerang Pulse
 			0: {
-				length: 545,
 				noInterrupt: [42],
 				cooldownEnd: 300
 			}
 		},
 		43: { // Unsummon Thrall
-			0: { length: 575 }
+			0: true
 		},
 		44: { // Mass Teleport
 			0: {
 				type: 'teleport',
-				length: [222, 255],
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
@@ -3066,7 +3010,6 @@ module.exports = {
 			}
 		},
 		45: { // Thrall Augmentation
-			'*': { length: 91 },
 			0: true,
 			50: true
 		},
@@ -3074,10 +3017,7 @@ module.exports = {
 			0: { length: 1060 }
 		},
 		48: { // Thrall Lord
-			0: {
-				fixedSpeed: 1,
-				length: 4050
-			}
+			0: { fixedSpeed: 1 }
 		}
 	},
 	8: { // Reaper
