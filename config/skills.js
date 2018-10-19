@@ -3463,7 +3463,7 @@ module.exports = {
 				triggerAbnormal: { 10152011: 3100 }
 			},
 			1: true,
-			//2: { noRetry: true },
+			2: { noRetry: true },
 			20: {
 				type: 'userProjectile',
 				flyingSpeed: 800,
