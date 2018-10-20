@@ -2897,6 +2897,7 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
+				noInterrupt: [5, 8],
 				length: 3153.84,
 				glyphs: { 26077: { speed: 0.4 } },
 				abnormals: {
