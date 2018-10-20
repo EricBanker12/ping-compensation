@@ -3,7 +3,7 @@
 ## Skill Prediction
 Simulates skills client-side, eliminating ping-based delays and animation lock.
 
-**Note**: If your skills become delayed, make sure Windows Defender is disabled. See **settings.js** for additional configuration options for non-standard setups.
+**Note**: If your skills become delayed, make sure Windows Defender is disabled. See `tera-proxy/settings/skill-prediction.json` for additional configuration options for non-standard setups.
 
 **Noctenium Infusion**: Having regular, Friendly, or Alliance Noctenium Infusion in your inventory will cause the server to send a huge chunk of redundant data after every skill while using *any* type of Noctenium Infusion. You may use **[this mod](https://github.com/mister-kay/no-more-noctenium-lag)** to reduce the client lag, however the network lag will still be noticable unless you have 50Mbps or higher download speed.
 
