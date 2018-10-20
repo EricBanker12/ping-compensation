@@ -4038,17 +4038,11 @@ module.exports = {
 		},
 		8: { // Fire Avalanche
 			'*': {
-				length: [700, 1375, 325],
-				distance: [0, 367.31, 0],
+				noInterrupt: [9, 18],
 				hasChains: true,
 				noRetry: true
 			},
 			0: {
-				noInterrupt: [9, 18],
-				abnormalChains: {
-					10154080: 1,
-					10154081: 2
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -4065,15 +4059,26 @@ module.exports = {
 					20: 30
 				}
 			},
-			1: {
-				length: [1375, 325],
-				distance: [411.39, 0]
-			},
-			2: {
-				length: [1375, 325],
-				distance: [455.47, 0]
-			},
-			30: true
+			1: true,
+			2: true,
+			30: true,
+			31: {
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					12: 30,
+					13: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					19: 30,
+					20: 30
+				}
+			}
 		},
 		9: { // Smoke Bomb
 			0: {
