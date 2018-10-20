@@ -2913,6 +2913,10 @@ module.exports = {
 				distance: -200,
 				noInterrupt: [6],
 				stamina: 180,
+				glyphs: {
+					26018: { stamina: -30 },
+					26056: { stamina: -30 }
+				},
 				noRetry: true,
 				forceClip: true
 			}
