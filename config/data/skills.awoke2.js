@@ -2661,12 +2661,6 @@ module.exports = {
 				}
 			}
 		},
-		//28: { // Stone Skin
-		//0: { length: 305 }, // gets cancelled with endtype 9
-		//  <- S_ACTION_STAGE C11005-05 0 1x 1 0 0 0 0 0 (88888888 1 1 -1) xdd
-		// <- S_ACTION_END C11005-05 25 0u 5004ms (5004ms)
-		//50: { length: 365 },
-		//},
 		30: { // Nova
 			0: {
 				length: 2858,
@@ -2733,18 +2727,13 @@ module.exports = {
 			0: { length: 933 }
 		},
 		36: { //
-			"*": { noInterrupt: [36],
-				abnormalChains: {
-                  502020: 0,
-                  502021: 30,
-                  502030: 0,
-                  502040: 0,
-                  502050: 0
-                }
+			"*": { 
+				noInterrupt: [36, 32, 30, 6],
+				enableOnAbnormal: [502020, 502030, 502040, 502050, 502021, 502052],
+				consumeAbnormal: [502020, 502030, 502040, 502050, 502052]
 			},
 			0: {
 				level: {
-					0: { enableOnAbnormal: [502020, 502030, 502040, 502050, 502052] },
 					1: { length: 937.5 },
 					2: { length: 1602.4 },
 					3: { length: 1628.6 },
@@ -2760,7 +2749,7 @@ module.exports = {
 				race: { 1: { length: 566 } }
 			},
 			30: {
-				length: 1784, //837.5
+				length: 1784, 
 				race: { 10: { length: 1836.3 } }
 			}
 		},
