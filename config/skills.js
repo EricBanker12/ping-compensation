@@ -1083,82 +1083,10 @@ module.exports = {
 	3: { // Berserker
 		1: { // Combo Attack
 			'*': { noRetry: true },
-			0: {
-				length: 1112,
-				distance: 58.1,
-				race: {
-					1: { distance: 61.96 },
-					2: { distance: 54.87 },
-					3: { distance: 63.24 },
-					4: { distance: 27.72 },
-					5: {
-						length: 1082,
-						distance: 62.34
-					},
-					6: { distance: 55.69 },
-					7: { distance: 64.06 },
-					8: { distance: 48.89 },
-					9: { distance: 78.01 },
-					10: { distance: 44.22 }
-				}
-			},
-			1: {
-				length: 930,
-				distance: 23.28,
-				race: {
-					2: { distance: 26.02 },
-					3: { distance: 27.33 },
-					4: { distance: 25 },
-					5: {
-						length: 960,
-						distance: 24.52
-					},
-					6: { distance: 23.27 },
-					7: { distance: 16.05 },
-					8: { distance: 7.06 },
-					9: { distance: 21.05 },
-					10: { distance: 21.08 }
-				}
-			},
-			2: {
-				length: 1112,
-				distance: 22.83,
-				race: {
-					2: { distance: 23.3 },
-					3: { distance: 32.47 },
-					4: { distance: 25 },
-					5: { distance: 17.1 },
-					7: { distance: 42.59 },
-					8: { distance: 40.93 },
-					9: { distance: 31.84 },
-					10: { distance: 20.68 }
-				}
-			},
-			3: {
-				length: 1818,
-				distance: 69.27,
-				race: {
-					1: { distance: 70.41 },
-					2: {
-						length: 1636,
-						distance: 47.29
-					},
-					3: { distance: 55.25 },
-					4: {
-						length: 2000,
-						distance: 45
-					},
-					5: {
-						length: 2000,
-						distance: 61.6
-					},
-					6: { distance: 59.47 },
-					7: { distance: 51.11 },
-					8: { distance: 43.68 },
-					9: { distance: 54.28 },
-					10: { distance: 63.26 }
-				}
-			}
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Axe Block
 			'*': {
@@ -1171,10 +1099,10 @@ module.exports = {
 		},
 		3: { // Thunder Strike
 			'*': {
-				length: 1748,
 				abnormals: {
 					24170: { speed: 1.25 }
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
@@ -1196,90 +1124,22 @@ module.exports = {
 					{ length: 800 },
 					{ length: [800, 800] },
 					{ length: [800, 800] }
-				],
-				noRetry: true
+				]
 			},
-			10: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			11: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			12: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			13: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				}
-			}
+			10: { rearCancelStartTime: 455 },
+			11: { rearCancelStartTime: 455 },
+			12: { rearCancelStartTime: 455 },
+			13: { rearCancelStartTime: 455 }
 		},
 		4: { // Flatten
 			'*': {
-				length: 3112,
-				distance: 75,
 				glyphs: {
 					24008: { speed: 1.25 },
 					24050: { speed: 1.25 }
-				},
-				race: {
-					1: { distance: 78 },
-					2: { distance: 70.79 },
-					3: { distance: 90.6 },
-					4: { distance: 80 },
-					5: { distance: 69.01 },
-					7: { distance: 86.6 },
-					8: { distance: 73.34 },
-					9: { distance: 105.68 },
-					10: { distance: 70.23 }
 				}
 			},
 			0: {
 				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, '10-10', '10-11', '10-12', 11, '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
-				abnormals: {
-					401400: { chain: 1 }
-				},
 				chains: {
 					6: 30,
 					25: 30,
@@ -1287,99 +1147,29 @@ module.exports = {
 					32: 30
 				}
 			},
-			1: true,
-			30: {
-				length: 2337,
-				distance: 75,
-				abnormals: {
-					401400: { chain: 31 }
-				},
-				race: {
-					1: { distance: 78 },
-					2: { distance: 70.79 },
-					3: { distance: 90.6 },
-					4: { distance: 80 },
-					5: { distance: 69.01 },
-					7: { distance: 86.6 },
-					8: { distance: 73.34 },
-					9: { distance: 105.68 },
-					10: { distance: 70.23 }
+			1: {
+				chains: {
+					6: 31,
+					25: 31,
+					31: 31,
+					32: 31
 				}
 			},
-			31: {
-				length: 2337,
-				distance: 75,
-				race: {
-					1: { distance: 78 },
-					2: { distance: 70.79 },
-					3: { distance: 90.6 },
-					4: { distance: 80 },
-					5: { distance: 69.01 },
-					7: { distance: 86.6 },
-					8: { distance: 73.34 },
-					9: { distance: 105.68 },
-					10: { distance: 70.23 }
-				}
-			}
+			30: true,
+			31: true
 		},
 		5: { // Dash
-			0: {
-				noWeapon: true,
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { noWeapon: true }
 		},
-		6: { // Staggering Strike
-			'*': {
-				length: 1294,
-				distance: 66.21,
-				race: {
-					1: { distance: 79.19 },
-					2: {
-						length: 1385,
-						distance: 82.34
-					},
-					3: { distance: 71.34 },
-					4: { distance: 50.07 },
-					7: { distance: 82.34 },
-					8: { distance: 53.41 },
-					9: {
-						length: 1264,
-						distance: 80.47
-					},
-					10: { distance: 70 }
-				},
-				hasChains: true,
-				noRetry: true
-			},
-			0: {
-				abnormalChains: { 401400: 30 }
-			},
+		6: { // Sweeping Strike
+			'*': { noRetry: true },
+			0: true,
 			30: true
 		},
-		7: { // Mocking Shout (removed)
-			'*': {
-				length: [308, 1079],
-				fixedSpeed: 1
-			},
-			0: true
-		},
 		8: { // Fiery Rage
-			'*': { fixedSpeed: 1 },
-			0: {
-				length: 1415,
-				abnormalChains: { 401400: 30 },
-				race: {
-					7: { length: 1445 }
-				}
-			},
-			1: { length: [455, 597] },
-			30: {
-				length: 1742,
-				race: {
-					7: { length: 1767 }
-				}
-			}
+			0: true,
+			1: true,
+			30: true
 		},
 		10: { // Cyclone
 			0: {
@@ -1407,42 +1197,21 @@ module.exports = {
 				noRetry: true
 			},
 			10: {
-				length: 1333,
-				distance: 50,
 				rearCancelStartTime: 300,
-				race: {
-					2: { length: 1400 },
-					3: { length: 1800 },
-					6: { length: 1366 }
-				},
 				noRetry: true
 			},
 			11: {
-				length: [366, 366, 1333],
-				distance: [33.33, 33.33, 50],
 				rearCancelStartTime: 300,
 				noRetry: true
 			},
 			12: {
-				length: [366, 366, 366, 366, 1333],
-				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				rearCancelStartTime: 300,
 				noRetry: true
 			},
-			13: {
-				length: [366, 366, 366, 366, 1333],
-				distance: [33.33, 33.33, 33.33, 33.33, 50],
-				rearCancelStartTime: 300
-			}
+			13: { rearCancelStartTime: 300 }
 		},
 		11: { // Leaping Strike
-			0: {
-				length: 2191,
-				distance: 250,
-				race: {
-					8: { length: 2232 }
-				}
-			}
+			0: true
 		},
 		13: { // Retaliate
 			0: {
@@ -1452,7 +1221,7 @@ module.exports = {
 			}
 		},
 		15: { // Vampiric Blow
-			'*': { length: 1933 },
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1461,95 +1230,19 @@ module.exports = {
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 }
-				},
-				noRetry: true
-			},
-			10: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			11: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			12: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			13: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
 				}
 			},
-			14: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			}
+			10: true,
+			11: true,
+			12: true,
+			13: true,
+			14: true
 		},
 		16: { // Fearsome Shout
-			0: {
-				fixedSpeed: 1,
-				length: [700, 1433]
-			}
+			0: true
 		},
 		18: { // Lethal Strike
-			'*': {
-				distance: 168.11,
-				race: {
-					1: { distance: 188.37 },
-					3: { distance: 173.19 },
-					4: { distance: 145 },
-					7: { distance: 191.79 },
-					8: { distance: 240.4 },
-					9: { distance: 167.62 },
-					10: { distance: 158.11 }
-				}
-			},
 			0: {
-				length: 687,
 				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 27, 28, 29, 31, 34, 35, 36, 37],
 				chains: {
 					// Correct
@@ -1575,48 +1268,21 @@ module.exports = {
 					'15-14': 30
 				}
 			},
-			30: { length: 550 }
+			30: true
 		},
 		19: { // Triumphant Shout
-			'*': {
-				fixedSpeed: 1,
-				length: [500, 700]
-			},
 			0: true
 		},
 		20: { // Inescapable Doom
-			0: {
-				fixedSpeed: 1,
-				length: [600, 900]
-			}
+			0: true
 		},
 		21: { // Bloodlust
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: true
 		},
 		24: { // Evasive Smash
-			'*': {
-				length: 1833,
-				distance: 168.11,
-				race: {
-					1: { distance: 188.37 },
-					3: { distance: 173.19 },
-					4: { distance: 145 },
-					7: { distance: 191.79 },
-					8: { distance: 240.4 },
-					9: {
-						length: 1633,
-						distance: 167.62
-					},
-					10: { distance: 158.11 }
-				}
-			},
 			0: {
 				type: 'storeCharge',
-				length: 1000,
-				distance: 150
+				length: 1000
 			},
 			5: { type: 'grantCharge' },
 			10: true,
@@ -1626,17 +1292,12 @@ module.exports = {
 		},
 		25: { // Raze
 			'*': {
-				length: 1200,
-				distance: 96,
 				glyphs: {
 					24078: { speed: 1.25 }
 				}
 			},
 			0: {
 				noInterrupt: [4, 6, '6-30', 11, '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
-				abnormals: {
-					401400: { chain: 1 }
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -1650,75 +1311,47 @@ module.exports = {
 					32: 30
 				}
 			},
-			1: true,
-			30: {
-				length: 960,
-				abnormals: {
-					401400: { chain: 31 }
+			1: {
+				chains: {
+					1: 31,
+					3: 31,
+					10: 31,
+					'15-10': 31,
+					'15-11': 31,
+					'15-12': 31,
+					'15-13': 31,
+					'15-14': 31,
+					30: 31,
+					32: 31
 				}
 			},
-			31: { length: 960 }
+			30: true,
+			31: true
 		},
 		26: { // Tackle
-			0: {
-				length: 1010,
-				distance: 80
-			}
+			0: true
 		},
 		27: { // Unbreakable
 			0: {
-				length: 2066,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33],
-				interruptibleWithAbnormal: { 401705: 33 },
-				abnormalChains: { 401705: 30 },
-				race: {
-					7: { length: 2099 }
-				}
+				interruptibleWithAbnormal: { 401705: 33 }
 			},
-			30: { length: 1455 }
+			30: true
 		},
 		28: { // Intimiation
-			'*': {
-				length: 1566,
-				race: {
-					7: { length: 1599 }
-				}
-			},
 			0: true,
 			50: true
 		},
 		29: { // Evasive Roll
 			0: {
-				length: 909,
-				distance: 150,
-				forceClip: true,
-				noInterrupt: [29]
+				noInterrupt: [29],
+				forceClip: true
 			}
 		},
 		30: { // Axe Counter
 			'*': {
-				length: 655,
-				distance: 23.28,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
-				requiredBuff: 401402,
-				chains: { 2: 30 },
-				race: {
-					2: { distance: 26.02 },
-					3: { distance: 27.33 },
-					4: { distance: 25 },
-					5: {
-						length: 677,
-						distance: 24.52
-					},
-					6: { distance: 23.27 },
-					7: { distance: 16.05 },
-					8: {
-						length: 1189,
-						distance: 240.4
-					},
-					9: { distance: 21.05 },
-					10: { distance: 21.08 }
-				}
+				requiredBuff: 401402
 			},
 			0: true,
 			30: true
@@ -1730,70 +1363,18 @@ module.exports = {
 				length: 1115,
 				distance: 467.88
 			},
-			1: {
-				length: 1511,
-				distance: 168.11,
-				race: {
-					1: { distance: 188.37 },
-					3: { distance: 173.19 },
-					4: { distance: 145 },
-					7: { distance: 191.79 },
-					8: { distance: 240.4 },
-					9: {
-						length: 1344,
-						distance: 167.62
-					},
-					10: { distance: 158.11 }
-				}
-			}
+			1: true
 		},
 		32: { // Punishing Strike
-			0: {
-				length: 772,
-				distance: 34.93,
-				race: {
-					2: { distance: 39.03 },
-					3: { distance: 40.99 },
-					4: { distance: 37.5 },
-					5: {
-						length: 797,
-						distance: 36.78
-					},
-					6: { distance: 34.91 },
-					7: { distance: 24.08 },
-					8: {
-						length: 925,
-						distance: 61.39
-					},
-					9: { distance: 31.57 },
-					10: { distance: 31.63 }
-				}
-			},
-			1: {
-				length: 800,
-				distance: 134.49,
-				race: {
-					1: { distance: 150.7 },
-					3: { distance: 138.55 },
-					4: { distance: 116 },
-					7: { distance: 153.43 },
-					8: { distance: 192.32 },
-					9: { distance: 134.1 },
-					10: { distance: 126.49 }
-				}
-			}
+			0: true,
+			1: true
 		},
 		33: { // Unleash
-			0: { length: [700, 1500, 1766] }
+			0: true
 		},
 		34: { // Unleash: Dexter
 			'*': {
-				length: 2266,
-				distance: 25,
 				requiredBuff: 401705,
-				abnormals: {
-					401716: { chain: 31 }
-				},
 				noRetry: true
 			},
 			0: {
@@ -1804,17 +1385,12 @@ module.exports = {
 					37: 30
 				}
 			},
-			30: { length: 1666 },
-			31: { length: 1666 }
+			30: true,
+			31: true
 		},
 		35: { // Unleash: Sinister
 			'*': {
-				length: 1966,
-				distance: 180,
 				requiredBuff: 401705,
-				abnormals: {
-					401717: { chain: 31 }
-				},
 				noRetry: true
 			},
 			0: {
@@ -1825,28 +1401,18 @@ module.exports = {
 				}
 			},
 			1: true,
-			30: {
-				length: 1474,
-				distance: 25
-			},
-			31: {
-				length: 1474,
-				distance: 25
-			}
+			30: true,
+			31: true
 		},
 		36: { // Unleash: Rampage
 			'*': {
-				length: 1589,
-				distance: 35,
 				requiredBuff: 401705,
 				abnormals: {
-					401708: { speed: 1.2 },
-					401718: { chain: 31 }
+					401708: { speed: 1.2 }
 				},
 				noRetry: true
 			},
 			0: {
-				length: 2714,
 				noInterrupt: [37],
 				chains: {
 					34: 30,
@@ -1859,15 +1425,8 @@ module.exports = {
 		},
 		37: { // Unleash: Beast Fury
 			'*': {
-				length: [611, 694, 722, 396, 1094],
-				distance: [114.55, 131.66, 137.36, 8.55, 114.74],
 				noInterrupt: [37],
-				requiredBuff: 401705,
-				race: {
-					2: { distance: [120, 137.14, 142.86, 8.55, 114.74] },
-					3: { distance: [120, 137.14, 142.86, 8.55, 114.74] },
-					9: { distance: [120, 137.14, 142.86, 8.55, 114.74] }
-				}
+				requiredBuff: 401705
 			},
 			0: {
 				chains: {
