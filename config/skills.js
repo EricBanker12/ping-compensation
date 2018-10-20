@@ -4339,21 +4339,11 @@ module.exports = {
 		1: { // Combo Attack
 			'*': {
 				fixedSpeed: 1,
-				length: 650,
-				distance: 44.86,
 				triggerAbnormal: { 10154000: 1650 },
 				hasChains: true,
 				noRetry: true
 			},
 			0: {
-				abnormalChains: {
-					10154000: 1,
-					10154001: 2,
-					10154002: 3,
-					10154003: 4,
-					10154004: 5,
-					10154005: 6
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -4371,52 +4361,14 @@ module.exports = {
 					20: 30
 				}
 			},
-			1: {
-				length: 1125,
-				distance: 52.47,
-				consumeAbnormal: 10154000,
-				triggerAbnormal: { 10154001: 1500 }
-			},
-			2: {
-				length: 1200,
-				distance: 69.96,
-				consumeAbnormal: 10154001,
-				triggerAbnormal: { 10154002: 1400 }
-			},
-			3: {
-				length: 1225,
-				distance: 38.01,
-				consumeAbnormal: 10154002,
-				triggerAbnormal: { 10154003: 1400 }
-			},
-			4: {
-				length: 1700,
-				distance: 54.69,
-				consumeAbnormal: 10154003,
-				triggerAbnormal: { 10154004: 1400 }
-			},
-			5: {
-				length: 1500,
-				distance: 37.80,
-				consumeAbnormal: 10154004,
-				triggerAbnormal: { 10154005: 1600 }
-			},
-			6: {
-				length: 1150,
-				distance: 82.62,
-				consumeAbnormal: 10154005,
-				triggerAbnormal: { 10154006: 100 }
-			},
+			1: { triggerAbnormal: { 10154001: 1500 } },
+			2: { triggerAbnormal: { 10154002: 1400 } },
+			3: { triggerAbnormal: { 10154003: 1400 } },
+			4: { triggerAbnormal: { 10154004: 1400 } },
+			5: { triggerAbnormal: { 10154005: 1600 } },
+			6: { triggerAbnormal: { 10154006: 100 } },
 			30: true,
 			40: {
-				abnormalChains: {
-					10154000: 41,
-					10154001: 42,
-					10154002: 43,
-					10154003: 44,
-					10154004: 45,
-					10154005: 46
-				},
 				chains: {
 					1: 70,
 					3: 70,
@@ -4434,49 +4386,18 @@ module.exports = {
 					20: 70
 				}
 			},
-			41: {
-				length: 1125,
-				distance: 52.47,
-				consumeAbnormal: 10154000,
-				triggerAbnormal: { 10154001: 1500 }
-			},
-			42: {
-				length: 1200,
-				distance: 69.96,
-				consumeAbnormal: 10154001,
-				triggerAbnormal: { 10154002: 1400 }
-			},
-			43: {
-				length: 1225,
-				distance: 38.01,
-				consumeAbnormal: 10154002,
-				triggerAbnormal: { 10154003: 1400 }
-			},
-			44: {
-				length: 1700,
-				distance: 54.69,
-				consumeAbnormal: 10154003,
-				triggerAbnormal: { 10154004: 1400 }
-			},
-			45: {
-				length: 1500,
-				distance: 37.80,
-				consumeAbnormal: 10154004,
-				triggerAbnormal: { 10154005: 1600 }
-			},
-			46: {
-				length: 1150,
-				distance: 82.62,
-				consumeAbnormal: 10154005,
-				triggerAbnormal: { 10154006: 100 }
-			},
+			41: { triggerAbnormal: { 10154001: 1500 } },
+			42: { triggerAbnormal: { 10154002: 1400 } },
+			43: { triggerAbnormal: { 10154003: 1400 } },
+			44: { triggerAbnormal: { 10154004: 1400 } },
+			45: { triggerAbnormal: { 10154005: 1600 } },
+			46: { triggerAbnormal: { 10154006: 100 } },
 			70: true
 		},
 		2: { // Shadow Jump
 			'*': {
 				fixedSpeed: 1,
 				length: 650,
-				distance: 175,
 				forceClip: true,
 				abnormalChains: { 10154010: 30 }
 			},
@@ -4484,7 +4405,8 @@ module.exports = {
 			30: true
 		},
 		3: { // Leaves on the Wind
-			0: { length: 1275 }
+			0: true,
+			40: true
 		},
 		4: { // Jagged Path
 			1: {
@@ -4493,17 +4415,17 @@ module.exports = {
 				length: 665,
 				distance: 469
 			},
-			10: { length: 1500 },
-			11: {
-				length: 300,
-				distance: 150
-			}
+			10: true,
+			11: true
 		},
 		5: { // Impact Bomb
 			'*': {
-				length: 1025,
 				distance: -291.6,
 				noInterrupt: [5],
+				forceClip: true,
+				noRetry: true
+			},
+			0: {
 				chains: {
 					1: null,
 					3: null,
@@ -4519,16 +4441,12 @@ module.exports = {
 					18: null,
 					19: null,
 					20: null
-				},
-				forceClip: true,
-				noRetry: true
+				}
 			},
-			0: true,
 			30: true
 		},
 		6: { // One Thousand Cuts
-			'*': {
-				length: 400,
+			0: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -4544,14 +4462,13 @@ module.exports = {
 					20: 30
 				}
 			},
-			0: true,
 			1: {
 				type: 'dash',
 				fixedSpeed: 1,
 				length: 300,
 				distance: 246
 			},
-			10: { length: 3500 },
+			10: true,
 			30: true
 		},
 		7: { // Decoy Jutsu
@@ -4600,17 +4517,15 @@ module.exports = {
 			30: true
 		},
 		9: { // Smoke Bomb
-			0: { length: 700 }
+			0: true
 		},
 		11: { // Focus
-			0: { length: 1430 },
-			50: { length: 1430 }
+			0: true,
+			50: true
 		},
 		12: { // Skyfall
-			'*': {
-				length: 1325,
-				distance: 154.72,
-				noInterrupt: [9, 18],
+			'*': { noInterrupt: [9, 18] },
+			1: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -4627,15 +4542,28 @@ module.exports = {
 					20: 30
 				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					13: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					19: 30,
+					20: 30
+				}
+			},
 			30: true
 		},
 		13: { // Circle of Steel
-			'*': {
-				length: 3225,
-				distance: 245.06,
-				noInterrupt: [9, 18],
+			'*': { noInterrupt: [9, 18] },
+			1: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -4652,15 +4580,28 @@ module.exports = {
 					20: 30
 				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					12: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					19: 30,
+					20: 30
+				}
+			},
 			30: true
 		},
 		14: { // Double Cut
-			'*': {
-				length: 1425,
-				distance: 162,
-				noInterrupt: [9, 18],
+			'*': { noInterrupt: [9, 18] },
+			1: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -4677,8 +4618,23 @@ module.exports = {
 					20: 30
 				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					12: 30,
+					13: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					19: 30,
+					20: 30
+				}
+			},
 			30: true
 		},
 		15: { // Burning Heart
@@ -4690,33 +4646,22 @@ module.exports = {
 					32058: { speed: 1.3 }
 				}
 			},
-			0: { length: 900 },
-			1: { length: 400 },
-			2: { length: 400 },
-			3: { length: 400 },
-			4: { length: 400 },
-			5: { length: 400 },
-			6: { length: 400 },
-			7: { length: 400 },
-			8: { length: 400 },
-			9: { length: 400 }
+			1: true,
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true,
+			8: true,
+			9: true,
+			10: true,
+			31: true,
+			32: true
 		},
 		16: { // Death Blossom
+			'*': { fixedSpeed: 1 },
 			0: {
-				fixedSpeed: 1,
-				length: 1525
-			}
-		},
-		17: { // Attunement
-			0: { length: 1000 }
-		},
-		18: { // Bladestorm
-			0: { length: 1000 }
-		},
-		19: { // Chakra Thrust
-			'*': {
-				length: [225, 825],
-				distance: 127.5,
 				chains: {
 					1: 30,
 					3: 30,
@@ -4735,14 +4680,76 @@ module.exports = {
 					20: 30
 				}
 			},
-			0: true,
+			30: true
+		},
+		17: { // Attunement
+			0: {
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					19: 30,
+					20: 30
+				}
+			},
+			30: true
+		},
+		18: { // Bladestorm
+			0: {
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					19: 30,
+					20: 30
+				}
+			},
+			30: true
+		},
+		19: { // Chakra Thrust
+			0: {
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					19: 30,
+					20: 30
+				}
+			},
 			30: true
 		},
 		20: { // Clone Jutsu
-			0: {
-				fixedSpeed: 1,
-				length: 1275
-			}
+			0: { fixedSpeed: 1 }
 		}
 	},
 	12: { // Valkyrie
