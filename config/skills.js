@@ -469,63 +469,10 @@ module.exports = {
 	2: { // Slayer
 		1: { // Combo Attack
 			'*': { noRetry: true },
-			0: {
-				length: 761,
-				distance: 36.68,
-				race: {
-					2: { distance: 50.68 },
-					3: { distance: 38.8 },
-					4: { distance: 40 },
-					7: { distance: 60 },
-					8: { distance: 31.53 },
-					10: { distance: 25.08 }
-				}
-			},
-			1: {
-				length: 1021,
-				distance: 35.67,
-				race: {
-					2: {
-						length: 1051,
-						distance: 30.67
-					},
-					3: { distance: 38.84 },
-					4: { distance: 35 },
-					5: { distance: 35.68 },
-					7: { distance: 17 },
-					8: { distance: 49.4 },
-					10: { distance: 32.95 }
-				}
-			},
-			2: {
-				length: 748,
-				distance: 28.05,
-				race: {
-					2: { distance: 33.05 },
-					3: { distance: 24.22 },
-					4: { distance: 20 },
-					6: { distance: 22.3 },
-					7: { distance: 23 },
-					8: { distance: 19.33 },
-					10: { distance: 22.5 }
-				}
-			},
-			3: {
-				length: 1636,
-				distance: 46.76,
-				race: {
-					3: {
-						length: 1545,
-						distance: 45.32
-					},
-					4: { distance: 40 },
-					5: { distance: 64.36 },
-					6: { distance: 118.2 },
-					7: { distance: 45 },
-					8: { distance: 19.85 },
-					10: { distance: 37.5 }
-				}
-			}
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Knockdown Strike
 			'*': {
@@ -548,7 +495,6 @@ module.exports = {
 		3: { // Whirlwind
 			0: {
 				length: 3125,
-				distance: 128.69,
 				abnormals: {
 					23080: { speed: 1.25 }
 				}
