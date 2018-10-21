@@ -1100,34 +1100,20 @@ module.exports = {
 	},
 	4: { // Sorcerer
 		1: { // Fireball
-			0: { length: 725 }
+			0: true
 		},
 		2: { // Frost Sphere
-			0: {
-				length: 800,
-				race: {
-					4: { length: 1250 }, // Male Aman
-					9: { length: 1000 }, // Elin
-					10: { length: 900 } // Baraka
-				}
-			}
+			0: true
 		},
 		3: { // Lightning Trap
 			0: {
-				length: 1300,
 				abnormals: {
 					25090: { speed: 1.4 }
 				}
 			}
 		},
 		4: { // Arcane Pulse
-			'*': {
-				length: 1293,
-				race: {
-					9: { length: 991 }
-				},
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 800],
@@ -1135,27 +1121,12 @@ module.exports = {
 					25140: { chargeSpeed: 0.3 }
 				}
 			},
-			10: {
-				abnormals: {
-					500150: { skill: 330110 },
-					501650: { skill: 330150 }
-				}
-			},
-			11: {
-				abnormals: {
-					500150: { skill: 330111 },
-					501650: { skill: 330150 }
-				}
-			},
-			12: {
-				abnormals: {
-					500150: { skill: 330112 },
-					501650: { skill: 330150 }
-				}
-			}
+			10: true,
+			11: true,
+			12: true
 		},
 		5: { // Mana Infusion
-			0: { length: 4600 }
+			0: true
 		},
 		6: { // Meteor Strike
 			0: {
@@ -1165,9 +1136,7 @@ module.exports = {
 					25069: { speed: 1.25 }
 				},
 				abnormals: {
-					25100: { speed: 1.25 },
-					500150: { skill: 320100 },
-					501650: { skill: 320150 }
+					25100: { speed: 1.25 }
 				},
 				race: {
 					9: { length: 3700 } // Elin
@@ -1190,7 +1159,7 @@ module.exports = {
 			}
 		},
 		10: { // Mana Barrier
-			0: { length: 625 }
+			0: true
 		},
 		11: { // Lightning Strike
 			0: {
@@ -1202,7 +1171,7 @@ module.exports = {
 			}
 		},
 		12: { // Void Pulse
-			0: { length: 925 }
+			0: true
 		},
 		13: { // Mindblast
 			0: {
@@ -1224,7 +1193,7 @@ module.exports = {
 			}
 		},
 		17: { // Painful Trap
-			0: { length: 1100 }
+			0: true
 		},
 		18: { // Glacial Retreat
 			0: {
@@ -1329,7 +1298,7 @@ module.exports = {
 			}
 		},
 		27: { // Hailstorm
-			0: { length: 950 }
+			0: true
 		},
 		30: { // Nova
 			0: {
@@ -2196,12 +2165,6 @@ module.exports = {
 				},
 				noInterrupt: [3, 4, 12, 20],
 				triggerAbnormal: { 10151020: 2000 },
-				abnormals: {
-					10151020: { chain: 2 },
-					10151021: { chain: 3 },
-					10151022: { chain: 4 },
-					10151023: { chain: 5 }
-				},
 				chains: { 1: 1 },
 				noRetry: true
 			},
