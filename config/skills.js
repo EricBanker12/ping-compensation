@@ -603,10 +603,13 @@ module.exports = {
 			1: true
 		},
 		16: { // Second Wind
-			0: { noWeapon: true }
+			0: {
+				noWeapon: true,
+				fixedAnimSpeed: true
+			}
 		},
 		17: { // Adrenaline Rush
-			0: true
+			0: { fixedAnimSpeed: true }
 		},
 		18: { // Shield Barrage
 			0: {
@@ -617,7 +620,7 @@ module.exports = {
 			1: true
 		},
 		19: { // Pledge of Protection
-			0: true
+			0: { fixedAnimSpeed: true }
 		},
 		21: { // Lockdown Blow
 			1: true,
@@ -630,7 +633,7 @@ module.exports = {
 			30: true
 		},
 		22: { // Iron Will
-			0: true
+			0: { fixedAnimSpeed: true }
 		},
 		23: { // Master's Leash
 			0: {
@@ -1039,7 +1042,10 @@ module.exports = {
 			31: true
 		},
 		5: { // Dash
-			0: { noWeapon: true }
+			0: {
+				noWeapon: true,
+				fixedAnimSpeed: true
+			}
 		},
 		6: { // Sweeping Strike
 			'*': { noRetry: true },
@@ -1119,7 +1125,7 @@ module.exports = {
 			14: true
 		},
 		16: { // Fearsome Shout
-			0: true
+			0: { fixedAnimSpeed: true }
 		},
 		18: { // Lethal Strike
 			0: {
@@ -1151,13 +1157,13 @@ module.exports = {
 			30: true
 		},
 		19: { // Triumphant Shout
-			0: true
+			0: { fixedAnimSpeed: true }
 		},
 		20: { // Inescapable Doom
-			0: true
+			0: { fixedAnimSpeed: true }
 		},
 		21: { // Bloodlust
-			0: true
+			0: { fixedAnimSpeed: true }
 		},
 		24: { // Evasive Smash
 			0: {
@@ -1317,6 +1323,9 @@ module.exports = {
 				}
 			},
 			30: true
+		},
+		910: { // Apex Urgency
+			0: { fixedAnimSpeed: true }
 		}
 	},
 	4: { // Sorcerer
