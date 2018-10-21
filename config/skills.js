@@ -483,51 +483,9 @@ module.exports = {
 	1: { // Lancer
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2] },
-			0: {
-				length: 624,
-				distance: 78.55,
-				race: {
-					1: { distance: 74.89 },
-					2: { distance: 74.41 },
-					3: { distance: 74.36 },
-					4: { distance: 70 },
-					5: { distance: 69.8 },
-					6: { distance: 76.42 },
-					7: { distance: 74.89 },
-					8: { distance: 72.89 },
-					9: { distance: 74.45 },
-					10: { distance: 74.88 }
-				}
-			},
-			1: {
-				length: 1021,
-				distance: 25,
-				race: {
-					1: { distance: 28.39 },
-					2: { distance: 30.8 },
-					3: { distance: 30.68 },
-					5: { distance: 30.52 },
-					6: { distance: 30.8 },
-					7: { distance: 28.39 },
-					8: { distance: 39.05 },
-					9: { distance: 19.2 },
-					10: { distance: 30.8 }
-				}
-			},
-			2: {
-				length: 1818,
-				distance: 70,
-				race: {
-					1: { distance: 59.53 },
-					3: { distance: 64.36 },
-					4: { distance: 60 },
-					5: { distance: 54.48 },
-					7: { distance: 59.53 },
-					8: { distance: 41.06 },
-					9: { distance: 66.07 },
-					10: { distance: 69.98 }
-				}
-			}
+			0: true,
+			1: true,
+			2: true
 		},
 		2: { // Stand Fast
 			0: {
@@ -546,89 +504,82 @@ module.exports = {
 		},
 		3: { // Onslaught
 			'*': {
-				distance: 440,
 				noInterrupt: ['1-0', '1-1', 2, 3, 8, 10, 13, 15, 21, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
-				},
+				}
+			},
+			0: {
 				chains: {
 					1: 30,
 					5: 30,
 					18: 30
-				},
-				race: {
-					0: { distance: 427.1 },
-					9: { distance: 462.7 }
 				}
 			},
-			0: { length: 3636 },
-			30: { length: 2203 }
+			30: true
 		},
 		4: { // Challenging Shout
 			'*': {
-				length: 2203,
+				noInterrupt: [9, 12, 23, 24, 26],
 				glyphs: {
 					22056: { speed: 1.25 },
 					22085: { speed: 1.25 }
 				}
 			},
-			0: true,
+			0: {
+				chains: {
+					1: 30,
+					3: 30,
+					5: 30,
+					8: 30,
+					10: 30,
+					13: 30,
+					15: 30,
+					18: 30,
+					21: 30,
+					25: 30,
+					28: 30
+				}
+			},
 			30: true
 		},
 		5: { // Shield Bash
-			'*': {
-				length: 820,
-				distance: 43.69,
+			1: true,
+			2: {
 				chains: { 10: 30 }
 			},
-			1: true,
-			2: true,
-			30: { length: 683 }
+			30: true
 		},
 		7: { // Guardian Shout
-			0: {
-				length: 550,
-				race: {
-					8: { length: 800 } // Popori
-				}
-			}
+			0: true
 		},
 		8: { // Shield Counter
-			0: {
-				length: 1450,
-				distance: 108.06,
-				onlyDefenceSuccess: true
-			}
+			0: { onlyDefenceSuccess: true }
 		},
 		9: { // Leash
 			0: { length: [725, 850] }
 		},
 		10: { // Debilitate
-			'*': {
-				distance: 43.69,
-				noInterrupt: [2, 3, 5, 10, 13, 21, 25, 26],
+			'*': { noInterrupt: [2, 3, 5, 10, 13, 21, 25, 26] },
+			0: {
 				chains: {
 					1: 30,
 					18: 30
 				}
 			},
-			0: { length: 925 },
-			30: { length: 832 }
+			30: true
 		},
 		11: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1625,
 				noRetry: true
 			}
 		},
 		12: { // Infuriate
-			0: { length: 2425 }
+			0: true
 		},
 		13: { // Spring Attack
 			0: {
-				length: 2799,
-				distance: 85,
 				noInterrupt: ['1-0', '1-1', 2, 3, 13, 15, 25, 26],
 				chains: {
 					1: 30,
@@ -639,10 +590,7 @@ module.exports = {
 					21: 30
 				}
 			},
-			30: {
-				length: 1850,
-				distance: 85
-			}
+			30: true
 		},
 		15: { // Charging Lunge
 			0: {
@@ -652,84 +600,37 @@ module.exports = {
 				distance: 474.5,
 				noInterrupt: [15]
 			},
-			1: { length: 925 }
+			1: true
 		},
 		16: { // Second Wind
-			0: {
-				noWeapon: true,
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { noWeapon: true }
 		},
 		17: { // Adrenaline Rush
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: true
 		},
 		18: { // Shield Barrage
 			0: {
-				length: 598,
-				distance: 100.13,
 				abnormals: {
 					201550: { speed: 1.2 }
-				},
-				race: {
-					2: {
-						length: 503,
-						distance: 102.7
-					},
-					3: { distance: 103.43 },
-					4: { distance: 95 },
-					6: { distance: 110.39 },
-					7: { distance: 116.18 },
-					8: { distance: 92.39 },
-					9: { distance: 122.66 },
-					10: { distance: 92.13 }
 				}
 			},
-			1: {
-				length: 800,
-				distance: 74.84,
-				race: {
-					2: { distance: 80.43 },
-					3: { distance: 70.32 },
-					4: { distance: 87 },
-					8: { distance: 89.46 },
-					9: { distance: 66.04 }
-				}
-			}
+			1: true
 		},
 		19: { // Pledge of Protection
-			0: {
-				fixedSpeed: 1,
-				length: 1000
-			}
-		},
-		20: { // Menacing Wave (removed)
-			0: {
-				fixedSpeed: 1,
-				length: [700, 800]
-			}
+			0: true
 		},
 		21: { // Lockdown Blow
-			'*': {
-				length: 1400,
-				distance: 122.66,
+			1: true,
+			2: {
 				chains: {
 					10: 30,
 					18: 30
 				}
 			},
-			1: true,
-			2: true,
-			30: { length: 1260 }
+			30: true
 		},
 		22: { // Iron Will
-			0: {
-				fixedSpeed: 1,
-				length: 800
-			}
+			0: true
 		},
 		23: { // Master's Leash
 			0: {
@@ -742,8 +643,6 @@ module.exports = {
 		},
 		25: { // Wallop
 			0: {
-				length: 2375,
-				distance: 100,
 				noInterrupt: [1, 2, 3, 5, 25, 26],
 				chains: {
 					8: 30,
@@ -754,14 +653,10 @@ module.exports = {
 					21: 30
 				}
 			},
-			30: {
-				length: 1900,
-				distance: 100
-			}
+			30: true
 		},
 		26: { // Backstep
 			0: {
-				length: 725,
 				distance: -150,
 				forceClip: true,
 				stamina: 800,
@@ -774,32 +669,17 @@ module.exports = {
 			}
 		},
 		27: { // Rallying Cry
-			0: { length: 620 }
+			0: true
 		},
-		28: { // Righteous Leap
-			'*': {
-				distance: [29.48, 445.52, 0],
-				race: {
-					1: {
-						distance: [20.32, 398.47, 0]
-					},
-					5: {
-						distance: [20.32, 398.47, 0]
-					},
-					6: {
-						distance: [20.32, 398.47, 0]
-					}
-				}
-			},
+		28: { // Super Leap
 			0: {
-				length: [333, 1055, 3122],
 				noInterrupt: [1, 3, 4, 5, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28],
 				chains: {
 					15: 1,
 					25: 1
 				}
 			},
-			1: { length: [250, 791, 834] }
+			1: true
 		},
 		29: { // Guardian's Barrier
 			0: {
@@ -810,7 +690,7 @@ module.exports = {
 			}
 		},
 		30: { // Divine Protection
-			0: { length: 1250 }
+			0: true
 		}
 	},
 	2: { // Slayer
