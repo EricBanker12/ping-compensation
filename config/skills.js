@@ -2656,8 +2656,35 @@ module.exports = {
 				}
 			},
 			31: true,
-			40: true,
-			60: true,
+			40: {
+				inPlace: {
+					movement: [
+						[],
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0, 0]
+				}
+			},
+			60: {
+				inPlace: {
+					movement: [
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0]
+				}
+			},
 			61: true
 		},
 		5: { // Grim Strike
