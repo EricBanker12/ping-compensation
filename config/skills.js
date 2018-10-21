@@ -192,7 +192,7 @@ module.exports = {
 		16: { // Charging Slash
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1100,
 				distance: 467.88,
 				noRetry: true
@@ -265,7 +265,7 @@ module.exports = {
 		},
 		20: { // Deadly Gamble
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 320
 			}
 		},
@@ -289,19 +289,19 @@ module.exports = {
 		},
 		24: { // Smoke Aggressor
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 481
 			}
 		},
 		25: { // Command: Attack
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700
 			}
 		},
 		26: { // Command: Follow
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700
 			}
 		},
@@ -419,7 +419,7 @@ module.exports = {
 		32: { // Cross Parry
 			0: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				requiredBuff: [100200, 100201],
 				stamina: 50
 			}
@@ -490,7 +490,7 @@ module.exports = {
 		2: { // Stand Fast
 			0: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				stamina: 50,
 				level: {
 					1: {
@@ -595,7 +595,7 @@ module.exports = {
 		15: { // Charging Lunge
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1125,
 				distance: 474.5,
 				noInterrupt: [15]
@@ -687,7 +687,7 @@ module.exports = {
 		29: { // Guardian's Barrier
 			0: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700,
 				endType51: true
 			}
@@ -804,7 +804,7 @@ module.exports = {
 		5: { // Dash
 			0: {
 				noWeapon: true,
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700
 			}
 		},
@@ -896,26 +896,26 @@ module.exports = {
 		17: { // Headlong Rush
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1000,
 				distance: 413
 			}
 		},
 		18: { // Overpower
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 200
 			}
 		},
 		19: { // Tenacity
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700
 			}
 		},
 		20: { // In Cold Blood
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1185
 			}
 		},
@@ -976,9 +976,9 @@ module.exports = {
 				type: 'holdInfinite',
 				consumeAbnormal: 401701
 			},
-			0: { fixedSpeed: 1 },
+			0: { fixedSpeed: true },
 			30: true,
-			31: { fixedSpeed: 1 }
+			31: { fixedSpeed: true }
 		},
 		3: { // Thunder Strike
 			'*': {
@@ -1245,7 +1245,7 @@ module.exports = {
 		31: { // Overwhelm
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1115,
 				distance: 467.88
 			},
@@ -1481,7 +1481,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
@@ -1500,12 +1500,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: [300, 1200]
 			}
 		},
@@ -1513,12 +1513,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: [300, 1200]
 			}
 		},
@@ -1526,12 +1526,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: [325, 875]
 			}
 		},
@@ -1539,12 +1539,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700
 			}
 		},
@@ -1615,7 +1615,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
@@ -1802,20 +1802,20 @@ module.exports = {
 		},
 		31: { // Tenacity
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: [500, 700]
 			}
 		},
 		32: { // Find Weakness
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 200
 			}
 		},
 		33: { // Chase
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1000,
 				distance: 413
 			}
@@ -1955,7 +1955,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 54440
 			},
 			10: {
@@ -2063,25 +2063,25 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1430
 			}
 		},
 		31: { // Guardian Sanctuary
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700
 			}
 		},
 		32: { // Divine Respite
 			0: {
 				noWeapon: true,
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: [1300, 900]
 			}
 		},
@@ -2089,12 +2089,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: [300, 1430]
 			}
 		},
@@ -2105,12 +2105,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1430
 			}
 		},
@@ -2118,14 +2118,14 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 4900,
 				noInterrupt: [37],
 				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1430,
 				noInterrupt: ['37-10']
 			}
@@ -2150,7 +2150,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 54445,
 				partyOnly: true
 			},
@@ -2188,7 +2188,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1
+				fixedSpeed: true
 			},
 			10: { type: 'lockonCast' }
 		},
@@ -2210,7 +2210,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1
+				fixedSpeed: true
 			},
 			10: { type: 'lockonCast' }
 		},
@@ -2241,7 +2241,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				partyOnly: true
 			},
 			10: {
@@ -2328,7 +2328,7 @@ module.exports = {
 		},
 		24: { // Volley of Curses
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noRetry: true
 			},
 			0: { type: 'lockon' },
@@ -2361,7 +2361,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2376,7 +2376,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2388,7 +2388,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2400,7 +2400,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
@@ -2441,7 +2441,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1
+				fixedSpeed: true
 			},
 			10: { type: 'lockonCast' }
 		},
@@ -2472,7 +2472,10 @@ module.exports = {
 			0: { length: 1060 }
 		},
 		48: { // Thrall Lord
-			0: { fixedSpeed: 1 }
+			0: { fixedSpeed: true }
+		},
+		910: { // Apex Urgency
+			0: { fixedAnimSpeed: true }
 		}
 	},
 	8: { // Reaper
@@ -2827,10 +2830,10 @@ module.exports = {
 			1: true
 		},
 		15: { // Retribution
-			30: { fixedSpeed: 1 }
+			30: { fixedSpeed: true }
 		},
 		16: { // Shadow Reaping
-			0: { fixedSpeed: 1 }
+			0: { fixedSpeed: true }
 		},
 		/*20: { // Cable Step
 			0: {
@@ -2851,7 +2854,7 @@ module.exports = {
 		'*': { consumeAbnormal: [10152010, 10152011] },
 		1: { // Blast
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1195,
 				noInterrupt: [1],
 				projectiles: [20],
@@ -2870,7 +2873,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 59900
 			},
 			1: {
@@ -2964,7 +2967,7 @@ module.exports = {
 			'*':{ noInterrupt: ['9-0'] },
 			0: { noRetry: true },
 			1: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				stamina: 75,
 				instantStamina: true,
 				glyphs: {
@@ -2979,7 +2982,7 @@ module.exports = {
 			},
 			10: { noRetry: true },
 			11: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				stamina: 75,
 				instantStamina: true,
 				glyphs: {
@@ -2989,7 +2992,7 @@ module.exports = {
 		},
 		6: { // Time Bomb
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1000,
 				projectiles: [20],
 				triggerAbnormal: {
@@ -3007,13 +3010,13 @@ module.exports = {
 		7: { // Arcane Barrage
 			'*': { length: 1525 },
 			1: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noInterrupt: [7],
 				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			2: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noInterrupt: [7],
 				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
@@ -3216,7 +3219,7 @@ module.exports = {
 		},
 		15: { // Replenishment
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noInterrupt: [15]
 			},
 			1: {
@@ -3255,7 +3258,7 @@ module.exports = {
 		},
 		18: { // HB
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1430
 			},
 			1: true,
@@ -3318,7 +3321,7 @@ module.exports = {
 		},
 		40: { // Rolling Reload
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 935,
 				distance: 172.5,
 				triggerAbnormal: {
@@ -3434,7 +3437,7 @@ module.exports = {
 			},
 			10: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				distance: 33.38,
 				triggerAbnormal: { 10153006: 0x7fffffff },
 				consumeAbnormalEnd: 10153006,
@@ -3442,7 +3445,7 @@ module.exports = {
 			},
 			11: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				distance: 33.38,
 				triggerAbnormal: { 10153005: 0x7fffffff },
 				consumeAbnormalEnd: 10153005,
@@ -3462,7 +3465,7 @@ module.exports = {
 		},
 		3: { // Divine Wrath
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noRetry: true
 			},
 			0: { length: 29900 },
@@ -3479,7 +3482,7 @@ module.exports = {
 		},
 		5: { // Bullrush
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: [2950, 650],
 				distance: [0, 135]
 			}
@@ -3554,7 +3557,7 @@ module.exports = {
 		},
 		9: { // Jackhammer
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1540,
 				distance: 40,
 				noInterrupt: [9],
@@ -3612,7 +3615,7 @@ module.exports = {
 		},
 		13: { // Provoke
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1275
 			},
 			1: true,
@@ -3636,7 +3639,7 @@ module.exports = {
 		},
 		21: { // Mounting Rage
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1275
 			},
 			1: true,
@@ -3840,7 +3843,7 @@ module.exports = {
 		},
 		40: { // Quick Dash
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 588,
 				distance: 144,
 				forceClip: true,
@@ -3855,7 +3858,7 @@ module.exports = {
 		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006] },
 		1: { // Combo Attack
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				triggerAbnormal: { 10154000: 1650 },
 				hasChains: true,
 				noRetry: true
@@ -3913,7 +3916,7 @@ module.exports = {
 		},
 		2: { // Shadow Jump
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 650,
 				forceClip: true,
 				abnormalChains: { 10154010: 30 }
@@ -3928,7 +3931,7 @@ module.exports = {
 		4: { // Jagged Path
 			1: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 665,
 				distance: 469
 			},
@@ -3981,7 +3984,7 @@ module.exports = {
 			},
 			1: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 300,
 				distance: 246
 			},
@@ -4201,7 +4204,7 @@ module.exports = {
 			32: true
 		},
 		16: { // Death Blossom
-			'*': { fixedSpeed: 1 },
+			'*': { fixedSpeed: true },
 			0: {
 				chains: {
 					1: 30,
@@ -4290,7 +4293,7 @@ module.exports = {
 			30: true
 		},
 		20: { // Clone Jutsu
-			0: { fixedSpeed: 1 }
+			0: { fixedSpeed: true }
 		}
 	},
 	12: { // Valkyrie
@@ -4399,7 +4402,7 @@ module.exports = {
 		4: { // Charge
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 550,
 				distance: 436,
 				noInterrupt: ['4-0']
@@ -4510,7 +4513,7 @@ module.exports = {
 		},
 		8: { // Titansbane
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 7700,
 				chains: {
 					1: 30,
@@ -4710,7 +4713,7 @@ module.exports = {
 		},
 		14: { // Evasion
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 825,
 				distance: 188.18,
 				forceClip: true,
@@ -4749,7 +4752,7 @@ module.exports = {
 		},
 		16: { // Runeburst
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1325,
 				distance: 25,
 				chains: {
@@ -4778,7 +4781,7 @@ module.exports = {
 		},
 		17: { // Balder's Tears
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1075
 			}
 		},
@@ -4817,7 +4820,7 @@ module.exports = {
 		},
 		21: { // Dark Herald
 			0: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 925,
 				requiredBuff: 10155201
 			}
