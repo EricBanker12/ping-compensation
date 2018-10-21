@@ -1823,14 +1823,13 @@ module.exports = {
 	},
 	6: { // Priest
 		1: { // Divine Radiance
-			0: { length: 619 },
-			1: { length: 650 },
-			2: { length: 684 },
-			3: { length: 722 }
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Regeneration Circle
 			0: {
-				length: 2149,
 				abnormals: {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
@@ -1842,28 +1841,24 @@ module.exports = {
 					921: { speed: 1.225 },
 					922: { speed: 1.225 },
 					999010000: { speed: 1.15 }
-				},
-				race: {
-					10: { length: 2774 }
 				}
 			}
 		},
 		3: { // Healing Circle
 			0: {
-				length: 1763,
 				chains: {
 					19: 30,
 					26: 30,
 					38: 30
 				}
 			},
-			30: { length: 1477 }
+			30: true
 		},
 		5: { // Blessing of Shakan
-			0: { length: 1294 }
+			0: true
 		},
 		6: { // Arise
-			0: { length: 839 }
+			0: true
 		},
 		8: { // Mana Infusion
 			0: {
@@ -1877,17 +1872,15 @@ module.exports = {
 			}
 		},
 		10: { // Purifying Circle
-			0: { length: 1294 }
+			0: true
 		},
 		11: { // Metamorphic Blast
-			'*': { length: 839 },
 			0: true,
 			1: true,
 			2: true
 		},
 		12: { // Resurrect
 			0: {
-				length: 5900,
 				glyphs: {
 					28045: { speed: 1.3 }
 				},
@@ -1905,16 +1898,10 @@ module.exports = {
 				}
 			}
 		},
-		14: { // Summon: Party
-			0: {
-				length: 4505,
-				race: {
-					0: { length: 4535 }
-				}
-			}
+		14: { // Summon: Group
+			0: true
 		},
 		16: { // Shocking Implosion
-			'*': { length: 1718 },
 			0: {
 				chains: {
 					11: 30,
@@ -1927,63 +1914,38 @@ module.exports = {
 					27: 11
 				}
 			},
-			11: { length: 1438 },
+			11: true,
 			20: {
 				chains: {
 					11: 21,
 					27: 21
 				}
 			},
-			21: { length: 1438 },
-			30: { length: 1438 }
-		},
-		17: { // Prayer of Peace
-			0: {
-				length: [925, 925, 850],
-				glyphs: {
-					28021: { speed: 2 }
-				}
-			}
+			21: true,
+			30: true
 		},
 		18: { // Heal Thyself
-			0: {
-				noWeapon: true,
-				length: 1266
-			}
+			0: { noWeapon: true }
 		},
 		19: { // Focus Heal
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 54440
+				fixedAnimSpeed: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1950
-			}
+			10: { type: 'lockonCast' }
 		},
 		22: { // Kaia's Shield
-			0: { length: 667 }
-		},
-		23: { // Blessing of Balder
-			0: { length: 1300 }
+			0: true
 		},
 		26: { // Fiery Escape
 			0: {
-				length: 1125,
 				distance: -250.5,
 				forceClip: true
 			}
 		},
 		27: { // Final Reprisal
-			'*': {
-				length: 2933,
-				noInterrupt: [27],
-				race: {
-					9: { length: 3333 }
-				}
-			},
+			'*': { noInterrupt: [27] },
 			0: {
 				chains: {
 					11: 30,
@@ -2000,12 +1962,7 @@ module.exports = {
 					40: 11
 				}
 			},
-			11: {
-				length: 1113,
-				race: {
-					9: { length: 1273 }
-				}
-			},
+			11: true,
 			20: {
 				chains: {
 					11: 21,
@@ -2014,27 +1971,11 @@ module.exports = {
 					40: 21
 				}
 			},
-			21: {
-				length: 1113,
-				race: {
-					9: { length: 1273 }
-				}
-			},
-			30: {
-				length: 1113,
-				race: {
-					9: { length: 1273 }
-				}
-			}
+			21: true,
+			30: true
 		},
-		28: { // Mana Charge / Words of Vitality
-			'*': {
-				length: 827,
-				noRetry: true,
-				level: {
-					1: { length: 700 }
-				}
-			},
+		28: { // Mana Charge / Divine Charge
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 1600],
@@ -2044,7 +1985,7 @@ module.exports = {
 				},
 				level: {
 					1: {
-						length: [833, 833, 833], // TODO: DC says 900, 900, 900
+						length: [900, 900, 900],
 						autoRelease: 3200
 					}
 				}
@@ -2060,98 +2001,85 @@ module.exports = {
 			2: { length: 1250 }
 		},
 		30: { // Plague of Exhaustion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+			'*': {
+				fixedAnimSpeed: true,
+				noRetry: true
 			},
+			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
 				length: 1430
 			}
 		},
 		31: { // Guardian Sanctuary
-			0: {
-				fixedSpeed: true,
-				length: 700
-			}
+			0: { fixedAnimSpeed: true }
 		},
-		32: { // Divine Respite
+		32: { // Divine Prayer
 			0: {
 				noWeapon: true,
-				fixedSpeed: true,
-				length: [1300, 900]
+				fixedAnimSpeed: true
 			}
 		},
 		33: { // Ishara's Lulliby
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+			'*': {
+				fixedAnimSpeed: true,
+				noRetry: true
 			},
+			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
 				length: [300, 1430]
 			}
 		},
 		34: { // Restorative Burst
-			0: { length: 1433 }
+			0: true
 		},
 		35: { // Energy Stars
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+			'*': {
+				fixedAnimSpeed: true,
+				noRetry: true
 			},
+			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
 				length: 1430
 			}
 		},
 		37: { // Healing Immersion
-			'*': { noRetry: true },
+			'*': {
+				fixedAnimSpeed: true,
+				noRetry: true
+			},
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900,
 				noInterrupt: [37],
 				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
 				length: 1430,
 				noInterrupt: ['37-10']
 			}
 		},
 		38: { // Backstep
 			0: {
-				length: 650,
 				distance: -200,
 				forceClip: true
 			}
 		},
 		39: { // Grace of Resurrection
-			0: { length: 5904 }
+			0: true
 		},
 		40: { // Zenobia's Vortex
-			'*': { length: 1071 },
 			0: true,
 			10: true,
 			20: true
 		},
-		41: { // Divine Intervention / Divine Vitality
+		41: { // Divine Intervention / Mass Divine Intervention
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 54445,
+				fixedAnimSpeed: true,
 				partyOnly: true
 			},
 			10: {
@@ -2160,13 +2088,12 @@ module.exports = {
 			}
 		},
 		42: { // Holy Burst
-			'*': { length: 800 },
 			20: true,
 			30: true
 		},
-		43: { // Words of Judgement
-			0: { length: 1417 },
-			50: { length: 200 }
+		43: { // Edict of Judgement
+			0: true,
+			50: true
 		}
 	},
 	7: { // Mystic
