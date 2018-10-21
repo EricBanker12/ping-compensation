@@ -18,61 +18,13 @@
 module.exports = {
 	0: { // Warrior
 		1: { // Combo Attack
-			0: {
-				length: 566,
-				distance: 47.53,
-				race: {
-					4: { distance: 35.49 },
-					5: { distance: 45 },
-					7: { distance: 60 },
-					8: { distance: 54.32 },
-					9: { distance: 64.29 },
-					10: { distance: 32.81 }
-				}
-			},
-			1: {
-				length: 657,
-				distance: 42.12,
-				race: {
-					4: { distance: 42.96 },
-					5: { distance: 39 },
-					7: { distance: 27 },
-					8: { distance: 21.17 },
-					9: { distance: 51.69 },
-					10: { distance: 49.22 }
-				}
-			},
-			2: {
-				length: 657,
-				distance: 28.08,
-				race: {
-					4: { distance: 31.02 },
-					5: { distance: 26 },
-					7: { distance: 49 },
-					8: { distance: 56.2 },
-					10: { distance: 25.69 }
-				}
-			},
-			3: {
-				length: 909,
-				distance: 75.07,
-				race: {
-					1: { distance: 82.07 },
-					2: { distance: 79.9 },
-					3: { distance: 66.41 },
-					4: { distance: 64.66 },
-					5: { distance: 85 },
-					7: { distance: 58 },
-					8: { distance: 63.53 },
-					9: { distance: 73.34 },
-					10: { distance: 68.69 }
-				}
-			}
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 839,
-				distance: 150,
 				forceClip: true,
 				stamina: 500,
 				instantStamina: true,
@@ -80,46 +32,15 @@ module.exports = {
 					21015: { stamina: -100 },
 					21067: { stamina: -100 },
 					21101: { stamina: -120 }
-				},
-				race: {
-					0: { distance: 149.94 },
-					7: { length: 837 },
-					8: { length: 1082 },
-					10: { length: 778 }
 				}
 			}
 		},
 		3: { // Torrent of Blows
-			0: {
-				length: 1600,
-				distance: 75,
-				race: {
-					9: { distance: 68.26 }
-				}
-			}
+			0: true
 		},
 		4: { // Rain of Blows
-			'*': {
-				distance: 150.25,
-				race: {
-					1: { distance: 151.61 },
-					2: { distance: 152.73 },
-					3: { distance: 143.35 },
-					4: { distance: 142.61 },
-					5: { distance: 150.71 },
-					6: { distance: 143.47 },
-					7: { distance: 159 },
-					8: { distance: 148.9 },
-					9: { distance: 151.87 },
-					10: { distance: 96.09 }
-				}
-			},
 			0: {
-				length: 2545,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 34, 36, 37, 39],
-				abnormals: {
-					100801: { skill: 360100 }
-				},
 				chains: {
 					18: 30,
 					21: 30,
@@ -127,62 +48,31 @@ module.exports = {
 					40: 30
 				}
 			},
-			30: {
-				length: 2000,
-				abnormals: {
-					100801: { skill: 360130 }
-				}
-			}
+			30: true
 		},
 		5: { // Battle Cry
 			0: {
-				length: 1666,
 				glyphs: {
 					21040: { speed: 1.5 }
 				}
 			}
 		},
 		8: { // Assault Stance
-			'*': {
-				length: 566,
-				race: {
-					3: { length: 657 }
-				}
-			},
 			0: { stamina: 1000 },
 			50: true
 		},
 		9: { // Defensive Stance
-			'*': {
-				length: 566,
-				race: {
-					3: { length: 657 }
-				}
-			},
 			0: { stamina: 1000 },
 			50: true
 		},
 		10: { // Death From Above
-			0: {
-				length: 2066,
-				race: {
-					1: { length: 2100 },
-					3: { length: 2033 },
-					6: { length: 2033 },
-					9: { length: 2033 }
-				}
-			}
+			0: true
 		},
 		11: { // Poison Blade
-			0: {
-				length: 933,
-				distance: 54.85
-			}
+			0: true
 		},
 		12: { // Leaping Strike
 			0: {
-				length: 1533,
-				distance: 250,
 				glyphs: {
 					21048: { speed: 1.2 },
 					21082: { speed: 1.2 }
@@ -197,95 +87,28 @@ module.exports = {
 				distance: 467.88,
 				noRetry: true
 			},
-			1: {
-				length: 800,
-				distance: 100,
-				race: {
-					5: { distance: 93.53 }
-				}
-			}
+			1: true
 		},
 		17: { // Vortex Slash
-			0: { length: 1600 },
-			1: { length: 1600 },
-			2: { length: 1600 }
+			0: true,
+			1: true,
+			2: true
 		},
 		18: { // Combative Strike
-			'*': {
-				length: 1100,
-				distance: 120.28,
-				noInterrupt: [32],
-				race: {
-					1: { distance: 122.63 },
-					3: { distance: 127.11 },
-					4: { distance: 110.46 },
-					7: { distance: 130 },
-					8: { distance: 128.89 },
-					9: { distance: 138.28 },
-					10: { distance: 94.49 }
-				}
-			},
+			'*': { noInterrupt: [32] },
 			0: true,
 			1: true,
 			2: true
 		},
 		19: { // Rising Fury
-			0: {
-				length: 733,
-				distance: 148.2,
-				race: {
-					1: { distance: 157.28 },
-					2: { distance: 144.85 },
-					3: { distance: 155.3 },
-					4: { distance: 144.85 },
-					5: { distance: 143.27 },
-					6: { distance: 170.43 },
-					7: { distance: 162 },
-					8: { distance: 161.74 },
-					9: { distance: 170.67 },
-					10: { distance: 132.61 }
-				}
-			},
-			1: {
-				length: 1400,
-				distance: 92.66,
-				race: {
-					1: { distance: 88.17 },
-					2: { distance: 100.11 },
-					3: { distance: 92.1 },
-					4: { distance: 100.11 },
-					5: { distance: 101.69 },
-					6: { distance: 117.31 },
-					7: { distance: 85 },
-					8: { distance: 116.63 },
-					9: { distance: 122.34 },
-					10: { distance: 83.01 }
-				}
-			}
+			0: true,
+			1: true
 		},
 		20: { // Deadly Gamble
-			0: {
-				fixedSpeed: true,
-				length: 320
-			}
+			0: { fixedSpeed: true }
 		},
 		21: { // Cascade of Stuns
-			0: {
-				length: 1400,
-				distance: 92.66,
-				race: {
-					1: { distance: 88.17 },
-					2: { distance: 100.11 },
-					3: { distance: 92.1 },
-					4: { distance: 100.11 },
-					5: { distance: 101.69 },
-					6: { distance: 117.31 },
-					7: { distance: 85 },
-					8: { distance: 116.63 },
-					9: { distance: 122.34 },
-					10: { distance: 83.01 }
-				}
-			}
+			0: true
 		},
 		24: { // Smoke Aggressor
 			0: {
@@ -294,68 +117,27 @@ module.exports = {
 			}
 		},
 		25: { // Command: Attack
-			0: {
-				fixedSpeed: true,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
 		26: { // Command: Follow
-			0: {
-				fixedSpeed: true,
-				length: 700
-			}
-		},
-		27: { // Pounce (removed)
-			0: {
-				length: 2000,
-				distance: 180,
-				glyphs: {
-					21048: { speed: 1.3 },
-					21082: { speed: 1.3 }
-				}
-			}
+			0: { fixedSpeed: true }
 		},
 		28: { // Traverse Cut
 			0: {
-				length: 2000,
-				distance: 160,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 36, 37, 39],
 				chains: {
 					11: 30,
 					18: 30,
 					27: 30,
 					40: 30
-				},
-				level: {
-					9: {
-						abnormals: {
-							100201: { skill: 390100 }
-						}
-					}
 				}
 			},
-			30: {
-				length: 2667,
-				distance: 210,
-				level: {
-					9: {
-						abnormals: {
-							100201: { skill: 390130 }
-						}
-					}
-				}
-			}
+			30: true
 		},
 		29: { // Blade Draw
 			0: {
-				length: 3000,
-				distance: 94.5,
 				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37],
 				interruptibleWithAbnormal: { 102010: 3 },
-				abnormals: {
-					102010: { chain: 30 },
-					100801: { skill: 370100 }
-				},
 				chains: {
 					3: 30,
 					16: 30,
@@ -367,22 +149,11 @@ module.exports = {
 					40: 30
 				}
 			},
-			30: {
-				length: 1333,
-				distance: 135,
-				abnormals: {
-					100801: { skill: 370130 }
-				}
-			}
+			30: true
 		},
 		30: { // Scythe
 			0: {
-				length: 1833,
-				distance: 150,
 				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34, 39],
-				abnormals: {
-					100801: { skill: 380100 }
-				},
 				chains: {
 					2: 30,
 					4: 30,
@@ -394,18 +165,10 @@ module.exports = {
 					40: 30
 				}
 			},
-			30: {
-				length: 1387,
-				distance: 150,
-				abnormals: {
-					100801: { skill: 380130 }
-				}
-			}
+			30: true
 		},
 		31: { // Reaping Slash
-			'*': { distance: 110 },
 			0: {
-				length: 2292,
 				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 27, 28, 29, 34, 37, 39],
 				chains: {
 					4: 30,
@@ -414,7 +177,7 @@ module.exports = {
 					40: 30
 				}
 			},
-			30: { length: 1668 }
+			30: true
 		},
 		32: { // Cross Parry
 			0: {
@@ -425,59 +188,66 @@ module.exports = {
 			}
 		},
 		34: { // Binding Sword
-			0: { length: 1855 }
+			0: true
 		},
 		35: { // Infuriate
-			0: {
-				length: 2423,
-				requiredBuff: [100200, 100201]
-			}
+			0: {  requiredBuff: [100200, 100201] }
 		},
 		36: { // Rain of Blows (Deadly Gamble)
-			'*': {
-				distance: 150.25,
-				race: {
-					1: { distance: 151.61 },
-					2: { distance: 152.73 },
-					3: { distance: 152.73 },
-					4: { distance: 142.61 },
-					5: { distance: 150.71 },
-					6: { distance: 143.47 },
-					7: { distance: 159 },
-					8: { distance: 148.9 },
-					9: { distance: 151.87 },
-					10: { distance: 96.09 }
+			'*': { hasChains: true },
+			0: {
+				chains: {
+					18: 30,
+					21: 30,
+					27: 30,
+					40: 30
 				}
 			},
-			0: { length: 2800 },
-			30: { length: 2000 }
+			30: true
 		},
 		37: { // Blade Draw (Deadly Gamble)
 			'*': { hasChains: true },
 			0: {
-				length: 3000,
-				distance: 94.5,
-				abnormalChains: { 102010: 30 }
+				chains: {
+					3: 30,
+					16: 30,
+					17: 30,
+					19: 30,
+					28: 30,
+					32: 30,
+					39: 30,
+					40: 30
+				}
 			},
-			30: {
-				length: 1333,
-				distance: 135
-			}
+			30: true
 		},
 		38: { // Scythe (Deadly Gamble)
-			'*': { distance: 150 },
-			0: { length: 1833 },
-			30: { length: 1387 }
+			'*': { hasChains: true },
+			0: {
+				chains: {
+					2: 30,
+					4: 30,
+					11: 30,
+					12: 30,
+					29: 30,
+					36: 30,
+					37: 30,
+					40: 30
+				}
+			},
+			30: true
 		},
 		39: { // Traverse Cut (Defensive Stance)
+			'*': { hasChains: true },
 			0: {
-				length: 2000,
-				distance: 160
+				chains: {
+					11: 30,
+					18: 30,
+					27: 30,
+					40: 30
+				}
 			},
-			30: {
-				length: 2667,
-				distance: 210
-			}
+			30: true
 		}
 	},
 	1: { // Lancer
