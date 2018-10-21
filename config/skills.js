@@ -2987,7 +2987,6 @@ module.exports = {
 		},
 		3: { // Scattershot
 			'*': {
-				length: 1725,
 				distance: -108,
 				noInterrupt: [3],
 				glyphs: {
@@ -3034,8 +3033,6 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
-				length: 1525,
-				distance: 137.88,
 				noInterrupt: ['4-3', '4-4'],
 				chains: {
 					'2-1': 30,
@@ -3069,13 +3066,9 @@ module.exports = {
 		},
 		5: { // Burst Fire
 			'*':{ noInterrupt: ['9-0'] },
-			0: {
-				length: 850,
-				noRetry: true
-			},
+			0: { noRetry: true },
 			1: {
 				fixedSpeed: 1,
-				length: 122,
 				stamina: 75,
 				instantStamina: true,
 				glyphs: {
@@ -3087,6 +3080,15 @@ module.exports = {
 					{ stamina: 60 },
 					{ stamina: 65 }
 				]
+			},
+			10: { noRetry: true },
+			11: {
+				fixedSpeed: 1,
+				stamina: 75,
+				instantStamina: true,
+				glyphs: {
+					30046: { stamina: -10 }
+				}
 			}
 		},
 		6: { // Time Bomb
@@ -3123,7 +3125,6 @@ module.exports = {
 			3: { length: 1200 }
 		},
 		9: { // Mana Missiles
-			'*': { length: 1250 },
 			0: {
 				type: 'charging',
 				length: 1200,
@@ -3166,8 +3167,8 @@ module.exports = {
 			}
 		},
 		10: { // Arc Bomb
-			'*': {
-				length: 1325,
+			'*': { noRetry: true },
+			1: {
 				projectiles: [20],
 				chains: {
 					'2-1': null,
@@ -3182,11 +3183,25 @@ module.exports = {
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
-			1: true,
-			2: true,
+			2: {
+				projectiles: [20],
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				}
+			},
 			20: {
 				type: 'userProjectile',
 				delay: 450,
@@ -3223,13 +3238,11 @@ module.exports = {
 				type: 'projectile',
 				length: 1000
 			},*/
-			30: true
+			30: { projectiles: [20] }
 		},
 		11: { // Rocket Jump
-			'*': {
-				length: 1400,
-				distance: 415.45,
-				noInterrupt: [15],
+			'*': { noInterrupt: [15] },
+			1: {
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3245,25 +3258,33 @@ module.exports = {
 					40: 31
 				}
 			},
-			1: true,
-			2: true,
-			30: true,
-			31: {
-				length: 1675,
-				distance: 506.27,
-				race: {
-					7: { // Female Castanic
-						length: 1700,
-						distance: 503.64
-					}
+			2: {
+				chains: {
+					'2-1': 30,
+					3: 30,
+					4: 30,
+					'7-3': 30,
+					'9-10': 30,
+					'9-11': 30,
+					10: 30,
+					11: 30,
+					13: 30,
+					15: 30,
+					19: 30,
+					40: 31
 				}
-			}
+			},
+			30: true,
+			31: true
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				length: 5800,
+				length: 5813,
 				distance: -269.09,
 				noInterrupt: [13],
+				noRetry: true
+			},
+			1: {
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3277,18 +3298,32 @@ module.exports = {
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				}
+			},
 			30: true
 		},
 		15: { // Replenishment
 			'*': {
 				fixedSpeed: 1,
-				length: 1325,
-				noInterrupt: [15],
+				noInterrupt: [15]
+			},
+			1: {
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3304,8 +3339,22 @@ module.exports = {
 					40: 30
 				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					'2-1': 30,
+					3: 30,
+					4: 30,
+					'7-3': 30,
+					'9-10': 30,
+					'9-11': 30,
+					10: 30,
+					11: 30,
+					13: 30,
+					15: 30,
+					19: 30,
+					40: 30
+				}
+			},
 			30: true
 		},
 		18: { // HB
@@ -3317,8 +3366,8 @@ module.exports = {
 			2: true
 		},
 		19: { // ST
-			'*': {
-				length: 1325,
+			'*': { noRetry: true },
+			1: {
 				projectiles: [20],
 				chains: {
 					'2-1': null,
@@ -3333,11 +3382,25 @@ module.exports = {
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
-			1: true,
-			2: true,
+			2: {
+				projectiles: [20],
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				}
+			},
 			20: {
 				type: 'userProjectile',
 				delay: 350,
@@ -3349,12 +3412,11 @@ module.exports = {
 				type: 'projectile',
 				length: 5000
 			},*/
-			30: true
+			30: { projectiles: [20] }
 		},
 		20: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1485,
 				noRetry: true
 			}
 		},
