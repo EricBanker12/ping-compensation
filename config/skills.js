@@ -2332,100 +2332,107 @@ module.exports = {
 				noRetry: true
 			},
 			0: { type: 'lockon' },
-			10: { type: 'lockonCast' }
+			10: {
+				type: 'lockonCast',
+				fixedAnimSpeed: true
+			}
 		},
 		25: { // Thrall of Protection
 			'*': {
-				fixedSpeed: 1,
+				fixedAnimSpeed: true,
 				length: [1000, 1700],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: true
+			30: { length: [500, 700] }
 		},
 		27: { // Thrall of Life
 			'*': {
-				fixedSpeed: 1,
+				fixedAnimSpeed: true,
 				length: [229, 438],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: true
+			30: { length: [500, 700] }
 		},
 		28: { // Sonorous Dreams
-			'*': {
-				fixedSpeed: 1,
-				noRetry: true
+			'*': { noRetry: true },
+			0: {
+				type: 'lockon',
+				fixedSpeed: 1
 			},
-			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
+				fixedAnimSpeed: true,
 				length: 1400
 			}
 		},
 		29: { // Regression
-			0: { fixedSpeed: 1 }
+			0: { fixedAnimSpeed: true }
 		},
 		30: { // Curse of Exhaustion
-			'*': {
-				fixedSpeed: 1,
-				noRetry: true
+			'*': { noRetry: true },
+			0: {
+				type: 'lockon',
+				fixedSpeed: 1
 			},
-			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
+				fixedAnimSpeed: true,
 				length: 1400
 			}
 		},
 		31: { // Curse of Confusion
-			'*': {
-				fixedSpeed: 1,
-				noRetry: true
+			'*': { noRetry: true },
+			0: {
+				type: 'lockon',
+				fixedSpeed: 1
 			},
-			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
+				fixedAnimSpeed: true,
 				length: 1400
 			}
 		},
 		32: { // Mire
-			'*': {
-				fixedSpeed: 1,
-				noRetry: true
+			'*': { noRetry: true },
+			0: {
+				type: 'lockon',
+				fixedSpeed: 1
 			},
-			0: { type: 'lockon' },
 			10: {
 				type: 'lockonCast',
+				fixedAnimSpeed: true,
 				length: 1400
 			}
 		},
 		33: { // Thrall of Vengeance
 			'*': {
-				fixedSpeed: 1,
+				fixedAnimSpeed: true,
 				length: [267, 511],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: true
+			30: { length: [500, 700] }
 		},
 		34: { // Thrall of Wrath
 			'*': {
-				fixedSpeed: 1,
+				fixedAnimSpeed: true,
 				length: [1000, 1700],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: true
+			30: { length: [500, 1200] }
 		},
 		35: { // Command: Attack
-			0: { fixedSpeed: 1 }
+			0: { fixedAnimSpeed: true }
 		},
 		36: { // Command: Follow
-			0: { fixedSpeed: 1 }
+			0: { fixedAnimSpeed: true }
 		},
 		37: { // Warding Totem
 			0: true
