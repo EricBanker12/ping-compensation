@@ -2744,12 +2744,8 @@ module.exports = {
 					}
 				}
 			},
-			20: {
-				length: 633,
-				race: { 1: { length: 566 } }
-			},
 			30: {
-				length: 1784, 
+				length: 860, 
 				race: { 10: { length: 1836.3 } }
 			}
 		},
