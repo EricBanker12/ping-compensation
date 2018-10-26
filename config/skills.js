@@ -1278,19 +1278,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+				fixedAnimSpeed: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1225
-			}
+			10: { type: 'lockonCast' }
 		},
 		3: { // Radiant Arrow
-			'*': {
-				length: 1750,
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
@@ -1299,16 +1292,13 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				}
 			},
-			10: { distance: -100 }, // Cast F. - TODO
+			10: { distance: -100 },
 			11: { distance: -100 },
 			12: { distance: -100 },
 			13: { distance: -100 }
 		},
 		4: { // Penetrating Arrow
-			'*': {
-				length: 1300,
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1320,14 +1310,13 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				}
 			},
-			10: { distance: -50 }, // Cast F. - TODO
+			10: { distance: -50 },
 			11: { distance: -50 },
 			12: { distance: -50 },
 			13: { distance: -50 }
 		},
 		5: { // Rain of Arrows
 			0: {
-				length: 3150,
 				glyphs: {
 					26077: { speed: 1.4 }
 				},
@@ -1347,116 +1336,75 @@ module.exports = {
 		},
 		6: { // Backstep
 			0: {
-				length: 650,
 				distance: -200,
 				forceClip: true
 			}
 		},
 		7: { // Feign Death
-			0: {
-				length: [2950, 54525, 1675],
-				distance: [-114.05, 0, 0]
-			}
+			0: { distance: [-114.05, 0, 0] }
 		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
-			0: {
-				length: 425,
-				noInterrupt: [6]
+			0: { noInterrupt: [6] },
+			1: {
+				level: {
+					5: { noInterrupt: [6] }
+				}
 			},
-			1: { length: 600 },
-			2: { length: 700 },
-			3: { length: 700 },
-			4: { length: 700 },
-			5: { length: 700 },
-			6: { length: 1235 }
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true,
+			11: true,
+			12: true,
+			13: true,
+			14: true
 		},
 		9: { // Slow Trap
-			0: { length: 1150 }
+			0: true
 		},
 		10: { // Stunning Trap
-			0: { length: 1150 }
+			0: true
 		},
 		12: { // Velik's Mark
-			0: { length: 200 }
+			0: true
 		},
 		15: { // Incendiary Trap
-			0: { length: 1150 }
+			0: true
 		},
 		16: { // Breakaway Bolt
 			0: {
-				length: 1325,
 				distance: -250,
 				forceClip: true
 			}
 		},
 		17: { // Web Arrow
-			0: { length: 525 }
+			0: { length: 533 }
 		},
 		18: { // Close Quarters
-			0: {
-				length: 300,
-				distance: 64.46,
-				race: {
-					1: {
-						length: 333,
-						distance: 48.1
-					},
-					2: { distance: 57.88 },
-					3: { distance: 63.42 },
-					4: { length: 333 },
-					6: { distance: 60.95 },
-					7: {
-						length: 333,
-						distance: 48
-					},
-					8: {
-						length: 333,
-						distance: 89.8
-					},
-					9: { distance: 54.68 },
-					10: {
-						length: 333,
-						distance: 54.46
-					}
-				}
-			},
-			1: {
-				length: 1200,
-				distance: 73.69,
-				race: {
-					1: { distance: 87.29 },
-					2: { distance: 79.11 },
-					3: { distance: 54.45 },
-					4: { distance: 66.18 },
-					5: { distance: 26.65 },
-					6: { distance: 77.2 },
-					7: { distance: 66 },
-					8: { distance: 48.35 },
-					9: { distance: 56.9 },
-					10: { distance: 83.69 }
-				}
-			}
+			0: true,
+			1: true
 		},
 		19: { // Poison Arrow
-			0: { length: 1125 }
+			0: true
 		},
 		20: { // Restraining Arrow
-			0: { length: 525 }
+			0: true
 		},
 		22: { // Sequential Fire
 			0: {
-				length: 425,
 				requiredBuff: 600200,
 				noRetry: true
 			}
 		},
 		25: { // Incendiary Trap Arrow
-			0: { length: 1200 }
+			0: true
 		},
 		29: { // Thunderbolt
 			0: {
-				length: 3750,
+				distance: -100,
 				glyphs: {
 					26089: { speed: 1.3 },
 					26102: { speed: 1.3 }
@@ -1464,16 +1412,10 @@ module.exports = {
 			}
 		},
 		31: { // Tenacity
-			0: {
-				fixedSpeed: true,
-				length: [500, 700]
-			}
+			0: { fixedAnimSpeed: true }
 		},
 		32: { // Find Weakness
-			0: {
-				fixedSpeed: true,
-				length: 200
-			}
+			0: true
 		},
 		33: { // Chase
 			0: {
