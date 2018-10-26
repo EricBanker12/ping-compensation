@@ -1154,12 +1154,10 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+				fixedAnimSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1500,
 				glyphs: {
 					25001: { speed: 1.3 },
 					25096: { speed: 1.4 }
@@ -1173,52 +1171,44 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+				fixedAnimSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
-				length: [300, 1200]
+				fixedAnimSpeed: true
 			}
 		},
 		22: { // Burning Breath
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+				fixedAnimSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
-				length: [300, 1200]
+				fixedAnimSpeed: true
 			}
 		},
 		23: { // Mana Volley
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+				fixedAnimSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
-				length: [325, 875]
+				fixedAnimSpeed: true
 			}
 		},
 		25: { // Time Gyre
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 4900
+				fixedAnimSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: true,
-				length: 700
+				fixedAnimSpeed: true
 			}
 		},
 		26: { // Teleport Jaunt
@@ -1269,6 +1259,15 @@ module.exports = {
 			0: true,
 			//20: true, // TODO: Needs S_SKILL_CATEGORY implementation (always disabled - non-critical)
 			30: true
+		},
+		39: { // Implosion
+			0: {
+				requiredBuff: 502052,
+				distance: [0, 0, -219.55]
+			}
+		},
+		910: { // Apex Urgency
+			0: { fixedAnimSpeed: true }
 		}
 	},
 	5: { // Archer
