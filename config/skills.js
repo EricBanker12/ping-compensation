@@ -1076,29 +1076,23 @@ module.exports = {
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3925,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
 				},
 				abnormals: {
 					25100: { speed: 1.25 }
-				},
-				race: {
-					9: { length: 3700 } // Elin
 				}
 			}
 		},
 		7: { // Backstep
 			0: {
-				length: 650,
 				distance: -200,
 				forceClip: true
 			}
 		},
 		8: { // Flame Pillar
 			0: {
-				length: 1200,
 				abnormals: {
 					25070: { speed: 1.25 }
 				}
@@ -1121,7 +1115,6 @@ module.exports = {
 		},
 		13: { // Mindblast
 			0: {
-				length: 2325,
 				glyphs: {
 					25048: { speed: 1.3 }
 				},
@@ -1131,12 +1124,7 @@ module.exports = {
 			}
 		},
 		16: { // Painblast
-			0: {
-				length: 1580,
-				race: {
-					9: { length: 1330 } // Elin
-				}
-			}
+			0: true
 		},
 		17: { // Painful Trap
 			0: true
@@ -1236,7 +1224,6 @@ module.exports = {
 		26: { // Teleport Jaunt
 			0: {
 				type: 'teleport',
-				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [26],
 				teleportStage: 1,
@@ -1248,48 +1235,40 @@ module.exports = {
 		},
 		30: { // Nova
 			0: {
-				length: 2850,
 				glyphs: {
 					25092: { speed: 1.3 }
 				}
 			}
 		},
 		31: { // Warp Barrier
-			'*': { length: 475 },
-			0: true,
 			10: true,
 			20: true
 		},
-		32: { // Meteor Shower
+		32: { // Meteor Strike (Mana Boost)
 			'*': {
-				length: 6775,
 				glyphs: {
 					25003: { speed: 1.17 },
 					25069: { speed: 1.25 }
 				},
-				noRetry: true,
-				race: {
-					9: { length: 6475 } // Elin
-				}
+				noRetry: true
 			},
 			0: true,
-			50: { length: 3700 }
+			50: true
 		},
 		33: { // Arcane Pulse (Mana Boost)
-			'*': {
-				length: 1275,
-				noRetry: true,
-				race: {
-					9: { length: 1015 } // Elin
-				}
-			},
+			'*': { noRetry: true },
 			10: true,
 			11: true,
 			12: true,
 			50: true
 		},
 		34: { // Mana Boost
-			0: { length: 750 }
+			0: true
+		},
+		36: { // Fusion
+			0: true,
+			//20: true, // TODO: Needs S_SKILL_CATEGORY implementation (always disabled - non-critical)
+			30: true
 		}
 	},
 	5: { // Archer
