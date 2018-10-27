@@ -3137,7 +3137,10 @@ module.exports = {
 			30: true
 		},
 		12: { // Retaliate
-			0: true
+			0: {
+				type: 'retaliate',
+				noRetry: true
+			}
 		},
 		13: { // Provoke
 			'*': { fixedAnimSpeed: true },
