@@ -2988,32 +2988,33 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				chains: {
-					'1-0': 1,
-					'1-1': 2,
-					'1-2': 3,
-					'1-30': 1,
-					'1-31': 32,
-					'1-32': 2,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					21: 30,
-					40: 30
+				categoryChains: {
+					'92001,10000': 1,
+					'92001,10001': 2,
+					'92001,10002': 3,
+					'92001,10010': 32,
+					92002: 30,
+					92003: 30,
+					92004: 30,
+					92005: 30,
+					92006: 30,
+					92007: 30,
+					92008: 30,
+					92009: 30,
+					92010: 30,
+					92013: 30,
+					92014: 30,
+					92015: 30,
+					92016: 30,
+					92017: 30,
+					92018: 30,
+					92019: 30,
+					92020: 30,
+					92021: 30,
+					92022: 30,
+					92024: 30,
+					92026: 30,
+					92040: 30
 				}
 			},
 			1: true,
@@ -3061,14 +3062,12 @@ module.exports = {
 				endType51: true
 			},
 			12: {
-				chains: {
-					'1-0': 1,
-					'1-1': 2,
-					'1-2': 3,
-					'1-3': 4,
-					'1-30': 1,
-					'1-31': 1,
-					'1-32': 2
+				categoryChains: {
+					'92001,10000': 1,
+					'92001,10001': 2,
+					'92001,10002': 3,
+					'92001,10003': 4,
+					'92001,10010': 1
 				}
 			}
 		},
@@ -3085,7 +3084,8 @@ module.exports = {
 			}
 		},
 		4: { // Ground Pound
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		5: { // Bullrush
@@ -3097,301 +3097,84 @@ module.exports = {
 		},
 		6: { // Haymaker
 			'*': { hasChains: true },
-			1: {
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
-			},
-			2: {
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
-			},
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true,
 			31: true
 		},
 		7: { // Roundhouse Kick
 			'*': {
-				length: 860,
-				distance: 105,
 				noInterrupt: [7],
 				hasChains: true
 			},
-			0: true,
+			0: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		8: { // Piledriver
-			'*': {
-				length: 1950,
-				distance: 164.94,
-				abnormalChains: { 31120: 31 },
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
-			},
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true,
 			31: true
 		},
 		9: { // Jackhammer
 			'*': {
-				fixedSpeed: true,
-				length: 1540,
-				distance: 40,
 				noInterrupt: [9],
-				abnormalChains: { 31120: 31 },
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
+				fixedSpeed: true,
+				hasChains: true
 			},
-			1: true,
-			2: true,
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true,
 			31: true
 		},
 		10: { // Counterpunch
 			'*': {
-				length: 1850,
-				distance: 155,
 				requiredBuff: 10153000,
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
+				hasChains: true
 			},
-			0: true,
+			0: { categoryChains: { 800: 30 } },
 			30: true
 		},
+		12: { // Retaliate
+			0: true
+		},
 		13: { // Provoke
-			'*': {
-				fixedSpeed: true,
-				length: 1275
-			},
+			'*': { fixedAnimSpeed: true },
 			1: true,
 			2: true
 		},
 		14: { // Infuriate
-			'*': { length: 1650 },
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		16: { // Flip Kick
-			'*': {
-				length: 2050,
-				distance: 134,
-				hasChains: true
-			},
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		21: { // Mounting Rage
-			'*': {
-				fixedSpeed: true,
-				length: 1275
-			},
+			'*': { fixedAnimSpeed: true },
 			1: true,
 			2: true
 		},
 		22: { // Flying Kick
-			'*': { hasChains: true },
-			0: {
-				length: 1815,
-				distance: 245.21,
-				noInterrupt: [22],
-				abnormalChains: {
-					10153190: 30,
-					10153191: 30,
-					10153192: 30,
-					10153193: 30,
-					10153194: 30,
-					10153195: 30
-				},
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					22: 30,
-					21: 30,
-					24: 30,
-					26: 30,
-					40: 30
-				},
-				race: {
-					1: { distance: 246.02 }
-				}
-			},
-			30: {
-				length: 1222,
-				distance: 351.98
-			}
-		},
-		24: { // One-Inch Punch
 			'*': {
-				length: 2000,
-				distance: 16.59,
-				race: {
-					1: { distance: 23.7 }
-				},
+				noInterrupt: [22],
 				hasChains: true
 			},
-			1: {
-				abnormalChains: { 31120: 31 },
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					21: 30,
-					22: 30,
-					24: 30,
-					26: 30,
-					40: 30
-				}
-			},
-			2: {
-				abnormalChains: {
-					31120: 31,
-					10153190: 30,
-					10153191: 30,
-					10153192: 30,
-					10153193: 30,
-					10153194: 30,
-					10153195: 30
-				},
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					21: 30,
-					22: 30,
-					24: 30,
-					26: 30,
-					40: 30
-				}
-			},
-			30: { length: 950 },
-			31: { length: 950 }
+			0: { categoryChains: { 800: 30 } },
+			30: true
+		},
+		24: { // One-Inch Punch
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
+			30: true,
+			31: true
 		},
 		26: { // Rythmic Blows
 			'*': {
@@ -3400,82 +3183,27 @@ module.exports = {
 				hasChains: true,
 				noRetry: true
 			},
-			0: {
-				abnormalChains: {
-					10153001: 3,
-					10153002: 3,
-					10153003: 3,
-					10153004: 3,
-					10153190: 2,
-					10153191: 3,
-					10153192: 4,
-					10153193: 5,
-					10153194: 6,
-					10153195: 7
-				},
-				chains: {
-					1: 2,
-					2: 2,
-					'3-1': 2,
-					4: 2,
-					5: 2,
-					6: 2,
-					7: 2,
-					8: 2,
-					9: 2,
-					10: 2,
-					13: 2,
-					14: 2,
-					15: 2,
-					16: 2,
-					17: 2,
-					18: 2,
-					19: 2,
-					20: 2,
-					21: 2,
-					22: 2,
-					24: 2,
-					26: 2,
-					40: 2
-				}
-			},
+			0: { categoryChains: { 800: 2 } },
 			1: true,
-			2: {
-				length: 782,
-				distance: 6
-			},
-			3: {
-				length: 782,
-				distance: 6
-			},
-			4: {
-				length: 716,
-				distance: 6
-			},
-			5: {
-				length: 916,
-				distance: 6
-			},
-			6: {
-				length: 2780,
-				distance: 24
-			},
-			7: {
-				length: 1571,
-				distance: 24
-			}
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true
 		},
 		40: { // Quick Dash
 			'*': {
 				fixedSpeed: true,
-				length: 588,
-				distance: 144,
 				forceClip: true,
 				abnormalChains: { 10153150: 30 },
 				noRetry: true
 			},
 			0: true,
-			30: true,
+			30: true
+		},
+		910: { // Apex Urgency
+			0: { fixedAnimSpeed: true }
 		}
 	},
 	11: { // Ninja
