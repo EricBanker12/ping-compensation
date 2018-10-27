@@ -3096,6 +3096,7 @@ module.exports = {
 			}
 		},
 		6: { // Haymaker
+			'*': { hasChains: true },
 			1: {
 				chains: {
 					1: 30,
