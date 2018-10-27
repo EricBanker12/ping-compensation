@@ -5,10 +5,14 @@ module.exports = {
 	/* Gunner */
 	10152010: true, // Time Bomb (soft chain)
 	10152011: true, // Blast (soft chain)
-	10153093: true, // Rolling Reload, Rocket Jump (garbage)
+	10153093: true, // (Server)
 
 	/* Brawler */
 	10153060: true, // Punch (duration)
+	10153061: true, // (Server)
+	10153062: true, // (Server)
+	10153063: true, // (Server)
+	10153064: true, // (Server)
 	10153001: true, // Punch > Counter 1 (duration)
 	10153002: true, // Punch > Counter 2 (duration)
 	10153003: true, // Punch > Counter 3 (duration)

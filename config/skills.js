@@ -2981,11 +2981,13 @@ module.exports = {
 	10: { // Brawler
 		1: { // Punch
 			'*': {
-				length: 1579,
-				distance: 70.2,
+				noInterrupt: ['1-3'],
 				triggerAbnormal: { 10153060: 3000 },
 				consumeAbnormalEnd: 10153060,
-				noInterrupt: ['1-3'],
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
 				chains: {
 					'1-0': 1,
 					'1-1': 2,
@@ -2993,8 +2995,6 @@ module.exports = {
 					'1-30': 1,
 					'1-31': 32,
 					'1-32': 2,
-					'2-2': 31,
-					'2-3': 31,
 					2: 30,
 					'3-1': 30,
 					4: 30,
@@ -3014,37 +3014,14 @@ module.exports = {
 					20: 30,
 					21: 30,
 					40: 30
-				},
-				noRetry: true,
-				race: {
-					1: { distance: 71.28 }
 				}
 			},
-			0: true,
-			1: {
-				length: 1277,
-				distance: 67.57,
-				race: {
-					1: { distance: 68.63 }
-				}
-			},
-			2: {
-				length: 933,
-				distance: 50.7
-			},
-			3: {
-				length: 1733,
-				distance: 121
-			},
+			1: true,
+			2: true,
+			3: true,
 			30: true,
 			31: true,
-			32: {
-				length: 1277,
-				distance: 67.57,
-				race: {
-					1: { distance: 68.63 }
-				}
-			}
+			32: true
 		},
 		2: { // Counter
 			'*': {
@@ -3052,32 +3029,18 @@ module.exports = {
 				noRetry: true
 			},
 			1: {
-				length: 1200,
-				distance: 138.39,
 				triggerAbnormal: { 10153001: 0x7fffffff },
-				consumeAbnormalEnd: 10153001,
-				race: {
-					1: { distance: 139.97 }
-				}
+				consumeAbnormalEnd: 10153001
 			},
 			2: {
-				length: 1818,
-				distance: 84,
 				triggerAbnormal: { 10153002: 0x7fffffff },
 				consumeAbnormalEnd: 10153002
 			},
 			3: {
-				length: 1932,
-				distance: 130.65,
 				triggerAbnormal: { 10153003: 0x7fffffff },
-				consumeAbnormalEnd: 10153003,
-				race: {
-					1: { distance: 131.2 }
-				}
+				consumeAbnormalEnd: 10153003
 			},
 			4: {
-				length: 1973,
-				distance: 142.86,
 				triggerAbnormal: { 10153004: 0x7fffffff },
 				consumeAbnormalEnd: 10153004
 			},
@@ -3122,7 +3085,6 @@ module.exports = {
 			}
 		},
 		4: { // Ground Pound
-			'*': { length: 3235 },
 			0: true,
 			30: true
 		},
@@ -3134,10 +3096,7 @@ module.exports = {
 			}
 		},
 		6: { // Haymaker
-			'*': {
-				length: [1022, 1833],
-				distance: [0, 171.61],
-				abnormalChains: { 31120: 31 },
+			1: {
 				chains: {
 					1: 30,
 					2: 30,
@@ -3157,8 +3116,26 @@ module.exports = {
 					40: 30
 				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					1: 30,
+					2: 30,
+					'3-1': 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					7: 30,
+					8: 30,
+					9: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					17: 30,
+					18: 30,
+					20: 30,
+					40: 30
+				}
+			},
 			30: true,
 			31: true
 		},
