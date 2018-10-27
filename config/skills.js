@@ -2137,6 +2137,9 @@ module.exports = {
 		4: { // Sundering Strike
 			'*': {
 				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
+				noRetry: true
+			},
+			0: {
 				chains: {
 					1: null,
 					3: null,
@@ -2149,10 +2152,6 @@ module.exports = {
 					11: null,
 					12: null
 				},
-				noRetry: true
-			},
-			0: {
-				abnormalChains: { 10151010: 40 },
 				inPlace: {
 					movement: [
 						[],
@@ -2181,8 +2180,33 @@ module.exports = {
 					distance: [0, 0]
 				}
 			},
-			31: true,
+			31: {
+				inPlace: {
+					movement: [
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0]
+				}
+			},
 			40: {
+				chains: {
+					1: null,
+					3: null,
+					4: null,
+					5: null,
+					6: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null
+				},
 				inPlace: {
 					movement: [
 						[],
@@ -2211,7 +2235,20 @@ module.exports = {
 					distance: [0, 0]
 				}
 			},
-			61: true
+			61: {
+				inPlace: {
+					movement: [
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0]
+				}
+			}
 		},
 		5: { // Grim Strike
 			'*': {
@@ -2380,13 +2417,44 @@ module.exports = {
 				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 20],
 				chains: { 12: 1 }
 			},
-			1: true
+			1: true,
+			31: true
 		},
 		15: { // Retribution
-			30: { fixedSpeed: true }
+			30: { fixedSpeed: true },
+			81: true
 		},
 		16: { // Shadow Reaping
-			0: { fixedSpeed: true }
+			0: { fixedAnimSpeed: true }
+		},
+		19: { // Dark Harvest
+			'*': {
+				inPlace: {
+					movement: [{
+						duration: 2122,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				}
+			},
+			0: {
+				requiredBuff: 10151220,
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					11: 30,
+					12: 30
+				}
+			},
+			30: true
 		},
 		/*20: { // Cable Step
 			0: {
@@ -2394,6 +2462,28 @@ module.exports = {
 				length: 1250
 			}
 		},*/
+		21: { // Recall Scythes
+			0: {
+				requiredBuff: 10151221,
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					11: 30,
+					12: 30
+				}
+			},
+			30: true
+		},
+		23: { // Binding Scythes
+			31: { fixedSpeed: true },
+			33: { onlyTarget: true }
+		},
 		40: { // Shadow Step
 			'*': {
 				forceClip: true,
@@ -2401,6 +2491,9 @@ module.exports = {
 			},
 			0: true,
 			30: true
+		},
+		910: { // Apex Urgency
+			0: { fixedAnimSpeed: true }
 		}
 	},
 	9: { // Gunner
