@@ -3504,6 +3504,7 @@ module.exports = {
 					2: null,
 					3: null,
 					4: null,
+					5: null,
 					6: null,
 					7: null,
 					8: null,
@@ -3602,21 +3603,26 @@ module.exports = {
 		9: { // Smoke Bomb
 			0: {
 				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30
+					1: null,
+					2: null,
+					3: null,
+					4: null,
+					5: null,
+					6: null,
+					7: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null,
+					13: null,
+					14: null,
+					15: null,
+					16: null,
+					17: null,
+					18: null,
+					19: null,
+					20: null
 				}
 			},
 			30: true
@@ -3857,7 +3863,13 @@ module.exports = {
 			30: true
 		},
 		20: { // Clone Jutsu
-			0: { fixedSpeed: true }
+			0: {
+				onlyTarget: true,
+				fixedSpeed: true
+			}
+		},
+		910: { // Apex Urgency
+			0: { fixedAnimSpeed: true }
 		}
 	},
 	12: { // Valkyrie
