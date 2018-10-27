@@ -2449,6 +2449,7 @@ module.exports = {
 				}
 			},
 			0: {
+				noInterrupt: [21],
 				requiredBuff: 10151220,
 				chains: {
 					1: 30,
