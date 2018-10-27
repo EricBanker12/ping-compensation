@@ -3192,8 +3192,6 @@ module.exports = {
 		},
 		26: { // Rythmic Blows
 			'*': {
-				length: [179, 413],
-				distance: [0, 30],
 				hasChains: true,
 				noRetry: true
 			},
