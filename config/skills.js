@@ -2145,7 +2145,7 @@ module.exports = {
 		},
 		4: { // Sundering Strike
 			'*': {
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, '12-0', '12-1', 20],
 				noRetry: true
 			},
 			0: {
@@ -2473,6 +2473,7 @@ module.exports = {
 		},*/
 		21: { // Recall Scythes
 			0: {
+				noInterrupt: [21],
 				requiredBuff: 10151221,
 				chains: {
 					1: 30,
