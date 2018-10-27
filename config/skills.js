@@ -2105,6 +2105,15 @@ module.exports = {
 		3: { // Double Shear
 			'*': {
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 20],
+				inPlace: {
+					movement: [{
+						duration: 2140,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				},
 				abnormals: {
 					29030: { speed: 1.25 }
 				}
