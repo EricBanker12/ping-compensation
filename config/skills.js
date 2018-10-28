@@ -16,6 +16,10 @@
 */
 
 module.exports = {
+	'*': { // All-class
+		9010100: true, // Racial teleport
+		9020100: { fixedAnimSpeed: true } // Racial buff
+	},
 	0: { // Warrior
 		1: { // Combo Attack
 			0: true,
