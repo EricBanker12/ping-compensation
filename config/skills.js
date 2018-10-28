@@ -18,7 +18,8 @@
 module.exports = {
 	'*': { // All-class
 		9010100: true, // Racial teleport
-		9020100: { fixedAnimSpeed: true } // Racial buff
+		9020100: { fixedAnimSpeed: true }, // Racial buff
+		9100100: { fixedAnimSpeed: true } // Apex Urgency
 	},
 	0: { // Warrior
 		1: { // Combo Attack
@@ -1043,9 +1044,6 @@ module.exports = {
 				}
 			},
 			30: true
-		},
-		910: { // Apex Urgency
-			0: { fixedAnimSpeed: true }
 		}
 	},
 	4: { // Sorcerer
@@ -1269,9 +1267,6 @@ module.exports = {
 				requiredBuff: 502052,
 				distance: [0, 0, -219.55]
 			}
-		},
-		910: { // Apex Urgency
-			0: { fixedAnimSpeed: true }
 		}
 	},
 	5: { // Archer
@@ -2009,9 +2004,6 @@ module.exports = {
 		},
 		48: { // Thrall Lord
 			0: { fixedSpeed: true }
-		},
-		910: { // Apex Urgency
-			0: { fixedAnimSpeed: true }
 		}
 	},
 	8: { // Reaper
@@ -2506,9 +2498,6 @@ module.exports = {
 			},
 			0: true,
 			30: true
-		},
-		910: { // Apex Urgency
-			0: { fixedAnimSpeed: true }
 		}
 	},
 	9: { // Gunner
@@ -3217,9 +3206,6 @@ module.exports = {
 			},
 			0: true,
 			30: true
-		},
-		910: { // Apex Urgency
-			0: { fixedAnimSpeed: true }
 		}
 	},
 	11: { // Ninja
@@ -3682,9 +3668,6 @@ module.exports = {
 				onlyTarget: true,
 				fixedSpeed: true
 			}
-		},
-		910: { // Apex Urgency
-			0: { fixedAnimSpeed: true }
 		}
 	},
 	12: { // Valkyrie
@@ -3917,9 +3900,6 @@ module.exports = {
 			3: { distance: [-313.28, 463.28] },
 			31: { triggerAbnormal: { 10155511: 2000 } },
 			32: { distance: [-313.28, 463.28] }
-		},
-		910: { // Apex Urgency
-			0: { fixedAnimSpeed: true }
 		}
 	}
 }
