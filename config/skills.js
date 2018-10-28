@@ -2473,9 +2473,9 @@ module.exports = {
 			}
 		},*/
 		21: { // Recall Scythes
+			'*': { requiredBuff: 10151221 },
 			0: {
 				noInterrupt: [21],
-				requiredBuff: 10151221,
 				chains: {
 					1: 30,
 					3: 30,
@@ -3865,7 +3865,11 @@ module.exports = {
 			}
 		},
 		23: { // Gungir's Bite
-			'*': { noInterrupt: [23] },
+			'*': {
+				noInterrupt: [23],
+				abnormals: { 10155531: { disableSkill: true } },
+				noRetry: true
+			},
 			0: { categoryChains: { 750: 1 } },
 			1: true,
 			2: true
