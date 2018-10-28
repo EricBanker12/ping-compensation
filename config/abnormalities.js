@@ -28,5 +28,15 @@ module.exports = {
 	10154003: true,
 	10154004: true,
 	10154005: true,
-	10154006: true
+	10154006: true,
+
+	/* Valkyrie */
+	// Slash
+	10155006: true,
+	10155007: true,
+	10155008: true,
+	// Spinning Death
+	10155070: true,
+	10155071: true,
+	10155072: true
 }
