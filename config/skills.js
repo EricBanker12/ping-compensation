@@ -3865,6 +3865,7 @@ module.exports = {
 			}
 		},
 		23: { // Gungir's Bite
+			'*': { noInterrupt: [23] },
 			0: { categoryChains: { 750: 1 } },
 			1: true,
 			2: true
