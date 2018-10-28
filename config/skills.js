@@ -3866,13 +3866,47 @@ module.exports = {
 		},
 		23: { // Gungir's Bite
 			'*': {
-				noInterrupt: [23],
 				abnormals: { 10155531: { disableSkill: true } },
 				noRetry: true
 			},
-			0: { categoryChains: { 750: 1 } },
-			1: true,
+			0: {
+				triggerAbnormal: { 10155531: 1000 },
+				categoryChains: { 750: 1 }
+			},
+			1: { triggerAbnormal: { 10155531: 1000 } },
 			2: true
+		},
+		24: { // Twilight Waltz
+			'*': {
+				abnormals: { 10155543: { disableSkill: true } },
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: { 10155543: 1000 },
+				categoryChains: { 750: 1 }
+			},
+			1: { triggerAbnormal: { 10155543: 1000 } },
+			2: { triggerAbnormal: { 10155543: 1000 } },
+			3: true,
+			4: true
+		},
+		25: { // Godsfall
+			'*': {
+				abnormals: { 10155511: { disableSkill: true } },
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: { 10155511: 2000 },
+				categoryChains: { 750: 1 }
+			},
+			1: { triggerAbnormal: { 10155511: 2000 } },
+			2: {
+				distance: [-313.28, 463.28],
+				categoryChains: { 750: 3 }
+			},
+			3: { distance: [-313.28, 463.28] },
+			31: { triggerAbnormal: { 10155511: 2000 } },
+			32: { distance: [-313.28, 463.28] }
 		},
 		910: { // Apex Urgency
 			0: { fixedAnimSpeed: true }
