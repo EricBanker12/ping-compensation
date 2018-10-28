@@ -3897,12 +3897,18 @@ module.exports = {
 			},
 			0: {
 				triggerAbnormal: { 10155511: 2000 },
-				categoryChains: { 750: 1 }
+				categoryChains: {
+					772: 31,
+					'9999,750': 1
+				}
 			},
 			1: { triggerAbnormal: { 10155511: 2000 } },
 			2: {
 				distance: [-313.28, 463.28],
-				categoryChains: { 750: 3 }
+				categoryChains: {
+					772: 32,
+					'9999,750': 3
+				}
 			},
 			3: { distance: [-313.28, 463.28] },
 			31: { triggerAbnormal: { 10155511: 2000 } },
