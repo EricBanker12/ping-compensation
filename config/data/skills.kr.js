@@ -2836,6 +2836,7 @@ module.exports = {
 				distance: -200,
 				noInterrupt: [6],
 				stamina: 180,
+				passives: { 16050: { stamina: -30 } },
 				glyphs: {
 					26018: { stamina: -30 },
 					26056: { stamina: -30 }
