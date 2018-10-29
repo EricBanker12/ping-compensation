@@ -342,7 +342,7 @@ module.exports = {
 		24: { // Smoke Aggressor
 			0: {
 				fixedSpeed: 1,
-				length: 500
+				length: 383.87
 			}
 		},
 		25: { // Command: Attack
@@ -527,7 +527,7 @@ module.exports = {
 					//104101: 800,
 					104110: 2000
 				},
-				consumeAbnormal: 104100, // Shouldn"t be present in 10, 20, but it doesn"t matter
+				consumeAbnormal: 104100, // Shouldn't be present in 10, 20, but it doesn"t matter
 				noInterrupt: [40, "41-0", "41-30", 42]
 			},
 			10: {
@@ -1570,7 +1570,8 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
-				length: [590.9, 590.9],
+				chargeRate: 1.1,
+				length: [650, 650],
 				chargeLevels: [1, 2, 3],
 				noInterrupt: [28],
 				abnormals: {
@@ -1591,17 +1592,12 @@ module.exports = {
 				noInterrupt: ["28-3"]
 			}
 		},
-		910: { // Awakening Eyes Aura
-			0: {
-				length: 500
-			}
+		910: { // Apex Urgency
+			0: { length: 500 }
 		}
 	},
 	3: { // Berserker
-		"*": {
-			consumeAbnormal: 401404
-			//noInterrupt: [2], Same reason as lancer
-		},
+		"*": { consumeAbnormal: 401404 },
 		1: { // Combo Attack
 			"*": {
 				noInterrupt: [1],
@@ -1611,157 +1607,71 @@ module.exports = {
 				length: 1111.81,
 				distance: 78,
 				race: {
-					0: {
-						distance: 58.10235
-					},
-					1: {
-						distance: 61.9559364
-					},
-					2: {
-						distance: 54.869194
-					},
-					3: {
-						distance: 63.2354965
-					},
-					4: {
-						distance: 27.7150154
-					},
+					0: { distance: 58.10235 },
+					1: { distance: 61.9559364 },
+					2: { distance: 54.869194 },
+					3: { distance: 63.2354965 },
+					4: { distance: 27.7150154 },
 					5: {
 						length: 1081.5,
 						distance: 62.3418961
 					},
-					6: {
-						distance: 55.6866646
-					},
-					7: {
-						distance: 64.0561
-					},
-					8: {
-						distance: 48.886
-					},
-					9: {
-						distance: 78.00602
-					},
-					10: {
-						distance: 44.2169533
-					}
+					6: { distance: 55.6866646 },
+					7: { distance: 64.0561 },
+					8: { distance: 48.886 },
+					9: { distance: 78.00602 },
+					10: { distance: 44.2169533 }
 				}
 			},
 			1: {
 				length: 930,
 				distance: 21.05,
 				race: {
-					0: {
-						distance: 23.28463
-					},
-					1: {
-						distance: 23.28463
-					},
-					2: {
-						distance: 26.0233231
-					},
-					3: {
-						distance: 27.3276443
-					},
-					4: {
-						distance: 25
-					},
-					5: {
-						distance: 24.5182438
-					},
-					6: {
-						distance: 23.2733421
-					},
-					7: {
-						distance: 16.0538425
-					},
-					8: {
-						distance: 7.059998
-					},
-					9: {
-						distance: 21.04979
-					},
-					10: {
-						distance: 21.0849838
-					}
+					0: { distance: 23.28463 },
+					1: { distance: 23.28463 },
+					2: { distance: 26.0233231 },
+					3: { distance: 27.3276443 },
+					4: { distance: 25 },
+					5: { distance: 24.5182438 },
+					6: { distance: 23.2733421 },
+					7: { distance: 16.0538425 },
+					8: { distance: 7.059998 },
+					9: { distance: 21.04979 },
+					10: { distance: 21.0849838 }
 				}
 			},
 			2: {
 				length: 1111.81,
 				distance: 31.84,
 				race: {
-					0: {
-						distance: 22.8330917
-					},
-					1: {
-						distance: 22.83308
-					},
-					2: {
-						distance: 23.29535
-					},
-					3: {
-						distance: 32.4734344
-					},
-					4: {
-						distance: 25
-					},
-					5: {
-						distance: 17.0962315
-					},
-					6: {
-						distance: 22.83308
-					},
-					7: {
-						distance: 42.59091
-					},
-					8: {
-						distance: 40.9255562
-					},
-					9: {
-						distance: 31.841404
-					},
-					10: {
-						distance: 20.6760979
-					}
+					0: { distance: 22.8330917 },
+					1: { distance: 22.83308 },
+					2: { distance: 23.29535 },
+					3: { distance: 32.4734344 },
+					4: { distance: 25 },
+					5: { distance: 17.0962315 },
+					6: { distance: 22.83308 },
+					7: { distance: 42.59091 },
+					8: { distance: 40.9255562 },
+					9: { distance: 31.841404 },
+					10: { distance: 20.6760979 }
 				}
 			},
 			3: {
 				length: 1825,
 				distance: 54.28,
 				race: {
-					0: {
-						distance: 69.2654953
-					},
-					1: {
-						distance: 70.41038
-					},
-					2: {
-						distance: 47.2868958
-					},
-					3: {
-						distance: 55.25166
-					},
-					4: {
-						distance: 45
-					},
-					5: {
-						distance: 61.6042938
-					},
-					6: {
-						distance: 59.46721
-					},
-					7: {
-						distance: 51.109024
-					},
-					8: {
-						distance: 43.6784477
-					},
-					9: {
-						distance: 54.28374
-					},
-					10: {
-						distance: 63.2571335
-					}
+					0: { distance: 69.2654953 },
+					1: { distance: 70.41038 },
+					2: { distance: 47.2868958 },
+					3: { distance: 55.25166 },
+					4: { distance: 45 },
+					5: { distance: 61.6042938 },
+					6: { distance: 59.46721 },
+					7: { distance: 51.109024 },
+					8: { distance: 43.6784477 },
+					9: { distance: 54.28374 },
+					10: { distance: 63.2571335 }
 				}
 			}
 		},
@@ -1793,9 +1703,10 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
-				consumeAbnormal: 400900, // dafuq was dis
-				length: [590.9, 590.9, 590.9],
+				chargeRate: 1.1,
+				length: [650, 650, 650],
 				distance: false,
+				consumeAbnormal: 400900,
 				noInterrupt: [3, 10, 15],
 				glyphs: { 24067: { chargeSpeed: 0.25 } },
 				abnormals: {
@@ -1807,9 +1718,9 @@ module.exports = {
 					401150: { chargeSpeed: 0.2 }
 				},
 				level: [
-					{ length: 727.28 },
-					{ length: [727.28, 727.28] },
-					{ length: [727.28, 727.28] }
+					{ length: 800 },
+					{ length: [800, 800] },
+					{ length: [800, 800] }
 				]
 			},
 			10: { noInterrupt: ["3-10"] },
@@ -2011,6 +1922,7 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
+				chargeRate: 1.1,
 				consumeAbnormal: 400900,
 				length: [800, 800, 800],
 				distance: false,
@@ -2139,7 +2051,7 @@ module.exports = {
 				glyphs: { 24078: { speed: 0.25 } }
 			},
 			0: {
-				noInterrupt: [2, 4, 6, "8-30", 11, 13, 24, 25, 26, 27, 28, 29, "32-0"],
+				noInterrupt: [2, 4, 6, "8-30", 11, 13, 24, 25, 26, 27, 28, 29, "32-0", 4, 35, 36, 37],
 				interruptibleWithAbnormal: { 401404: 2 }, // Currently broken by BHS to fix a client bug.
 				abnormals: { 401400: { chain: 1 } },
 				abnormalChains: { 401404: 31 },
@@ -2176,12 +2088,15 @@ module.exports = {
 				length: 2066,
 				abnormals: { 401705: { chain: 30 } },
 				interruptibleWithAbnormal: { 401705: 33 }, // Half ping taxed for now due to the lack of proper emulation.
-				race: { 7: { length: 2099 } }
+				race: { 7: { length: 2099 } },
+				chains: {
+					34: 30,
+					35: 30,
+					36: 30,
+					37: 30
+				}
 			},
-			30: {
-				length: 1455,
-				enableOnAbnormal: 401705
-			}
+			30: { length: 1455 }
 		},
 		28: { // Intimidation
 			"*": {
@@ -2389,14 +2304,14 @@ module.exports = {
 	},
 	4: { // Sorcerer
 		1: { // Fireball
-			0: { length: 739 }
+			0: { length: 727.27 }
 		},
 		2: { // Frost Sphere
 			0: {
 				length: 800,
 				race: {
 					4: { length: 1250 }, // Male Aman
-					9: { length: 1016 }, // todo: find why AP desyncing after
+					9: { length: 1010 }, // todo: find why AP desyncing after
 					10: { length: 950 }
 				}
 			}
@@ -2415,6 +2330,7 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
+				chargeRate: 1.1,
 				length: [800, 800],
 				noInterrupt: [4],
 				abnormals: { 25140: { chargeSpeed: 0.3 } }
@@ -2471,6 +2387,7 @@ module.exports = {
 				level: {
 					9: {
 						abnormals: {
+							25100: { speed: 0.25 },
 							500150: { skill: 320100 },
 							501650: { skill: 320150 }
 						}
@@ -2726,11 +2643,12 @@ module.exports = {
 		35: { //  
 			0: { length: 933 }
 		},
-		36: { //
-			"*": { 
-				noInterrupt: [36, 32, 30, 6],
-				enableOnAbnormal: [502020, 502030, 502040, 502050, 502021, 502052],
-				consumeAbnormal: [502020, 502030, 502040, 502050, 502052]
+		36: { // Fusion
+			"*": {
+				noInterrupt: [20, 36, 32, 30, 6],
+				enableOnAbnormal: [502020, 502030, 502040, 502050, 502021],
+				timeout: 250,
+				consumeAbnormal: [502020, 502030, 502040]
 			},
 			0: {
 				level: {
@@ -2738,18 +2656,20 @@ module.exports = {
 					2: { length: 1602.4 },
 					3: { length: 1628.6 },
 					5: {
-						enableOnAbnormal: 502050,
+						consumeAbnormal: 502050,
 						length: 2684.7,
 						race: { 9: { length: 2808 } }
 					}
 				}
 			},
+			20: false,
 			30: {
-				length: 860, 
+				length: 850,
 				race: { 10: { length: 1836.3 } }
+
 			}
 		},
-		39: {
+		39: { // Implosion
 			0: {
 				length: [3791.25, 3801.56, 2503.12],
 				distance: [0, 0, -219.55],
@@ -2798,7 +2718,6 @@ module.exports = {
 				type: "lockon",
 				fixedSpeed: 1,
 				length: 4900,
-				noInterrupt: [22],
 				noRetry: true
 			},
 			10: {
@@ -2816,6 +2735,7 @@ module.exports = {
 				length: 1748.2,
 				noRetry: true,
 				distance: -100,
+				abnormals: { 602108: { speed: 0.3 } },
 				race: {
 					1: { length: 1566.37 },
 					8: { distance: -96.6 }
@@ -2823,18 +2743,20 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
-				length: [545.5, 545.5, 545.5],
+				chargeRate: 1.1,
+				length: [600, 600, 600],
 				distance: false,
 				//triggerAbnormal: { 600200: 7000 },
-				noInterrupt: [3],
+				noInterrupt: [8, 3],
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
+					602108: { speed: 0.3 },
 					601450: { chargeSpeed: 0.5 }
 				},
 				level: [
-					{ length: 545.5 },
-					{ length: [545.5, 545.5] },
-					{ length: [545.5, 545.5] }
+					{ length: 600 },
+					{ length: [600, 600] },
+					{ length: [600, 600] }
 				]
 			},
 			10: { noInterrupt: ["3-10"] },
@@ -2847,6 +2769,7 @@ module.exports = {
 				length: 1293.63,
 				distance: -50,
 				noRetry: true,
+				abnormals: { 602108: { speed: 0.3 } },
 				race: {
 					1: {
 						length: 1275,
@@ -2858,21 +2781,23 @@ module.exports = {
 			},
 			0: {
 				type: "charging",
-				length: [727.27, 727.27, 727.27],
+				chargeRate: 1.1,
+				length: [800, 800, 800],
 				distance: false,
 				//triggerAbnormal: { 600200: 7000 },
-				noInterrupt: [4],
+				noInterrupt: [8, 4],
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
 					26171: { chargeSpeed: 0.4 },
 					26190: { chargeSpeed: 0.3 },
+					602108: { speed: 0.3 },
 					601450: { chargeSpeed: 0.5 }
 				},
 				level: [
-					{ length: 909.09 },
-					{ length: [909.09, 909.09] },
-					{ length: [909.09, 909.09] }
+					{ length: 1000 },
+					{ length: [1000, 1000] },
+					{ length: [1000, 1000] }
 				]
 			},
 			10: { noInterrupt: ["4-10"] },
@@ -2882,8 +2807,8 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
-				noInterrupt: [5, 8],
 				length: 3153.84,
+				timeout: 150,
 				glyphs: { 26077: { speed: 0.4 } },
 				abnormals: {
 					902: { nocTanSpeed: 0.15 },
@@ -2965,28 +2890,57 @@ module.exports = {
 		},
 		8: { // Rapid Fire
 			"*": {
-				length: 700,
+				length: 800,
+				level: { 5: { length: 700 } },
+				forceDelay: 15,
 				noRetry: true,
-				blockCancelPacket: true,
-				noInterrupt: [5]
+				blockCancelPacket: true
 			},
 			0: {
 				length: 433,
-				noInterrupt: [6, "8-6"],
-				forceDelay: 15
+				noInterrupt: [20, 6, "8-6", "8-7", "8-14"],
+				race: { 5: { length: 533 } },
 			},
-			1: true,
-			2: true,
+			1: {
+				length: 600,
+				noInterrupt: [20, 6, "8-6", "8-7", "8-14"],
+				level: {
+					5: {
+						length: 433,
+						race: { 5: { length: 533 } }
+					}
+				}
+			},
+			2: {
+				length: 700,
+				level: { 5: { length: 600 } }
+			},
 			3: true,
-			4: true,
+			4: {
+				length: 700,
+				level: { 5: { length: 800 } }
+			},
 			5: true,
-			6: { length: 1235 },
-			7: { length: 1235 },
+			6: {
+				length: 1233,
+				timeout: 30,
+				level: {
+					5: {
+						length: 800,
+						timeout: false
+					}
+				}
+			},
+			7: {
+				length: 1233,
+				timeout: 30
+			},
 			11: { length: 433 },
-			12: true,
-			13: true,
+			12: { length: 600 },
+			13: { length: 700 },
 			14: {
-				length: 833
+				length: 833,
+				timeout: 30
 			}
 		},
 		9: { // Slow Trap
@@ -3001,13 +2955,10 @@ module.exports = {
 				}
 			}
 		},
-		12: { // Velik's Mark
-			0: { length: 200 }
-		},
 		14: { // Retaliate
 			0: {
 				type: "retaliate",
-				length: 1633,
+				length: 1600,
 				noRetry: true,
 				noInterrupt: [14],
 				race: {
@@ -3033,28 +2984,25 @@ module.exports = {
 		18: { // Close Quarters
 			"*": { noInterrupt: [18] },
 			0: {
-				length: 186, //todo: wew equalized
-				distance: 89.8
+				length: 186,
+				distance: 89.8,
+				race: {
+					1: { length: 209.3 },
+					4: { length: 209.3 },
+					7: { length: 209.3 },
+					8: { length: 209.3 },
+					10: { length: 209.3 }
+				}
 			},
 			1: {
 				length: 852.2,
-				distance: 87.29,
-				race: {
-					0: { length: 875.7 },
-					1: { length: 875.7 },
-					2: { length: 875.7 },
-					3: { length: 875.7 },
-					4: { length: 875.7 },
-					5: { length: 875.7 }
-				}
+				distance: 87.29
 			}
 		},
 		19: { // Poison Arrow
 			0: {
 				length: 1102.36,
 				distance: -12.5,
-				noInterrupt: [22],
-				abnormals: { 26100: { speed: 0.25 } },
 				race: {
 					0: { length: 1151.47 },
 					1: {
@@ -3068,15 +3016,7 @@ module.exports = {
 			}
 		},
 		20: { // Restraining Arrow
-			0: {
-				length: 533,
-				noInterrupt: [22]
-			}
-		},
-		21: { // Sniper's Eye
-			"*": { length: 636 },
-			0: true,
-			50: true
+			0: { length: 533 }
 		},
 		22: { // Sequential Fire
 			0: {
@@ -3097,8 +3037,8 @@ module.exports = {
 			0: {
 				length: 3766,
 				distance: -100,
-				//triggerAbnormal: { 600200: [7000, 798] }, // Fixed ASPD
-				noInterrupt: [22],
+				//triggerAbnormal: { 600200: [7000, 1900, true] },
+				abnormals: { 602108: { speed: 0.3 } },
 				glyphs: {
 					26089: { speed: 0.3 },
 					26102: { speed: 0.3 }
@@ -3113,13 +3053,14 @@ module.exports = {
 		31: { // Tenacity
 			0: {
 				fixedSpeed: 1,
+				bhsSoDumb: true,
 				length: [500, 700]
 			}
 		},
 		32: { // Find Weakness
 			0: {
-				fixedSpeed: 1,
-				length: 182
+				length: 182,
+				timeout: 150
 			}
 		},
 		33: { // Chase
@@ -3127,25 +3068,60 @@ module.exports = {
 				CC: "evasive",
 				type: "dash",
 				fixedSpeed: 1,
-				length: 1050,
+				length: 1040,
 				distance: 413
 			}
 		},
+		34: { // Wind Walk
+			"*": {
+				length: 666,
+				distance: 181.2,
+				noRetry: true, // to prevent messages
+				disableOnAbnormal: 602102,
+				noInterrupt: [34],
+				abnormals: { 602107: { stamina: -30 } },
+				stamina: 150
+			},
+			0: {
+				inPlace: {
+					movement: [{
+						duration: 766,
+						speed: 2,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				},
+				distance: -120 // can only be inplace tho ¿?
+			},
+			10: true, // :ok_hand:
+			20: false,
+			30: false,
+			40: false, // { distance: 176.47 },
+			50: false,
+			60: false, //{ distance: 187 },
+			70: false, //{ distance: 187 },
+			80: { distance: -120 }, // :ok_hand:
+		},
 		35: { // Windsong
-			length: 200,
-			noInterrupt: [35],
-			fixedSpeed: 1 // seems, recheck
+			length: 200, // abnormals sort of need to be emulated for certain things
+			timeout: 150
 		},
 		36: { // Gust Arrow
 			"*": { noRetry: true },
 			0: {
 				type: "charging",
+				chargeRate: 1.1,
 				chargeLevels: [110, 113],
-				length: 2709,
+				length: 2980,
 				noInterrupt: [36]
 			},
 			10: { length: 190, noInterrupt: ["36-10"] },
-			13: { length: 1259.26, noInterrupt: ["36-13"] }
+			13: {
+				length: 1259.26,
+				//triggerAbnormal: { 600200: [7000, 1196.3, true] },
+				noInterrupt: ["36-13"]
+			}
 		},
 		910: { // Apex Urgency
 			0: { length: 500 }
@@ -3674,8 +3650,8 @@ module.exports = {
 		18: { // Arun's Vitae
 			"*": { noRetry: true },
 			0: {
-				type: "charging",
-				length: 1127.27,
+				chargeRate: 1.1,
+				length: 1240,
 				chargeLevels: [10, 10],
 				noInterrupt: [18],
 				abnormals: {
@@ -3700,7 +3676,8 @@ module.exports = {
 			"*": { noRetry: true },
 			0: {
 				type: "charging",
-				length: 1127.27,
+				chargeRate: 1.1,
+				length: 1240,
 				chargeLevels: [10, 10],
 				noInterrupt: [22],
 				abnormals: { 27100: { chargeSpeed: 0.25 } }
