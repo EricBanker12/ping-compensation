@@ -1861,9 +1861,9 @@ module.exports = {
 					6: { length: [650, 650, 650] }
 				},
 				level: [
-					{ length: 800 }, // 1300
-					{ length: [800, 800] }, // 1150
-					{ length: [800, 800] } // 1150
+					{ length: 800 },
+					{ length: [800, 800] },
+					{ length: [800, 800] }
 				]
 			},
 			10: {
@@ -1886,7 +1886,9 @@ module.exports = {
 			},
 			12: true,
 			13: {
+				noRetry: false,
 				enableVB: true,
+				consumeAbnormal: [401701],
 				pendingStartTime: 300
 			}
 		},
