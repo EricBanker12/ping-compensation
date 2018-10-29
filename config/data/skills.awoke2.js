@@ -3650,6 +3650,7 @@ module.exports = {
 		18: { // Arun's Vitae
 			"*": { noRetry: true },
 			0: {
+				type: "charging",
 				chargeRate: 1.1,
 				length: 1240,
 				chargeLevels: [10, 10],
