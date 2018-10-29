@@ -32,12 +32,7 @@ module.exports = {
 			0: {
 				forceClip: true,
 				stamina: 500,
-				instantStamina: true,
-				glyphs: {
-					21015: { stamina: -100 },
-					21067: { stamina: -100 },
-					21101: { stamina: -120 }
-				}
+				instantStamina: true
 			}
 		},
 		3: { // Torrent of Blows
@@ -56,11 +51,7 @@ module.exports = {
 			30: true
 		},
 		5: { // Battle Cry
-			0: {
-				glyphs: {
-					21040: { speed: 1.5 }
-				}
-			}
+			0: true
 		},
 		8: { // Assault Stance
 			0: { stamina: 1000 },
@@ -77,12 +68,7 @@ module.exports = {
 			0: true
 		},
 		12: { // Leaping Strike
-			0: {
-				glyphs: {
-					21048: { speed: 1.2 },
-					21082: { speed: 1.2 }
-				}
-			}
+			0: true
 		},
 		16: { // Charging Slash
 			0: {
@@ -294,13 +280,7 @@ module.exports = {
 			30: true
 		},
 		4: { // Challenging Shout
-			'*': {
-				noInterrupt: [9, 12, 23, 24, 26],
-				glyphs: {
-					22056: { speed: 1.25 },
-					22085: { speed: 1.25 }
-				}
-			},
+			'*': { noInterrupt: [9, 12, 23, 24, 26] },
 			0: {
 				chains: {
 					1: 30,
@@ -439,11 +419,7 @@ module.exports = {
 				forceClip: true,
 				stamina: 800,
 				instantStamina: true,
-				noInterrupt: [26],
-				glyphs: {
-					22067: { stamina: -100 },
-					22089: { stamina: -100 }
-				}
+				noInterrupt: [26]
 			}
 		},
 		27: { // Rallying Cry
@@ -602,10 +578,7 @@ module.exports = {
 			0: {
 				length: 1475,
 				distance: -175,
-				forceClip: true,
-				glyphs: {
-					23060: { speed: 1.25 }
-				}
+				forceClip: true
 			}
 		},
 		16: { // Fury Strike
@@ -713,9 +686,6 @@ module.exports = {
 				length: [650, 650, 650],
 				noInterrupt: [2],
 				overcharge: 450,
-				glyphs: {
-					24067: { chargeSpeed: 0.25 }
-				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { speed: 1.25 },
@@ -736,12 +706,6 @@ module.exports = {
 			13: { rearCancelStartTime: 455 }
 		},
 		4: { // Flatten
-			'*': {
-				glyphs: {
-					24008: { speed: 1.25 },
-					24050: { speed: 1.25 }
-				}
-			},
 			0: {
 				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, '10-10', '10-11', '10-12', 11, '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
 				chains: {
@@ -784,11 +748,6 @@ module.exports = {
 				length: [650, 650, 650],
 				overcharge: 365,
 				canInstantCharge: true,
-				glyphs: {
-					24009: { chargeSpeed: 0.25 },
-					24052: { chargeSpeed: 0.25 },
-					24096: { chargeSpeed: 0.3 }
-				},
 				abnormals: {
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
@@ -898,11 +857,6 @@ module.exports = {
 			13: true
 		},
 		25: { // Raze
-			'*': {
-				glyphs: {
-					24078: { speed: 1.25 }
-				}
-			},
 			0: {
 				noInterrupt: [4, 6, '6-30', 11, '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
 				chains: {
@@ -1078,10 +1032,6 @@ module.exports = {
 		},
 		6: { // Meteor Strike
 			0: {
-				glyphs: {
-					25003: { speed: 1.17 },
-					25069: { speed: 1.25 }
-				},
 				abnormals: {
 					25100: { speed: 1.25 }
 				}
@@ -1117,9 +1067,6 @@ module.exports = {
 		},
 		13: { // Mindblast
 			0: {
-				glyphs: {
-					25048: { speed: 1.3 }
-				},
 				abnormals: {
 					25110: { speed: 1.4 }
 				}
@@ -1160,10 +1107,6 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				glyphs: {
-					25001: { speed: 1.3 },
-					25096: { speed: 1.4 }
-				},
 				abnormals: {
 					25060: { speed: 1.25 }
 				}
@@ -1226,24 +1169,14 @@ module.exports = {
 			0: true
 		},
 		30: { // Nova
-			0: {
-				glyphs: {
-					25092: { speed: 1.3 }
-				}
-			}
+			0: true
 		},
 		31: { // Warp Barrier
 			10: true,
 			20: true
 		},
 		32: { // Meteor Strike (Mana Boost)
-			'*': {
-				glyphs: {
-					25003: { speed: 1.17 },
-					25069: { speed: 1.25 }
-				},
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: true,
 			50: true
 		},
@@ -1316,9 +1249,6 @@ module.exports = {
 		},
 		5: { // Rain of Arrows
 			0: {
-				glyphs: {
-					26077: { speed: 1.4 }
-				},
 				abnormals: {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
@@ -1402,13 +1332,7 @@ module.exports = {
 			0: true
 		},
 		29: { // Thunderbolt
-			0: {
-				distance: -100,
-				glyphs: {
-					26089: { speed: 1.3 },
-					26102: { speed: 1.3 }
-				}
-			}
+			0: { distance: -100 }
 		},
 		31: { // Tenacity
 			0: { fixedAnimSpeed: true }
@@ -1467,9 +1391,6 @@ module.exports = {
 		8: { // Mana Infusion
 			0: {
 				length: 4595,
-				glyphs: {
-					28044: { speed: 1.25 }
-				},
 				race: {
 					0: { length: 4625 }
 				}
@@ -1485,9 +1406,6 @@ module.exports = {
 		},
 		12: { // Resurrect
 			0: {
-				glyphs: {
-					28045: { speed: 1.3 }
-				},
 				abnormals: {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
@@ -1584,9 +1502,6 @@ module.exports = {
 				type: 'charging',
 				length: [800, 1600],
 				autoRelease: 0,
-				glyphs: {
-					28031: { chargeSpeed: 0.25 }
-				},
 				level: {
 					1: {
 						length: [900, 900, 900],
@@ -1747,10 +1662,6 @@ module.exports = {
 		},
 		10: { // Resurrect
 			0: {
-				glyphs: {
-					27049: { speed: 1.2 },
-					27079: { speed: 1.2 }
-				},
 				abnormals: {
 					902: { speed: 1.25 },
 					911: { speed: 1.25 },
@@ -2413,11 +2324,6 @@ module.exports = {
 			3: true
 		},
 		12: { // Shadow Burst
-			'*': {
-				glyphs: {
-					29026: { speed: 1.25 }
-				}
-			},
 			0: {
 				noInterrupt: [1, 3, '4-0', '4-30', '4-40', '4-60', 5, 6, 8, 9, 10, 11, 20],
 				chains: { 12: 1 }
@@ -2528,10 +2434,7 @@ module.exports = {
 			},
 			1: {
 				type: 'lockonCast',
-				length: 3000,
-				glyphs: {
-					30004: { speed: 1.25 }
-				}
+				length: 3000
 			}
 		},
 		3: { // Scattershot
@@ -2620,9 +2523,6 @@ module.exports = {
 				fixedSpeed: true,
 				stamina: 75,
 				instantStamina: true,
-				glyphs: {
-					30046: { stamina: -10 }
-				},
 				level: [
 					{ stamina: 50 },
 					{ stamina: 55 },
@@ -2634,10 +2534,7 @@ module.exports = {
 			11: {
 				fixedSpeed: true,
 				stamina: 75,
-				instantStamina: true,
-				glyphs: {
-					30046: { stamina: -10 }
-				}
+				instantStamina: true
 			}
 		},
 		6: { // Time Bomb
@@ -3775,9 +3672,6 @@ module.exports = {
 		10: { // Dream Slash
 			'*': {
 				noInterrupt: [10],
-				glyphs: {
-					33020: { speed: 1.2 }
-				},
 				hasChains: true,
 				noRetry: true
 			},
