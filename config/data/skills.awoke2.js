@@ -2488,6 +2488,7 @@ module.exports = {
 			10: {
 				type: "lockonCast",
 				length: 1501,
+				race: {	7: { glyphs: false}},
 				glyphs: {
 					25001: { speed: 0.3 },
 					25096: { speed: 0.4 }
