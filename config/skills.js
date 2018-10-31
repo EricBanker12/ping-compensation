@@ -222,7 +222,7 @@ module.exports = {
 		},
 		40: { // Blade Waltz
 			'*': {
-				noInterrupt: [41, 42],
+				noInterrupt: ['41-0', '41-30', 42],
 				abnormals: { 104101: { disableSkill: true } },
 				hasChains: true,
 				longRetry: true
