@@ -40,13 +40,8 @@ module.exports = {
 		},
 		4: { // Rain of Blows
 			0: {
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 34, 36, 37, 39],
-				chains: {
-					18: 30,
-					21: 30,
-					27: 30,
-					40: 30
-				}
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 34, 36, 37, 39, 41, 42],
+				categoryChains: { 550: 30 }
 			},
 			30: true
 		},
@@ -69,6 +64,12 @@ module.exports = {
 		},
 		12: { // Leaping Strike
 			0: true
+		},
+		13: { // Retaliate
+			0: {
+				type: 'retaliate',
+				noRetry: true
+			}
 		},
 		16: { // Charging Slash
 			0: {
@@ -96,7 +97,10 @@ module.exports = {
 			1: true
 		},
 		20: { // Deadly Gamble
-			0: { fixedSpeed: true }
+			0: {
+				fixedSpeed: true,
+				cooldownEnd: 300
+			}
 		},
 		21: { // Cascade of Stuns
 			0: true
@@ -114,60 +118,52 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		28: { // Traverse Cut
+			'*': {
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 35, 36, 37, 39, 41, 42],
+				hasChains: true
+			},
 			0: {
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 36, 37, 39],
-				chains: {
-					11: 30,
-					18: 30,
-					27: 30,
-					40: 30
+				categoryChains: {
+					1011: 30,
+					1018: 30,
+					1040: 30
 				}
 			},
 			30: true
 		},
 		29: { // Blade Draw
+			'*': { hasChains: true },
 			0: {
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37, 41, 42],
 				interruptibleWithAbnormal: { 102010: 3 },
-				chains: {
-					3: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					28: 30,
-					32: 30,
-					39: 30,
-					40: 30
+				categoryChains: {
+					1032: 30,
+					550: 30
 				}
 			},
 			30: true
 		},
 		30: { // Scythe
+			'*': { hasChains: true },
 			0: {
-				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34, 39],
-				chains: {
-					2: 30,
-					4: 30,
-					11: 30,
-					12: 30,
-					29: 30,
-					36: 30,
-					37: 30,
-					40: 30
+				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34, 39, 41, 42],
+				categoryChains: {
+					1002: 30,
+					1004: 30,
+					1011: 30,
+					1012: 30,
+					1029: 30,
+					1040: 30
 				}
 			},
 			30: true
 		},
 		31: { // Reaping Slash
-			0: {
-				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 27, 28, 29, 34, 37, 39],
-				chains: {
-					4: 30,
-					18: 30,
-					36: 30,
-					40: 30
-				}
+			'*': {
+				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 27, 28, 29, 34, 35, 37, 39, 41, 42],
+				hasChains: true
 			},
+			0: { categoryChains: { 550: 30 } },
 			30: true
 		},
 		32: { // Cross Parry
@@ -182,32 +178,19 @@ module.exports = {
 			0: true
 		},
 		35: { // Infuriate
-			0: {  requiredBuff: [100200, 100201] }
+			0: { requiredBuff: [100200, 100201] }
 		},
 		36: { // Rain of Blows (Deadly Gamble)
 			'*': { hasChains: true },
-			0: {
-				chains: {
-					18: 30,
-					21: 30,
-					27: 30,
-					40: 30
-				}
-			},
+			0: { categoryChains: { 550: 30 } },
 			30: true
 		},
 		37: { // Blade Draw (Deadly Gamble)
 			'*': { hasChains: true },
 			0: {
-				chains: {
-					3: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					28: 30,
-					32: 30,
-					39: 30,
-					40: 30
+				categoryChains: {
+					1032: 30,
+					550: 30
 				}
 			},
 			30: true
@@ -215,15 +198,13 @@ module.exports = {
 		38: { // Scythe (Deadly Gamble)
 			'*': { hasChains: true },
 			0: {
-				chains: {
-					2: 30,
-					4: 30,
-					11: 30,
-					12: 30,
-					29: 30,
-					36: 30,
-					37: 30,
-					40: 30
+				categoryChains: {
+					1002: 30,
+					1004: 30,
+					1011: 30,
+					1012: 30,
+					1029: 30,
+					1040: 30
 				}
 			},
 			30: true
@@ -231,11 +212,56 @@ module.exports = {
 		39: { // Traverse Cut (Defensive Stance)
 			'*': { hasChains: true },
 			0: {
-				chains: {
-					11: 30,
-					18: 30,
-					27: 30,
-					40: 30
+				categoryChains: {
+					1011: 30,
+					1018: 30,
+					1040: 30
+				}
+			},
+			30: true
+		},
+		40: { // Blade Waltz
+			'*': {
+				noInterrupt: [41, 42],
+				abnormals: { 104101: { disableSkill: true } },
+				hasChains: true,
+				longRetry: true
+			},
+			10: {
+				triggerAbnormal: { 104101: 800 },
+				categoryChains: { 560: 11 },
+				noRetry: true
+			},
+			11: { triggerAbnormal: { 104101: 800 } },
+			12: true,
+			20: {
+				triggerAbnormal: { 104101: 800 },
+				categoryChains: { 560: 21 },
+				noRetry: true
+			},
+			21: { triggerAbnormal: { 104101: 800 } },
+			22: true
+		},
+		41: { // Aerial Scythe
+			'*': {
+				noInterrupt: [42],
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: { 105100: 1800 },
+				categoryChains: { 560: 30 }
+			},
+			30: { triggerAbnormal: { 105100: 1800 } },
+			31: { consumeAbnormal: 105100 }
+		},
+		42: { // Blade Frenzy
+			'*': { hasChains: true },
+			0: {
+				categoryChains: {
+					1002: 30,
+					1030: 30,
+					2041: 30
 				}
 			},
 			30: true
@@ -3748,6 +3774,7 @@ module.exports = {
 		23: { // Gungir's Bite
 			'*': {
 				abnormals: { 10155531: { disableSkill: true } },
+				hasChains: true,
 				noRetry: true
 			},
 			0: {
@@ -3760,6 +3787,7 @@ module.exports = {
 		24: { // Twilight Waltz
 			'*': {
 				abnormals: { 10155543: { disableSkill: true } },
+				hasChains: true,
 				noRetry: true
 			},
 			0: {
@@ -3774,6 +3802,7 @@ module.exports = {
 		25: { // Godsfall
 			'*': {
 				abnormals: { 10155511: { disableSkill: true } },
+				hasChains: true,
 				noRetry: true
 			},
 			0: {

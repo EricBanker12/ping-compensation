@@ -1,4 +1,7 @@
 module.exports = {
+	/* Warrior */
+	105100: true, // Aerial Scythe
+
 	/* Slayer */
 	//23220: true, // Distant Blade (duration)
 
