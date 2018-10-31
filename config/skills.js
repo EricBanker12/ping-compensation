@@ -483,62 +483,40 @@ module.exports = {
 		},
 		2: { // Knockdown Strike
 			'*': {
-				length: 2385,
-				distance: 220.47,
 				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
 				abnormals: {
 					23070: {speed: 1.25}
-				},
-				chains: { 14: 30 }
+				}
 			},
-			0: true,
 			1: true,
-			2: true,
-			30: {
-				length: 2400,
-				distance: 300
-			}
+			2: { chains: { 14: 30 } },
+			30: true
 		},
 		3: { // Whirlwind
 			0: {
-				length: 3125,
 				abnormals: {
 					23080: { speed: 1.25 }
 				}
 			}
 		},
 		4: { // Evasive Roll
-			'*': { hasChains: true },
-			0: {
-				length: 900,
-				distance: 150,
-				forceclip: true,
-				abnormalChains: { 40300: 30 },
-				race: {
-					8: { length: 1185 } // Popori
-				}
+			'*': {
+				forceClip: true,
+				hasChains: true
 			},
-			30: {
-				length: 900,
-				distance: 150,
-				forceclip: true
-			}
+			0: { abnormalChains: { 40300: 30 } },
+			30: true
 		},
 		5: { // Dash
 			0: {
 				noWeapon: true,
-				fixedSpeed: true,
-				length: 700
+				fixedAnimSpeed: true
 			}
 		},
 		8: { // Overhand Strike
+			'*': { hasChains: true },
 			0: {
-				length: 3365,
-				distance: 170,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 25],
-				abnormals: {
-					300801: { skill: 250100 }
-				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -552,24 +530,13 @@ module.exports = {
 					24: 30
 				}
 			},
-			30: {
-				length: 1325,
-				distance: 169.65,
-				abnormals: {
-					300801: { skill: 250130 }
-				}
-			}
+			30: true
 		},
 		9: { // Leaping Strike
-			0: {
-				length: 2175,
-				distance: 250
-			}
+			0: true
 		},
 		12: { // Heart Thrust
 			0: {
-				length: 2315,
-				distance: 230,
 				abnormals: {
 					23060: { speed: 1.25 },
 					23061: { speed: 1.35 }
@@ -577,41 +544,25 @@ module.exports = {
 			}
 		},
 		13: { // Stunning Backhand
-			0: {
-				length: 2125,
-				distance: 76.71
-			}
+			0: true
 		},
 		14: { // Distant Blade
 			'*': {
 				triggerAbnormal: { 23220: 3000 },
 				consumeAbnormalEnd: 23220
 			},
-			0: {
-				length: 600,
-				distance: 75
-			},
-			1: {
-				length: 600,
-				distance: 100.02,
-			},
-			2: {
-				length: 1500,
-				distance: 104.82
-			}
+			0: true,
+			1: true,
+			2: true
 		},
 		15: { // Startling Kick
 			0: {
-				length: 1475,
 				distance: -175,
 				forceClip: true
 			}
 		},
 		16: { // Fury Strike
-			0: {
-				length: 1000,
-				distance: 142.53
-			}
+			0: true
 		},
 		17: { // Headlong Rush
 			0: {
@@ -622,29 +573,19 @@ module.exports = {
 			}
 		},
 		18: { // Overpower
-			0: {
-				fixedSpeed: true,
-				length: 200
-			}
+			'*': { fixedAnimSpeed: true },
+			0: true,
+			50: true
 		},
 		19: { // Tenacity
-			'*': {
-				fixedSpeed: true,
-				length: 700
-			}
+			0: { fixedAnimSpeed: true }
 		},
 		20: { // In Cold Blood
-			0: {
-				fixedSpeed: true,
-				length: 1185
-			}
+			0: { fixedAnimSpeed: true }
 		},
 		23: { // Measured Slice
-			'*': {
-				distance: 190
-			},
+			'*': { hasChains: true },
 			0: {
-				length: 3685,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
 				chains: {
 					8: 30,
@@ -652,14 +593,11 @@ module.exports = {
 					25: 30
 				}
 			},
-			30: { length: 1670 }
+			30: true
  		},
 		24: { // Eviscerate
-			'*': {
-				distance: 50
-			},
+			'*': { hasChains: true },
 			0: {
-				length: 1900,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24],
 				chains: {
 					1: 30,
@@ -673,14 +611,25 @@ module.exports = {
 					25: 30
 				}
 			},
-			30: { length: 1500 }
+			30: true
 		},
 		25: { // Ultimate Overhand Strike
-			'*': {
-				distance: 170
+			'*': { hasChains: true },
+			0: {
+				chains: {
+					1: 30,
+					2: 30,
+					3: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					24: 30
+				}
 			},
-			0: { length: 3365 },
-			30: { length: 1300 }
+			30: true
 		}
 	},
 	3: { // Berserker
