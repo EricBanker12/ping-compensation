@@ -24,7 +24,7 @@
     "lib/autoconfig.js": "ec1262cf7de14ec51e17e7dac19550f7b5ac4f5f0b6d1b414a9838f572a12a70",
     "lib/ping.js": "9868a034284f4f8a095cc2e943acc35340f339e2e0b5a267579258acd4515923",
     "lib/utils.js": "581f68267d339ad1c31f8b67d7a2d123852b9a5dcd31aa42000fa416928abdd7",
-    "lib/state.js": "f7d414b558f3682721a6515aa4490a9fc4f534aae7c357aaff6caccc528eb6aa",
+    "lib/state.js": "e0fe100da0efb596c46fd9f0b228d10e83cd840ad94004bbd0b8840f0a38bc7d",
     "migration/steps.json": "9a42af8c872a87c582ee1975daf989b8e07c0a59474d8c671c7dc8043eb9d10a",
     "config/data/default-config.json": "4131b45b8bcc3a5715c8d495c85c37ed293bf75b59827ac6397baa9383d1b22f",
     "lib/defs.js": "42ab4c890085098ed53af721280950fd94dab542e890f0091e23aa60f38019fb",
