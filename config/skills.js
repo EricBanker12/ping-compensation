@@ -98,7 +98,7 @@ module.exports = {
 		},
 		20: { // Deadly Gamble
 			0: {
-				fixedSpeed: true,
+				fixedAnimSpeed: true,
 				cooldownEnd: 300
 			}
 		},
@@ -107,15 +107,15 @@ module.exports = {
 		},
 		24: { // Smoke Aggressor
 			0: {
-				fixedSpeed: true,
+				fixedAnimSpeed: true,
 				length: 481
 			}
 		},
 		25: { // Command: Attack
-			0: { fixedSpeed: true }
+			0: { fixedAnimSpeed: true }
 		},
 		26: { // Command: Follow
-			0: { fixedSpeed: true }
+			0: { fixedAnimSpeed: true }
 		},
 		28: { // Traverse Cut
 			'*': {
