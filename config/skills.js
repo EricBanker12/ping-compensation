@@ -1410,12 +1410,7 @@ module.exports = {
 			0: true
 		},
 		8: { // Mana Infusion
-			0: {
-				length: 4595,
-				race: {
-					0: { length: 4625 }
-				}
-			}
+			0: true
 		},
 		10: { // Purifying Circle
 			0: true
