@@ -635,7 +635,10 @@ module.exports = {
 			30: true
 		},
 		26: { // Punishing Blow
-			'*': { hasChains: true },
+			'*': {
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
+				hasChains: true
+			},
 			0: {
 				categoryChains: {
 					3023: 30,
