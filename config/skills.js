@@ -3136,24 +3136,7 @@ module.exports = {
 				hasChains: true,
 				noRetry: true
 			},
-			0: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			0: { categoryChains: { 900: 30 } },
 			1: { triggerAbnormal: { 10154001: 1500 } },
 			2: { triggerAbnormal: { 10154002: 1400 } },
 			3: { triggerAbnormal: { 10154003: 1400 } },
@@ -3161,24 +3144,7 @@ module.exports = {
 			5: { triggerAbnormal: { 10154005: 1600 } },
 			6: { triggerAbnormal: { 10154006: 100 } },
 			30: true,
-			40: {
-				chains: {
-					1: 70,
-					3: 70,
-					4: 70,
-					6: 70,
-					7: 70,
-					9: 70,
-					12: 70,
-					13: 70,
-					14: 70,
-					15: 70,
-					16: 70,
-					18: 70,
-					19: 70,
-					20: 70
-				}
-			},
+			40: { categoryChains: { 900: 70 } },
 			41: { triggerAbnormal: { 10154001: 1500 } },
 			42: { triggerAbnormal: { 10154002: 1400 } },
 			43: { triggerAbnormal: { 10154003: 1400 } },
@@ -3218,49 +3184,12 @@ module.exports = {
 				forceClip: true,
 				noRetry: true
 			},
-			0: {
-				chains: {
-					1: null,
-					2: null,
-					3: null,
-					4: null,
-					5: null,
-					6: null,
-					7: null,
-					8: null,
-					9: null,
-					10: null,
-					11: null,
-					12: null,
-					13: null,
-					14: null,
-					15: null,
-					16: null,
-					17: null,
-					18: null,
-					19: null,
-					20: null
-				}
-			},
+			0: { categoryChains: { 900: null } },
 			30: true
 		},
 		6: { // One Thousand Cuts
-			0: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					7: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
 			1: {
 				type: 'dash',
 				fixedSpeed: true,
@@ -3271,80 +3200,23 @@ module.exports = {
 			30: true
 		},
 		7: { // Decoy Jutsu
-			0: {
-				length: 1550,
-				onlyTarget: true
-			}
+			0: { onlyTarget: true }
 		},
 		8: { // Fire Avalanche
 			'*': {
-				noInterrupt: [9, 18],
 				hasChains: true,
 				noRetry: true
 			},
-			0: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			0: { categoryChains: { 900: 30 } },
 			1: true,
 			2: true,
 			30: true,
-			31: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			}
+			31: { categoryChains: { 900: 30 } },
+			51: { categoryChains: { 900: 52 } },
+			52: true
 		},
 		9: { // Smoke Bomb
-			0: {
-				chains: {
-					1: null,
-					2: null,
-					3: null,
-					4: null,
-					5: null,
-					6: null,
-					7: null,
-					8: null,
-					9: null,
-					10: null,
-					11: null,
-					12: null,
-					13: null,
-					14: null,
-					15: null,
-					16: null,
-					17: null,
-					18: null,
-					19: null,
-					20: null
-				}
-			},
+			0: { categoryChains: { 900: null } },
 			30: true
 		},
 		10: { // Retaliate
@@ -3358,117 +3230,21 @@ module.exports = {
 			50: true
 		},
 		12: { // Skyfall
-			'*': { noInterrupt: [9, 18] },
-			1: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			2: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
+			1: { categoryChains: { 900: 30 } },
+			2: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		13: { // Circle of Steel
-			'*': { noInterrupt: [9, 18] },
-			1: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			2: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
+			1: { categoryChains: { 900: 30 } },
+			2: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		14: { // Double Cut
-			'*': { noInterrupt: [9, 18] },
-			1: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			2: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
+			1: { categoryChains: { 900: 30 } },
+			2: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		15: { // Burning Heart
@@ -3490,103 +3266,64 @@ module.exports = {
 			8: true,
 			9: true,
 			10: true,
-			31: true,
+			31: { categoryChains: { 900: 32 } },
 			32: true
 		},
 		16: { // Death Blossom
-			'*': { fixedSpeed: true },
-			0: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				}
+			'*': {
+				fixedSpeed: true,
+				hasChains: true
 			},
+			0: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		17: { // Attunement
-			0: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		18: { // Bladestorm
-			0: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		19: { // Chakra Thrust
-			0: {
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		20: { // Clone Jutsu
-			0: {
-				onlyTarget: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
+		},
+		21: { // Boomerang Shuriken
+			0: { categoryChains: { 93003: 15 } },
+			11: { categoryChains: { 93003: 17 } },
+			12: { categoryChains: { 93003: 16 } },
+			13: { categoryChains: { 93003: 18 } },
+			15: true,
+			16: true,
+			17: true,
+			18: true,
+			50: true,
+			51: true
+		},
+		22: { // Quick Attack
+			10: {
+				categoryChains: {
+					93019: 30,
+					'9999,900': 20
+				}
+			},
+			20: true,
+			30: true,
+			40: { categoryChains: { 900: null } },
+			50: true,
+			60: true
+		},
+		23: { // Inner Harmony
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
+			30: true
 		}
 	},
 	12: { // Valkyrie
