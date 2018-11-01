@@ -109,10 +109,7 @@ module.exports = {
 			0: true
 		},
 		24: { // Smoke Aggressor
-			0: {
-				fixedAnimSpeed: true,
-				length: 481
-			}
+			0: { fixedAnimSpeed: true }
 		},
 		25: { // Command: Attack
 			0: { fixedAnimSpeed: true }
@@ -341,7 +338,7 @@ module.exports = {
 			0: { onlyDefenceSuccess: true }
 		},
 		9: { // Leash
-			0: { length: [725, 850] }
+			0: true
 		},
 		10: { // Debilitate
 			'*': { noInterrupt: [2, 3, 5, 10, 13, 21, 25, 26] },
@@ -420,13 +417,11 @@ module.exports = {
 			0: { fixedAnimSpeed: true }
 		},
 		23: { // Master's Leash
-			0: {
-				length: [725, 850],
-				requiredBuff: 201000
-			}
+			0: { requiredBuff: 201000 }
 		},
 		24: { // Chained Leash
-			0: { length: [725, 850] }
+			1: true,
+			2: true
 		},
 		25: { // Wallop
 			0: {
@@ -809,7 +804,6 @@ module.exports = {
 		13: { // Retaliate
 			0: {
 				type: 'retaliate',
-				length: 1633,
 				noRetry: true
 			}
 		},
@@ -873,10 +867,7 @@ module.exports = {
 			0: { fixedAnimSpeed: true }
 		},
 		24: { // Evasive Smash
-			0: {
-				type: 'storeCharge',
-				length: 1000
-			},
+			0: { type: 'storeCharge' },
 			5: { type: 'grantCharge' },
 			10: true,
 			11: true,
@@ -1081,13 +1072,7 @@ module.exports = {
 			0: true
 		},
 		11: { // Lightning Strike
-			0: {
-				length: 840,
-				checkReset: true,
-				race: {
-					9: { length: 800 } // Elin
-				}
-			}
+			0: { checkReset: true }
 		},
 		12: { // Void Pulse
 			0: true
@@ -1107,16 +1092,12 @@ module.exports = {
 		},
 		18: { // Glacial Retreat
 			0: {
-				length: 1100,
 				distance: -187.5,
 				forceClip: true
 			}
 		},
 		19: { // Mana Siphon
-			'*': {
-				length: 900,
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [1005, 1005],
@@ -1231,7 +1212,7 @@ module.exports = {
 	},
 	5: { // Archer
 		1: { // Arrow
-			0: { length: 400 }
+			0: true
 		},
 		2: { // Arrow Volley
 			'*': { noRetry: true },
@@ -1337,7 +1318,7 @@ module.exports = {
 			}
 		},
 		17: { // Web Arrow
-			0: { length: 533 }
+			0: true
 		},
 		18: { // Close Quarters
 			0: true,
@@ -1537,9 +1518,9 @@ module.exports = {
 			13: true
 		},
 		29: { // Triple Nemesis
-			0: { length: 800 },
-			1: { length: 800 },
-			2: { length: 1250 }
+			0: true,
+			1: true,
+			2: true
 		},
 		30: { // Plague of Exhaustion
 			'*': {
@@ -1547,10 +1528,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: { type: 'lockon' },
-			10: {
-				type: 'lockonCast',
-				length: 1430
-			}
+			10: { type: 'lockonCast' }
 		},
 		31: { // Guardian Sanctuary
 			0: { fixedAnimSpeed: true }
@@ -1567,10 +1545,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: { type: 'lockon' },
-			10: {
-				type: 'lockonCast',
-				length: [300, 1430]
-			}
+			10: { type: 'lockonCast' }
 		},
 		34: { // Restorative Burst
 			0: true
@@ -1581,10 +1556,7 @@ module.exports = {
 				noRetry: true
 			},
 			0: { type: 'lockon' },
-			10: {
-				type: 'lockonCast',
-				length: 1430
-			}
+			10: { type: 'lockonCast' }
 		},
 		37: { // Healing Immersion
 			'*': {
@@ -1598,7 +1570,6 @@ module.exports = {
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1430,
 				noInterrupt: ['37-10']
 			}
 		},
@@ -1623,10 +1594,7 @@ module.exports = {
 				fixedAnimSpeed: true,
 				partyOnly: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 925
-			}
+			10: { type: 'lockonCast' }
 		},
 		42: { // Holy Burst
 			20: true,
@@ -1656,7 +1624,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true
+				fixedAnimSpeed: true
 			},
 			10: { type: 'lockonCast' }
 		},
@@ -1678,7 +1646,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true
+				fixedAnimSpeed: true
 			},
 			10: { type: 'lockonCast' }
 		},
@@ -1699,22 +1667,16 @@ module.exports = {
 			}
 		},
 		11: { // Summon: Group
-			0: { length: 4445 }
+			0: true
 		},
 		12: { // Vow of Rebirth
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
+				fixedAnimSpeed: true,
 				partyOnly: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1950,
-				race: {
-					4: { length: 939 }
-				}
-			}
+			10: { type: 'lockonCast' }
 		},
 		13: { // Aura of the Merciless
 			0: true,
@@ -1754,11 +1716,7 @@ module.exports = {
 					27080: { chargeSpeed: 0.25 }
 				}
 			},
-			10: {
-				race: {
-					9: { length: 833 }
-				}
-			}
+			10: true
 		},
 		21: { // Retaliate
 			0: {
@@ -1777,11 +1735,7 @@ module.exports = {
 					27100: { chargeSpeed: 0.25 }
 				}
 			},
-			10: {
-				race: {
-					9: { length: 833 }
-				}
-			}
+			10: true
 		},
 		23: { // Metmorphic Smite
 			0: {
@@ -1792,105 +1746,82 @@ module.exports = {
 		},
 		24: { // Volley of Curses
 			'*': {
-				fixedSpeed: true,
+				fixedAnimSpeed: true,
 				noRetry: true
 			},
 			0: { type: 'lockon' },
-			10: {
-				type: 'lockonCast',
-				fixedAnimSpeed: true
-			}
+			10: { type: 'lockonCast' }
 		},
 		25: { // Thrall of Protection
 			'*': {
 				fixedAnimSpeed: true,
-				length: [1000, 1700],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		27: { // Thrall of Life
 			'*': {
 				fixedAnimSpeed: true,
-				length: [229, 438],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		28: { // Sonorous Dreams
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: true
-			},
-			10: {
-				type: 'lockonCast',
+			'*': {
 				fixedAnimSpeed: true,
-				length: 1400
-			}
+				noRetry: true
+			},
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		29: { // Regression
 			0: { fixedAnimSpeed: true }
 		},
 		30: { // Curse of Exhaustion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: true
-			},
-			10: {
-				type: 'lockonCast',
+			'*': {
 				fixedAnimSpeed: true,
-				length: 1400
-			}
+				noRetry: true
+			},
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		31: { // Curse of Confusion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: true
-			},
-			10: {
-				type: 'lockonCast',
+			'*': {
 				fixedAnimSpeed: true,
-				length: 1400
-			}
+				noRetry: true
+			},
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		32: { // Mire
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: true
-			},
-			10: {
-				type: 'lockonCast',
+			'*': {
 				fixedAnimSpeed: true,
-				length: 1400
-			}
+				noRetry: true
+			},
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		33: { // Thrall of Vengeance
 			'*': {
 				fixedAnimSpeed: true,
-				length: [267, 511],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		34: { // Thrall of Wrath
 			'*': {
 				fixedAnimSpeed: true,
-				length: [1000, 1700],
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 1200] }
+			30: true
 		},
 		35: { // Command: Attack
 			0: { fixedAnimSpeed: true }
@@ -1905,7 +1836,7 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true
+				fixedAnimSpeed: true
 			},
 			10: { type: 'lockonCast' }
 		},
@@ -1933,7 +1864,7 @@ module.exports = {
 			50: true
 		},
 		47: { // Arunic Release
-			0: { length: 1060 }
+			0: true
 		},
 		48: { // Thrall Lord
 			0: { fixedSpeed: true }
@@ -2433,7 +2364,6 @@ module.exports = {
 		1: { // Blast
 			'*': {
 				fixedSpeed: true,
-				length: 1195,
 				noInterrupt: [1],
 				projectiles: [20],
 				triggerAbnormal: { 10152011: 3100 }
@@ -2451,13 +2381,9 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: true,
-				length: 59900
+				fixedSpeed: true
 			},
-			1: {
-				type: 'lockonCast',
-				length: 3000
-			}
+			1: { type: 'lockonCast' }
 		},
 		3: { // Scattershot
 			'*': {
@@ -2528,14 +2454,8 @@ module.exports = {
 				noRetry: true
 			},
 			2: { noRetry: true },
-			3: {
-				length: 1195,
-				distance: -198.53
-			},
-			4: {
-				length: 1195,
-				distance: -198.53
-			},
+			3: { distance: -198.53 },
+			4: { distance: -198.53 },
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire
@@ -2562,7 +2482,6 @@ module.exports = {
 		6: { // Time Bomb
 			'*': {
 				fixedSpeed: true,
-				length: 1000,
 				projectiles: [20],
 				triggerAbnormal: {
 					10152010: 3100,
@@ -2577,7 +2496,6 @@ module.exports = {
 			}
 		},
 		7: { // Arcane Barrage
-			'*': { length: 1525 },
 			1: {
 				fixedSpeed: true,
 				noInterrupt: [7],
@@ -2590,7 +2508,7 @@ module.exports = {
 				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
-			3: { length: 1200 }
+			3: true
 		},
 		9: { // Mana Missiles
 			0: {
@@ -2747,7 +2665,6 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				length: 5813,
 				distance: -269.09,
 				noInterrupt: [13],
 				noRetry: true
@@ -2826,10 +2743,7 @@ module.exports = {
 			30: true
 		},
 		18: { // HB
-			'*': {
-				fixedSpeed: true,
-				length: 1430
-			},
+			'*': { fixedSpeed: true },
 			1: true,
 			2: true
 		},
@@ -2889,16 +2803,18 @@ module.exports = {
 			}
 		},
 		40: { // Rolling Reload
-			0: {
+			'*': {
 				fixedSpeed: true,
-				length: 935,
-				distance: 172.5,
 				triggerAbnormal: {
 					10152010: 3100,
 					10152012: 3100
 				},
 				forceClip: true
-			}
+			},
+			1: true,
+			2: true,
+			31: true,
+			32: true
 		}
 	},
 	10: { // Brawler
@@ -2999,10 +2915,9 @@ module.exports = {
 				fixedSpeed: true,
 				noRetry: true
 			},
-			0: { length: 29900 },
+			0: true,
 			1: {
 				type: 'lockonCast',
-				length: [1800, 1433, 1366],
 				setEndpointStage: 1
 			}
 		},
@@ -3012,11 +2927,7 @@ module.exports = {
 			30: true
 		},
 		5: { // Bullrush
-			0: {
-				fixedSpeed: true,
-				length: [2950, 650],
-				distance: [0, 135]
-			}
+			0: { fixedSpeed: true }
 		},
 		6: { // Haymaker
 			'*': { hasChains: true },
@@ -3156,7 +3067,6 @@ module.exports = {
 		2: { // Shadow Jump
 			'*': {
 				fixedSpeed: true,
-				length: 650,
 				forceClip: true,
 				abnormalChains: { 10154010: 30 }
 			},
