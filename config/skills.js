@@ -49,7 +49,10 @@ module.exports = {
 			0: true
 		},
 		8: { // Assault Stance
-			0: { stamina: 1000 },
+			0: {
+				stamina: 1000,
+				abnormals: { 102500: { disableSkill: true } }
+			},
 			50: true
 		},
 		9: { // Defensive Stance
