@@ -630,6 +630,52 @@ module.exports = {
 				}
 			},
 			30: true
+		},
+		26: { // Punishing Blow
+			'*': { hasChains: true },
+			0: {
+				categoryChains: {
+					3023: 30,
+					3024: 30,
+					3027: 30,
+					3099: 30
+				}
+			},
+			30: { consumeAbnormal: 301604 }
+		},
+		27: { // Savage Strike
+			'*': {
+				noInterrupt: ['27-31'],
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: {
+					301600: 4000,
+					301603: 5000
+				},
+				categoryChains: { 9999: 30 }
+			},
+			30: { triggerAbnormal: { 301603: 5000 } },
+			31: {
+				consumeAbnormal: [301600, 301603],
+				triggerAbnormal: { 301601: 4000 }
+			}
+		},
+		28: { // Unsheathe
+			'*': { noRetry: true },
+			0: {
+				type: 'charging',
+				length: [650, 650],
+				chargeLevels: [1, 2, 3],
+				abnormals: {
+					301600: { chargeSpeed: 0.4 },
+					301601: { chargeSpeed: 0.6 }
+				}
+			},
+			1: true,
+			2: true,
+			3: true
 		}
 	},
 	3: { // Berserker
