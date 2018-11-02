@@ -18,7 +18,8 @@
 module.exports = {
 	'*': { // All-class
 		9010100: true, // Racial teleport
-		9020100: { fixedAnimSpeed: true }, // Racial buff
+		9020100: { fixedAnimSpeed: true }, // Racial buff 1
+		9030100: { fixedAnimSpeed: true }, // Racial buff 2
 		9100100: { fixedAnimSpeed: true } // Apex Urgency
 	},
 	0: { // Warrior
