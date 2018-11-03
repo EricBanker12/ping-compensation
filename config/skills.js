@@ -257,7 +257,10 @@ module.exports = {
 			31: { consumeAbnormal: 105100 }
 		},
 		42: { // Blade Frenzy
-			'*': { hasChains: true },
+			'*': {
+				noInterrupt: ['41-0', '41-30', 42],
+				hasChains: true
+			},
 			0: {
 				categoryChains: {
 					1002: 30,
