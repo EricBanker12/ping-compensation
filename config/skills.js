@@ -70,10 +70,7 @@ module.exports = {
 			0: true
 		},
 		13: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		16: { // Charging Slash
 			0: {
@@ -355,10 +352,7 @@ module.exports = {
 			30: true
 		},
 		11: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		12: { // Infuriate
 			0: true
@@ -536,6 +530,9 @@ module.exports = {
 		},
 		9: { // Leaping Strike
 			0: true
+		},
+		10: { // Retaliate
+			0: { noRetry: true }
 		},
 		12: { // Heart Thrust
 			0: {
@@ -806,10 +803,7 @@ module.exports = {
 			0: true
 		},
 		13: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		15: { // Vampiric Blow
 			'*': { noRetry: true },
@@ -1088,6 +1082,9 @@ module.exports = {
 				}
 			}
 		},
+		14: { // Retaliate
+			0: { noRetry: true }
+		},
 		16: { // Painblast
 			0: true
 		},
@@ -1312,6 +1309,9 @@ module.exports = {
 		12: { // Velik's Mark
 			0: true
 		},
+		14: { // Retaliate
+			0: { noRetry: true }
+		},
 		15: { // Incendiary Trap
 			0: true
 		},
@@ -1466,6 +1466,9 @@ module.exports = {
 		},
 		22: { // Kaia's Shield
 			0: true
+		},
+		25: { // Retaliate
+			0: { noRetry: true }
 		},
 		26: { // Fiery Escape
 			0: {
@@ -1723,10 +1726,7 @@ module.exports = {
 			10: true
 		},
 		21: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		22: { // Arun's Tears
 			'*': { noRetry: true },
@@ -2288,6 +2288,9 @@ module.exports = {
 			1: true,
 			31: true
 		},
+		14: { // Retaliate
+			0: { noRetry: true }
+		},
 		15: { // Retribution
 			30: { fixedSpeed: true },
 			81: true
@@ -2801,10 +2804,7 @@ module.exports = {
 			30: { projectiles: [20] }
 		},
 		20: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		40: { // Rolling Reload
 			'*': {
@@ -2975,10 +2975,7 @@ module.exports = {
 			30: true
 		},
 		12: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		13: { // Provoke
 			'*': { fixedSpeed: true },
@@ -3134,10 +3131,7 @@ module.exports = {
 			30: true
 		},
 		10: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		11: { // Focus
 			0: true,
@@ -3396,10 +3390,7 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		18: { // Retaliate
-			0: {
-				type: 'retaliate',
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		19: { // Reclamation
 			'*': { hasChains: true },
