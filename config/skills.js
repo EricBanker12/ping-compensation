@@ -509,6 +509,12 @@ module.exports = {
 				fixedSpeed: true
 			}
 		},
+		6: { // Backstab
+			0: {
+				distance: 0,
+				onlyTarget: true
+			}
+		},
 		8: { // Overhand Strike
 			'*': { hasChains: true },
 			0: {
