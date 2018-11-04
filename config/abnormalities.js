@@ -1,14 +1,21 @@
 module.exports = {
+	/* Warrior */
+	105100: true, // Aerial Scythe
+
 	/* Slayer */
 	//23220: true, // Distant Blade (duration)
 
 	/* Gunner */
 	10152010: true, // Time Bomb (soft chain)
 	10152011: true, // Blast (soft chain)
-	10153093: true, // Rolling Reload, Rocket Jump (garbage)
+	10153093: true, // (Server)
 
 	/* Brawler */
 	10153060: true, // Punch (duration)
+	10153061: true, // (Server)
+	10153062: true, // (Server)
+	10153063: true, // (Server)
+	10153064: true, // (Server)
 	10153001: true, // Punch > Counter 1 (duration)
 	10153002: true, // Punch > Counter 2 (duration)
 	10153003: true, // Punch > Counter 3 (duration)
@@ -24,5 +31,15 @@ module.exports = {
 	10154003: true,
 	10154004: true,
 	10154005: true,
-	10154006: true
+	10154006: true,
+
+	/* Valkyrie */
+	// Slash
+	10155006: true,
+	10155007: true,
+	10155008: true,
+	// Spinning Death
+	10155070: true,
+	10155071: true,
+	10155072: true
 }

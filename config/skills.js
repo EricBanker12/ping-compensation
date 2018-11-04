@@ -16,523 +16,269 @@
 */
 
 module.exports = {
+	'*': { // All-class
+		9010100: true, // Racial teleport
+		9020100: { fixedSpeed: true }, // Racial buff 1
+		9030100: { fixedSpeed: true }, // Racial buff 2
+		9100100: { fixedSpeed: true } // Apex Urgency
+	},
 	0: { // Warrior
 		1: { // Combo Attack
-			0: {
-				length: 566,
-				distance: 47.53,
-				race: {
-					4: { distance: 35.49 },
-					5: { distance: 45 },
-					7: { distance: 60 },
-					8: { distance: 54.32 },
-					9: { distance: 64.29 },
-					10: { distance: 32.81 }
-				}
-			},
-			1: {
-				length: 657,
-				distance: 42.12,
-				race: {
-					4: { distance: 42.96 },
-					5: { distance: 39 },
-					7: { distance: 27 },
-					8: { distance: 21.17 },
-					9: { distance: 51.69 },
-					10: { distance: 49.22 }
-				}
-			},
-			2: {
-				length: 657,
-				distance: 28.08,
-				race: {
-					4: { distance: 31.02 },
-					5: { distance: 26 },
-					7: { distance: 49 },
-					8: { distance: 56.2 },
-					10: { distance: 25.69 }
-				}
-			},
-			3: {
-				length: 909,
-				distance: 75.07,
-				race: {
-					1: { distance: 82.07 },
-					2: { distance: 79.9 },
-					3: { distance: 66.41 },
-					4: { distance: 64.66 },
-					5: { distance: 85 },
-					7: { distance: 58 },
-					8: { distance: 63.53 },
-					9: { distance: 73.34 },
-					10: { distance: 68.69 }
-				}
-			}
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Evasive Roll
 			0: {
-				length: 839,
-				distance: 150,
 				forceClip: true,
 				stamina: 500,
-				instantStamina: true,
-				glyphs: {
-					21015: { stamina: -100 },
-					21067: { stamina: -100 },
-					21101: { stamina: -120 }
-				},
-				race: {
-					0: { distance: 149.94 },
-					7: { length: 837 },
-					8: { length: 1082 },
-					10: { length: 778 }
-				}
+				instantStamina: true
 			}
 		},
 		3: { // Torrent of Blows
-			0: {
-				length: 1600,
-				distance: 75,
-				race: {
-					9: { distance: 68.26 }
-				}
-			}
+			0: true
 		},
 		4: { // Rain of Blows
-			'*': {
-				distance: 150.25,
-				race: {
-					1: { distance: 151.61 },
-					2: { distance: 152.73 },
-					3: { distance: 143.35 },
-					4: { distance: 142.61 },
-					5: { distance: 150.71 },
-					6: { distance: 143.47 },
-					7: { distance: 159 },
-					8: { distance: 148.9 },
-					9: { distance: 151.87 },
-					10: { distance: 96.09 }
-				}
-			},
 			0: {
-				length: 2545,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 34, 36, 37, 39],
-				abnormals: {
-					100801: { skill: 360100 }
-				},
-				chains: {
-					18: 30,
-					21: 30,
-					27: 30,
-					40: 30
-				}
+				noInterrupt: [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 19, 22, 28, 29, 34, 36, 37, 39, 41, 42],
+				categoryChains: { 550: 30 }
 			},
-			30: {
-				length: 2000,
-				abnormals: {
-					100801: { skill: 360130 }
-				}
-			}
+			30: true
 		},
 		5: { // Battle Cry
-			0: {
-				length: 1666,
-				glyphs: {
-					21040: { speed: 1.5 }
-				}
-			}
+			0: true
 		},
 		8: { // Assault Stance
-			'*': {
-				length: 566,
-				race: {
-					3: { length: 657 }
-				}
+			0: {
+				stamina: 1000,
+				abnormals: { 102500: { disableSkill: true } }
 			},
-			0: { stamina: 1000 },
 			50: true
 		},
 		9: { // Defensive Stance
-			'*': {
-				length: 566,
-				race: {
-					3: { length: 657 }
-				}
-			},
 			0: { stamina: 1000 },
 			50: true
 		},
 		10: { // Death From Above
-			0: {
-				length: 2066,
-				race: {
-					1: { length: 2100 },
-					3: { length: 2033 },
-					6: { length: 2033 },
-					9: { length: 2033 }
-				}
-			}
+			0: true
 		},
 		11: { // Poison Blade
-			0: {
-				length: 933,
-				distance: 54.85
-			}
+			0: true
 		},
 		12: { // Leaping Strike
-			0: {
-				length: 1533,
-				distance: 250,
-				glyphs: {
-					21048: { speed: 1.2 },
-					21082: { speed: 1.2 }
-				}
-			}
+			0: true
+		},
+		13: { // Retaliate
+			0: { noRetry: true }
 		},
 		16: { // Charging Slash
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1100,
 				distance: 467.88,
 				noRetry: true
 			},
-			1: {
-				length: 800,
-				distance: 100,
-				race: {
-					5: { distance: 93.53 }
-				}
-			}
+			1: true
 		},
 		17: { // Vortex Slash
-			0: { length: 1600 },
-			1: { length: 1600 },
-			2: { length: 1600 }
+			0: true,
+			1: true,
+			2: true
 		},
 		18: { // Combative Strike
-			'*': {
-				length: 1100,
-				distance: 120.28,
-				noInterrupt: [32],
-				race: {
-					1: { distance: 122.63 },
-					3: { distance: 127.11 },
-					4: { distance: 110.46 },
-					7: { distance: 130 },
-					8: { distance: 128.89 },
-					9: { distance: 138.28 },
-					10: { distance: 94.49 }
-				}
-			},
+			'*': { noInterrupt: [32] },
 			0: true,
 			1: true,
 			2: true
 		},
 		19: { // Rising Fury
-			0: {
-				length: 733,
-				distance: 148.2,
-				race: {
-					1: { distance: 157.28 },
-					2: { distance: 144.85 },
-					3: { distance: 155.3 },
-					4: { distance: 144.85 },
-					5: { distance: 143.27 },
-					6: { distance: 170.43 },
-					7: { distance: 162 },
-					8: { distance: 161.74 },
-					9: { distance: 170.67 },
-					10: { distance: 132.61 }
-				}
-			},
-			1: {
-				length: 1400,
-				distance: 92.66,
-				race: {
-					1: { distance: 88.17 },
-					2: { distance: 100.11 },
-					3: { distance: 92.1 },
-					4: { distance: 100.11 },
-					5: { distance: 101.69 },
-					6: { distance: 117.31 },
-					7: { distance: 85 },
-					8: { distance: 116.63 },
-					9: { distance: 122.34 },
-					10: { distance: 83.01 }
-				}
-			}
+			0: true,
+			1: true
 		},
 		20: { // Deadly Gamble
 			0: {
-				fixedSpeed: 1,
-				length: 320
+				fixedSpeed: true,
+				cooldownEnd: 300
 			}
 		},
 		21: { // Cascade of Stuns
-			0: {
-				length: 1400,
-				distance: 92.66,
-				race: {
-					1: { distance: 88.17 },
-					2: { distance: 100.11 },
-					3: { distance: 92.1 },
-					4: { distance: 100.11 },
-					5: { distance: 101.69 },
-					6: { distance: 117.31 },
-					7: { distance: 85 },
-					8: { distance: 116.63 },
-					9: { distance: 122.34 },
-					10: { distance: 83.01 }
-				}
-			}
+			0: true
 		},
 		24: { // Smoke Aggressor
-			0: {
-				fixedSpeed: 1,
-				length: 481
-			}
+			0: { fixedSpeed: true }
 		},
 		25: { // Command: Attack
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
 		26: { // Command: Follow
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
-		},
-		27: { // Pounce (removed)
-			0: {
-				length: 2000,
-				distance: 180,
-				glyphs: {
-					21048: { speed: 1.3 },
-					21082: { speed: 1.3 }
-				}
-			}
+			0: { fixedSpeed: true }
 		},
 		28: { // Traverse Cut
+			'*': {
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 35, 36, 37, 39, 41, 42],
+				hasChains: true
+			},
 			0: {
-				length: 2000,
-				distance: 160,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 36, 37, 39],
-				chains: {
-					11: 30,
-					18: 30,
-					27: 30,
-					40: 30
-				},
-				level: {
-					9: {
-						abnormals: {
-							100201: { skill: 390100 }
-						}
-					}
+				categoryChains: {
+					1011: 30,
+					1018: 30,
+					1040: 30
 				}
 			},
-			30: {
-				length: 2667,
-				distance: 210,
-				level: {
-					9: {
-						abnormals: {
-							100201: { skill: 390130 }
-						}
-					}
-				}
-			}
+			30: true
 		},
 		29: { // Blade Draw
+			'*': { hasChains: true },
 			0: {
-				length: 3000,
-				distance: 94.5,
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, '16-0', 18, '19-0', 21, 22, 27, 29, 34, 36, 37, 41, 42],
 				interruptibleWithAbnormal: { 102010: 3 },
-				abnormals: {
-					102010: { chain: 30 },
-					100801: { skill: 370100 }
-				},
-				chains: {
-					3: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					28: 30,
-					32: 30,
-					39: 30,
-					40: 30
+				categoryChains: {
+					1032: 30,
+					550: 30
 				}
 			},
-			30: {
-				length: 1333,
-				distance: 135,
-				abnormals: {
-					100801: { skill: 370130 }
-				}
-			}
+			30: true
 		},
 		30: { // Scythe
+			'*': { hasChains: true },
 			0: {
-				length: 1833,
-				distance: 150,
-				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34, 39],
-				abnormals: {
-					100801: { skill: 380100 }
-				},
-				chains: {
-					2: 30,
-					4: 30,
-					11: 30,
-					12: 30,
-					29: 30,
-					36: 30,
-					37: 30,
-					40: 30
+				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34, 39, 41, 42],
+				categoryChains: {
+					1002: 30,
+					1004: 30,
+					1011: 30,
+					1012: 30,
+					1029: 30,
+					1040: 30
 				}
 			},
-			30: {
-				length: 1387,
-				distance: 150,
-				abnormals: {
-					100801: { skill: 380130 }
-				}
-			}
+			30: true
 		},
 		31: { // Reaping Slash
-			'*': { distance: 110 },
-			0: {
-				length: 2292,
-				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 27, 28, 29, 34, 37, 39],
-				chains: {
-					4: 30,
-					18: 30,
-					36: 30,
-					40: 30
-				}
+			'*': {
+				noInterrupt: [1, 2, 3, 8, 9, 10, 11, 12, 13, 16, 17, 19, 21, 22, 27, 28, 29, 34, 35, 37, 39, 41, 42],
+				hasChains: true
 			},
-			30: { length: 1668 }
+			0: { categoryChains: { 550: 30 } },
+			30: true
 		},
 		32: { // Cross Parry
 			0: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				requiredBuff: [100200, 100201],
 				stamina: 50
 			}
 		},
 		34: { // Binding Sword
-			0: { length: 1855 }
+			0: true
 		},
 		35: { // Infuriate
-			0: {
-				length: 2423,
-				requiredBuff: [100200, 100201]
-			}
+			0: { requiredBuff: [100200, 100201] }
 		},
 		36: { // Rain of Blows (Deadly Gamble)
-			'*': {
-				distance: 150.25,
-				race: {
-					1: { distance: 151.61 },
-					2: { distance: 152.73 },
-					3: { distance: 152.73 },
-					4: { distance: 142.61 },
-					5: { distance: 150.71 },
-					6: { distance: 143.47 },
-					7: { distance: 159 },
-					8: { distance: 148.9 },
-					9: { distance: 151.87 },
-					10: { distance: 96.09 }
-				}
-			},
-			0: { length: 2800 },
-			30: { length: 2000 }
+			'*': { hasChains: true },
+			0: { categoryChains: { 550: 30 } },
+			30: true
 		},
 		37: { // Blade Draw (Deadly Gamble)
 			'*': { hasChains: true },
 			0: {
-				length: 3000,
-				distance: 94.5,
-				abnormalChains: { 102010: 30 }
+				categoryChains: {
+					1032: 30,
+					550: 30
+				}
 			},
-			30: {
-				length: 1333,
-				distance: 135
-			}
+			30: true
 		},
 		38: { // Scythe (Deadly Gamble)
-			'*': { distance: 150 },
-			0: { length: 1833 },
-			30: { length: 1387 }
+			'*': { hasChains: true },
+			0: {
+				categoryChains: {
+					1002: 30,
+					1004: 30,
+					1011: 30,
+					1012: 30,
+					1029: 30,
+					1040: 30
+				}
+			},
+			30: true
 		},
 		39: { // Traverse Cut (Defensive Stance)
+			'*': { hasChains: true },
 			0: {
-				length: 2000,
-				distance: 160
+				categoryChains: {
+					1011: 30,
+					1018: 30,
+					1040: 30
+				}
 			},
-			30: {
-				length: 2667,
-				distance: 210
-			}
+			30: true
+		},
+		40: { // Blade Waltz
+			'*': {
+				noInterrupt: ['41-0', '41-30', 42],
+				abnormals: { 104101: { disableSkill: true } },
+				hasChains: true,
+				longRetry: true
+			},
+			10: {
+				triggerAbnormal: { 104101: 800 },
+				categoryChains: { 560: 11 },
+				noRetry: true
+			},
+			11: { triggerAbnormal: { 104101: 800 } },
+			12: true,
+			20: {
+				triggerAbnormal: { 104101: 800 },
+				categoryChains: { 560: 21 },
+				noRetry: true
+			},
+			21: { triggerAbnormal: { 104101: 800 } },
+			22: true
+		},
+		41: { // Aerial Scythe
+			'*': {
+				noInterrupt: [42],
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: { 105100: 1800 },
+				categoryChains: { 560: 30 }
+			},
+			30: { triggerAbnormal: { 105100: 1800 } },
+			31: { consumeAbnormal: 105100 }
+		},
+		42: { // Blade Frenzy
+			'*': {
+				noInterrupt: ['41-0', '41-30', 42],
+				hasChains: true
+			},
+			0: {
+				categoryChains: {
+					1002: 30,
+					1030: 30,
+					2041: 30
+				}
+			},
+			30: true
 		}
 	},
 	1: { // Lancer
 		1: { // Combo Attack
 			'*': { noInterrupt: [1, 2] },
-			0: {
-				length: 624,
-				distance: 78.55,
-				race: {
-					1: { distance: 74.89 },
-					2: { distance: 74.41 },
-					3: { distance: 74.36 },
-					4: { distance: 70 },
-					5: { distance: 69.8 },
-					6: { distance: 76.42 },
-					7: { distance: 74.89 },
-					8: { distance: 72.89 },
-					9: { distance: 74.45 },
-					10: { distance: 74.88 }
-				}
-			},
-			1: {
-				length: 1021,
-				distance: 25,
-				race: {
-					1: { distance: 28.39 },
-					2: { distance: 30.8 },
-					3: { distance: 30.68 },
-					5: { distance: 30.52 },
-					6: { distance: 30.8 },
-					7: { distance: 28.39 },
-					8: { distance: 39.05 },
-					9: { distance: 19.2 },
-					10: { distance: 30.8 }
-				}
-			},
-			2: {
-				length: 1818,
-				distance: 70,
-				race: {
-					1: { distance: 59.53 },
-					3: { distance: 64.36 },
-					4: { distance: 60 },
-					5: { distance: 54.48 },
-					7: { distance: 59.53 },
-					8: { distance: 41.06 },
-					9: { distance: 66.07 },
-					10: { distance: 69.98 }
-				}
-			}
+			0: true,
+			1: true,
+			2: true
 		},
 		2: { // Stand Fast
 			0: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				stamina: 50,
 				level: {
 					1: {
@@ -546,89 +292,73 @@ module.exports = {
 		},
 		3: { // Onslaught
 			'*': {
-				distance: 440,
 				noInterrupt: ['1-0', '1-1', 2, 3, 8, 10, 13, 15, 21, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
-				},
+				}
+			},
+			0: {
 				chains: {
 					1: 30,
 					5: 30,
 					18: 30
-				},
-				race: {
-					0: { distance: 427.1 },
-					9: { distance: 462.7 }
 				}
 			},
-			0: { length: 3636 },
-			30: { length: 2203 }
+			30: true
 		},
 		4: { // Challenging Shout
-			'*': {
-				length: 2203,
-				glyphs: {
-					22056: { speed: 1.25 },
-					22085: { speed: 1.25 }
+			'*': { noInterrupt: [9, 12, 23, 24, 26] },
+			0: {
+				chains: {
+					1: 30,
+					3: 30,
+					5: 30,
+					8: 30,
+					10: 30,
+					13: 30,
+					15: 30,
+					18: 30,
+					21: 30,
+					25: 30,
+					28: 30
 				}
 			},
-			0: true,
 			30: true
 		},
 		5: { // Shield Bash
-			'*': {
-				length: 820,
-				distance: 43.69,
+			1: true,
+			2: {
 				chains: { 10: 30 }
 			},
-			1: true,
-			2: true,
-			30: { length: 683 }
+			30: true
 		},
 		7: { // Guardian Shout
-			0: {
-				length: 550,
-				race: {
-					8: { length: 800 } // Popori
-				}
-			}
+			0: true
 		},
 		8: { // Shield Counter
-			0: {
-				length: 1450,
-				distance: 108.06,
-				onlyDefenceSuccess: true
-			}
+			0: { onlyDefenceSuccess: true }
 		},
 		9: { // Leash
-			0: { length: [725, 850] }
+			0: true
 		},
 		10: { // Debilitate
-			'*': {
-				distance: 43.69,
-				noInterrupt: [2, 3, 5, 10, 13, 21, 25, 26],
+			'*': { noInterrupt: [2, 3, 5, 10, 13, 21, 25, 26] },
+			0: {
 				chains: {
 					1: 30,
 					18: 30
 				}
 			},
-			0: { length: 925 },
-			30: { length: 832 }
+			30: true
 		},
 		11: { // Retaliate
-			0: {
-				type: 'retaliate',
-				length: 1625,
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		12: { // Infuriate
-			0: { length: 2425 }
+			0: true
 		},
 		13: { // Spring Attack
 			0: {
-				length: 2799,
-				distance: 85,
 				noInterrupt: ['1-0', '1-1', 2, 3, 13, 15, 25, 26],
 				chains: {
 					1: 30,
@@ -639,111 +369,60 @@ module.exports = {
 					21: 30
 				}
 			},
-			30: {
-				length: 1850,
-				distance: 85
-			}
+			30: true
 		},
 		15: { // Charging Lunge
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1125,
 				distance: 474.5,
 				noInterrupt: [15]
 			},
-			1: { length: 925 }
+			1: true
 		},
 		16: { // Second Wind
 			0: {
 				noWeapon: true,
-				fixedSpeed: 1,
-				length: 700
+				fixedSpeed: true
 			}
 		},
 		17: { // Adrenaline Rush
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
 		18: { // Shield Barrage
 			0: {
-				length: 598,
-				distance: 100.13,
 				abnormals: {
 					201550: { speed: 1.2 }
-				},
-				race: {
-					2: {
-						length: 503,
-						distance: 102.7
-					},
-					3: { distance: 103.43 },
-					4: { distance: 95 },
-					6: { distance: 110.39 },
-					7: { distance: 116.18 },
-					8: { distance: 92.39 },
-					9: { distance: 122.66 },
-					10: { distance: 92.13 }
 				}
 			},
-			1: {
-				length: 800,
-				distance: 74.84,
-				race: {
-					2: { distance: 80.43 },
-					3: { distance: 70.32 },
-					4: { distance: 87 },
-					8: { distance: 89.46 },
-					9: { distance: 66.04 }
-				}
-			}
+			1: true
 		},
 		19: { // Pledge of Protection
-			0: {
-				fixedSpeed: 1,
-				length: 1000
-			}
-		},
-		20: { // Menacing Wave (removed)
-			0: {
-				fixedSpeed: 1,
-				length: [700, 800]
-			}
+			0: { fixedSpeed: true }
 		},
 		21: { // Lockdown Blow
-			'*': {
-				length: 1400,
-				distance: 122.66,
+			1: true,
+			2: {
 				chains: {
 					10: 30,
 					18: 30
 				}
 			},
-			1: true,
-			2: true,
-			30: { length: 1260 }
+			30: true
 		},
 		22: { // Iron Will
-			0: {
-				fixedSpeed: 1,
-				length: 800
-			}
+			0: { fixedSpeed: true }
 		},
 		23: { // Master's Leash
-			0: {
-				length: [725, 850],
-				requiredBuff: 201000
-			}
+			0: { requiredBuff: 201000 }
 		},
 		24: { // Chained Leash
-			0: { length: [725, 850] }
+			1: true,
+			2: true
 		},
 		25: { // Wallop
 			0: {
-				length: 2375,
-				distance: 100,
 				noInterrupt: [1, 2, 3, 5, 25, 26],
 				chains: {
 					8: 30,
@@ -754,185 +433,92 @@ module.exports = {
 					21: 30
 				}
 			},
-			30: {
-				length: 1900,
-				distance: 100
-			}
+			30: true
 		},
 		26: { // Backstep
 			0: {
-				length: 725,
 				distance: -150,
 				forceClip: true,
 				stamina: 800,
 				instantStamina: true,
-				noInterrupt: [26],
-				glyphs: {
-					22067: { stamina: -100 },
-					22089: { stamina: -100 }
-				}
+				noInterrupt: [26]
 			}
 		},
 		27: { // Rallying Cry
-			0: { length: 620 }
+			0: true
 		},
-		28: { // Righteous Leap
-			'*': {
-				distance: [29.48, 445.52, 0],
-				race: {
-					1: {
-						distance: [20.32, 398.47, 0]
-					},
-					5: {
-						distance: [20.32, 398.47, 0]
-					},
-					6: {
-						distance: [20.32, 398.47, 0]
-					}
-				}
-			},
+		28: { // Super Leap
 			0: {
-				length: [333, 1055, 3122],
 				noInterrupt: [1, 3, 4, 5, 9, 10, 12, 13, 18, 21, 23, 24, 26, 28],
 				chains: {
 					15: 1,
 					25: 1
 				}
 			},
-			1: { length: [250, 791, 834] }
+			1: true
 		},
 		29: { // Guardian's Barrier
 			0: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 700,
 				endType51: true
 			}
 		},
 		30: { // Divine Protection
-			0: { length: 1250 }
+			0: true
 		}
 	},
 	2: { // Slayer
 		1: { // Combo Attack
 			'*': { noRetry: true },
-			0: {
-				length: 761,
-				distance: 36.68,
-				race: {
-					2: { distance: 50.68 },
-					3: { distance: 38.8 },
-					4: { distance: 40 },
-					7: { distance: 60 },
-					8: { distance: 31.53 },
-					10: { distance: 25.08 }
-				}
-			},
-			1: {
-				length: 1021,
-				distance: 35.67,
-				race: {
-					2: {
-						length: 1051,
-						distance: 30.67
-					},
-					3: { distance: 38.84 },
-					4: { distance: 35 },
-					5: { distance: 35.68 },
-					7: { distance: 17 },
-					8: { distance: 49.4 },
-					10: { distance: 32.95 }
-				}
-			},
-			2: {
-				length: 748,
-				distance: 28.05,
-				race: {
-					2: { distance: 33.05 },
-					3: { distance: 24.22 },
-					4: { distance: 20 },
-					6: { distance: 22.3 },
-					7: { distance: 23 },
-					8: { distance: 19.33 },
-					10: { distance: 22.5 }
-				}
-			},
-			3: {
-				length: 1636,
-				distance: 46.76,
-				race: {
-					3: {
-						length: 1545,
-						distance: 45.32
-					},
-					4: { distance: 40 },
-					5: { distance: 64.36 },
-					6: { distance: 118.2 },
-					7: { distance: 45 },
-					8: { distance: 19.85 },
-					10: { distance: 37.5 }
-				}
-			}
-		},
-		2: { // Knockdown Strike
-			'*': {
-				length: 2385,
-				distance: 220.47,
-				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
-				abnormals: {
-					23070: {speed: 1.25}
-				},
-				chains: { 14: 30 }
-			},
 			0: true,
 			1: true,
 			2: true,
-			30: {
-				length: 2400,
-				distance: 300
-			}
+			3: true
+		},
+		2: { // Knockdown Strike
+			'*': {
+				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 16, 17, 24, 25],
+				abnormals: {
+					23070: { speed: 1.25 }
+				}
+			},
+			1: true,
+			2: { chains: { 14: 30 } },
+			30: true
 		},
 		3: { // Whirlwind
 			0: {
-				length: 3125,
-				distance: 128.69,
 				abnormals: {
 					23080: { speed: 1.25 }
 				}
 			}
 		},
 		4: { // Evasive Roll
-			'*': { hasChains: true },
-			0: {
-				length: 900,
-				distance: 150,
-				forceclip: true,
-				abnormalChains: { 40300: 30 },
-				race: {
-					8: { length: 1185 } // Popori
-				}
+			'*': {
+				forceClip: true,
+				hasChains: true
 			},
-			30: {
-				length: 900,
-				distance: 150,
-				forceclip: true
-			}
+			0: { abnormalChains: { 40300: 30 } },
+			30: true
 		},
 		5: { // Dash
 			0: {
 				noWeapon: true,
-				fixedSpeed: 1,
-				length: 700
+				fixedSpeed: true
+			}
+		},
+		6: { // Backstab
+			0: {
+				distance: 0,
+				onlyTarget: true
 			}
 		},
 		8: { // Overhand Strike
+			'*': { hasChains: true },
 			0: {
-				length: 3365,
-				distance: 170,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 8, 10, '14-0', '14-1', 17, 25],
-				abnormals: {
-					300801: { skill: 250100 }
-				},
 				chains: {
 					1: 30,
 					2: 30,
@@ -946,24 +532,16 @@ module.exports = {
 					24: 30
 				}
 			},
-			30: {
-				length: 1325,
-				distance: 169.65,
-				abnormals: {
-					300801: { skill: 250130 }
-				}
-			}
+			30: true
 		},
 		9: { // Leaping Strike
-			0: {
-				length: 2175,
-				distance: 250
-			}
+			0: true
+		},
+		10: { // Retaliate
+			0: { noRetry: true }
 		},
 		12: { // Heart Thrust
 			0: {
-				length: 2315,
-				distance: 230,
 				abnormals: {
 					23060: { speed: 1.25 },
 					23061: { speed: 1.35 }
@@ -971,77 +549,48 @@ module.exports = {
 			}
 		},
 		13: { // Stunning Backhand
-			0: {
-				length: 2125,
-				distance: 76.71
-			}
+			0: true
 		},
 		14: { // Distant Blade
 			'*': {
 				triggerAbnormal: { 23220: 3000 },
 				consumeAbnormalEnd: 23220
 			},
-			0: {
-				length: 600,
-				distance: 75
-			},
-			1: {
-				length: 600,
-				distance: 100.02,
-			},
-			2: {
-				length: 1500,
-				distance: 104.82
-			}
+			0: true,
+			1: true,
+			2: true
 		},
 		15: { // Startling Kick
 			0: {
-				length: 1475,
 				distance: -175,
-				forceClip: true,
-				glyphs: {
-					23060: { speed: 1.25 }
-				}
+				forceClip: true
 			}
 		},
 		16: { // Fury Strike
-			0: {
-				length: 1000,
-				distance: 142.53
-			}
+			0: true
 		},
 		17: { // Headlong Rush
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1000,
 				distance: 413
 			}
 		},
 		18: { // Overpower
-			0: {
-				fixedSpeed: 1,
-				length: 200
-			}
+			'*': { fixedSpeed: true },
+			0: true,
+			50: true
 		},
 		19: { // Tenacity
-			'*': {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
 		20: { // In Cold Blood
-			0: {
-				fixedSpeed: 1,
-				length: 1185
-			}
+			0: { fixedSpeed: true }
 		},
 		23: { // Measured Slice
-			'*': {
-				distance: 190
-			},
+			'*': { hasChains: true },
 			0: {
-				length: 3685,
 				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
 				chains: {
 					8: 30,
@@ -1049,14 +598,11 @@ module.exports = {
 					25: 30
 				}
 			},
-			30: { length: 1670 }
+			30: true
  		},
 		24: { // Eviscerate
-			'*': {
-				distance: 50
-			},
+			'*': { hasChains: true },
 			0: {
-				length: 1900,
 				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24],
 				chains: {
 					1: 30,
@@ -1070,120 +616,105 @@ module.exports = {
 					25: 30
 				}
 			},
-			30: { length: 1500 }
+			30: true
 		},
 		25: { // Ultimate Overhand Strike
-			'*': {
-				distance: 170
+			'*': { hasChains: true },
+			0: {
+				chains: {
+					1: 30,
+					2: 30,
+					3: 30,
+					9: 30,
+					12: 30,
+					13: 30,
+					14: 30,
+					15: 30,
+					16: 30,
+					24: 30
+				}
 			},
-			0: { length: 3365 },
-			30: { length: 1300 }
+			30: true
+		},
+		26: { // Punishing Blow
+			'*': {
+				noInterrupt: [1, 2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 17, 21, 22, 26, 28],
+				hasChains: true
+			},
+			0: {
+				categoryChains: {
+					3023: 30,
+					3024: 30,
+					3027: 30,
+					3099: 30
+				}
+			},
+			30: { consumeAbnormal: 301604 }
+		},
+		27: { // Savage Strike
+			'*': {
+				noInterrupt: ['27-31'],
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: {
+					301600: 4000,
+					301603: 5000
+				},
+				categoryChains: { 9999: 30 }
+			},
+			30: { triggerAbnormal: { 301603: 5000 } },
+			31: {
+				consumeAbnormal: [301600, 301603],
+				triggerAbnormal: { 301601: 4000 }
+			}
+		},
+		28: { // Unsheathe
+			'*': { noRetry: true },
+			0: {
+				type: 'charging',
+				length: [650, 650],
+				chargeLevels: [1, 2, 3],
+				abnormals: {
+					301600: { chargeSpeed: 0.4 },
+					301601: { chargeSpeed: 0.6 }
+				}
+			},
+			1: true,
+			2: true,
+			3: true
 		}
 	},
 	3: { // Berserker
 		1: { // Combo Attack
 			'*': { noRetry: true },
-			0: {
-				length: 1112,
-				distance: 58.1,
-				race: {
-					1: { distance: 61.96 },
-					2: { distance: 54.87 },
-					3: { distance: 63.24 },
-					4: { distance: 27.72 },
-					5: {
-						length: 1082,
-						distance: 62.34
-					},
-					6: { distance: 55.69 },
-					7: { distance: 64.06 },
-					8: { distance: 48.89 },
-					9: { distance: 78.01 },
-					10: { distance: 44.22 }
-				}
-			},
-			1: {
-				length: 930,
-				distance: 23.28,
-				race: {
-					2: { distance: 26.02 },
-					3: { distance: 27.33 },
-					4: { distance: 25 },
-					5: {
-						length: 960,
-						distance: 24.52
-					},
-					6: { distance: 23.27 },
-					7: { distance: 16.05 },
-					8: { distance: 7.06 },
-					9: { distance: 21.05 },
-					10: { distance: 21.08 }
-				}
-			},
-			2: {
-				length: 1112,
-				distance: 22.83,
-				race: {
-					2: { distance: 23.3 },
-					3: { distance: 32.47 },
-					4: { distance: 25 },
-					5: { distance: 17.1 },
-					7: { distance: 42.59 },
-					8: { distance: 40.93 },
-					9: { distance: 31.84 },
-					10: { distance: 20.68 }
-				}
-			},
-			3: {
-				length: 1818,
-				distance: 69.27,
-				race: {
-					1: { distance: 70.41 },
-					2: {
-						length: 1636,
-						distance: 47.29
-					},
-					3: { distance: 55.25 },
-					4: {
-						length: 2000,
-						distance: 45
-					},
-					5: {
-						length: 2000,
-						distance: 61.6
-					},
-					6: { distance: 59.47 },
-					7: { distance: 51.11 },
-					8: { distance: 43.68 },
-					9: { distance: 54.28 },
-					10: { distance: 63.26 }
-				}
-			}
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Axe Block
 			'*': {
 				type: 'holdInfinite',
 				consumeAbnormal: 401701
 			},
-			0: { fixedSpeed: 1 },
+			0: { fixedSpeed: true },
 			30: true,
-			31: { fixedSpeed: 1 }
+			31: { fixedSpeed: true }
 		},
 		3: { // Thunder Strike
 			'*': {
-				length: 1748,
 				abnormals: {
 					24170: { speed: 1.25 }
-				}
+				},
+				noRetry: true
 			},
 			0: {
 				type: 'charging',
 				length: [650, 650, 650],
 				noInterrupt: [2],
 				overcharge: 450,
-				glyphs: {
-					24067: { chargeSpeed: 0.25 }
-				},
 				abnormals: {
 					24130: { chargeSpeed: 0.3 },
 					24170: { speed: 1.25 },
@@ -1196,90 +727,16 @@ module.exports = {
 					{ length: 800 },
 					{ length: [800, 800] },
 					{ length: [800, 800] }
-				],
-				noRetry: true
+				]
 			},
-			10: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			11: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			12: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			13: {
-				distance: 69.7,
-				rearCancelStartTime: 455,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				}
-			}
+			10: { rearCancelStartTime: 455 },
+			11: { rearCancelStartTime: 455 },
+			12: { rearCancelStartTime: 455 },
+			13: { rearCancelStartTime: 455 }
 		},
 		4: { // Flatten
-			'*': {
-				length: 3112,
-				distance: 75,
-				glyphs: {
-					24008: { speed: 1.25 },
-					24050: { speed: 1.25 }
-				},
-				race: {
-					1: { distance: 78 },
-					2: { distance: 70.79 },
-					3: { distance: 90.6 },
-					4: { distance: 80 },
-					5: { distance: 69.01 },
-					7: { distance: 86.6 },
-					8: { distance: 73.34 },
-					9: { distance: 105.68 },
-					10: { distance: 70.23 }
-				}
-			},
 			0: {
 				noInterrupt: ['3-10', '3-11', '3-12', '3-13', 4, '10-10', '10-11', '10-12', 11, '10-13', '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
-				abnormals: {
-					401400: { chain: 1 }
-				},
 				chains: {
 					6: 30,
 					25: 30,
@@ -1287,99 +744,32 @@ module.exports = {
 					32: 30
 				}
 			},
-			1: true,
-			30: {
-				length: 2337,
-				distance: 75,
-				abnormals: {
-					401400: { chain: 31 }
-				},
-				race: {
-					1: { distance: 78 },
-					2: { distance: 70.79 },
-					3: { distance: 90.6 },
-					4: { distance: 80 },
-					5: { distance: 69.01 },
-					7: { distance: 86.6 },
-					8: { distance: 73.34 },
-					9: { distance: 105.68 },
-					10: { distance: 70.23 }
+			1: {
+				chains: {
+					6: 31,
+					25: 31,
+					31: 31,
+					32: 31
 				}
 			},
-			31: {
-				length: 2337,
-				distance: 75,
-				race: {
-					1: { distance: 78 },
-					2: { distance: 70.79 },
-					3: { distance: 90.6 },
-					4: { distance: 80 },
-					5: { distance: 69.01 },
-					7: { distance: 86.6 },
-					8: { distance: 73.34 },
-					9: { distance: 105.68 },
-					10: { distance: 70.23 }
-				}
-			}
+			30: true,
+			31: true
 		},
 		5: { // Dash
 			0: {
 				noWeapon: true,
-				fixedSpeed: 1,
-				length: 700
+				fixedSpeed: true
 			}
 		},
-		6: { // Staggering Strike
-			'*': {
-				length: 1294,
-				distance: 66.21,
-				race: {
-					1: { distance: 79.19 },
-					2: {
-						length: 1385,
-						distance: 82.34
-					},
-					3: { distance: 71.34 },
-					4: { distance: 50.07 },
-					7: { distance: 82.34 },
-					8: { distance: 53.41 },
-					9: {
-						length: 1264,
-						distance: 80.47
-					},
-					10: { distance: 70 }
-				},
-				hasChains: true,
-				noRetry: true
-			},
-			0: {
-				abnormalChains: { 401400: 30 }
-			},
+		6: { // Sweeping Strike
+			'*': { noRetry: true },
+			0: true,
 			30: true
 		},
-		7: { // Mocking Shout (removed)
-			'*': {
-				length: [308, 1079],
-				fixedSpeed: 1
-			},
-			0: true
-		},
 		8: { // Fiery Rage
-			'*': { fixedSpeed: 1 },
-			0: {
-				length: 1415,
-				abnormalChains: { 401400: 30 },
-				race: {
-					7: { length: 1445 }
-				}
-			},
-			1: { length: [455, 597] },
-			30: {
-				length: 1742,
-				race: {
-					7: { length: 1767 }
-				}
-			}
+			0: true,
+			1: true,
+			30: true
 		},
 		10: { // Cyclone
 			0: {
@@ -1387,11 +777,6 @@ module.exports = {
 				length: [650, 650, 650],
 				overcharge: 365,
 				canInstantCharge: true,
-				glyphs: {
-					24009: { chargeSpeed: 0.25 },
-					24052: { chargeSpeed: 0.25 },
-					24096: { chargeSpeed: 0.3 }
-				},
 				abnormals: {
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
@@ -1407,52 +792,27 @@ module.exports = {
 				noRetry: true
 			},
 			10: {
-				length: 1333,
-				distance: 50,
 				rearCancelStartTime: 300,
-				race: {
-					2: { length: 1400 },
-					3: { length: 1800 },
-					6: { length: 1366 }
-				},
 				noRetry: true
 			},
 			11: {
-				length: [366, 366, 1333],
-				distance: [33.33, 33.33, 50],
 				rearCancelStartTime: 300,
 				noRetry: true
 			},
 			12: {
-				length: [366, 366, 366, 366, 1333],
-				distance: [33.33, 33.33, 33.33, 33.33, 50],
 				rearCancelStartTime: 300,
 				noRetry: true
 			},
-			13: {
-				length: [366, 366, 366, 366, 1333],
-				distance: [33.33, 33.33, 33.33, 33.33, 50],
-				rearCancelStartTime: 300
-			}
+			13: { rearCancelStartTime: 300 }
 		},
 		11: { // Leaping Strike
-			0: {
-				length: 2191,
-				distance: 250,
-				race: {
-					8: { length: 2232 }
-				}
-			}
+			0: true
 		},
 		13: { // Retaliate
-			0: {
-				type: 'retaliate',
-				length: 1633,
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		15: { // Vampiric Blow
-			'*': { length: 1933 },
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -1461,95 +821,19 @@ module.exports = {
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 }
-				},
-				noRetry: true
-			},
-			10: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			11: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			12: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			},
-			13: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
 				}
 			},
-			14: {
-				distance: 69.7,
-				race: {
-					1: { distance: 79.03 },
-					3: { distance: 72.79 },
-					4: { distance: 35 },
-					7: { distance: 85.74 },
-					8: { distance: 69.51 },
-					9: { distance: 87.27 },
-					10: { distance: 64.88 }
-				},
-				noRetry: true
-			}
+			10: true,
+			11: true,
+			12: true,
+			13: true,
+			14: true
 		},
 		16: { // Fearsome Shout
-			0: {
-				fixedSpeed: 1,
-				length: [700, 1433]
-			}
+			0: { fixedSpeed: true }
 		},
 		18: { // Lethal Strike
-			'*': {
-				distance: 168.11,
-				race: {
-					1: { distance: 188.37 },
-					3: { distance: 173.19 },
-					4: { distance: 145 },
-					7: { distance: 191.79 },
-					8: { distance: 240.4 },
-					9: { distance: 167.62 },
-					10: { distance: 158.11 }
-				}
-			},
 			0: {
-				length: 687,
 				noInterrupt: [1, 4, 6, 13, 18, 24, 25, 26, 27, 28, 29, 31, 34, 35, 36, 37],
 				chains: {
 					// Correct
@@ -1575,49 +859,19 @@ module.exports = {
 					'15-14': 30
 				}
 			},
-			30: { length: 550 }
+			30: true
 		},
 		19: { // Triumphant Shout
-			'*': {
-				fixedSpeed: 1,
-				length: [500, 700]
-			},
-			0: true
+			0: { fixedSpeed: true }
 		},
 		20: { // Inescapable Doom
-			0: {
-				fixedSpeed: 1,
-				length: [600, 900]
-			}
+			0: { fixedSpeed: true }
 		},
 		21: { // Bloodlust
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
 		24: { // Evasive Smash
-			'*': {
-				length: 1833,
-				distance: 168.11,
-				race: {
-					1: { distance: 188.37 },
-					3: { distance: 173.19 },
-					4: { distance: 145 },
-					7: { distance: 191.79 },
-					8: { distance: 240.4 },
-					9: {
-						length: 1633,
-						distance: 167.62
-					},
-					10: { distance: 158.11 }
-				}
-			},
-			0: {
-				type: 'storeCharge',
-				length: 1000,
-				distance: 150
-			},
+			0: { type: 'storeCharge' },
 			5: { type: 'grantCharge' },
 			10: true,
 			11: true,
@@ -1625,18 +879,8 @@ module.exports = {
 			13: true
 		},
 		25: { // Raze
-			'*': {
-				length: 1200,
-				distance: 96,
-				glyphs: {
-					24078: { speed: 1.25 }
-				}
-			},
 			0: {
 				noInterrupt: [4, 6, '6-30', 11, '18-10', '18-11', '18-12', '18-13', 24, 26, 28, 29, '32-0'],
-				abnormals: {
-					401400: { chain: 1 }
-				},
 				chains: {
 					1: 30,
 					3: 30,
@@ -1650,75 +894,47 @@ module.exports = {
 					32: 30
 				}
 			},
-			1: true,
-			30: {
-				length: 960,
-				abnormals: {
-					401400: { chain: 31 }
+			1: {
+				chains: {
+					1: 31,
+					3: 31,
+					10: 31,
+					'15-10': 31,
+					'15-11': 31,
+					'15-12': 31,
+					'15-13': 31,
+					'15-14': 31,
+					30: 31,
+					32: 31
 				}
 			},
-			31: { length: 960 }
+			30: true,
+			31: true
 		},
 		26: { // Tackle
-			0: {
-				length: 1010,
-				distance: 80
-			}
+			0: true
 		},
 		27: { // Unbreakable
 			0: {
-				length: 2066,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 13, '15-10', '15-11', '15-12', '15-13', '15-14', 18, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33],
-				interruptibleWithAbnormal: { 401705: 33 },
-				abnormalChains: { 401705: 30 },
-				race: {
-					7: { length: 2099 }
-				}
+				interruptibleWithAbnormal: { 401705: 33 }
 			},
-			30: { length: 1455 }
+			30: true
 		},
 		28: { // Intimiation
-			'*': {
-				length: 1566,
-				race: {
-					7: { length: 1599 }
-				}
-			},
 			0: true,
 			50: true
 		},
 		29: { // Evasive Roll
 			0: {
-				length: 909,
-				distance: 150,
-				forceClip: true,
-				noInterrupt: [29]
+				noInterrupt: [29],
+				forceClip: true
 			}
 		},
 		30: { // Axe Counter
 			'*': {
-				length: 655,
-				distance: 23.28,
 				noInterrupt: [1, '3-10', '3-11', '3-12', '3-13', 4, 6, '8-30', '10-10', '10-11', '10-12', '10-13', 11, 12, 13, '15-10', '15-11', '15-12', '15-13', '15-14', '18-10', '18-11', '18-12', '18-13', 24, 25, 26, 27, 28, 29, 30, 31, 32],
-				requiredBuff: 401402,
-				chains: { 2: 30 },
-				race: {
-					2: { distance: 26.02 },
-					3: { distance: 27.33 },
-					4: { distance: 25 },
-					5: {
-						length: 677,
-						distance: 24.52
-					},
-					6: { distance: 23.27 },
-					7: { distance: 16.05 },
-					8: {
-						length: 1189,
-						distance: 240.4
-					},
-					9: { distance: 21.05 },
-					10: { distance: 21.08 }
-				}
+				requiredBuff: 401402
 			},
 			0: true,
 			30: true
@@ -1726,74 +942,22 @@ module.exports = {
 		31: { // Overwhelm
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1115,
 				distance: 467.88
 			},
-			1: {
-				length: 1511,
-				distance: 168.11,
-				race: {
-					1: { distance: 188.37 },
-					3: { distance: 173.19 },
-					4: { distance: 145 },
-					7: { distance: 191.79 },
-					8: { distance: 240.4 },
-					9: {
-						length: 1344,
-						distance: 167.62
-					},
-					10: { distance: 158.11 }
-				}
-			}
+			1: true
 		},
 		32: { // Punishing Strike
-			0: {
-				length: 772,
-				distance: 34.93,
-				race: {
-					2: { distance: 39.03 },
-					3: { distance: 40.99 },
-					4: { distance: 37.5 },
-					5: {
-						length: 797,
-						distance: 36.78
-					},
-					6: { distance: 34.91 },
-					7: { distance: 24.08 },
-					8: {
-						length: 925,
-						distance: 61.39
-					},
-					9: { distance: 31.57 },
-					10: { distance: 31.63 }
-				}
-			},
-			1: {
-				length: 800,
-				distance: 134.49,
-				race: {
-					1: { distance: 150.7 },
-					3: { distance: 138.55 },
-					4: { distance: 116 },
-					7: { distance: 153.43 },
-					8: { distance: 192.32 },
-					9: { distance: 134.1 },
-					10: { distance: 126.49 }
-				}
-			}
+			0: true,
+			1: true
 		},
 		33: { // Unleash
-			0: { length: [700, 1500, 1766] }
+			0: true
 		},
 		34: { // Unleash: Dexter
 			'*': {
-				length: 2266,
-				distance: 25,
 				requiredBuff: 401705,
-				abnormals: {
-					401716: { chain: 31 }
-				},
 				noRetry: true
 			},
 			0: {
@@ -1804,17 +968,12 @@ module.exports = {
 					37: 30
 				}
 			},
-			30: { length: 1666 },
-			31: { length: 1666 }
+			30: true,
+			31: true
 		},
 		35: { // Unleash: Sinister
 			'*': {
-				length: 1966,
-				distance: 180,
 				requiredBuff: 401705,
-				abnormals: {
-					401717: { chain: 31 }
-				},
 				noRetry: true
 			},
 			0: {
@@ -1825,28 +984,18 @@ module.exports = {
 				}
 			},
 			1: true,
-			30: {
-				length: 1474,
-				distance: 25
-			},
-			31: {
-				length: 1474,
-				distance: 25
-			}
+			30: true,
+			31: true
 		},
 		36: { // Unleash: Rampage
 			'*': {
-				length: 1589,
-				distance: 35,
 				requiredBuff: 401705,
 				abnormals: {
-					401708: { speed: 1.2 },
-					401718: { chain: 31 }
+					401708: { speed: 1.2 }
 				},
 				noRetry: true
 			},
 			0: {
-				length: 2714,
 				noInterrupt: [37],
 				chains: {
 					34: 30,
@@ -1859,15 +1008,8 @@ module.exports = {
 		},
 		37: { // Unleash: Beast Fury
 			'*': {
-				length: [611, 694, 722, 396, 1094],
-				distance: [114.55, 131.66, 137.36, 8.55, 114.74],
 				noInterrupt: [37],
-				requiredBuff: 401705,
-				race: {
-					2: { distance: [120, 137.14, 142.86, 8.55, 114.74] },
-					3: { distance: [120, 137.14, 142.86, 8.55, 114.74] },
-					9: { distance: [120, 137.14, 142.86, 8.55, 114.74] }
-				}
+				requiredBuff: 401705
 			},
 			0: {
 				chains: {
@@ -1882,34 +1024,20 @@ module.exports = {
 	},
 	4: { // Sorcerer
 		1: { // Fireball
-			0: { length: 725 }
+			0: true
 		},
 		2: { // Frost Sphere
-			0: {
-				length: 800,
-				race: {
-					4: { length: 1250 }, // Male Aman
-					9: { length: 1000 }, // Elin
-					10: { length: 900 } // Baraka
-				}
-			}
+			0: true
 		},
 		3: { // Lightning Trap
 			0: {
-				length: 1300,
 				abnormals: {
 					25090: { speed: 1.4 }
 				}
 			}
 		},
 		4: { // Arcane Pulse
-			'*': {
-				length: 1293,
-				race: {
-					9: { length: 991 }
-				},
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 800],
@@ -1917,109 +1045,66 @@ module.exports = {
 					25140: { chargeSpeed: 0.3 }
 				}
 			},
-			10: {
-				abnormals: {
-					500150: { skill: 330110 },
-					501650: { skill: 330150 }
-				}
-			},
-			11: {
-				abnormals: {
-					500150: { skill: 330111 },
-					501650: { skill: 330150 }
-				}
-			},
-			12: {
-				abnormals: {
-					500150: { skill: 330112 },
-					501650: { skill: 330150 }
-				}
-			}
+			10: true,
+			11: true,
+			12: true
 		},
 		5: { // Mana Infusion
-			0: { length: 4600 }
+			0: true
 		},
 		6: { // Meteor Strike
 			0: {
-				length: 3925,
-				glyphs: {
-					25003: { speed: 1.17 },
-					25069: { speed: 1.25 }
-				},
 				abnormals: {
-					25100: { speed: 1.25 },
-					500150: { skill: 320100 },
-					501650: { skill: 320150 }
-				},
-				race: {
-					9: { length: 3700 } // Elin
+					25100: { speed: 1.25 }
 				}
 			}
 		},
 		7: { // Backstep
 			0: {
-				length: 650,
 				distance: -200,
 				forceClip: true
 			}
 		},
 		8: { // Flame Pillar
 			0: {
-				length: 1200,
 				abnormals: {
 					25070: { speed: 1.25 }
 				}
 			}
 		},
 		10: { // Mana Barrier
-			0: { length: 625 }
+			0: true
 		},
 		11: { // Lightning Strike
-			0: {
-				length: 840,
-				checkReset: true,
-				race: {
-					9: { length: 800 } // Elin
-				}
-			}
+			0: { checkReset: true }
 		},
 		12: { // Void Pulse
-			0: { length: 925 }
+			0: true
 		},
 		13: { // Mindblast
 			0: {
-				length: 2325,
-				glyphs: {
-					25048: { speed: 1.3 }
-				},
 				abnormals: {
 					25110: { speed: 1.4 }
 				}
 			}
 		},
+		14: { // Retaliate
+			0: { noRetry: true }
+		},
 		16: { // Painblast
-			0: {
-				length: 1580,
-				race: {
-					9: { length: 1330 } // Elin
-				}
-			}
+			0: true
 		},
 		17: { // Painful Trap
-			0: { length: 1100 }
+			0: true
 		},
 		18: { // Glacial Retreat
 			0: {
-				length: 1100,
 				distance: -187.5,
 				forceClip: true
 			}
 		},
 		19: { // Mana Siphon
-			'*': {
-				length: 900,
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [1005, 1005],
@@ -2033,16 +1118,10 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				length: 1500,
-				glyphs: {
-					25001: { speed: 1.3 },
-					25096: { speed: 1.4 }
-				},
 				abnormals: {
 					25060: { speed: 1.25 }
 				}
@@ -2052,58 +1131,49 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: [300, 1200]
+				fixedSpeed: true
 			}
 		},
 		22: { // Burning Breath
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: [300, 1200]
+				fixedSpeed: true
 			}
 		},
 		23: { // Mana Volley
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: [325, 875]
+				fixedSpeed: true
 			}
 		},
 		25: { // Time Gyre
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 700
+				fixedSpeed: true
 			}
 		},
 		26: { // Teleport Jaunt
 			0: {
 				type: 'teleport',
-				length: [200, 260],
 				distance: [0, 333],
 				noInterrupt: [26],
 				teleportStage: 1,
@@ -2111,75 +1181,56 @@ module.exports = {
 			}
 		},
 		27: { // Hailstorm
-			0: { length: 950 }
+			0: true
 		},
 		30: { // Nova
-			0: {
-				length: 2850,
-				glyphs: {
-					25092: { speed: 1.3 }
-				}
-			}
+			0: true
 		},
 		31: { // Warp Barrier
-			'*': { length: 475 },
-			0: true,
 			10: true,
 			20: true
 		},
-		32: { // Meteor Shower
-			'*': {
-				length: 6775,
-				glyphs: {
-					25003: { speed: 1.17 },
-					25069: { speed: 1.25 }
-				},
-				noRetry: true,
-				race: {
-					9: { length: 6475 } // Elin
-				}
-			},
+		32: { // Meteor Strike (Mana Boost)
+			'*': { noRetry: true },
 			0: true,
-			50: { length: 3700 }
+			50: true
 		},
 		33: { // Arcane Pulse (Mana Boost)
-			'*': {
-				length: 1275,
-				noRetry: true,
-				race: {
-					9: { length: 1015 } // Elin
-				}
-			},
+			'*': { noRetry: true },
 			10: true,
 			11: true,
 			12: true,
 			50: true
 		},
 		34: { // Mana Boost
-			0: { length: 750 }
+			0: true
+		},
+		36: { // Fusion
+			0: true,
+			//20: true, // TODO: Needs S_SKILL_CATEGORY implementation (always disabled - non-critical)
+			30: true
+		},
+		39: { // Implosion
+			0: {
+				requiredBuff: 502052,
+				distance: [0, 0, -219.55]
+			}
 		}
 	},
 	5: { // Archer
 		1: { // Arrow
-			0: { length: 400 }
+			0: true
 		},
 		2: { // Arrow Volley
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1225
-			}
+			10: { type: 'lockonCast' }
 		},
 		3: { // Radiant Arrow
-			'*': {
-				length: 1750,
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [600, 600, 600],
@@ -2188,16 +1239,13 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				}
 			},
-			10: { distance: -100 }, // Cast F. - TODO
+			10: { distance: -100 },
 			11: { distance: -100 },
 			12: { distance: -100 },
 			13: { distance: -100 }
 		},
 		4: { // Penetrating Arrow
-			'*': {
-				length: 1300,
-				noRetry: true
-			},
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 800, 800],
@@ -2209,17 +1257,13 @@ module.exports = {
 					601450: { chargeSpeed: 0.5 }
 				}
 			},
-			10: { distance: -50 }, // Cast F. - TODO
+			10: { distance: -50 },
 			11: { distance: -50 },
 			12: { distance: -50 },
 			13: { distance: -50 }
 		},
 		5: { // Rain of Arrows
 			0: {
-				length: 3150,
-				glyphs: {
-					26077: { speed: 1.4 }
-				},
 				abnormals: {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
@@ -2236,138 +1280,88 @@ module.exports = {
 		},
 		6: { // Backstep
 			0: {
-				length: 650,
 				distance: -200,
 				forceClip: true
 			}
 		},
 		7: { // Feign Death
-			0: {
-				length: [2950, 54525, 1675],
-				distance: [-114.05, 0, 0]
-			}
+			0: { distance: [-114.05, 0, 0] }
 		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
-			0: {
-				length: 425,
-				noInterrupt: [6]
+			0: { noInterrupt: [6] },
+			1: {
+				level: {
+					5: { noInterrupt: [6] }
+				}
 			},
-			1: { length: 600 },
-			2: { length: 700 },
-			3: { length: 700 },
-			4: { length: 700 },
-			5: { length: 700 },
-			6: { length: 1235 }
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true,
+			11: true,
+			12: true,
+			13: true,
+			14: true
 		},
 		9: { // Slow Trap
-			0: { length: 1150 }
+			0: true
 		},
 		10: { // Stunning Trap
-			0: { length: 1150 }
+			0: true
 		},
 		12: { // Velik's Mark
-			0: { length: 200 }
+			0: true
+		},
+		14: { // Retaliate
+			0: { noRetry: true }
 		},
 		15: { // Incendiary Trap
-			0: { length: 1150 }
+			0: true
 		},
 		16: { // Breakaway Bolt
 			0: {
-				length: 1325,
 				distance: -250,
 				forceClip: true
 			}
 		},
 		17: { // Web Arrow
-			0: { length: 525 }
+			0: true
 		},
 		18: { // Close Quarters
-			0: {
-				length: 300,
-				distance: 64.46,
-				race: {
-					1: {
-						length: 333,
-						distance: 48.1
-					},
-					2: { distance: 57.88 },
-					3: { distance: 63.42 },
-					4: { length: 333 },
-					6: { distance: 60.95 },
-					7: {
-						length: 333,
-						distance: 48
-					},
-					8: {
-						length: 333,
-						distance: 89.8
-					},
-					9: { distance: 54.68 },
-					10: {
-						length: 333,
-						distance: 54.46
-					}
-				}
-			},
-			1: {
-				length: 1200,
-				distance: 73.69,
-				race: {
-					1: { distance: 87.29 },
-					2: { distance: 79.11 },
-					3: { distance: 54.45 },
-					4: { distance: 66.18 },
-					5: { distance: 26.65 },
-					6: { distance: 77.2 },
-					7: { distance: 66 },
-					8: { distance: 48.35 },
-					9: { distance: 56.9 },
-					10: { distance: 83.69 }
-				}
-			}
+			0: true,
+			1: true
 		},
 		19: { // Poison Arrow
-			0: { length: 1125 }
+			0: true
 		},
 		20: { // Restraining Arrow
-			0: { length: 525 }
+			0: true
 		},
 		22: { // Sequential Fire
 			0: {
-				length: 425,
 				requiredBuff: 600200,
 				noRetry: true
 			}
 		},
 		25: { // Incendiary Trap Arrow
-			0: { length: 1200 }
+			0: true
 		},
 		29: { // Thunderbolt
-			0: {
-				length: 3750,
-				glyphs: {
-					26089: { speed: 1.3 },
-					26102: { speed: 1.3 }
-				}
-			}
+			0: { distance: -100 }
 		},
 		31: { // Tenacity
-			0: {
-				fixedSpeed: 1,
-				length: [500, 700]
-			}
+			0: { fixedSpeed: true }
 		},
 		32: { // Find Weakness
-			0: {
-				fixedSpeed: 1,
-				length: 200
-			}
+			0: true
 		},
 		33: { // Chase
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 1000,
 				distance: 413
 			}
@@ -2375,14 +1369,13 @@ module.exports = {
 	},
 	6: { // Priest
 		1: { // Divine Radiance
-			0: { length: 619 },
-			1: { length: 650 },
-			2: { length: 684 },
-			3: { length: 722 }
+			0: true,
+			1: true,
+			2: true,
+			3: true
 		},
 		2: { // Regeneration Circle
 			0: {
-				length: 2149,
 				abnormals: {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
@@ -2394,55 +1387,38 @@ module.exports = {
 					921: { speed: 1.225 },
 					922: { speed: 1.225 },
 					999010000: { speed: 1.15 }
-				},
-				race: {
-					10: { length: 2774 }
 				}
 			}
 		},
 		3: { // Healing Circle
 			0: {
-				length: 1763,
 				chains: {
 					19: 30,
 					26: 30,
 					38: 30
 				}
 			},
-			30: { length: 1477 }
+			30: true
 		},
 		5: { // Blessing of Shakan
-			0: { length: 1294 }
+			0: true
 		},
 		6: { // Arise
-			0: { length: 839 }
+			0: true
 		},
 		8: { // Mana Infusion
-			0: {
-				length: 4595,
-				glyphs: {
-					28044: { speed: 1.25 }
-				},
-				race: {
-					0: { length: 4625 }
-				}
-			}
+			0: true
 		},
 		10: { // Purifying Circle
-			0: { length: 1294 }
+			0: true
 		},
 		11: { // Metamorphic Blast
-			'*': { length: 839 },
 			0: true,
 			1: true,
 			2: true
 		},
 		12: { // Resurrect
 			0: {
-				length: 5900,
-				glyphs: {
-					28045: { speed: 1.3 }
-				},
 				abnormals: {
 					902: { speed: 1.15 },
 					911: { speed: 1.15 },
@@ -2457,16 +1433,10 @@ module.exports = {
 				}
 			}
 		},
-		14: { // Summon: Party
-			0: {
-				length: 4505,
-				race: {
-					0: { length: 4535 }
-				}
-			}
+		14: { // Summon: Group
+			0: true
 		},
 		16: { // Shocking Implosion
-			'*': { length: 1718 },
 			0: {
 				chains: {
 					11: 30,
@@ -2479,63 +1449,41 @@ module.exports = {
 					27: 11
 				}
 			},
-			11: { length: 1438 },
+			11: true,
 			20: {
 				chains: {
 					11: 21,
 					27: 21
 				}
 			},
-			21: { length: 1438 },
-			30: { length: 1438 }
-		},
-		17: { // Prayer of Peace
-			0: {
-				length: [925, 925, 850],
-				glyphs: {
-					28021: { speed: 2 }
-				}
-			}
+			21: true,
+			30: true
 		},
 		18: { // Heal Thyself
-			0: {
-				noWeapon: true,
-				length: 1266
-			}
+			0: { noWeapon: true }
 		},
 		19: { // Focus Heal
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 54440
+				fixedSpeed: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1950
-			}
+			10: { type: 'lockonCast' }
 		},
 		22: { // Kaia's Shield
-			0: { length: 667 }
+			0: true
 		},
-		23: { // Blessing of Balder
-			0: { length: 1300 }
+		25: { // Retaliate
+			0: { noRetry: true }
 		},
 		26: { // Fiery Escape
 			0: {
-				length: 1125,
 				distance: -250.5,
 				forceClip: true
 			}
 		},
 		27: { // Final Reprisal
-			'*': {
-				length: 2933,
-				noInterrupt: [27],
-				race: {
-					9: { length: 3333 }
-				}
-			},
+			'*': { noInterrupt: [27] },
 			0: {
 				chains: {
 					11: 30,
@@ -2552,12 +1500,7 @@ module.exports = {
 					40: 11
 				}
 			},
-			11: {
-				length: 1113,
-				race: {
-					9: { length: 1273 }
-				}
-			},
+			11: true,
 			20: {
 				chains: {
 					11: 21,
@@ -2566,37 +1509,18 @@ module.exports = {
 					40: 21
 				}
 			},
-			21: {
-				length: 1113,
-				race: {
-					9: { length: 1273 }
-				}
-			},
-			30: {
-				length: 1113,
-				race: {
-					9: { length: 1273 }
-				}
-			}
+			21: true,
+			30: true
 		},
-		28: { // Mana Charge / Words of Vitality
-			'*': {
-				length: 827,
-				noRetry: true,
-				level: {
-					1: { length: 700 }
-				}
-			},
+		28: { // Mana Charge / Divine Charge
+			'*': { noRetry: true },
 			0: {
 				type: 'charging',
 				length: [800, 1600],
 				autoRelease: 0,
-				glyphs: {
-					28031: { chargeSpeed: 0.25 }
-				},
 				level: {
 					1: {
-						length: [833, 833, 833], // TODO: DC says 900, 900, 900
+						length: [900, 900, 900],
 						autoRelease: 3200
 					}
 				}
@@ -2607,123 +1531,95 @@ module.exports = {
 			13: true
 		},
 		29: { // Triple Nemesis
-			0: { length: 800 },
-			1: { length: 800 },
-			2: { length: 1250 }
+			0: true,
+			1: true,
+			2: true
 		},
 		30: { // Plague of Exhaustion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 1430
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		31: { // Guardian Sanctuary
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
-		32: { // Divine Respite
+		32: { // Divine Prayer
 			0: {
 				noWeapon: true,
-				fixedSpeed: 1,
-				length: [1300, 900]
+				fixedSpeed: true
 			}
 		},
 		33: { // Ishara's Lulliby
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: [300, 1430]
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		34: { // Restorative Burst
-			0: { length: 1433 }
+			0: true
 		},
 		35: { // Energy Stars
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 1430
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		37: { // Healing Immersion
-			'*': { noRetry: true },
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
+			},
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900,
 				noInterrupt: [37],
 				partyOnly: true
 			},
 			10: {
 				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 1430,
 				noInterrupt: ['37-10']
 			}
 		},
 		38: { // Backstep
 			0: {
-				length: 650,
 				distance: -200,
 				forceClip: true
 			}
 		},
 		39: { // Grace of Resurrection
-			0: { length: 5904 }
+			0: true
 		},
 		40: { // Zenobia's Vortex
-			'*': { length: 1071 },
 			0: true,
 			10: true,
 			20: true
 		},
-		41: { // Divine Intervention / Divine Vitality
+		41: { // Divine Intervention / Mass Divine Intervention
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 54445,
+				fixedSpeed: true,
 				partyOnly: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 925
-			}
+			10: { type: 'lockonCast' }
 		},
 		42: { // Holy Burst
-			'*': { length: 800 },
 			20: true,
 			30: true
 		},
-		43: { // Words of Judgement
-			0: { length: 1417 },
-			50: { length: 200 }
+		43: { // Edict of Judgement
+			0: true,
+			50: true
 		}
 	},
 	7: { // Mystic
 		1: { // Sharan Bolt
-			'*': { length: 689 },
 			0: true,
 			1: true,
 			2: true,
@@ -2732,38 +1628,24 @@ module.exports = {
 		2: { // Corruption Ring
 			0: {
 				type: 'hold',
-				length: 10869,
 				chainOnRelease: 11
 			},
-			11: { length: 839 },
-			12: {
-				length: 1294,
-				race: {
-					1: { length: 1224 }
-				}
-			}
-		},
-		4: { // Ancient Binding (removed)
-			0: { length: 1294 }
+			11: true,
+			12: true
 		},
 		5: { // Titanic Favor
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 59900
+				fixedSpeed: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1950
-			}
+			10: { type: 'lockonCast' }
 		},
 		6: { // Shara's Lash
-			0: { length: 1294 }
+			0: true
 		},
 		8: { // Metamorphic Blast
 			0: {
-				length: 839,
 				noInterrupt: [1, 2, 6, 17],
 				checkReset: true,
 				chains: {
@@ -2771,27 +1653,18 @@ module.exports = {
 					23: 30
 				}
 			},
-			30: { length: 839 }
+			30: true
 		},
 		9: { // Arun's Cleansing
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 59900
+				fixedSpeed: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 800
-			}
+			10: { type: 'lockonCast' }
 		},
 		10: { // Resurrect
 			0: {
-				length: 8066,
-				glyphs: {
-					27049: { speed: 1.2 },
-					27079: { speed: 1.2 }
-				},
 				abnormals: {
 					902: { speed: 1.25 },
 					911: { speed: 1.25 },
@@ -2806,49 +1679,37 @@ module.exports = {
 				}
 			}
 		},
-		11: { // Summon: Party
-			0: { length: 4445 }
+		11: { // Summon: Group
+			0: true
 		},
 		12: { // Vow of Rebirth
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 59900,
+				fixedSpeed: true,
 				partyOnly: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1950,
-				race: {
-					4: { length: 939 }
-				}
-			}
+			10: { type: 'lockonCast' }
 		},
 		13: { // Aura of the Merciless
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		14: { // Aura of the Swift
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		15: { // Aura of the Unyielding
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		16: { // Aura of the Tenacious
-			'*': { length: 1294 },
 			0: true,
 			50: true
 		},
 		17: { // Teleport Jaunt
 			0: {
 				type: 'teleport',
-				length: [222, 255],
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
@@ -2868,19 +1729,10 @@ module.exports = {
 					27080: { chargeSpeed: 0.25 }
 				}
 			},
-			10: {
-				length: 800,
-				race: {
-					9: { length: 833 }
-				}
-			}
+			10: true
 		},
 		21: { // Retaliate
-			0: {
-				type: 'retaliate',
-				length: 1633,
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		22: { // Arun's Tears
 			'*': { noRetry: true },
@@ -2893,171 +1745,123 @@ module.exports = {
 					27100: { chargeSpeed: 0.25 }
 				}
 			},
-			10: {
-				length: 800,
-				race: {
-					9: { length: 833 }
-				}
-			}
+			10: true
 		},
 		23: { // Metmorphic Smite
 			0: {
-				length: 1440,
 				noInterrupt: [1, 2, 6, 17, 23],
 				chains: { 8: 30 }
 			},
-			30: { length: 1108 }
+			30: true
 		},
 		24: { // Volley of Curses
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: [533, 667]
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		25: { // Thrall of Protection
 			'*': {
-				fixedSpeed: 1,
-				length: [1000, 1700],
+				fixedSpeed: true,
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		27: { // Thrall of Life
 			'*': {
-				fixedSpeed: 1,
-				length: [229, 438],
+				fixedSpeed: true,
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		28: { // Sonorous Dreams
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 1400
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		29: { // Regression
-			fixedSpeed: 1,
-			length: [500, 700]
+			0: { fixedSpeed: true }
 		},
 		30: { // Curse of Exhaustion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 1400
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		31: { // Curse of Confusion
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 1400
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		32: { // Mire
-			'*': { noRetry: true },
-			0: {
-				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+			'*': {
+				fixedSpeed: true,
+				noRetry: true
 			},
-			10: {
-				type: 'lockonCast',
-				fixedSpeed: 1,
-				length: 1400
-			}
+			0: { type: 'lockon' },
+			10: { type: 'lockonCast' }
 		},
 		33: { // Thrall of Vengeance
 			'*': {
-				fixedSpeed: 1,
-				length: [267, 511],
+				fixedSpeed: true,
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 700] }
+			30: true
 		},
 		34: { // Thrall of Wrath
 			'*': {
-				fixedSpeed: 1,
-				length: [1000, 1700],
+				fixedSpeed: true,
 				cooldownEnd: 300
 			},
 			0: true,
 			10: true,
-			30: { length: [500, 1200] }
+			30: true
 		},
 		35: { // Command: Attack
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
 		36: { // Command: Follow
-			0: {
-				fixedSpeed: 1,
-				length: 700
-			}
+			0: { fixedSpeed: true }
 		},
 		37: { // Warding Totem
-			0: { length: 1900 }
+			0: true
 		},
 		41: { // Contagion
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 4900
+				fixedSpeed: true
 			},
-			10: {
-				type: 'lockonCast',
-				length: 1020
-			}
+			10: { type: 'lockonCast' }
 		},
 		42: { // Boomerang Pulse
 			0: {
-				length: 545,
 				noInterrupt: [42],
 				cooldownEnd: 300
 			}
 		},
 		43: { // Unsummon Thrall
-			0: { length: 575 }
+			0: true
 		},
 		44: { // Mass Teleport
 			0: {
 				type: 'teleport',
-				length: [222, 255],
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
@@ -3066,26 +1870,20 @@ module.exports = {
 			}
 		},
 		45: { // Thrall Augmentation
-			'*': { length: 91 },
 			0: true,
 			50: true
 		},
 		47: { // Arunic Release
-			0: { length: 1060 }
+			0: true
 		},
 		48: { // Thrall Lord
-			0: {
-				fixedSpeed: 1,
-				length: 4050
-			}
+			0: { fixedSpeed: true }
 		}
 	},
 	8: { // Reaper
 		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10151023, 10151040, 10151041, 10151042] },
 		1: { // Spiral Barrage
 			'*': {
-				length: 1000,
-				distance: 48,
 				inPlace: {
 					movement: [{
 						duration: 766,
@@ -3103,20 +1901,12 @@ module.exports = {
 				},
 				noInterrupt: [3, 4, 12, 20],
 				triggerAbnormal: { 10151020: 2000 },
-				abnormals: {
-					10151020: { chain: 2 },
-					10151021: { chain: 3 },
-					10151022: { chain: 4 },
-					10151023: { chain: 5 }
-				},
 				chains: { 1: 1 },
 				noRetry: true
 			},
 			0: true,
 			1: true,
 			2: {
-				length: 1200,
-				distance: 42,
 				inPlace: {
 					movement: [{
 						duration: 950,
@@ -3135,8 +1925,6 @@ module.exports = {
 				triggerAbnormal: { 10151021: 2000 }
 			},
 			3: {
-				length: 860,
-				distance: 56,
 				inPlace: {
 					movement: [{
 						duration: 616,
@@ -3155,8 +1943,6 @@ module.exports = {
 				triggerAbnormal: { 10151022: 1800 }
 			},
 			4: {
-				length: 1400,
-				distance: 60,
 				inPlace: {
 					movement: [{
 						duration: 1150,
@@ -3175,8 +1961,6 @@ module.exports = {
 				triggerAbnormal: { 10151023: 2000 }
 			},
 			5: {
-				length: 1900,
-				distance: 91,
 				inPlace: {
 					movement: [{
 						duration: 2016,
@@ -3190,11 +1974,21 @@ module.exports = {
 		},
 		3: { // Double Shear
 			'*': {
-				length: 2025,
 				noInterrupt: ['1-0', '1-2', 3, 4, 12, 20],
+				inPlace: {
+					movement: [{
+						duration: 2140,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				},
 				abnormals: {
 					29030: { speed: 1.25 }
-				},
+				}
+			},
+			0: {
 				chains: {
 					1: 30,
 					5: 30,
@@ -3205,12 +1999,26 @@ module.exports = {
 					11: 30
 				}
 			},
-			0: true,
-			30: true
+			30: true,
+			40: {
+				chains: {
+					1: 41,
+					5: 41,
+					6: 41,
+					8: 41,
+					9: 41,
+					10: 41,
+					11: 41
+				}
+			},
+			41: true
 		},
 		4: { // Sundering Strike
 			'*': {
-				noInterrupt: [1, 4, 8, 9, 10, 11, 12, 20],
+				noInterrupt: [1, 4, 8, 9, 10, 11, '12-0', '12-1', 20],
+				noRetry: true
+			},
+			0: {
 				chains: {
 					1: null,
 					3: null,
@@ -3223,11 +2031,6 @@ module.exports = {
 					11: null,
 					12: null
 				},
-				noRetry: true
-			},
-			0: {
-				length: [1175, 1750, 1025],
-				distance: [0, 100, 0],
 				inPlace: {
 					movement: [
 						[],
@@ -3243,8 +2046,75 @@ module.exports = {
 				}
 			},
 			30: {
-				length: [1750, 1025],
-				distance: [100, 0],
+				inPlace: {
+					movement: [
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0]
+				}
+			},
+			31: {
+				inPlace: {
+					movement: [
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0]
+				}
+			},
+			40: {
+				chains: {
+					1: null,
+					3: null,
+					4: null,
+					5: null,
+					6: null,
+					8: null,
+					9: null,
+					10: null,
+					11: null,
+					12: null
+				},
+				inPlace: {
+					movement: [
+						[],
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0, 0]
+				}
+			},
+			60: {
+				inPlace: {
+					movement: [
+						[{
+							duration: 1757,
+							speed: 1,
+							unk: 1,
+							distance: 0
+						}],
+						[]
+					],
+					distance: [0, 0]
+				}
+			},
+			61: {
 				inPlace: {
 					movement: [
 						[{
@@ -3261,7 +2131,6 @@ module.exports = {
 		},
 		5: { // Grim Strike
 			'*': {
-				distance: [120, 0],
 				inPlace: {
 					movement: [
 						[{
@@ -3281,7 +2150,6 @@ module.exports = {
 				}
 			},
 			0: {
-				length: [2400, 975],
 				noInterrupt: ['1-0', '1-2', 4, 12, 20],
 				chains: {
 					1: 30,
@@ -3294,14 +2162,24 @@ module.exports = {
 					11: 30
 				}
 			},
-			30: { length: [1450, 975] }
+			30: true,
+			31: {
+				chains: {
+					1: 32,
+					3: 32,
+					5: 32,
+					6: 32,
+					8: 32,
+					9: 32,
+					10: 32,
+					11: 32
+				}
+			},
+			32: true
 		},
 		6: { // Death Spiral
-			'*': {
-				length: 1250,
-				abnormals: {
-					10151131: { chain: 31 }
-				},
+			'*': { noRetry: true },
+			0: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -3313,29 +2191,48 @@ module.exports = {
 					10: 30,
 					11: 30,
 					12: 30
-				},
-				noRetry: true
+				}
 			},
-			0: true,
 			30: true,
-			31: true
+			31: true,
+			40: {
+				chains: {
+					1: 41,
+					3: 41,
+					4: 41,
+					5: 41,
+					6: 41,
+					8: 41,
+					9: 41,
+					10: 41,
+					11: 41,
+					12: 41
+				}
+			},
+			41: true,
+			42: true
 		},
 		8: { // Whipsaw
-			'*': {
-				length: 2500,
-				noInterrupt: [4, 5, 6, 8, 9, 11, 12, 20],
+			'*': { noInterrupt: [4, 5, 6, 8, 9, 11, 12, 20] },
+			0: {
 				chains: {
 					1: 30,
 					3: 30,
 					10: 30
 				}
 			},
-			0: true,
-			30: true
+			30: true,
+			40: {
+				chains: {
+					1: 41,
+					3: 41,
+					10: 41
+				}
+			},
+			41: true
 		},
 		9: { // Smite
 			0: {
-				length: 1725,
 				distance: 168,
 				inPlace: {
 					movement: [{
@@ -3350,9 +2247,8 @@ module.exports = {
 			}
 		},
 		10: { // Pendulum Strike
-			'*': {
-				length: 1000,
-				distance: -200,
+			'*': { distance: -200 },
+			0: {
 				chains: {
 					1: 30,
 					3: 30,
@@ -3366,61 +2262,77 @@ module.exports = {
 					12: 30
 				}
 			},
-			0: true,
-			30: true
-		},
-		11: { // Shadow Lash
-			'*': {
-				length: 1250,
-				noRetry: true
-			},
-			0: {
-				length: 2150,
-				triggerAbnormal: { 10151040: 2000 },
-				abnormals: {
-					10151040: { chain: 1 },
-					10151041: { chain: 2 },
-					10151042: { chain: 3 }
+			30: true,
+			40: {
+				chains: {
+					1: 41,
+					3: 41,
+					4: 41,
+					5: 41,
+					6: 41,
+					8: 41,
+					9: 41,
+					10: 41,
+					11: 41,
+					12: 41
 				}
 			},
+			41: true
+		},
+		11: { // Shadow Lash
+			'*': { noRetry: true },
+			0: { triggerAbnormal: { 10151040: 2000 } },
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
 			3: true
 		},
 		12: { // Shadow Burst
-			'*': {
-				glyphs: {
-					29026: { speed: 1.25 }
-				}
-			},
 			0: {
-				length: 3225,
-				noInterrupt: [1, 3, 4, 5, 6, 8, 9, 10, 11, 20],
-				chains: {
-					12: 1
-				}
+				noInterrupt: [1, 3, '4-0', '4-30', '4-40', '4-60', 5, 6, 8, 9, 10, 11, 20],
+				chains: { 12: 1 }
 			},
-			1: {
-				length: 2025
-			}
+			1: true,
+			31: true
+		},
+		14: { // Retaliate
+			0: { noRetry: true }
 		},
 		15: { // Retribution
-			0: {
-				fixedSpeed: 1,
-				length: 1575
-			}
+			30: { fixedSpeed: true },
+			81: true
 		},
 		16: { // Shadow Reaping
-			0: {
-				fixedSpeed: 1,
-				length: 775
-			}
+			0: { fixedSpeed: true }
 		},
-		18: { // Shrouded Escape
+		19: { // Dark Harvest
+			'*': {
+				inPlace: {
+					movement: [{
+						duration: 2122,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				}
+			},
 			0: {
-				length: 850,
-				distance: 150
-			}
+				noInterrupt: [21],
+				requiredBuff: 10151220,
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					11: 30,
+					12: 30
+				}
+			},
+			30: true
 		},
 		/*20: { // Cable Step
 			0: {
@@ -3428,10 +2340,31 @@ module.exports = {
 				length: 1250
 			}
 		},*/
+		21: { // Recall Scythes
+			'*': { requiredBuff: 10151221 },
+			0: {
+				noInterrupt: [21],
+				chains: {
+					1: 30,
+					3: 30,
+					4: 30,
+					5: 30,
+					6: 30,
+					8: 30,
+					9: 30,
+					10: 30,
+					11: 30,
+					12: 30
+				}
+			},
+			30: true
+		},
+		23: { // Binding Scythes
+			31: { fixedSpeed: true },
+			33: { onlyTarget: true }
+		},
 		40: { // Shadow Step
 			'*': {
-				length: 700,
-				distance: 180,
 				forceClip: true,
 				abnormalChains: { 10151000: 30 }
 			},
@@ -3443,8 +2376,7 @@ module.exports = {
 		'*': { consumeAbnormal: [10152010, 10152011] },
 		1: { // Blast
 			'*': {
-				fixedSpeed: 1,
-				length: 1195,
+				fixedSpeed: true,
 				noInterrupt: [1],
 				projectiles: [20],
 				triggerAbnormal: { 10152011: 3100 }
@@ -3462,20 +2394,12 @@ module.exports = {
 			'*': { noRetry: true },
 			0: {
 				type: 'lockon',
-				fixedSpeed: 1,
-				length: 59900
+				fixedSpeed: true
 			},
-			1: {
-				type: 'lockonCast',
-				length: 3000,
-				glyphs: {
-					30004: { speed: 1.25 }
-				}
-			}
+			1: { type: 'lockonCast' }
 		},
 		3: { // Scattershot
 			'*': {
-				length: 1725,
 				distance: -108,
 				noInterrupt: [3],
 				glyphs: {
@@ -3522,8 +2446,6 @@ module.exports = {
 		},
 		4: { // Point Blank
 			'*': {
-				length: 1525,
-				distance: 137.88,
 				noInterrupt: ['4-3', '4-4'],
 				chains: {
 					'2-1': 30,
@@ -3545,42 +2467,34 @@ module.exports = {
 				noRetry: true
 			},
 			2: { noRetry: true },
-			3: {
-				length: 1195,
-				distance: -198.53
-			},
-			4: {
-				length: 1195,
-				distance: -198.53
-			},
+			3: { distance: -198.53 },
+			4: { distance: -198.53 },
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire
 			'*':{ noInterrupt: ['9-0'] },
-			0: {
-				length: 850,
-				noRetry: true
-			},
+			0: { noRetry: true },
 			1: {
-				fixedSpeed: 1,
-				length: 122,
+				fixedSpeed: true,
 				stamina: 75,
 				instantStamina: true,
-				glyphs: {
-					30046: { stamina: -10 }
-				},
 				level: [
 					{ stamina: 50 },
 					{ stamina: 55 },
 					{ stamina: 60 },
 					{ stamina: 65 }
 				]
+			},
+			10: { noRetry: true },
+			11: {
+				fixedSpeed: true,
+				stamina: 75,
+				instantStamina: true
 			}
 		},
 		6: { // Time Bomb
 			'*': {
-				fixedSpeed: 1,
-				length: 1000,
+				fixedSpeed: true,
 				projectiles: [20],
 				triggerAbnormal: {
 					10152010: 3100,
@@ -3595,23 +2509,21 @@ module.exports = {
 			}
 		},
 		7: { // Arcane Barrage
-			'*': { length: 1525 },
 			1: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noInterrupt: [7],
 				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
 			2: {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noInterrupt: [7],
 				triggerAbnormal: { 10152010: 3100 },
 				noRetry: true
 			},
-			3: { length: 1200 }
+			3: true
 		},
 		9: { // Mana Missiles
-			'*': { length: 1250 },
 			0: {
 				type: 'charging',
 				length: 1200,
@@ -3654,8 +2566,8 @@ module.exports = {
 			}
 		},
 		10: { // Arc Bomb
-			'*': {
-				length: 1325,
+			'*': { noRetry: true },
+			1: {
 				projectiles: [20],
 				chains: {
 					'2-1': null,
@@ -3670,11 +2582,25 @@ module.exports = {
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
-			1: true,
-			2: true,
+			2: {
+				projectiles: [20],
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				}
+			},
 			20: {
 				type: 'userProjectile',
 				delay: 450,
@@ -3711,13 +2637,11 @@ module.exports = {
 				type: 'projectile',
 				length: 1000
 			},*/
-			30: true
+			30: { projectiles: [20] }
 		},
 		11: { // Rocket Jump
-			'*': {
-				length: 1400,
-				distance: 415.45,
-				noInterrupt: [15],
+			'*': { noInterrupt: [15] },
+			1: {
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3733,25 +2657,32 @@ module.exports = {
 					40: 31
 				}
 			},
-			1: true,
-			2: true,
-			30: true,
-			31: {
-				length: 1675,
-				distance: 506.27,
-				race: {
-					7: { // Female Castanic
-						length: 1700,
-						distance: 503.64
-					}
+			2: {
+				chains: {
+					'2-1': 30,
+					3: 30,
+					4: 30,
+					'7-3': 30,
+					'9-10': 30,
+					'9-11': 30,
+					10: 30,
+					11: 30,
+					13: 30,
+					15: 30,
+					19: 30,
+					40: 31
 				}
-			}
+			},
+			30: true,
+			31: true
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				length: 5800,
 				distance: -269.09,
 				noInterrupt: [13],
+				noRetry: true
+			},
+			1: {
 				chains: {
 					'2-1': null,
 					3: null,
@@ -3765,18 +2696,32 @@ module.exports = {
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				}
+			},
 			30: true
 		},
 		15: { // Replenishment
 			'*': {
-				fixedSpeed: 1,
-				length: 1325,
-				noInterrupt: [15],
+				fixedSpeed: true,
+				noInterrupt: [15]
+			},
+			1: {
 				chains: {
 					'2-1': 30,
 					3: 30,
@@ -3792,21 +2737,32 @@ module.exports = {
 					40: 30
 				}
 			},
-			1: true,
-			2: true,
+			2: {
+				chains: {
+					'2-1': 30,
+					3: 30,
+					4: 30,
+					'7-3': 30,
+					'9-10': 30,
+					'9-11': 30,
+					10: 30,
+					11: 30,
+					13: 30,
+					15: 30,
+					19: 30,
+					40: 30
+				}
+			},
 			30: true
 		},
 		18: { // HB
-			'*': {
-				fixedSpeed: 1,
-				length: 1430
-			},
+			'*': { fixedSpeed: true },
 			1: true,
 			2: true
 		},
 		19: { // ST
-			'*': {
-				length: 1325,
+			'*': { noRetry: true },
+			1: {
 				projectiles: [20],
 				chains: {
 					'2-1': null,
@@ -3821,11 +2777,25 @@ module.exports = {
 					15: null,
 					19: null,
 					40: null
-				},
-				noRetry: true
+				}
 			},
-			1: true,
-			2: true,
+			2: {
+				projectiles: [20],
+				chains: {
+					'2-1': null,
+					3: null,
+					4: null,
+					'7-3': null,
+					'9-10': null,
+					'9-11': null,
+					10: null,
+					11: null,
+					13: null,
+					15: null,
+					19: null,
+					40: null
+				}
+			},
 			20: {
 				type: 'userProjectile',
 				delay: 350,
@@ -3837,95 +2807,71 @@ module.exports = {
 				type: 'projectile',
 				length: 5000
 			},*/
-			30: true
+			30: { projectiles: [20] }
 		},
 		20: { // Retaliate
-			0: {
-				type: 'retaliate',
-				length: 1485,
-				noRetry: true
-			}
+			0: { noRetry: true }
 		},
 		40: { // Rolling Reload
-			0: {
-				fixedSpeed: 1,
-				length: 935,
-				distance: 172.5,
+			'*': {
+				fixedSpeed: true,
 				triggerAbnormal: {
 					10152010: 3100,
 					10152012: 3100
 				},
 				forceClip: true
-			}
+			},
+			1: true,
+			2: true,
+			31: true,
+			32: true
 		}
 	},
 	10: { // Brawler
 		1: { // Punch
 			'*': {
-				length: 1579,
-				distance: 70.2,
+				noInterrupt: ['1-3'],
 				triggerAbnormal: { 10153060: 3000 },
 				consumeAbnormalEnd: 10153060,
-				noInterrupt: ['1-3'],
-				chains: {
-					'1-0': 1,
-					'1-1': 2,
-					'1-2': 3,
-					'1-30': 1,
-					'1-31': 32,
-					'1-32': 2,
-					'2-2': 31,
-					'2-3': 31,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					21: 30,
-					40: 30
-				},
-				noRetry: true,
-				race: {
-					1: { distance: 71.28 }
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				categoryChains: {
+					'92001,10000': 1,
+					'92001,10001': 2,
+					'92001,10002': 3,
+					'92001,10010': 32,
+					92002: 30,
+					92003: 30,
+					92004: 30,
+					92005: 30,
+					92006: 30,
+					92007: 30,
+					92008: 30,
+					92009: 30,
+					92010: 30,
+					92013: 30,
+					92014: 30,
+					92015: 30,
+					92016: 30,
+					92017: 30,
+					92018: 30,
+					92019: 30,
+					92020: 30,
+					92021: 30,
+					92022: 30,
+					92024: 30,
+					92026: 30,
+					92040: 30
 				}
 			},
-			0: true,
-			1: {
-				length: 1277,
-				distance: 67.57,
-				race: {
-					1: { distance: 68.63 }
-				}
-			},
-			2: {
-				length: 933,
-				distance: 50.7
-			},
-			3: {
-				length: 1733,
-				distance: 121
-			},
+			1: true,
+			2: true,
+			3: true,
 			30: true,
 			31: true,
-			32: {
-				length: 1277,
-				distance: 67.57,
-				race: {
-					1: { distance: 68.63 }
-				}
-			}
+			32: true
 		},
 		2: { // Counter
 			'*': {
@@ -3933,38 +2879,24 @@ module.exports = {
 				noRetry: true
 			},
 			1: {
-				length: 1200,
-				distance: 138.39,
 				triggerAbnormal: { 10153001: 0x7fffffff },
-				consumeAbnormalEnd: 10153001,
-				race: {
-					1: { distance: 139.97 }
-				}
+				consumeAbnormalEnd: 10153001
 			},
 			2: {
-				length: 1818,
-				distance: 84,
 				triggerAbnormal: { 10153002: 0x7fffffff },
 				consumeAbnormalEnd: 10153002
 			},
 			3: {
-				length: 1932,
-				distance: 130.65,
 				triggerAbnormal: { 10153003: 0x7fffffff },
-				consumeAbnormalEnd: 10153003,
-				race: {
-					1: { distance: 131.2 }
-				}
+				consumeAbnormalEnd: 10153003
 			},
 			4: {
-				length: 1973,
-				distance: 142.86,
 				triggerAbnormal: { 10153004: 0x7fffffff },
 				consumeAbnormalEnd: 10153004
 			},
 			10: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				distance: 33.38,
 				triggerAbnormal: { 10153006: 0x7fffffff },
 				consumeAbnormalEnd: 10153006,
@@ -3972,558 +2904,176 @@ module.exports = {
 			},
 			11: {
 				type: 'holdInfinite',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				distance: 33.38,
 				triggerAbnormal: { 10153005: 0x7fffffff },
 				consumeAbnormalEnd: 10153005,
 				endType51: true
 			},
 			12: {
-				chains: {
-					'1-0': 1,
-					'1-1': 2,
-					'1-2': 3,
-					'1-3': 4,
-					'1-30': 1,
-					'1-31': 1,
-					'1-32': 2
+				categoryChains: {
+					'92001,10000': 1,
+					'92001,10001': 2,
+					'92001,10002': 3,
+					'92001,10003': 4,
+					'92001,10010': 1
 				}
 			}
 		},
 		3: { // Divine Wrath
 			'*': {
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				noRetry: true
 			},
-			0: { length: 29900 },
+			0: true,
 			1: {
 				type: 'lockonCast',
-				length: [1800, 1433, 1366],
 				setEndpointStage: 1
 			}
 		},
 		4: { // Ground Pound
-			'*': { length: 3235 },
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		5: { // Bullrush
-			0: {
-				fixedSpeed: 1,
-				length: [2950, 650],
-				distance: [0, 135]
-			}
+			0: { fixedSpeed: true }
 		},
 		6: { // Haymaker
-			'*': {
-				length: [1022, 1833],
-				distance: [0, 171.61],
-				abnormalChains: { 31120: 31 },
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
-			},
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true,
 			31: true
 		},
 		7: { // Roundhouse Kick
 			'*': {
-				length: 860,
-				distance: 105,
 				noInterrupt: [7],
 				hasChains: true
 			},
-			0: true,
+			0: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		8: { // Piledriver
-			'*': {
-				length: 1950,
-				distance: 164.94,
-				abnormalChains: { 31120: 31 },
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
-			},
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true,
 			31: true
 		},
 		9: { // Jackhammer
 			'*': {
-				fixedSpeed: 1,
-				length: 1540,
-				distance: 40,
 				noInterrupt: [9],
-				abnormalChains: { 31120: 31 },
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
+				fixedSpeed: true,
+				hasChains: true
 			},
-			1: true,
-			2: true,
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true,
 			31: true
 		},
 		10: { // Counterpunch
 			'*': {
-				length: 1850,
-				distance: 155,
 				requiredBuff: 10153000,
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					20: 30,
-					40: 30
-				}
+				hasChains: true
 			},
-			0: true,
+			0: { categoryChains: { 800: 30 } },
 			30: true
 		},
+		12: { // Retaliate
+			0: { noRetry: true }
+		},
 		13: { // Provoke
-			'*': {
-				fixedSpeed: 1,
-				length: 1275
-			},
+			'*': { fixedSpeed: true },
 			1: true,
 			2: true
 		},
 		14: { // Infuriate
-			'*': { length: 1650 },
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		16: { // Flip Kick
-			'*': {
-				length: 2050,
-				distance: 134,
-				hasChains: true
-			},
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
 			30: true
 		},
 		21: { // Mounting Rage
-			'*': {
-				fixedSpeed: 1,
-				length: 1275
-			},
+			'*': { fixedSpeed: true },
 			1: true,
 			2: true
 		},
 		22: { // Flying Kick
-			'*': { hasChains: true },
-			0: {
-				length: 1815,
-				distance: 245.21,
-				noInterrupt: [22],
-				abnormalChains: {
-					10153190: 30,
-					10153191: 30,
-					10153192: 30,
-					10153193: 30,
-					10153194: 30,
-					10153195: 30
-				},
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					22: 30,
-					21: 30,
-					24: 30,
-					26: 30,
-					40: 30
-				},
-				race: {
-					1: { distance: 246.02 }
-				}
-			},
-			30: {
-				length: 1222,
-				distance: 351.98
-			}
-		},
-		24: { // One-Inch Punch
 			'*': {
-				length: 2000,
-				distance: 16.59,
-				race: {
-					1: { distance: 23.7 }
-				},
+				noInterrupt: [22],
 				hasChains: true
 			},
-			1: {
-				abnormalChains: { 31120: 31 },
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					21: 30,
-					22: 30,
-					24: 30,
-					26: 30,
-					40: 30
-				}
-			},
-			2: {
-				abnormalChains: {
-					31120: 31,
-					10153190: 30,
-					10153191: 30,
-					10153192: 30,
-					10153193: 30,
-					10153194: 30,
-					10153195: 30
-				},
-				chains: {
-					1: 30,
-					2: 30,
-					'3-1': 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30,
-					21: 30,
-					22: 30,
-					24: 30,
-					26: 30,
-					40: 30
-				}
-			},
-			30: { length: 950 },
-			31: { length: 950 }
+			0: { categoryChains: { 800: 30 } },
+			30: true
+		},
+		24: { // One-Inch Punch
+			'*': { hasChains: true },
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
+			30: true,
+			31: true
 		},
 		26: { // Rythmic Blows
 			'*': {
-				length: [179, 413],
-				distance: [0, 30],
 				hasChains: true,
 				noRetry: true
 			},
-			0: {
-				abnormalChains: {
-					10153001: 3,
-					10153002: 3,
-					10153003: 3,
-					10153004: 3,
-					10153190: 2,
-					10153191: 3,
-					10153192: 4,
-					10153193: 5,
-					10153194: 6,
-					10153195: 7
-				},
-				chains: {
-					1: 2,
-					2: 2,
-					'3-1': 2,
-					4: 2,
-					5: 2,
-					6: 2,
-					7: 2,
-					8: 2,
-					9: 2,
-					10: 2,
-					13: 2,
-					14: 2,
-					15: 2,
-					16: 2,
-					17: 2,
-					18: 2,
-					19: 2,
-					20: 2,
-					21: 2,
-					22: 2,
-					24: 2,
-					26: 2,
-					40: 2
-				}
-			},
+			0: { categoryChains: { 800: 2 } },
 			1: true,
-			2: {
-				length: 782,
-				distance: 6
-			},
-			3: {
-				length: 782,
-				distance: 6
-			},
-			4: {
-				length: 716,
-				distance: 6
-			},
-			5: {
-				length: 916,
-				distance: 6
-			},
-			6: {
-				length: 2780,
-				distance: 24
-			},
-			7: {
-				length: 1571,
-				distance: 24
-			}
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true
 		},
 		40: { // Quick Dash
 			'*': {
-				fixedSpeed: 1,
-				length: 588,
-				distance: 144,
+				fixedSpeed: true,
 				forceClip: true,
 				abnormalChains: { 10153150: 30 },
 				noRetry: true
 			},
 			0: true,
-			30: true,
+			30: true
 		}
 	},
 	11: { // Ninja
 		'*': { consumeAbnormal: [10154000, 10154001, 10154002, 10154003, 10154004, 10154005, 10154006] },
 		1: { // Combo Attack
 			'*': {
-				fixedSpeed: 1,
-				length: 650,
-				distance: 44.86,
+				fixedSpeed: true,
 				triggerAbnormal: { 10154000: 1650 },
 				hasChains: true,
 				noRetry: true
 			},
-			0: {
-				abnormalChains: {
-					10154000: 1,
-					10154001: 2,
-					10154002: 3,
-					10154003: 4,
-					10154004: 5,
-					10154005: 6
-				},
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			1: {
-				length: 1125,
-				distance: 52.47,
-				consumeAbnormal: 10154000,
-				triggerAbnormal: { 10154001: 1500 }
-			},
-			2: {
-				length: 1200,
-				distance: 69.96,
-				consumeAbnormal: 10154001,
-				triggerAbnormal: { 10154002: 1400 }
-			},
-			3: {
-				length: 1225,
-				distance: 38.01,
-				consumeAbnormal: 10154002,
-				triggerAbnormal: { 10154003: 1400 }
-			},
-			4: {
-				length: 1700,
-				distance: 54.69,
-				consumeAbnormal: 10154003,
-				triggerAbnormal: { 10154004: 1400 }
-			},
-			5: {
-				length: 1500,
-				distance: 37.80,
-				consumeAbnormal: 10154004,
-				triggerAbnormal: { 10154005: 1600 }
-			},
-			6: {
-				length: 1150,
-				distance: 82.62,
-				consumeAbnormal: 10154005,
-				triggerAbnormal: { 10154006: 100 }
-			},
+			0: { categoryChains: { 900: 30 } },
+			1: { triggerAbnormal: { 10154001: 1500 } },
+			2: { triggerAbnormal: { 10154002: 1400 } },
+			3: { triggerAbnormal: { 10154003: 1400 } },
+			4: { triggerAbnormal: { 10154004: 1400 } },
+			5: { triggerAbnormal: { 10154005: 1600 } },
+			6: { triggerAbnormal: { 10154006: 100 } },
 			30: true,
-			40: {
-				abnormalChains: {
-					10154000: 41,
-					10154001: 42,
-					10154002: 43,
-					10154003: 44,
-					10154004: 45,
-					10154005: 46
-				},
-				chains: {
-					1: 70,
-					3: 70,
-					4: 70,
-					6: 70,
-					7: 70,
-					9: 70,
-					12: 70,
-					13: 70,
-					14: 70,
-					15: 70,
-					16: 70,
-					18: 70,
-					19: 70,
-					20: 70
-				}
-			},
-			41: {
-				length: 1125,
-				distance: 52.47,
-				consumeAbnormal: 10154000,
-				triggerAbnormal: { 10154001: 1500 }
-			},
-			42: {
-				length: 1200,
-				distance: 69.96,
-				consumeAbnormal: 10154001,
-				triggerAbnormal: { 10154002: 1400 }
-			},
-			43: {
-				length: 1225,
-				distance: 38.01,
-				consumeAbnormal: 10154002,
-				triggerAbnormal: { 10154003: 1400 }
-			},
-			44: {
-				length: 1700,
-				distance: 54.69,
-				consumeAbnormal: 10154003,
-				triggerAbnormal: { 10154004: 1400 }
-			},
-			45: {
-				length: 1500,
-				distance: 37.80,
-				consumeAbnormal: 10154004,
-				triggerAbnormal: { 10154005: 1600 }
-			},
-			46: {
-				length: 1150,
-				distance: 82.62,
-				consumeAbnormal: 10154005,
-				triggerAbnormal: { 10154006: 100 }
-			},
+			40: { categoryChains: { 900: 70 } },
+			41: { triggerAbnormal: { 10154001: 1500 } },
+			42: { triggerAbnormal: { 10154002: 1400 } },
+			43: { triggerAbnormal: { 10154003: 1400 } },
+			44: { triggerAbnormal: { 10154004: 1400 } },
+			45: { triggerAbnormal: { 10154005: 1600 } },
+			46: { triggerAbnormal: { 10154006: 100 } },
 			70: true
 		},
 		2: { // Shadow Jump
 			'*': {
-				fixedSpeed: 1,
-				length: 650,
-				distance: 175,
+				fixedSpeed: true,
 				forceClip: true,
 				abnormalChains: { 10154010: 30 }
 			},
@@ -4531,201 +3081,84 @@ module.exports = {
 			30: true
 		},
 		3: { // Leaves on the Wind
-			0: { length: 1275 }
+			0: true,
+			40: true
 		},
 		4: { // Jagged Path
 			1: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 665,
 				distance: 469
 			},
-			10: { length: 1500 },
-			11: {
-				length: 300,
-				distance: 150
-			}
+			10: true,
+			11: true
 		},
 		5: { // Impact Bomb
 			'*': {
-				length: 1025,
 				distance: -291.6,
 				noInterrupt: [5],
-				chains: {
-					1: null,
-					3: null,
-					4: null,
-					6: null,
-					7: null,
-					12: null,
-					13: null,
-					14: null,
-					15: null,
-					16: null,
-					17: null,
-					18: null,
-					19: null,
-					20: null
-				},
 				forceClip: true,
 				noRetry: true
 			},
-			0: true,
+			0: { categoryChains: { 900: null } },
 			30: true
 		},
 		6: { // One Thousand Cuts
-			'*': {
-				length: 400,
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					7: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
 			1: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 300,
 				distance: 246
 			},
-			10: { length: 3500 },
+			10: true,
 			30: true
 		},
 		7: { // Decoy Jutsu
-			0: {
-				length: 1550,
-				onlyTarget: true
-			}
+			0: { onlyTarget: true }
 		},
 		8: { // Fire Avalanche
 			'*': {
-				length: [700, 1375, 325],
-				distance: [0, 367.31, 0],
 				hasChains: true,
 				noRetry: true
 			},
-			0: {
-				noInterrupt: [9, 18],
-				abnormalChains: {
-					10154080: 1,
-					10154081: 2
-				},
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			1: {
-				length: [1375, 325],
-				distance: [411.39, 0]
-			},
-			2: {
-				length: [1375, 325],
-				distance: [455.47, 0]
-			},
-			30: true
-		},
-		9: { // Smoke Bomb
-			0: { length: 700 }
-		},
-		11: { // Focus
-			0: { length: 1430 },
-			50: { length: 1430 }
-		},
-		12: { // Skyfall
-			'*': {
-				length: 1325,
-				distance: 154.72,
-				noInterrupt: [9, 18],
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			0: { categoryChains: { 900: 30 } },
 			1: true,
 			2: true,
+			30: true,
+			31: { categoryChains: { 900: 30 } },
+			51: { categoryChains: { 900: 52 } },
+			52: true
+		},
+		9: { // Smoke Bomb
+			0: { categoryChains: { 900: null } },
+			30: true
+		},
+		10: { // Retaliate
+			0: { noRetry: true }
+		},
+		11: { // Focus
+			0: true,
+			50: true
+		},
+		12: { // Skyfall
+			'*': { hasChains: true },
+			1: { categoryChains: { 900: 30 } },
+			2: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		13: { // Circle of Steel
-			'*': {
-				length: 3225,
-				distance: 245.06,
-				noInterrupt: [9, 18],
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 900: 30 } },
+			2: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		14: { // Double Cut
-			'*': {
-				length: 1425,
-				distance: 162,
-				noInterrupt: [9, 18],
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			1: true,
-			2: true,
+			'*': { hasChains: true },
+			1: { categoryChains: { 900: 30 } },
+			2: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		15: { // Burning Heart
@@ -4737,589 +3170,303 @@ module.exports = {
 					32058: { speed: 1.3 }
 				}
 			},
-			0: { length: 900 },
-			1: { length: 400 },
-			2: { length: 400 },
-			3: { length: 400 },
-			4: { length: 400 },
-			5: { length: 400 },
-			6: { length: 400 },
-			7: { length: 400 },
-			8: { length: 400 },
-			9: { length: 400 }
+			1: true,
+			2: true,
+			3: true,
+			4: true,
+			5: true,
+			6: true,
+			7: true,
+			8: true,
+			9: true,
+			10: true,
+			31: { categoryChains: { 900: 32 } },
+			32: true
 		},
 		16: { // Death Blossom
-			0: {
-				fixedSpeed: 1,
-				length: 1525
-			}
+			'*': {
+				fixedSpeed: true,
+				hasChains: true
+			},
+			0: { categoryChains: { 900: 30 } },
+			30: true
 		},
 		17: { // Attunement
-			0: { length: 1000 }
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
+			30: true
 		},
 		18: { // Bladestorm
-			0: { length: 1000 }
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
+			30: true
 		},
 		19: { // Chakra Thrust
-			'*': {
-				length: [225, 825],
-				distance: 127.5,
-				chains: {
-					1: 30,
-					3: 30,
-					4: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					12: 30,
-					13: 30,
-					15: 30,
-					16: 30,
-					17: 30,
-					18: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
 			30: true
 		},
 		20: { // Clone Jutsu
-			0: {
-				fixedSpeed: 1,
-				length: 1275
-			}
+			0: { fixedSpeed: true }
+		},
+		21: { // Boomerang Shuriken
+			0: { categoryChains: { 93003: 15 } },
+			11: { categoryChains: { 93003: 17 } },
+			12: { categoryChains: { 93003: 16 } },
+			13: { categoryChains: { 93003: 18 } },
+			15: true,
+			16: true,
+			17: true,
+			18: true,
+			50: true,
+			51: true
+		},
+		22: { // Quick Attack
+			10: {
+				categoryChains: {
+					93019: 30,
+					'9999,900': 20
+				}
+			},
+			20: true,
+			30: true,
+			40: { categoryChains: { 900: null } },
+			50: true,
+			60: true
+		},
+		23: { // Inner Harmony
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
+			30: true
 		}
 	},
 	12: { // Valkyrie
 		1: { // Slash
 			'*': {
-				length: 1100,
-				distance: 47.13,
 				noInterrupt: ['1-3'],
-				chains: {
-					'1-0': 1,
-					'1-1': 2,
-					'1-2': 3,
-					'1-30': 1,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				},
+				hasChains: true,
 				noRetry: true
 			},
-			0: true,
+			0: {
+				triggerAbnormal: { 10155006: 4000 },
+				consumeAbnormalEnd: 10155006,
+				categoryChains: { 750: 30 }
+			},
 			1: {
-				length: 1200,
-				distance: 43.37
+				triggerAbnormal: { 10155007: 4000 },
+				consumeAbnormalEnd: 10155007
 			},
 			2: {
-				length: 1450,
-				distance: 58.54
+				triggerAbnormal: { 10155008: 4000 },
+				consumeAbnormalEnd: 10155008
 			},
-			3: {
-				length: 1925,
-				distance: 90.1
-			},
-			30: true
+			3: true,
+			30: {
+				triggerAbnormal: { 10155006: 4000 },
+				consumeAbnormalEnd: 10155006
+			}
 		},
 		2: { // Overhead Slash
-			'*': {
-				length: 1900,
-				distance: 102.47,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		3: { // Glaive Strike
 			'*': {
-				length: 2450,
-				distance: 105.62,
-				requiredBuff: 10155112,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
+				requiredBuff: 10155113,
+				hasChains: true
 			},
-			0: true,
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		4: { // Charge
 			0: {
 				type: 'dash',
-				fixedSpeed: 1,
+				fixedSpeed: true,
 				length: 550,
 				distance: 436,
 				noInterrupt: ['4-0']
 			},
-			10: { length: 900 },
-			11: {
-				length: 400,
-				distance: 50,
-				noInterrupt: ['4-11']
-			}
+			10: true,
+			11: { noInterrupt: ['4-11'] }
 		},
 		5: { // Maelstrom
-			'*': {
-				length: 3150,
-				distance: 125.11,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		6: { // Leaping Strike
-			'*': {
-				length: 1775,
-				distance: 105,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		7: { // Spinning Death
 			'*': {
-				length: 1775,
-				distance: 139.72,
+				noInterrupt: ['7-2'],
 				hasChains: true,
 				noRetry: true
 			},
 			0: {
-				noInterrupt: ['7-2'],
-				abnormalChains: {
-					10155070: 1,
-					10155071: 2
-				},
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
+				triggerAbnormal: { 10155070: 5000 },
+				categoryChains: { 750: 30 }
 			},
-			1: true,
+			1: {
+				consumeAbnormal: 10155070,
+				triggerAbnormal: { 10155071: 5000 }
+			},
 			2: {
-				length: 2300,
-				distance: 197.82
+				consumeAbnormal: 10155071,
+				triggerAbnormal: { 10155072: 1 }
 			},
-			30: true
+			30: { triggerAbnormal: { 10155070: 5000 } }
 		},
 		8: { // Titansbane
 			'*': {
-				fixedSpeed: 1,
-				length: 7700,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 1,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
+				fixedSpeed: true,
+				hasChains: true
+			},
+			0: {
+				categoryChains: {
+					'13008,10000': 1,
+					750: 30
 				}
 			},
-			0: true,
-			1: { length: 2000 },
+			1: true,
 			30: true
 		},
 		9: { // Ground Bash
 			'*': {
-				length: 1450,
-				distance: 136,
 				requiredBuff: 10155112,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
+				hasChains: true
 			},
-			0: true,
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		10: { // Dream Slash
 			'*': {
-				length: 1775,
-				distance: 11.18,
 				noInterrupt: [10],
-				glyphs: {
-					33020: { speed: 1.2 }
-				},
-				chains: {
-					1: null,
-					2: null,
-					3: null,
-					4: null,
-					5: null,
-					6: null,
-					7: null,
-					8: null,
-					9: null,
-					10: null,
-					11: null,
-					12: null,
-					13: null,
-					14: null,
-					15: null,
-					16: null,
-					19: null,
-					20: null
-				},
+				hasChains: true,
 				noRetry: true
 			},
-			0: true,
+			0: { categoryChains: { 750: null } },
 			30: true
 		},
 		11: { // Shining Crescent
-			'*': {
-				length: 2725,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
+			'*': { hasChains: true },
 			0: {
-				distance: 227.49,
-				noInterrupt: [11]
+				noInterrupt: [11],
+				categoryChains: { 750: 30 }
 			},
-			1: {
-				length: 2500,
-				chains: {
-					1: 31,
-					2: 31,
-					3: 31,
-					4: 31,
-					5: 31,
-					6: 31,
-					7: 31,
-					8: 31,
-					9: 31,
-					10: 31,
-					11: 31,
-					12: 31,
-					13: 31,
-					14: 31,
-					15: 31,
-					16: 31,
-					19: 31,
-					20: 31
-				}
-			},
-			30: { distance: 227.49 },
-			31: { length: 2500 }
+			1: { categoryChains: { 750: 31 } },
+			30: true,
+			31: true
 		},
 		12: { // Ragnarok
-			'*': {
-				length: 2800,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		13: { // Bloodflower
-			'*': {
-				length: 1700,
-				distance: 20.57,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		14: { // Evasion
 			'*': {
-				fixedSpeed: 1,
-				length: 825,
-				distance: 188.18,
-				forceClip: true,
-				abnormalChains: { 10155020: 1 }
+				fixedSpeed: true,
+				forceClip: true
 			},
 			0: true,
 			1: true
 		},
 		15: { // Windslash
-			'*': {
-				length: 1100,
-				distance: 152.82,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		16: { // Runeburst
 			'*': {
-				fixedSpeed: 1,
-				length: 1325,
-				distance: 25,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
+				fixedSpeed: true,
+				hasChains: true
 			},
-			0: true,
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		17: { // Balder's Tears
-			0: {
-				fixedSpeed: 1,
-				length: 1075
-			}
+			0: { fixedSpeed: true }
+		},
+		18: { // Retaliate
+			0: { noRetry: true }
 		},
 		19: { // Reclamation
-			'*': {
-				length: 1525,
-				chains: {
-					1: 30,
-					2: 30,
-					3: 30,
-					4: 30,
-					5: 30,
-					6: 30,
-					7: 30,
-					8: 30,
-					9: 30,
-					10: 30,
-					11: 30,
-					12: 30,
-					13: 30,
-					14: 30,
-					15: 30,
-					16: 30,
-					19: 30,
-					20: 30
-				}
-			},
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 750: 30 } },
 			30: true
 		},
 		20: { // Backstab
 			0: {
-				length: 1500,
+				distance: 0,
 				onlyTarget: true
 			}
 		},
 		21: { // Dark Herald
 			0: {
-				fixedSpeed: 1,
-				length: 925,
-				requiredBuff: 10155201
+				requiredBuff: 10155201,
+				fixedSpeed: true
 			}
+		},
+		23: { // Gungir's Bite
+			'*': {
+				abnormals: { 10155531: { disableSkill: true } },
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: { 10155531: 1000 },
+				categoryChains: { 750: 1 }
+			},
+			1: { triggerAbnormal: { 10155531: 1000 } },
+			2: true
+		},
+		24: { // Twilight Waltz
+			'*': {
+				abnormals: { 10155543: { disableSkill: true } },
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: { 10155543: 1000 },
+				categoryChains: { 750: 1 }
+			},
+			1: { triggerAbnormal: { 10155543: 1000 } },
+			2: { triggerAbnormal: { 10155543: 1000 } },
+			3: true,
+			4: true
+		},
+		25: { // Godsfall
+			'*': {
+				abnormals: { 10155511: { disableSkill: true } },
+				hasChains: true,
+				noRetry: true
+			},
+			0: {
+				triggerAbnormal: { 10155511: 2000 },
+				categoryChains: {
+					772: 31,
+					'9999,750': 1
+				}
+			},
+			1: { triggerAbnormal: { 10155511: 2000 } },
+			2: {
+				distance: [-313.28, 463.28],
+				categoryChains: {
+					772: 32,
+					'9999,750': 3
+				}
+			},
+			3: { distance: [-313.28, 463.28] },
+			31: { triggerAbnormal: { 10155511: 2000 } },
+			32: { distance: [-313.28, 463.28] }
 		}
 	}
 }
