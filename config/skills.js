@@ -437,7 +437,7 @@ module.exports = {
 		},
 		26: { // Backstep
 			0: {
-				distance: -150,
+				moveDir: 1,
 				forceClip: true,
 				stamina: 800,
 				instantStamina: true,
@@ -562,7 +562,7 @@ module.exports = {
 		},
 		15: { // Startling Kick
 			0: {
-				distance: -175,
+				moveDir: 1,
 				forceClip: true
 			}
 		},
@@ -1061,7 +1061,7 @@ module.exports = {
 		},
 		7: { // Backstep
 			0: {
-				distance: -200,
+				moveDir: 1,
 				forceClip: true
 			}
 		},
@@ -1099,7 +1099,7 @@ module.exports = {
 		},
 		18: { // Glacial Retreat
 			0: {
-				distance: -187.5,
+				moveDir: 1,
 				forceClip: true
 			}
 		},
@@ -1230,37 +1230,45 @@ module.exports = {
 			10: { type: 'lockonCast' }
 		},
 		3: { // Radiant Arrow
-			'*': { noRetry: true },
-			0: {
-				type: 'charging',
-				length: [600, 600, 600],
+			'*': {
+				moveDir: 1,
 				abnormals: {
 					26180: { chargeSpeed: 0.3 },
-					601450: { chargeSpeed: 0.5 }
-				}
+					601450: { chargeSpeed: 0.5 },
+					602108: { speed: 1.3 }
+				},
+				noRetry: true
 			},
-			10: { distance: -100 },
-			11: { distance: -100 },
-			12: { distance: -100 },
-			13: { distance: -100 }
-		},
-		4: { // Penetrating Arrow
-			'*': { noRetry: true },
 			0: {
 				type: 'charging',
-				length: [800, 800, 800],
+				length: [600, 600, 600]
+			},
+			10: true,
+			11: true,
+			12: true,
+			13: true
+		},
+		4: { // Penetrating Arrow
+			'*': {
+				moveDir: 1,
 				abnormals: {
 					26160: { chargeSpeed: 0.3 },
 					26170: { chargeSpeed: 0.3 },
 					26171: { chargeSpeed: 0.4 },
 					26190: { chargeSpeed: 0.3 },
-					601450: { chargeSpeed: 0.5 }
-				}
+					601450: { chargeSpeed: 0.5 },
+					602108: { speed: 1.3 }
+				},
+				noRetry: true
 			},
-			10: { distance: -50 },
-			11: { distance: -50 },
-			12: { distance: -50 },
-			13: { distance: -50 }
+			0: {
+				type: 'charging',
+				length: [800, 800, 800]
+			},
+			10: true,
+			11: true,
+			12: true,
+			13: true
 		},
 		5: { // Rain of Arrows
 			0: {
@@ -1280,7 +1288,7 @@ module.exports = {
 		},
 		6: { // Backstep
 			0: {
-				distance: -200,
+				moveDir: 1,
 				forceClip: true
 			}
 		},
@@ -1323,7 +1331,7 @@ module.exports = {
 		},
 		16: { // Breakaway Bolt
 			0: {
-				distance: -250,
+				moveDir: 1,
 				forceClip: true
 			}
 		},
@@ -1350,7 +1358,10 @@ module.exports = {
 			0: true
 		},
 		29: { // Thunderbolt
-			0: { distance: -100 }
+			0: {
+				moveDir: 1,
+				abnormals: { 602108: { speed: 1.3 } }
+			}
 		},
 		31: { // Tenacity
 			0: { fixedSpeed: true }
@@ -1365,6 +1376,43 @@ module.exports = {
 				length: 1000,
 				distance: 413
 			}
+		},
+		34: { // Wind Walk
+			'*': { noRetry: true },
+			0: {
+				inPlace: {
+					movement: [{
+						duration: 766,
+						speed: 1,
+						unk: 1,
+						distance: 0
+					}],
+					distance: 0
+				}
+			},
+			10: true,
+			20: { moveDir: -0.5 },
+			30: { moveDir: -0.25 },
+			40: { moveDir: -0.75 },
+			50: { moveDir: 0.5 },
+			60: { moveDir: 0.25 },
+			70: { moveDir: 0.75 },
+			80: { moveDir: 1 }
+		},
+		35: { // Windsong
+			0: true
+		},
+		36: { // Gust Arrow
+			'*': {
+				abnormals: { 601450: { chargeSpeed: 0.5 } }
+			},
+			0: {
+				type: 'charging',
+				length: 2980,
+				chargeLevels: [null, 360213],
+				autoRelease: 100
+			},
+			13: true
 		}
 	},
 	6: { // Priest
@@ -1478,7 +1526,7 @@ module.exports = {
 		},
 		26: { // Fiery Escape
 			0: {
-				distance: -250.5,
+				moveDir: 1,
 				forceClip: true
 			}
 		},
@@ -1588,7 +1636,7 @@ module.exports = {
 		},
 		38: { // Backstep
 			0: {
-				distance: -200,
+				moveDir: 1,
 				forceClip: true
 			}
 		},
@@ -2247,7 +2295,7 @@ module.exports = {
 			}
 		},
 		10: { // Pendulum Strike
-			'*': { distance: -200 },
+			'*': { moveDir: 1 },
 			0: {
 				chains: {
 					1: 30,
@@ -2401,7 +2449,7 @@ module.exports = {
 		},
 		3: { // Scattershot
 			'*': {
-				distance: -108,
+				moveDir: 1,
 				noInterrupt: [3, 20],
 				glyphs: {
 					30007: {
@@ -2522,10 +2570,10 @@ module.exports = {
 				noRetry: true
 			},
 			3: {
-				distance: -198.53,
+				moveDir: 1,
 				categoryChains: { 91004: 4 }
 			},
-			4: { distance: -198.53 },
+			4: { moveDir: 1 },
 			30: { noRetry: true }
 		},
 		5: { // Burst Fire / Targeted Burst Fire
@@ -2590,15 +2638,14 @@ module.exports = {
 			0: {
 				type: 'charging',
 				length: 1200,
+				moveDir: 1,
 				autoRelease: 0
 			},
 			10: {
-				distance: -50,
 				projectiles: [21, 22],
 				noRetry: true
 			},
 			11: {
-				distance: -100,
 				projectiles: [21, 22, 23, 24, 25],
 				noRetry: true
 			},
@@ -2760,8 +2807,8 @@ module.exports = {
 		},
 		13: { // Balder's Vengeance
 			'*': {
-				distance: -269.09,
 				noInterrupt: [13],
+				moveDir: 1,
 				noRetry: true
 			},
 			1: {
@@ -2997,7 +3044,7 @@ module.exports = {
 		},
 		43: { // Remote Trigger
 			'*': {
-				distance: -108.21,
+				moveDir: 1,
 				hasChains: true,
 				noRetry: true
 			},
@@ -3042,14 +3089,14 @@ module.exports = {
 				}
 			},
 			30: true,
-			31: { distance: -105 },
+			31: true,
 			50: true,
-			51: { distance: -105 },
+			51: true,
 		},
 		47: { // Obliteration
 			'*': {
 				requiredBuff: 10152340,
-				distance: -129.74,
+				moveDir: 1,
 				hasChains: true
 			},
 			1: {
@@ -3364,7 +3411,7 @@ module.exports = {
 		},
 		5: { // Impact Bomb
 			'*': {
-				distance: -291.6,
+				moveDir: 1,
 				noInterrupt: [5],
 				forceClip: true,
 				noRetry: true
