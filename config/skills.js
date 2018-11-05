@@ -729,10 +729,10 @@ module.exports = {
 					{ length: [800, 800] }
 				]
 			},
-			10: { rearCancelStartTime: 455 },
-			11: { rearCancelStartTime: 455 },
-			12: { rearCancelStartTime: 455 },
-			13: { rearCancelStartTime: 455 }
+			10: true,
+			11: true,
+			12: true,
+			13: true
 		},
 		4: { // Flatten
 			0: {
@@ -791,19 +791,10 @@ module.exports = {
 				],
 				noRetry: true
 			},
-			10: {
-				rearCancelStartTime: 300,
-				noRetry: true
-			},
-			11: {
-				rearCancelStartTime: 300,
-				noRetry: true
-			},
-			12: {
-				rearCancelStartTime: 300,
-				noRetry: true
-			},
-			13: { rearCancelStartTime: 300 }
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true },
+			13: true
 		},
 		11: { // Leaping Strike
 			0: true
@@ -817,7 +808,10 @@ module.exports = {
 				type: 'charging',
 				length: [800, 800, 800],
 				noInterrupt: [2],
-				overchargeReleaseChain: 14,
+				releaseChain: {
+					overcharge: true,
+					chain: 14
+				},
 				abnormals: {
 					400500: { chargeSpeed: 0.2 },
 					400501: { chargeSpeed: 0.4 }
@@ -1378,7 +1372,10 @@ module.exports = {
 			}
 		},
 		34: { // Wind Walk
-			'*': { noRetry: true },
+			'*': {
+				noInterrupt: [34],
+				noRetry: true
+			},
 			0: {
 				inPlace: {
 					movement: [{
@@ -2639,7 +2636,16 @@ module.exports = {
 				type: 'charging',
 				length: 1200,
 				moveDir: 1,
-				autoRelease: 0
+				autoRelease: 0,
+				level: {
+					9: {
+						releaseChain: {
+							skill: 400102,
+							chain: 12,
+							grant: true
+						}
+					}
+				}
 			},
 			10: {
 				projectiles: [21, 22],
@@ -2647,6 +2653,10 @@ module.exports = {
 			},
 			11: {
 				projectiles: [21, 22, 23, 24, 25],
+				noRetry: true
+			},
+			12: {
+				projectiles: [31, 32, 33, 34, 35],
 				noRetry: true
 			},
 			21: {
@@ -2670,6 +2680,31 @@ module.exports = {
 				flyingDistance: 750
 			},
 			25: {
+				type: 'userProjectile',
+				flyingSpeed: 300,
+				flyingDistance: 750
+			},
+			31: {
+				type: 'userProjectile',
+				flyingSpeed: 600,
+				flyingDistance: 750
+			},
+			32: {
+				type: 'userProjectile',
+				flyingSpeed: 500,
+				flyingDistance: 750
+			},
+			33: {
+				type: 'userProjectile',
+				flyingSpeed: 400,
+				flyingDistance: 750
+			},
+			34: {
+				type: 'userProjectile',
+				flyingSpeed: 350,
+				flyingDistance: 750
+			},
+			35: {
 				type: 'userProjectile',
 				flyingSpeed: 300,
 				flyingDistance: 750
