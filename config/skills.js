@@ -3075,7 +3075,10 @@ module.exports = {
 			30: true
 		},
 		42: { // Detonate
-			1: { triggerAbnormal: { 10152011: 3100 } }
+			1: {
+				fixedSpeed: true,
+				triggerAbnormal: { 10152011: 3100 }
+			}
 		},
 		43: { // Remote Trigger
 			'*': {
