@@ -2640,7 +2640,7 @@ module.exports = {
 				level: {
 					9: {
 						releaseChain: {
-							skill: 400102,
+							connectSkills: [400102, 400132],
 							chain: 12,
 							grant: true
 						}
