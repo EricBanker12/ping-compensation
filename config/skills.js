@@ -382,10 +382,7 @@ module.exports = {
 			1: true
 		},
 		16: { // Second Wind
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		17: { // Adrenaline Rush
 			0: { fixedSpeed: true }
@@ -504,10 +501,7 @@ module.exports = {
 			30: true
 		},
 		5: { // Dash
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		6: { // Backstab
 			0: {
@@ -756,10 +750,7 @@ module.exports = {
 			31: true
 		},
 		5: { // Dash
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		6: { // Sweeping Strike
 			'*': { noRetry: true },
@@ -1505,7 +1496,7 @@ module.exports = {
 			30: true
 		},
 		18: { // Heal Thyself
-			0: { noWeapon: true }
+			0: true
 		},
 		19: { // Focus Heal
 			'*': { noRetry: true },
@@ -1592,10 +1583,7 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		32: { // Divine Prayer
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		33: { // Ishara's Lulliby
 			'*': {
