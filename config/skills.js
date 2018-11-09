@@ -3376,7 +3376,9 @@ module.exports = {
 			30: true
 		},
 		3: { // Leaves on the Wind
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
+			30: true,
 			40: true
 		},
 		4: { // Jagged Path
