@@ -838,8 +838,8 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		24: { // Evasive Smash
-			0: { type: 'storeCharge' },
-			5: { type: 'grantCharge' },
+			0: true,
+			5: true,
 			10: true,
 			11: true,
 			12: true,
