@@ -1138,6 +1138,7 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [26],
 				teleportStage: 1,
+				cooldownEnd: 300,
 				noRetry: true
 			}
 		},
@@ -1704,7 +1705,7 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
-				cooldownEnd: 200,
+				cooldownEnd: 300,
 				noRetry: true
 			}
 		},
@@ -1852,7 +1853,7 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
-				cooldownEnd: 200,
+				cooldownEnd: 300,
 				noRetry: true
 			}
 		},
