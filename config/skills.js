@@ -2622,10 +2622,10 @@ module.exports = {
 			3: true
 		},
 		9: { // Mana Missiles
+			'*': { moveDir: 1 },
 			0: {
 				type: 'charging',
 				length: 1200,
-				moveDir: 1,
 				autoRelease: 0,
 				level: {
 					9: {
