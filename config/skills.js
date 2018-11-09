@@ -585,10 +585,11 @@ module.exports = {
 			'*': { hasChains: true },
 			0: {
 				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
-				chains: {
-					8: 30,
-					24: 30,
-					25: 30
+				categoryChains: {
+					3008: 30,
+					3024: 30,
+					3025: 30,
+					3026: 30
 				}
 			},
 			30: true
