@@ -19,8 +19,8 @@
 		"docs/ping.md": "c1b870cfe3b0a38b0e61dac9ae990577dd96aacdce2ddc2657ec3f703fbe2374",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
 		"index.js": "1d5ba2464d3ced9afff7e91f07f1beec9883e73577c4df3539ad2a30b7740b89",
-		"lib/core.js": "4b8c30fb05f0d8125c70484c5c7385e52556de8f52769aa0fe68c27f51d9fa1f",
-		"lib/ping.js": "4babdd1769ea9e804e29a019f3dcb439f8b698619773697b39dcc3c7056ff070",
+		"lib/core.js": "bfb7586055f3d0dce13aa9d6a3170233c8658404e86f532810a443f339842a1e",
+		"lib/ping.js": "55f5ada40b3518be218f59fa8a8231101cd330d0b967f2ad1301a03f8472ab14",
 		"module.json": "10e7469922e44df8ea3c24a764ae0258162ab0e5d2b5a2157323c10ec8457643"
 	},
 	"defs": {
@@ -37,7 +37,7 @@
 		"C_START_SKILL": 7,
 		"C_START_TARGETED_SKILL": 6,
 		"S_ACTION_END": 5,
-		"S_ACTION_STAGE": [7,8],
+		"S_ACTION_STAGE": 8,
 		"S_CANNOT_START_SKILL": 4,
 		"S_CAN_LOCKON_TARGET": 3,
 		"S_CREATURE_LIFE": 2,
