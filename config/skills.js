@@ -3386,8 +3386,13 @@ module.exports = {
 		},
 		3: { // Leaves on the Wind
 			'*': { hasChains: true },
-			0: { categoryChains: { 900: 30 } },
-			30: true,
+			0: {
+				categoryChains: {
+					93021: 40,
+					900: null
+				}
+			},
+			30: { userChain: 0 }, // This skill is bugged and always triggers serverside anti-cheat
 			40: true
 		},
 		4: { // Jagged Path
