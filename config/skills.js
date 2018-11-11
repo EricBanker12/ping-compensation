@@ -3298,6 +3298,12 @@ module.exports = {
 			2: { categoryChains: { 800: 30 } },
 			30: true
 		},
+		18: { // Growing Fury
+			'*': { hasChains: true }, // TODO emulate Property.useStGaugeFullToggle
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
+			30: true
+		},
 		21: { // Mounting Rage
 			'*': { fixedSpeed: true },
 			1: true,
