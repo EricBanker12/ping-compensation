@@ -3389,7 +3389,7 @@ module.exports = {
 			0: {
 				categoryChains: {
 					93021: 40,
-					900: null
+					'9999,900': null
 				}
 			},
 			30: { userChain: 0 }, // This skill is bugged and always triggers serverside anti-cheat
@@ -3535,6 +3535,7 @@ module.exports = {
 		},
 		22: { // Quick Attack
 			10: {
+				noInterrupt: [22],
 				categoryChains: {
 					93019: 30,
 					'9999,900': 20
