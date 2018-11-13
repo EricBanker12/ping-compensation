@@ -1962,7 +1962,7 @@ module.exports = {
 		},
 		3: { // Double Shear
 			'*': {
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 19, 20],
 				inPlace: {
 					movement: [{
 						duration: 2140,
@@ -2225,6 +2225,7 @@ module.exports = {
 		},
 		9: { // Smite
 			0: {
+				noInterrupt: [19],
 				distance: 168,
 				inPlace: {
 					movement: [{
@@ -2239,7 +2240,10 @@ module.exports = {
 			}
 		},
 		10: { // Pendulum Strike
-			'*': { moveDir: 1 },
+			'*': {
+				noInterrupt: [19],
+				moveDir: 1
+			},
 			0: {
 				chains: {
 					1: 30,
@@ -2272,7 +2276,10 @@ module.exports = {
 			41: true
 		},
 		11: { // Shadow Lash
-			'*': { noRetry: true },
+			'*': {
+				noInterrupt: [19],
+				noRetry: true
+			},
 			0: { triggerAbnormal: { 10151040: 2000 } },
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
