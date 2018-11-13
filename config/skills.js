@@ -3388,7 +3388,7 @@ module.exports = {
 			'*': { hasChains: true },
 			0: {
 				categoryChains: {
-					93021: 40,
+					911: 40,
 					'9999,900': null
 				}
 			},
@@ -3522,10 +3522,14 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		21: { // Boomerang Shuriken
-			0: { categoryChains: { 93003: 15 } },
-			11: { categoryChains: { 93003: 17 } },
-			12: { categoryChains: { 93003: 16 } },
-			13: { categoryChains: { 93003: 18 } },
+			'*': {
+				hasChains: true,
+				noRetry: true
+			},
+			0: { categoryChains: { 93003: null } },
+			11: { categoryChains: { 93003: null } },
+			12: { categoryChains: { 93003: null } },
+			13: { categoryChains: { 93003: null } },
 			15: true,
 			16: true,
 			17: true,
