@@ -584,7 +584,7 @@ module.exports = {
 		23: { // Measured Slice
 			'*': { hasChains: true },
 			0: {
-				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
+				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22, 23],
 				categoryChains: {
 					3008: 30,
 					3024: 30,
@@ -597,7 +597,7 @@ module.exports = {
 		24: { // Eviscerate
 			'*': { hasChains: true },
 			0: {
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24, 26],
 				chains: {
 					1: 30,
 					2: 30,
