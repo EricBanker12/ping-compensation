@@ -222,6 +222,7 @@ module.exports = {
 			'*': {
 				noInterrupt: ['41-0', '41-30', 42],
 				abnormals: { 104101: { disableSkill: true } },
+				hasChains: true,
 				longRetry: true
 			},
 			10: {
