@@ -1250,7 +1250,10 @@ module.exports = {
 			}
 		},
 		7: { // Feign Death
-			0: { distance: [-114.05, 0, 0] }
+			0: {
+				fixedSpeed: true,
+				moveDir: 1
+			}
 		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
