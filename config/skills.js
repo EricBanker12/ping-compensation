@@ -3246,7 +3246,10 @@ module.exports = {
 			30: true
 		},
 		5: { // Bullrush
-			0: { fixedSpeed: true }
+			0: {
+				fixedSpeed: true,
+				noRetry: true
+			}
 		},
 		6: { // Haymaker
 			'*': { hasChains: true },
