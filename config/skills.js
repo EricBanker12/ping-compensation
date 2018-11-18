@@ -750,8 +750,7 @@ module.exports = {
 			30: true
 		},
 		8: { // Fiery Rage
-			0: true,
-			1: true,
+			1: { fixedSpeed: true },
 			30: true
 		},
 		10: { // Cyclone
