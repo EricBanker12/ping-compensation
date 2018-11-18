@@ -74,7 +74,6 @@ module.exports = {
 		},
 		16: { // Charging Slash
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1100,
 				distance: 467.88,
@@ -166,7 +165,6 @@ module.exports = {
 		},
 		32: { // Cross Parry
 			0: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
 				requiredBuff: [100200, 100201],
 				stamina: 50
@@ -277,15 +275,10 @@ module.exports = {
 		},
 		2: { // Stand Fast
 			0: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
 				stamina: 50,
 				level: {
-					1: {
-						length: 333,
-						stamina: 40,
-						endType51: true
-					}
+					1: { stamina: 40 }
 				},
 				noRetry: true
 			}
@@ -373,7 +366,6 @@ module.exports = {
 		},
 		15: { // Charging Lunge
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1125,
 				distance: 474.5,
@@ -456,10 +448,8 @@ module.exports = {
 		},
 		29: { // Guardian's Barrier
 			0: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
-				length: 700,
-				endType51: true
+				noRetry: true
 			}
 		},
 		30: { // Divine Protection
@@ -565,7 +555,6 @@ module.exports = {
 		},
 		17: { // Headlong Rush
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1000,
 				distance: 413
@@ -688,10 +677,7 @@ module.exports = {
 			3: true
 		},
 		2: { // Axe Block
-			'*': {
-				type: 'holdInfinite',
-				consumeAbnormal: 401701
-			},
+			'*': { consumeAbnormal: 401701 },
 			0: { fixedSpeed: true },
 			30: true,
 			31: { fixedSpeed: true }
@@ -908,7 +894,6 @@ module.exports = {
 		},
 		31: { // Overwhelm
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1115,
 				distance: 467.88
@@ -1134,10 +1119,7 @@ module.exports = {
 		},
 		26: { // Teleport Jaunt
 			0: {
-				type: 'teleport',
-				distance: [0, 333],
 				noInterrupt: [26],
-				teleportStage: 1,
 				cooldownEnd: 300,
 				noRetry: true
 			}
@@ -1330,7 +1312,6 @@ module.exports = {
 		},
 		33: { // Chase
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1000,
 				distance: 413
@@ -1621,10 +1602,7 @@ module.exports = {
 			3: true
 		},
 		2: { // Corruption Ring
-			0: {
-				type: 'hold',
-				chainOnRelease: 11
-			},
+			0: { cancelChain: 11 },
 			11: true,
 			12: true
 		},
@@ -1704,10 +1682,7 @@ module.exports = {
 		},
 		17: { // Teleport Jaunt
 			0: {
-				type: 'teleport',
-				distance: [0, 333],
 				noInterrupt: [17],
-				teleportStage: 1,
 				cooldownEnd: 300,
 				noRetry: true
 			}
@@ -1852,10 +1827,7 @@ module.exports = {
 		},
 		44: { // Mass Teleport
 			0: {
-				type: 'teleport',
-				distance: [0, 333],
 				noInterrupt: [17],
-				teleportStage: 1,
 				cooldownEnd: 300,
 				noRetry: true
 			}
@@ -3203,20 +3175,14 @@ module.exports = {
 				consumeAbnormalEnd: 10153004
 			},
 			10: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
-				distance: 33.38,
 				triggerAbnormal: { 10153006: 0x7fffffff },
-				consumeAbnormalEnd: 10153006,
-				endType51: true
+				consumeAbnormalEnd: 10153006
 			},
 			11: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
-				distance: 33.38,
 				triggerAbnormal: { 10153005: 0x7fffffff },
-				consumeAbnormalEnd: 10153005,
-				endType51: true
+				consumeAbnormalEnd: 10153005
 			},
 			12: {
 				categoryChains: {
@@ -3410,7 +3376,6 @@ module.exports = {
 		},
 		4: { // Jagged Path
 			1: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 665,
 				distance: 469
@@ -3432,7 +3397,6 @@ module.exports = {
 			'*': { hasChains: true },
 			0: { categoryChains: { 900: 30 } },
 			1: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 300,
 				distance: 246
@@ -3611,7 +3575,6 @@ module.exports = {
 		},
 		4: { // Charge
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 550,
 				distance: 436,
