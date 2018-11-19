@@ -3271,6 +3271,14 @@ module.exports = {
 			2: { categoryChains: { 800: 30 } },
 			30: true
 		},
+		15: { // High Kick
+			'*': {
+				requiredBuff: 10153503,
+				hasChains: true
+			},
+			0: { categoryChains: { 800: 30 } },
+			30: true
+		},
 		16: { // Flip Kick
 			'*': { hasChains: true },
 			1: { categoryChains: { 800: 30 } },
@@ -3278,10 +3286,22 @@ module.exports = {
 			30: true
 		},
 		18: { // Growing Fury
-			'*': { hasChains: true }, // TODO emulate Property.useStGaugeFullToggle
+			'*': {
+				requiredBuff: 10153050,
+				hasChains: true
+			},
 			1: { categoryChains: { 800: 30 } },
 			2: { categoryChains: { 800: 30 } },
 			30: true
+		},
+		19: { // Invigorating Rage
+			'*': {
+				fixedSpeed: true,
+				stamina: 1500,
+				instantStamina: true
+			},
+			1: true,
+			2: true
 		},
 		21: { // Mounting Rage
 			'*': { fixedSpeed: true },
