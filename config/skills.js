@@ -3635,18 +3635,16 @@ module.exports = {
 			30: { triggerAbnormal: { 10155070: 5000 } }
 		},
 		8: { // Titansbane
-			'*': {
-				fixedSpeed: true,
-				hasChains: true
-			},
+			'*': { hasChains: true },
 			0: {
+				fixedSpeed: true,
 				categoryChains: {
 					'13008,10000': 1,
 					750: 30
 				}
 			},
 			1: true,
-			30: true
+			30: { fixedSpeed: true }
 		},
 		9: { // Ground Bash
 			'*': {
