@@ -1871,11 +1871,13 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				triggerAbnormal: { 10151020: 2000 },
 				noRetry: true
 			},
-			0: { categoryChains: { 90001: 1 } },
-			1: true,
+			0: {
+				triggerAbnormal: { 10151020: 2000 },
+				categoryChains: { 90001: 1 }
+			},
+			1: { triggerAbnormal: { 10151020: 2000 } },
 			2: {
 				inPlace: {
 					movement: [{
