@@ -4,10 +4,22 @@ module.exports = {
 
 	/* Slayer */
 	//23220: true, // Distant Blade (duration)
+	// Savage Strike
+	301600: true,
+	301601: true,
+	301603: true,
+
+	/* Reaper */
+	// Spiral Barrage
+	10151020: true,
+	10151021: true,
+	10151022: true,
+	10151023: true,
 
 	/* Gunner */
 	10152010: true, // Time Bomb (soft chain)
 	10152011: true, // Blast (soft chain)
+	10152354: true, // Rolling Reload
 	10153093: true, // (Server)
 
 	/* Brawler */

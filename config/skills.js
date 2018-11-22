@@ -1855,6 +1855,7 @@ module.exports = {
 		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10151023, 10151040, 10151041, 10151042] },
 		1: { // Spiral Barrage
 			'*': {
+				noInterrupt: [3, 4, 12, 20],
 				inPlace: {
 					movement: [{
 						duration: 766,
@@ -1870,12 +1871,10 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				noInterrupt: [3, 4, 12, 20],
 				triggerAbnormal: { 10151020: 2000 },
-				chains: { 1: 1 },
 				noRetry: true
 			},
-			0: true,
+			0: { categoryChains: { 90001: 1 } },
 			1: true,
 			2: {
 				inPlace: {
