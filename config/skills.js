@@ -742,7 +742,7 @@ module.exports = {
 		10: { // Cyclone
 			0: {
 				overcharge: 365,
-				canInstantCharge: true,
+				noChargeAbnormalityId: 401701,
 				abnormals: {
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
