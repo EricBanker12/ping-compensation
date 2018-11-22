@@ -105,6 +105,12 @@ module.exports = {
 		21: { // Cascade of Stuns
 			0: true
 		},
+		22: { // Backstab
+			0: {
+				distance: 0,
+				onlyTarget: true
+			}
+		},
 		24: { // Smoke Aggressor
 			0: { fixedSpeed: true }
 		},
