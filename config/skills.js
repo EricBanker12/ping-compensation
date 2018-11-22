@@ -788,8 +788,10 @@ module.exports = {
 			13: true,
 			14: true
 		},
-		16: { // Fearsome Shout
-			0: { fixedSpeed: true }
+		16: { // Fearsome Shout / Titanic Shout
+			0: { fixedSpeed: true },
+			10: { fixedSpeed: true },
+			20: true
 		},
 		18: { // Lethal Strike
 			0: {
