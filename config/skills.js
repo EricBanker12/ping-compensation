@@ -3067,6 +3067,34 @@ module.exports = {
 			50: true,
 			51: true,
 		},
+		44: { // Balder's Vengeance (Modular Weapon System)
+			'*': {
+				noInterrupt: [44],
+				moveDir: 1,
+				noRetry: true
+			},
+			1: {
+				categoryChains: {
+					91002: null,
+					91003: null,
+					91004: null,
+					91005: null,
+					'91007,10001': null,
+					91009: null,
+					91010: null,
+					91011: null,
+					91013: null,
+					91015: null,
+					91018: null,
+					91019: null,
+					91040: null,
+					91041: null,
+					91043: null,
+					91047: null
+				}
+			},
+			30: true
+		},
 		47: { // Obliteration
 			'*': {
 				requiredBuff: 10152340,
