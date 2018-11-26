@@ -115,10 +115,16 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		25: { // Command: Attack
-			0: { fixedSpeed: true }
+			0: {
+				fixedSpeed: true,
+				requiredBuff: 102600
+			}
 		},
 		26: { // Command: Follow
-			0: { fixedSpeed: true }
+			0: {
+				fixedSpeed: true,
+				requiredBuff: 102600
+			}
 		},
 		28: { // Traverse Cut
 			'*': {
