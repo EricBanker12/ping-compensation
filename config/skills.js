@@ -668,7 +668,6 @@ module.exports = {
 			}
 		},
 		28: { // Unsheathe
-			'*': { noRetry: true },
 			0: {
 				chargeLevels: [1, 2, 3],
 				abnormals: {
@@ -676,9 +675,9 @@ module.exports = {
 					301601: { chargeSpeed: 0.6 }
 				}
 			},
-			1: true,
-			2: true,
-			3: true
+			1: { noRetry: true },
+			2: { noRetry: true },
+			3: { noRetry: true }
 		}
 	},
 	3: { // Berserker
@@ -699,8 +698,7 @@ module.exports = {
 			'*': {
 				abnormals: {
 					24170: { speed: 1.25 }
-				},
-				noRetry: true
+				}
 			},
 			0: {
 				noInterrupt: [2],
@@ -714,10 +712,10 @@ module.exports = {
 					401150: { chargeSpeed: 0.2 }
 				}
 			},
-			10: true,
-			11: true,
-			12: true,
-			13: true
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true },
+			13: { noRetry: true }
 		},
 		4: { // Flatten
 			0: {
@@ -762,8 +760,7 @@ module.exports = {
 					400501: { chargeSpeed: 0.4 },
 					400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 }
-				},
-				noRetry: true
+				}
 			},
 			10: { noRetry: true },
 			11: { noRetry: true },
@@ -777,7 +774,6 @@ module.exports = {
 			0: { noRetry: true }
 		},
 		15: { // Vampiric Blow
-			'*': { noRetry: true },
 			0: {
 				noInterrupt: [2],
 				releaseChain: {
@@ -789,10 +785,10 @@ module.exports = {
 					400501: { chargeSpeed: 0.4 }
 				}
 			},
-			10: true,
-			11: true,
-			12: true,
-			13: true,
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true },
+			13: { noRetry: true },
 			14: true
 		},
 		16: { // Fearsome Shout / Titanic Shout
@@ -1004,15 +1000,14 @@ module.exports = {
 			}
 		},
 		4: { // Arcane Pulse
-			'*': { noRetry: true },
 			0: {
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
 			},
-			10: true,
-			11: true,
-			12: true
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true }
 		},
 		5: { // Mana Infusion
 			0: true
@@ -1069,11 +1064,10 @@ module.exports = {
 			}
 		},
 		19: { // Mana Siphon
-			'*': { noRetry: true },
 			0: { autoRelease: 0 },
-			10: true,
-			11: true,
-			12: true
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true }
 		},
 		20: { // Flaming Barrage
 			'*': { noRetry: true },
@@ -1195,14 +1189,13 @@ module.exports = {
 					26180: { chargeSpeed: 0.3 },
 					601450: { chargeSpeed: 0.5 },
 					602108: { speed: 1.3 }
-				},
-				noRetry: true
+				}
 			},
 			0: true,
-			10: true,
-			11: true,
-			12: true,
-			13: true
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true },
+			13: { noRetry: true }
 		},
 		4: { // Penetrating Arrow
 			'*': {
@@ -1214,14 +1207,13 @@ module.exports = {
 					26190: { chargeSpeed: 0.3 },
 					601450: { chargeSpeed: 0.5 },
 					602108: { speed: 1.3 }
-				},
-				noRetry: true
+				}
 			},
 			0: true,
-			10: true,
-			11: true,
-			12: true,
-			13: true
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true },
+			13: { noRetry: true }
 		},
 		5: { // Rain of Arrows
 			0: {
@@ -1368,7 +1360,7 @@ module.exports = {
 				chargeLevels: [null, 360213],
 				autoRelease: 10
 			},
-			13: true
+			13: { noRetry: true }
 		}
 	},
 	6: { // Priest
@@ -1517,12 +1509,11 @@ module.exports = {
 			30: true
 		},
 		28: { // Mana Charge / Divine Charge
-			'*': { noRetry: true },
 			0: { level: [{ autoRelease: 0 }] },
-			10: true,
-			11: true,
-			12: true,
-			13: true
+			10: { noRetry: true },
+			11: { noRetry: true },
+			12: { noRetry: true },
+			13: { noRetry: true }
 		},
 		29: { // Triple Nemesis
 			0: true,
@@ -1703,7 +1694,6 @@ module.exports = {
 			}
 		},
 		18: { // Arun's Vitae
-			'*': { noRetry: true },
 			0: {
 				chargeLevels: [10, 10],
 				autoRelease: 0,
@@ -1712,13 +1702,12 @@ module.exports = {
 					27080: { chargeSpeed: 0.25 }
 				}
 			},
-			10: true
+			10: { noRetry: true }
 		},
 		21: { // Retaliate
 			0: { noRetry: true }
 		},
 		22: { // Arun's Tears
-			'*': { noRetry: true },
 			0: {
 				chargeLevels: [10, 10],
 				autoRelease: 0,
@@ -1726,7 +1715,7 @@ module.exports = {
 					27100: { chargeSpeed: 0.25 }
 				}
 			},
-			10: true
+			10: { noRetry: true }
 		},
 		23: { // Metmorphic Smite
 			0: {
