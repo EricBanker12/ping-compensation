@@ -760,7 +760,8 @@ module.exports = {
 					400501: { chargeSpeed: 0.4 },
 					400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 }
-				}
+				},
+				noRetry: true
 			},
 			10: { noRetry: true },
 			11: { noRetry: true },
