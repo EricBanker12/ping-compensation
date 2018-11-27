@@ -574,7 +574,6 @@ module.exports = {
 			}
 		},
 		18: { // Overpower
-			'*': { fixedSpeed: true },
 			0: true,
 			50: true
 		},
