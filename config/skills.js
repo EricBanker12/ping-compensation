@@ -672,11 +672,12 @@ module.exports = {
 				abnormals: {
 					301600: { chargeSpeed: 0.4 },
 					301601: { chargeSpeed: 0.6 }
-				}
+				},
+				noRetry: true
 			},
-			1: { noRetry: true },
-			2: { noRetry: true },
-			3: { noRetry: true }
+			1: true,
+			2: true,
+			3: true
 		}
 	},
 	3: { // Berserker
