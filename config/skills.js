@@ -667,13 +667,13 @@ module.exports = {
 			}
 		},
 		28: { // Unsheathe
+			'*': { noRetry: true },
 			0: {
 				chargeLevels: [1, 2, 3],
 				abnormals: {
 					301600: { chargeSpeed: 0.4 },
 					301601: { chargeSpeed: 0.6 }
-				},
-				noRetry: true
+				}
 			},
 			1: true,
 			2: true,
