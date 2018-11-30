@@ -1513,7 +1513,7 @@ module.exports = {
 			30: true
 		},
 		28: { // Mana Charge / Divine Charge
-			0: { level: [{ autoRelease: 0 }] },
+			0: true,
 			10: { noRetry: true },
 			11: { noRetry: true },
 			12: { noRetry: true },
