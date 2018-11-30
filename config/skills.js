@@ -1161,6 +1161,7 @@ module.exports = {
 			0: true
 		},
 		36: { // Fusion
+			'*': { noInterrupt: [6, 20, 36, 30, 32] },
 			0: true,
 			//20: true, // TODO: Needs S_SKILL_CATEGORY implementation (always disabled - non-critical)
 			30: true
