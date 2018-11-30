@@ -1328,6 +1328,9 @@ module.exports = {
 		34: { // Wind Walk
 			'*': {
 				noInterrupt: [34],
+				stamina: 150,
+				instantStamina: true,
+				abnormals: { 602107: { stamina: -30 } },
 				noRetry: true
 			},
 			0: {
