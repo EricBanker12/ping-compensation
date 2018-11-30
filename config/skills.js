@@ -223,6 +223,7 @@ module.exports = {
 			0: {
 				categoryChains: {
 					1011: 30,
+					1012: 30,
 					1018: 30,
 					1040: 30
 				}
