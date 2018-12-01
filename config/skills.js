@@ -3430,7 +3430,7 @@ module.exports = {
 					'9999,900': null
 				}
 			},
-			30: { userChain: 0 }, // This skill is bugged and always triggers serverside anti-cheat
+			30: true,
 			40: true
 		},
 		4: { // Jagged Path
