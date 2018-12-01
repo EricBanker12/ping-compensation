@@ -1,5 +1,7 @@
 ## Ping Compensation
 Tera-Proxy module for Tera Online. Gives you fake attack speed to eliminate ping tax between skills.
+### My Recommendation
+Other than ghosting, [**Skill-Prediction**](https://github.com/tera-mods/skill-prediction) **is probably the better choice**, but you don't have to make that choice. You can edit `/config/config.json` and `/config/preset.js` for co-compatability. **Use Ping-Compensation for troublesome skills** that ghost or desync, and **use Skill Prediction for everything else.** See [config](https://github.com/Mister-Kay/ping-compensation/blob/master/docs/config.md) and [preset](https://github.com/Mister-Kay/ping-compensation/blob/master/docs/preset.md) instructions in the `/docs/` folder.
 ### Comparison to Skill Prediction
 Ping Compensation | Skill Prediction
 :--:|:--:
@@ -9,8 +11,6 @@ Partial Benefit For chained, lockon, and chargable skills | Full Benefit For cha
 No Combo Attack or blocking support | Full Combo Attack and blocking support
 
 \* Ghosting is playing a skill animation without dealing damage or using a different skill than server recieves/sends.
-### My Recommendation (WIP: NOT FULLY TESTED YET)
-Other than ghosting, **Skill-Prediction is probably the better choice**, but you don't have to make that choice. You can edit `/config/config.json` and `/config/preset.js` for co-compatability. **Use Ping Compensation for troublesome skills** that ghost or desync, and **use Skill Prediction for everything else.** See `docs` folder for details.
 ### Diagram
 ![No Proxy vs Skill Prediction vs Ping Compensation](https://i.imgur.com/yXttYwv.png)
 ### Requirements

@@ -3,7 +3,6 @@
 	"enabled": true,
 	"debug": false,
 	"spCompatible": false,
-	"spDirectory": "skill-prediction",
 	"useRetries": true,
     "skillRetryMs": 30,
     "skillRetryCount": 1,
