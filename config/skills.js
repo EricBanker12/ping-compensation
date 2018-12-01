@@ -3430,7 +3430,7 @@ module.exports = {
 					'9999,900': null
 				}
 			},
-			30: true,
+			30: { noRetry: true },
 			40: true
 		},
 		4: { // Jagged Path
