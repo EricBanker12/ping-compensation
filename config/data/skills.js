@@ -110,10 +110,10 @@ module.exports = {
 				distance: 0,
 				onlyTarget: true
 			}
-        },
-        23: { // Spinning Counter
-            0: true
-        },
+		},
+		23: { // Spinning Counter
+			0: true
+		},
 		24: { // Smoke Aggressor
 			0: { fixedSpeed: true }
 		},
@@ -586,10 +586,10 @@ module.exports = {
 		},
 		20: { // In Cold Blood
 			0: { fixedSpeed: true }
-        },
-        21: { // Exhausting Blow
-            0: true
-        },
+		},
+		21: { // Exhausting Blow
+			0: true
+		},
 		23: { // Measured Slice
 			'*': { hasChains: true },
 			0: {
@@ -1143,7 +1143,7 @@ module.exports = {
 		},
 		27: { // Hailstorm
 			0: true
-        },
+		},
 		30: { // Nova
 			0: true
 		},
@@ -1165,8 +1165,8 @@ module.exports = {
 		},
 		34: { // Mana Boost
 			0: true
-        },
-        35: { //  Ice Lance
+		},
+		35: { //  Ice Lance
 			0: true
 		},
 		36: { // Fusion
@@ -1180,7 +1180,7 @@ module.exports = {
 				requiredBuff: 502052,
 				distance: [0, 0, -219.55]
 			}
-        }
+		}
 	},
 	5: { // Archer
 		1: { // Arrow
@@ -1313,8 +1313,8 @@ module.exports = {
 				requiredBuff: 600200,
 				noRetry: true
 			}
-        },
-        23: { // Stunning Trap Arrow
+		},
+		23: { // Stunning Trap Arrow
 			0: true
 		},
 		25: { // Incendiary Trap Arrow
@@ -1640,8 +1640,8 @@ module.exports = {
 		},
 		6: { // Shara's Lash
 			0: true
-        },
-        7: { // Mana Infusion
+		},
+		7: { // Mana Infusion
 			0: true
 		},
 		8: { // Metamorphic Blast
@@ -2303,8 +2303,8 @@ module.exports = {
 		},
 		16: { // Shadow Reaping
 			0: { fixedSpeed: true }
-        },
-        18: { // Shrouded Escape
+		},
+		18: { // Shrouded Escape
 			0: true
 		},
 		19: { // Dark Harvest

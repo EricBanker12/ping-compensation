@@ -299,13 +299,13 @@ module.exports = {
 		14: true, // Retaliate
 		15: true, // Retribution
 		16: true, // Shadow Reaping
-        18: true, // Shrouded Escape
+		18: true, // Shrouded Escape
 		40: true, // Shadow Step
-        // Awakening
-        19: true, // Dark Harvest
-        20: true, // Cable Step
-        21: true, // Recall Scythes
-        23: true, // Binding Scythes
+		// Awakening
+		19: true, // Dark Harvest
+		20: true, // Cable Step
+		21: true, // Recall Scythes
+		23: true, // Binding Scythes
 	},
 	9: { // Gunner
 		"enabled": true,
@@ -325,12 +325,12 @@ module.exports = {
 		19: true, // ST
 		20: true, // Retaliate
 		40: true, // Rolling Reload
-        // Awakening
-        41: true, // Modular Weapon System
-        42: true, // Detonate
-        43: true, // Remote Trigger
-        44: true, // Balder's Vengeance (Modular Weapon System)
-        47: true, // Obliteration
+		// Awakening
+		41: true, // Modular Weapon System
+		42: true, // Detonate
+		43: true, // Remote Trigger
+		44: true, // Balder's Vengeance (Modular Weapon System)
+		47: true, // Obliteration
 	},
 	10: { // Brawler
 		"enabled": true,
@@ -378,10 +378,10 @@ module.exports = {
 		18: true, // Bladestorm
 		19: true, // Chakra Thrust
 		20: true, // Clone Jutsu
-        // Awakening
-        21: true, // Boomerang Shuriken
-        22: true, // Quick Attack
-        23: true, // Inner Harmony
+		// Awakening
+		21: true, // Boomerang Shuriken
+		22: true, // Quick Attack
+		23: true, // Inner Harmony
 	},
 	12: { // Valkyrie
 		"enabled": true,
@@ -406,9 +406,9 @@ module.exports = {
 		19: true, // Reclamation
 		20: true, // Backstab
 		21: true, // Dark Herald
-        // Awakening
-        23: true, // Gungir's Bite
-        24: true, // Twilight Waltz
-        25: true, // Godsfall
+		// Awakening
+		23: true, // Gungir's Bite
+		24: true, // Twilight Waltz
+		25: true, // Godsfall
 	}
 }
