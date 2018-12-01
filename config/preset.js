@@ -1,7 +1,7 @@
 /*
 Note: If you can't find a specific skill on these list that probably means the preset file is outdated. 
 To update it just delete it and restart proxy, let it update and it will be done.
-If after following this process skills are still missing do report it on discord or an issue in github, links to both can be found in the readme.pdf file.
+If after following this process skills are still missing do report it on discord or an issue in github.
 */
 module.exports = {
 	0: { // Warrior
@@ -43,7 +43,6 @@ module.exports = {
 		40: true, // Blade Waltz
 		41: true, // Aerial Scythe
 		42: true, // Blade Frenzy
-		910: true, // Apex Urgency
  	},
 	1: { // Lancer
 		"enabled": true,
@@ -75,7 +74,6 @@ module.exports = {
 		28: true, // Super Leap
 		29: true, // Guardian's Barrier
 		30: true, // Divine Protection
-		910: true, // Apex Urgency 
 	},
 	2: { // Slayer
 		"enabled": true,
@@ -104,7 +102,6 @@ module.exports = {
 		26: true, // Punishing Blow
 		27: true, // Savage Strike
 		28: true, // Unsheathe
-		910: true, // Apex Urgency
 	},
 	3: { // Berserker
 		"enabled": true,
@@ -139,7 +136,6 @@ module.exports = {
 		35: true, // Unleash: Sinister
 		36: true, // Unleash: Rampage
 		37: true, // Unleash: Beast Fury
-		910: true, // Apex Urgency
 	},
 	4: { // Sorcerer
 		"enabled": true,
@@ -167,7 +163,6 @@ module.exports = {
 		25: true, // Time Gyre
 		26: true, // Teleport Jaunt
 		27: true, // Hailstorm
-		28: true, //Stone Skin
 		30: true, // Nova
 		31: true, // Warp Barrier
 		32: true, // Meteor Shower
@@ -177,8 +172,6 @@ module.exports = {
 		35: true, // Ice Lance
 		36: true, // Fusion
 		39: true, // Implosion
-		41: true, // Lightning Strike ??
-		910: true, // Apex Urgency
 	},
 	5: { // Archer
 		"enabled": true,
@@ -200,7 +193,6 @@ module.exports = {
 		18: true, // Close Quarters
 		19: true, // Poison Arrow
 		20: true, // Restraining Arrow
-		21: true, // Sniper's Eye
 		22: true, // Sequential Fire
 		23: true, // Stunning Trap Arrow
 		25: true, // Incendiary Trap Arrow
@@ -211,7 +203,6 @@ module.exports = {
 		// Awakening
 		35: true, // Windsong
 		36: true, // Gust Arrow
-		910: true, // Apex Urgency
 	},
 	6: { // Priest
 		"enabled": true,
@@ -226,11 +217,9 @@ module.exports = {
 		12: true, // Resurrect
 		14: true, // Summon: Party
 		16: true, // Shocking Implosion
-		17: true, // Prayer of Peace
 		18: true, // Heal Thyself
 		19: true, // Focus Heal
 		22: true, // Kaia's Shield
-		23: true, // Blessing of Balder
 		25: true, // Retaliate
 		26: true, // Fiery Escape
 		27: true, // Final Reprisal
@@ -250,7 +239,6 @@ module.exports = {
 		// Awakening
 		42: true, // Holy Burst
 		43: true, // Edict of Judgement
-		910: true, // Apex Urgency
 	},
 	7: { // Mystic
 		"enabled": true,
@@ -289,13 +277,12 @@ module.exports = {
 		37: true, // Warding Totem
 		41: true, // Contagion
 		42: true, // Boomerang Pulse
-		43: true, // Release
+		43: true, // Unsummon Thrall
 		// Awakening
 		44: true, // Mass Teleport
 		45: true, // Thrall Augmentation
 		47: true, // Arunic Release
 		48: true, // Summon: Thrall Lord
-		910: true, // Apex Urgency
 	},
 	8: { // Reaper
 		"enabled": true,
@@ -312,11 +299,13 @@ module.exports = {
 		14: true, // Retaliate
 		15: true, // Retribution
 		16: true, // Shadow Reaping
-		18: true, // Shrouded Escape
+        18: true, // Shrouded Escape
 		40: true, // Shadow Step
-		// Awakening
-
-		910: true, // Apex Urgency
+        // Awakening
+        19: true, // Dark Harvest
+        20: true, // Cable Step
+        21: true, // Recall Scythes
+        23: true, // Binding Scythes
 	},
 	9: { // Gunner
 		"enabled": true,
@@ -336,9 +325,12 @@ module.exports = {
 		19: true, // ST
 		20: true, // Retaliate
 		40: true, // Rolling Reload
-		// Awakening
-
-		910: true, // Apex Urgency
+        // Awakening
+        41: true, // Modular Weapon System
+        42: true, // Detonate
+        43: true, // Remote Trigger
+        44: true, // Balder's Vengeance (Modular Weapon System)
+        47: true, // Obliteration
 	},
 	10: { // Brawler
 		"enabled": true,
@@ -361,9 +353,8 @@ module.exports = {
 		40: true, // Quick Dash
 		// Awakening
 		22: true, // Flying Kick
-		24: true, // 2.54cm Punch
-		26: true, // Brawling Roll
-		910: true, // Apex Urgency
+		24: true, // One-Inch Punch
+		26: true, // Rythmic Blows
 	},
 	11: { // Ninja
 		"enabled": true,
@@ -387,9 +378,10 @@ module.exports = {
 		18: true, // Bladestorm
 		19: true, // Chakra Thrust
 		20: true, // Clone Jutsu
-		// Awakening
-
-		910: true, // Apex Urgency
+        // Awakening
+        21: true, // Boomerang Shuriken
+        22: true, // Quick Attack
+        23: true, // Inner Harmony
 	},
 	12: { // Valkyrie
 		"enabled": true,
@@ -414,8 +406,9 @@ module.exports = {
 		19: true, // Reclamation
 		20: true, // Backstab
 		21: true, // Dark Herald
-		// Awakening
-
-		910: true, // Apex Urgency
+        // Awakening
+        23: true, // Gungir's Bite
+        24: true, // Twilight Waltz
+        25: true, // Godsfall
 	}
 }

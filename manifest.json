@@ -1,26 +1,26 @@
 {
 	"files": {
-		"LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
+		"LICENSE": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
 		"README.md": "11807d76506d9c7c06d404982f342d81dc2c756e6c0a94aafd8d186ceafa40a1",
 		"README.url": "f5ec6b97ec23c6d1fda9d9f946e0f7b931da9170a8f36d5ac8f6ffee41c30d00",
 		"config/config.json": {
 			"overwrite": false,
-			"hash": "e0ae38570bdf376eb1a06c97467128b30b3e91dc9e9f368e5ae7ad7fba8d259e"
+			"hash": "73450cdadf71d2fdbe72e88363be8411aef4c7f5c4c791ad7a31de7d7ac77c60"
 		},
-		"config/data/default-config.json": "e0ae38570bdf376eb1a06c97467128b30b3e91dc9e9f368e5ae7ad7fba8d259e",
-		"config/data/skills.js": "1cb3a30d3a9568952a501bc8a926470a7b4019fe387f00fa35d42b7f0ea5aafc",
+		"config/data/default-config.json": "73450cdadf71d2fdbe72e88363be8411aef4c7f5c4c791ad7a31de7d7ac77c60",
+		"config/data/skills.js": "10cbe33904e8e0c6a05d3fbf869c80e8de2784cc1a1c5922c56bb14b39bb2d41",
+		"config/data/skills_client.json": "7a10271033ea0128774804c93e236ddcea73ece690f13b6cbc166d99c9c20c36",
 		"config/preset.js": {
 			"overwrite": false,
-			"hash": "eea3fc48f0e4f8d494c251c4032a326f2948f96627614c3eff8c4def9528b964"
+			"hash": "4c9d2182ecdf5725aafdaf9c988235a98b06003976b96bf043d609f735f12336"
 		},
 		"docs/commands.md": "bed854ef1e9f14bedb1966fd27d9a73f159ecb9eb2b0218fb0f7f9d77b322c97",
 		"docs/config.md": "0119af69170e8bc7dadd90a2740cd8f875aba355b2013b8c16f5503af255f2b1",
-		"docs/ping.md": "c1b870cfe3b0a38b0e61dac9ae990577dd96aacdce2ddc2657ec3f703fbe2374",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
 		"index.js": "1d5ba2464d3ced9afff7e91f07f1beec9883e73577c4df3539ad2a30b7740b89",
-		"lib/core.js": "bd8c7ba114be3f6c37b91ad96c4ad116b7daa8bda2333de9df12676ddc1653bc",
+		"lib/core.js": "c983d380a755854f4498265c1817496b2477ea9ed35f1990edf4c2bc6f3616ed",
 		"lib/ping.js": "85983a79442384d4bdbc98d560208bb4698b107a0ffd0019ab95410ac75190a2",
-		"module.json": "10e7469922e44df8ea3c24a764ae0258162ab0e5d2b5a2157323c10ec8457643"
+		"module.json": "3639800baab405b842b4c93d80fdf519507a880a64c1dd220c825f2e23c57803"
 	},
 	"defs": {
 		"C_CANCEL_SKILL": 3,
