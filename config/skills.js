@@ -349,7 +349,7 @@ module.exports = {
 			0: true
 		},
 		10: { // Debilitate
-			'*': { noInterrupt: [2, 3, 5, 10, 13, 21, 25, 26] },
+			'*': { noInterrupt: [2, 3, 5, 9, 10, 13, 21, 23, 24, 25, 26] },
 			0: {
 				chains: {
 					1: 30,
