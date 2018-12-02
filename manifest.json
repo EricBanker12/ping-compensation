@@ -8,11 +8,11 @@
 			"hash": "73450cdadf71d2fdbe72e88363be8411aef4c7f5c4c791ad7a31de7d7ac77c60"
 		},
 		"config/data/default-config.json": "73450cdadf71d2fdbe72e88363be8411aef4c7f5c4c791ad7a31de7d7ac77c60",
-		"config/data/skills.js": "10cbe33904e8e0c6a05d3fbf869c80e8de2784cc1a1c5922c56bb14b39bb2d41",
+		"config/data/skills.js": "9cfd64c686668605d5c206b862bf824e71c6f8e8b04a10e25e0662e0d176ca3d",
 		"config/data/skills_client.json": "7a10271033ea0128774804c93e236ddcea73ece690f13b6cbc166d99c9c20c36",
 		"config/preset.js": {
 			"overwrite": false,
-			"hash": "4c9d2182ecdf5725aafdaf9c988235a98b06003976b96bf043d609f735f12336"
+			"hash": "7c79a97b9b18c9b4b91b9cc6597c6390f96a19f3d33a239abd57eb195b759bf9"
 		},
 		"docs/commands.md": "bed854ef1e9f14bedb1966fd27d9a73f159ecb9eb2b0218fb0f7f9d77b322c97",
 		"docs/config.md": "0119af69170e8bc7dadd90a2740cd8f875aba355b2013b8c16f5503af255f2b1",
