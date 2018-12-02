@@ -1237,7 +1237,11 @@ module.exports = {
 		6: { // Backstep
 			0: {
 				moveDir: 1,
-				forceClip: true
+				forceClip: true,
+				stamina: 180,
+				instantStamina: true,
+				noInterrupt: [6],
+				noRetry: true
 			}
 		},
 		7: { // Feign Death
