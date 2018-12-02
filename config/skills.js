@@ -299,7 +299,7 @@ module.exports = {
 		},
 		3: { // Onslaught
 			'*': {
-				noInterrupt: ['1-0', '1-1', 2, 3, 8, 10, 13, 15, 21, 25, 26],
+				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 8, 10, 13, 15, 21, 23, 24, 25, 26],
 				abnormals: {
 					22060: { speed: 1.25 }
 				}
@@ -314,7 +314,7 @@ module.exports = {
 			30: true
 		},
 		4: { // Challenging Shout
-			'*': { noInterrupt: [9, 12, 23, 24, 26] },
+			'*': { noInterrupt: [4, 9, 12, 23, 24, 26] },
 			0: {
 				chains: {
 					1: 30,
@@ -349,7 +349,7 @@ module.exports = {
 			0: true
 		},
 		10: { // Debilitate
-			'*': { noInterrupt: [2, 3, 5, 9, 10, 13, 21, 23, 24, 25, 26] },
+			'*': { noInterrupt: [2, 3, 4, 5, 9, 10, 13, 21, 23, 24, 25, 26] },
 			0: {
 				chains: {
 					1: 30,
@@ -366,7 +366,7 @@ module.exports = {
 		},
 		13: { // Spring Attack
 			0: {
-				noInterrupt: ['1-0', '1-1', 2, 3, 13, 15, 25, 26],
+				noInterrupt: ['1-0', '1-1', 2, 3, 4, 9, 13, 15, 23, 24, 25, 26],
 				chains: {
 					1: 30,
 					5: 30,
@@ -426,7 +426,7 @@ module.exports = {
 		},
 		25: { // Wallop
 			0: {
-				noInterrupt: [1, 2, 3, 5, 9, 23, 24, 25, 26],
+				noInterrupt: [1, 2, 3, 4, 5, 9, 23, 24, 25, 26],
 				chains: {
 					8: 30,
 					10: 30,
