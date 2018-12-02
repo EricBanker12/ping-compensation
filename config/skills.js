@@ -426,7 +426,7 @@ module.exports = {
 		},
 		25: { // Wallop
 			0: {
-				noInterrupt: [1, 2, 3, 5, 25, 26],
+				noInterrupt: [1, 2, 3, 5, 9, 23, 24, 25, 26],
 				chains: {
 					8: 30,
 					10: 30,
