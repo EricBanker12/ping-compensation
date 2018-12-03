@@ -528,7 +528,7 @@ module.exports = {
 					15: 30,
 					16: 30,
 					24: 30,
-					27: 30
+					27: 30 // Workaround - TODO: Emulate abnormal 301604
 				}
 			},
 			30: true
@@ -593,7 +593,8 @@ module.exports = {
 					3008: 30,
 					3024: 30,
 					3025: 30,
-					3026: 30
+					3026: 30,
+					3027: 30 // Workaround - TODO: Emulate abnormal 301604
 				}
 			},
 			30: true
@@ -630,7 +631,7 @@ module.exports = {
 					15: 30,
 					16: 30,
 					24: 30,
-					27: 30
+					27: 30 // Workaround - TODO: Emulate abnormal 301604
 				}
 			},
 			30: true
