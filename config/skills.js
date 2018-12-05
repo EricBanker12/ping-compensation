@@ -694,7 +694,7 @@ module.exports = {
 		},
 		2: { // Axe Block
 			'*': { consumeAbnormal: 401701 },
-			0: { fixedSpeed: true },
+			0: true,
 			30: true,
 			31: { fixedSpeed: true }
 		},
