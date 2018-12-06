@@ -8,7 +8,7 @@
 			"hash": "73450cdadf71d2fdbe72e88363be8411aef4c7f5c4c791ad7a31de7d7ac77c60"
 		},
 		"config/data/default-config.json": "73450cdadf71d2fdbe72e88363be8411aef4c7f5c4c791ad7a31de7d7ac77c60",
-		"config/data/skills.js": "9cfd64c686668605d5c206b862bf824e71c6f8e8b04a10e25e0662e0d176ca3d",
+		"config/data/skills.js": "7328c7d93e9fd87e81a2338d2a17b2f3357ad7a73f2e9b7b529b5d898e1fa0b1",
 		"config/data/skills_client.json": "7a10271033ea0128774804c93e236ddcea73ece690f13b6cbc166d99c9c20c36",
 		"config/preset.js": {
 			"overwrite": false,
@@ -18,9 +18,9 @@
 		"docs/config.md": "0119af69170e8bc7dadd90a2740cd8f875aba355b2013b8c16f5503af255f2b1",
 		"docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
 		"index.js": "1d5ba2464d3ced9afff7e91f07f1beec9883e73577c4df3539ad2a30b7740b89",
-		"lib/core.js": "c983d380a755854f4498265c1817496b2477ea9ed35f1990edf4c2bc6f3616ed",
+		"lib/core.js": "134f9fb857a90c7bac07c2f908af527238e9d52868d6ad5145313bf313f4d7c4",
 		"lib/ping.js": "85983a79442384d4bdbc98d560208bb4698b107a0ffd0019ab95410ac75190a2",
-		"module.json": "10e7469922e44df8ea3c24a764ae0258162ab0e5d2b5a2157323c10ec8457643"
+		"module.json": "794ab4ca48a875714ed242fb77b5ec730e4a1b47e674ebc0a679b1f2f1f7a372"
 	},
 	"defs": {
 		"C_CANCEL_SKILL": 3,

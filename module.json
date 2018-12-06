@@ -1,5 +1,6 @@
 {
 	"disableAutoUpdate": false,
+	"name": "ping-compensation",
 	"servers": ["https://raw.githubusercontent.com/Mister-Kay/ping-compensation/master/"],
 	"supportUrl": "https://github.com/Mister-Kay/ping-compensation/issues"
 }
