@@ -1,0 +1,6 @@
+{
+	"name": "Skill Prediction",
+	"author": "Pinkie Pie",
+	"namespace": "skill_prediction",
+	"update": "github:tera-mods/skill-prediction"
+}
