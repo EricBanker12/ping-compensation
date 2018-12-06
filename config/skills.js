@@ -61,7 +61,7 @@ module.exports = {
 			50: true
 		},
 		10: { // Death From Above
-			0: true
+			0: { noInterrupt: [10] }
 		},
 		11: { // Poison Blade
 			0: true
