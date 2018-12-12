@@ -492,6 +492,7 @@ module.exports = {
 		},
 		3: { // Whirlwind
 			0: {
+				noInterrupt: [3],
 				abnormals: {
 					23080: { speed: 1.25 }
 				}
