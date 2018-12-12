@@ -1,14 +1,14 @@
 {
-	"version": "7.0",
-	"enabled": true,
-	"debug": false,
-	"spCompatible": false,
-	"useRetries": true,
+    "version": "7.0",
+    "enabled": true,
+    "debug": false,
+    "spCompatible": false,
+    "useRetries": true,
     "skillRetryMs": 30,
     "skillRetryCount": 1,
-	"pingHistoryMax": 30,
-	"pingSpikesLimit": false,
-	"pingSpikesMin": 100,
+    "pingHistoryMax": 30,
+    "pingSpikesLimit": false,
+    "pingSpikesMin": 100,
     "pingSpikesMax": 1000,
     "minCombatFPS": 30
 }
