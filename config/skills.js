@@ -544,12 +544,15 @@ module.exports = {
 			0: { noRetry: true }
 		},
 		12: { // Heart Thrust
-			0: {
+			'*': {
+				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 14, 15, 16, 17, 24, 25],
 				abnormals: {
 					23060: { speed: 1.25 },
 					23061: { speed: 1.35 }
 				}
-			}
+			},
+			0: { categoryChains: { 3027: 30 } },
+			30: true
 		},
 		13: { // Stunning Backhand
 			0: true
