@@ -491,12 +491,14 @@ module.exports = {
 			30: true
 		},
 		3: { // Whirlwind
-			0: {
-				noInterrupt: [3],
+			'*': {
+				noInterrupt: [1, 2, 3, 4, 6, 8, 10, 12, 13, 14, 15, 16, 17, 24, 25],
 				abnormals: {
 					23080: { speed: 1.25 }
 				}
-			}
+			},
+			0: { categoryChains: { 3027: 30 } },
+			30: true
 		},
 		4: { // Evasive Roll
 			'*': {
