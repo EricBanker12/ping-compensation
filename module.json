@@ -1,6 +1,8 @@
 {
-	"disableAutoUpdate": false,
-	"name": "ping-compensation",
-	"servers": ["https://raw.githubusercontent.com/Mister-Kay/ping-compensation/master/"],
-	"supportUrl": "https://github.com/Mister-Kay/ping-compensation/issues"
+    "servers": ["https://raw.githubusercontent.com/Mister-Kay/ping-compensation/master/"],
+    "supportUrl": "https://github.com/Mister-Kay/ping-compensation/issues",
+    "disableAutoUpdate": false,
+    "name": "ping-compensation",
+    "author": "Mister-Kay",
+    "description": "Gives you fake attack speed to eliminate ping tax between skills."
 }
