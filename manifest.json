@@ -20,7 +20,7 @@
         "index.js": "1d5ba2464d3ced9afff7e91f07f1beec9883e73577c4df3539ad2a30b7740b89",
         "lib/core.js": "c1d3de3e4539ddd06de1d7ee52703cc3ae46185594c5d0a51ad5fd63f12f9029",
         "lib/ping.js": "4db41b53daa09335aee5f18b6d068a37e17101ff28a3b3d33cfc0fb0e5222fef",
-        "module.json": "942d251f3664607ccb602b65f6a23a8323fedbd9ae0c8bf1244be58e58a86539"
+        "module.json": "18c9421663445c56a9428672b9b3b0faf30128f18a0232e3ae4da7808659edb0"
     },
     "defs": {
         "C_CANCEL_SKILL": 3,
