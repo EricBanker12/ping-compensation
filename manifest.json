@@ -18,7 +18,7 @@
         "docs/config.md": "0119af69170e8bc7dadd90a2740cd8f875aba355b2013b8c16f5503af255f2b1",
         "docs/preset.md": "af40c3a1139b8d32aa01eb7644dbe02221e300883ad088f2dcab705da25917d2",
         "index.js": "1d5ba2464d3ced9afff7e91f07f1beec9883e73577c4df3539ad2a30b7740b89",
-        "lib/core.js": "c1d3de3e4539ddd06de1d7ee52703cc3ae46185594c5d0a51ad5fd63f12f9029",
+        "lib/core.js": "39f4b7a136aef791e15f54f0412121a52489d1ead620d9a8df41c19051474c27",
         "lib/ping.js": "4db41b53daa09335aee5f18b6d068a37e17101ff28a3b3d33cfc0fb0e5222fef",
         "module.json": "18c9421663445c56a9428672b9b3b0faf30128f18a0232e3ae4da7808659edb0"
     },
@@ -41,7 +41,7 @@
         "S_CANNOT_START_SKILL": 4,
         "S_CAN_LOCKON_TARGET": 3,
         "S_CREATURE_LIFE": 3,
-        "S_EACH_SKILL_RESULT": 12,
+        "S_EACH_SKILL_RESULT": 13,
         "S_INSTANT_DASH": 3,
         "S_INSTANT_MOVE": 3,
         "S_LOAD_TOPO": "raw",
