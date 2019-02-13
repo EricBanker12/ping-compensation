@@ -1,10 +1,6 @@
 module.exports = function PingCompensation(dispatch) {
-    /*
-    if (dispatch.base.majorPatchVersion >= 74) {
-        console.log('ping-compensation - KTera definitions unsupported')
-        return
-    }
-    */
+    // disable if classic
+    if (dispatch.isClassic) return
    
     //const config = require('./config/config.json')
     const childModules = [require('./lib/core.js')]
