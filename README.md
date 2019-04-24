@@ -14,6 +14,6 @@ No Combo Attack or blocking support | Full Combo Attack and blocking support
 ### Diagram
 ![No Proxy vs Skill Prediction vs Ping Compensation](https://i.imgur.com/yXttYwv.png)
 ### Requirements
-[Tera-Proxy](https://github.com/meishuu/tera-proxy) and dependencies
+[Tera-Proxy](https://github.com/tera-toolbox/tera-toolbox) and dependencies
 ### Contributions
 Thanks to [Leiki](https://github.com/Leyki), [Pinkie Pie](https://github.com/pinkipi), [SaltyMonkey](https://github.com/SaltyMonkey), [undefined3394](https://github.com/undefined3394), and [Yunfei](https://github.com/YunfeiG) for Skill Prediction and configuration contributions.
